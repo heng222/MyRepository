@@ -1,0 +1,1635 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AddNewLibraryGrpName" xml:space="preserve">
+    <value>Input New Library Group Name</value>
+  </data>
+  <data name="AddNewSignFirst" xml:space="preserve">
+    <value>Please add or choose a sign first.</value>
+  </data>
+  <data name="AddSign" xml:space="preserve">
+    <value>Add Sign</value>
+  </data>
+  <data name="AddSignGroup" xml:space="preserve">
+    <value>Add Sign Group</value>
+  </data>
+  <data name="AddSignGroupUnderSign" xml:space="preserve">
+    <value>Sorry, you can not add a Sign Group or a sign under a sign</value>
+  </data>
+  <data name="AssignableFailingMessage" xml:space="preserve">
+    <value>{0} is not assignable to {1}.</value>
+  </data>
+  <data name="Button.Caption.Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Button.Caption.Cancel.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Button.Caption.No" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="Button.Caption.No.ToolTip" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="Button.Caption.Yes" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="Button.Caption.Yes.ToolTip" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="ConfirmDeleteImage" xml:space="preserve">
+    <value>Are you sure you want to delete this image?</value>
+  </data>
+  <data name="ConfirmDeleteItem" xml:space="preserve">
+    <value>Are you sure you want to delete this item?</value>
+  </data>
+  <data name="ConfirmDeleteLayer" xml:space="preserve">
+    <value>Are you sure you want to delete this layer?</value>
+  </data>
+  <data name="ConfirmDeleteMsg" xml:space="preserve">
+    <value>Are you sure you want to delete this message?</value>
+  </data>
+  <data name="ConfirmDeletePlaylist" xml:space="preserve">
+    <value>Are you sure you want to delete this playlist?</value>
+  </data>
+  <data name="ConfirmDeleteSign" xml:space="preserve">
+    <value>Are you sure you want to delete this sign?</value>
+  </data>
+  <data name="ConfirmDeleteGroup" xml:space="preserve">
+    <value>Are you sure you want to delete this group?</value>
+  </data>
+  <data name="ConfirmSaveChange" xml:space="preserve">
+    <value>Save Change? </value>
+  </data>
+  <data name="Dashboard" xml:space="preserve">
+    <value>DASHBOARD</value>
+  </data>
+  <data name="DashBoard.SaveGroupRepeat" xml:space="preserve">
+    <value>Sorry, this group name is already being used. Please pick a different name.</value>
+  </data>
+  <data name="DashBoard.SaveSignRepeat" xml:space="preserve">
+    <value>Sorry, this sign name is already being used. Please pick a different name.</value>
+  </data>
+  <data name="RebootCXC" xml:space="preserve">
+    <value>Do you want to reboot the sign "{0}"?</value>
+  </data>
+  <data name="DashboardForm.deleteTool" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="DashboardForm.editTool" xml:space="preserve">
+    <value>Edit...</value>
+  </data>
+  <data name="DashboardForm.grbCurrentSign" xml:space="preserve">
+    <value>Current Sign</value>
+  </data>
+  <data name="DashboardForm.grpCurrentClip" xml:space="preserve">
+    <value>Current Clip</value>
+  </data>
+  <data name="DashboardForm.grpSignImage" xml:space="preserve">
+    <value>Sign Image</value>
+  </data>
+  <data name="DashboardForm.grpSignStatus" xml:space="preserve">
+    <value>Sign Status</value>
+  </data>
+  <data name="DashboardForm.grpStorageIndicator" xml:space="preserve">
+    <value>Sign Storage Indicator</value>
+  </data>
+  <data name="DashboardForm.lblE" xml:space="preserve">
+    <value>E</value>
+  </data>
+  <data name="DashboardForm.lblEtc" xml:space="preserve">
+    <value>-etc...</value>
+  </data>
+  <data name="DashboardForm.lblF" xml:space="preserve">
+    <value>F</value>
+  </data>
+  <data name="DashboardForm.lblFaulty" xml:space="preserve">
+    <value>-web cam faulty</value>
+  </data>
+  <data name="DashboardForm.lblGroupName" xml:space="preserve">
+    <value>Group Name:</value>
+  </data>
+  <data name="DashboardForm.lblHeight" xml:space="preserve">
+    <value>Height:</value>
+  </data>
+  <data name="DashboardForm.lblHoustingMarketDown" xml:space="preserve">
+    <value>-housing market down</value>
+  </data>
+  <data name="DashboardForm.lblImage" xml:space="preserve">
+    <value>Image:</value>
+  </data>
+  <data name="DashboardForm.lblLastUpdate" xml:space="preserve">
+    <value>Last Updated :</value>
+  </data>
+  <data name="DashboardForm.lblMaintenceRequired" xml:space="preserve">
+    <value>Maintenance Required</value>
+  </data>
+  <data name="DashboardForm.lblMisConfiguration" xml:space="preserve">
+    <value>-electrical mis-configuration</value>
+  </data>
+  <data name="DashboardForm.lblNA" xml:space="preserve">
+    <value>N/A</value>
+  </data>
+  <data name="Shap.SelectFormatFirst" xml:space="preserve">
+    <value>Sorry,please select a {0} format first!</value>
+  </data>
+  <data name="DashboardForm.lblParent" xml:space="preserve">
+    <value>Parent Group:</value>
+  </data>
+  <data name="DashboardForm.lblPX" xml:space="preserve">
+    <value>pixel</value>
+  </data>
+  <data name="DashboardForm.lblSignName" xml:space="preserve">
+    <value>Sign Name:</value>
+  </data>
+  <data name="DashboardForm.lblWidth" xml:space="preserve">
+    <value>Width:</value>
+  </data>
+  <data name="DashboardForm.lbnSignType" xml:space="preserve">
+    <value>Sign Type:</value>
+  </data>
+  <data name="DashboardForm.newSignGroupTool" xml:space="preserve">
+    <value>New Sign Group...AAA</value>
+  </data>
+  <data name="DashboardForm.newSignTool" xml:space="preserve">
+    <value>New Sign...AAA</value>
+  </data>
+  <data name="DefaultInformationDeleteFailed" xml:space="preserve">
+    <value>Default's deletion is unallowed.</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="DeleteFailed" xml:space="preserve">
+    <value>Delete failed.</value>
+  </data>
+  <data name="Dialog.Confirm.Info" xml:space="preserve">
+    <value>The content has changed.Do you want to save the changes?</value>
+  </data>
+  <data name="Dialog.SaveEmpty.Info" xml:space="preserve">
+    <value>The content is empty, {0} '{1}' was not saved.</value>
+  </data>
+  <data name="Editer.FontSelectForm.FontSizeText" xml:space="preserve">
+    <value>Size:</value>
+  </data>
+  <data name="Editer.FontSelectForm.FontStyleText" xml:space="preserve">
+    <value>Font style:</value>
+  </data>
+  <data name="Editer.FontSelectForm.FontText" xml:space="preserve">
+    <value>Font:</value>
+  </data>
+  <data name="Editer.FontSelectForm.FontTypeText" xml:space="preserve">
+    <value>ProWrite defined fonts only</value>
+  </data>
+  <data name="Editer.ShapeLabel.IsAddNewLayer" xml:space="preserve">
+    <value>Text string longer than can be fit to the screen, do you want automatically create a grouped message with a new layer ?</value>
+  </data>
+  <data name="EditLibraryGrpName" xml:space="preserve">
+    <value>Input library group name</value>
+  </data>
+  <data name="InputName" xml:space="preserve">
+    <value>Input {0} Name</value>
+  </data>
+  <data name="MessageChanged" xml:space="preserve">
+    <value>"{0}" has changed, Do you want to save the changes?</value>
+  </data>
+  <data name="EditSign" xml:space="preserve">
+    <value>Edit Sign</value>
+  </data>
+  <data name="MessageIsEmpty" xml:space="preserve">
+    <value>Sorry,"{0}" is empty!</value>
+  </data>
+  <data name="EditSignGroup" xml:space="preserve">
+    <value>Edit Sign Group</value>
+  </data>
+  <data name="ErrorHapenViewLog" xml:space="preserve">
+    <value>Process stopped due to systems error, more details please review ProWrite log file. </value>
+  </data>
+  <data name="ErrorUnableToLocateFile" xml:space="preserve">
+    <value>Unable to locate information while loading Library file.</value>
+  </data>
+  <data name="ExceedSignNumber" xml:space="preserve">
+    <value>Exceeded the maximum number of Signs in a Sign Group.</value>
+  </data>
+  <data name="GreaterThanFailingMessage" xml:space="preserve">
+    <value>{0} must be &gt; {1}.</value>
+  </data>
+  <data name="GreaterThanOrEqualFailMessage" xml:space="preserve">
+    <value>{0} must be &gt;= {1}.</value>
+  </data>
+  <data name="GroupEmpty" xml:space="preserve">
+    <value>Sorry,the Group Name can't be empty.</value>
+  </data>
+  <data name="HelpDeskInfo" xml:space="preserve">
+    <value>Help Desk 1-800-462-2716</value>
+  </data>
+  <data name="Image" xml:space="preserve">
+    <value>Image</value>
+  </data>
+  <data name="ImageFileNotExist" xml:space="preserve">
+    <value>Can't find picture file of</value>
+  </data>
+  <data name="InfoSaveMessage" xml:space="preserve">
+    <value>{0} was saved successfully.</value>
+  </data>
+  <data name="IsExist" xml:space="preserve">
+    <value>Name is exist.</value>
+  </data>
+  <data name="Layer" xml:space="preserve">
+    <value>Layer</value>
+  </data>
+  <data name="lblResponding" xml:space="preserve">
+    <value>-pixel(s) not responding</value>
+  </data>
+  <data name="LessThanFailingMessage" xml:space="preserve">
+    <value>{0} must be &lt; {1}.</value>
+  </data>
+  <data name="LessThanOrEqualFailingMessage" xml:space="preserve">
+    <value>{0} must be &lt;= {1}.</value>
+  </data>
+  <data name="Library.LockRemove" xml:space="preserve">
+    <value>The library is openning,it mustn't be deleted.</value>
+  </data>
+  <data name="LoginForm.Copyright" xml:space="preserve">
+    <value>Copyright 2007-2010</value>
+  </data>
+  <data name="LoginForm.HaveNoRegisted" xml:space="preserve">
+    <value>Sorry, you have not registered.</value>
+  </data>
+  <data name="LoginForm.HelpDesk" xml:space="preserve">
+    <value>Help Desk 1-800-462-2716</value>
+  </data>
+  <data name="LoginForm.http" xml:space="preserve">
+    <value>http://www.tlxcommercial.com</value>
+  </data>
+  <data name="LoginForm.ProWrite" xml:space="preserve">
+    <value>ProWrite™</value>
+  </data>
+  <data name="LoginForm.ProWriteVersion" xml:space="preserve">
+    <value>v1.03.31.02</value>
+  </data>
+  <data name="LoginOverDue" xml:space="preserve">
+    <value>Sorry ,your registration key is overdue</value>
+  </data>
+  <data name="Message" xml:space="preserve">
+    <value>Message</value>
+  </data>
+  <data name="MessageFileIsNotExist" xml:space="preserve">
+    <value>Sorry,the message file isn't exist.</value>
+  </data>
+  <data name="Message.LayerNameNotNull" xml:space="preserve">
+    <value>Layer name can't be empty.</value>
+  </data>
+  <data name="Message.ShapOutSide" xml:space="preserve">
+    <value>The width and height of image must be less than sign size!</value>
+  </data>
+  <data name="NameAlreadyExist" xml:space="preserve">
+    <value>Sorry,this {0} name is already used.Please pick a different name.</value>
+  </data>
+  <data name="OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="OptionButtonTextNo" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="OptionButtonTextYes" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="PlayList" xml:space="preserve">
+    <value>Playlist</value>
+  </data>
+  <data name="PlayList.AppendEffectException" xml:space="preserve">
+    <value>Append effect Exception.</value>
+  </data>
+  <data name="PlayList.AppendLayerException" xml:space="preserve">
+    <value>Append layer Exception.</value>
+  </data>
+  <data name="PlayList.AppendPropertyException" xml:space="preserve">
+    <value>Append property Exception.</value>
+  </data>
+  <data name="PlayList.ConvertLabelTimeToPixelException" xml:space="preserve">
+    <value>Convert label time to pixel Exception.</value>
+  </data>
+  <data name="PlayList.ConvertLabelTimeToSecondException" xml:space="preserve">
+    <value>Convert label time to second Exception.</value>
+  </data>
+  <data name="PlayList.ConvertLabelTimeToTimeException" xml:space="preserve">
+    <value>Convert label time to time Exception.</value>
+  </data>
+  <data name="PlayList.ConvertPixelToLabelTimeException" xml:space="preserve">
+    <value>Convert pixel to label time Exception.</value>
+  </data>
+  <data name="PlayList.ConvertPixelToTimeException" xml:space="preserve">
+    <value>Convert pixel to  time Exception.</value>
+  </data>
+  <data name="PlayList.ConvertTimeToPixelException" xml:space="preserve">
+    <value>Convert time to pixel Exception.</value>
+  </data>
+  <data name="PlayList.ConvertTimeToSecondException" xml:space="preserve">
+    <value>Convert time to second Exception.</value>
+  </data>
+  <data name="PlayList.CreateImageException" xml:space="preserve">
+    <value>Create image Exception.</value>
+  </data>
+  <data name="PlayList.CreateNewImageException" xml:space="preserve">
+    <value>Create new image Exception.</value>
+  </data>
+  <data name="PlayList.DefaultTimeSliceGroupName" xml:space="preserve">
+    <value>Default TimeSliceGroup</value>
+  </data>
+  <data name="PlayList.DragDropLayoutControl.DeleteMessageBtnException" xml:space="preserve">
+    <value>Delete MessageBtn Exception.</value>
+  </data>
+  <data name="PlayList.DragDropLayoutControl.InitException" xml:space="preserve">
+    <value>DragDropLayoutControl init info Exception.</value>
+  </data>
+  <data name="PlayList.DragDropLayoutControl.InitializeResourceException" xml:space="preserve">
+    <value>DragDropLayoutControl initialize resource Exception.</value>
+  </data>
+  <data name="PlayList.DragDropLayoutControl.MessageBtnDragDropEventException" xml:space="preserve">
+    <value>MessageBtn dragdrop event Exception.</value>
+  </data>
+  <data name="PlayList.DragDropLayoutControl.MessageBtnMouseDownEventException" xml:space="preserve">
+    <value>MessageBtn mousedown event Exception.</value>
+  </data>
+  <data name="PlayList.DragDropLayoutControl.MessageBtnMouseUpEventException" xml:space="preserve">
+    <value>MessageBtn mouseup event Exception.</value>
+  </data>
+  <data name="PlayList.DragDropLayoutControl.PanelControlDragDropEventException" xml:space="preserve">
+    <value>PanelControl dragdrop event Exception.</value>
+  </data>
+  <data name="PlayList.DragDropLayoutControl.SendPropertyMessageException" xml:space="preserve">
+    <value>DragDropLayoutControl  send property message Exception.</value>
+  </data>
+  <data name="PlayList.DragDropLayoutControl.SizeChangedEventException" xml:space="preserve">
+    <value>SizeChanged event Exception.</value>
+  </data>
+  <data name="PlayList.DragDropLayoutControl.UpdateTotalTimesException" xml:space="preserve">
+    <value>Update total time Exception.</value>
+  </data>
+  <data name="PlayList.DragDropLayoutControl.ViewMessageException" xml:space="preserve">
+    <value>View message Exception.</value>
+  </data>
+  <data name="PlayList.DragDropLayoutControl.ViewPlayListException" xml:space="preserve">
+    <value>View playlist Exception.</value>
+  </data>
+  <data name="PlayList.DragDropLayoutControl.ZoomException" xml:space="preserve">
+    <value>DragDropLayoutControl zoom Exception.</value>
+  </data>
+  <data name="PlayList.GetCurrentSecondByListIndexForNextException" xml:space="preserve">
+    <value>Get current playing second by playList Index when click next button Exception.</value>
+  </data>
+  <data name="PlayList.GetCurrentSecondByListIndexForPreviousException" xml:space="preserve">
+    <value>Get current second by playlist index when click previous button Exception.</value>
+  </data>
+  <data name="PlayList.GetDsVideoException" xml:space="preserve">
+    <value>Get dataset video Exception.</value>
+  </data>
+  <data name="PlayList.GetNewLayerSizeAndLocationException" xml:space="preserve">
+    <value>Get new layer size and location Exception.</value>
+  </data>
+  <data name="PlayList.GetPlayListPropertyException" xml:space="preserve">
+    <value>Get playlist property Exception.</value>
+  </data>
+  <data name="PlayList.InitEffectException" xml:space="preserve">
+    <value>Init effect Exception.</value>
+  </data>
+  <data name="PlayList.LabelTimeDefaultText" xml:space="preserve">
+    <value>00;00;00;</value>
+  </data>
+  <data name="PlayList.MessageLengthEmpty" xml:space="preserve">
+    <value>Sorry,when the Message's length is empty it can't be added to the current Playlist.</value>
+  </data>
+  <data name="PlayList.MessageLengthIsZero" xml:space="preserve">
+    <value>The message length can't is 0.</value>
+  </data>
+  <data name="PlayList.NameEmpty" xml:space="preserve">
+    <value>Sorry,the Playlist's Name can't be empty.</value>
+  </data>
+  <data name="PlayList.OpenMessageException" xml:space="preserve">
+    <value>Open message Exception.</value>
+  </data>
+  <data name="PlayList.PlayListLengthEmpty" xml:space="preserve">
+    <value>Sorry,when the Playlist's length is empty it can't be added to the current Playlist.</value>
+  </data>
+  <data name="PlayList.PlayListsBar.GetPlayListException" xml:space="preserve">
+    <value>Get playList Exception.</value>
+  </data>
+  <data name="PlayList.PlayListsBar.InitException" xml:space="preserve">
+    <value>PlayListsBar init info Exception.</value>
+  </data>
+  <data name="PlayList.PlayListsBar.InitializeResourceException" xml:space="preserve">
+    <value>PlayListsBar initialize resource Exception.</value>
+  </data>
+  <data name="PlayList.PlayListsBar.PlayClickEventException" xml:space="preserve">
+    <value>Play click event Exception.</value>
+  </data>
+  <data name="PlayList.PlayListsBar.PlayCompletedEventException" xml:space="preserve">
+    <value>Play completed event Exception.</value>
+  </data>
+  <data name="PlayList.PlayListsBar.PlayingException" xml:space="preserve">
+    <value>Playing Exception.</value>
+  </data>
+  <data name="PlayList.PlayListsBar.PlayNextClickEventException" xml:space="preserve">
+    <value>PlayNext click event Exception.</value>
+  </data>
+  <data name="PlayList.PlayListsBar.PlayPaintEventExceptiohn" xml:space="preserve">
+    <value>Play paint event Exceptiohn.</value>
+  </data>
+  <data name="PlayList.PlayListsBar.PlayPreviousClickEventException" xml:space="preserve">
+    <value>PlayPrevious click event Exception.</value>
+  </data>
+  <data name="PlayList.PlayListsBar.RecycleDragDropEventException" xml:space="preserve">
+    <value>Recycle dragdrop event Exception.</value>
+  </data>
+  <data name="PlayList.PlayListsBar.RecycleDragEnterEventException" xml:space="preserve">
+    <value>Recycle dragenter event Exception.</value>
+  </data>
+  <data name="PlayList.PlayListsBar.RecycleDragLeaveEventException" xml:space="preserve">
+    <value>Recycle dragleave eventException.</value>
+  </data>
+  <data name="PlayList.PlayListsBar.SaveClickEventException" xml:space="preserve">
+    <value>Save click event Exception.</value>
+  </data>
+  <data name="PlayList.PlayListsBar.ScrollBarScrollEventException" xml:space="preserve">
+    <value>ScrollBar scroll event Exception.</value>
+  </data>
+  <data name="PlayList.PlayListsBar.ScrollBarValueChangedEventException" xml:space="preserve">
+    <value>ScrollBar valuechanged event Exception.</value>
+  </data>
+  <data name="PlayList.PlayListsBar.SetPlayingStatusException" xml:space="preserve">
+    <value>Set playing status Exception.</value>
+  </data>
+  <data name="PlayList.PlayListsBar.ZoomInClickEventException" xml:space="preserve">
+    <value>ZoomIn click event Exception.</value>
+  </data>
+  <data name="PlayList.PlayListsBar.ZoomOutClickEventException" xml:space="preserve">
+    <value>ZoomOut click event Exception.</value>
+  </data>
+  <data name="PlayList.PlayListsSave.InitializeResourceException" xml:space="preserve">
+    <value>PlayListsSave initialize resource Exception.</value>
+  </data>
+  <data name="PlayList.PlayListsSave.SaveException" xml:space="preserve">
+    <value>PlayListsSave save Exception.</value>
+  </data>
+  <data name="PlayList.PlayListsSignTab.InitException" xml:space="preserve">
+    <value>PlayListsSignTab init info Exception.</value>
+  </data>
+  <data name="PlayList.PlayListsSignTab.InitializeResourceException" xml:space="preserve">
+    <value>PlayListsSignTab initialize resource Exception.</value>
+  </data>
+  <data name="PlayList.PlayListsSignTab.PanelResizeEventException" xml:space="preserve">
+    <value>Panel resize event Exception.</value>
+  </data>
+  <data name="PlayList.PlayListsTab.AppendNewSignTabException" xml:space="preserve">
+    <value>Append new signtab Exception.</value>
+  </data>
+  <data name="PlayList.PlayListsTab.AppendSignTabException" xml:space="preserve">
+    <value>Append signtab Exception.</value>
+  </data>
+  <data name="PlayList.PlayListsTab.CurrentSignSelectedValueChangedEventException" xml:space="preserve">
+    <value>Current sign selectedvaluechanged event Exception.</value>
+  </data>
+  <data name="PlayList.PlayListsTab.DeletePlayListElementException" xml:space="preserve">
+    <value>Delete playlist element Exception.</value>
+  </data>
+  <data name="PlayList.PlayListsTab.InitException" xml:space="preserve">
+    <value>PlayListsTab init info Exception.</value>
+  </data>
+  <data name="PlayList.PlayListsTab.InitializeResourceException" xml:space="preserve">
+    <value>PlayListsTab initialize resource Exception.</value>
+  </data>
+  <data name="PlayList.PlayListsTab.InitMenuException" xml:space="preserve">
+    <value>PlayListsTab init menu Exception.</value>
+  </data>
+  <data name="Send.SendToSign.NoPermission" xml:space="preserve">
+    <value>You don't have upload permissions.</value>
+  </data>
+  <data name="Send.SendToSign.LoginFirst" xml:space="preserve">
+    <value>Please login first!</value>
+  </data>
+  <data name="Send.SendToSign.SignConflict" xml:space="preserve">
+    <value>Open schedule conflict with current sign!</value>
+  </data>
+  <data name="Send.SaveFirst" xml:space="preserve">
+    <value>Please save first!</value>
+  </data>
+  <data name="PlayList.PlayListsTab.InsertPlayListException" xml:space="preserve">
+    <value>Insert playlist Exception.</value>
+  </data>
+  <data name="PlayList.PlayListsTab.NewPlayListException" xml:space="preserve">
+    <value>New playlist Exception.</value>
+  </data>
+  <data name="PlayList.PlayListsTab.OpenMessageException" xml:space="preserve">
+    <value>PlayListsTab open message Exception.</value>
+  </data>
+  <data name="PlayList.PlayListsTab.SaveAllPlayListException" xml:space="preserve">
+    <value>Save all playlist Exception.</value>
+  </data>
+  <data name="PlayList.PlayListsTab.SaveAsPlayListException" xml:space="preserve">
+    <value>Save as playlist Exception.</value>
+  </data>
+  <data name="PlayList.PlayListsTab.SavePlayListException" xml:space="preserve">
+    <value>Save playlist Exception.</value>
+  </data>
+  <data name="PlayList.PlayListsTab.TabSignCloseButtonClickException" xml:space="preserve">
+    <value>TabSign closebuttonclick event Exception.</value>
+  </data>
+  <data name="PlayList.PlayListsTab.UpdateDisplayInfoAfterSaveException" xml:space="preserve">
+    <value>Update display info after save Exception.</value>
+  </data>
+  <data name="PlayList.PlayListsTrackBar.ClearTimeLabelException" xml:space="preserve">
+    <value>Clear time label Exception.</value>
+  </data>
+  <data name="PlayList.PlayListsTrackBar.InitException" xml:space="preserve">
+    <value>PlayListsTrackBar init info Exception.</value>
+  </data>
+  <data name="PlayList.PlayListsTrackBar.InitializeResourceException" xml:space="preserve">
+    <value>PlayListsTrackBar initialize resource Exception.</value>
+  </data>
+  <data name="PlayList.PlayListsTrackBar.InitTimeValueLabelException" xml:space="preserve">
+    <value>Init  label time value Exception.</value>
+  </data>
+  <data name="PlayList.PlayListsTrackBar.PlayTrackBarCtrlValueChangedEventException" xml:space="preserve">
+    <value>PlayTrackBar Control valuechanged event Exception.</value>
+  </data>
+  <data name="PlayList.PlayListsTrackBar.ZoomException" xml:space="preserve">
+    <value>PlayListsTrackBar zoom Exception.</value>
+  </data>
+  <data name="PlayList.SaveExit" xml:space="preserve">
+    <value>Please you confirm to save these playlists?</value>
+  </data>
+  <data name="PlayList.SaveForm.PlayListNameTitle" xml:space="preserve">
+    <value>Playlist Name:</value>
+  </data>
+  <data name="PlayList.SaveForm.Title" xml:space="preserve">
+    <value>Please input the PlayLists's name:</value>
+  </data>
+  <data name="PlayList.SaveTotalLengthEmpty" xml:space="preserve">
+    <value>Sorry,when the Playlist's length is empty it can't be saved.</value>
+  </data>
+  <data name="PlayList.TimeDefaultText" xml:space="preserve">
+    <value>00:00:00</value>
+  </data>
+  <data name="PlayList.TimeSliceGroupControl.ConfigMessageActiveException" xml:space="preserve">
+    <value>Config a message is active to excption.</value>
+  </data>
+  <data name="PlayList.TimeSliceGroupControl.DragDropException" xml:space="preserve">
+    <value>DragDrop event exception.</value>
+  </data>
+  <data name="PlayList.TimeSliceGroupControl.DragMessageException" xml:space="preserve">
+    <value>Drag message exception from library tree.</value>
+  </data>
+  <data name="PlayList.TimeSliceGroupControl.EditGroupInfoException" xml:space="preserve">
+    <value>Edit time slice group info exception.</value>
+  </data>
+  <data name="PlayList.TimeSliceGroupControl.GroupItemActiveTitle" xml:space="preserve">
+    <value>ACTIVE</value>
+  </data>
+  <data name="PlayList.TimeSliceGroupControl.GroupItemLengthTitle" xml:space="preserve">
+    <value>LENGTH</value>
+  </data>
+  <data name="PlayList.TimeSliceGroupControl.GroupItemNameTitle" xml:space="preserve">
+    <value>NAME</value>
+  </data>
+  <data name="PlayList.TimeSliceGroupControl.GroupItemTypeTitle" xml:space="preserve">
+    <value>TYPE</value>
+  </data>
+  <data name="PlayList.TimeSliceGroupControl.LabelGroupTitle" xml:space="preserve">
+    <value>MESSAGE GROUP</value>
+  </data>
+  <data name="PlayList.TimeSliceGroupControl.LoadGroupInfoException" xml:space="preserve">
+    <value>Load time slice group info exception.</value>
+  </data>
+  <data name="PlayList.TimeSliceGroupControl.MoveMessageException" xml:space="preserve">
+    <value>Move message exception in TimeSliceGroup.</value>
+  </data>
+  <data name="PlayList.TimeSliceGroupControl.ReloadNodesException" xml:space="preserve">
+    <value>Reloade message nodes exception.</value>
+  </data>
+  <data name="PlayList.TimeSliceGroupEditForm.AddTitle" xml:space="preserve">
+    <value>Add a new time slice group:</value>
+  </data>
+  <data name="PlayList.TimeSliceGroupEditForm.EditTitle" xml:space="preserve">
+    <value>Edit the time slice group:</value>
+  </data>
+  <data name="PlayList.TimeSliceGroupEditForm.LengthTitle" xml:space="preserve">
+    <value>Length:</value>
+  </data>
+  <data name="PlayList.TimeSliceGroupEditForm.LengthZero" xml:space="preserve">
+    <value>Time slice group length can't be zero.</value>
+  </data>
+  <data name="PlayList.TimeSliceGroupEditForm.NameEmpty" xml:space="preserve">
+    <value>Time slice group name can't be empty.</value>
+  </data>
+  <data name="PlayList.TimeSliceGroupEditForm.NameTitle" xml:space="preserve">
+    <value>Name:</value>
+  </data>
+  <data name="PlayList.TimeSliceGroupEditForm.RandomTitle" xml:space="preserve">
+    <value>Playing:</value>
+  </data>
+  <data name="PlayList.TimeSliceGroupEditForm.SaveException" xml:space="preserve">
+    <value>Time slice group edit form save exception.</value>
+  </data>
+  <data name="PlayList.TimeSliceGroupEditForm.TimeFormat" xml:space="preserve">
+    <value>\\d?\\d:\\d\\d:\\d\\d&gt;</value>
+  </data>
+  <data name="PlayList.TimeSliceGroupLengthEmpty" xml:space="preserve">
+    <value>Sorry,can not add empty Time Slice Group into a Playlist.</value>
+  </data>
+  <data name="PlayList.ViewMessageException" xml:space="preserve">
+    <value>Sorry,It is an exception to view the message.</value>
+  </data>
+  <data name="PlayList.ViewMessageFailure" xml:space="preserve">
+    <value>Sorry,It is failure to view the message.</value>
+  </data>
+  <data name="PlayList.ViewPlayListException" xml:space="preserve">
+    <value>Sorry,It is an exception to view the playlist.</value>
+  </data>
+  <data name="PlayList.ViewPlayListFailure" xml:space="preserve">
+    <value>Sorry,It is failure to view the playlist.</value>
+  </data>
+  <data name="ProductName" xml:space="preserve">
+    <value>ProWrite</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="SaveFailed" xml:space="preserve">
+    <value>Save failed.</value>
+  </data>
+  <data name="Savesuccess" xml:space="preserve">
+    <value>saved successfully.</value>
+  </data>
+  <data name="SerialGen.RegsterError" xml:space="preserve">
+    <value>Register Number is invalid and Please try again</value>
+  </data>
+  <data name="SettingDefaultHaveUsed" xml:space="preserve">
+    <value>Sorry,this template has been used by any sign!</value>
+  </data>
+  <data name="SignEmpty" xml:space="preserve">
+    <value>Sorry,the sign name can't be empty.</value>
+  </data>
+  <data name="SignsCountMoreThanTwenty" xml:space="preserve">
+    <value>The group is full, can only assign 20 signs per group</value>
+  </data>
+  <data name="SkinName" xml:space="preserve">
+    <value>Office 2007 Silver</value>
+  </data>
+  <data name="NameEmpty" xml:space="preserve">
+    <value>Name can't be empty.</value>
+  </data>
+  <data name="Library.SaveForm.NameExists" xml:space="preserve">
+    <value>The {0} '{1}' already exists. Do you want to replace the existing {0}?</value>
+  </data>
+  <data name="Library.SaveForm.Title" xml:space="preserve">
+    <value>Please input library name:</value>
+  </data>
+  <data name="SaveAs" xml:space="preserve">
+    <value>Save As</value>
+  </data>
+  <data name="NameLengthLimit" xml:space="preserve">
+    <value>Name length must &lt;=30.</value>
+  </data>
+  <data name="Add" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="Live.CategoryItem.EditForm.Caption" xml:space="preserve">
+    <value>Please input the category name:</value>
+  </data>
+  <data name="Live.CategoryItem.EditForm.Title" xml:space="preserve">
+    <value>{0} category dialog</value>
+  </data>
+  <data name="Live.EditForm.NameExists" xml:space="preserve">
+    <value>The category  '{0}' already exists. Do you want to replace the existing category?</value>
+  </data>
+  <data name="Live.HotButtonEdit.FormTitle" xml:space="preserve">
+    <value>Button edit dialog</value>
+  </data>
+  <data name="Live.HotButtonEdit.NameTitle" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="Live.HotButtonEdit.Title" xml:space="preserve">
+    <value>Please input button message:</value>
+  </data>
+  <data name="Live.HotButtonEdit.Type.Empty" xml:space="preserve">
+    <value>Play level can't be empty,please select.</value>
+  </data>
+  <data name="Live.HotButtonEdit.TypeTitle" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="Live.HotButton.Drag.Replace.Info" xml:space="preserve">
+    <value>The content is exist,replace the content with it?</value>
+  </data>
+  <data name="ConfirmRenameItem" xml:space="preserve">
+    <value>Confirm rename the tiem?</value>
+  </data>
+  <data name="FileRenameInvalid" xml:space="preserve">
+    <value>File is being used,invalid rename.</value>
+  </data>
+  <data name="NewLibraryName" xml:space="preserve">
+    <value>Input New {0} Name</value>
+  </data>
+  <data name="Message.ChangeLayerName" xml:space="preserve">
+    <value>Input Layer Name </value>
+  </data>
+  <data name="Dashboard.TemplateChanged" xml:space="preserve">
+    <value>This change will overwrite System Default setting,do you wish to continue? </value>
+  </data>
+  <data name="NameError" xml:space="preserve">
+    <value>'{0}' , the above name is invalid.</value>
+  </data>
+  <data name="NameRegulation" xml:space="preserve">
+    <value>^[A-Za-z0-9]+$</value>
+  </data>
+  <data name="Live.CategoryLink.EditForm.Caption" xml:space="preserve">
+    <value>{0} category item dialog</value>
+  </data>
+  <data name="Live.CategoryLink.EditForm.Title" xml:space="preserve">
+    <value>Please input the library item name:</value>
+  </data>
+  <data name="TemplateEmpty" xml:space="preserve">
+    <value>Template name can't be empty.</value>
+  </data>
+  <data name="TemplateRepeat" xml:space="preserve">
+    <value>Sorry, this template name is already being used. Please pick a different name..</value>
+  </data>
+  <data name="Library.LibraryFileItem.CheckCaption" xml:space="preserve">
+    <value>Check</value>
+  </data>
+  <data name="Library.LibraryFileItem.DestCaption" xml:space="preserve">
+    <value>Target File Name:</value>
+  </data>
+  <data name="Library.LibraryFileItem.SourceCaption" xml:space="preserve">
+    <value>Source File Name:</value>
+  </data>
+  <data name="Library.LibraryFileItem.Title" xml:space="preserve">
+    <value>Library File Rename dialog</value>
+  </data>
+  <data name="Library.LibraryMessageItem.CheckCaption" xml:space="preserve">
+    <value>Check</value>
+  </data>
+  <data name="Library.LibraryMessageItem.DestCaption" xml:space="preserve">
+    <value>Target Message Name:</value>
+  </data>
+  <data name="Library.LibraryMessageItem.SourceCaption" xml:space="preserve">
+    <value>Source Message Name:</value>
+  </data>
+  <data name="Library.LibraryMessageItem.Title" xml:space="preserve">
+    <value>Library Message Rename dialog</value>
+  </data>
+  <data name="LibraryTree.DeleteFailed" xml:space="preserve">
+    <value>The {0} '{1}' is being used in {2} '{3}'{4},can't be deleted.</value>
+  </data>
+  <data name="PlayList.TimeSliceGroupControl.GroupItemCountEmpty" xml:space="preserve">
+    <value>Current have no Time Slice Group,add One?</value>
+  </data>
+  <data name="LibraryTreeControl.RightMenu.Delete.Title" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="LibraryTreeControl.RightMenu.Export.Title" xml:space="preserve">
+    <value>Export</value>
+  </data>
+  <data name="LibraryTreeControl.RightMenu.Import.Title" xml:space="preserve">
+    <value>Import</value>
+  </data>
+  <data name="LibraryTreeControl.RightMenu.Rename.Title" xml:space="preserve">
+    <value>Rename</value>
+  </data>
+  <data name="PlayList.TimeSliceGroupControl.RightMenu.SetNailImage.Title" xml:space="preserve">
+    <value>Set nail image</value>
+  </data>
+  <data name="Playlist.ManyLevel" xml:space="preserve">
+    <value>Playlist level can't over two level.</value>
+  </data>
+  <data name="GetLock.Failure" xml:space="preserve">
+    <value>Get locker is failure!</value>
+  </data>
+  <data name="Upload.Failed" xml:space="preserve">
+    <value>Upload failed.</value>
+  </data>
+  <data name="Upload.Successful" xml:space="preserve">
+    <value>Upload successful.</value>
+  </data>
+  <data name="Library.Import.Name.ExistInfo" xml:space="preserve">
+    <value>The {0} '{1}' already exists.Please pick a different name.</value>
+  </data>
+  <data name="Library.Import.TimeSliceGroup.GroupItem.SourceCaption" xml:space="preserve">
+    <value>Source TimeSliceGroup Name:</value>
+  </data>
+  <data name="Library.Import.TimeSliceGroup.GroupItem.TargetCaption" xml:space="preserve">
+    <value>Target TimeSliceGroup Name:</value>
+  </data>
+  <data name="Playlist.NotDragItself" xml:space="preserve">
+    <value>Can not drag a Playlist into itself.</value>
+  </data>
+  <data name="Editer.Insert.File.Exist" xml:space="preserve">
+    <value>The {0} '{1}' already exists. Do you want to replace the existing {0}? </value>
+  </data>
+  <data name="BatchLoad.ResultInfo.Failure" xml:space="preserve">
+    <value>failed.</value>
+  </data>
+  <data name="BatchLoad.ResultInfo.Start" xml:space="preserve">
+    <value>Batch load files:</value>
+  </data>
+  <data name="BatchLoad.ResultInfo.Success" xml:space="preserve">
+    <value>succeeded.</value>
+  </data>
+  <data name="BatchLoad.ResultInfo.Title" xml:space="preserve">
+    <value>Batch load files result</value>
+  </data>
+  <data name="NewFileName" xml:space="preserve">
+    <value>Input new {0} name</value>
+  </data>
+  <data name="SetBlankSignSuccessed" xml:space="preserve">
+    <value>The sign has stopped playing.</value>
+  </data>
+  <data name="SetBlankSignFailed" xml:space="preserve">
+    <value>Unable to Stop Sign. Disconnect,connect,and try again.</value>
+  </data>
+  <data name="SetUnBlankSignSuccessed" xml:space="preserve">
+    <value>The sign is playing.</value>
+  </data>
+  <data name="SetUnBlankSignFailed" xml:space="preserve">
+    <value>Unable to Play Sign. Disconnect,connect,and try again.</value>
+  </data>
+  <data name="RebootFailed" xml:space="preserve">
+    <value>Reboot failed,please try again.</value>
+  </data>
+  <data name="SetDimmingSuccessed" xml:space="preserve">
+    <value>Dimming Successfully Changed.</value>
+  </data>
+  <data name="SetDimmingFailed" xml:space="preserve">
+    <value>Dimming was not changed.Please try again.</value>
+  </data>
+  <data name="SetDateTimeSuccessed" xml:space="preserve">
+    <value>Time &amp; Date Successfully Changed.</value>
+  </data>
+  <data name="SetDateTimeFailed" xml:space="preserve">
+    <value>Time &amp; Date were not changed.Please try again.</value>
+  </data>
+  <data name="SetTempoffsetSuccessed" xml:space="preserve">
+    <value>Temp offset Successfully Changed.</value>
+  </data>
+  <data name="SetTempoffsetFailed" xml:space="preserve">
+    <value>Temp offset was not changed.Please try again.</value>
+  </data>
+  <data name="TempoffsetNotEmpty" xml:space="preserve">
+    <value>Sorry,the temperature value can't be empty..</value>
+  </data>
+  <data name="SetTimeZoneSuccessed" xml:space="preserve">
+    <value>Time Zone Successfully Changed.</value>
+  </data>
+  <data name="SetTimeZoneFailed" xml:space="preserve">
+    <value>Time Zone was not changed.Please try again.</value>
+  </data>
+  <data name="SetTestPatternSuccessed" xml:space="preserve">
+    <value>Set testpattern successed.</value>
+  </data>
+  <data name="SetTestPatternFailed" xml:space="preserve">
+    <value>Sorry,Set testpattern failed,please try again.</value>
+  </data>
+  <data name="Editer.Insert.File.Lock" xml:space="preserve">
+    <value>The same name {0} '{1}' has been opened,please input new name.</value>
+  </data>
+  <data name="EmailAddress" xml:space="preserve">
+    <value>registration@tlxcommercial.com</value>
+  </data>
+  <data name="EmailSubject" xml:space="preserve">
+    <value>Seed Key</value>
+  </data>
+  <data name="LibraryTreeControl.Delete.ConfirmDeleteItem" xml:space="preserve">
+    <value>Are you sure you want to delete this {0} '{1}'?</value>
+  </data>
+  <data name="RibbonBar.General.btnSave.Caption" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="RibbonBar.General.btnSave.Hint" xml:space="preserve">
+    <value>Save item</value>
+  </data>
+  <data name="RibbonBar.General.btnSaveAs.Caption" xml:space="preserve">
+    <value>Save As</value>
+  </data>
+  <data name="RibbonBar.General.btnSaveAs.Hint" xml:space="preserve">
+    <value>Save to a new item</value>
+  </data>
+  <data name="RibbonBar.General.btnBatchLoad.Caption" xml:space="preserve">
+    <value>Batch Load</value>
+  </data>
+  <data name="RibbonBar.General.btnBatchLoad.Hint" xml:space="preserve">
+    <value>Batch Load images or video to create message</value>
+  </data>
+  <data name="RibbonBar.General.btnHelp.Caption" xml:space="preserve">
+    <value>Help</value>
+  </data>
+  <data name="RibbonBar.General.btnHelp.Hint" xml:space="preserve">
+    <value>Press F1 to get help</value>
+  </data>
+  <data name="RibbonBar.General.btnProfaneWords.Caption" xml:space="preserve">
+    <value>Profane Word</value>
+  </data>
+  <data name="RibbonBar.General.btnProfaneWords.Hint" xml:space="preserve">
+    <value>Edit Profane Words</value>
+  </data>
+  <data name="RibbonBar.General.btnAbout.Caption" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="RibbonBar.General.btnAbout.Hint" xml:space="preserve">
+    <value>About ProWrite</value>
+  </data>
+  <data name="RibbonBar.General.btnImport.Caption" xml:space="preserve">
+    <value>Import</value>
+  </data>
+  <data name="RibbonBar.General.btnImport.Hint" xml:space="preserve">
+    <value>Import a message from disk</value>
+  </data>
+  <data name="RibbonBar.General.btnExport.Caption" xml:space="preserve">
+    <value>Export</value>
+  </data>
+  <data name="RibbonBar.General.btnExport.Hint" xml:space="preserve">
+    <value>Export a exist message</value>
+  </data>
+  <data name="Connection.Exception" xml:space="preserve">
+    <value>Connection exception.</value>
+  </data>
+  <data name="Upload.FtpServer.DisConnection" xml:space="preserve">
+    <value>Upload failed, please check 1.Correct Linux login name and password.2.Linux has installed ssh service.</value>
+  </data>
+  <data name="Upload.GetLock.Failed" xml:space="preserve">
+    <value>Get lock failed:{0}.</value>
+  </data>
+  <data name="Upload.GetLock.Start" xml:space="preserve">
+    <value>Perform get lock start.</value>
+  </data>
+  <data name="Upload.GetLock.Successful" xml:space="preserve">
+    <value>Get lock successful.</value>
+  </data>
+  <data name="Upload.Scheduler.Empty" xml:space="preserve">
+    <value>No schedule information changed, uploading stop.</value>
+  </data>
+  <data name="Upload.Scheduler.LibraryFile.Empty" xml:space="preserve">
+    <value>Library files count are zero.</value>
+  </data>
+  <data name="Upload.Scheduler.Populate.Exception" xml:space="preserve">
+    <value>Populate scheduler exception:{0}.</value>
+  </data>
+  <data name="Upload.Scheduler.Populate.Start" xml:space="preserve">
+    <value>Populate scheduler start.</value>
+  </data>
+  <data name="Upload.Scheduler.Save.End" xml:space="preserve">
+    <value>Save scheduler end.</value>
+  </data>
+  <data name="Upload.Scheduler.Save.Exception" xml:space="preserve">
+    <value>Save scheduler exception:{0}.</value>
+  </data>
+  <data name="Upload.Scheduler.Save.Failed" xml:space="preserve">
+    <value>Save scheduler Failed.</value>
+  </data>
+  <data name="Upload.Scheduler.Save.Start" xml:space="preserve">
+    <value>Save scheduler start.</value>
+  </data>
+  <data name="Upload.Scheduler.Upload.Exception" xml:space="preserve">
+    <value>Upload scheduler exception:{0}.</value>
+  </data>
+  <data name="Upload.Scheduler.Upload.Ftp.End" xml:space="preserve">
+    <value>Ftp files end.</value>
+  </data>
+  <data name="Upload.Scheduler.Upload.Ftp.File.End" xml:space="preserve">
+    <value>Ftp file end {0}.</value>
+  </data>
+  <data name="Upload.Scheduler.Upload.Ftp.File.Exception" xml:space="preserve">
+    <value>Ftp file exception {0}.</value>
+  </data>
+  <data name="Upload.Scheduler.Upload.Ftp.File.Start" xml:space="preserve">
+    <value>Ftp file start {0}.</value>
+  </data>
+  <data name="Upload.Scheduler.Upload.Ftp.Start" xml:space="preserve">
+    <value>Ftp files start.</value>
+  </data>
+  <data name="Upload.Scheduler.Upload.Start" xml:space="preserve">
+    <value>Upload scheduer start.</value>
+  </data>
+  <data name="Upload.Scheduler.Upload.Successful" xml:space="preserve">
+    <value>Schedule was successfully uploaded.</value>
+  </data>
+  <data name="RibbonBar.General.btnExit.Caption" xml:space="preserve">
+    <value>Exit</value>
+  </data>
+  <data name="RibbonBar.General.btnExit.Hint" xml:space="preserve">
+    <value>Exit ProWrite</value>
+  </data>
+  <data name="RibbonBar.General.btnNewMessage.Caption" xml:space="preserve">
+    <value>Message</value>
+  </data>
+  <data name="RibbonBar.General.btnNewMessage.Hint" xml:space="preserve">
+    <value>Create a new blank Message</value>
+  </data>
+  <data name="RibbonBar.General.btnNewPlaylist.Caption" xml:space="preserve">
+    <value>Playlist</value>
+  </data>
+  <data name="RibbonBar.General.btnNewPlaylist.Hint" xml:space="preserve">
+    <value>Create a new blank playlist</value>
+  </data>
+  <data name="RibbonBar.General.btnNewScheduler.Caption" xml:space="preserve">
+    <value>Schedule</value>
+  </data>
+  <data name="RibbonBar.General.btnNewScheduler.Hint" xml:space="preserve">
+    <value>Create a new blank Schedule</value>
+  </data>
+  <data name="RibbonBar.General.btnNewLibrary.Caption" xml:space="preserve">
+    <value>Library</value>
+  </data>
+  <data name="RibbonBar.General.btnNewLibrary.Hint" xml:space="preserve">
+    <value>Create a new blank Library</value>
+  </data>
+  <data name="RibbonBar.General.btnNewTimeSliceGroup.Caption" xml:space="preserve">
+    <value>Time Slice Group</value>
+  </data>
+  <data name="RibbonBar.General.btnNewTimeSliceGroup.Hint" xml:space="preserve">
+    <value>Create a new blank Time Slice Group</value>
+  </data>
+  <data name="RibbonBar.General.btnNew.Caption" xml:space="preserve">
+    <value>New</value>
+  </data>
+  <data name="RibbonBar.General.btnNew.Hint" xml:space="preserve">
+    <value>Create a new item</value>
+  </data>
+  <data name="RibbonBar.General.btnNewSign.Caption" xml:space="preserve">
+    <value>Sign</value>
+  </data>
+  <data name="RibbonBar.General.btnNewSign.Hint" xml:space="preserve">
+    <value>Create a new blank sign</value>
+  </data>
+  <data name="RibbonBar.General.btnNewSignGroup.Caption" xml:space="preserve">
+    <value>Sign Group</value>
+  </data>
+  <data name="RibbonBar.General.btnNewSignGroup.Hint" xml:space="preserve">
+    <value>Create a new blank sign group</value>
+  </data>
+  <data name="RibbonBar.General.btnLogin.Caption" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="RibbonBar.General.btnLogin.Hint" xml:space="preserve">
+    <value>Login in UFE</value>
+  </data>
+  <data name="RibbonBar.General.btnLogoff.Hint" xml:space="preserve">
+    <value>Disconnect UFE</value>
+  </data>
+  <data name="RibbonBar.General.btnProperties.Caption" xml:space="preserve">
+    <value>Properties</value>
+  </data>
+  <data name="RibbonBar.General.btnProperties.Hint" xml:space="preserve">
+    <value>To view the selected item properties panel</value>
+  </data>
+  <data name="RibbonBar.General.btnSignStatus.Caption" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="RibbonBar.General.btnSignStatus.Hint" xml:space="preserve">
+    <value>Refresh sign status</value>
+  </data>
+  <data name="RibbonBar.General.btnChangePSW.Caption" xml:space="preserve">
+    <value>Change Password</value>
+  </data>
+  <data name="RibbonBar.General.btnChangePSW.Hint" xml:space="preserve">
+    <value>Change used password</value>
+  </data>
+  <data name="RibbonBar.General.btnSetDateTime.Caption" xml:space="preserve">
+    <value>Time and Date</value>
+  </data>
+  <data name="RibbonBar.General.btnSetDateTime.Hint" xml:space="preserve">
+    <value>Set UFE Time and Date</value>
+  </data>
+  <data name="RibbonBar.General.btnBlankSign.Caption" xml:space="preserve">
+    <value>Sign On (Will Play Messages)</value>
+  </data>
+  <data name="RibbonBar.General.btnBlankSign.Hint" xml:space="preserve">
+    <value>Instruct the current selected sign to go black</value>
+  </data>
+  <data name="RibbonBar.General.btnTestPattern.Caption" xml:space="preserve">
+    <value>Test Pattern</value>
+  </data>
+  <data name="RibbonBar.General.btnTestPattern.Hint" xml:space="preserve">
+    <value>Instruct the current selected sign to display a test pattern</value>
+  </data>
+  <data name="RibbonBar.General.btnDelete.Caption" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="RibbonBar.General.btnDelete.Hint" xml:space="preserve">
+    <value>Delete selected item</value>
+  </data>
+  <data name="RibbonBar.General.btnSetup.Caption" xml:space="preserve">
+    <value>Setup</value>
+  </data>
+  <data name="RibbonBar.General.btnSetup.Hint" xml:space="preserve">
+    <value>Setup UFE</value>
+  </data>
+  <data name="RibbonBar.General.btnDimming.Caption" xml:space="preserve">
+    <value>Dimming</value>
+  </data>
+  <data name="RibbonBar.General.btnDimming.Hint" xml:space="preserve">
+    <value>Create/Open a Dimming for the current selected sign</value>
+  </data>
+  <data name="RibbonBar.General.btnTempOffset.Caption" xml:space="preserve">
+    <value>Temp Offset</value>
+  </data>
+  <data name="RibbonBar.General.btnTempOffset.Hint" xml:space="preserve">
+    <value>Set a temperature offset for the current selected sign</value>
+  </data>
+  <data name="RibbonBar.General.btnLiveView.Caption" xml:space="preserve">
+    <value>Live View</value>
+  </data>
+  <data name="RibbonBar.General.btnLiveView.Hint" xml:space="preserve">
+    <value>Display the Web Cam for the current selected sign</value>
+  </data>
+  <data name="RibbonBar.General.btnDisplay.Caption" xml:space="preserve">
+    <value>Display</value>
+  </data>
+  <data name="RibbonBar.General.btnDisplay.Hint" xml:space="preserve">
+    <value>Sign Functions</value>
+  </data>
+  <data name="RibbonBar.General.btnInsertImage.Caption" xml:space="preserve">
+    <value>Insert Picture</value>
+  </data>
+  <data name="RibbonBar.General.btnInsertImage.Hint" xml:space="preserve">
+    <value>Insert an image onto the Message as a new Picture layer</value>
+  </data>
+  <data name="RibbonBar.General.btnInsertVideo.Caption" xml:space="preserve">
+    <value>Insert Video</value>
+  </data>
+  <data name="RibbonBar.General.btnInsertVideo.Hint" xml:space="preserve">
+    <value>Insert a video onto the Message as a new Video layer</value>
+  </data>
+  <data name="RibbonBar.General.btnInsertText.Caption" xml:space="preserve">
+    <value>Insert Text</value>
+  </data>
+  <data name="RibbonBar.General.btnInsertText.Hint" xml:space="preserve">
+    <value>Insert a text box onto the Message as a new text layer</value>
+  </data>
+  <data name="RibbonBar.General.btnInsertVariableText.Caption" xml:space="preserve">
+    <value>Insert Dynamic Text</value>
+  </data>
+  <data name="RibbonBar.General.btnInsertVariableText.Hint" xml:space="preserve">
+    <value>Inserts Dynamic text onto the Message as a new dynamic Text layer</value>
+  </data>
+  <data name="RibbonBar.General.btnInsertTime.Caption" xml:space="preserve">
+    <value>Insert Time &amp;&amp; Date</value>
+  </data>
+  <data name="RibbonBar.General.btnInsertTime.Hint" xml:space="preserve">
+    <value>Insert a time onto the Message as a new Time layer</value>
+  </data>
+  <data name="RibbonBar.General.btnInsertTemperature.Caption" xml:space="preserve">
+    <value>Insert Temperature</value>
+  </data>
+  <data name="RibbonBar.General.btnInsertTemperature.Hint" xml:space="preserve">
+    <value>Insert a Temperature onto the Message as a new Temperature layer</value>
+  </data>
+  <data name="RibbonBar.General.btnDrawing.Caption" xml:space="preserve">
+    <value>Drawing</value>
+  </data>
+  <data name="RibbonBar.General.btnDrawing.Hint" xml:space="preserve">
+    <value>Inserts a shape onto the current selected drawing layer or a new drawing layer</value>
+  </data>
+  <data name="RibbonBar.General.btnRectangle.Caption" xml:space="preserve">
+    <value>Rectangle</value>
+  </data>
+  <data name="RibbonBar.General.btnRectangle.Hint" xml:space="preserve">
+    <value>Draws a rectangle of the Line stroke color and Line Thickness</value>
+  </data>
+  <data name="Server.DisConnection" xml:space="preserve">
+    <value>Server disconnection.</value>
+  </data>
+  <data name="Upload.GetLock.Failed.NoParameter" xml:space="preserve">
+    <value>Get lock failed.</value>
+  </data>
+  <data name="RibbonBar.General.btnEllipse.Caption" xml:space="preserve">
+    <value>Ellipse</value>
+  </data>
+  <data name="RibbonBar.General.btnEllipse.Hint" xml:space="preserve">
+    <value>Draws a Ellipse of the Line stroke color and Line Thickness</value>
+  </data>
+  <data name="RibbonBar.General.btnArrowUp.Caption" xml:space="preserve">
+    <value>Arrow Up</value>
+  </data>
+  <data name="RibbonBar.General.btnArrowUp.Hint" xml:space="preserve">
+    <value>Draws an Arrow Up of the Line stroke color and Line Thickness</value>
+  </data>
+  <data name="RibbonBar.General.btnArrowDown.Caption" xml:space="preserve">
+    <value>Arrow Down</value>
+  </data>
+  <data name="RibbonBar.General.btnArrowDown.Hint" xml:space="preserve">
+    <value>Draws an Arrow Down of the Line stroke color and Line Thickness</value>
+  </data>
+  <data name="RibbonBar.General.btnFill.Caption" xml:space="preserve">
+    <value>Fill Paint Can</value>
+  </data>
+  <data name="RibbonBar.General.btnFill.Hint" xml:space="preserve">
+    <value>Allows the user to fill a drawn object with the selected color</value>
+  </data>
+  <data name="RibbonBar.General.btnLinecolor.Caption" xml:space="preserve">
+    <value>Line Color</value>
+  </data>
+  <data name="RibbonBar.General.btnLinecolor.Hint" xml:space="preserve">
+    <value>Allows the user to select color of the line</value>
+  </data>
+  <data name="RibbonBar.General.btnSendInEditor.Caption" xml:space="preserve">
+    <value>Send to</value>
+  </data>
+  <data name="RibbonBar.General.btnSendInEditor.Hint" xml:space="preserve">
+    <value>Send current Message to Playlist / Scheduler</value>
+  </data>
+  <data name="RibbonBar.General.btnSendInPlaylist.Caption" xml:space="preserve">
+    <value>Send to</value>
+  </data>
+  <data name="RibbonBar.General.btnSendInPlaylist.Hint" xml:space="preserve">
+    <value>Send current Playlist to Scheduler</value>
+  </data>
+  <data name="RibbonBar.General.btnSendInScheduler.Caption" xml:space="preserve">
+    <value>Send to</value>
+  </data>
+  <data name="RibbonBar.General.btnSendInScheduler.Hint" xml:space="preserve">
+    <value>Send current Scheduler to Sign</value>
+  </data>
+  <data name="RibbonBar.General.btnSystemInit.Caption" xml:space="preserve">
+    <value>Initialization</value>
+  </data>
+  <data name="RibbonBar.General.btnSystemInit.Hint" xml:space="preserve">
+    <value>Initialization System</value>
+  </data>
+  <data name="RibbonBar.General.btnSystemDefault.Caption" xml:space="preserve">
+    <value>Setting Default</value>
+  </data>
+  <data name="RibbonBar.General.btnSystemDefault.Hint" xml:space="preserve">
+    <value>Setting system default information</value>
+  </data>
+  <data name="RibbonBar.General.btnUserManager.Caption" xml:space="preserve">
+    <value>User Manager</value>
+  </data>
+  <data name="RibbonBar.General.btnUserManager.Hint" xml:space="preserve">
+    <value>Setting user information</value>
+  </data>
+  <data name="RibbonBar.General.btnRedo.Caption" xml:space="preserve">
+    <value>Redo</value>
+  </data>
+  <data name="RibbonBar.General.btnRedo.Hint" xml:space="preserve">
+    <value>Redo the last operation</value>
+  </data>
+  <data name="RibbonBar.General.btnUndo.Caption" xml:space="preserve">
+    <value>Undo</value>
+  </data>
+  <data name="RibbonBar.General.btnUndo.Hint" xml:space="preserve">
+    <value>Undo the last operation</value>
+  </data>
+  <data name="RibbonBar.General.btnCopy.Caption" xml:space="preserve">
+    <value>Copy</value>
+  </data>
+  <data name="RibbonBar.General.btnCopy.Hint" xml:space="preserve">
+    <value>Copy the current selected item</value>
+  </data>
+  <data name="RibbonBar.General.btnPaste.Caption" xml:space="preserve">
+    <value>Paste</value>
+  </data>
+  <data name="RibbonBar.General.btnPaste.Hint" xml:space="preserve">
+    <value>Paste the item in clip memeory</value>
+  </data>
+  <data name="RibbonBar.General.btnBold.Caption" xml:space="preserve">
+    <value>Bold</value>
+  </data>
+  <data name="RibbonBar.General.btnBold.Hint" xml:space="preserve">
+    <value>Makes text bold. If the text is already bold, clicking button removes bold formatting</value>
+  </data>
+  <data name="RibbonBar.General.btnItalic.Caption" xml:space="preserve">
+    <value>Italic</value>
+  </data>
+  <data name="RibbonBar.General.btnItalic.Hint" xml:space="preserve">
+    <value>Makes text italic. If the text is already italic, clicking button removes italic formatting</value>
+  </data>
+  <data name="RibbonBar.General.btnAlignLeft.Caption" xml:space="preserve">
+    <value>Align Left</value>
+  </data>
+  <data name="RibbonBar.General.btnAlignLeft.Hint" xml:space="preserve">
+    <value>Aligns the text to the left</value>
+  </data>
+  <data name="RibbonBar.General.btnCenter.Caption" xml:space="preserve">
+    <value>Center</value>
+  </data>
+  <data name="RibbonBar.General.btnCenter.Hint" xml:space="preserve">
+    <value>Aligns the text to the Center</value>
+  </data>
+  <data name="RibbonBar.General.btnAlignRight.Caption" xml:space="preserve">
+    <value>Align Right</value>
+  </data>
+  <data name="RibbonBar.General.btnAlignRight.Hint" xml:space="preserve">
+    <value>Aligns the text to the right</value>
+  </data>
+  <data name="RibbonBar.General.btnFontColor.Caption" xml:space="preserve">
+    <value>Font Color</value>
+  </data>
+  <data name="RibbonBar.General.btnFontColor.Hint" xml:space="preserve">
+    <value>Formats the text with the color you click</value>
+  </data>
+  <data name="RibbonBar.General.btnBackGroundColor.Caption" xml:space="preserve">
+    <value>Background Color</value>
+  </data>
+  <data name="RibbonBar.General.btnBackGroundColor.Hint" xml:space="preserve">
+    <value>Change the text background color</value>
+  </data>
+  <data name="RibbonBar.General.btnTextFontName.Caption" xml:space="preserve">
+    <value>Font Name</value>
+  </data>
+  <data name="RibbonBar.General.btnTextFontName.Hint" xml:space="preserve">
+    <value>Change text font</value>
+  </data>
+  <data name="RibbonBar.General.btnTextFontSize.Caption" xml:space="preserve">
+    <value>Text Size</value>
+  </data>
+  <data name="RibbonBar.General.btnTextFontSize.Hint" xml:space="preserve">
+    <value>Change text size</value>
+  </data>
+  <data name="RibbonBar.General.btnLine.Caption" xml:space="preserve">
+    <value>Line</value>
+  </data>
+  <data name="RibbonBar.General.btnLine.Hint" xml:space="preserve">
+    <value>Draw a line onto the paint layer</value>
+  </data>
+  <data name="RibbonBar.General.btnPointer.Caption" xml:space="preserve">
+    <value>Pointer</value>
+  </data>
+  <data name="RibbonBar.General.btnPointer.Hint" xml:space="preserve">
+    <value>Point to a selected paint item</value>
+  </data>
+  <data name="RibbonBar.General.barEditTextEffect.Caption" xml:space="preserve">
+    <value>Font Effect</value>
+  </data>
+  <data name="RibbonBar.General.barEditTextEffect.Hint" xml:space="preserve">
+    <value>Change text display</value>
+  </data>
+  <data name="RibbonBar.General.btnOpen.Caption" xml:space="preserve">
+    <value>Open</value>
+  </data>
+  <data name="RibbonBar.General.btnOpen.Hint" xml:space="preserve">
+    <value>Open a ProWrite item</value>
+  </data>
+  <data name="RibbonBar.General.btnOpenLibrary.Caption" xml:space="preserve">
+    <value>Library</value>
+  </data>
+  <data name="RibbonBar.General.btnOpenLibrary.Hint" xml:space="preserve">
+    <value>Open a library item</value>
+  </data>
+  <data name="RibbonBar.General.btnInsert.Caption" xml:space="preserve">
+    <value>Insert</value>
+  </data>
+  <data name="RibbonBar.General.btnInsert.Hint" xml:space="preserve">
+    <value>Insert an item</value>
+  </data>
+  <data name="RibbonBar.General.btnTextKern.Caption" xml:space="preserve">
+    <value>Kern</value>
+  </data>
+  <data name="RibbonBar.General.btnTextKern.Hint" xml:space="preserve">
+    <value>Kern number of text</value>
+  </data>
+  <data name="RibbonBar.General.btnTextLead.Caption" xml:space="preserve">
+    <value>Lead</value>
+  </data>
+  <data name="RibbonBar.General.btnTextLead.Hint" xml:space="preserve">
+    <value>Lead number of text</value>
+  </data>
+  <data name="RibbonBar.General.btnZoomIn.Caption" xml:space="preserve">
+    <value>Zoom In</value>
+  </data>
+  <data name="RibbonBar.General.btnZoomIn.Hint" xml:space="preserve">
+    <value>Zoom in the message</value>
+  </data>
+  <data name="RibbonBar.General.btnZoomOut.Caption" xml:space="preserve">
+    <value>Zoom Out</value>
+  </data>
+  <data name="RibbonBar.General.btnZoomOut.Hint" xml:space="preserve">
+    <value>Zoom out the message</value>
+  </data>
+  <data name="RibbonBar.General.barLineWidth.Caption" xml:space="preserve">
+    <value>Line Width</value>
+  </data>
+  <data name="RibbonBar.General.barLineWidth.Hint" xml:space="preserve">
+    <value>Set the width of line</value>
+  </data>
+  <data name="RibbonBar.General.btnLineDash.Caption" xml:space="preserve">
+    <value>Line Style</value>
+  </data>
+  <data name="RibbonBar.General.btnLineDash.Hint" xml:space="preserve">
+    <value>Set line style</value>
+  </data>
+  <data name="RibbonBar.General.btnTextFrameFixed.Caption" xml:space="preserve">
+    <value>Auto Text Size</value>
+  </data>
+  <data name="RibbonBar.General.btnTextFrameFixed.Hint" xml:space="preserve">
+    <value>Set text size automatically</value>
+  </data>
+  <data name="RibbonBar.General.cmbSign.Caption" xml:space="preserve">
+    <value>Current Sign</value>
+  </data>
+  <data name="RibbonBar.General.cmbSign.Hint" xml:space="preserve">
+    <value>Select current used sign</value>
+  </data>
+  <data name="LibraryGroup.Delete" xml:space="preserve">
+    <value>At least we should remain ONE Library in system. </value>
+  </data>
+  <data name="LibraryGroup.Edit" xml:space="preserve">
+    <value>You have to close ALL open &lt;Message&gt;, &lt;Playlist&gt; or &lt;Scheduler&gt; first.</value>
+  </data>
+  <data name="LibraryTree.DeleteFailed.FileIsLock" xml:space="preserve">
+    <value>The {0} '{1}' is being used,can't be deleted.</value>
+  </data>
+  <data name="LibraryTree.DeleteFailed.IsLock" xml:space="preserve">
+    <value>The {0} '{1}' is being used,can't be deleted.</value>
+  </data>
+  <data name="LibraryTree.DeleteSuccess" xml:space="preserve">
+    <value>The {0} '{1}' is deleted successful.</value>
+  </data>
+  <data name="LibraryTree.DeleteFailed.IsOpen" xml:space="preserve">
+    <value>The {0} '{1}' is being opened,can't be deleted.</value>
+  </data>
+  <data name="LibraryTree.Import.Failure" xml:space="preserve">
+    <value>Import {0} is failed.</value>
+  </data>
+  <data name="TimeSliceGroup.DeleteFailed" xml:space="preserve">
+    <value>The {0} '{1}' is being used ,can't be deleted.</value>
+  </data>
+  <data name="ImportNameMaxLength" xml:space="preserve">
+    <value>Import name max length must be less 60.</value>
+  </data>
+  <data name="Upload.Scheduler.ConnectFTPServer" xml:space="preserve">
+    <value>Connect Ftp server.</value>
+  </data>
+  <data name="LibraryDialog.Library.IsOpen" xml:space="preserve">
+    <value>Current selected {0} '{1}' is being opened,please select another.</value>
+  </data>
+  <data name="TimesliceGroup.EditForm.Title.Add" xml:space="preserve">
+    <value>Add Time Slice Group</value>
+  </data>
+  <data name="TimesliceGroup.EditForm.Title.Edit" xml:space="preserve">
+    <value>Edit Time Slice Group</value>
+  </data>
+  <data name="Library.OpenFailure" xml:space="preserve">
+    <value>Open {0} &lt;{1}&gt; Error.</value>
+  </data>
+  <data name="Library.Import.Playlist.GroupItem.SourceCaption" xml:space="preserve">
+    <value>Source Playlist Name:</value>
+  </data>
+  <data name="Library.Import.Playlist.GroupItem.TargetCaption" xml:space="preserve">
+    <value>Target Playlist Name:</value>
+  </data>
+  <data name="Save.Empty.Info" xml:space="preserve">
+    <value>Can not save empty {0}, '{1}' was not saved.</value>
+  </data>
+  <data name="UpLoad.MessageSuccessful" xml:space="preserve">
+    <value>Your {0} has been successfully uploaded to the sign '{1}'.
+It will play continuously.</value>
+  </data>
+  <data name="UpLoad.MessageNotLiveSign" xml:space="preserve">
+    <value>The sign your trying to play a {0} on is a fictitious demo sign. A live sign must be selected  is the
+Sign menu for Play Now to work. Check your dashboard to see which signs are live signs.</value>
+  </data>
+  <data name="UpLoad.MessageConfirm" xml:space="preserve">
+    <value>Messages, Playlists, and Schedules currently playing on the selected sign will be overwritten and this message
+will be played  continuously 24 hours a day with no end date. Continue?</value>
+  </data>
+  <data name="SessionGroup.LiveSign.Add" xml:space="preserve">
+    <value>The group '{0}' has contained the group '{1}'</value>
+  </data>
+  <data name="Live.Session.Add.Failure" xml:space="preserve">
+    <value>Save session failure.</value>
+  </data>
+  <data name="Live.Session.Add.Successful" xml:space="preserve">
+    <value>Save session successful.</value>
+  </data>
+  <data name="Live.Session.Update.Failure" xml:space="preserve">
+    <value>Update session failure.</value>
+  </data>
+  <data name="Live.Session.Update.Successful" xml:space="preserve">
+    <value>Update session successful.</value>
+  </data>
+  <data name="Live.Session.SesssionSetupForm.Title.Default" xml:space="preserve">
+    <value>New Session ‐ Session Setup – ProWrite V2</value>
+  </data>
+</root>

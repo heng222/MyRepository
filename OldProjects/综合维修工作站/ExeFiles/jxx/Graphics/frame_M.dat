@@ -1,0 +1,188 @@
+[FRAMENUM]
+NUM=31
+
+[FRAME1]
+ID=101
+coordinates= 1170 505
+size= 49 12
+SectionID= 0;
+
+[FRAME2]
+ID=102
+coordinates= 1170 535
+size= 49 12
+SectionID= 0;
+
+[FRAME3]
+ID=103
+coordinates= 1170 565
+size= 49 12
+SectionID= 0;
+
+[FRAME4]
+ID=201
+coordinates= 1100 505
+size= 49 12
+SectionID= 0;
+
+[FRAME5]
+ID=202
+coordinates= 1100 535
+size= 49 12
+SectionID= 0;
+
+[FRAME6]
+ID=203
+coordinates= 1100 565
+size= 49 12
+SectionID= 0;
+
+[FRAME7]
+ID=303
+coordinates= 1100 150
+size= 49 12
+SectionID= 0;
+
+[FRAME8]
+ID=302
+coordinates= 1100 180
+size= 49 12
+SectionID= 0;
+
+[FRAME9]
+ID=301
+coordinates= 1100 210
+size= 49 12
+SectionID= 0;
+
+[FRAME10]
+ID=403
+coordinates= 1170 150
+size= 49 12
+SectionID= 0;
+
+[FRAME11]
+ID=402
+coordinates= 1170 180
+size= 49 12
+SectionID= 0;
+
+[FRAME12]
+ID=401
+coordinates= 1170 210
+size= 49 12
+SectionID= 0;
+
+[FRAME13]
+ID=603
+coordinates= 80 170
+size= 49 12
+SectionID= 0;
+
+[FRAME14]
+ID=602
+coordinates= 80 200
+size= 49 12
+SectionID= 0;
+
+[FRAME15]
+ID=601
+coordinates= 80 230
+size= 49 12
+SectionID= 0;
+
+[FRAME16]
+ID=501
+coordinates= 80 435
+size= 49 12
+SectionID= 0;
+
+[FRAME17]
+ID=502
+coordinates= 80 465
+size= 49 12
+SectionID= 0;
+
+[FRAME18]
+ID=503
+coordinates= 80 495
+size= 49 12
+SectionID= 0;
+
+[FRAME19]
+ID=12
+coordinates= 1170 418
+size= 49 12
+SectionID= 0;
+
+[FRAME20]
+ID=20
+coordinates= 1170 358
+size= 49 12
+SectionID= 0;
+
+[FRAME21]
+ID=22
+coordinates= 1170 305
+size= 49 12
+SectionID= 0;
+
+[FRAME22]
+ID=14
+coordinates= 1170 250
+size= 49 12
+SectionID= 0;
+
+[FRAME23]
+ID=15
+coordinates= 80 365
+size= 49 12
+SectionID= 0;
+
+[FRAME24]
+ID=18
+coordinates= 80 305
+size= 49 12
+SectionID= 0;
+
+[FRAME25]
+ID=9
+coordinates= 608 530
+size= 49 12
+SectionID= 0;
+
+[FRAME26]
+ID=7
+coordinates= 605 418
+size= 49 12
+SectionID= 0;
+
+[FRAME27]
+ID=6
+coordinates= 605 360
+size= 49 12
+SectionID= 0;
+
+[FRAME28]
+ID=5
+coordinates= 605 305
+size= 49 12
+SectionID= 0;
+
+[FRAME29]
+ID=4
+coordinates= 605 250
+size= 49 12
+SectionID= 0;
+
+[FRAME30]
+ID=2
+coordinates= 605 195
+size= 49 12
+SectionID= 0;
+
+[FRAME31]
+ID=1
+coordinates= 605 138
+size= 49 12
+SectionID= 0;

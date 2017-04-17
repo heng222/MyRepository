@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{F088123C-0E9E-452A-89E6-6BA2F21D5CAC}") = "UMLearning", "UMLearning\UMLearning.modelproj", "{D8D501C1-7E88-4F03-ACC4-BDF7FDCBA7BD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpLib", "CSharpLib\CSharpLib.csproj", "{208FAD08-09B1-4D6B-8F62-104CD1B8CA68}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D8D501C1-7E88-4F03-ACC4-BDF7FDCBA7BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8D501C1-7E88-4F03-ACC4-BDF7FDCBA7BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8D501C1-7E88-4F03-ACC4-BDF7FDCBA7BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8D501C1-7E88-4F03-ACC4-BDF7FDCBA7BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{208FAD08-09B1-4D6B-8F62-104CD1B8CA68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{208FAD08-09B1-4D6B-8F62-104CD1B8CA68}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{208FAD08-09B1-4D6B-8F62-104CD1B8CA68}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{208FAD08-09B1-4D6B-8F62-104CD1B8CA68}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

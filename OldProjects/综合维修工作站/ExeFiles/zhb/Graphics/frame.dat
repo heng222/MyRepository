@@ -1,0 +1,170 @@
+[FRAMENUM]
+NUM=28
+
+[FRAME1]
+ID=103
+coordinates= 40 230
+size= 55 14
+SectionID= 0;
+
+[FRAME2]
+ID=102
+coordinates= 40 250
+size= 55 14
+SectionID= 0;
+
+[FRAME3]
+ID=101
+coordinates= 40 270
+size= 55 14
+SectionID= 0;
+
+[FRAME4]
+ID=201
+coordinates= 110 230
+size= 55 14
+SectionID= 0;
+
+[FRAME5]
+ID=202
+coordinates= 110 250
+size= 55 14
+SectionID= 0;
+
+[FRAME6]
+ID=203
+coordinates= 110 270
+size= 55 14
+SectionID= 0;
+
+[FRAME7]
+ID=303
+coordinates= 1150 230
+size= 55 14
+SectionID= 0;
+
+[FRAME8]
+ID=302
+coordinates= 1150 250
+size= 55 14
+SectionID= 0;
+
+[FRAME9]
+ID=301
+coordinates= 1150 270
+size= 55 14
+SectionID= 0;
+
+[FRAME10]
+ID=401
+coordinates= 1150 490
+size= 55 14
+SectionID= 0;
+
+[FRAME11]
+ID=402
+coordinates= 1150 510
+size= 55 14
+SectionID= 0;
+
+[FRAME12]
+ID=403
+coordinates= 1150 530
+size= 55 14
+SectionID= 0;
+
+[FRAME13]
+ID=10
+coordinates= 90 350
+size= 50 14
+SectionID= 1; 50 
+
+[FRAME14]
+ID=12
+coordinates= 90 417
+size= 50 14
+SectionID= 1; 52 
+
+[FRAME15]
+ID=16
+coordinates= 1120 355
+size= 50 14
+SectionID= 1; 56 
+
+[FRAME16]
+ID=14
+coordinates= 1120 412
+size= 50 14
+SectionID= 1; 54 
+
+[FRAME17]
+ID=7
+coordinates= 580 184
+size= 55 14
+SectionID= 1; 47 
+
+[FRAME18]
+ID=6
+coordinates= 580 241
+size= 55 14
+SectionID= 1; 46 
+
+[FRAME19]
+ID=5
+coordinates= 580 298
+size= 55 14
+SectionID= 1; 45 
+
+[FRAME20]
+ID=3
+coordinates= 580 355
+size= 55 14
+SectionID= 1; 43 
+
+[FRAME21]
+ID=2
+coordinates= 580 412
+size= 55 14
+SectionID= 1; 42 
+
+[FRAME22]
+ID=4
+coordinates= 580 469
+size= 55 14
+SectionID= 2;31 44 
+
+[FRAME23]
+ID=1
+coordinates= 740 469
+size= 55 14
+SectionID= 0; 
+
+[FRAME24]
+ID=8
+coordinates= 740 524
+size= 55 14
+SectionID= 1; 48 
+
+[FRAME25]
+ID=9
+coordinates= 30 350
+size= 50 14
+SectionID= 1; 49 
+
+[FRAME26]
+ID=11
+coordinates= 30 417
+size= 50 14
+SectionID= 1; 51 
+
+[FRAME27]
+ID=15
+coordinates= 1180 355
+size= 50 14
+SectionID= 1; 55 
+
+[FRAME28]
+ID=13
+coordinates= 1180 412
+size= 50 14
+SectionID= 1; 53 

@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<FontConfig>
+  <Package>
+    <PackageName>PW Sign Font</PackageName>
+    <Font>
+      <FileName>PW16BOLD.FON</FileName>
+      <FontName>Prowrite 16 high bold</FontName>
+      <Size>17</Size>
+      <Style>Bold</Style>
+      <AutoFont>true</AutoFont>
+    </Font>
+    <Font>
+      <FileName>PW16HIGH.FON</FileName>
+      <FontName>Prowrite 16 high</FontName>
+      <Size>17</Size>
+      <Style>Regular</Style>
+      <AutoFont>true</AutoFont>
+    </Font>
+    <Font>
+      <FileName>PW12BOLD.FON</FileName>
+      <FontName>Prowrite 12 high bold</FontName>
+      <Size>13</Size>
+      <Style>Bold</Style>
+      <AutoFont>true</AutoFont>
+    </Font>
+    <Font>
+      <FileName>PW12HIGH.FON</FileName>
+      <FontName>Prowrite 12 high</FontName>
+      <Size>13</Size>
+      <Style>Regular</Style>
+      <AutoFont>true</AutoFont>
+    </Font>
+    <Font>
+      <FileName>PW7BOLD.FON</FileName>
+      <FontName>Prowrite 7 high bold</FontName>
+      <Size>8</Size>
+      <Style>Bold</Style>
+      <AutoFont>true</AutoFont>
+    </Font>
+    <Font>
+      <FileName>PW7SINGLE.FON</FileName>
+      <FontName>Prowrite 7 High Single</FontName>
+      <Size>8</Size>
+      <Style>Regular</Style>
+      <AutoFont>true</AutoFont>
+    </Font>
+    <Font>
+      <FileName>PW7ITALI.FON</FileName>
+      <FontName>Prowrite 7 High Single Italics</FontName>
+      <Size>8</Size>
+      <Style>Italic</Style>
+      <AutoFont>false</AutoFont>
+    </Font>
+    <Font>
+      <FileName>PW5HIGH.FON</FileName>
+      <FontName>Prowrite 5 high Single</FontName>
+      <Size>6</Size>
+      <Style>Regular</Style>
+      <AutoFont>true</AutoFont>
+    </Font>
+  </Package>
+</FontConfig>

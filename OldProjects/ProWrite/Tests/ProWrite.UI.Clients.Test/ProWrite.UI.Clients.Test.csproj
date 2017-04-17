@@ -1,0 +1,735 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{DD8665D6-E845-4940-A765-30F0D8CDE5A0}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ProWrite.UI.Clients.Test</RootNamespace>
+    <AssemblyName>ProWrite.UI.Clients.Test</AssemblyName>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <StartupObject>
+    </StartupObject>
+    <PublishUrl>http://localhost/ProWrite.UI.Clients.Test/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release_X64|AnyCPU' ">
+    <OutputPath>bin\Release_X64\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug_X64|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug_X64\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release_X64|x86' ">
+    <OutputPath>bin\x86\Release_X64\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug_X64|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug_X64\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.BonusSkins.v9.1, Version=9.1.2.0, Culture=neutral, PublicKeyToken=95fc6c5621878f0a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Libs\DevExpress.BonusSkins.v9.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Data.v9.1, Version=9.1.2.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Libs\DevExpress.Data.v9.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.OfficeSkins.v9.1, Version=9.1.2.0, Culture=neutral, PublicKeyToken=95fc6c5621878f0a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Libs\DevExpress.OfficeSkins.v9.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v9.1, Version=9.1.2.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Libs\DevExpress.Utils.v9.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraBars.v9.1, Version=9.1.2.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Libs\DevExpress.XtraBars.v9.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v9.1, Version=9.1.2.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Libs\DevExpress.XtraEditors.v9.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraGrid.v9.1, Version=9.1.2.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Libs\DevExpress.XtraGrid.v9.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraLayout.v9.1, Version=9.1.2.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Libs\DevExpress.XtraLayout.v9.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraNavBar.v9.1, Version=9.1.2.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Libs\DevExpress.XtraNavBar.v9.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraScheduler.v9.1, Version=9.1.2.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Libs\DevExpress.XtraScheduler.v9.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraScheduler.v9.1.Core, Version=9.1.2.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Libs\DevExpress.XtraScheduler.v9.1.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraScheduler.v9.1.Extensions, Version=9.1.2.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Libs\DevExpress.XtraScheduler.v9.1.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraTreeList.v9.1, Version=9.1.2.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Libs\DevExpress.XtraTreeList.v9.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraVerticalGrid.v9.1, Version=9.1.2.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Libs\DevExpress.XtraVerticalGrid.v9.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DirectShowLib-2005, Version=2.0.0.0, Culture=neutral, PublicKeyToken=67e7b740cdfc2d3f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Libs\DirectShowLib-2005.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DockFormTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DockFormTest.Designer.cs">
+      <DependentUpon>DockFormTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FontSample\CreateVideoMessage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FontSample\CreateVideoMessage.Designer.cs">
+      <DependentUpon>CreateVideoMessage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FontSample\FontClass.cs" />
+    <Compile Include="FontSample\FontSelectForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FontSample\FontSelectForm.Designer.cs">
+      <DependentUpon>FontSelectForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FontSample\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FontSample\Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FontSample\FormScrollBar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FontSample\FormScrollBar.Designer.cs">
+      <DependentUpon>FormScrollBar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FontSample\frmButtonBackColor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FontSample\frmButtonBackColor.Designer.cs">
+      <DependentUpon>frmButtonBackColor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FontSample\frmCCOM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FontSample\frmCCOM.Designer.cs">
+      <DependentUpon>frmCCOM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FontSample\frmCircle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FontSample\frmCircle.Designer.cs">
+      <DependentUpon>frmCircle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FontSample\frmCLIForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FontSample\frmCLIForm.Designer.cs">
+      <DependentUpon>frmCLIForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FontSample\frmDrawArc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FontSample\frmDrawArc.Designer.cs">
+      <DependentUpon>frmDrawArc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FontSample\frmFontColor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FontSample\frmFontColor.Designer.cs">
+      <DependentUpon>frmFontColor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FontSample\frmFontSize.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FontSample\frmFontSize.Designer.cs">
+      <DependentUpon>frmFontSize.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FontSample\frmFontZoom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FontSample\frmFontZoom.Designer.cs">
+      <DependentUpon>frmFontZoom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FontSample\frmFontZoom0.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FontSample\frmFontZoom0.Designer.cs">
+      <DependentUpon>frmFontZoom0.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FontSample\frmFontZoom1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FontSample\frmFontZoom1.Designer.cs">
+      <DependentUpon>frmFontZoom1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FontSample\frmFontZoom3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FontSample\frmFontZoom3.Designer.cs">
+      <DependentUpon>frmFontZoom3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FontSample\frmFontZoomAPI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FontSample\frmFontZoomAPI.Designer.cs">
+      <DependentUpon>frmFontZoomAPI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FontSample\frmImageButton.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FontSample\frmImageButton.Designer.cs">
+      <DependentUpon>frmImageButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FontSample\frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FontSample\frmMain.Designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FontSample\frmOpacity.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FontSample\frmOpacity.Designer.cs">
+      <DependentUpon>frmOpacity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FontSample\frmPanelControlResize.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FontSample\frmPanelControlResize.Designer.cs">
+      <DependentUpon>frmPanelControlResize.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FontSample\frmPcitrueStretch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FontSample\frmPcitrueStretch.Designer.cs">
+      <DependentUpon>frmPcitrueStretch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FontSample\frmPictureBrowseAndConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FontSample\frmPictureBrowseAndConfig.Designer.cs">
+      <DependentUpon>frmPictureBrowseAndConfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FontSample\frmPropertyGridSample.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FontSample\frmPropertyGridSample.Designer.cs">
+      <DependentUpon>frmPropertyGridSample.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FontSample\frmRandom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FontSample\frmRandom.Designer.cs">
+      <DependentUpon>frmRandom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FontSample\frmTeelist1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FontSample\frmTeelist1.Designer.cs">
+      <DependentUpon>frmTeelist1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FontSample\frmTestMeasureString.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FontSample\frmTestMeasureString.Designer.cs">
+      <DependentUpon>frmTestMeasureString.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FontSample\frmTextAutoSize.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FontSample\frmTextAutoSize.Designer.cs">
+      <DependentUpon>frmTextAutoSize.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FontSample\frmTextOutlineSample.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FontSample\frmTextOutlineSample.Designer.cs">
+      <DependentUpon>frmTextOutlineSample.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FontSample\frmTextShadow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FontSample\frmTextShadow.Designer.cs">
+      <DependentUpon>frmTextShadow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FontSample\frmTimeControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FontSample\frmTimeControl.Designer.cs">
+      <DependentUpon>frmTimeControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FontSample\frmTreeList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FontSample\frmTreeList.Designer.cs">
+      <DependentUpon>frmTreeList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FontSample\PrivateFontSample.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FontSample\PrivateFontSample.Designer.cs">
+      <DependentUpon>PrivateFontSample.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FontSample\ProWriteFont.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FontSample\ProWriteFont.Designer.cs">
+      <DependentUpon>ProWriteFont.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FontSample\ReplaceTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FontSample\ReplaceTest.Designer.cs">
+      <DependentUpon>ReplaceTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FontSample\SafeNativeMethods.cs" />
+    <Compile Include="FrmHelpTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmImageTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmImageTest.Designer.cs">
+      <DependentUpon>FrmImageTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmLayerForsidePanel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLayerForsidePanel.Designer.cs">
+      <DependentUpon>FrmLayerForsidePanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmLayerName.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLayerName.Designer.cs">
+      <DependentUpon>FrmLayerName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmLayerTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLayerTest.Designer.cs">
+      <DependentUpon>FrmLayerTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmTemplateTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmTemplateTest.Designer.cs">
+      <DependentUpon>FrmTemplateTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmWorkerThreadTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmWorkerThreadTest.Designer.cs">
+      <DependentUpon>FrmWorkerThreadTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyControlsTestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MyControlsTestForm.Designer.cs">
+      <DependentUpon>MyControlsTestForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PlayForm.cs">
+    </Compile>
+    <Compile Include="PlayForm.Designer.cs">
+      <DependentUpon>PlayForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FontSample\CreateVideoMessage.resx">
+      <DependentUpon>CreateVideoMessage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FontSample\FontSelectForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FontSelectForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FontSample\Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FontSample\FormScrollBar.resx">
+      <DependentUpon>FormScrollBar.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FontSample\frmCCOM.resx">
+      <DependentUpon>frmCCOM.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FontSample\frmCircle.resx">
+      <DependentUpon>frmCircle.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FontSample\frmCLIForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmCLIForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FontSample\frmDrawArc.resx">
+      <DependentUpon>frmDrawArc.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FontSample\frmFontColor.resx">
+      <DependentUpon>frmFontColor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FontSample\frmFontSize.resx">
+      <DependentUpon>frmFontSize.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FontSample\frmFontZoom.resx">
+      <DependentUpon>frmFontZoom.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FontSample\frmFontZoom0.resx">
+      <DependentUpon>frmFontZoom0.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FontSample\frmFontZoom1.resx">
+      <DependentUpon>frmFontZoom1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FontSample\frmFontZoom3.resx">
+      <DependentUpon>frmFontZoom3.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FontSample\frmFontZoomAPI.resx">
+      <DependentUpon>frmFontZoomAPI.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FontSample\frmImageButton.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmImageButton.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FontSample\frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FontSample\frmOpacity.resx">
+      <DependentUpon>frmOpacity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FontSample\frmPanelControlResize.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmPanelControlResize.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FontSample\frmPcitrueStretch.resx">
+      <DependentUpon>frmPcitrueStretch.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FontSample\frmPictureBrowseAndConfig.resx">
+      <DependentUpon>frmPictureBrowseAndConfig.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FontSample\frmPropertyGridSample.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmPropertyGridSample.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FontSample\frmRandom.resx">
+      <DependentUpon>frmRandom.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FontSample\frmTeelist1.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmTeelist1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FontSample\frmTestMeasureString.resx">
+      <DependentUpon>frmTestMeasureString.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FontSample\frmTextAutoSize.resx">
+      <DependentUpon>frmTextAutoSize.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FontSample\frmTextOutlineSample.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmTextOutlineSample.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FontSample\frmTextShadow.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmTextShadow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FontSample\frmTimeControl.resx">
+      <DependentUpon>frmTimeControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FontSample\frmTreeList.resx">
+      <DependentUpon>frmTreeList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FontSample\PrivateFontSample.resx">
+      <DependentUpon>PrivateFontSample.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FontSample\ProWriteFont.resx">
+      <DependentUpon>ProWriteFont.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FontSample\ReplaceTest.resx">
+      <DependentUpon>ReplaceTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmImageTest.resx">
+      <DependentUpon>FrmImageTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLayerForsidePanel.resx">
+      <DependentUpon>FrmLayerForsidePanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLayerName.resx">
+      <DependentUpon>FrmLayerName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLayerTest.resx">
+      <DependentUpon>FrmLayerTest.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmTemplateTest.resx">
+      <DependentUpon>FrmTemplateTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmWorkerThreadTest.resx">
+      <DependentUpon>FrmWorkerThreadTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyControlsTestForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>MyControlsTestForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PlayForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>PlayForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="SerializeTest.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Clients\ProWrite.UI.Resources\ProWrite.Resources.csproj">
+      <Project>{F2473A63-8F0D-48E1-B11F-AEEF54D1F021}</Project>
+      <Name>ProWrite.Resources</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Clients\ProWrite.UI.Texts\ProWrite.UI.Texts.vcproj">
+      <Project>{B257EC94-F0B3-4DD7-BA27-94CEFFAE3F0B}</Project>
+      <Name>ProWrite.UI.Texts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Commons\Messages\Messages.csproj">
+      <Project>{3596709E-8A87-45AB-BC39-EAAE5DA2A3A7}</Project>
+      <Name>Messages</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Commons\ProWrite.Core\ProWrite.Core.csproj">
+      <Project>{FF80525C-029F-4EE1-BCF5-3547AFA06F0B}</Project>
+      <Name>ProWrite.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Clients\ProWrite.UI.Controls\ProWrite.UI.Controls.csproj">
+      <Project>{A0C45DB5-FA97-481E-A1A6-E07A7F226FCF}</Project>
+      <Name>ProWrite.UI.Controls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Commons\ProWrite.DES\ProWrite.DES.csproj">
+      <Project>{9C998B54-46BB-4688-B7C2-2DB0D055C250}</Project>
+      <Name>ProWrite.DES</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Commons\ProWrite.Entity\ProWrite.Entity.csproj">
+      <Project>{5915A60C-B679-4E48-86AD-C79D9F8C903F}</Project>
+      <Name>ProWrite.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Commons\ProWrite.SSL\ProWrite.SSL.vcproj">
+      <Project>{2ED2902C-82B4-4433-B057-329547CA0335}</Project>
+      <Name>ProWrite.SSL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Commons\ProWrite.UFE.Entity\ProWrite.UFE.Entity.csproj">
+      <Project>{5D1E0AF1-E69A-48F2-BE2E-DA9BEFA9AE2A}</Project>
+      <Name>ProWrite.UFE.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Commons\ProWrite.UFE.Files\ProWrite.UFE.Files.csproj">
+      <Project>{4AD4580A-CF1A-47F5-BD89-7B08B2343A08}</Project>
+      <Name>ProWrite.UFE.Files</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Commons\ProWrite.UFE\ProWrite.UFE.csproj">
+      <Project>{ACD7DEDB-AA50-4665-BEA0-729E64DDFA2D}</Project>
+      <Name>ProWrite.UFE</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Servers\ProWrite.DataProvider\ProWrite.DataProvider.csproj">
+      <Project>{0AE259C0-D7E3-4DE8-8726-C4A333D97E31}</Project>
+      <Name>ProWrite.DataProvider</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="HTMLPage1.htm" />
+    <Content Include="json_demo.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Svg1.xml" />
+    <Content Include="Templates.htm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

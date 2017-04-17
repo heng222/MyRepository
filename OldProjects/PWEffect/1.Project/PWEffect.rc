@@ -1,0 +1,158 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "winres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Chinese (P.R.C.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+#ifdef _WIN32
+LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_SIMPLIFIED
+#pragma code_page(936)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// REGISTRY
+//
+
+IDR_COLORADJUST         REGISTRY DISCARDABLE    ".\\rgsfiles\\ColorAdjust.rgs"
+IDR_DTOTEXT             REGISTRY DISCARDABLE    ".\\rgsfiles\\DTOText.rgs"
+IDR_BIJOU               REGISTRY DISCARDABLE    ".\\rgsfiles\\Bijou.rgs"
+IDR_PIXELPLAY           REGISTRY DISCARDABLE    ".\\rgsfiles\\PixelPlay.rgs"
+IDR_SNOW                REGISTRY DISCARDABLE    ".\\rgsfiles\\Snow.rgs"
+IDR_FLASH               REGISTRY DISCARDABLE    ".\\rgsfiles\\Flash.rgs"
+IDR_SPARKLE             REGISTRY DISCARDABLE    ".\\rgsfiles\\Sparkle.rgs"
+IDR_RAIN                REGISTRY DISCARDABLE    ".\\rgsfiles\\Rain.rgs"
+IDR_TRAVEL              REGISTRY DISCARDABLE    ".\\rgsfiles\\Travel.rgs"
+IDR_BOUNCE              REGISTRY DISCARDABLE    ".\\rgsfiles\\Bounce.rgs"
+IDR_BLACKHOLE           REGISTRY DISCARDABLE    ".\\rgsfiles\\BlackHole.rgs"
+IDR_SLOT                REGISTRY DISCARDABLE    ".\\rgsfiles\\Slot.rgs"
+IDR_FILTER              REGISTRY DISCARDABLE    ".\\rgsfiles\\Filter.rgs"
+IDR_INTERLEAVE          REGISTRY DISCARDABLE    ".\\rgsfiles\\Interleave.rgs"
+IDR_WRAPAROUND          REGISTRY DISCARDABLE    ".\\rgsfiles\\WrapAround.rgs"
+IDR_LINEON              REGISTRY DISCARDABLE    ".\\rgsfiles\\LineOn.rgs"
+IDR_SLIDE               REGISTRY DISCARDABLE    ".\\rgsfiles\\Slide.rgs"
+IDR_WIPE                REGISTRY DISCARDABLE    ".\\rgsfiles\\Wipe.rgs"
+IDR_MULTIWIPE           REGISTRY DISCARDABLE    ".\\rgsfiles\\MultiWipe.rgs"
+IDR_PUSHON              REGISTRY DISCARDABLE    ".\\rgsfiles\\PushOn.rgs"
+IDR_RADAR               REGISTRY DISCARDABLE    ".\\rgsfiles\\Radar.rgs"
+IDR_VENETIAN            REGISTRY DISCARDABLE    ".\\rgsfiles\\Venetian.rgs"
+IDR_FADE                REGISTRY DISCARDABLE    ".\\rgsfiles\\Fade.rgs"
+IDR_COALESCE            REGISTRY DISCARDABLE    ".\\rgsfiles\\Coalesce.rgs"
+#endif    // Chinese (P.R.C.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE MOVEABLE PURE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE MOVEABLE PURE 
+BEGIN
+    "#include ""winres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE MOVEABLE PURE 
+BEGIN
+    "1 TYPELIB ""Debug/PWEffect.tlb""\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x2L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "CompanyName", "ISoftStone Company\0"
+            VALUE "FileDescription", "ISS Prowrite Effects Module\0"
+            VALUE "FileVersion", "1, 0, 0, 1\0"
+            VALUE "InternalName", "PWEffect\0"
+            VALUE "LegalCopyright", "Copyright (C) ISS Corp, 2008\0"
+            VALUE "OriginalFilename", "PW.Effect.DLL\0"
+            VALUE "ProductName", "ISS Prowrite Effects Module\0"
+            VALUE "ProductVersion", "1, 0, 0, 1\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_PROJNAME            "PWEffect"
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+1 TYPELIB "Debug/PWEffect.tlb"
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

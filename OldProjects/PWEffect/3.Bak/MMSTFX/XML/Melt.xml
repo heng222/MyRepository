@@ -1,0 +1,13 @@
+<!-- New 3D transition.  This XML file sets MeltIntensity which determines the amount of 
+	 melting which occurs before the first video slides away revealing the second video.
+	 Requires MMSTFX DLL to be built. -->
+<TransitionsAndEffects Version="1.0">
+	<Transitions>
+		<TransitionDLL guid="{978DABA8-F330-4f09-BEC5-4D53C541BB4D}">
+			<Transition name="Melt" iconid="12">
+				<Param name="MeltIntensity" value="1.3" />
+			</Transition> 
+		</TransitionDLL>
+	</Transitions>
+</TransitionsAndEffects>
+

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--Created with Liquid XML Studio - FREE Community Edition 7.0.1.654 (http://www.liquid-technologies.com)-->
+<xs:schema xmlns:tns="http://xml.netbeans.org/schema/ProWriteDiagnostics" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="SignDiagnostics" type="SignDiagnosticsType" />
+  <xs:complexType name="SignDiagnosticsType">
+    <xs:sequence>
+      <xs:element name="SignID" type="SignIDType" />
+      <xs:element name="TimeStamp" type="xs:string" />
+      <xs:element name="OverallStatus" type="StatusType" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Component" type="ComponentType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SignIDType">
+    <xs:annotation>
+       <xs:documentation xml:lang="en">
+			Identifies the sign that generated the diagnostics.  Not necessarily
+			displayed by ProWrite, but useful if the diagnostic XML file is archived.
+       </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="SiteDescription" type="xs:string" />
+      <xs:element name="SerialNumber" type="xs:string" />
+      <xs:element name="SalesNumber" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="StatusType">
+    <xs:annotation>
+       <xs:documentation xml:lang="en">
+			Used to quickly indicate overall status and individual component status.
+			GREEN is used for no problems, YELLOW for warning, RED for critical errors.
+			GRAY indicates that a component is not present or data is not available for it.
+       </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="GREEN" />
+      <xs:enumeration value="YELLOW" />
+      <xs:enumeration value="RED" />
+      <xs:enumeration value="GRAY" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="ComponentType">
+    <xs:annotation>
+       <xs:documentation xml:lang="en">
+			SignDiagnosticType contains an arbitrary number of Component child elements.
+			Name and Status are required elements and are displayed by ProWrite.  ID
+			is an optional element which can be used to provide a hardware ID or
+			schematic reference. Each component contains an arbitrary number of
+			Parameter child elements which will be displayed when ProWrite "drills down"
+			into a Tree view of diagnostic info.
+       </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Name" type="xs:string" />
+      <xs:element name="Status" type="StatusType" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ID" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Parameter" type="ParameterType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ParameterType">
+    <xs:sequence>
+      <xs:element name="Name" type="xs:string" />
+      <xs:element name="Value" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

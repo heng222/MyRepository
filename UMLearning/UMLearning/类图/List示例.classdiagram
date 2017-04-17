@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="ce5d3afc-09e9-4215-b37c-2b3541831e87" name="UMLClassDiagram1" linkedPackageId="1d19b709-5e5b-4dee-8af9-969d9dbd2e0c" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+  <profileInstances>
+    <packageHasProfileInstances Id="54bf958d-8492-4284-a187-b77d4ee322e0">
+      <profileInstance Id="4ca01829-8957-4579-ba39-f047e7980453" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="34b4e86d-6ada-44ee-8d41-c1417f55b9f6">
+      <profileInstance Id="8a101831-d73b-483c-80f4-84eb87152cd1" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="48c8a3c6-d3c2-4923-9987-6039e19bd57c" name="List" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <appliedStereotypesInternal>
+          <stereotypeInstance Id="1ec6777c-5a57-425f-9ef4-5887e82ff3e1" name="type" profile="StandardProfileL2">
+            <elementDefinition Id="17e0d16f-b7bc-400e-8e28-4d5d6c248c79" />
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <elementDefinition Id="af1101f2-a3fd-4070-af7a-2ed4e8a2891e" />
+        <ownedRedefinableTemplateSignatureInternal>
+          <redefinableTemplateSignature Id="836fe0e4-82f5-40ff-b65c-37853e34f28c" parameters="" isLeaf="false">
+            <elementDefinition Id="69051516-4fbf-46eb-af4c-9123bb6d4f27" />
+            <ownedParameters>
+              <classifierTemplateParameter Id="eabc4a64-212a-44b3-a7af-766359f1c51f" allowSubstitutable="false">
+                <elementDefinition Id="cb907475-7be1-4012-96dd-63d6d2697dd2" />
+                <ownedParameterableElement>
+                  <class Id="f116770e-637f-4fe8-8232-9fbd5c682f4e" name="T" isAbstract="false" isLeaf="false" isActiveClass="false">
+                    <elementDefinition Id="4e7e8c73-b402-4772-9781-99a5cfed2b78" />
+                  </class>
+                </ownedParameterableElement>
+              </classifierTemplateParameter>
+            </ownedParameters>
+          </redefinableTemplateSignature>
+        </ownedRedefinableTemplateSignatureInternal>
+        <ownedAttributesInternal>
+          <property Id="bbb11da2-bc21-482c-804e-2141165bb4b7" name="Count" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="e71f2dbf-c746-4df6-b44a-93c3f8043474" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="22d95d8e-3762-473f-b92a-989b48325d2a" LastKnownName="Integer" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="197c51ff-41a9-4d4a-8011-d03c0b30c7dd" name="List" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <appliedStereotypesInternal>
+              <stereotypeInstance Id="c283f078-d893-433d-b45c-456076f65106" name="create" profile="StandardProfileL2">
+                <elementDefinition Id="85edf330-064a-44ca-9011-1c49f4ba6750" />
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <elementDefinition Id="5b8e5f27-857b-4a4a-802f-c185b3e3db4b" />
+          </operation>
+          <operation Id="a7dffef3-3ecd-4d66-bbf4-872875ae8cd4" name="List" visibility="Package" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <appliedStereotypesInternal>
+              <stereotypeInstance Id="3078c79a-9302-46c3-827f-c3628bc84574" name="destroy" profile="StandardProfileL2">
+                <elementDefinition Id="774e9ed0-8128-48fd-b452-f01600f44e30" />
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <elementDefinition Id="c5edb384-d98c-42a6-8daa-5ac445153c6e" />
+          </operation>
+          <operation Id="ee4cea78-205d-43ff-a7bb-e852aa8c5e94" name="Add" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="328c8f0c-033a-446b-a1b1-e90c4b9affd0" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="315cbfbf-dc8f-427f-8325-94312c8fccf6" name="value" direction="In">
+                  <elementDefinition Id="4aef9239-9978-4180-8011-b3d030c7eb55" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="479d2299-3b05-414c-ae14-ab3eb3c827ea" LastKnownName="T" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="ab548321-7d47-459a-bb9d-f2730e46ad4d" name="GetAt" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="2489be27-9dda-4f56-aca2-8333f2437a32" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="bf1da7f6-e1f2-4f05-adaf-23ad53742285" direction="Return">
+                  <elementDefinition Id="0ab278b7-50fd-49e1-8401-049c85f547c7" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="479d2299-3b05-414c-ae14-ab3eb3c827ea" LastKnownName="T" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="c0249e25-4a23-4cfe-a07e-79bc12e1a101" name="index" direction="In" isUnique="false">
+                  <elementDefinition Id="9362fd12-ecff-460a-892e-adfd103c0add" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="1161922c-bac4-45c4-9fa0-1c6bac024d6d" LastKnownName="int" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="22d95d8e-3762-473f-b92a-989b48325d2a" name="Integer" isAbstract="false" isLeaf="false" cachedFullName="Integer">
+        <elementDefinition Id="220a3521-e091-4221-bae9-3ef9018e845c" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="1161922c-bac4-45c4-9fa0-1c6bac024d6d" name="int" isAbstract="false" isLeaf="false" cachedFullName="int">
+        <elementDefinition Id="8f18d81c-7175-4664-a5ea-65c7eb5cf080" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="479d2299-3b05-414c-ae14-ab3eb3c827ea" name="T" isAbstract="false" isLeaf="false" cachedFullName="T">
+        <elementDefinition Id="4e7e8c73-b402-4772-9781-99a5cfed2b78" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <Interface Id="19629ad7-ec8c-4886-a55f-142b59f0743f" name="IList" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="1a0d5b3c-547b-46e1-b05e-8815fdf39be7" />
+        <ownedOperations>
+          <operation Id="393177cd-404c-4075-9180-486c1dff287b" name="Add" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="bd06fd9c-5fd0-42cd-ab5a-3e974855742d" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="bd99d8ae-4553-49ed-a7c7-04108cfd443f" name="value" direction="In" isUnique="false">
+                  <elementDefinition Id="9c9f86f3-0ff0-4182-9f85-3353c261b530" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="89065b5b-454d-41bb-822c-c20dd70b2ed8" LastKnownName="object" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="e4f0da6b-3782-477e-a4ac-0ba0723c1ceb" name="Clear" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="256605de-b5ee-49ce-8b56-228cb4c8bb67" />
+          </operation>
+        </ownedOperations>
+      </Interface>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="89065b5b-454d-41bb-822c-c20dd70b2ed8" name="object" isAbstract="false" isLeaf="false" cachedFullName="object">
+        <elementDefinition Id="1ce0a4aa-1045-4edf-af97-7886259b0fc0" />
+      </referencedType>
+    </packageHasNamedElement>
+  </packagedElements>
+  <package Id="1d19b709-5e5b-4dee-8af9-969d9dbd2e0c" name="UMLearning">
+    <elementDefinition Id="baf8f03b-1fe8-4860-9ae1-10efb35b8e0a" />
+  </package>
+</logicalClassDesignerModel>

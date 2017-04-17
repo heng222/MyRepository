@@ -1,0 +1,435 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ProWrite.DES.DESCallback" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="10.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAgAAAAAAAAAACAgAAiAAgkAAAAgIQAEAGQQFCIA=</HashCode>
+      <FileName>DESCallback.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ProWrite.DES.CompletedArgs" Collapsed="true">
+    <Position X="9" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DESCombine.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProWrite.DES.FileCompletedArgs" Collapsed="true">
+    <Position X="16" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAABAAAA=</HashCode>
+      <FileName>DESCombine.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProWrite.DES.DESCombine" Collapsed="true">
+    <Position X="12.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>YJAgBwEDQCAxBQMAADEACSMQAAAAJACAMNAEESAAIAI=</HashCode>
+      <FileName>DESCombine.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProWrite.DES.DESConsts" Collapsed="true">
+    <Position X="14.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACgAKAAABIAAABgAAAQQAAIAAAAIUIAAAFBACAg=</HashCode>
+      <FileName>DESConsts.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProWrite.DES.DESGroup" Collapsed="true">
+    <Position X="16" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAQAEAAACAQBAABIAAQAARAAAgFAACAAAAAAAARAAI=</HashCode>
+      <FileName>DESGroup.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProWrite.DES.DESHelper" Collapsed="true">
+    <Position X="9" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgQACAACBAAAAAIAAQACAQAAACARABABAAAAACA=</HashCode>
+      <FileName>DESHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProWrite.DES.DESSign" Collapsed="true">
+    <Position X="10.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAgAACAAAAAAAAAAAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>DESSign.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProWrite.DES.DESTransition" Collapsed="true">
+    <Position X="12.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAGAAAAAAEAAAAEAAAQAAAAABABAAAgAAAAAgAA=</HashCode>
+      <FileName>DESTransition.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProWrite.DES.DESVideoCallBack" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="14.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ARAAAAAAAAEAAAAAAAgAAAAAAAEAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>DESVideoCallBack.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ProWrite.DES.MediaFile" Collapsed="true">
+    <Position X="9" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQABAEAAQBAAAAAAAAAAAAAAABBACA=</HashCode>
+      <FileName>MediaFile.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProWrite.DES.NailImageGenerator" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="10.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAAAAAAAAAABAAAQCAAAAAEQAAAAEBBQAA=</HashCode>
+      <FileName>NailImageGenerator.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ProWrite.DES.Play" Collapsed="true">
+    <Position X="12.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>MBAoAAAAACAgAAKGCBAGgIgQAAEQAAAEIAQDEAIhQAI=</HashCode>
+      <FileName>Play.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProWrite.DES.VideoGenerator" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="10.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAAAAAAAAAAAAAAAAAAQAAABAAAAAAAAAAA=</HashCode>
+      <FileName>VideoGenerator.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DirectEncodeNET.StandardMpegEncoderAudioPropsClass" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="14.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAJBIAABAAAAAAAAUAAAEAAAAAAAAAAQAEAA=</HashCode>
+      <FileName>DirectEncode\StandardMpegEncoderAudioPropsClass.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DirectEncodeNET.StandardMpegEncoderClass" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="16" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgBAAAAAAIAgAAAAQAAAAAFAAQAAQIAAAAAAAgE=</HashCode>
+      <FileName>DirectEncode\StandardMpegEncoderClass.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DirectEncodeNET.StandardMpegEncoderGeneralPropsClass" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="10.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAJBIAABAAAAAAAAUAAAEAAAAAAAAAAQAEAA=</HashCode>
+      <FileName>DirectEncode\StandardMpegEncoderGeneralPropsClass.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DirectEncodeNET.StandardMpegEncoderProfileClass" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="12.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CDIBBAIAIZu1E6KAAACosQBwIMQCAGQgCIGSYFMDhKc=</HashCode>
+      <FileName>DirectEncode\StandardMpegEncoderProfileClass.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DirectEncodeNET.StandardMpegEncoderStatsClass" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="14.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAAQAAAAAABAEAAAQAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DirectEncode\StandardMpegEncoderStatsClass.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DirectEncodeNET.StandardMpegEncoderVideoPropsClass" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="16" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAJBIAABAAAAAAAAUAAAEAAAAAAAAAAQAEAA=</HashCode>
+      <FileName>DirectEncode\StandardMpegEncoderVideoPropsClass.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DirectEncodeNET.StandardMpegMultiplexerProfileClass" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="9" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEwAACAAMAAAAIgEAQAACAAAAAACAAABACKAAAAQg=</HashCode>
+      <FileName>DirectEncode\StandardMpegMultiplexerProfileClass.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="StandardMpegEncoderDll" Collapsed="true">
+    <Position X="9" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAQAANKAAAAAAAAAAAAAAAAAIAAAKAAAAAAAAAAA=</HashCode>
+      <FileName>StandardMpegEncoderDll.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="DirectEncodeNET.__MIDL_IWinTypes_0009" Collapsed="true">
+    <Position X="9" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>DirectEncode\__MIDL_IWinTypes_0009.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="DirectEncodeNET._GUID" Collapsed="true">
+    <Position X="10.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAAAAAAAAAAACAQAAIAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DirectEncode\_GUID.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="DirectEncodeNET._RemotableHandle" Collapsed="true">
+    <Position X="12.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAA=</HashCode>
+      <FileName>DirectEncode\_RemotableHandle.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="DirectEncodeNET.tagMSG" Collapsed="true">
+    <Position X="14.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAIAAAAAAAAQAAAAAAAAAAAAAEAAAAAAAAgAACA=</HashCode>
+      <FileName>DirectEncode\tagMSG.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="DirectEncodeNET.tagPOINT" Collapsed="true">
+    <Position X="16" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgAAAAAAA=</HashCode>
+      <FileName>DirectEncode\tagPOINT.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="DirectEncodeNET.tagPROPPAGEINFO" Collapsed="true">
+    <Position X="9" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgQAAiAAAIACAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DirectEncode\tagPROPPAGEINFO.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="DirectEncodeNET.tagRECT" Collapsed="true">
+    <Position X="10.75" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAABAAAAAAAAgAAAAIAAAAAAAAAAAAgAA=</HashCode>
+      <FileName>DirectEncode\tagRECT.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="DirectEncodeNET.tagSIZE" Collapsed="true">
+    <Position X="12.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
+      <FileName>DirectEncode\tagSIZE.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Interface Name="ProWrite.DES.IDESCombineCB" Collapsed="true">
+    <Position X="9" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DESCallback.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DirectEncodeNET.IPropertyPage" Collapsed="true">
+    <Position X="3" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAJBIAABAAAAAAAAUAAAEAAAAAAAAAAQAEAA=</HashCode>
+      <FileName>DirectEncode\IPropertyPage.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DirectEncodeNET.IPropertyPageSite" Collapsed="true">
+    <Position X="10.75" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAAAAAAAAAAAAAABAAAAAAACgAAAAAAA=</HashCode>
+      <FileName>DirectEncode\IPropertyPageSite.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DirectEncodeNET.IStandardMpegEncoder" Collapsed="true">
+    <Position X="6.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgBAAAAAAIAgAAAAQAAAAAFAAQAAQIAAAAAAAgE=</HashCode>
+      <FileName>DirectEncode\IStandardMpegEncoder.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DirectEncodeNET.IStandardMpegEncoderProfile" Collapsed="true">
+    <Position X="0.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CDIBBAIAIZu1E6KAAACosQBwIMQCAGQgCIGSYFMDhKc=</HashCode>
+      <FileName>DirectEncode\IStandardMpegEncoderProfile.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DirectEncodeNET.IStandardMpegEncoderStats" Collapsed="true">
+    <Position X="3.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAAQAAAAAABAEAAAQAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DirectEncode\IStandardMpegEncoderStats.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DirectEncodeNET.IStandardMpegMultiplexerProfile" Collapsed="true">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEwAACAAMAAAAIgEAQAACAAAAAACAAABACKAAAAQg=</HashCode>
+      <FileName>DirectEncode\IStandardMpegMultiplexerProfile.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DirectEncodeNET.IUnknown" Collapsed="true">
+    <Position X="12.5" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DirectEncode\IUnknown.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DirectEncodeNET.StandardMpegEncoder" Collapsed="true">
+    <Position X="6.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DirectEncode\StandardMpegEncoder.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DirectEncodeNET.StandardMpegEncoderAudioProps" Collapsed="true">
+    <Position X="3" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DirectEncode\StandardMpegEncoderAudioProps.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DirectEncodeNET.StandardMpegEncoderGeneralProps" Collapsed="true">
+    <Position X="0.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DirectEncode\StandardMpegEncoderGeneralProps.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DirectEncodeNET.StandardMpegEncoderProfile" Collapsed="true">
+    <Position X="0.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DirectEncode\StandardMpegEncoderProfile.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DirectEncodeNET.StandardMpegEncoderStats" Collapsed="true">
+    <Position X="3.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DirectEncode\StandardMpegEncoderStats.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DirectEncodeNET.StandardMpegEncoderVideoProps" Collapsed="true">
+    <Position X="5.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DirectEncode\StandardMpegEncoderVideoProps.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DirectEncodeNET.StandardMpegMultiplexerProfile" Collapsed="true">
+    <Position X="0.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DirectEncode\StandardMpegMultiplexerProfile.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="DirectEncodeNET._AspectRatio" Collapsed="true">
+    <Position X="9" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIEAAAAAAAAAAQAAAAAAAAAAAAAACAAAAAA=</HashCode>
+      <FileName>DirectEncode\_AspectRatio.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="DirectEncodeNET._AudioOutputFormat" Collapsed="true">
+    <Position X="10.75" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAQAAAAAAAAAAAAAAAAAAAAAEAAIAAAAFAAIAA=</HashCode>
+      <FileName>DirectEncode\_AudioOutputFormat.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="DirectEncodeNET._BitrateMode" Collapsed="true">
+    <Position X="12.5" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQAAAAEAAQACACAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DirectEncode\_BitrateMode.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="DirectEncodeNET._Constraint" Collapsed="true">
+    <Position X="14.25" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgIAAAAAAAAAAAAAAAAAAAAAAAIAAAIAAAAAAgAAA=</HashCode>
+      <FileName>DirectEncode\_Constraint.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="DirectEncodeNET._EncodeMode" Collapsed="true">
+    <Position X="16" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAEQ=</HashCode>
+      <FileName>DirectEncode\_EncodeMode.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="DirectEncodeNET._SystemsOutputFormat" Collapsed="true">
+    <Position X="9" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAAACAAACIAAgEgIAIAAAAAACAEAAgAAEAAGA=</HashCode>
+      <FileName>DirectEncode\_SystemsOutputFormat.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="DirectEncodeNET._VideoOutputFormat" Collapsed="true">
+    <Position X="10.75" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAACAAAADAAAAAAAAAAAAAAAAACAAAgAA=</HashCode>
+      <FileName>DirectEncode\_VideoOutputFormat.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="DirectEncodeNET.AspectRatio" Collapsed="true">
+    <Position X="12.5" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIEAAAAAAAAAAQAAAAAAAAAAAAAACAAAAAA=</HashCode>
+      <FileName>DirectEncode\AspectRatio.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="DirectEncodeNET.AudioOutputFormat" Collapsed="true">
+    <Position X="14.25" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAQAAAAAAAAAAAAAAAAAAAAAEAAIAAAAFAAIAA=</HashCode>
+      <FileName>DirectEncode\AudioOutputFormat.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="DirectEncodeNET.BitrateMode" Collapsed="true">
+    <Position X="16" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQAAAAEAAQACACAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DirectEncode\BitrateMode.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="DirectEncodeNET.Constraint" Collapsed="true">
+    <Position X="9" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgIAAAAAAAAAAAAAAAAAAAAAAAIAAAIAAAAAAgAAA=</HashCode>
+      <FileName>DirectEncode\Constraint.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="DirectEncodeNET.EncodeMode" Collapsed="true">
+    <Position X="10.75" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAEQ=</HashCode>
+      <FileName>DirectEncode\EncodeMode.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="DirectEncodeNET.SystemsOutputFormat" Collapsed="true">
+    <Position X="12.5" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAAACAAACIAAgEgIAIAAAAAACAEAAgAAEAAGA=</HashCode>
+      <FileName>DirectEncode\SystemsOutputFormat.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="DirectEncodeNET.VideoOutputFormat" Collapsed="true">
+    <Position X="14.25" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAACAAAADAAAAAAAAAAAAAAAAACAAAgAA=</HashCode>
+      <FileName>DirectEncode\VideoOutputFormat.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Delegate Name="BufferCallback" Collapsed="true">
+    <Position X="9" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAAAAAAAAAAAQAAAAAAgAAAAEAAACAAAAAAA=</HashCode>
+      <FileName>StandardMpegEncoderDll.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

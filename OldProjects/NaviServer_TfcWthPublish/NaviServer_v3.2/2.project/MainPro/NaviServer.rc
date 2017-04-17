@@ -1,0 +1,719 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// 中文(中华人民共和国) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+#ifdef _WIN32
+LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_SIMPLIFIED
+#pragma code_page(936)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 4, 2\r\n"
+    "#pragma code_page(936)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\NaviServer.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""l.chs\\afxres.rc""          // Standard components\r\n"
+    "#include ""l.chs\\afxprint.rc""        // printing/print preview resources\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\NaviServer.ico"
+IDR_NAVISETYPE          ICON                    "res\\NaviServerDoc.ico"
+IDI_MOBUSER_ACTIVE      ICON                    "res\\MobileUserActived.ico"
+IDI_MOBUSER_INVALID     ICON                    "res\\mobileuser_invalid.ico"
+IDI_BALANCESERVER       ICON                    "res\\BalanceServer.ico"
+IDI_TOOLBAR_STOP        ICON                    "res\\ToolBar\\stop.ico"
+IDI_TOOLBAR_CONFIG      ICON                    "res\\ToolBar\\set.ico"
+IDI_TOOLBAR_START       ICON                    "res\\ToolBar\\start.ico"
+IDI_MOBUSER_GROUP       ICON                    "res\\mobuser_.ico"
+IDI_ICON_WEATHER        ICON                    "res\\weather.ICO"
+IDI_TRAFFIC             ICON                    "res\\TrafficInf.ICO"
+IDI_TOOLBAR_EXIT        ICON                    "res\\ToolBar\\Exit.ICO"
+IDI_TOOLBAR_LOGS        ICON                    "res\\ToolBar\\hide.ico"
+IDI_DISCONNECTED        ICON                    "res\\icon2.ico"
+IDI_CONNECTED           ICON                    "res\\ico00001.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDR_MAINFRAME           BITMAP                  "res\\Toolbar.bmp"
+IDB_BMP_LOG             BITMAP                  "res\\Log.bmp"
+IDB_TOOLBAR_BKG         BITMAP                  "res\\BottomFrameMid.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MAINFRAME MENU 
+BEGIN
+    POPUP "文件(&F)"
+    BEGIN
+        MENUITEM "新建(&N)\tCtrl+N",            ID_FILE_NEW
+        MENUITEM "打开(&O)...\tCtrl+O",         ID_FILE_OPEN
+        MENUITEM SEPARATOR
+        MENUITEM "打印设置(&R)...",             ID_FILE_PRINT_SETUP
+        MENUITEM SEPARATOR
+        MENUITEM "最近文件",                    ID_FILE_MRU_FILE1, GRAYED
+        MENUITEM SEPARATOR
+        MENUITEM "退出(&X)",                    ID_APP_EXIT
+    END
+    POPUP "查看(&V)"
+    BEGIN
+        MENUITEM "工具栏(&T)",                  ID_VIEW_TOOLBAR
+        MENUITEM "状态栏(&S)",                  ID_VIEW_STATUS_BAR
+    END
+    POPUP "帮助(&H)"
+    BEGIN
+        MENUITEM "关于 NaviServer(&A)...",      ID_APP_ABOUT
+    END
+END
+
+IDR_NAVISETYPE MENU 
+BEGIN
+    POPUP "系统(&S)"
+    BEGIN
+        MENUITEM "启动服务(&T)...",             ID_START_SERVICE
+        MENUITEM "停止服务(&P)...",             ID_STOP_SERVICE
+        MENUITEM SEPARATOR
+        MENUITEM "重启程序(&R)...",             ID_RESTART_APP
+        MENUITEM "退出(&X)",                    ID_APP_EXIT
+    END
+    POPUP "查看(&V)"
+    BEGIN
+        MENUITEM "程序日志(&L)...",             ID_VIEW_NETLOG
+        MENUITEM "选项(&O)...",                 ID_VIEW_OPTION
+    END
+    POPUP "计费(&P)"
+    BEGIN
+        MENUITEM "注册用户管理",                ID_FEE_REGUSERS
+        MENUITEM SEPARATOR
+        MENUITEM "包月用户查询(&U)",            ID_FEE_MUSERS
+        MENUITEM "服务请求查询(&R)",            ID_FEE_SREQ
+        MENUITEM "服务回复查询(&S)",            ID_FEE_SRSP
+    END
+    POPUP "帮助(&H)"
+    BEGIN
+        MENUITEM "关于 NaviServer(&A)...",      ID_APP_ABOUT
+    END
+END
+
+IDR_MENU_LOG MENU 
+BEGIN
+    POPUP "LOG_MEMU"
+    BEGIN
+        MENUITEM "删除选中的日志(&D)",          ID_LOG_DELETESEL
+        MENUITEM "清空所有日志(&C)",            ID_LOG_CLEAR
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_MAINFRAME ACCELERATORS 
+BEGIN
+    "N",            ID_FILE_NEW,            VIRTKEY, CONTROL
+    "O",            ID_FILE_OPEN,           VIRTKEY, CONTROL
+    "S",            ID_FILE_SAVE,           VIRTKEY, CONTROL
+    "P",            ID_FILE_PRINT,          VIRTKEY, CONTROL
+    "Z",            ID_EDIT_UNDO,           VIRTKEY, CONTROL
+    "X",            ID_EDIT_CUT,            VIRTKEY, CONTROL
+    "C",            ID_EDIT_COPY,           VIRTKEY, CONTROL
+    "V",            ID_EDIT_PASTE,          VIRTKEY, CONTROL
+    VK_BACK,        ID_EDIT_UNDO,           VIRTKEY, ALT
+    VK_DELETE,      ID_EDIT_CUT,            VIRTKEY, SHIFT
+    VK_INSERT,      ID_EDIT_COPY,           VIRTKEY, CONTROL
+    VK_INSERT,      ID_EDIT_PASTE,          VIRTKEY, SHIFT
+    VK_F6,          ID_NEXT_PANE,           VIRTKEY 
+    VK_F6,          ID_PREV_PANE,           VIRTKEY, SHIFT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOGEX 0, 0, 235, 55
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_TOOLWINDOW
+CAPTION "关于 NaviServer"
+FONT 9, "宋体", 0, 0, 0x0
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,17,21,21
+    LTEXT           "版权所有 (C) 2006",IDC_STATIC,40,28,119,8
+    LTEXT           "航天东方红卫星信息技术有限公司",IDC_STATIC,40,12,129,8,
+                    SS_NOPREFIX
+END
+
+IDD_NAVISERVER_FORM DIALOGEX 0, 0, 180, 55
+STYLE DS_SETFONT | WS_CHILD
+FONT 9, "宋体", 0, 0, 0x0
+BEGIN
+    CONTROL         "",IDC_LIST1,"SysListView32",LVS_REPORT | LVS_ALIGNLEFT | 
+                    WS_BORDER | WS_TABSTOP,7,7,166,41
+END
+
+IDD_DLG_APPSTART DIALOGEX 0, 0, 173, 189
+STYLE DS_SETFONT | DS_3DLOOK | DS_CENTER | WS_POPUP | WS_BORDER
+EXSTYLE WS_EX_TOOLWINDOW | WS_EX_CLIENTEDGE
+FONT 11, "宋体", 400, 0, 0x86
+BEGIN
+    CTEXT           "在这里显示启动时的各种日志",IDC_STA_INF,7,169,159,19,
+                    SS_CENTERIMAGE,WS_EX_TRANSPARENT
+END
+
+IDD_DLG_NETLOGVIEW DIALOGEX 0, 0, 467, 302
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "查看网络日志"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    PUSHBUTTON      "确定",IDOK,357,281,50,14
+    CONTROL         "",IDC_LIST_NL,"SysListView32",LVS_REPORT | 
+                    LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,7,48,453,224
+    GROUPBOX        "过滤条件",IDC_STATIC,7,3,453,41
+    CONTROL         "事件",IDC_CHECK2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
+                    176,20,29,10
+    CONTROL         "IP地址",IDC_CHECK3,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,328,20,34,10
+    CONTROL         "",IDC_DATETIMEPICKER1,"SysDateTimePick32",
+                    DTS_RIGHTALIGN | WS_TABSTOP,62,18,59,14
+    COMBOBOX        IDC_CMB_EVENT,207,18,69,67,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+    COMBOBOX        IDC_CMB_ADDRESS,365,18,75,77,CBS_DROPDOWNLIST | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+    DEFPUSHBUTTON   "查询(&Q)",IDC_BTN_QUERY,127,281,50,14
+    LTEXT           "日志时间",IDC_STATIC,26,21,33,8
+END
+
+IDD_PAGE_NETWORK DIALOGEX 0, 0, 202, 233
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "网络配置"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "",IDC_IP_BSSERVER,"SysIPAddress32",WS_TABSTOP,49,21,83,
+                    15
+    EDITTEXT        IDC_EDIT_BSPORT,49,46,40,14,ES_CENTER | ES_AUTOHSCROLL
+    COMBOBOX        IDC_COMB_WTHFLASHTIME,93,106,83,62,CBS_DROPDOWN | 
+                    WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_COMB_TFCFLASHTIME,93,128,83,54,CBS_DROPDOWN | 
+                    WS_VSCROLL | WS_TABSTOP
+    CONTROL         "监听所有IP",IDC_RBTN_ALLIP,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP | WS_TABSTOP,25,155,55,10
+    CONTROL         "指定IP",IDC_RBTN_SPECIFYIP,"Button",BS_AUTORADIOBUTTON | 
+                    WS_TABSTOP,109,155,39,10
+    CONTROL         "",IDC_PUBLISH_IP,"SysIPAddress32",WS_TABSTOP,93,177,83,
+                    14
+    EDITTEXT        IDC_PUBLISH_PORT,93,199,83,14,ES_CENTER | ES_AUTOHSCROLL
+    LTEXT           "服务地址：",IDC_STATIC,48,178,42,10
+    LTEXT           "端 口：",IDC_STATIC,62,201,30,10
+    LTEXT           "IP地址",IDC_STATIC,17,24,24,8
+    LTEXT           "端 口",IDC_STATIC,21,49,21,8
+    GROUPBOX        "负载均衡服务器属性",IDC_STATIC,7,6,188,62
+    GROUPBOX        "气象与交通发布服务器属性",IDC_STATIC,7,86,188,140
+    LTEXT           "气象信息刷新周期：",IDC_STATIC,16,108,73,8
+    LTEXT           "交通信息刷新周期：",IDC_STATIC,16,130,73,8
+END
+
+IDD_PAGE_DB DIALOGEX 0, 0, 186, 95
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "数据库配置"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_EDIT_DataSource,56,16,104,15,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_UserID,56,37,104,15,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_Password,56,59,104,15,ES_PASSWORD | 
+                    ES_AUTOHSCROLL
+    LTEXT           "密 码",IDC_STATIC,25,62,20,8
+    LTEXT           "数据源",IDC_STATIC1,19,19,24,8
+    LTEXT           "用户名",IDC_STATIC,19,40,26,8
+END
+
+IDD_DLG_FEEUSERS DIALOGEX 0, 0, 444, 303
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "包月用户信息表"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "查询(&Q)",ID_QUERY,237,282,50,14
+    PUSHBUTTON      "取消",IDCANCEL,387,282,50,14
+    CONTROL         "",IDC_LIST1,"SysListView32",LVS_REPORT | LVS_ALIGNLEFT | 
+                    WS_BORDER | WS_TABSTOP,7,66,430,210
+    CONTROL         "",IDC_DP_REGDATE,"SysDateTimePick32",DTS_RIGHTALIGN | 
+                    WS_TABSTOP,71,16,70,15
+    CONTROL         "注册时间",IDC_CHECK_REGDATE,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,21,19,48,10
+    CONTROL         "业务代码",IDC_CHECK_SERVICECODE,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,183,19,43,10
+    CONTROL         "城市",IDC_CHECK_CITYNAME,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,324,19,28,10
+    COMBOBOX        IDC_CB_SERCODE,231,17,70,63,CBS_DROPDOWN | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_CB_CITY,356,17,69,67,CBS_DROPDOWN | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+    CONTROL         "手机号码",IDC_CHECK_CELLPHONE,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,21,42,48,10
+    COMBOBOX        IDC_CB_CELLPHON,71,39,70,63,CBS_DROPDOWN | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+    GROUPBOX        "查询条件",IDC_STATIC,6,3,431,56
+END
+
+IDD_DLG_USERSREGED_MGR DIALOGEX 0, 0, 362, 249
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "用户管理"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "确定",IDOK,171,228,50,14
+    PUSHBUTTON      "取消",IDCANCEL,289,228,50,14
+    CONTROL         "",IDC_LIST1,"SysListView32",LVS_REPORT | LVS_ALIGNLEFT | 
+                    WS_BORDER | WS_TABSTOP,7,7,348,208
+END
+
+IDD_PROPPAGE_BALANCESERVER DIALOGEX 0, 0, 318, 194
+STYLE DS_SETFONT | WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "负载服务器"
+FONT 9, "宋体", 0, 0, 0x0
+BEGIN
+    EDITTEXT        IDC_EDIT1,57,53,40,14,ES_AUTOHSCROLL
+    LTEXT           "端口：",IDC_STATIC,25,57,25,8
+    LTEXT           "IP地址：",IDC_STATIC,17,30,33,8
+    CONTROL         "",IDC_IPADDRESS1,"SysIPAddress32",WS_TABSTOP,57,27,100,
+                    15
+    ICON            "",IDC_CNT_STATE,265,21,21,21,SS_CENTERIMAGE,
+                    WS_EX_TRANSPARENT
+    LTEXT           "连接状态：",IDC_STATIC,223,29,41,8
+    PUSHBUTTON      "立即连接...",IDC_BTN_CONNECT,232,52,58,14
+    GROUPBOX        "",IDC_GROUP_BALANCE,4,6,310,99
+END
+
+IDD_PROPPAGE_MOBILECLIENT DIALOGEX 0, 0, 552, 270
+STYLE DS_SETFONT | WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "服务发布状态"
+FONT 9, "宋体", 0, 0, 0x0
+BEGIN
+    CONTROL         "",IDC_LIST1,"SysListView32",LVS_REPORT | LVS_ALIGNLEFT | 
+                    WS_BORDER | WS_TABSTOP,6,147,219,116
+    GROUPBOX        "基本信息",IDC_STATIC_GROUP,1,1,471,142,BS_CENTER
+    LTEXT           "用户名",IDC_STATIC,17,19,25,8
+    LTEXT           "登录时间",IDC_STATIC,150,20,33,8
+    LTEXT           "已发送",IDC_STATIC,15,56,25,8
+    LTEXT           "已接收",IDC_STATIC,156,56,25,8
+    EDITTEXT        IDC_EDIT1,51,17,64,14,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT2,189,19,86,14,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT3,50,53,66,14,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT4,190,52,86,14,ES_AUTOHSCROLL | ES_READONLY
+END
+
+IDD_PROPPAGE_WEATHER DIALOGEX 0, 0, 174, 115
+STYLE DS_SETFONT | WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "气象信息"
+FONT 9, "宋体", 0, 0, 0x0
+BEGIN
+END
+
+IDD_PROPPAGE_TRAFFIC DIALOGEX 0, 0, 210, 154
+STYLE DS_SETFONT | WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "交通信息"
+FONT 9, "宋体", 0, 0, 0x0
+BEGIN
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "080404b0"
+        BEGIN
+            VALUE "FileDescription", "NaviServer － 交通与气象发布服务器"
+            VALUE "FileVersion", "1, 0, 0, 1"
+            VALUE "InternalName", "NaviServer"
+            VALUE "LegalCopyright", "版权所有 (C) 2006"
+            VALUE "OriginalFilename", "NaviServer.EXE"
+            VALUE "ProductName", "NaviServer 应用程序"
+            VALUE "ProductVersion", "1, 0, 0, 1"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x804, 1200
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 228
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 48
+    END
+
+    IDD_NAVISERVER_FORM, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 173
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 48
+    END
+
+    IDD_DLG_APPSTART, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 166
+        TOPMARGIN, 7
+    END
+
+    IDD_DLG_NETLOGVIEW, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 460
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 295
+    END
+
+    IDD_PAGE_NETWORK, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 195
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 226
+    END
+
+    IDD_PAGE_DB, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 88
+    END
+
+    IDD_DLG_FEEUSERS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 437
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 296
+    END
+
+    IDD_DLG_USERSREGED_MGR, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 355
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 242
+    END
+
+    IDD_PROPPAGE_BALANCESERVER, DIALOG
+    BEGIN
+        LEFTMARGIN, 4
+        RIGHTMARGIN, 314
+        TOPMARGIN, 10
+        BOTTOMMARGIN, 190
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog Info
+//
+
+IDD_DLG_NETLOGVIEW DLGINIT
+BEGIN
+    IDC_CMB_EVENT, 0x403, 10, 0
+0x6c41, 0x206c, 0x7645, 0x6e65, 0x0074, 
+    IDC_CMB_EVENT, 0x403, 9, 0
+0x6c43, 0x6569, 0x746e, 0x5055, "\000" 
+    IDC_CMB_EVENT, 0x403, 11, 0
+0x4c43, 0x6569, 0x746e, 0x6f44, 0x6e77, "\000" 
+    IDC_CMB_EVENT, 0x403, 9, 0
+0x6553, 0x646e, 0x6144, 0x6174, "\000" 
+    IDC_CMB_EVENT, 0x403, 9, 0
+0x6552, 0x7663, 0x6144, 0x6174, "\000" 
+    IDC_CMB_ADDRESS, 0x403, 8, 0
+0x2e30, 0x2e30, 0x2e30, 0x0030, 
+    0
+END
+
+IDD_PAGE_NETWORK DLGINIT
+BEGIN
+    IDC_COMB_WTHFLASHTIME, 0x403, 7, 0
+0x3031, 0xd6b7, 0xd3d6, "\000" 
+    IDC_COMB_WTHFLASHTIME, 0x403, 7, 0
+0x3033, 0xd6b7, 0xd3d6, "\000" 
+    IDC_COMB_WTHFLASHTIME, 0x403, 6, 0
+0xd031, 0xcaa1, 0x00b1, 
+    IDC_COMB_WTHFLASHTIME, 0x403, 6, 0
+0xd032, 0xcaa1, 0x00b1, 
+    IDC_COMB_TFCFLASHTIME, 0x403, 5, 0
+0x3033, 0xebc3, "\000" 
+    IDC_COMB_TFCFLASHTIME, 0x403, 6, 0
+0xb731, 0xd6d6, 0x00d3, 
+    IDC_COMB_TFCFLASHTIME, 0x403, 6, 0
+0xb732, 0xd6d6, 0x00d3, 
+    IDC_COMB_TFCFLASHTIME, 0x403, 6, 0
+0xb733, 0xd6d6, 0x00d3, 
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    IDR_MAINFRAME           "NaviServer"
+    IDR_NAVISETYPE          "\nNaviSe\nNaviSe\n\n\nNaviServer.Document\nNaviSe Document"
+    IDS_MAINSHEET_TAB1      "查看负载均衡服务器信息"
+    IDS_MAINSHEET_TAB2      "查看气象交通发布信息"
+    IDS_MAINSHEET_TAB3      "北京市各行政区气象信息"
+    IDS_MAINSHEET_TAB4      "北京市交通路况信息"
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_APP_TITLE       "交通与气象信息发布服务器"
+    AFX_IDS_IDLEMESSAGE     "就绪"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_INDICATOR_EXT        "扩展名"
+    ID_INDICATOR_OVR        "改写"
+    ID_INDICATOR_REC        "记录"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_FILE_NEW             "建立新文档\n新建"
+    ID_FILE_OPEN            "打开一个现有文档\n打开"
+    ID_FILE_CLOSE           "关闭活动文档\n关闭"
+    ID_FILE_SAVE            "保存活动文档\n保存"
+    ID_FILE_SAVE_AS         "将活动文档以一个新文件名保存\n另存为"
+    ID_FILE_PAGE_SETUP      "改变打印选项\n页面设置"
+    ID_FILE_PRINT_SETUP     "改变打印机及打印选项\n打印设置"
+    ID_FILE_PRINT           "打印活动文档\n打印"
+    ID_FILE_PRINT_PREVIEW   "显示整页\n打印预览"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_APP_ABOUT            "显示程序信息，版本号和版权\n关于"
+    ID_APP_EXIT             "退出应用程序；提示保存文档\n退出"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_FILE_MRU_FILE1       "打开该文档"
+    ID_FILE_MRU_FILE2       "打开该文档"
+    ID_FILE_MRU_FILE3       "打开该文档"
+    ID_FILE_MRU_FILE4       "打开该文档"
+    ID_FILE_MRU_FILE5       "打开该文档"
+    ID_FILE_MRU_FILE6       "打开该文档"
+    ID_FILE_MRU_FILE7       "打开该文档"
+    ID_FILE_MRU_FILE8       "打开该文档"
+    ID_FILE_MRU_FILE9       "打开该文档"
+    ID_FILE_MRU_FILE10      "打开该文档"
+    ID_FILE_MRU_FILE11      "打开该文档"
+    ID_FILE_MRU_FILE12      "打开该文档"
+    ID_FILE_MRU_FILE13      "打开该文档"
+    ID_FILE_MRU_FILE14      "打开该文档"
+    ID_FILE_MRU_FILE15      "打开该文档"
+    ID_FILE_MRU_FILE16      "打开该文档"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_NEXT_PANE            "切换到下一个窗格\n下一窗格"
+    ID_PREV_PANE            "切换回前一个窗格\n前一窗格"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_WINDOW_NEW           "为活动文档打开另一个窗口\n新建窗口"
+    ID_WINDOW_ARRANGE       "将图标排列在窗口底部\n排列图标"
+    ID_WINDOW_CASCADE       "排列窗口成相互重叠\n层叠窗口"
+    ID_WINDOW_TILE_HORZ     "排列窗口成互不重叠\n平铺窗口"
+    ID_WINDOW_TILE_VERT     "排列窗口成互不重叠\n平铺窗口"
+    ID_WINDOW_SPLIT         "将活动的窗口分隔成窗格\n分隔"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_EDIT_CLEAR           "删除被选对象\n删除"
+    ID_EDIT_CLEAR_ALL       "全部删除\n全部删除"
+    ID_EDIT_COPY            "复制被选对象并将其置于剪贴板上\n复制"
+    ID_EDIT_CUT             "剪切被选对象并将其置于剪贴板上\n剪切"
+    ID_EDIT_FIND            "查找指定的正文\n查找"
+    ID_EDIT_PASTE           "插入剪贴板内容\n粘贴"
+    ID_EDIT_REPEAT          "重复上一步操作\n重复"
+    ID_EDIT_REPLACE         "用不同的正文替换指定的正文\n替换"
+    ID_EDIT_SELECT_ALL      "选择整个文档\n选择全部"
+    ID_EDIT_UNDO            "撤消最后一步操作\n撤消"
+    ID_EDIT_REDO            "重新执行先前已撤消的操作\n重新执行"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_VIEW_TOOLBAR         "显示或隐藏工具栏\n显隐工具栏"
+    ID_VIEW_STATUS_BAR      "显示或隐藏状态栏\n显隐状态栏"
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_SCSIZE          "改变窗口大小"
+    AFX_IDS_SCMOVE          "改变窗口位置"
+    AFX_IDS_SCMINIMIZE      "将窗口缩小成图标"
+    AFX_IDS_SCMAXIMIZE      "把窗口放大到最大尺寸"
+    AFX_IDS_SCNEXTWINDOW    "切换到下一个文档窗口"
+    AFX_IDS_SCPREVWINDOW    "切换到先前的文档窗口"
+    AFX_IDS_SCCLOSE         "关闭活动的窗口并提示保存所有文档"
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_SCRESTORE       "把窗口恢复到正常大小"
+    AFX_IDS_SCTASKLIST      "激活任务表"
+    AFX_IDS_MDICHILD        "激活该窗口"
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_PREVIEW_CLOSE   "关闭打印预览模式\n取消预阅"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_INDICATOR_DATABASE   "数据库: ? "
+    ID_INDICATOR_TIME       "已运行00天00小时00分"
+    ID_INDICATOR_CORP       "航天东方红卫星信息技术有限公司"
+    ID_INDICATOR_NUMCLT     "终端个数: 0  "
+END
+
+STRINGTABLE 
+BEGIN
+    ID_VIEW_NETLOG          "查看网络日志"
+    ID_VIEW_OPTION          "选项设置"
+    ID_FEE_MUSERS           "查询进行包月的用户"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_FEE_REGUSERS         "管理已注册的用户"
+END
+
+#endif    // 中文(中华人民共和国) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+#ifdef _WIN32
+LANGUAGE 4, 2
+#pragma code_page(936)
+#endif //_WIN32
+#include "res\NaviServer.rc2"  // non-Microsoft Visual C++ edited resources
+#include "l.chs\afxres.rc"          // Standard components
+#include "l.chs\afxprint.rc"        // printing/print preview resources
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

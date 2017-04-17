@@ -1,0 +1,65 @@
+
+create table T_TFC_PARSEDDATA_HISTORY
+(
+  U_DATE     DATE not null,
+  LINKID     VARCHAR2(20) not null,
+  ROADID     VARCHAR2(20),
+  START_POSX NUMBER(10) default 0,
+  START_POSY NUMBER(10) default 0,
+  END_POSX   NUMBER(10) default 0,
+  END_POSY   NUMBER(10) default 0,
+  ROAD_NAME  VARCHAR2(40),
+  SPEED      NUMBER(4) default 0,
+  JAM_LEVEL  NUMBER(4) default 0,
+  JAM_REASON NUMBER(4) default 0
+)
+tablespace SPACESAT2006
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+
+comment on table T_TFC_PARSEDDATA_HISTORY
+  is '交通信息（解析后）历史数据';
+
+comment on column T_TFC_PARSEDDATA_HISTORY.U_DATE
+  is '本条记录的更新时间';
+comment on column T_TFC_PARSEDDATA_HISTORY.LINKID
+  is 'LinkID';
+comment on column T_TFC_PARSEDDATA_HISTORY.START_POSX
+  is '起始点经度';
+comment on column T_TFC_PARSEDDATA_HISTORY.START_POSY
+  is '起始点纬度';
+comment on column T_TFC_PARSEDDATA_HISTORY.END_POSX
+  is '终止点经度';
+comment on column T_TFC_PARSEDDATA_HISTORY.END_POSY
+  is '终止点纬度';
+comment on column T_TFC_PARSEDDATA_HISTORY.ROAD_NAME
+  is 'LinkID对应的道路名称，每条道路包含若干条LinkID';
+comment on column T_TFC_PARSEDDATA_HISTORY.SPEED
+  is '时速（单位KM/H）';
+comment on column T_TFC_PARSEDDATA_HISTORY.JAM_LEVEL
+  is '拥堵级别《参见拥堵级别表》';
+comment on column T_TFC_PARSEDDATA_HISTORY.JAM_REASON
+  is '拥堵原因《参见拥堵原因表》';
+comment on column T_TFC_PARSEDDATA_HISTORY.ROADID
+  is '对应于原始数据中的道路ID';
+
+alter table T_TFC_PARSEDDATA_HISTORY
+  add constraint TK_TFC_PSDATA_HIS primary key (LINKID, U_DATE)
+  using index 
+  tablespace SPACESAT2006
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );

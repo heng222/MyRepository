@@ -1,0 +1,235 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{ACD7DEDB-AA50-4665-BEA0-729E64DDFA2D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ProWrite.UFE</RootNamespace>
+    <AssemblyName>ProWrite.UFE</AssemblyName>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <PublishUrl>http://localhost/ProWrite.UFE/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\Bin\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;CanEncryption,DBC_CHECK_ALL,DBC_CHECK_INVARIANT,DBC_CHECK_POSTCONDITION,DBC_CHECK_PRECONDITION;USE_DEBUG_ASSERTION</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\Bin\</OutputPath>
+    <DefineConstants>TRACE;CanEncryption</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release_X64|AnyCPU' ">
+    <OutputPath>bin\Release_X64\</OutputPath>
+    <DefineConstants>TRACE;CanEncryption</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug_X64|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug_X64\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;CanEncryption,DBC_CHECK_ALL,DBC_CHECK_INVARIANT,DBC_CHECK_POSTCONDITION,DBC_CHECK_PRECONDITION;USE_DEBUG_ASSERTION</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net, Version=1.2.9.0, Culture=neutral, PublicKeyToken=b32731d11ce58905">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Libs\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.SQLite, Version=1.0.65.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=x86" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Threading, Version=1.0.3058.34407, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Libs\System.Threading.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Extensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Constance.cs" />
+    <Compile Include="UFEFrontController.cs" />
+    <Compile Include="Responses\Body.cs" />
+    <Compile Include="SecurityStream.cs" />
+    <Compile Include="TcpUFEConnection.cs" />
+    <Compile Include="Core\IUFEFrontController.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DiffieHellman\DiffieHellman.csproj">
+      <Project>{B748102F-D07F-4399-9BC9-F6A61B14DC7C}</Project>
+      <Name>DiffieHellman</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mentalis\Mentalis.csproj">
+      <Project>{8B0BAABE-3CEB-4CA9-837E-C198B0C0B203}</Project>
+      <Name>Mentalis</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Messages\Messages.csproj">
+      <Project>{3596709E-8A87-45AB-BC39-EAAE5DA2A3A7}</Project>
+      <Name>Messages</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProWrite.Core\ProWrite.Core.csproj">
+      <Project>{FF80525C-029F-4EE1-BCF5-3547AFA06F0B}</Project>
+      <Name>ProWrite.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProWrite.SSL\ProWrite.SSL.vcproj">
+      <Project>{2ED2902C-82B4-4433-B057-329547CA0335}</Project>
+      <Name>ProWrite.SSL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProWrite.UFE.Entity\ProWrite.UFE.Entity.csproj">
+      <Project>{5D1E0AF1-E69A-48F2-BE2E-DA9BEFA9AE2A}</Project>
+      <Name>ProWrite.UFE.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SecurityServices\SecurityServices.csproj">
+      <Project>{E1D600DA-4038-4920-B1A5-52623EBD189C}</Project>
+      <Name>SecurityServices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SharpSSH\SharpSSH.csproj">
+      <Project>{4E164E38-2E34-46C2-82FE-66FFEA53EA1A}</Project>
+      <Name>SharpSSH</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\Version\AssemblyInfo.cs">
+      <Link>AssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="Core\Action.cs" />
+    <Compile Include="Core\Filter.cs" />
+    <Compile Include="Core\IFuture.cs" />
+    <Compile Include="Core\IUFEConnection.cs" />
+    <Compile Include="Core\Packet.cs" />
+    <Compile Include="Core\UFEActionProcessor.cs" />
+    <Compile Include="Core\UFEEncryption.cs" />
+    <Compile Include="Cryptographer.cs" />
+    <Compile Include="Entity\BlankSign.cs" />
+    <Compile Include="Entity\DateAndTime.cs" />
+    <Compile Include="Entity\GoLive.cs" />
+    <Compile Include="Entity\LogViewGet.cs" />
+    <Compile Include="Entity\PlayContent.cs" />
+    <Compile Include="Entity\PlayMessageQueue.cs" />
+    <Compile Include="Entity\TempSet.cs" />
+    <Compile Include="Entity\TestPattern.cs" />
+    <Compile Include="Entity\TimeZoneSet.cs" />
+    <Compile Include="Entity\UfeFile.cs" />
+    <Compile Include="Entity\UFESign.cs" />
+    <Compile Include="Entity\User.cs" />
+    <Compile Include="FileMapping.cs" />
+    <Compile Include="Entity\Dimming.cs" />
+    <Compile Include="Properties\Resources.Designer.cs" />
+    <Compile Include="RS232Connection.cs" />
+    <Compile Include="SFtpManager.cs" />
+    <Compile Include="IFtpManager.cs" />
+    <Compile Include="ISignInfo.cs" />
+    <Compile Include="JsonSerializer.cs" />
+    <Compile Include="Entity\LiveItem.cs" />
+    <Compile Include="Responses\ChangePasswordAction.cs" />
+    <Compile Include="Responses\CreateUserAction.cs" />
+    <Compile Include="Responses\DeleteUserAction.cs" />
+    <Compile Include="Responses\GetUserListAction.cs" />
+    <Compile Include="Responses\UpdateUserRoleAction.cs" />
+    <Compile Include="UFEEncryption.cs" />
+    <Compile Include="UFERontController.MAManager.cs" />
+    <Compile Include="UFEFrontController.UserManager.cs" />
+    <Compile Include="UFEFrontController.FileManager.cs" />
+    <Compile Include="UFEFrontController.LogManager.cs" />
+    <None Include="FrontController.cd" />
+    <None Include="UFE.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx" />
+    <EmbeddedResource Include="Templates.htm" />
+    <Content Include="TODO.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Converts\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5D1E0AF1-E69A-48F2-BE2E-DA9BEFA9AE2A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ProWrite.UFE.Entity</RootNamespace>
+    <AssemblyName>ProWrite.UFE.Entity</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\Bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\Bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release_X64|AnyCPU' ">
+    <OutputPath>bin\Release_X64\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug_X64|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug_X64\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\Version\AssemblyInfo.cs">
+      <Link>AssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="Source\ContentIDType.cs" />
+    <Compile Include="Source\ContentType.cs" />
+    <Compile Include="Source\WeeklyChoiceType.cs" />
+    <Compile Include="Source\EmphasisEffectType.cs" />
+    <Compile Include="Source\EmphasisType.cs" />
+    <Compile Include="Source\FileActionType.cs" />
+    <Compile Include="Source\FileType.cs" />
+    <Compile Include="Source\FontInfoType.cs" />
+    <Compile Include="Source\FrameContentType.cs" />
+    <Compile Include="Source\FrameObjectType.cs" />
+    <Compile Include="Source\MasterLayerType.cs" />
+    <Compile Include="Source\Parameter.cs" />
+    <Compile Include="Source\PlaylistIncludeItem.cs" />
+    <Compile Include="Source\PlaylistItemType.cs" />
+    <Compile Include="Source\PlaylistType.cs" />
+    <Compile Include="Source\Point.cs" />
+    <Compile Include="Source\Rectangle.cs" />
+    <Compile Include="Source\ScheduleIncludeItem.cs" />
+    <Compile Include="Source\ScheduleInfoType.cs" />
+    <Compile Include="Source\ScheduleItem.cs" />
+    <Compile Include="Source\ScheduleItemType.cs" />
+    <Compile Include="Source\ScheduleRecurrenceType.cs" />
+    <Compile Include="Source\ScheduleType.cs" />
+    <Compile Include="Source\ScrollContentType.cs" />
+    <Compile Include="Source\ScrollDirectionType.cs" />
+    <Compile Include="Source\ScrollEffectType.cs" />
+    <Compile Include="Source\TextEffect.cs" />
+    <Compile Include="Source\TextHorzJustify.cs" />
+    <Compile Include="Source\TextType.cs" />
+    <Compile Include="Source\TextVertJustify.cs" />
+    <Compile Include="Source\TimeSliceGroupIncludeItem.cs" />
+    <Compile Include="Source\TimeSliceGroupItemType.cs" />
+    <Compile Include="Source\TimeSliceGroupType.cs" />
+    <Compile Include="Source\TransitionEffectType.cs" />
+    <Compile Include="Source\TransitionType.cs" />
+    <Compile Include="Source\VariableTempType.cs" />
+    <Compile Include="Source\VariableTimeType.cs" />
+    <Compile Include="Source\WeeklyRecurrence.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
+    <None Include="Message.xsd" />
+    <None Include="Playlist.xsd" />
+    <None Include="ProWriteContent_v1_5.xsd" />
+    <None Include="ProWriteFrameObject_V1_3.xsd" />
+    <None Include="ProwriteFull.xsd" />
+    <None Include="Schedules.xsd" />
+    <None Include="TemplateMessage.xsd" />
+    <None Include="TimesliceGroup.xsd" />
+    <None Include="V1_9\Diagnostics_v1.8.xsd" />
+    <None Include="V1_9\DimmingSchedule_v1.6.xsd" />
+    <None Include="V1_9\Message_v1.9.xsd" />
+    <None Include="V1_9\Playlist_v1.8.xsd" />
+    <None Include="V1_9\Schedule_v1.8.xsd" />
+    <None Include="V1_9\TimesliceGroup_v1.8.xsd" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="FO_Test.xml" />
+    <Content Include="Playlist_Test.xml" />
+    <Content Include="Schedule_Test.xml" />
+    <Content Include="UFE_Effect.xml" />
+    <Content Include="TSG_Test.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ProWrite.Core\ProWrite.Core.csproj">
+      <Project>{FF80525C-029F-4EE1-BCF5-3547AFA06F0B}</Project>
+      <Name>ProWrite.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

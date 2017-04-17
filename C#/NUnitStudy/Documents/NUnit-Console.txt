@@ -1,0 +1,50 @@
+﻿NUnit-Console命令行选项
+
+
+1. 指定一个程序集
+控制台程序必须一直有一个指定的程序集或者工程。为了运行nunit.tests.dll包含的测试，使用下面的命令行：
+
+        nunit-console nunit.tests.dll
+
+2.为了通过Visual Studio工程运行nunit.tests.dll的测试，使用:
+
+        nunit-console nunit.tests.csproj
+
+3. 指定一个程序集和Fixture
+当指定一个fixture，你必给定包含测试fixture的程序集全路径名。例如，为了运行nunit.tests.dll的NUnit.Tests.AssertionTests，使用下面的命令：
+
+        nunit-console /fixture:NUnit.Tests.AssertionTests nunit.tests.dll
+在 /fixture后指定的名称可以为一个TestFixture类，一个有效的套件（使用Suite属性）或者一个命名空间的名称。如果给定的是一个命名空间，在此命名空间下的所有fixture都将执行。本选项也可以和Visual Studio或NUnit工程一起使用。
+
+
+4. 指定测试目录为Include或Exclude
+NUnit2.2提供 CategoryAttribute属性将某个测试 指定到一个或多个目录中。在运行测试时，可以使用/include以及/exclude选项包含或排除目录。下 面的命令仅仅运行在BaseLine目录下的测试案例:
+
+        nunit-console myassembly.dll /include:BaseLine
+
+ 下面的命令行运行所有测试，除了那些在Database目录下的:
+
+        nunit-console myassembly.dll /exclude:Database            
+可以在某个选项中指定多个目录，使用逗号来分隔它们.
+
+5. 指定多个程序集
+你可以使用控制台界面运行多个程序集的测试 ，甚至你并没有定义一个NUnit测试工程文件时。下面的命令会运行 assembly1.dll, assembly2.dll 和assembly3.dll包含的测试。
+
+nunit-console assembly1.dll assembly2.dll assembly3.dll
+
+注:你可以在命令行里指定多个程序集，不仅是多个NUnit，也可以是Visual Studio工程。更进一步，你可以不用指定一个带有多个程序集的NUnit或Visual Studio工程。/fixture选项可以和多个程序集一起使用，但是简单指定包含fixture的程序集可能更加有效。
+
+其他选项
+/noshadow选项禁止程序集的影拷贝，以改善其性能。
+
+/thread选项会创建一个单独的线程供运行测试用。在某些情况下这是有必要的，例如测试必须在一特殊类型的公寓里运行。通过在一独立的线程里运行，在配置文件的元素下的ApartmentState和ThreadPriority设置会非常有用。如果无线程创建，他们会被忽略，apartment和控制台程序的一样。
+
+注:控制台程序的apartment状态可以在不同的发布版本中改变，因此需要一个公寓的用户可以利用该设置，而不是依靠缺省的。
+
+/wait选项让程序在退出前，等待用户的输入。当使用快捷方式运行nunit-console时非常有用。
+
+/xmlconsole选项在控制台里显示未经处理的XML输出，而不是转化它。当调试XML格式的问题时非常有效。
+
+/nologo选项禁止在程序启动时显示版权信息。
+
+/help或/?选项显示一个简要的帮助信息。

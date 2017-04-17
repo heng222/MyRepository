@@ -1,0 +1,26 @@
+HKCR
+{
+	PWEffect.PixelPlay.1 = s 'PixelPlay Class'
+	{
+		CLSID = s '{F67BBA3B-1980-48CB-92BB-CC826BF458E6}'
+	}
+	PWEffect.PixelPlay = s 'PixelPlay Class'
+	{
+		CLSID = s '{F67BBA3B-1980-48CB-92BB-CC826BF458E6}'
+		CurVer = s 'PWEffect.PixelPlay.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {F67BBA3B-1980-48CB-92BB-CC826BF458E6} = s 'PixelPlay Class'
+		{
+			ProgID = s 'PWEffect.PixelPlay.1'
+			VersionIndependentProgID = s 'PWEffect.PixelPlay'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{B1FEB9A2-A676-46da-83C5-B1CBEC33BC07}'
+		}
+	}
+}

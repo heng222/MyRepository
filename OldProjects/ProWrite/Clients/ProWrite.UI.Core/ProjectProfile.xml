@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ProjectProfile xmlns="http://schemas.microsoft.com/ProjectProfile/1.0"
+                DefaultModule="Dashboard" 
+                LoginForm="ProWrite.UI.Controls.LoginForm,ProWrite.UI.Controls,Version=1.05.12.01,PublicKeyToken=d362d8abc66ca607"
+                MainForm="ProWrite.UI.Controls.MainForm,ProWrite.UI.Controls,Version=1.05.12.01,PublicKeyToken=d362d8abc66ca607"
+                ImportExportFactory="ProWrite.UI.Controls.ImportExportFactory,ProWrite.UI.Controls,Version=1.05.12.01,PublicKeyToken=d362d8abc66ca607">
+  <Module Name="Dashboard" Type="ProWrite.UI.Controls.Modules.DashboardModule,ProWrite.UI.Controls,Version=1.05.12.01,PublicKeyToken=d362d8abc66ca607"/>
+  <Module Name="Editor" Type="ProWrite.UI.Controls.Modules.EditorModuleNew,ProWrite.UI.Controls,Version=1.05.12.01,PublicKeyToken=d362d8abc66ca607"/>
+  <Module Name="Playlists" Type="ProWrite.UI.Controls.Modules.PlaylistModuleNew,ProWrite.UI.Controls,Version=1.05.12.01,PublicKeyToken=d362d8abc66ca607"/>
+  <Module Name="Scheduler" Type="ProWrite.UI.Controls.Modules.SchedulerModule,ProWrite.UI.Controls,Version=1.05.12.01,PublicKeyToken=d362d8abc66ca607"/>
+</ProjectProfile>

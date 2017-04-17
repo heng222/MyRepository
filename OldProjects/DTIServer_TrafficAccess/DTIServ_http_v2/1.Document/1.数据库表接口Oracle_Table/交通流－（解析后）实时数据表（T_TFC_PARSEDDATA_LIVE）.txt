@@ -1,0 +1,65 @@
+-- Create table
+create table T_TFC_PARSEDDATA_LIVE
+(
+  U_DATE     DATE,
+  LINKID     VARCHAR2(20) not null,
+  ROADID     NUMBER(10) not null,
+  START_POSX NUMBER(10) default 0,
+  START_POSY NUMBER(10) default 0,
+  END_POSX   NUMBER(10) default 0,
+  END_POSY   NUMBER(10) default 0,
+  ROAD_NAME  VARCHAR2(40),
+  SPEED      NUMBER(4) default 0,
+  JAM_LEVEL  NUMBER(4) default 0,
+  JAM_REASON NUMBER(4) default 0
+)
+tablespace SPACESAT2006
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+-- Add comments to the table 
+comment on table T_TFC_PARSEDDATA_LIVE
+  is '交通信息（瑞图数据）实时数据表';
+-- Add comments to the columns 
+comment on column T_TFC_PARSEDDATA_LIVE.U_DATE
+  is '本条记录的更新时间';
+comment on column T_TFC_PARSEDDATA_LIVE.LINKID
+  is 'LinkID(Key)';
+comment on column T_TFC_PARSEDDATA_LIVE.ROADID
+  is '相应的检测路段ID（我方编号）';
+comment on column T_TFC_PARSEDDATA_LIVE.START_POSX
+  is '起始点经度';
+comment on column T_TFC_PARSEDDATA_LIVE.START_POSY
+  is '起始点纬度';
+comment on column T_TFC_PARSEDDATA_LIVE.END_POSX
+  is '终止点经度';
+comment on column T_TFC_PARSEDDATA_LIVE.END_POSY
+  is '终止点纬度';
+comment on column T_TFC_PARSEDDATA_LIVE.ROAD_NAME
+  is 'LinkID对应的道路名称，每条道路包含若干条LinkID';
+comment on column T_TFC_PARSEDDATA_LIVE.SPEED
+  is '时速（单位KM/H）';
+comment on column T_TFC_PARSEDDATA_LIVE.JAM_LEVEL
+  is '拥堵级别(0=free,1=slow,2=jam)';
+comment on column T_TFC_PARSEDDATA_LIVE.JAM_REASON
+  is '拥堵原因';
+-- Create/Recreate primary, unique and foreign key constraints 
+alter table T_TFC_PARSEDDATA_LIVE
+  add constraint TK_TFC_PDLIVE primary key (LINKID)
+  using index 
+  tablespace SPACESAT2006
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );

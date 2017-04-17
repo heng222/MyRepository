@@ -1,0 +1,26 @@
+HKCR
+{
+	PWEffect.Coalesce.1 = s 'Coalesce Class'
+	{
+		CLSID = s '{C83F0057-B7F1-44E9-9EBF-648A57B3BE7E}'
+	}
+	PWEffect.Coalesce = s 'Coalesce Class'
+	{
+		CLSID = s '{C83F0057-B7F1-44E9-9EBF-648A57B3BE7E}'
+		CurVer = s 'PWEffect.Coalesce.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {C83F0057-B7F1-44E9-9EBF-648A57B3BE7E} = s 'Coalesce Class'
+		{
+			ProgID = s 'PWEffect.Coalesce.1'
+			VersionIndependentProgID = s 'PWEffect.Coalesce'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{B1FEB9A2-A676-46da-83C5-B1CBEC33BC07}'
+		}
+	}
+}

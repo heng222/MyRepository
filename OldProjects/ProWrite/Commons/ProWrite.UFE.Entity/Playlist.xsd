@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://xml.netbeans.org/schema/ProWritePlaylist" elementFormDefault="qualified" targetNamespace="http://xml.netbeans.org/schema/ProWritePlaylist" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="Playlist" nillable="true" type="tns:PlaylistType" />
+  <xs:complexType name="PlaylistType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="UniqueIdentifier" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="DisplayTime" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Contents" type="tns:ArrayOfPlaylistIncludeItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfPlaylistIncludeItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Content" nillable="true" type="tns:PlaylistIncludeItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PlaylistIncludeItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="UniqueIdentifier" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Type" type="tns:PlaylistItemType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="PlaylistItemType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="FrameObject" />
+      <xs:enumeration value="TimeSliceGroup" />
+      <xs:enumeration value="Playlist" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

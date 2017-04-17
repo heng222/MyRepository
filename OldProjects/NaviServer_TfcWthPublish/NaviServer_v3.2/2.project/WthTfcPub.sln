@@ -1,0 +1,43 @@
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CommServer", "CommServer\CommServer.vcproj", "{3633BACF-6A08-4540-A2E5-34FA26B77450}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DataManger", "DataManger\DataManger.vcproj", "{4DFDF815-9824-43AC-A6BE-B837902B8DAC}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NaviServer", "MainPro\NaviServer.vcproj", "{0340DCE7-7350-4976-A273-445D60EB6F8D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4DFDF815-9824-43AC-A6BE-B837902B8DAC} = {4DFDF815-9824-43AC-A6BE-B837902B8DAC}
+		{3633BACF-6A08-4540-A2E5-34FA26B77450} = {3633BACF-6A08-4540-A2E5-34FA26B77450}
+	EndProjectSection
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "WthTfcServer", "Setup.Wizard\WthTfcServer.vdproj", "{EE67EC62-70DD-4E1E-813D-AE3577B1BC78}"
+EndProject
+Global
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3633BACF-6A08-4540-A2E5-34FA26B77450}.Debug|Win32.ActiveCfg = Debug|Win32
+		{3633BACF-6A08-4540-A2E5-34FA26B77450}.Debug|Win32.Build.0 = Debug|Win32
+		{3633BACF-6A08-4540-A2E5-34FA26B77450}.Release|Win32.ActiveCfg = Release|Win32
+		{3633BACF-6A08-4540-A2E5-34FA26B77450}.Release|Win32.Build.0 = Release|Win32
+		{4DFDF815-9824-43AC-A6BE-B837902B8DAC}.Debug|Win32.ActiveCfg = Debug|Win32
+		{4DFDF815-9824-43AC-A6BE-B837902B8DAC}.Debug|Win32.Build.0 = Debug|Win32
+		{4DFDF815-9824-43AC-A6BE-B837902B8DAC}.Release|Win32.ActiveCfg = Release|Win32
+		{4DFDF815-9824-43AC-A6BE-B837902B8DAC}.Release|Win32.Build.0 = Release|Win32
+		{0340DCE7-7350-4976-A273-445D60EB6F8D}.Debug|Win32.ActiveCfg = Debug|Win32
+		{0340DCE7-7350-4976-A273-445D60EB6F8D}.Debug|Win32.Build.0 = Debug|Win32
+		{0340DCE7-7350-4976-A273-445D60EB6F8D}.Release|Win32.ActiveCfg = Release|Win32
+		{0340DCE7-7350-4976-A273-445D60EB6F8D}.Release|Win32.Build.0 = Release|Win32
+		{EE67EC62-70DD-4E1E-813D-AE3577B1BC78}.Debug|Win32.ActiveCfg = Debug
+		{EE67EC62-70DD-4E1E-813D-AE3577B1BC78}.Release|Win32.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

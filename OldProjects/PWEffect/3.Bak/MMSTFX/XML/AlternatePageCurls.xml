@@ -1,0 +1,21 @@
+<!-- Two extensions of Movie Maker's existing Page Curl transforms.
+	 Sets alternate the starting corners for the page curl.   -->
+<TransitionsAndEffects Version="1.0">
+	<Transitions>
+		<TransitionDLL guid="{C63344D8-70D3-4032-9B32-7A3CAD5091A5}">
+			<Transition name="Page Curl, Down left" iconid="12">
+				<Param name="InternalName" value="Simple3D" />
+				<Param name="PageCurlA" value="upperright" />
+				<Param name="ShowABack" value="true" />
+				<Param name="FadeStartA" value="0.8" />
+			</Transition>
+			<Transition name="Page Curl, Down right" iconid="12">
+				<Param name="InternalName" value="Simple3D" />
+				<Param name="PageCurlA" value="upperleft" />
+				<Param name="ShowABack" value="true" />
+				<Param name="FadeStartA" value="0.8" />
+			</Transition>
+		</TransitionDLL>
+	</Transitions>
+</TransitionsAndEffects>
+

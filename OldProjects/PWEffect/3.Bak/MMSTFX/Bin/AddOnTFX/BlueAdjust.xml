@@ -1,0 +1,15 @@
+<!-- New effect to adjust amount of Blue in video.  The amount of blue added is 
+	 determined by the value Blue PARAM in the XML file.  This effects uses the
+	 CMMSpecialEffect object to alter the color balance in the video.
+	 Requires MMSTFX DLL to be built.  -->
+<TransitionsAndEffects Version="1.0">
+	<Effects>
+		<EffectDLL guid="{294D0DE1-1B57-408d-A33F-FA708A5A28D6}">
+			<Effect name="Blue Color Adjust" iconid="12">
+				<Param name="Blue" value="2.0" />
+			</Effect> 
+		</EffectDLL>
+	</Effects>
+	
+</TransitionsAndEffects>
+

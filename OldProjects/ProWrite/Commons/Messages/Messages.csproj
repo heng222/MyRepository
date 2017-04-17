@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3596709E-8A87-45AB-BC39-EAAE5DA2A3A7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>System</RootNamespace>
+    <AssemblyName>Message</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\Bin\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;DBC_CHECK_ALL,DBC_CHECK_INVARIANT,DBC_CHECK_POSTCONDITION,DBC_CHECK_PRECONDITION;USE_DEBUG_ASSERTION</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\Bin\</OutputPath>
+    <DefineConstants>TRACE;DBC_CHECK_ALL,DBC_CHECK_INVARIANT,DBC_CHECK_POSTCONDITION,DBC_CHECK_PRECONDITION;USE_DEBUG_ASSERTION</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release_X64|AnyCPU' ">
+    <OutputPath>bin\Release_X64\</OutputPath>
+    <DefineConstants>TRACE;DBC_CHECK_ALL,DBC_CHECK_INVARIANT,DBC_CHECK_POSTCONDITION,DBC_CHECK_PRECONDITION;USE_DEBUG_ASSERTION</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug_X64|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug_X64\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;DBC_CHECK_ALL,DBC_CHECK_INVARIANT,DBC_CHECK_POSTCONDITION,DBC_CHECK_PRECONDITION;USE_DEBUG_ASSERTION</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net, Version=1.2.9.0, Culture=neutral, PublicKeyToken=b32731d11ce58905">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Libs\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel.Web">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web.Extensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\Version\AssemblyInfo.cs">
+      <Link>AssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="ChangedService.cs" />
+    <Compile Include="Check.cs" />
+    <Compile Include="CodeTimer.cs" />
+    <Compile Include="Collections.cs" />
+    <Compile Include="Communication\ActionBase.cs" />
+    <Compile Include="Communication\ActionProcessorBase.cs" />
+    <Compile Include="Communication\FrontControllerBase.cs" />
+    <Compile Include="Communication\IAction.cs" />
+    <Compile Include="Communication\IActionProcessor.cs" />
+    <Compile Include="Communication\IActionProcessorFactory.cs" />
+    <Compile Include="Communication\IAsyncFuture.cs" />
+    <Compile Include="Communication\ICoding.cs" />
+    <Compile Include="Communication\IConnection.cs" />
+    <Compile Include="Communication\IConnectionBase.cs" />
+    <Compile Include="Communication\IConnectionFactory.cs" />
+    <Compile Include="Communication\IFilter.cs" />
+    <Compile Include="Communication\IFilterProcessor.cs" />
+    <Compile Include="Communication\IFilterProcessorFactory.cs" />
+    <Compile Include="Communication\IFrontController.cs" />
+    <Compile Include="Communication\IPacket.cs" />
+    <Compile Include="Communication\IServiceable.cs" />
+    <Compile Include="Communication\IServiceableListener.cs" />
+    <Compile Include="Communication\IServiceManager.cs" />
+    <Compile Include="Communication\IServiceManagerListener.cs" />
+    <Compile Include="Communication\Messaging\AsyncMessageMode.cs" />
+    <Compile Include="Communication\Messaging\HookAdapter.cs" />
+    <Compile Include="Communication\Messaging\HookManager.cs" />
+    <Compile Include="Communication\Messaging\HookType.cs" />
+    <Compile Include="Communication\Messaging\IHook.cs" />
+    <Compile Include="Communication\Messaging\IMessageRouter.cs" />
+    <Compile Include="Communication\Messaging\MessagePacket.cs" />
+    <Compile Include="Communication\Messaging\MessageRouter.cs" />
+    <Compile Include="Communication\Messaging\MessageRouterHost.cs" />
+    <Compile Include="Communication\Messaging\MessageRouterProxy.cs" />
+    <Compile Include="Communication\Messaging\MessageSchedule.cs" />
+    <Compile Include="Communication\Messaging\ObserverDelegate.cs" />
+    <Compile Include="Communication\Messaging\ObserverWrapper.cs" />
+    <Compile Include="Communication\Messaging\Subject.cs" />
+    <Compile Include="Communication\Messaging\SubjectProxy.cs" />
+    <Compile Include="Communication\PipeStream.cs" />
+    <Compile Include="Communication\ServiceAdapter.cs" />
+    <Compile Include="Communication\Service\IAction.cs" />
+    <Compile Include="Communication\Service\IActionProcessor.cs" />
+    <Compile Include="Communication\Service\IActionProcessorFactory.cs" />
+    <Compile Include="Communication\Service\IFrontController.cs" />
+    <Compile Include="Communication\Service\IIOService.cs" />
+    <Compile Include="Communication\Service\ISession.cs" />
+    <Compile Include="Communication\SR.cs" />
+    <Compile Include="DelegateExtensions.cs" />
+    <Compile Include="DisposableObject.cs" />
+    <Compile Include="EnumHelper.cs" />
+    <Compile Include="Events.cs" />
+    <Compile Include="Extensions.cs" />
+    <Compile Include="IEventListener.cs" />
+    <Compile Include="IntegerExtensions.cs" />
+    <Compile Include="ITcpServerListener.cs" />
+    <Compile Include="LockManager.cs" />
+    <Compile Include="Communication\ILogger.cs" />
+    <Compile Include="NetHelper.cs" />
+    <Compile Include="ObjectCache.cs" />
+    <Compile Include="SerializeExtensions.cs" />
+    <Compile Include="StringExtensions.cs" />
+    <Compile Include="Tcp\BufferManager.cs" />
+    <Compile Include="Tcp\ConnectionParams.cs" />
+    <Compile Include="Tcp\Events.cs" />
+    <Compile Include="Tcp\PipeItem.cs" />
+    <Compile Include="Tcp\TcpConnection.cs" />
+    <Compile Include="Tcp\TcpConnectionBase.cs" />
+    <Compile Include="Tcp\TcpConnectionParams.cs" />
+    <Compile Include="Tcp\TcpServer.cs" />
+    <Compile Include="Tcp\TcpServer.Dispatcher.cs" />
+    <Compile Include="Tcp\TcpServerConnection.cs" />
+    <Compile Include="Tcp\TcpServerConnectionFactory.cs" />
+    <Compile Include="Tcp\TcpServerParams.cs" />
+    <Compile Include="Util.cs" />
+    <Compile Include="WeakReference.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Communication\Client.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Mentalis\Mentalis.csproj">
+      <Project>{8B0BAABE-3CEB-4CA9-837E-C198B0C0B203}</Project>
+      <Name>Mentalis</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

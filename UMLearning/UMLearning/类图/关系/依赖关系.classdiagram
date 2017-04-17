@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="520c9ba7-74c2-44ec-91f8-cbf023d27fc1" name="依赖关系" linkedPackageId="f78ac4c5-ed17-4583-bf33-465373054066" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+  <profileInstances>
+    <packageHasProfileInstances Id="cebb7408-bd14-47a9-94cb-be5d4efaccb6">
+      <profileInstance Id="976f470d-4fd1-4a97-a0d3-10d8aa9a90b7" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="10c02393-414e-42cb-897a-7949d6dee7da">
+      <profileInstance Id="d010780a-df98-4dea-87f7-cd65c0dd16f7" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="01134c21-2f83-4a44-8607-ed8ea3c55ac0" name="站场图" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="2bf9e4ad-93b6-44bf-b386-c375ae700a55" />
+        <suppliersInternal>
+          <dependency Id="c367fc53-4e39-4ba0-9a48-c3de3e046911">
+            <classMoniker Id="ae47e91e-bcda-4c00-bbe9-17e426dd4771" LastKnownName="String" />
+            <elementDefinition Id="9ef79e92-2452-449e-82d3-92f576c481c2" />
+          </dependency>
+          <dependency Id="4bcabd29-ccfa-406b-9faf-2d79398fdb95">
+            <classMoniker Id="512c71a6-4d56-4657-86f6-dc62de7acea4" LastKnownName="Thread" />
+            <elementDefinition Id="f9c0cb10-adab-44ba-b122-3084aced44ea" />
+          </dependency>
+          <dependency Id="752fcf51-cad6-486e-9228-20831a5e77ab">
+            <classMoniker Id="df0b3ed5-5bc4-41a2-8a97-10959babc5fc" LastKnownName="Timer" />
+            <elementDefinition Id="bf0806a1-8f1d-4fa1-a022-84b4502be67f" />
+          </dependency>
+        </suppliersInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="ae47e91e-bcda-4c00-bbe9-17e426dd4771" name="String" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="c36b9a36-ab0d-40cf-bee5-4fc89d5a058a" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="512c71a6-4d56-4657-86f6-dc62de7acea4" name="Thread" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="f73474b3-4771-4891-85b3-d862344aff21" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="df0b3ed5-5bc4-41a2-8a97-10959babc5fc" name="Timer" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="a30c253b-f52c-4877-9dd4-890da77c73c2" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+  </packagedElements>
+  <package Id="f78ac4c5-ed17-4583-bf33-465373054066" name="UMLearning">
+    <elementDefinition Id="baf8f03b-1fe8-4860-9ae1-10efb35b8e0a" />
+  </package>
+</logicalClassDesignerModel>

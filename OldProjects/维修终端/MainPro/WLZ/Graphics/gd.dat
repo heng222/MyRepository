@@ -1,0 +1,20 @@
+
+
+#Gu Dao Status Data
+5
+# X   Y   COMMANDID    Text
+ 180  710 17        1G
+ 240  710 18        IIG
+ 300  710 19        3G
+ 360  710 20        4G
+ 420  710 21        5G
+
+
+#Qu Jian Data
+3
+#  X   Y       COMMANDID StationNo   XHLAN_ID   StationNo   XHLAN_ID  COMMANDID Text
+  800  710      102          1          24           1          0          0     SF·âËø
+  860  710      101          1          25           1          0          0     S·âËø
+  920  710      201          1          23           2          24         101   X·âËø
+ 
+

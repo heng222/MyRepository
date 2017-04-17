@@ -1,0 +1,26 @@
+HKCR
+{
+	PWEffect.Slot.1 = s 'Slot Class'
+	{
+		CLSID = s '{4615B371-8A88-4141-8CF5-3993386EAF69}'
+	}
+	PWEffect.Slot = s 'Slot Class'
+	{
+		CLSID = s '{4615B371-8A88-4141-8CF5-3993386EAF69}'
+		CurVer = s 'PWEffect.Slot.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {4615B371-8A88-4141-8CF5-3993386EAF69} = s 'Slot Class'
+		{
+			ProgID = s 'PWEffect.Slot.1'
+			VersionIndependentProgID = s 'PWEffect.Slot'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{B1FEB9A2-A676-46da-83C5-B1CBEC33BC07}'
+		}
+	}
+}

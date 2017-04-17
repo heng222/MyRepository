@@ -1,0 +1,26 @@
+HKCR
+{
+	PWEffect.Sparkle.1 = s 'Sparkle Class'
+	{
+		CLSID = s '{9D15677F-1972-41A9-8573-2D037055743C}'
+	}
+	PWEffect.Sparkle = s 'Sparkle Class'
+	{
+		CLSID = s '{9D15677F-1972-41A9-8573-2D037055743C}'
+		CurVer = s 'PWEffect.Sparkle.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {9D15677F-1972-41A9-8573-2D037055743C} = s 'Sparkle Class'
+		{
+			ProgID = s 'PWEffect.Sparkle.1'
+			VersionIndependentProgID = s 'PWEffect.Sparkle'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{B1FEB9A2-A676-46da-83C5-B1CBEC33BC07}'
+		}
+	}
+}

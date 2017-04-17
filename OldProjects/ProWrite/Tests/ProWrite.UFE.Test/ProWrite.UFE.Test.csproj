@@ -1,0 +1,176 @@
+﻿<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6F7D5AEF-608A-4502-95ED-150C2CB028E8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ProWrite.UFE.Test</RootNamespace>
+    <AssemblyName>ProWrite.UFE.Test</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release_X64|AnyCPU' ">
+    <OutputPath>bin\Release_X64\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug_X64|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug_X64\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net, Version=1.2.9.0, Culture=neutral, PublicKeyToken=b32731d11ce58905">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Libs\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework, Version=2.4.8.0, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Libs\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Threading, Version=1.0.3058.34407, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Libs\System.Threading.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Extensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FtpTest.cs" />
+    <Compile Include="Converter\MessageConverterTest.cs" />
+    <Compile Include="Converter\MessageGenerateTest.cs" />
+    <Compile Include="MockTest.cs">
+    </Compile>
+    <Compile Include="Converter\PlaylistConverterTest.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RequestPacketTest.cs" />
+    <Compile Include="Converter\ScheduleConverterTest.cs" />
+    <Compile Include="Converter\ScheduleGenerateTest.cs" />
+    <Compile Include="Converter\TimeSliceGroupConverterTest.cs" />
+    <Compile Include="RS232ConnectionTest.cs" />
+    <Compile Include="Saver\LabelTest.cs" />
+    <Compile Include="Saver\TestBase.cs" />
+    <Compile Include="Saver\TestData.cs" />
+    <Compile Include="UFEEncryptionTest.cs" />
+    <Compile Include="UFEEntityTest.cs" />
+    <Compile Include="Upload\ConnectionTestBase.cs" />
+    <Compile Include="Upload\MessageUploadTestBase.cs" />
+    <Compile Include="Upload\UploadBaseTest.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Clients\ProWrite.UI.Controls\ProWrite.UI.Controls.csproj">
+      <Project>{A0C45DB5-FA97-481E-A1A6-E07A7F226FCF}</Project>
+      <Name>ProWrite.UI.Controls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Commons\DiffieHellman\DiffieHellman.csproj">
+      <Project>{B748102F-D07F-4399-9BC9-F6A61B14DC7C}</Project>
+      <Name>DiffieHellman</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Commons\Mentalis\Mentalis.csproj">
+      <Project>{8B0BAABE-3CEB-4CA9-837E-C198B0C0B203}</Project>
+      <Name>Mentalis</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Commons\Messages\Messages.csproj">
+      <Project>{3596709E-8A87-45AB-BC39-EAAE5DA2A3A7}</Project>
+      <Name>Messages</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Commons\ProWrite.Core\ProWrite.Core.csproj">
+      <Project>{FF80525C-029F-4EE1-BCF5-3547AFA06F0B}</Project>
+      <Name>ProWrite.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Commons\ProWrite.DES\ProWrite.DES.csproj">
+      <Project>{9C998B54-46BB-4688-B7C2-2DB0D055C250}</Project>
+      <Name>ProWrite.DES</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Commons\ProWrite.Entity\ProWrite.Entity.csproj">
+      <Project>{5915A60C-B679-4E48-86AD-C79D9F8C903F}</Project>
+      <Name>ProWrite.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Commons\ProWrite.SSL\ProWrite.SSL.vcproj">
+      <Project>{2ED2902C-82B4-4433-B057-329547CA0335}</Project>
+      <Name>ProWrite.SSL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Commons\ProWrite.UFE.Entity\ProWrite.UFE.Entity.csproj">
+      <Project>{5D1E0AF1-E69A-48F2-BE2E-DA9BEFA9AE2A}</Project>
+      <Name>ProWrite.UFE.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Commons\ProWrite.UFE.Files\ProWrite.UFE.Files.csproj">
+      <Project>{4AD4580A-CF1A-47F5-BD89-7B08B2343A08}</Project>
+      <Name>ProWrite.UFE.Files</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Commons\ProWrite.UFE\ProWrite.UFE.csproj">
+      <Project>{ACD7DEDB-AA50-4665-BEA0-729E64DDFA2D}</Project>
+      <Name>ProWrite.UFE</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Commons\SecurityServices\SecurityServices.csproj">
+      <Project>{E1D600DA-4038-4920-B1A5-52623EBD189C}</Project>
+      <Name>SecurityServices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Commons\SharpSSH\SharpSSH.csproj">
+      <Project>{4E164E38-2E34-46C2-82FE-66FFEA53EA1A}</Project>
+      <Name>SharpSSH</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Servers\ProWrite.DataProvider\ProWrite.DataProvider.csproj">
+      <Project>{0AE259C0-D7E3-4DE8-8726-C4A333D97E31}</Project>
+      <Name>ProWrite.DataProvider</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <EmbeddedResource Include="log4net.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

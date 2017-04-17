@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<TimeSliceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://xml.netbeans.org/schema/ProWriteFrameTimeSliceGroup">
+  <UniqueIdentifier>274601285b244e92b891aad3be480068</UniqueIdentifier>
+  <DisplayTime>12</DisplayTime>
+  <IsRandom>false</IsRandom>
+  <Contents>
+    <Content>
+      <UniqueIdentifier>b03546b8228d4a98bf2a23aaca5a087e</UniqueIdentifier>
+      <Type>FrameObject</Type>
+    </Content>
+    <Content>
+      <UniqueIdentifier>5099c27b2058403d815844327c999da3</UniqueIdentifier>
+      <Type>FrameObject</Type>
+    </Content>
+    <Content>
+      <UniqueIdentifier>624bd60bc91b4db99112ab2432fdf605</UniqueIdentifier>
+      <Type>FrameObject</Type>
+    </Content>
+    <Content>
+      <UniqueIdentifier>1ca3dc643f464afc891262977d2baa78</UniqueIdentifier>
+      <Type>FrameObject</Type>
+    </Content>
+    <Content>
+      <UniqueIdentifier>de1f49e1e88d4e6191067addc604f709</UniqueIdentifier>
+      <Type>FrameObject</Type>
+    </Content>
+  </Contents>
+</TimeSliceGroup>

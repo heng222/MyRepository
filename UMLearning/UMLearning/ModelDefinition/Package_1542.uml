@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="bfff1374-697b-4f12-a6e8-d16e60990985"
+  name="Drawing" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <suppliersInternal>
+    <dependency
+      Id="9adf4cd8-0616-4666-8da3-580fe1c2b2a6">
+      <packageMoniker
+        Id="ac2e7e3c-1187-49d8-bfa3-15b91612bf18"
+        LastKnownName="Exceptions"
+        LastKnownLocation="Package1_1545.uml" />
+    </dependency>
+    <dependency
+      Id="47369b75-1991-4e83-a9ed-8f98a8390ebb">
+      <packageMoniker
+        Id="3cc2ad25-8b35-416a-8ee3-fb4376d11ed2"
+        LastKnownName="Events"
+        LastKnownLocation="Package_1545.uml" />
+    </dependency>
+    <dependency
+      Id="779cce2a-2d03-4b82-b355-487e74f7ba41">
+      <packageMoniker
+        Id="09a0db78-6b81-4b90-9fb0-26e3f6574923"
+        LastKnownName="Serialization"
+        LastKnownLocation="Package_1544.uml" />
+    </dependency>
+  </suppliersInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <class
+        Id="c5e5d061-8b7e-4652-b39b-94e6a22341cc"
+        name="TrackDrawing"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="8d34531f-32d8-4226-97e0-473d34a615da"
+        name="SignalDrawing"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

@@ -1,0 +1,119 @@
+//{{NO_DEPENDENCIES}}
+// Microsoft Visual C++ generated include file.
+// Used by NaviServer.rc
+//
+#define IDD_ABOUTBOX                    100
+#define IDD_NAVISERVER_FORM             101
+#define IDD_PROPPAGE_WEATHER            102
+#define IDD_PROPPAGE_TRAFFIC            106
+#define IDD_PROPPAGE_BALANCESERVER      107
+#define IDR_MAINFRAME                   128
+#define IDR_NAVISETYPE                  129
+#define IDD_DLG_APPSTART                130
+#define IDS_MAINSHEET_TAB1              130
+#define IDS_MAINSHEET_TAB2              131
+#define IDR_MENU_LOG                    131
+#define IDS_MAINSHEET_TAB3              132
+#define IDD_DLG_NETLOGVIEW              132
+#define IDS_MAINSHEET_TAB4              133
+#define IDD_PAGE_NETWORK                135
+#define IDD_PAGE_DB                     136
+#define IDD_DLG_FEEUSERS                138
+#define IDD_DLG_USERSREGED_MGR          139
+#define IDD_PROPPAGE_MOBILECLIENT       140
+#define IDI_MOBUSER_ACTIVE              143
+#define IDI_MOBUSER_INVALID             144
+#define IDI_BALANCESERVER               145
+#define IDB_BITMAP1                     146
+#define IDB_BMP_LOG                     146
+#define IDI_ICON_STOP                   147
+#define IDI_TOOLBAR_STOP                147
+#define IDI_ICON_CONFIG                 148
+#define IDI_TOOLBAR_CONFIG              148
+#define IDI_ICON_START                  149
+#define IDI_TOOLBAR_START               149
+#define IDI_MOBUSER_GROUP               150
+#define IDB_TOOLBAR_BKG                 151
+#define IDI_ICON_WEATHER                152
+#define IDI_TRAFFIC                     155
+#define IDI_TOOLBAR_EXIT                156
+#define IDI_ICON1                       158
+#define IDI_TOOLBAR_LOGS                158
+#define IDI_DISCONNECTED                159
+#define IDI_CONNECTED                   160
+#define IDC_STA_INF                     1000
+#define IDC_LIST1                       1001
+#define IDC_LIST_NL                     1002
+#define IDC_CHECK1                      1003
+#define IDC_CHECK_REGDATE               1003
+#define IDC_CHECK2                      1004
+#define IDC_CHECK3                      1005
+#define IDC_DATETIMEPICKER1             1006
+#define IDC_CMB_EVENT                   1007
+#define IDC_CMB_ADDRESS                 1008
+#define IDC_BUTTON1                     1009
+#define IDC_BTN_QUERY                   1009
+#define IDC_BTN_CONNECT                 1009
+#define IDC_EDIT_FPATH                  1010
+#define IDC_EDIT_CPATH                  1011
+#define IDC_EDIT3                       1012
+#define IDC_EDIT_INTERVAL               1012
+#define IDC_STATIC1                     1014
+#define IDC_IPADDRESS                   1015
+#define IDC_PUBLISH_IP                  1015
+#define IDC_EDIT_DataSource             1016
+#define IDC_EDIT_UserID                 1017
+#define IDC_EDIT_Password               1018
+#define IDC_EDIT_PORT                   1019
+#define IDC_PUBLISH_PORT                1019
+#define IDC_CB_SERCODE                  1020
+#define IDC_CB_CITY                     1021
+#define IDC_CHECK_SERVICECODE           1022
+#define IDC_CHECK_CITYNAME              1023
+#define IDC_DP_REGDATE                  1024
+#define ID_QUERY                        1025
+#define IDC_CHECK_CELLPHONE             1026
+#define IDC_CB_CELLPHON                 1027
+#define IDC_STATIC_GROUP                1027
+#define IDC_EDIT1                       1028
+#define IDC_EDIT2                       1029
+#define IDC_EDIT4                       1030
+#define IDC_IP_BSSERVER                 1031
+#define IDC_EDIT_BSPORT                 1032
+#define IDC_PICTURE                     1033
+#define IDC_COMB_WTHFLASHTIME           1034
+#define IDC_COMB_TFCFLASHTIME           1035
+#define IDC_RBTN_ALLIP                  1036
+#define IDC_RBTN_SPECIFYIP              1037
+#define IDC_CUSTOM1                     1038
+#define IDC_PROGRESS1                   1039
+#define IDC_IPADDRESS1                  1040
+#define IDC_CNT_STATE                   1041
+#define IDC_GROUP_BALANCE               1043
+#define ID_INDICATOR_DATABASE           1600
+#define ID_INDICATOR_TIME               1601
+#define ID_INDICATOR_CORP               1602
+#define ID_INDICATOR_NUMCLT             1603
+#define ID_LOG_DELETESEL                32772
+#define ID_LOG_CLEAR                    32774
+#define ID_VIEW_NETLOG                  32776
+#define ID_VIEW_OPTION                  32779
+#define ID_FEE_MUSERS                   32783
+#define ID_FEE_SREQ                     32784
+#define ID_FEE_SRSP                     32785
+#define ID_FEE_REGUSERS                 32787
+#define ID_START_SERVICE                32793
+#define ID_STOP_SERVICE                 32794
+#define ID_RESTART_APP                  32797
+
+// Next default values for new objects
+// 
+#ifdef APSTUDIO_INVOKED
+#ifndef APSTUDIO_READONLY_SYMBOLS
+#define _APS_3D_CONTROLS                     1
+#define _APS_NEXT_RESOURCE_VALUE        161
+#define _APS_NEXT_COMMAND_VALUE         32798
+#define _APS_NEXT_CONTROL_VALUE         1044
+#define _APS_NEXT_SYMED_VALUE           101
+#endif
+#endif

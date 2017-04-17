@@ -1,0 +1,84 @@
+
+
+
+		1、声明导出类如下：
+			class __declspec (dllexport) CSystemInfo
+			
+		2、编译、生成dll；
+		
+		3、进入命令行后，定位到目录C:\Program Files\Microsoft Visual Studio .NET 2003\Vc7\bin下，
+		   输入命令：“dumpbin /exports ” + dll所在目录， 回车执行命令；
+
+		4、拷贝dll导出函数的地址，如下所示：
+                   
+
+    		    ordinal hint RVA      name
+
+          		1    0 000011D0 ??0CSystemInfo@@QAE@XZ
+          		2    1 00001030 ??1CSystemInfo@@QAE@XZ
+          		3    2 00001000 ??4CSystemInfo@@QAEAAV0@ABV0@@Z
+          		4    3 00001070 ?GetCpuUsingRate@CSystemInfo@@QAEHAAI@Z
+         		5    4 00001040 ?GetMemonyUsingRate@CSystemInfo@@QAEXAAI@Z
+          		6    5 00001070 GetCpuUsingRate
+          		7    6 00001040 GetMemonyUsingRate
+          		8    7 000011D0 Instance
+          		9    8 00001030 Release
+
+                5、修改dll工程中***.def文件如下：
+			EXPORTS
+    			; 此处可以是显式导出
+			Instance	= ??0CSystemInfo@@QAE@XZ	// 表示该成员函数为类的构造函数；
+    			Release		= ??1CSystemInfo@@QAE@XZ	// 表示该成员函数为类的析构函数；
+			GetCpuUsingRate		= ?GetCpuUsingRate@CSystemInfo@@QAEHAAI@Z
+    			GetMemonyUsingRate	= ?GetMemonyUsingRate@CSystemInfo@@QAEXAAI@Z
+
+		6、重新编译、生成DLL；
+
+		7、显式应用该DLL时先在针对该类的成员函数声明对应的函数指针，如下：
+			typedef void (WINAPI * PCONSTRUCTOR)();
+			typedef void (WINAPI * CPURATE)(unsigned int& );
+
+		8、LoadLibrary将DLL加载到程序中；
+
+		9、分配一个与类大小匹配的内存块，然后调用构造函数代码：
+			CSystemInfo* pSysInfo = (CSystemInfo*)malloc(sizeof(CSystemInfo));
+
+		10、调用构造函数对其进行初始化，所以我们要获取构造函数在DLL中的相对虚拟地址（RVA）：
+			// load constructor function
+			PCONSTRUCTOR pConstructorProc = (PCONSTRUCTOR)GetProcAddress(hDll, "Instance");
+
+			if (pConstructorProc)
+			{
+				// get "this" pointer of your class
+				__asm { MOV ECX, pSysInfo}
+				//call the constructor
+				pConstructorProc();
+			}
+
+		11、调用其它类成员函数；
+
+		12、由于导出类不会自动调用析构函数，所以必须强制调用类的析构函数，防止出现内存泄露；
+			// load destructor function
+			pConstructorProc = (PCONSTRUCTOR)GetProcAddress(hDll, "Release");
+			if (pConstructorProc)
+			{	
+				// get "this" pointer of your class
+				__asm { MOV ECX, pSysInfo}
+				// call destructor function
+				pConstructorProc();
+			}
+
+		13、释放为类开辟的内存，并卸载DLL，AfxFreeLibrary(hDll)。
+		
+
+
+
+
+
+
+
+
+
+
+
+

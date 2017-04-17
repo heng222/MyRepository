@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.microsoft.com/ProjectProfile/1.0" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/ProjectProfile/1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="ProjectProfile" type="tns:ProjectProfile" />
+  <xs:complexType name="ProjectProfile">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Module" type="tns:ModuleInfo" />
+    </xs:sequence>
+    <xs:attribute name="DefaultModule" type="xs:string" />
+    <xs:attribute name="LoginForm" type="xs:string" />
+    <xs:attribute name="MainForm" type="xs:string" />
+    <xs:attribute name="ImportExportFactory" type="xs:string" />
+  </xs:complexType>
+  <xs:complexType name="ModuleInfo">
+    <xs:attribute name="Name" type="xs:string" />
+    <xs:attribute name="Type" type="xs:string" />
+  </xs:complexType>
+</xs:schema>

@@ -1,0 +1,472 @@
+
+<!-- ISSoftStone Effects and Transitions -->
+
+<TransitionsAndEffects Version="1.0">
+  <Effects>
+
+        <EffectDLL guid="{D11F6A7F-079E-4D1D-93FD-3B20E9BBC748}">
+            <Effect name="_PW.E: Text" iconid="1">
+                <Param name="TitleType" value="5" />
+                <Param name="TextColor" value="0x0000FFFF" />
+                <Param name="Title" value="BounceText!" />
+                <Param name="FontHeight" value="20" />
+                <Param name="FontName" value="Fixedsys" />
+            </Effect> 
+        </EffectDLL>
+
+
+        <EffectDLL guid="{5317AB02-6923-492d-ABFC-742B6194B739}">
+            <Effect name="_PW.E: SG.Red" iconid="1">
+                <Param name="AdjustType" value="Red" />
+            </Effect>
+            <Effect name="_PW.E: SG.Green" iconid="1">
+                <Param name="AdjustType" value="Green" />
+            </Effect>
+            <Effect name="_PW.E: SG.Blue" iconid="1">
+                <Param name="AdjustType" value="Blue" />
+            </Effect>
+            <Effect name="_PW.E: SG.White" iconid="1">
+                <Param name="AdjustType" value="White" />
+            </Effect>
+            <Effect name="_PW.E: SG.Amber" iconid="1" >
+                <Param name="AdjustType" value="Amber" />
+            </Effect>
+            <Effect name="_PW.E: SG.BlueGreen" iconid="1">
+                <Param name="AdjustType" value="BlueGreen" />
+            </Effect>
+            <Effect name="_PW.E: SG.RedGreen" iconid="1">
+                <Param name="AdjustType" value="RedGreen" />
+            </Effect>
+        </EffectDLL>
+
+
+        <EffectDLL guid="{A4B54A75-6E38-4312-B5E9-C9950EE98141}">
+            <Effect name="_PW.E: Bijou" iconid="1">
+                <Param name="Direction" value="0" />
+                <Param name="Rate" value="3" />
+                <Param name="LampHeight" value="3" />
+                <Param name="LampLength" value="9" />
+                <Param name="GapLength" value="5" />
+                <Param name="CornersOn" value="1" />
+                <Param name="LampColor" value="0xFF00FFFF" />
+                <Param name="GapColor" value="0xFFFF0000" />
+            </Effect> 
+        </EffectDLL>
+
+
+
+        <EffectDLL guid="{F67BBA3B-1980-48CB-92BB-CC826BF458E6}">
+            <Effect name="_PW.E: Pixelate" iconid="1">
+                <Param name="A2VRatio" value="5" />
+            </Effect> 
+        </EffectDLL>
+
+
+
+        <EffectDLL guid="{632BB53B-C02D-4AB1-B041-A14F524812EF}">
+            <Effect name="_PW.E: Snow-light" iconid="1">
+                <Param name="Color" value="0xFFFFFFFF" />
+                <Param name="Rate" value="12" />
+                <Param name="Amount" value="0.15" />
+            </Effect> 
+            <Effect name="_PW.E: Snow-medium" iconid="1">
+                <Param name="Color" value="0xFFFFFFFF" />
+                <Param name="Rate" value="14" />
+                <Param name="Amount" value="0.4" />
+            </Effect> 
+            <Effect name="_PW.E: Snow-Heavy" iconid="1">
+                <Param name="Color" value="0xFFFFFFFF" />
+                <Param name="Rate" value="15" />
+                <Param name="Amount" value="0.85" />
+            </Effect> 
+        </EffectDLL>
+
+
+        <EffectDLL guid="{9D15677F-1972-41A9-8573-2D037055743C}">
+            <Effect name="_PW.E: Sparkle-light" iconid="1">
+                <Param name="SparkleColor" value="0xFFFFFFFF" />
+                <Param name="Size" value="6" />
+                <Param name="Amount" value="0.05" />
+            </Effect> 
+            <Effect name="_PW.E: Sparkle-Med" iconid="1">
+                <Param name="SparkleColor" value="0xFFFFFFFF" />
+                <Param name="Size" value="8" />
+                <Param name="Amount" value="0.15" />
+            </Effect>
+            <Effect name="_PW.E: Sparkle-Dense" iconid="1">
+                <Param name="SparkleColor" value="0xFFFFFFFF" />
+                <Param name="Size" value="10" />
+                <Param name="Amount" value="0.35" />
+            </Effect> 
+        </EffectDLL>
+
+
+
+        <EffectDLL guid="{66CAB342-DDEF-4E2C-B407-19DA2D41A938}">
+            <Effect name="_PW.E: Flash-Blank" iconid="2">
+                <Param name="FlashStyle" value="0" />
+                <Param name="TextColor" value="0xFF" />
+                <Param name="BackColor" value="0x0" />
+                <Param name="OnTime" value="500" />
+                <Param name="OffTime" value="200" />
+                <Param name="WED" value="0" />
+            </Effect> 
+            <Effect name="_PW.E: Flash-Invert" iconid="2">
+                <Param name="FlashStyle" value="1" />
+                <Param name="TextColor" value="0xFF" />
+                <Param name="BackColor" value="0x0" />
+                <Param name="OnTime" value="500" />
+                <Param name="OffTime" value="500" />
+                <Param name="WED" value="0" />
+            </Effect> 
+            <Effect name="_PW.E: Flash-Random(only text valid)" iconid="2">
+                <Param name="FlashStyle" value="2" />
+                <Param name="TextColor" value="0xFF0000FF" />
+                <Param name="BackColor" value="0x0" />
+                <Param name="OnTime" value="500" />
+                <Param name="OffTime" value="500" />
+                <Param name="WED" value="50" />
+            </Effect> 
+        </EffectDLL>
+
+
+
+        <EffectDLL guid="{0740D73C-0676-4AFC-BEB9-07F3AE6A8FA3}">
+            <Effect name="_PW.E: Travel(Left)" iconid="1">
+                <Param name="Angle" value="180" />
+                <Param name="BackColor" value="0x00" />
+                <Param name="Circular" value="1" />
+                <Param name="Rate" value="10" />
+                <Param name="Spacing" value="10" />
+            </Effect> 
+            <Effect name="_PW.E: Travel(Right)" iconid="1">
+                <Param name="Angle" value="0" />
+                <Param name="BackColor" value="0x00" />
+                <Param name="Circular" value="1" />
+                <Param name="Rate" value="10" />
+                <Param name="Spacing" value="10" />
+            </Effect> 
+            <Effect name="_PW.E: Travel(Up)" iconid="1">
+                <Param name="Angle" value="-90" />
+                <Param name="BackColor" value="0x00" />
+                <Param name="Circular" value="1" />
+                <Param name="Rate" value="10" />
+                <Param name="Spacing" value="10" />
+            </Effect> 
+            <Effect name="_PW.E: Travel(Down)" iconid="1">
+                <Param name="Angle" value="90" />
+                <Param name="BackColor" value="0x00" />
+                <Param name="Circular" value="0" />
+                <Param name="Rate" value="10" />
+                <Param name="Spacing" value="10" />
+            </Effect> 
+        </EffectDLL>
+
+
+        <EffectDLL guid="{89BDCC9F-96B6-426F-B6CC-FEE51C3C818D}">
+            <Effect name="_PW.E: WrapAround(Left)" iconid="1">
+                <Param name="Direction" value="0" />
+                <Param name="Rate" value="5" />
+                <Param name="Spacing" value="0" />
+            </Effect> 
+            <Effect name="_PW.E: WrapAround(Right)" iconid="1">
+                <Param name="Direction" value="1" />
+                <Param name="Rate" value="5" />
+                <Param name="Spacing" value="0" />
+            </Effect> 
+            <Effect name="_PW.E: WrapAround(Up)" iconid="1">
+                <Param name="Direction" value="2" />
+                <Param name="Rate" value="5" />
+            </Effect> 
+            <Effect name="_PW.E: WrapAround(Down)" iconid="1">
+                <Param name="Direction" value="3" />
+                <Param name="Rate" value="5" />
+                <Param name="Spacing" value="0" />
+            </Effect> 
+        </EffectDLL>
+
+
+  </Effects>
+
+
+
+
+
+
+
+  <Transitions>
+
+
+    <TransitionDLL guid="{158BBBD4-B83C-4168-9598-6D30E99530DC}" > 
+       <Transition name="_PW.T: RainOn" iconid="1"> 
+           <Param name="Color" value="0xFFA0A0A0" />
+           <Param name="Amount" value="0.4" />
+           <Param name="Angle" value="50" />
+       </Transition> 
+    </TransitionDLL>
+
+
+    <TransitionDLL guid="{A631D229-A165-4db7-B28D-32D4CE2CA42C}" > 
+       <Transition name="_PW.T: Bounce On" iconid="1"> 
+       </Transition> 
+    </TransitionDLL>
+
+
+
+    <TransitionDLL guid="{B058D4C2-1D75-4226-8C8C-66CCD2802735}" > 
+       <Transition name="_PW.T: BlackHole On" iconid="1"> 
+                <Param name="State" value="1" />
+                <Param name="StartY" value="70" />
+                <Param name="StartX" value="50" />
+       </Transition> 
+       <Transition name="_PW.T: BlackHole Off" iconid="1"> 
+                <Param name="State" value="0" />
+                <Param name="StartY" value="0" />
+                <Param name="StartX" value="0" />
+       </Transition> 
+    </TransitionDLL>
+
+
+    <TransitionDLL guid="{4615B371-8A88-4141-8CF5-3993386EAF69}" > 
+       <Transition name="_PW.T: Slot on" iconid="1"> 
+       </Transition> 
+    </TransitionDLL>
+
+
+
+    <TransitionDLL guid="{098EA7F1-DA86-48ca-BB90-3C730BC32AD7}">
+            <Transition name="_PW.T: Interleave On(Top_Bottom,V_Lines)" iconid="1">
+                <Param name="State" value="1" />
+                <Param name="Direction" value="0" />
+                <Param name="Lines" value="1" />
+                <Param name="Thickness" value="5" />
+            </Transition> 
+            <Transition name="_PW.T: Interleave Off(Top_Bottom,H_Lines)" iconid="1">
+                <Param name="State" value="0" />
+                <Param name="Direction" value="0" />
+                <Param name="Lines" value="0" />
+                <Param name="Thickness" value="5" />
+            </Transition> 
+            <Transition name="_PW.T: Interleave On(Left_Right,H_Lines)" iconid="1">
+                <Param name="State" value="1" />
+                <Param name="Direction" value="1" />
+                <Param name="Lines" value="0" />
+                <Param name="Thickness" value="1" />
+            </Transition> 
+            <Transition name="_PW.T: Interleave Off(Left_Right,VLines)" iconid="1">
+                <Param name="State" value="0" />
+                <Param name="Direction" value="1" />
+                <Param name="Lines" value="1" />
+                <Param name="Thickness" value="5" />
+            </Transition> 
+            <Transition name="_PW.T: Interleave On(In_Out,H_Lines)" iconid="1">
+                <Param name="State" value="1" />
+                <Param name="Direction" value="2" />
+                <Param name="Lines" value="0" />
+                <Param name="Thickness" value="5" />
+            </Transition> 
+            <Transition name="_PW.T: Interleave On(In_Out,V_Lines)" iconid="1">
+                <Param name="State" value="1" />
+                <Param name="Direction" value="2" />
+                <Param name="Lines" value="1" />
+                <Param name="Thickness" value="5" />
+            </Transition> 
+            <Transition name="_PW.T: Interleave Off(In_Out,V_Lines)" iconid="1">
+                <Param name="State" value="0" />
+                <Param name="Direction" value="2" />
+                <Param name="Lines" value="1" />
+                <Param name="Thickness" value="5" />
+            </Transition> 
+            <Transition name="_PW.T: Interleave Off(In_Out,H_Lines)" iconid="1">
+                <Param name="State" value="0" />
+                <Param name="Direction" value="2" />
+                <Param name="Lines" value="0" />
+                <Param name="Thickness" value="5" />
+            </Transition> 
+            <Transition name="_PW.T: Interleave On(TopLeft_BottomRight,H_Lines)" iconid="1">
+                <Param name="State" value="1" />
+                <Param name="Direction" value="3" />
+                <Param name="Lines" value="0" />
+                <Param name="Thickness" value="7" />
+            </Transition>
+            <Transition name="_PW.T: Interleave Off(TopLeft_BottomRight,V_Lines)" iconid="1">
+                <Param name="State" value="0" />
+                <Param name="Direction" value="3" />
+                <Param name="Lines" value="1" />
+                <Param name="Thickness" value="5" />
+            </Transition>
+            <Transition name="_PW.T: Interleave On(BottomLeft_TopRight,H_Lines)" iconid="1">
+                <Param name="State" value="1" />
+                <Param name="Direction" value="4" />
+                <Param name="Lines" value="0" />
+                <Param name="Thickness" value="5" />
+            </Transition>
+            <Transition name="_PW.T: Interleave Off(BottomLeft_TopRight,V_Lines)" iconid="1">
+                <Param name="State" value="0" />
+                <Param name="Direction" value="4" />
+                <Param name="Lines" value="1" />
+                <Param name="Thickness" value="5" />
+            </Transition>
+            <Transition name="_PW.T: Interleave On(TopCorners,H_Lines)" iconid="1">
+                <Param name="State" value="1" />
+                <Param name="Direction" value="5" />
+                <Param name="Lines" value="0" />
+                <Param name="Thickness" value="5" />
+            </Transition>
+            <Transition name="_PW.T: Interleave Off(TopCorners,V_Lines)" iconid="1">
+                <Param name="State" value="0" />
+                <Param name="Direction" value="5" />
+                <Param name="Lines" value="1" />
+                <Param name="Thickness" value="5" />
+            </Transition>
+            <Transition name="_PW.T: Interleave On(BottomCorners,V_Lines)" iconid="1">
+                <Param name="State" value="1" />
+                <Param name="Direction" value="6" />
+                <Param name="Lines" value="1" />
+                <Param name="Thickness" value="5" />
+            </Transition>
+            <Transition name="_PW.T: Interleave Off(BottomCorners,H_Lines)" iconid="1">
+                <Param name="State" value="0" />
+                <Param name="Direction" value="6" />
+                <Param name="Lines" value="0" />
+                <Param name="Thickness" value="5" />
+            </Transition>
+    </TransitionDLL>
+
+
+    <TransitionDLL guid="{F51A5AD6-D26C-4c90-BCA5-7698EF5BD317}">
+            <Transition name="_PW.T: Line On" iconid="1">
+                <Param name="State" value="1" />
+                <Param name="Direction" value="0" />
+                <Param name="PullPoint" value="100" />
+                <Param name="LagSpacing" value="3" />
+                <Param name="LineWidth" value="1" />
+            </Transition> 
+            <Transition name="_PW.T: Line Off" iconid="1">
+                <Param name="State" value="0" />
+                <Param name="Direction" value="2" />
+                <Param name="PullPoint" value="100" />
+                <Param name="LagSpacing" value="3" />
+                <Param name="LineWidth" value="1" />
+            </Transition> 
+    </TransitionDLL>
+
+
+    <TransitionDLL guid="{D0AA7BDD-F81F-48ca-B914-5DD196EFC398}">
+            <Transition name="_PW.T: Filter On" iconid="1">
+                <Param name="State" value="1" />
+                <Param name="Spacing" value="10" />
+                <Param name="Thickness" value="5" />
+            </Transition> 
+            <Transition name="_PW.T: Filter Off" iconid="1">
+                <Param name="State" value="0" />
+                <Param name="Spacing" value="5" />
+                <Param name="Thickness" value="10" />
+            </Transition> 
+    </TransitionDLL>
+
+    <TransitionDLL guid="{86E33B61-4FDF-4514-95D4-8BCDB5C33D1C}">
+            <Transition name="_PW.T: Slide On" iconid="1">
+                <Param name="State" value="1" />
+                <Param name="Direction" value="14" />
+            </Transition> 
+            <Transition name="_PW.T: Slide Off" iconid="1">
+                <Param name="State" value="0" />
+                <Param name="Direction" value="14" />
+            </Transition> 
+    </TransitionDLL>
+
+    <TransitionDLL guid="{87A66F87-E9BE-47DF-A5AD-4C7FF1582079}">
+            <Transition name="_PW.T: Wipe On(Right)" iconid="1">
+                <Param name="State" value="1" />
+                <Param name="Direction" value="15" />
+            </Transition> 
+            <Transition name="_PW.T: Wipe Off(Left)" iconid="1">
+                <Param name="State" value="0" />
+                <Param name="Direction" value="15" />
+            </Transition> 
+    </TransitionDLL>
+
+    <TransitionDLL guid="{1105251F-2672-466D-9D8C-DAD7F90AA0C2}">
+            <Transition name="_PW.T: MultiWipe On" iconid="1">
+                <Param name="State" value="1" />
+                <Param name="HWNum" value="2" />
+                <Param name="VWNum" value="2" />
+            </Transition> 
+            <Transition name="_PW.T: MultiWipe Off" iconid="1">
+                <Param name="State" value="0" />
+                <Param name="HWNum" value="3" />
+                <Param name="VWNum" value="3" />
+            </Transition> 
+    </TransitionDLL>
+
+
+    <TransitionDLL guid="{2386E440-D525-4227-A275-E06A6D2D2F81}">
+            <Transition name="_PW.T: Push On(In)" iconid="1">
+                <Param name="Direction" value="4" />
+                <Param name="BackColor" value="0x0" />
+            </Transition> 
+            <Transition name="_PW.T: Push On(Out)" iconid="1">
+                <Param name="Direction" value="5" />
+                <Param name="BackColor" value="0x0" />
+            </Transition> 
+            <Transition name="_PW.T: Push On(UpperCenter)" iconid="1">
+                <Param name="Direction" value="10" />
+                <Param name="BackColor" value="0x0" />
+            </Transition> 
+    </TransitionDLL>
+
+    <TransitionDLL guid="{3D75C64D-6706-4DC0-A287-BC8695676DAD}">
+            <Transition name="_PW.T: Radar On" iconid="2">
+                <Param name="State" value="1" />
+                <Param name="Direction" value="1" />
+                <Param name="PointerColor" value="0xFFFF0000" />
+                <Param name="PointerWidth" value="5" />
+            </Transition> 
+            <Transition name="_PW.T: Radar Off" iconid="2">
+                <Param name="State" value="0" />
+                <Param name="Direction" value="0" />
+                <Param name="PointerColor" value="0xFF00FFFF" />
+                <Param name="PointerWidth" value="0" />
+            </Transition> 
+    </TransitionDLL>
+
+    <TransitionDLL guid="{A43598F6-C2FC-4FE3-816C-9599E6D0CD9B}">
+            <Transition name="_PW.T: Venetian On" iconid="3">
+                <Param name="State" value="1" />
+                <Param name="Direction" value="8" />
+                <Param name="BlindWidth" value="60" />
+            </Transition> 
+            <Transition name="_PW.T: Venetian Off" iconid="3">
+                <Param name="State" value="0" />
+                <Param name="Direction" value="9" />
+                <Param name="BlindWidth" value="40" />
+            </Transition> 
+    </TransitionDLL>
+
+
+    <TransitionDLL guid="{2F1F21F4-5093-4C2C-B96D-973295079000}">
+            <Transition name="_PW.T: Fade On" iconid="5">
+                <Param name="State" value="1" />
+            </Transition> 
+            <Transition name="_PW.T: Fade Off" iconid="5">
+                <Param name="State" value="0" />
+            </Transition> 
+    </TransitionDLL>
+
+    <TransitionDLL guid="{C83F0057-B7F1-44E9-9EBF-648A57B3BE7E}">
+            <Transition name="_PW.T: Coalesce On" iconid="4">
+                <Param name="State" value="1" />
+                <Param name="EntityWidth" value="3" />
+                <Param name="EntityHeight" value="5" />
+            </Transition> 
+            <Transition name="_PW.T: Coalesce Off" iconid="4">
+                <Param name="EntityWidth" value="2" />
+                <Param name="EntityHeight" value="2" />
+            </Transition> 
+    </TransitionDLL>
+
+  </Transitions>
+
+</TransitionsAndEffects>
+

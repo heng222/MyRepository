@@ -1,0 +1,104 @@
+-- Create table
+create table T_HISWEATHER
+(
+  LONGITUDE         NUMBER(9,6) not null,
+  LATITUDE          NUMBER(9,6) not null,
+  QUERY_DATE        DATE not null,
+  WEATHER           VARCHAR2(20),
+  TEMPERATURE       NUMBER(6,2),
+  WIND_POWER        NUMBER(2),
+  WIND_DIRECTION    VARCHAR2(10),
+  RELATIVE_HUMIDITY NUMBER(2),
+  ULTRA_LEVEL       NUMBER(2),
+  POLLUTION         VARCHAR2(100),
+  FARINA            NUMBER(2),
+  DRESSING_LEVEL    VARCHAR2(200),
+  COMFORT_LEVEL     VARCHAR2(200),
+  EXERCISE_LEVEL    VARCHAR2(200),
+  CODE_LEVEL        VARCHAR2(200),
+  CAR_WASHING_LEVEL VARCHAR2(200),
+  TRAVEL_LEVEL      VARCHAR2(200),
+  LIVING_LEVEL      VARCHAR2(200),
+  BASKING_LEVEL     VARCHAR2(200),
+  BEER_LEVEL        VARCHAR2(200)
+)
+tablespace SPACESAT2005
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+-- Add comments to the table 
+comment on table T_HISWEATHER
+  is '天气信息的查询历史表';
+-- Add comments to the columns 
+comment on column T_HISWEATHER.LONGITUDE
+  is '经度';
+comment on column T_HISWEATHER.LATITUDE
+  is '纬度';
+comment on column T_HISWEATHER.QUERY_DATE
+  is '查询日期';
+comment on column T_HISWEATHER.WEATHER
+  is '天气状况';
+comment on column T_HISWEATHER.TEMPERATURE
+  is '气温';
+comment on column T_HISWEATHER.WIND_POWER
+  is '风力等级。共十二级';
+comment on column T_HISWEATHER.WIND_DIRECTION
+  is '风向';
+comment on column T_HISWEATHER.RELATIVE_HUMIDITY
+  is '相对湿度,假设数值为70，则相对湿度为70%。';
+comment on column T_HISWEATHER.ULTRA_LEVEL
+  is '紫外线指数,共五级';
+comment on column T_HISWEATHER.POLLUTION
+  is '污染物';
+comment on column T_HISWEATHER.FARINA
+  is '花粉浓度';
+comment on column T_HISWEATHER.DRESSING_LEVEL
+  is '穿衣指数';
+comment on column T_HISWEATHER.COMFORT_LEVEL
+  is '舒适度指数';
+comment on column T_HISWEATHER.EXERCISE_LEVEL
+  is '晨练指数';
+comment on column T_HISWEATHER.CODE_LEVEL
+  is '感冒指数';
+comment on column T_HISWEATHER.CAR_WASHING_LEVEL
+  is '洗车指数';
+comment on column T_HISWEATHER.TRAVEL_LEVEL
+  is '旅行指数';
+comment on column T_HISWEATHER.LIVING_LEVEL
+  is '生活指数';
+comment on column T_HISWEATHER.BASKING_LEVEL
+  is '晾晒指数';
+comment on column T_HISWEATHER.BEER_LEVEL
+  is '啤酒指数';
+-- Create/Recreate primary, unique and foreign key constraints 
+alter table T_HISWEATHER
+  add constraint K_HW primary key (LONGITUDE,LATITUDE,QUERY_DATE)
+  using index 
+  tablespace SPACESATLBS
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+-- Create/Recreate indexes 
+create unique index PRI on T_HISWEATHER (LONGITUDE,LATITUDE)
+  tablespace SPACESAT2005
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );

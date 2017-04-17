@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="40fd7821-ab76-4a31-b08d-d31ae963b21b" name="关联关系" linkedPackageId="2b3a9258-2a73-4768-90ae-3f0a7e924480" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+  <profileInstances>
+    <packageHasProfileInstances Id="39d06b9a-d612-4828-abe2-7235a066f99d">
+      <profileInstance Id="18e877ec-280d-42b1-b60a-d91fe85114d4" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="b7373bf0-5eef-4b45-b370-585b2e280520">
+      <profileInstance Id="de50b1f6-b85a-4b38-a68c-7153cb1f6fb2" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="099b9b37-93a9-4b5a-b49f-0482fd1bcc5d" name="站场图" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="2bf9e4ad-93b6-44bf-b386-c375ae700a55" />
+        <targetEnds>
+          <association Id="85349cdd-faf6-432b-ac19-92d595a8ad7a" isDerived="false" sourceEndRoleName="站场图" targetEndRoleName="车站属性" isLeaf="false" isAbstract="false">
+            <classMoniker Id="7009ecd3-dcf1-4180-8a85-593b90a31a95" LastKnownName="车站属性" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="8830b410-a176-44cc-9283-af9e7ad47458" name="站场图" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="c86216ca-d587-4036-a34a-c559717af658" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="c81e683a-4cad-4954-8831-3b624ad04900" name="车站属性" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="a15b6a26-721f-4fac-b4f9-74685e0db325" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="bbb82763-76b8-49dc-9479-7bdd340c1455" />
+          </association>
+        </targetEnds>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="7009ecd3-dcf1-4180-8a85-593b90a31a95" name="车站属性" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="af2bf31e-8868-4767-bd00-572dd8568d25" />
+        <targetEnds>
+          <association Id="b45448e5-57f5-4256-aba6-b1f324bebc77" isDerived="false" sourceEndRoleName="车站属性" targetEndRoleName="车站名称" isLeaf="false" isAbstract="false">
+            <classMoniker Id="b04278b3-6472-4c46-9aaf-ab94bbcce15d" LastKnownName="车站名称" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="2e4ed6a7-415f-464a-b114-3e044905cc21" name="车站属性" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="2ffd43d7-5d3d-4367-9a94-7ff958ef5f46" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="61ad7f3d-0880-4faf-abde-6aae90d87bc3" name="车站名称" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="94373346-30cd-4990-83f4-b3d3279665ef" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="697f83fd-a3f2-4cc5-b097-866b9a8f89bb" />
+          </association>
+          <association Id="e31a21d6-2d64-40f9-878c-07de7c907784" isDerived="false" sourceEndRoleName="车站属性" targetEndRoleName="车站编号" isLeaf="false" isAbstract="false">
+            <classMoniker Id="ea790ecf-1c66-49df-be9c-a3cf0d150c80" LastKnownName="车站编号" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="a63316f2-e15a-41b1-8dcf-cfb8391a6cff" name="车站属性" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="83718c6b-2889-4f10-a9f5-56ab576580d5" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="a02b2604-e3e5-4e01-8fb8-6913b4de96d3" name="车站编号" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="e656a527-86aa-4d2a-8cc4-988f6530f630" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="7a2fbe0d-8d05-4edd-8d11-297ddd6fe48e" />
+          </association>
+        </targetEnds>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="b04278b3-6472-4c46-9aaf-ab94bbcce15d" name="车站名称" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="654bc2fc-16e0-453f-b5ba-40b8a6d5562e" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="ea790ecf-1c66-49df-be9c-a3cf0d150c80" name="车站编号" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="2b516329-40c1-4c1c-8ad3-cdae9188e29e" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+  </packagedElements>
+  <package Id="2b3a9258-2a73-4768-90ae-3f0a7e924480" name="UMLearning">
+    <elementDefinition Id="baf8f03b-1fe8-4860-9ae1-10efb35b8e0a" />
+  </package>
+</logicalClassDesignerModel>

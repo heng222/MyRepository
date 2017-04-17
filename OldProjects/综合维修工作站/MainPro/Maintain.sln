@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AdoLib", "..\AdoLib\AdoLib.vcproj", "{4C9CC1D6-5340-450E-90DF-02BB3C01E383}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Maintain", "Maintain.vcproj", "{B7F4CB74-54B5-4F1A-A6CD-63FDFB0E260C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4ED6B204-EF7E-446C-9C20-559CAA1FC655} = {4ED6B204-EF7E-446C-9C20-559CAA1FC655}
+		{4C9CC1D6-5340-450E-90DF-02BB3C01E383} = {4C9CC1D6-5340-450E-90DF-02BB3C01E383}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ZCTDraw", "..\ZCTDraw\ZCTDraw.vcproj", "{4ED6B204-EF7E-446C-9C20-559CAA1FC655}"
+EndProject
+Global
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4C9CC1D6-5340-450E-90DF-02BB3C01E383}.Debug|Win32.ActiveCfg = Debug|Win32
+		{4C9CC1D6-5340-450E-90DF-02BB3C01E383}.Debug|Win32.Build.0 = Debug|Win32
+		{4C9CC1D6-5340-450E-90DF-02BB3C01E383}.Release|Win32.ActiveCfg = Release|Win32
+		{4C9CC1D6-5340-450E-90DF-02BB3C01E383}.Release|Win32.Build.0 = Release|Win32
+		{B7F4CB74-54B5-4F1A-A6CD-63FDFB0E260C}.Debug|Win32.ActiveCfg = Debug|Win32
+		{B7F4CB74-54B5-4F1A-A6CD-63FDFB0E260C}.Debug|Win32.Build.0 = Debug|Win32
+		{B7F4CB74-54B5-4F1A-A6CD-63FDFB0E260C}.Release|Win32.ActiveCfg = Release|Win32
+		{B7F4CB74-54B5-4F1A-A6CD-63FDFB0E260C}.Release|Win32.Build.0 = Release|Win32
+		{4ED6B204-EF7E-446C-9C20-559CAA1FC655}.Debug|Win32.ActiveCfg = Debug|Win32
+		{4ED6B204-EF7E-446C-9C20-559CAA1FC655}.Debug|Win32.Build.0 = Debug|Win32
+		{4ED6B204-EF7E-446C-9C20-559CAA1FC655}.Release|Win32.ActiveCfg = Release|Win32
+		{4ED6B204-EF7E-446C-9C20-559CAA1FC655}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

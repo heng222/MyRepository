@@ -1,0 +1,211 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4E164E38-2E34-46C2-82FE-66FFEA53EA1A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Tamir.SharpSsh</RootNamespace>
+    <AssemblyName>Tamir.SharpSsh</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <SignAssembly>false</SignAssembly>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\Bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\Bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\Version\AssemblyInfo.cs">
+      <Link>AssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="Channel\Channel.cs" />
+    <Compile Include="Channel\ChannelDirectTCPIP.cs" />
+    <Compile Include="Channel\ChannelExec.cs" />
+    <Compile Include="Channel\ChannelForwardedTCPIP.cs" />
+    <Compile Include="Channel\ChannelSession.cs" />
+    <Compile Include="Channel\ChannelSftp.cs" />
+    <Compile Include="Channel\ChannelSftpStreamGet.cs" />
+    <Compile Include="Channel\ChannelSftpStreamPut.cs" />
+    <Compile Include="Channel\ChannelShell.cs" />
+    <Compile Include="Channel\ChannelSubsystem.cs" />
+    <Compile Include="Channel\ChannelX11.cs" />
+    <Compile Include="Compress\Compression.cs" />
+    <Compile Include="Crypto\Cipher\AES128CBC.cs" />
+    <Compile Include="Crypto\Cipher\BlowfishCBC.cs" />
+    <Compile Include="Crypto\Cipher\Cipher.cs" />
+    <Compile Include="Crypto\Cipher\ICipher.cs" />
+    <Compile Include="Crypto\Cipher\TripleDESCBC.cs" />
+    <Compile Include="Crypto\DH\DH.cs" />
+    <Compile Include="Crypto\DH\IDH.cs" />
+    <Compile Include="Crypto\Hash\HASH.cs" />
+    <Compile Include="Crypto\Hash\MD5.cs" />
+    <Compile Include="Crypto\Hash\SHA1.cs" />
+    <Compile Include="Crypto\KeyPairGen\IKeyPairGenDSA.cs" />
+    <Compile Include="Crypto\KeyPairGen\IKeyPairGenRSA.cs" />
+    <Compile Include="Crypto\KeyPairGen\KeyPairGenDSA.cs" />
+    <Compile Include="Crypto\KeyPairGen\KeyPairGenRSA.cs" />
+    <Compile Include="Crypto\KeyPair\KeyPair.cs" />
+    <Compile Include="Crypto\KeyPair\KeyPairDSA.cs" />
+    <Compile Include="Crypto\KeyPair\KeyPairRSA.cs" />
+    <Compile Include="Crypto\MAC\HMACMD5.cs" />
+    <Compile Include="Crypto\MAC\HMACMD596.cs" />
+    <Compile Include="Crypto\MAC\HMACSHA1.cs" />
+    <Compile Include="Crypto\MAC\HMACSHA196.cs" />
+    <Compile Include="Crypto\MAC\MAC.cs" />
+    <Compile Include="Crypto\Random\IRandom.cs" />
+    <Compile Include="Crypto\Random\Random.cs" />
+    <Compile Include="Crypto\Signature\ISignatureDSA.cs" />
+    <Compile Include="Crypto\Signature\ISignatureRSA.cs" />
+    <Compile Include="Crypto\Signature\SignatureDSA.cs" />
+    <Compile Include="Crypto\Signature\SignatureRSA.cs" />
+    <Compile Include="ITransferProtocol.cs" />
+    <Compile Include="java\Exception.cs" />
+    <Compile Include="java\io\File.cs" />
+    <Compile Include="java\io\FileInputStream.cs" />
+    <Compile Include="java\io\FileOutputStream.cs" />
+    <Compile Include="java\io\InputStream.cs" />
+    <Compile Include="java\io\InputStreamWrapper.cs" />
+    <Compile Include="java\io\JStream.cs" />
+    <Compile Include="java\io\OutputStream.cs" />
+    <Compile Include="java\lang\Class.cs" />
+    <Compile Include="java\lang\Integer.cs" />
+    <Compile Include="java\lang\Runnable.cs" />
+    <Compile Include="java\lang\StringBuffer.cs" />
+    <Compile Include="java\lang\Thread.cs" />
+    <Compile Include="java\net\InetAddress.cs" />
+    <Compile Include="java\net\ServerSocket.cs" />
+    <Compile Include="java\net\Socket.cs" />
+    <Compile Include="java\Platform.cs" />
+    <Compile Include="java\RuntimeException.cs" />
+    <Compile Include="java\String.cs" />
+    <Compile Include="java\System.cs" />
+    <Compile Include="java\util\Arrays.cs" />
+    <Compile Include="java\util\Enumeration.cs" />
+    <Compile Include="java\util\Hashtable.cs" />
+    <Compile Include="java\util\JavaString.cs" />
+    <Compile Include="java\util\Vector.cs" />
+    <Compile Include="jsch\Buffer.cs" />
+    <Compile Include="jsch\ForwardedTCPIPDaemon.cs" />
+    <Compile Include="jsch\HostKey.cs" />
+    <Compile Include="jsch\HostKeyRepository.cs" />
+    <Compile Include="jsch\Identity.cs" />
+    <Compile Include="jsch\IdentityFile.cs" />
+    <Compile Include="jsch\IO.cs" />
+    <Compile Include="jsch\JSch.cs" />
+    <Compile Include="jsch\JSchAuthCancelException.cs" />
+    <Compile Include="jsch\JSchException.cs" />
+    <Compile Include="jsch\JSchPartialAuthException.cs" />
+    <Compile Include="jsch\KnownHosts.cs" />
+    <Compile Include="jsch\Packet.cs" />
+    <Compile Include="jsch\PortWatcher.cs" />
+    <Compile Include="jsch\Proxy.cs" />
+    <Compile Include="jsch\ProxyHTTP.cs" />
+    <Compile Include="jsch\ServerSocketFactory.cs" />
+    <Compile Include="jsch\Session.cs" />
+    <Compile Include="jsch\SftpATTRS.cs" />
+    <Compile Include="jsch\SftpException.cs" />
+    <Compile Include="jsch\SftpProgressMonitor.cs" />
+    <Compile Include="jsch\SocketFactory.cs" />
+    <Compile Include="jsch\UIKeyboardInteractive.cs" />
+    <Compile Include="jsch\UserAuth.cs" />
+    <Compile Include="jsch\UserAuthKeyboardInteractive.cs" />
+    <Compile Include="jsch\UserAuthNone.cs" />
+    <Compile Include="jsch\UserAuthPassword.cs" />
+    <Compile Include="jsch\UserAuthPublicKey.cs" />
+    <Compile Include="jsch\UserInfo.cs" />
+    <Compile Include="jsch\Util.cs" />
+    <Compile Include="KeyExchange\DHG1.cs" />
+    <Compile Include="KeyExchange\DHGEX.cs" />
+    <Compile Include="KeyExchange\KeyExchange.cs" />
+    <Compile Include="Properties\Resources.Designer.cs" />
+    <Compile Include="Request\Request.cs" />
+    <Compile Include="Request\RequestExec.cs" />
+    <Compile Include="Request\RequestPtyReq.cs" />
+    <Compile Include="Request\RequestSftp.cs" />
+    <Compile Include="Request\RequestShell.cs" />
+    <Compile Include="Request\RequestSignal.cs" />
+    <Compile Include="Request\RequestSubsystem.cs" />
+    <Compile Include="Request\RequestWindowChange.cs" />
+    <Compile Include="Request\RequestX11.cs" />
+    <Compile Include="Scp.cs" />
+    <Compile Include="Sftp.cs" />
+    <Compile Include="SshBase.cs" />
+    <Compile Include="SshExe.cs" />
+    <Compile Include="SshShell.cs" />
+    <Compile Include="SshStream.cs" />
+    <Compile Include="SshTransferException.cs" />
+    <Compile Include="SshTransferProtocolBase.cs" />
+    <Compile Include="Streams\CombinedStream.cs" />
+    <Compile Include="Streams\InputStream.cs" />
+    <Compile Include="Streams\OutputStream.cs" />
+    <Compile Include="Streams\PipedInputStream.cs" />
+    <Compile Include="Streams\PipedOutputStream.cs" />
+    <Compile Include="Streams\ProtectedConsoleStream.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DiffieHellman\DiffieHellman.csproj">
+      <Project>{B748102F-D07F-4399-9BC9-F6A61B14DC7C}</Project>
+      <Name>DiffieHellman</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SecurityServices\SecurityServices.csproj">
+      <Project>{E1D600DA-4038-4920-B1A5-52623EBD189C}</Project>
+      <Name>SecurityServices</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DiffieHellman\" />
+    <Folder Include="jsch\jce\" />
+    <Folder Include="SecurityServices\" />
+    <Folder Include="SharpSSH\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

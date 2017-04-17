@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="82566654-bf8b-44ec-ba09-ac9e7adc74c7" name="聚合关系" linkedPackageId="30da78fb-1a54-4868-ad32-6e2563e20e40" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+  <profileInstances>
+    <packageHasProfileInstances Id="821ba840-30e5-4b94-b847-0287e1eff92b">
+      <profileInstance Id="3a9f5318-0609-4725-9311-cb8f5eb36a51" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="57db4212-1c0c-43e7-96da-74a3cb61d5d6">
+      <profileInstance Id="51496d68-9b57-4b12-b4c1-8db8bbac646e" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="6812289e-229a-4698-9e1f-f890a624a623" name="站场图" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="2bf9e4ad-93b6-44bf-b386-c375ae700a55" />
+        <targetEnds>
+          <association Id="46801acf-2b00-40f7-84ba-b0fe1a0e039d" isDerived="false" sourceEndRoleName="站场图" targetEndRoleName="股道" isLeaf="false" isAbstract="false">
+            <classMoniker Id="2529d7e5-79d6-4d7c-a860-5a7b7aa2dde1" LastKnownName="股道" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="33e08c20-bbc2-4bab-a2ef-63e465dc38f3" name="站场图" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Shared" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="5a8025fd-ce39-4376-ad15-80793e8920ad" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="4871d930-b364-4a06-bca9-20ddaad3cee2" name="股道" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <lowerValueInternal>
+                    <literalString Id="9f1bb5bf-9ac1-4b45-8724-27673982bede" name="Lower" value="*">
+                      <elementDefinition Id="8376a86f-597a-4e3a-9aee-5110f4ba9c6a" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="8f0258dd-c651-4f0a-9d80-f557c77b05fe" name="Upper" value="*">
+                      <elementDefinition Id="d565bbfe-6a2a-4343-a176-2128389f68d1" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="5921fc00-6b81-4cf2-b698-68bfaceae768" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="06e8371f-e2f1-4e60-b0a3-be4daa2d2903" />
+          </association>
+          <association Id="3919122a-328d-4625-bd63-f44d613d624a" isDerived="false" sourceEndRoleName="站场图" targetEndRoleName="信号机" isLeaf="false" isAbstract="false">
+            <classMoniker Id="695556b9-50ba-4a83-b452-e7676f24885d" LastKnownName="信号机" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="06262bfb-b96f-4521-a53d-a033731bfdb1" name="站场图" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Shared" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="648fb4db-09e4-4809-a8b3-a9e9d2918ba6" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="247713bf-c3f0-435c-af8d-6b485ea089fc" name="信号机" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <lowerValueInternal>
+                    <literalString Id="a4e50edb-4083-4259-a059-6c98696fbc49" name="Lower" value="*">
+                      <elementDefinition Id="66da0652-7008-4d55-a928-63585d48a8ed" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="d13811b0-ba92-43f6-bef0-b23dd1f3a098" name="Upper" value="*">
+                      <elementDefinition Id="ac230e1c-d9c0-4aea-918d-77d337099b45" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="e5cc1aa7-24c6-4b46-a369-6baf4add90ca" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="45982d68-71ae-48c7-91b6-97083b9b9c1c" />
+          </association>
+        </targetEnds>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="2529d7e5-79d6-4d7c-a860-5a7b7aa2dde1" name="股道" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="5d486f9b-d9be-447d-b138-7d506f808223" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="695556b9-50ba-4a83-b452-e7676f24885d" name="信号机" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="f27bb7c7-cb8b-45c2-bcfe-621af345a151" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+  </packagedElements>
+  <package Id="30da78fb-1a54-4868-ad32-6e2563e20e40" name="UMLearning">
+    <elementDefinition Id="baf8f03b-1fe8-4860-9ae1-10efb35b8e0a" />
+  </package>
+</logicalClassDesignerModel>

@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="IMsgAppLogs" Collapsed="true">
+    <Position X="1.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAQAAAAAQAiAAAIQAAADAAKhACEAACAAEAGAA=</HashCode>
+      <FileName>AppLogMgr.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CAppLogMgr">
+    <Position X="4.5" Y="0.5" Width="2" />
+    <NestedTypes>
+      <Enum Name="CAppLogMgr::TLMMode" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>AppLogMgr.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAABBgAhBAAAwAAAAAAAAAAAABAIAAEAAABCACQSAA=</HashCode>
+      <FileName>AppLogMgr.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TImcMsg" Collapsed="true">
+    <Position X="1.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IASAwwAAQAAQAQAAIgCAAwAABjZAIgABEAAAhAAIAQA=</HashCode>
+      <FileName>InterComMsg.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CNBaseModule">
+    <Position X="10.75" Y="0.5" Width="1.75" />
+    <NestedTypes>
+      <Enum Name="CNBaseModule::TMState" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>NBaseModule.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAgIAAAAAAAAACAEAAACIAAAEACEAAEAAIAAAAEAAE=</HashCode>
+      <FileName>NBaseModule.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CImcDispatcher">
+    <Position X="7.75" Y="0.5" Width="1.75" />
+    <NestedTypes>
+      <Enum Name="CImcDispatcher::TRegErrType" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>NBaseModule.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+      <Enum Name="CImcDispatcher::__unnamed_0101_1" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>NBaseModule.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AACAAgcAAAAAAQAAACpAgAgUQACDAQAQCAQkQgACEAA=</HashCode>
+      <FileName>NBaseModule.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Tahoma" Size="8.25" />
+</ClassDiagram>

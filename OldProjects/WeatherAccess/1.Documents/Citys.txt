@@ -1,0 +1,515 @@
+[CityDirectly]
+Num= 4
+Item= 54511,北京
+Item= 58367,上海
+Item= 54517,天津
+Item= 57516,重庆
+[/CityDirectly]
+
+[DistrictSpecial]
+Num = 2
+Item= 45005,香港
+Item= 45011,澳门
+[/DistrictSpecial]
+
+[Province]
+ProvinceName = 黑龙江
+Num = 13
+Item= 50953,哈尔滨
+Item= 50745,齐齐哈尔
+Item= 54094,牡丹江
+Item= 50842,大庆
+Item= 50774,伊春
+Item= 50884,双鸭山
+Item= 50775,鹤岗
+Item= 50978,鸡西
+Item= 50873,佳木斯
+Item= 50971,七台河
+Item= 50468,黑河
+Item= 50853,绥化
+Item= 50442,大兴安岭
+[/Province]
+
+[Province]
+ProvinceName = 吉林
+Num = 9
+Item= 54161,长春
+Item= 54172,吉林
+Item= 54371,白山
+Item= 50936,白城
+Item= 54157,四平
+Item= 50946,松原
+Item= 54260,辽源
+Item= 50945,大安
+Item= 54363,通化
+[/Province]
+
+[Province]
+ProvinceName = 辽宁省
+Num = 14
+Item= 54342,沈阳
+Item= 54662,大连
+Item= 54453,葫芦岛
+Item= 54660,旅顺
+Item= 54346,本溪
+Item= 54353,抚顺
+Item= 54249,铁岭
+Item= 54347,辽阳
+Item= 54471,营口
+Item= 54237,阜新
+Item= 54324,朝阳
+Item= 54337,锦州
+Item= 54497,丹东
+Item= 54339,鞍山
+[/Province]
+
+
+[Province]
+ProvinceName = 内蒙古
+Num = 9
+Item= 53463,呼和浩特
+Item= 54102,锡林浩特
+Item= 53446,包头
+Item= 54218,赤峰
+Item= 50527,海拉尔
+Item= 53512,乌海
+Item= 53543,鄂尔多斯
+Item= 54102,锡林浩特
+Item= 54135,通辽
+[/Province]
+
+
+[Province]
+ProvinceName = 安徽省
+Num = 15
+Item= 58321,合肥 
+Item= 58326,巢湖 
+Item= 58221,蚌埠 
+Item= 58424,安庆
+Item= 58311,六安 
+Item= 58236,滁州 
+Item= 58336,马鞍山
+Item= 58203,阜阳 
+Item= 58433,宣城 
+Item= 58429,铜陵 
+Item= 58116,淮北 
+Item= 58334,芜湖 
+Item= 58122,宿州 
+Item= 58224,淮南 
+Item= 58427,池州 
+[/Province]
+
+
+[Province]
+ProvinceName = 陕西省
+Num = 11
+Item= 57036,西安
+Item= 53955,韩城
+Item= 57245,安康
+Item= 57127,汉中
+Item= 57016,宝鸡
+Item= 57048,咸阳
+Item= 53646,榆林
+Item= 57045,渭南
+Item= 57143,商洛
+Item= 53947,铜川
+Item= 53845,延安
+[/Province]
+
+
+[Province]
+ProvinceName = 宁夏省
+Num = 5
+Item= 53614,银川
+Item= 53817,固原
+Item= 53704,中卫
+Item= 53518,石嘴山
+Item= 53612,吴忠
+[/Province]
+
+
+[Province]
+ProvinceName = 甘肃省
+Num = 12
+Item= 52889,兰州
+Item= 52896,白银
+Item= 53829,庆阳
+Item= 52533,酒泉
+Item= 57006,天水
+Item= 52679,武威
+Item= 52652,张掖
+Item= 50741,甘南
+Item= 52984,临夏
+Item= 53915,平凉
+Item= 52995,定西
+Item= 52675,金昌
+[/Province]
+
+
+[Province]
+ProvinceName = 湖南省
+Num = 14
+Item= 57687,长沙
+Item= 57766,邵阳
+Item= 57662,常德
+Item= 57972,郴州
+Item= 57649,吉首
+Item= 57780,株洲
+Item= 57763,娄底
+Item= 57773,湘潭
+Item= 57866,永州
+Item= 57584 ,岳阳
+Item= 57872,衡阳
+Item= 57749,怀化
+Item= 57771,韶山
+Item= 57558,张家界
+[/Province]
+
+
+[Province]
+ProvinceName = 江西省
+Num = 11
+Item= 58606,南昌
+Item= 57786,萍乡
+Item= 58502,九江
+Item= 58637,上饶
+Item= 58617,抚州
+Item= 57799,吉安
+Item= 58627,鹰潭
+Item= 57793,宜春
+Item= 57796,新余
+Item= 58527,景德镇
+Item= 57993,赣州
+[/Province]
+
+
+[Province]
+ProvinceName = 四川省
+Num = 21
+Item= 56294,成都
+Item= 57602,泸州
+Item= 57504,内江
+Item= 56571,凉山
+Item= 56171,阿坝
+Item= 57313,巴中
+Item= 57206,广元
+Item= 56386,乐山
+Item= 56196,绵阳
+Item= 56198,德阳
+Item= 56666,攀枝花
+Item= 56287,雅安
+Item= 56492,宜宾
+Item= 56396,自贡
+Item= 56146,甘孜州
+Item= 57328,达州
+Item= 56298,资阳
+Item= 57415,广安
+Item= 57405,遂宁
+Item= 56391,眉山
+Item= 57411,南充
+[/Province]
+
+
+[Province]
+ProvinceName = 广西省
+Num = 16
+Item= 59431,南宁
+Item= 57957,桂林
+Item= 59051,阳朔
+Item= 59046,柳州
+Item= 59265,梧州
+Item= 59453,玉林
+Item= 59254,桂平
+Item= 59065,贺州
+Item= 59632,钦州
+Item= 59249,贵港
+Item= 59635,防城港
+Item= 59211,百色
+Item= 59644,北海
+Item= 59023,河池
+Item= 59242,来宾
+Item= 59425,崇左
+[/Province]
+
+
+[Province]
+ProvinceName = 海南省
+Num = 6
+Item= 59758,海口
+Item= 59948,三亚
+Item= 59845,儋州
+Item= 59757,琼山
+Item= 59941,通什
+Item= 59856,文昌
+[/Province]
+
+
+[Province]
+ProvinceName = 西藏省
+Num = 7
+Item= 55591,拉萨
+Item= 55437,阿里
+Item= 56137,昌都
+Item= 55299,那曲
+Item= 55578,日喀则
+Item= 55598,山南
+Item= 56312,林芝
+[/Province]
+
+
+[Province]
+ProvinceName = 台湾省
+Num = 2
+Item= 58968,台北
+Item= 59554,高雄
+[/Province]
+
+
+[Province]
+ProvinceName = 河北省
+Num = 11
+Item= 53698,石家庄
+Item= 54534,唐山
+Item= 54401,张家口
+Item= 54515,廊坊
+Item= 53798,邢台
+Item= 53892,邯郸
+Item= 54616,沧州
+Item= 54702,衡水
+Item= 54423,承德
+Item= 54602,保定
+Item= 54449,秦皇岛
+[/Province]
+
+
+[Province]
+ProvinceName = 河南省
+Num = 17
+Item= 57083,郑州
+Item= 57091,开封
+Item= 57073,洛阳
+Item= 57171,平顶山
+Item= 53982,焦作
+Item= 53990,鹤壁
+Item= 53986,新乡
+Item= 53898,安阳
+Item= 54900,濮阳
+Item= 57089,许昌
+Item= 57186,漯河
+Item= 57051,三门峡
+Item= 57178,南阳
+Item= 58005,商丘
+Item= 57297,信阳
+Item= 57195,周口
+Item= 57290,驻马店
+[/Province]
+
+
+[Province]
+ProvinceName = 山东省
+Num = 17
+Item= 54823,济南
+Item= 54857,青岛
+Item= 54830,淄博
+Item= 54774,威海
+Item= 54918,曲阜
+Item= 54938,临沂
+Item= 54765,烟台
+Item= 58024,枣庄
+Item= 54806,聊城
+Item= 54915,济宁
+Item= 54906,菏泽
+Item= 54827,泰安
+Item= 54945,日照
+Item= 54736,东营
+Item= 54714,德州
+Item= 54828,莱芜
+Item= 54843,潍坊
+[/Province]
+
+
+[Province]
+ProvinceName = 山西省
+Num = 10
+Item= 53772,太原
+Item= 53782,阳泉
+Item= 53976,晋城
+Item= 53778,晋中
+Item= 53868,临汾
+Item= 53959,运城
+Item= 53882,长治
+Item= 53578,朔州
+Item= 53674,忻州
+Item= 53487,大同
+[/Province]
+
+
+[Province]
+ProvinceName = 江苏省
+Num = 18
+Item= 58238,南京
+Item= 58357,苏州
+Item= 58356,昆山
+Item= 58259,南通
+Item= 58377,太仓
+Item= 58349,吴县
+Item= 58027,徐州
+Item= 58346,宜兴
+Item= 58248,镇江
+Item= 58145,淮安
+Item= 58352,常熟
+Item= 58151,盐城
+Item= 58246,泰州
+Item= 58354,无锡
+Item= 58044,连云港
+Item= 58245,扬州
+Item= 58343,常州
+Item= 58131,宿迁
+[/Province]
+
+
+[Province]
+ProvinceName = 青海省
+Num = 8
+Item= 52866,西宁
+Item= 52754,海北
+Item= 52737,海西
+Item= 56065,黄南
+Item= 56043,果洛
+Item= 56029,玉树
+Item= 52875,海东
+Item= 52856,海南
+[/Province]
+
+
+[Province]
+ProvinceName = 湖北省
+Num = 14
+Item= 57494,武汉
+Item= 57461,宜昌
+Item= 57498,黄冈
+Item= 57447,恩施
+Item= 57476,荆州
+Item= 57362,神农架
+Item= 57256,十堰
+Item= 57590,咸宁
+Item= 57278,襄樊
+Item= 57482,孝感
+Item= 57381,随州
+Item= 58407,黄石
+Item= 57377,荆门
+Item= 57496,鄂州
+[/Province]
+
+
+[Province]
+ProvinceName = 浙江省
+Num = 11
+Item= 58457,杭州
+Item= 58450,湖州
+Item= 58549,金华
+Item= 58563,宁波
+Item= 58646,丽水
+Item= 58453,绍兴
+Item= 58633,衢州
+Item= 58452,嘉兴
+Item= 58660,台州
+Item= 58477,舟山
+Item= 58659,温州
+[/Province]
+
+
+[Province]
+ProvinceName = 福建省
+Num = 9
+Item= 58847,福州
+Item= 59134,厦门
+Item= 58927,龙岩
+Item= 58834,南平
+Item= 58846,宁德
+Item= 58946,莆田
+Item= 59137,泉州
+Item= 58828,三明
+Item= 59126,漳州
+[/Province]
+
+
+[Province]
+ProvinceName = 贵州省
+Num = 9
+Item= 57816,贵阳
+Item= 57806,安顺
+Item= 57609,赤水
+Item= 57713,遵义
+Item= 57741,铜仁
+Item= 56693,六盘水
+Item= 57707,毕节
+Item= 57825,凯里
+Item= 57827,都匀
+[/Province]
+
+
+[Province]
+ProvinceName = 广东省
+Num = 21
+Item= 59287,广州
+Item= 59493,深圳
+Item= 59312,潮州
+Item= 59082,韶关
+Item= 59658,湛江
+Item= 59298,惠州
+Item= 59280,清远
+Item= 59289,东莞
+Item= 59473,江门
+Item= 59659,茂名
+Item= 59278,肇庆
+Item= 59501,汕尾
+Item= 59293,河源
+Item= 59315,揭阳
+Item= 59117,梅州
+Item= 59485,中山
+Item= 59269,德庆
+Item= 59663,阳江
+Item= 59471,云浮
+Item= 59488,珠海
+Item= 59316,汕头
+[/Province]
+
+
+[Province]
+ProvinceName = 云南省
+Num = 14
+Item= 56778,昆明
+Item= 56748,保山
+Item= 56768,楚雄
+Item= 56844,德宏
+Item= 56975,红河
+Item= 56951,临沧
+Item= 56533,怒江
+Item= 56783,曲靖
+Item= 56964,思茅
+Item= 56994,文山
+Item= 56875,玉溪
+Item= 56586,昭通
+Item= 56651,丽江
+Item= 56751,大理
+[/Province]
+
+
+[Province]
+ProvinceName = 新疆省
+Num = 12
+Item= 51463,乌鲁木齐
+Item= 51076,阿勒泰
+Item= 51628,阿克苏
+Item= 51368,昌吉
+Item= 52203,哈密
+Item= 51828,和田
+Item= 51709,喀什
+Item= 51243,克拉玛依
+Item= 51356,石河子
+Item= 51133,塔城
+Item= 51656,库尔勒
+Item= 51573,吐鲁番
+[/Province]
+

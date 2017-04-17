@@ -1,0 +1,14 @@
+<!-- Extensions on Movie Maker's existing Brightness, Increase and Decrease effects. -->
+<TransitionsAndEffects Version="1.0">
+	<Effects>
+		<EffectDLL guid="{5A20FD6F-F8FE-4a22-9EE7-307D72D09E6E}">
+			<Effect name="Brightness, Super Increase" iconid="7" comment="Brightness Increase">
+				<Param name="Brightness" value="75" />
+			</Effect>
+			<Effect name="Brightness, Super Decrease" iconid="7" comment="Brightness Decrease">
+				<Param name="Brightness" value="-75" />
+			</Effect>
+		</EffectDLL>
+	</Effects>
+</TransitionsAndEffects>
+

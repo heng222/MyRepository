@@ -1,0 +1,1374 @@
+.LibC_o {
+	BACKGROUND: url(/global/Images/LibC.gif) 0px 0px; WIDTH: 16px; HEIGHT: 16px
+}
+.LibC_e {
+	BACKGROUND: url(/global/Images/LibC.gif) -16px 0px; WIDTH: 16px; HEIGHT: 16px
+}
+.LibC_c {
+	BACKGROUND: url(/global/Images/LibC.gif) -32px 0px; WIDTH: 16px; HEIGHT: 16px
+}
+.LibC_s {
+	BACKGROUND: url(/global/Images/LibC.gif) -48px 0px; WIDTH: 16px; HEIGHT: 16px
+}
+.LibC_b {
+	BACKGROUND: url(/global/Images/LibC.gif) -64px 0px; WIDTH: 4px; HEIGHT: 13px
+}
+.LibC_arrow-off {
+	BACKGROUND: url(/global/Images/LibC.gif) -68px 0px; VERTICAL-ALIGN: middle; WIDTH: 15px; HEIGHT: 17px
+}
+.LibC_arrow-on {
+	BACKGROUND: url(/global/Images/LibC.gif) -83px 0px; VERTICAL-ALIGN: middle; WIDTH: 15px; HEIGHT: 17px
+}
+.LibC_rtg_comCon {
+	BACKGROUND: url(/global/Images/LibC.gif) -98px 0px; WIDTH: 16px; HEIGHT: 16px
+}
+.LibC_rtg_email {
+	BACKGROUND: url(/global/Images/LibC.gif) -114px 0px; WIDTH: 16px; HEIGHT: 16px
+}
+.LibC_rtg_print {
+	BACKGROUND: url(/global/Images/LibC.gif) -130px 0px; WIDTH: 16px; HEIGHT: 16px
+}
+.LibC_rtg_save {
+	BACKGROUND: url(/global/Images/LibC.gif) -146px 0px; WIDTH: 16px; HEIGHT: 16px
+}
+.LibC_help {
+	BACKGROUND: url(/global/Images/LibC.gif) -162px 0px; WIDTH: 16px; HEIGHT: 16px
+}
+.LibC_lib_grippy {
+	BACKGROUND: url(/global/Images/LibC.gif) -178px 0px; WIDTH: 5px; HEIGHT: 20px
+}
+.LibC_rss_button {
+	BACKGROUND: url(/global/Images/LibC.gif) -183px 0px; WIDTH: 16px; HEIGHT: 16px
+}
+.LibC_spinner {
+	BACKGROUND: url(/global/Images/LibC.gif) -199px 0px; WIDTH: 31px; HEIGHT: 29px
+}
+.LibC_wiki {
+	BACKGROUND: url(/global/Images/LibC.gif) -230px 0px; WIDTH: 42px; HEIGHT: 42px
+}
+.LibC_starBlue {
+	BACKGROUND: url(/global/Images/LibC.gif) -272px 0px; WIDTH: 16px; HEIGHT: 16px
+}
+.LibC_starGold {
+	BACKGROUND: url(/global/Images/LibC.gif) -288px 0px; WIDTH: 16px; HEIGHT: 16px
+}
+.LibC_starWhite {
+	BACKGROUND: url(/global/Images/LibC.gif) -304px 0px; WIDTH: 16px; HEIGHT: 16px
+}
+.LibC_copy_off {
+	BACKGROUND: url(/global/Images/LibC.gif) -320px 0px; WIDTH: 15px; HEIGHT: 13px
+}
+.LibC_space {
+	BACKGROUND: url(/global/Images/LibC.gif) -335px 0px; WIDTH: 10px; HEIGHT: 10px
+}
+.LibC_popdownarrow {
+	BACKGROUND: url(/global/Images/LibC.gif) -345px 0px; WIDTH: 7px; HEIGHT: 4px
+}
+.LibC_search {
+	BACKGROUND: url(/global/Images/LibC.gif) -352px 0px; WIDTH: 20px; HEIGHT: 20px
+}
+.LibC_websearch {
+	BACKGROUND: url(/global/Images/LibC.gif) -372px 0px; WIDTH: 1px; HEIGHT: 20px
+}
+.LibC_arrowdwn {
+	BACKGROUND: url(/global/Images/LibC.gif) -373px 0px; WIDTH: 13px; HEIGHT: 7px
+}
+.LibC_arrowrgt {
+	BACKGROUND: url(/global/Images/LibC.gif) -386px 0px; WIDTH: 13px; HEIGHT: 7px
+}
+.LibC_panel_corner_botleft {
+	BACKGROUND: url(/global/Images/LibC.gif) -399px 0px; WIDTH: 5px; HEIGHT: 5px
+}
+.LibC_panel_corner_botright {
+	BACKGROUND: url(/global/Images/LibC.gif) -404px 0px; WIDTH: 5px; HEIGHT: 5px
+}
+.LibC_panel_corner_upleft {
+	BACKGROUND: url(/global/Images/LibC.gif) -409px 0px; WIDTH: 5px; HEIGHT: 5px
+}
+.LibC_panel_corner_upright {
+	BACKGROUND: url(/global/Images/LibC.gif) -414px 0px; WIDTH: 5px; HEIGHT: 5px
+}
+.LibC_panel_header {
+	BACKGROUND: url(/global/Images/LibC.gif) -419px 0px; WIDTH: 1px; HEIGHT: 24px
+}
+.LibC_panel_header_left {
+	BACKGROUND: url(/global/Images/LibC.gif) -420px 0px; WIDTH: 5px; HEIGHT: 25px
+}
+.LibC_panel_header_right {
+	BACKGROUND: url(/global/Images/LibC.gif) -425px 0px; WIDTH: 5px; HEIGHT: 25px
+}
+.msdn_TabC_mslogo {
+	BACKGROUND: url(/global/Images/msdn.TabC.png) 0px 0px; WIDTH: 132px; HEIGHT: 29px
+}
+.msdn_TabC_msdn_SiteNavTabOff1Left {
+	BACKGROUND: url(/global/Images/msdn.TabC.png) -132px 0px; WIDTH: 2px; HEIGHT: 22px
+}
+.msdn_TabC_msdn_SiteNavTabOff1Right {
+	BACKGROUND: url(/global/Images/msdn.TabC.png) -134px 0px; WIDTH: 2px; HEIGHT: 22px
+}
+.msdn_TabC_msdn_SiteNavTabOnLeft {
+	BACKGROUND: url(/global/Images/msdn.TabC.png) -136px 0px; WIDTH: 2px; HEIGHT: 24px
+}
+.msdn_TabC_msdn_SiteNavTabOnRight {
+	BACKGROUND: url(/global/Images/msdn.TabC.png) -138px 0px; WIDTH: 2px; HEIGHT: 24px
+}
+.msdn_TabC_more_corner_MSDN_botleft {
+	BACKGROUND: url(/global/Images/msdn.TabC.png) -140px 0px; WIDTH: 5px; HEIGHT: 5px
+}
+.msdn_TabC_more_corner_MSDN_botright {
+	BACKGROUND: url(/global/Images/msdn.TabC.png) -145px 0px; WIDTH: 5px; HEIGHT: 5px
+}
+.msdn_TabC_more_corner_MSDN_upleft {
+	BACKGROUND: url(/global/Images/msdn.TabC.png) -150px 0px; WIDTH: 5px; HEIGHT: 5px
+}
+.msdn_TabC_more_corner_MSDN_upright {
+	BACKGROUND: url(/global/Images/msdn.TabC.png) -155px 0px; WIDTH: 5px; HEIGHT: 5px
+}
+.technet_TabC_mslogo {
+	BACKGROUND: url(/global/Images/technet.TabC.png) 0px 0px; WIDTH: 132px; HEIGHT: 29px
+}
+.technet_TabC_technet_SiteNavTabOff1Left {
+	BACKGROUND: url(/global/Images/technet.TabC.png) -132px 0px; WIDTH: 2px; HEIGHT: 22px
+}
+.technet_TabC_technet_SiteNavTabOff1Right {
+	BACKGROUND: url(/global/Images/technet.TabC.png) -134px 0px; WIDTH: 2px; HEIGHT: 22px
+}
+.technet_TabC_technet_SiteNavTabOnLeft {
+	BACKGROUND: url(/global/Images/technet.TabC.png) -136px 0px; WIDTH: 2px; HEIGHT: 24px
+}
+.technet_TabC_technet_SiteNavTabOnRight {
+	BACKGROUND: url(/global/Images/technet.TabC.png) -138px 0px; WIDTH: 2px; HEIGHT: 24px
+}
+.technet_TabC_more_corner_TN_botleft {
+	BACKGROUND: url(/global/Images/technet.TabC.png) -140px 0px; WIDTH: 5px; HEIGHT: 5px
+}
+.technet_TabC_more_corner_TN_botright {
+	BACKGROUND: url(/global/Images/technet.TabC.png) -145px 0px; WIDTH: 5px; HEIGHT: 5px
+}
+.technet_TabC_more_corner_TN_upleft {
+	BACKGROUND: url(/global/Images/technet.TabC.png) -150px 0px; WIDTH: 5px; HEIGHT: 5px
+}
+.technet_TabC_more_corner_TN_upright {
+	BACKGROUND: url(/global/Images/technet.TabC.png) -155px 0px; WIDTH: 5px; HEIGHT: 5px
+}
+.expression_TabC_blkmslogo {
+	BACKGROUND: url(/global/Images/expression.TabC.png) 0px 0px; WIDTH: 110px; HEIGHT: 18px
+}
+.expression_TabC_expression_border {
+	BACKGROUND: url(/global/Images/expression.TabC.png) -110px 0px; WIDTH: 1px; HEIGHT: 1px
+}
+.expression_TabC_expression_SiteNavTabOff1Left {
+	BACKGROUND: url(/global/Images/expression.TabC.png) -111px 0px; WIDTH: 2px; HEIGHT: 35px
+}
+.expression_TabC_expression_SiteNavTabOff1Right {
+	BACKGROUND: url(/global/Images/expression.TabC.png) -113px 0px; WIDTH: 2px; HEIGHT: 35px
+}
+.expression_TabC_expression_SiteNavTabOnLeft {
+	BACKGROUND: url(/global/Images/expression.TabC.png) -115px 0px; WIDTH: 2px; HEIGHT: 35px
+}
+.expression_TabC_expression_SiteNavTabOnRight {
+	BACKGROUND: url(/global/Images/expression.TabC.png) -117px 0px; WIDTH: 2px; HEIGHT: 35px
+}
+.answers_TabC_blkmslogo {
+	BACKGROUND: url(/global/Images/answers.TabC.png) no-repeat 0px 0px; OVERFLOW: hidden; WIDTH: 110px; HEIGHT: 18px
+}
+.answers_TabC_answers_SiteNavTabOff1Left {
+	BACKGROUND: url(/global/Images/answers.TabC.png) no-repeat -110px 0px; OVERFLOW: hidden; WIDTH: 2px; HEIGHT: 22px
+}
+.answers_TabC_answers_SiteNavTabOff1Right {
+	BACKGROUND: url(/global/Images/answers.TabC.png) no-repeat -112px 0px; OVERFLOW: hidden; WIDTH: 2px; HEIGHT: 22px
+}
+.answers_TabC_answers_SiteNavTabOnLeft {
+	BACKGROUND: url(/global/Images/answers.TabC.png) no-repeat -114px 0px; OVERFLOW: hidden; WIDTH: 2px; HEIGHT: 24px
+}
+.answers_TabC_answers_SiteNavTabOnRight {
+	BACKGROUND: url(/global/Images/answers.TabC.png) no-repeat -116px 0px; OVERFLOW: hidden; WIDTH: 2px; HEIGHT: 24px
+}
+.AlterPart {
+	BORDER-RIGHT: #ccc 1px solid; PADDING-RIGHT: 8px; BORDER-TOP: #ccc 1px solid; DISPLAY: inline; PADDING-LEFT: 8px; FLOAT: right; PADDING-BOTTOM: 8px; MARGIN: 8px; BORDER-LEFT: #ccc 1px solid; WIDTH: 200px; COLOR: #000; PADDING-TOP: 8px; BORDER-BOTTOM: #ccc 1px solid; BACKGROUND-COLOR: #f0f0f0
+}
+.AlterPart SPAN {
+	FONT-WEIGHT: 700
+}
+.AlterPart UL {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px
+}
+.AlterPart LI {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px 0px 8px 20px; PADDING-TOP: 0px
+}
+.AlterPart A {
+	COLOR: #03c
+}
+.CCE_Title_Edit {
+	BORDER-RIGHT: #87a9d1 1px solid; PADDING-RIGHT: 0px; BORDER-TOP: #87a9d1 1px solid; PADDING-LEFT: 0px; FONT-WEIGHT: bold; FONT-SIZE: 13pt; PADDING-BOTTOM: 0px; BORDER-LEFT: #87a9d1 1px solid; WIDTH: 100%; PADDING-TOP: 0px; BORDER-BOTTOM: #87a9d1 1px solid
+}
+.CCE_TitlePanel {
+	PADDING-RIGHT: 12px; PADDING-LEFT: 12px; PADDING-BOTTOM: 12px; PADDING-TOP: 12px; BACKGROUND-COLOR: #eef6f0
+}
+.CCE_TagEditorPanel {
+	TEXT-ALIGN: left
+}
+.CCE_Message {
+	FONT-SIZE: 10pt; COLOR: red
+}
+.CCE_Button {
+	MARGIN-TOP: 8px; MARGIN-BOTTOM: 8px
+}
+.CCE_ButtonsPanel {
+	PADDING-RIGHT: 12px; PADDING-LEFT: 12px; HEIGHT: 40px; TEXT-ALIGN: right
+}
+.CCE_TagAutoComplete {
+	BORDER-RIGHT: gray 1px solid; PADDING-RIGHT: 0px; BORDER-TOP: gray 1px solid; PADDING-LEFT: 0px; Z-INDEX: 100; LIST-STYLE-IMAGE: none; PADDING-BOTTOM: 0px; MARGIN: 0px; BORDER-LEFT: gray 1px solid; CURSOR: default; COLOR: black; PADDING-TOP: 0px; BORDER-BOTTOM: gray 1px solid; LIST-STYLE-TYPE: none; BACKGROUND-COLOR: white; TEXT-ALIGN: left
+}
+.CCE_License {
+	MARGIN-BOTTOM: 3px; TEXT-ALIGN: center
+}
+.CCE_LicenseTooltip {
+	FONT-FAMILY: Verdana
+}
+.CCE_Editor_Disabled {
+	MARGIN-LEFT: 0px
+}
+.CCE_Editor_Disabled PRE {
+	MARGIN: 0px; BACKGROUND-COLOR: #dedede
+}
+.CCE_Editor_Disabled P {
+	MIN-HEIGHT: 1em; MARGIN: 0px
+}
+.CC_CodeSnippetTitleBar {
+	PADDING-RIGHT: 3px; PADDING-LEFT: 3px; PADDING-BOTTOM: 3px; WORD-SPACING: normal; PADDING-TOP: 3px; BORDER-BOTTOM: black 1px dashed; WHITE-SPACE: nowrap; LETTER-SPACING: normal; HEIGHT: 15px; BACKGROUND-COLOR: #eee
+}
+.CC_CodeDisplayLanguage {
+	FLOAT: left; TEXT-ALIGN: left
+}
+.CC_CopyCodeButton {
+	FLOAT: right; TEXT-ALIGN: right
+}
+A.CC_copyCode {
+	CURSOR: pointer; COLOR: blue; TEXT-ALIGN: right; TEXT-DECORATION: none
+}
+PRE.CC_code {
+	PADDING-RIGHT: 3px; PADDING-LEFT: 3px; PADDING-BOTTOM: 3px; MARGIN: 0px; PADDING-TOP: 3px; BACKGROUND-COLOR: #ddd
+}
+DIV.CC_code {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px; BACKGROUND-COLOR: #ddd
+}
+DIV.CC_code {
+	BORDER-RIGHT: black 1px dotted; BORDER-TOP: black 1px dotted; BORDER-LEFT: black 1px dotted; BORDER-BOTTOM: black 1px dotted
+}
+DIV.rade_toolbar UL {
+	LINE-HEIGHT: normal; WORD-WRAP: normal
+}
+DIV.rade_dropDownBody {
+	OVERFLOW: visible; HEIGHT: auto! important
+}
+DIV.rade_dropDownBody PRE {
+	MARGIN-LEFT: 0px
+}
+DIV.radeditor {
+	WIDTH: auto! important; HEIGHT: auto! important
+}
+TD.rade_tlbVertical {
+	DISPLAY: none
+}
+TD.rade_wrapper_corner {
+	DISPLAY: none
+}
+TD.rade_wrapper_center {
+	DISPLAY: none
+}
+TD.rade_toolZone {
+	BACKGROUND-COLOR: #eef6f0! important
+}
+DIV.radtooltip_Vista {
+	BORDER-RIGHT: red 1px solid; BORDER-TOP: red 1px solid; BORDER-LEFT: red 1px solid; BORDER-BOTTOM: red 1px solid
+}
+TD.ToolTipContent {
+	FONT-WEIGHT: normal! important; FONT-SIZE: 10pt! important; FONT-FAMILY: Verdana! important
+}
+.CCS_Container {
+	FONT-SIZE: 9pt; WIDTH: 98%; LINE-HEIGHT: normal; FONT-FAMILY: Verdana; POSITION: relative
+}
+.CCS_TopicTagEditor {
+	MARGIN: 0px 12px
+}
+.CCS_ContentContainer {
+	MARGIN: 0px 12px 12px
+}
+.CCS_WikiLogo {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; LEFT: 12px; PADDING-BOTTOM: 0px; MARGIN: 0px; WIDTH: 40px; PADDING-TOP: 0px; POSITION: relative; TOP: 36px
+}
+.CCS_HeaderContainer {
+	MARGIN: 0px
+}
+.CCS_Header {
+	BORDER-BOTTOM: black 1px solid; HEIGHT: 40px; BACKGROUND-COLOR: #5ba86f
+}
+.CCS_HeaderTitle {
+	PADDING-RIGHT: 5px; PADDING-LEFT: 15px; FONT-WEIGHT: bold; FONT-SIZE: 12pt; PADDING-BOTTOM: 5px; MARGIN-LEFT: 30px; VERTICAL-ALIGN: middle; COLOR: white; PADDING-TOP: 5px; FONT-FAMILY: Verdana; WHITE-SPACE: nowrap
+}
+.CCS_HelpImage {
+	VERTICAL-ALIGN: middle
+}
+.CCS_Toolbar {
+	TABLE-LAYOUT: fixed; MARGIN: 0px; COLOR: #03c; PADDING-TOP: 12px; HEIGHT: 20px; BACKGROUND-COLOR: white
+}
+A.CCS_Link {
+	FONT-SIZE: 9pt; CURSOR: pointer; COLOR: #03c; FONT-FAMILY: Verdana
+}
+A.CCS_Link:active {
+	FONT-SIZE: 9pt; CURSOR: pointer; COLOR: #03c; FONT-FAMILY: Verdana
+}
+A.CCS_Link:hover {
+	FONT-SIZE: 9pt; CURSOR: pointer; COLOR: #03c; FONT-FAMILY: Verdana
+}
+A.CCS_Link:visited {
+	FONT-SIZE: 9pt; CURSOR: pointer; COLOR: #03c; FONT-FAMILY: Verdana
+}
+A.CCS_Link {
+	TEXT-DECORATION: none
+}
+A.CCS_Link:active {
+	TEXT-DECORATION: none
+}
+A.CCS_Link:visited {
+	TEXT-DECORATION: none
+}
+A.CCS_Link:hover {
+	TEXT-DECORATION: underline
+}
+.CCS_Add {
+	FONT-SIZE: 9pt; VERTICAL-ALIGN: middle; COLOR: #03c; FONT-FAMILY: Verdana; WHITE-SPACE: nowrap; TEXT-ALIGN: left
+}
+.CCS_AddLinkDisabled {
+	CURSOR: default; COLOR: gray
+}
+.CCS_AddLinkDisabled:hover {
+	CURSOR: default; COLOR: gray
+}
+.CCS_AddLinkDisabled:visited {
+	CURSOR: default; COLOR: gray
+}
+.CCS_AddLinkDisabled:active {
+	CURSOR: default; COLOR: gray
+}
+.CCS_RecentChanges {
+	FONT-SIZE: 9pt; COLOR: #03c; FONT-FAMILY: Verdana; WHITE-SPACE: nowrap; TEXT-ALIGN: center
+}
+.CCS_RecentChangesText {
+	VERTICAL-ALIGN: middle
+}
+.CCS_RecentChanges A {
+	VERTICAL-ALIGN: middle; COLOR: #03c
+}
+.CCS_RecentChanges A:visited {
+	VERTICAL-ALIGN: middle; COLOR: #03c
+}
+.CCS_RecentChanges A:hover {
+	VERTICAL-ALIGN: middle; COLOR: #03c
+}
+.CCS_RSSImage {
+	VERTICAL-ALIGN: middle
+}
+.CCS_Profile {
+	VERTICAL-ALIGN: middle; WHITE-SPACE: nowrap
+}
+.CCS_ItemsContainer {
+	MARGIN: 0px 12px 12px; WIDTH: auto
+}
+.CCS_Progress {
+	DISPLAY: none; Z-INDEX: 10; LEFT: 0px; POSITION: absolute; TOP: 0px; BACKGROUND-COLOR: transparent
+}
+.CCS_Footer {
+	MARGIN-TOP: 24px; FONT-SIZE: 0px; WIDTH: 100%; HEIGHT: 8px; BACKGROUND-COLOR: #5ba86f
+}
+.CCS_Message {
+	FONT-SIZE: 10pt; COLOR: red; TEXT-ALIGN: center
+}
+.CCT_Panel {
+	FONT-SIZE: 9pt; MIN-HEIGHT: 26px; MARGIN: 0px; LINE-HEIGHT: 12pt; BACKGROUND-COLOR: #fff
+}
+.CCT_Panel_Block {
+	FONT-SIZE: 9pt; MIN-HEIGHT: 26px; MARGIN: 0px; LINE-HEIGHT: 12pt; BACKGROUND-COLOR: #fff
+}
+.CCT_Panel {
+	BORDER-RIGHT: #ccc 1px solid; PADDING-RIGHT: 3px; BORDER-TOP: #ccc 1px solid; PADDING-LEFT: 3px; PADDING-BOTTOM: 3px; BORDER-LEFT: #ccc 1px solid; PADDING-TOP: 3px; BORDER-BOTTOM: #ccc 1px solid
+}
+.CCT_Panel_Block {
+	PADDING-RIGHT: 12px; BORDER-TOP: #ccc 1px solid; PADDING-LEFT: 12px; PADDING-BOTTOM: 3px; PADDING-TOP: 3px; WHITE-SPACE: normal
+}
+.CCT_Title {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-WEIGHT: bold; FONT-SIZE: 10pt; PADDING-BOTTOM: 3px; VERTICAL-ALIGN: middle; PADDING-TOP: 3px; HEIGHT: 1px
+}
+.CCT_Text {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-SIZE: 9pt; PADDING-BOTTOM: 0px; COLOR: #03c; PADDING-TOP: 0px
+}
+.CCT_View {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-SIZE: 9pt; LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px 4px; VERTICAL-ALIGN: middle; PADDING-TOP: 0px; TOP: 0px
+}
+.CCT_Edit {
+	MARGIN: 0px 4px; WHITE-SPACE: nowrap
+}
+.CCT_TextBox {
+	FONT-SIZE: 10pt; Z-INDEX: 100; VERTICAL-ALIGN: middle
+}
+.CCT_TagPair {
+	VERTICAL-ALIGN: middle; WHITE-SPACE: nowrap
+}
+A.CCT_Link {
+	FONT-SIZE: 9pt; COLOR: #03c
+}
+A.CCT_Link:active {
+	FONT-SIZE: 9pt; COLOR: #03c
+}
+A.CCT_Link:hover {
+	FONT-SIZE: 9pt; COLOR: #03c
+}
+A.CCT_Link:visited {
+	FONT-SIZE: 9pt; COLOR: #03c
+}
+A.CCT_Link {
+	TEXT-DECORATION: none
+}
+A.CCT_Link:active {
+	TEXT-DECORATION: none
+}
+A.CCT_Link:visited {
+	TEXT-DECORATION: none
+}
+A.CCT_Link:hover {
+	TEXT-DECORATION: underline
+}
+A.CCT_LinkButton {
+	FONT-SIZE: 9pt; COLOR: #03c; WHITE-SPACE: nowrap
+}
+A.CCT_LinkButton:active {
+	FONT-SIZE: 9pt; COLOR: #03c; WHITE-SPACE: nowrap
+}
+A.CCT_LinkButton:hover {
+	FONT-SIZE: 9pt; COLOR: #03c; WHITE-SPACE: nowrap
+}
+A.CCT_LinkButton:visited {
+	FONT-SIZE: 9pt; COLOR: #03c; WHITE-SPACE: nowrap
+}
+A.CCT_LinkButton {
+	TEXT-DECORATION: none
+}
+A.CCT_LinkButton:active {
+	TEXT-DECORATION: none
+}
+A.CCT_LinkButton:visited {
+	TEXT-DECORATION: none
+}
+A.CCT_LinkButton:hover {
+	TEXT-DECORATION: underline
+}
+.CCT_Message {
+	COLOR: red
+}
+.CCT_HelpLink {
+	
+}
+.CCT_HelpImage {
+	BORDER-RIGHT: black 0px solid; BORDER-TOP: black 0px solid; MARGIN: 3px; VERTICAL-ALIGN: middle; BORDER-LEFT: black 0px solid; BORDER-BOTTOM: black 0px solid
+}
+.CCT_TagAutoComplete {
+	BORDER-RIGHT: gray 1px solid; PADDING-RIGHT: 0px; BORDER-TOP: gray 1px solid; PADDING-LEFT: 0px; Z-INDEX: 100; LIST-STYLE-IMAGE: none; PADDING-BOTTOM: 0px; MARGIN: 0px; BORDER-LEFT: gray 1px solid; WIDTH: auto! important; CURSOR: default; COLOR: black; PADDING-TOP: 0px; BORDER-BOTTOM: gray 1px solid; LIST-STYLE-TYPE: none; BACKGROUND-COLOR: white; TEXT-ALIGN: left
+}
+.CCT_TagsPanel {
+	FLOAT: left; WIDTH: 75%
+}
+.CCT_FlagAsPanel {
+	FLOAT: right; VERTICAL-ALIGN: middle; WHITE-SPACE: nowrap
+}
+.FallbackContainer {
+	BORDER-RIGHT: #ccc 1px solid; PADDING-RIGHT: 8px; BORDER-TOP: #ccc 1px solid; PADDING-LEFT: 8px; FONT-SIZE: 100%; FLOAT: right; PADDING-BOTTOM: 8px; MARGIN: 8px; BORDER-LEFT: #ccc 1px solid; WIDTH: 200px; PADDING-TOP: 8px; BORDER-BOTTOM: #ccc 1px solid; BACKGROUND-COLOR: #f1f1f1
+}
+.FallbackHeaderLabel {
+	FONT-WEIGHT: bolder
+}
+.DropDownFilterStyle {
+	FLOAT: left; WIDTH: auto; POSITION: relative
+}
+.MTPS_DropDownImage {
+	FLOAT: left; CURSOR: pointer; TEXT-ALIGN: center
+}
+.DropDownFilterOff {
+	PADDING-LEFT: 3px; CURSOR: pointer; COLOR: #000! important; PADDING-TOP: 10px; TEXT-DECORATION: none
+}
+.MTPS_PopupDivPanel {
+	BORDER-RIGHT: #ccc 1px solid; PADDING-RIGHT: 5px; BORDER-TOP: #ccc 1px solid; PADDING-LEFT: 1px; LEFT: 0px; PADDING-BOTTOM: 1px; MARGIN: 0px; VERTICAL-ALIGN: middle; BORDER-LEFT: #ccc 1px solid; WIDTH: 200px; PADDING-TOP: 1px; BORDER-BOTTOM: #ccc 1px solid; POSITION: absolute; TOP: 17px; BACKGROUND-COLOR: #ddd; TEXT-ALIGN: left
+}
+.codeHide {
+	DISPLAY: none
+}
+.DivCbxLabelLanguage {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; WIDTH: auto; PADDING-TOP: 0px; BACKGROUND-COLOR: transparent
+}
+.DivCbxLabelLanguage INPUT {
+	VERTICAL-ALIGN: middle
+}
+.ECPanel {
+	PADDING-RIGHT: 10px; FLOAT: left
+}
+.ECLink {
+	PADDING-RIGHT: 10px; PADDING-LEFT: 3px; VERTICAL-ALIGN: middle; CURSOR: pointer; COLOR: #000! important; TEXT-DECORATION: none
+}
+.ECImg {
+	VERTICAL-ALIGN: middle; CURSOR: pointer; COLOR: #000; TEXT-DECORATION: none
+}
+DIV.eyebrowmenubar {
+	PADDING-RIGHT: 3px; PADDING-LEFT: 3px; PADDING-BOTTOM: 3px; MARGIN: 3px 0px; WIDTH: auto; PADDING-TOP: 3px; FONT-FAMILY: Tahoma,Verdana,Arial,Helvetica,Sans-serif
+}
+DIV.eyebrowmenubar A {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; WIDTH: auto; PADDING-TOP: 0px
+}
+DIV.eyebrowmenubar A:visited {
+	COLOR: purple
+}
+DIV.stat {
+	BORDER-RIGHT: transparent 1px solid; PADDING-RIGHT: 21px; BORDER-TOP: transparent 1px solid; DISPLAY: inline; PADDING-LEFT: 5px; FLOAT: left; PADDING-BOTTOM: 3px; MARGIN: 0px; VERTICAL-ALIGN: bottom; BORDER-LEFT: transparent 1px solid; LINE-HEIGHT: 16px; PADDING-TOP: 3px; BORDER-BOTTOM: transparent 1px solid; WHITE-SPACE: nowrap; HEIGHT: auto! important
+}
+DIV.statHover {
+	BORDER-RIGHT: transparent 1px solid; PADDING-RIGHT: 21px; BORDER-TOP: transparent 1px solid; DISPLAY: inline; PADDING-LEFT: 5px; FLOAT: left; PADDING-BOTTOM: 3px; MARGIN: 0px; VERTICAL-ALIGN: bottom; BORDER-LEFT: transparent 1px solid; LINE-HEIGHT: 16px; PADDING-TOP: 3px; BORDER-BOTTOM: transparent 1px solid; WHITE-SPACE: nowrap; HEIGHT: auto! important
+}
+* HTML DIV.stat {
+	BORDER-LEFT-COLOR: #fff! important; BORDER-BOTTOM-COLOR: #fff! important; BORDER-TOP-COLOR: #fff! important; BORDER-RIGHT-COLOR: #fff! important
+}
+* HTML DIV.statHover {
+	BORDER-LEFT-COLOR: #fff! important; BORDER-BOTTOM-COLOR: #fff! important; BORDER-TOP-COLOR: #fff! important; BORDER-RIGHT-COLOR: #fff! important
+}
+DIV.nochildstat {
+	PADDING-RIGHT: 21px; DISPLAY: inline; PADDING-LEFT: 5px; FLOAT: left; PADDING-BOTTOM: 3px; MARGIN: 0px; VERTICAL-ALIGN: bottom; LINE-HEIGHT: 16px; PADDING-TOP: 4px; WHITE-SPACE: nowrap; HEIGHT: auto! important
+}
+DIV.stat {
+	BACKGROUND: url(/Platform/Controls/Eyebrow/resources/botharrow.gif) no-repeat right -20px
+}
+DIV.statHover {
+	BORDER-RIGHT: #a1c6eb 1px solid; BORDER-TOP: #a1c6eb 1px solid; BACKGROUND: url(/Platform/Controls/Eyebrow/resources/botharrow.gif) #e3ebf2 no-repeat right 0px; BORDER-LEFT: #a1c6eb 1px solid; BORDER-BOTTOM: #a1c6eb 1px solid
+}
+DIV.stat A {
+	BORDER-TOP-WIDTH: 0px; PADDING-RIGHT: 0px; PADDING-LEFT: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px; BACKGROUND-COLOR: transparent; BORDER-RIGHT-WIDTH: 0px; TEXT-DECORATION: none
+}
+DIV.statHover A {
+	BORDER-TOP-WIDTH: 0px; PADDING-RIGHT: 0px; PADDING-LEFT: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px; BACKGROUND-COLOR: transparent; BORDER-RIGHT-WIDTH: 0px; TEXT-DECORATION: none
+}
+DIV.statHover A {
+	COLOR: #000; BACKGROUND-COLOR: #e3ebf2
+}
+DIV.stat A:visited {
+	COLOR: #00e
+}
+DIV.stat A:link {
+	COLOR: #00e
+}
+DIV.stat A:active {
+	COLOR: #00e
+}
+DIV.popup {
+	BORDER-RIGHT: #b8b8b8 1px solid; BORDER-TOP: #b8b8b8 1px solid; Z-INDEX: 1; OVERFLOW: auto; BORDER-LEFT: #b8b8b8 1px solid; BORDER-BOTTOM: #b8b8b8 1px solid; BACKGROUND-COLOR: #fff
+}
+DIV.popup A:visited {
+	BORDER-RIGHT: #fff 1px solid; PADDING-RIGHT: 3px; BORDER-TOP: #fff 1px solid; DISPLAY: block; PADDING-LEFT: 3px; PADDING-BOTTOM: 3px; MARGIN: 0px 2px; BORDER-LEFT: #fff 1px solid; COLOR: #000; PADDING-TOP: 3px; BORDER-BOTTOM: #fff 1px solid; BACKGROUND-COLOR: #fff; TEXT-DECORATION: none
+}
+DIV.popup A:link {
+	BORDER-RIGHT: #fff 1px solid; PADDING-RIGHT: 3px; BORDER-TOP: #fff 1px solid; DISPLAY: block; PADDING-LEFT: 3px; PADDING-BOTTOM: 3px; MARGIN: 0px 2px; BORDER-LEFT: #fff 1px solid; COLOR: #000; PADDING-TOP: 3px; BORDER-BOTTOM: #fff 1px solid; BACKGROUND-COLOR: #fff; TEXT-DECORATION: none
+}
+DIV.popup A:active {
+	BORDER-RIGHT: #fff 1px solid; PADDING-RIGHT: 3px; BORDER-TOP: #fff 1px solid; DISPLAY: block; PADDING-LEFT: 3px; PADDING-BOTTOM: 3px; MARGIN: 0px 2px; BORDER-LEFT: #fff 1px solid; COLOR: #000; PADDING-TOP: 3px; BORDER-BOTTOM: #fff 1px solid; BACKGROUND-COLOR: #fff; TEXT-DECORATION: none
+}
+DIV.popup A:hover {
+	BORDER-RIGHT: #fff 1px solid; PADDING-RIGHT: 3px; BORDER-TOP: #fff 1px solid; DISPLAY: block; PADDING-LEFT: 3px; PADDING-BOTTOM: 3px; MARGIN: 0px 2px; BORDER-LEFT: #fff 1px solid; COLOR: #000; PADDING-TOP: 3px; BORDER-BOTTOM: #fff 1px solid; BACKGROUND-COLOR: #fff; TEXT-DECORATION: none
+}
+DIV.popup UL.toc LI A:hover {
+	BORDER-RIGHT: #addbef 1px solid; BORDER-TOP: #addbef 1px solid; DISPLAY: block; OVERFLOW: visible; BORDER-LEFT: #addbef 1px solid; COLOR: #000; BORDER-BOTTOM: #addbef 1px solid; BACKGROUND-COLOR: #f0f7fd
+}
+DIV.popup UL.toc {
+	PADDING-RIGHT: 6px; PADDING-LEFT: 6px; PADDING-BOTTOM: 3px; MARGIN: 0px; WIDTH: auto; LINE-HEIGHT: 125%; PADDING-TOP: 3px; LIST-STYLE-TYPE: none; POSITION: absolute
+}
+DIV.popup UL.toc LI {
+	MARGIN-LEFT: 3px
+}
+DIV.eyebrowmenubar A:hover {
+	COLOR: #f30
+}
+DIV.eyebrowmenubar A:active {
+	COLOR: #f30
+}
+DIV.popup UL.toc LI IMG {
+	DISPLAY: none; VISIBILITY: hidden
+}
+TD.MTPS_FooterFade {
+	PADDING-RIGHT: 2px; PADDING-LEFT: 12px; FONT-WEIGHT: bold; PADDING-BOTTOM: 6px; MARGIN: 0px; WIDTH: 100%; PADDING-TOP: 2px; HEIGHT: 57px
+}
+TD.MTPS_FooterLogo {
+	WIDTH: 150px; BACKGROUND-COLOR: #fff
+}
+DIV.MTPS_FooterLinks {
+	MARGIN-BOTTOM: 10px
+}
+A.MTPS_FooterLinks {
+	FONT-WEIGHT: normal; COLOR: #03c
+}
+DIV.MTPS_FooterLinks A {
+	FONT-WEIGHT: normal; COLOR: #03c
+}
+A.MTPS_FooterLinks:hover {
+	COLOR: #f60
+}
+DIV.MTPS_FooterLinks A:hover {
+	COLOR: #f60
+}
+.MTPS_FooterCopyright {
+	FONT-WEIGHT: normal; FONT-SIZE: 7pt; COLOR: #000
+}
+.MTPS_FooterLinks {
+	FONT-SIZE: 7pt
+}
+.itPrint {
+	FONT-SIZE: 100%! important
+}
+.itFav {
+	FONT-SIZE: 100%! important
+}
+.itSend {
+	FONT-SIZE: 100%! important
+}
+.itComCon {
+	FONT-SIZE: 100%! important
+}
+DIV.miniRatings {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; VERTICAL-ALIGN: bottom; WIDTH: 100%; LINE-HEIGHT: normal; PADDING-TOP: 0px; BORDER-BOTTOM: #c0c0c0 1px solid; HEIGHT: 28px; BACKGROUND-COLOR: #f0f0f0; TEXT-ALIGN: left
+}
+DIV.miniRatings_left {
+	PADDING-LEFT: 2px; Z-INDEX: 150; FLOAT: left; PADDING-BOTTOM: 4px; PADDING-TOP: 5px; POSITION: absolute; BACKGROUND-COLOR: #f0f0f0
+}
+DIV.miniRatings_left A {
+	BORDER-RIGHT: #f0f0f0 1px solid; PADDING-RIGHT: 5px; BORDER-TOP: #f0f0f0 1px solid; PADDING-LEFT: 2px; PADDING-BOTTOM: 3px; BORDER-LEFT: #f0f0f0 1px solid; COLOR: #03c; PADDING-TOP: 2px; BORDER-BOTTOM: #f0f0f0 1px solid; TEXT-DECORATION: none
+}
+HEAD DIV.miniRatings_left A {
+	PADDING-RIGHT: 5px; PADDING-LEFT: 2px; LINE-HEIGHT: normal
+}
+DIV.miniRatings_left A:hover {
+	BORDER-RIGHT: #a1c6eb 1px solid; BORDER-TOP: #a1c6eb 1px solid; BORDER-LEFT: #a1c6eb 1px solid; COLOR: #03c; BORDER-BOTTOM: #a1c6eb 1px solid; BACKGROUND-COLOR: #e3ebf2
+}
+HEAD DIV.miniRatings_left A:hover {
+	BORDER-RIGHT: #a1c6eb 1px solid; BORDER-TOP: #a1c6eb 1px solid; BORDER-LEFT: #a1c6eb 1px solid; COLOR: #03c; BORDER-BOTTOM: #a1c6eb 1px solid; BACKGROUND-COLOR: #e3ebf2
+}
+DIV.miniRatings_left A:visited {
+	COLOR: #03c
+}
+HEAD DIV.miniRatings_left A:visited {
+	COLOR: #03c
+}
+DIV.miniRatings_left A IMG {
+	MARGIN-LEFT: 3px; VERTICAL-ALIGN: text-bottom
+}
+HEAD DIV.miniRatings_left A IMG {
+	VERTICAL-ALIGN: top
+}
+DIV.miniRatings_right {
+	MIN-WIDTH: 400px; Z-INDEX: 99; FLOAT: right
+}
+DIV.miniRatings_right #ratingTable {
+	FLOAT: right
+}
+DIV.miniRatings_right TD {
+	BORDER-RIGHT: #f0f0f0 1px solid; PADDING-RIGHT: 0px; BORDER-TOP: #f0f0f0 1px solid; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; BORDER-LEFT: #f0f0f0 1px solid; COLOR: #03c; PADDING-TOP: 3px; BORDER-BOTTOM: #f0f0f0 1px solid; TEXT-DECORATION: none
+}
+DIV.miniRatings_right A:hover {
+	BORDER-RIGHT: #a1c6eb 1px solid; BORDER-TOP: #a1c6eb 1px solid; BORDER-LEFT: #a1c6eb 1px solid; BORDER-BOTTOM: #a1c6eb 1px solid; BACKGROUND-COLOR: #e3ebf2
+}
+DIV.miniRatings_right A:visited {
+	COLOR: #03c
+}
+DIV.miniRatings_right A IMG {
+	VERTICAL-ALIGN: text-bottom
+}
+.ratingStar {
+	PADDING-RIGHT: 0px; DISPLAY: block; PADDING-LEFT: 0px; FONT-SIZE: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; WIDTH: 16px; CURSOR: pointer; PADDING-TOP: 0px; BACKGROUND-REPEAT: no-repeat; HEIGHT: 16px
+}
+.filledRatingStar {
+	BACKGROUND: url(/global/Images/LibC.gif) -288px 0px
+}
+.emptyRatingStar {
+	BACKGROUND: url(/global/Images/LibC.gif) -304px 0px
+}
+.savedRatingStar {
+	BACKGROUND: url(/global/Images/LibC.gif) -272px 0px
+}
+.ratingFlyoutStatic {
+	WIDTH: 400px; WHITE-SPACE: nowrap
+}
+.ratingFlyoutStatic TABLE {
+	FONT-SIZE: 100%
+}
+.tbFont {
+	WHITE-SPACE: nowrap
+}
+* HTML .tbfont {
+	FONT-SIZE: 70%
+}
+* + HTML .tbfont {
+	FONT-SIZE: 70%
+}
+.ratingFlyoutPopup {
+	BORDER-RIGHT: #7a7a7a 1px solid; BORDER-TOP: #7a7a7a 1px solid; MARGIN: 0px; VERTICAL-ALIGN: middle; BORDER-LEFT: #7a7a7a 1px solid; WIDTH: 450px; BORDER-BOTTOM: #7a7a7a 1px solid; HEIGHT: 220px; BACKGROUND-COLOR: white
+}
+.ratingFlyoutPopup .OptionalText {
+	MARGIN-TOP: 10px; FONT-SIZE: 10pt; FLOAT: left; MARGIN-BOTTOM: 10px; MARGIN-LEFT: 25px
+}
+.ratingFlyoutPopup .WarningMessage {
+	MARGIN-TOP: 10px; FONT-SIZE: 10pt; FLOAT: left; MARGIN-BOTTOM: 10px; MARGIN-LEFT: 25px
+}
+.ratingFlyoutPopup .WarningMessage {
+	COLOR: red
+}
+.ratingFlyoutPopup .Comment {
+	CLEAR: both; DISPLAY: block; MARGIN-BOTTOM: 10px; MARGIN-LEFT: 25px; WIDTH: 396px; HEIGHT: 132px
+}
+.ratingFlyoutPopup .Button {
+	FLOAT: right; MARGIN-RIGHT: 25px; PADDING-TOP: 0.2em
+}
+.LocaleManagementFlyoutPopup {
+	BORDER-RIGHT: #b8b8b8 1px solid; PADDING-RIGHT: 3px; BORDER-TOP: #b8b8b8 1px solid; PADDING-LEFT: 3px; Z-INDEX: 10; PADDING-BOTTOM: 3px; BORDER-LEFT: #b8b8b8 1px solid; PADDING-TOP: 3px; BORDER-BOTTOM: #b8b8b8 1px solid; BACKGROUND-COLOR: #fff; TEXT-ALIGN: left
+}
+.LocaleManagementFlyoutPopup A {
+	BORDER-RIGHT: #fff 1px solid; PADDING-RIGHT: 3px; BORDER-TOP: #fff 1px solid; DISPLAY: block; PADDING-LEFT: 3px; FONT-SIZE: 10px; PADDING-BOTTOM: 1px; BORDER-LEFT: #fff 1px solid; COLOR: #000; PADDING-TOP: 1px; BORDER-BOTTOM: #fff 1px solid; WHITE-SPACE: nowrap; HEIGHT: 15px; TEXT-ALIGN: left; TEXT-DECORATION: none
+}
+.LocaleManagementFlyoutPopup A:visited {
+	BORDER-RIGHT: #fff 1px solid; PADDING-RIGHT: 3px; BORDER-TOP: #fff 1px solid; DISPLAY: block; PADDING-LEFT: 3px; FONT-SIZE: 10px; PADDING-BOTTOM: 1px; BORDER-LEFT: #fff 1px solid; COLOR: #000; PADDING-TOP: 1px; BORDER-BOTTOM: #fff 1px solid; WHITE-SPACE: nowrap; HEIGHT: 15px; TEXT-ALIGN: left; TEXT-DECORATION: none
+}
+.LocaleManagementFlyoutPopup A:hover {
+	BORDER-RIGHT: #addbef 1px solid; PADDING-RIGHT: 3px; BORDER-TOP: #addbef 1px solid; DISPLAY: block; PADDING-LEFT: 3px; PADDING-BOTTOM: 1px; BORDER-LEFT: #addbef 1px solid; COLOR: #000; PADDING-TOP: 1px; BORDER-BOTTOM: #addbef 1px solid; WHITE-SPACE: nowrap; HEIGHT: 15px; BACKGROUND-COLOR: #f0f7fd; TEXT-DECORATION: none
+}
+.LocaleManagementFlyoutPopup A:active {
+	BORDER-RIGHT: #addbef 1px solid; PADDING-RIGHT: 3px; BORDER-TOP: #addbef 1px solid; DISPLAY: block; PADDING-LEFT: 3px; PADDING-BOTTOM: 1px; BORDER-LEFT: #addbef 1px solid; COLOR: #000; PADDING-TOP: 1px; BORDER-BOTTOM: #addbef 1px solid; WHITE-SPACE: nowrap; HEIGHT: 15px; BACKGROUND-COLOR: #f0f7fd; TEXT-DECORATION: none
+}
+.LocaleManagementFlyoutPopupHr {
+	BACKGROUND: #d0e0f0; MARGIN: 0px 11px 21px; HEIGHT: 1px
+}
+.LocaleManagementFlyoutPopArrow {
+	MARGIN: 4px 0px 0px
+}
+.LocaleManagementFlyoutStatic {
+	BORDER-RIGHT: #fff 1px solid; PADDING-RIGHT: 3px; BORDER-TOP: #fff 1px solid; DISPLAY: inline; PADDING-LEFT: 3px; PADDING-BOTTOM: 1px; MARGIN: 1px; BORDER-LEFT: #fff 1px solid; CURSOR: default; COLOR: #000; PADDING-TOP: 1px; BORDER-BOTTOM: #fff 1px solid; FONT-FAMILY: Tahoma,Verdana,Arial,Helvetica,sans-serif; WHITE-SPACE: nowrap; TEXT-DECORATION: none
+}
+.LocaleManagementFlyoutStaticHover {
+	BORDER-RIGHT: #fff 1px solid; PADDING-RIGHT: 3px; BORDER-TOP: #fff 1px solid; DISPLAY: inline; PADDING-LEFT: 3px; PADDING-BOTTOM: 1px; MARGIN: 1px; BORDER-LEFT: #fff 1px solid; CURSOR: default; COLOR: #000; PADDING-TOP: 1px; BORDER-BOTTOM: #fff 1px solid; FONT-FAMILY: Tahoma,Verdana,Arial,Helvetica,sans-serif; WHITE-SPACE: nowrap; TEXT-DECORATION: none
+}
+.LocaleManagementFlyoutStaticHover {
+	BORDER-RIGHT: #a1c6eb 1px solid; BORDER-TOP: #a1c6eb 1px solid; BORDER-LEFT: #a1c6eb 1px solid; BORDER-BOTTOM: #a1c6eb 1px solid
+}
+A.LocaleManagementFlyoutStaticLink {
+	DISPLAY: inline; CURSOR: default; COLOR: #000; FONT-FAMILY: Tahoma,Verdana,Arial,Helvetica,sans-serif; WHITE-SPACE: nowrap; TEXT-DECORATION: none
+}
+A.LocaleManagementFlyoutStaticLink:visited {
+	DISPLAY: inline; CURSOR: default; COLOR: #000; FONT-FAMILY: Tahoma,Verdana,Arial,Helvetica,sans-serif; WHITE-SPACE: nowrap; TEXT-DECORATION: none
+}
+A.LocaleManagementFlyoutStaticLink:hover {
+	DISPLAY: inline; CURSOR: default; COLOR: #000; FONT-FAMILY: Tahoma,Verdana,Arial,Helvetica,sans-serif; WHITE-SPACE: nowrap; TEXT-DECORATION: none
+}
+A.LocaleManagementFlyoutStaticLink:active {
+	DISPLAY: inline; CURSOR: default; COLOR: #000; FONT-FAMILY: Tahoma,Verdana,Arial,Helvetica,sans-serif; WHITE-SPACE: nowrap; TEXT-DECORATION: none
+}
+.mastheadfontbase {
+	FONT-SIZE: 62.5%
+}
+.GlobalBar {
+	FONT-SIZE: 10px; FLOAT: left; PADDING-BOTTOM: 6px; WIDTH: 100%; BACKGROUND-COLOR: #fff
+}
+.GlobalBarRight {
+	BORDER-TOP-WIDTH: 0px; PADDING-RIGHT: 0px; PADDING-LEFT: 0px; BORDER-LEFT-WIDTH: 0px; FLOAT: right; BORDER-BOTTOM-WIDTH: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px; BORDER-RIGHT-WIDTH: 0px
+}
+.GlobalBar .Teaser {
+	PADDING-LEFT: 4px; FLOAT: left; PADDING-TOP: 4px
+}
+IMG.DropDownArrow {
+	PADDING-LEFT: 3px; MARGIN-BOTTOM: 2px
+}
+.GlobalBar .PassportScarab {
+	PADDING-RIGHT: 2px; PADDING-LEFT: 12px; FONT-WEIGHT: bold; FLOAT: left; PADDING-BOTTOM: 2px; BORDER-LEFT: #080808 1px solid; PADDING-TOP: 2px; FONT-FAMILY: Verdana
+}
+.GlobalBar .LocaleFlyout {
+	PADDING-RIGHT: 4px; PADDING-LEFT: 12px; FONT-WEIGHT: normal; FLOAT: left; PADDING-BOTTOM: 2px; MARGIN-RIGHT: 8px; PADDING-TOP: 2px
+}
+.GlobalBar .SiteMap {
+	PADDING-RIGHT: 4px; PADDING-LEFT: 12px; FLOAT: left; PADDING-BOTTOM: 2px; BORDER-LEFT: #080808 1px solid; CURSOR: pointer; COLOR: #080808; MARGIN-RIGHT: 8px; PADDING-TOP: 2px
+}
+.ThinNavBox {
+	BORDER-RIGHT: #801e2b 1px solid; FLOAT: left; BACKGROUND-IMAGE: url(/Platform/Controls/Masthead/resources/msdn.BG1.jpg); OVERFLOW: hidden; BORDER-LEFT: #801e2b 1px solid; WIDTH: 100%; BACKGROUND-REPEAT: no-repeat; WHITE-SPACE: nowrap; HEIGHT: 58px; BACKGROUND-COLOR: #801e2b
+}
+.BrandLogo {
+	MARGIN-TOP: 10px; FLOAT: left; BACKGROUND-IMAGE: url(/Platform/Controls/Masthead/resources/msdn.logo.jpg); PADDING-BOTTOM: 4px; MARGIN-LEFT: 16px; WIDTH: 17%; CURSOR: pointer; BACKGROUND-REPEAT: no-repeat; HEIGHT: 42px
+}
+* HTML .BrandLogo {
+	MARGIN-LEFT: 10px
+}
+.evergreenLinks {
+	FLOAT: right; WIDTH: 31%
+}
+.ThinNavTarget {
+	MARGIN-TOP: 19px
+}
+.ThinNavTarget A {
+	PADDING-RIGHT: 12px; PADDING-LEFT: 12px; FONT-SIZE: 11px; PADDING-BOTTOM: 2px; COLOR: white; PADDING-TOP: 2px; FONT-FAMILY: Tahoma; WHITE-SPACE: nowrap; POSITION: relative; TOP: 1px; TEXT-DECORATION: none
+}
+* HTML .ThinNavTarget A {
+	BORDER-TOP: #c87270 1px solid; FONT-SIZE: 11px; BORDER-BOTTOM: #c87270 1px solid; TOP: 2px; BACKGROUND-COLOR: #7a1312
+}
+.ThinNavTarget A:hover {
+	COLOR: white; TEXT-DECORATION: none
+}
+* HTML .ThinNavTarget A:hover {
+	BORDER-TOP: #c87270 1px solid; BORDER-BOTTOM: #c87270 1px solid; BACKGROUND-COLOR: #a53532
+}
+.ThinNavTarget A:visited {
+	COLOR: white; TEXT-DECORATION: none
+}
+.thinnavtableft {
+	MARGIN-TOP: 1px; FLOAT: right; PADDING-BOTTOM: 2px; BORDER-LEFT: #c87270 1px solid; PADDING-TOP: 2px; HEIGHT: 12px
+}
+.thinnavtabright {
+	BORDER-RIGHT: #c87270 1px solid; MARGIN-TOP: 1px; FLOAT: right; PADDING-BOTTOM: 2px; MARGIN-RIGHT: 5px; PADDING-TOP: 2px; HEIGHT: 12px
+}
+.BrowseCenter {
+	BORDER-TOP: #c87270 1px solid; FLOAT: right; BORDER-BOTTOM: #c87270 1px solid; HEIGHT: 16px; BACKGROUND-COLOR: #7a1312
+}
+.BrowseCenter:hover {
+	BACKGROUND-COLOR: #a53532
+}
+.BrowseSite {
+	BORDER-TOP: #c87270 1px solid; FLOAT: right; BORDER-BOTTOM: #c87270 1px solid; HEIGHT: 16px; BACKGROUND-COLOR: #7a1312
+}
+.BrowseSite:hover {
+	BACKGROUND-COLOR: #a53532
+}
+.ClearLeft {
+	CLEAR: left
+}
+.ClearRight {
+	CLEAR: right
+}
+.Clear {
+	CLEAR: both
+}
+.FrameworkFilterOff {
+	PADDING-LEFT: 3px; CURSOR: pointer; COLOR: black! important; PADDING-TOP: 10px; TEXT-DECORATION: none
+}
+.frameworkFilterStyle {
+	FLOAT: left; WIDTH: auto; POSITION: relative
+}
+.display {
+	DISPLAY: block
+}
+.MemberFilterStyle {
+	FLOAT: left; MARGIN-LEFT: 5px; WIDTH: auto; MARGIN-RIGHT: 5px; POSITION: relative
+}
+.MTPS_DropDownImage {
+	FLOAT: left; CURSOR: pointer; TEXT-ALIGN: center
+}
+.MemberFilterOff {
+	PADDING-LEFT: 3px; CURSOR: pointer; COLOR: black! important; PADDING-TOP: 10px; TEXT-DECORATION: none
+}
+.MTPS_PopupDivPanel {
+	BORDER-RIGHT: #ccc 1px solid; PADDING-RIGHT: 5px; BORDER-TOP: #ccc 1px solid; PADDING-LEFT: 1px; LEFT: 0px; PADDING-BOTTOM: 1px; MARGIN: 0px; VERTICAL-ALIGN: middle; BORDER-LEFT: #ccc 1px solid; WIDTH: 300px; PADDING-TOP: 1px; BORDER-BOTTOM: #ccc 1px solid; POSITION: absolute; TOP: 17px; BACKGROUND-COLOR: #ddd; TEXT-ALIGN: left
+}
+.hide {
+	DISPLAY: none
+}
+.display {
+	DISPLAY: block
+}
+.DivCbxLabelMember {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; WIDTH: auto; PADDING-TOP: 0px; BACKGROUND-COLOR: transparent
+}
+.DivCbxLabelMember INPUT {
+	VERTICAL-ALIGN: middle
+}
+.MtDisclaimer_Area {
+	BORDER-RIGHT: #fc9 3px solid; PADDING-RIGHT: 5px; BORDER-TOP: #fc9 3px solid; PADDING-LEFT: 5px; PADDING-BOTTOM: 5px; MARGIN-LEFT: 5px; BORDER-LEFT: #fc9 3px solid; PADDING-TOP: 5px; BORDER-BOTTOM: #fc9 3px solid
+}
+.MtDisclaimer_Text {
+	
+}
+.MTPS_GlobalToolbarLinks_msdn {
+	PADDING-RIGHT: 4px; PADDING-LEFT: 8px; FONT-WEIGHT: bold; PADDING-BOTTOM: 2px; BORDER-LEFT: #080808 1px solid; COLOR: #343434; PADDING-TOP: 2px; TEXT-DECORATION: none
+}
+DIV#idPPMWOverlay {
+	Z-INDEX: 1024; RIGHT: -25px; FILTER: progid:DXImageTransform.Microsoft.Alpha(opacity=75); LEFT: -25px; MARGIN: 0px; WIDTH: 103%; BOTTOM: 0px; POSITION: absolute; TOP: 0px; HEIGHT: 101%; BACKGROUND-COLOR: #fff; -moz-opacity: .75; -khtml-opacity: .75
+}
+.MtViewDropDown {
+	PADDING-LEFT: 20px; FLOAT: left; WIDTH: auto; POSITION: relative
+}
+.MtViewDropDownImage {
+	FLOAT: left; CURSOR: pointer; TEXT-ALIGN: center
+}
+A.MtViewDropDownOff {
+	PADDING-LEFT: 3px; CURSOR: pointer; COLOR: black; PADDING-TOP: 10px; TEXT-DECORATION: none
+}
+A.MtViewDropDownOff:hover {
+	PADDING-LEFT: 3px; CURSOR: pointer; COLOR: black; PADDING-TOP: 10px; TEXT-DECORATION: none
+}
+A.MtViewDropDownOff:active {
+	PADDING-LEFT: 3px; CURSOR: pointer; COLOR: black; PADDING-TOP: 10px; TEXT-DECORATION: none
+}
+A.MtViewDropDownOff:visited {
+	PADDING-LEFT: 3px; CURSOR: pointer; COLOR: black; PADDING-TOP: 10px; TEXT-DECORATION: none
+}
+.MtViewDropDownPopup {
+	BORDER-RIGHT: #ccc 1px solid; PADDING-RIGHT: 5px; BORDER-TOP: #ccc 1px solid; PADDING-LEFT: 1px; LEFT: 0px; PADDING-BOTTOM: 1px; MARGIN: 0px 0px 0px 20px; VERTICAL-ALIGN: middle; BORDER-LEFT: #ccc 1px solid; WIDTH: 200px; PADDING-TOP: 1px; BORDER-BOTTOM: #ccc 1px solid; POSITION: absolute; TOP: 17px; BACKGROUND-COLOR: #ddd; TEXT-ALIGN: left
+}
+.MtViewDropDownOption {
+	BORDER-RIGHT: #ddd 1px solid; PADDING-RIGHT: 2px; BORDER-TOP: #ddd 1px solid; DISPLAY: block; PADDING-LEFT: 2px; PADDING-BOTTOM: 2px; MARGIN: 2px 0px 2px 15px; BORDER-LEFT: #ddd 1px solid; COLOR: black; PADDING-TOP: 2px; BORDER-BOTTOM: #ddd 1px solid; TEXT-DECORATION: none
+}
+A.MtViewDropDownOption:hover {
+	BORDER-LEFT-COLOR: #dd7c3b; BACKGROUND: #eee; BORDER-BOTTOM-COLOR: #dd7c3b; BORDER-TOP-COLOR: #dd7c3b; BORDER-RIGHT-COLOR: #dd7c3b
+}
+A.MtViewDropDownOption:active {
+	BORDER-LEFT-COLOR: #b46530; BORDER-BOTTOM-COLOR: #b46530; BORDER-TOP-COLOR: #b46530; BORDER-RIGHT-COLOR: #b46530
+}
+.QuickLinksFlyoutPopup {
+	BORDER-RIGHT: #b8b8b8 1px solid; PADDING-RIGHT: 3px; BORDER-TOP: #b8b8b8 1px solid; PADDING-LEFT: 3px; Z-INDEX: 10; PADDING-BOTTOM: 3px; BORDER-LEFT: #b8b8b8 1px solid; PADDING-TOP: 3px; BORDER-BOTTOM: #b8b8b8 1px solid; FONT-FAMILY: Verdana,Tahoma,Arial,Helvetica,sans-serif; BACKGROUND-COLOR: #fff; TEXT-ALIGN: left
+}
+.QuickLinksFlyoutPopup A {
+	BORDER-RIGHT: #fff 1px solid; PADDING-RIGHT: 3px; BORDER-TOP: #fff 1px solid; DISPLAY: block; PADDING-LEFT: 3px; FONT-SIZE: 10px; PADDING-BOTTOM: 1px; MARGIN: 0px; BORDER-LEFT: #fff 1px solid; COLOR: #000; PADDING-TOP: 1px; BORDER-BOTTOM: #fff 1px solid; WHITE-SPACE: nowrap; BACKGROUND-COLOR: transparent; TEXT-ALIGN: left; TEXT-DECORATION: none
+}
+.QuickLinksFlyoutPopup A:visited {
+	BORDER-RIGHT: #fff 1px solid; PADDING-RIGHT: 3px; BORDER-TOP: #fff 1px solid; DISPLAY: block; PADDING-LEFT: 3px; FONT-SIZE: 10px; PADDING-BOTTOM: 1px; MARGIN: 0px; BORDER-LEFT: #fff 1px solid; COLOR: #000; PADDING-TOP: 1px; BORDER-BOTTOM: #fff 1px solid; WHITE-SPACE: nowrap; BACKGROUND-COLOR: transparent; TEXT-ALIGN: left; TEXT-DECORATION: none
+}
+.QuickLinksFlyoutPopup A:hover {
+	BORDER-RIGHT: #addbef 1px solid; BORDER-TOP: #addbef 1px solid; BORDER-LEFT: #addbef 1px solid; BORDER-BOTTOM: #addbef 1px solid; BACKGROUND-COLOR: #f0f7fd
+}
+.QuickLinksFlyoutPopup A:active {
+	BORDER-RIGHT: #addbef 1px solid; BORDER-TOP: #addbef 1px solid; BORDER-LEFT: #addbef 1px solid; BORDER-BOTTOM: #addbef 1px solid; BACKGROUND-COLOR: #f0f7fd
+}
+.QuickLinksFlyoutPopup H4 {
+	FONT-WEIGHT: bold; FONT-SIZE: 10px; MARGIN: 4px 0px 5px; COLOR: #039; LINE-HEIGHT: 110%
+}
+.QuickLinksFlyoutPopup TABLE {
+	Z-INDEX: 10; VERTICAL-ALIGN: top
+}
+.QuickLinksFlyoutPopup TD {
+	VERTICAL-ALIGN: top
+}
+.QuickLinksFlyoutPopup .list {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px 0px 10px; PADDING-TOP: 0px
+}
+.QuickLinksFlyoutPopup .listitem {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 3px 0px; PADDING-TOP: 0px
+}
+.QuickLinksFlyoutPopupHr {
+	BACKGROUND: #d0e0f0; HEIGHT: 1px
+}
+.QuickLinksPopArrow {
+	MARGIN: 4px 0px 0px
+}
+.QuickLinksFlyoutStatic_msdn {
+	BORDER-RIGHT: #fff 1px solid; PADDING-RIGHT: 3px; BORDER-TOP: #fff 1px solid; DISPLAY: inline; PADDING-LEFT: 2px; PADDING-BOTTOM: 1px; MARGIN: 1px; BORDER-LEFT: #fff 1px solid; CURSOR: default; COLOR: #000; PADDING-TOP: 1px; BORDER-BOTTOM: #fff 1px solid; FONT-FAMILY: Tahoma,Verdana,Arial,Helvetica,sans-serif; WHITE-SPACE: nowrap; TEXT-DECORATION: none
+}
+.QuickLinksFlyoutStaticHover_msdn {
+	BORDER-RIGHT: #fff 1px solid; PADDING-RIGHT: 3px; BORDER-TOP: #fff 1px solid; DISPLAY: inline; PADDING-LEFT: 2px; PADDING-BOTTOM: 1px; MARGIN: 1px; BORDER-LEFT: #fff 1px solid; CURSOR: default; COLOR: #000; PADDING-TOP: 1px; BORDER-BOTTOM: #fff 1px solid; FONT-FAMILY: Tahoma,Verdana,Arial,Helvetica,sans-serif; WHITE-SPACE: nowrap; TEXT-DECORATION: none
+}
+.QuickLinksFlyoutStaticHover_msdn {
+	BORDER-RIGHT: #a1c6eb 1px solid; BORDER-TOP: #a1c6eb 1px solid; BORDER-LEFT: #a1c6eb 1px solid; BORDER-BOTTOM: #a1c6eb 1px solid
+}
+A.QuickLinksFlyoutStaticLink_msdn {
+	DISPLAY: inline; CURSOR: default; COLOR: #000; FONT-FAMILY: Tahoma,Verdana,Arial,Helvetica,sans-serif; WHITE-SPACE: nowrap; TEXT-DECORATION: none
+}
+A.QuickLinksFlyoutStaticLink_msdn:visited {
+	DISPLAY: inline; CURSOR: default; COLOR: #000; FONT-FAMILY: Tahoma,Verdana,Arial,Helvetica,sans-serif; WHITE-SPACE: nowrap; TEXT-DECORATION: none
+}
+A.QuickLinksFlyoutStaticLink_msdn:hover {
+	DISPLAY: inline; CURSOR: default; COLOR: #000; FONT-FAMILY: Tahoma,Verdana,Arial,Helvetica,sans-serif; WHITE-SPACE: nowrap; TEXT-DECORATION: none
+}
+A.QuickLinksFlyoutStaticLink_msdn:active {
+	DISPLAY: inline; CURSOR: default; COLOR: #000; FONT-FAMILY: Tahoma,Verdana,Arial,Helvetica,sans-serif; WHITE-SPACE: nowrap; TEXT-DECORATION: none
+}
+.MTPSPart {
+	BORDER-RIGHT: #ccc 1px solid; PADDING-RIGHT: 8px; BORDER-TOP: #ccc 1px solid; DISPLAY: inline; PADDING-LEFT: 8px; BACKGROUND: url(/Platform/Controls/RelatedPages/resources/gradient.gif) #fff repeat-x 0px bottom; FLOAT: right; PADDING-BOTTOM: 8px; MARGIN: 5px; BORDER-LEFT: #ccc 1px solid; WIDTH: 160px; COLOR: #000; PADDING-TOP: 8px; BORDER-BOTTOM: #ccc 1px solid
+}
+.MTPSPart P {
+	FONT-WEIGHT: 700
+}
+.MTPSPart UL {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px
+}
+.MTPSPart UL LI {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-SIZE: smaller; LIST-STYLE-IMAGE: url(/Platform/Controls/RelatedPages/resources/b.gif); PADDING-BOTTOM: 0px; MARGIN: 0px 0px 5px 17px; COLOR: #ccc; LINE-HEIGHT: 140%; PADDING-TOP: 0px
+}
+.MTPSPart UL LI A {
+	COLOR: #03c
+}
+.resizableArea .leftSection {
+	PADDING-RIGHT: 0px; DISPLAY: block; PADDING-LEFT: 0px; Z-INDEX: 1; BACKGROUND: #f9f9f9; FLOAT: left; PADDING-BOTTOM: 0px; MARGIN: 0px 4px 0px 0px; OVERFLOW: auto; WIDTH: 300px; PADDING-TOP: 0px; POSITION: relative; HEIGHT: 100%
+}
+.resizableArea .splitter {
+	PADDING-RIGHT: 0px; BACKGROUND-POSITION: center 50%; DISPLAY: block; PADDING-LEFT: 0px; Z-INDEX: 11; LEFT: 250px; PADDING-BOTTOM: 0px; MARGIN: 0px; VERTICAL-ALIGN: middle; WIDTH: 4px; CURSOR: e-resize; PADDING-TOP: 0px; BACKGROUND-REPEAT: no-repeat; POSITION: absolute; HEIGHT: 100%; BACKGROUND-COLOR: #bbb
+}
+.resizableArea .rightSection {
+	BORDER-RIGHT: 0px; PADDING-RIGHT: 0px; BORDER-TOP: 0px; PADDING-LEFT: 0px; Z-INDEX: 10; BACKGROUND: #fff; PADDING-BOTTOM: 0px; MARGIN: 0px; OVERFLOW: auto; BORDER-LEFT: 0px; PADDING-TOP: 0px; BORDER-BOTTOM: 0px; POSITION: relative; HEIGHT: 100%
+}
+.SearchBox {
+	MARGIN-TOP: 18px; FLOAT: left; WIDTH: 49.5%; TEXT-ALIGN: right
+}
+* HTML .SearchBox {
+	MARGIN-RIGHT: 6px
+}
+.SearchBox UL {
+	DISPLAY: block; FONT-SIZE: 9pt; Z-INDEX: 999; FONT-FAMILY: 'Segoe UI',Tahoma
+}
+DIV#TextBoxSearchDiv INPUT[type='text'] {
+	HEIGHT: 16px
+}
+.TextBoxSearch {
+	BORDER-RIGHT: #849cb1 1px solid; BORDER-TOP: #849cb1 1px solid; PADDING-LEFT: 5px; FONT: italic 12px 'Segoe UI',Tahoma; BORDER-LEFT: #849cb1 1px solid; WIDTH: 304px; COLOR: graytext; MARGIN-RIGHT: -2px; BORDER-BOTTOM: #849cb1 1px solid; HEIGHT: 16px; BACKGROUND-COLOR: white
+}
+.TextBoxSearchActive {
+	BORDER-RIGHT: #849cb1 1px solid; BORDER-TOP: #849cb1 1px solid; PADDING-LEFT: 5px; FONT: 12px 'Segoe UI',Tahoma; BORDER-LEFT: #849cb1 1px solid; WIDTH: 304px; MARGIN-RIGHT: -2px; BORDER-BOTTOM: #849cb1 1px solid; HEIGHT: 16px
+}
+.SearchButton {
+	BORDER-TOP-WIDTH: 0px; PADDING-RIGHT: 0px; MARGIN-TOP: 2px; PADDING-LEFT: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; MARGIN-BOTTOM: -4px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; WHITE-SPACE: nowrap; HEIGHT: 20px; BORDER-RIGHT-WIDTH: 0px
+}
+.SearchButtonFF {
+	MARGIN-BOTTOM: -6px
+}
+.SearchButtonIE8 {
+	MARGIN-BOTTOM: -6px
+}
+.SearchButtonSafari {
+	MARGIN-BOTTOM: -5px
+}
+.WebButton {
+	BACKGROUND-POSITION: 50% top; BORDER-LEFT-COLOR: #abc3d8; BACKGROUND-IMAGE: url(/platform/controls/search/resources/websearch.gif); BORDER-BOTTOM-COLOR: #abc3d8; FONT: 11px 'Segoe UI',Tahoma; MARGIN-LEFT: 3px; CURSOR: pointer; COLOR: #41596e; BORDER-TOP-STYLE: none; BORDER-TOP-COLOR: #abc3d8; BACKGROUND-REPEAT: repeat; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; HEIGHT: 20px; BACKGROUND-COLOR: #abc3d8; BORDER-RIGHT-COLOR: #abc3d8; BORDER-BOTTOM-STYLE: none
+}
+.WebButtonFF {
+	MARGIN-BOTTOM: -1px
+}
+.WebButtonFF3 {
+	PADDING-BOTTOM: 2px
+}
+.WebButtonIE8 {
+	PADDING-TOP: 3px
+}
+.NavigationBox {
+	BORDER-RIGHT: #000 1px solid; BORDER-TOP: #d09291 1px solid; FLOAT: left; BACKGROUND-IMAGE: url(/Platform/Controls/tabstrip/resources/msdn.glassBG1.jpg); BORDER-LEFT: #000 1px solid; WIDTH: 100%; BORDER-BOTTOM: #253e53 1px solid; BACKGROUND-REPEAT: no-repeat; HEIGHT: 47px; BACKGROUND-COLOR: #9b4342
+}
+.HeaderTitle {
+	FONT-SIZE: 16px; FLOAT: left; MARGIN-LEFT: 20px; COLOR: white; PADDING-TOP: 2px; FONT-FAMILY: 'Segoe UI',Tahoma,Verdana,Arial,Helvetica; HEIGHT: 24px
+}
+* HTML .HeaderTitle {
+	MARGIN-LEFT: 10px
+}
+.Sponsor {
+	MARGIN-TOP: 6px; FLOAT: right; WIDTH: 114px; MARGIN-RIGHT: 35px; HEIGHT: 19px
+}
+* HTML .Sponsor {
+	MARGIN-RIGHT: 10px
+}
+.SiteNavigation {
+	MARGIN-LEFT: 20px; HEIGHT: 22px
+}
+* HTML .SiteNavigation {
+	HEIGHT: 21px
+}
+.SiteNavigation A {
+	PADDING-RIGHT: 26px; PADDING-LEFT: 26px; FONT-SIZE: 12px; COLOR: white; PADDING-TOP: 2px; WHITE-SPACE: nowrap; HEIGHT: 17px; TEXT-DECORATION: none
+}
+* HTML .SiteNavigation A {
+	PADDING-BOTTOM: 1px
+}
+.SiteNavigation A:hover {
+	COLOR: white; TEXT-DECORATION: none
+}
+.SiteNavigation A:visited {
+	COLOR: white
+}
+.SiteNavTabOffLeft {
+	FLOAT: left; WIDTH: 2px; HEIGHT: 22px
+}
+* HTML .SiteNavTabOffLeft {
+	HEIGHT: 21px
+}
+.SiteNavTabOffRight {
+	FLOAT: left; WIDTH: 2px; MARGIN-RIGHT: 2px; HEIGHT: 22px
+}
+* HTML .SiteNavTabOffRight {
+	HEIGHT: 21px
+}
+.SiteNavTabOnLeft {
+	FLOAT: left; WIDTH: 2px; HEIGHT: 22px
+}
+* HTML .SiteNavTabOnLeft {
+	HEIGHT: 21px
+}
+.SiteNavTabOnRight {
+	FLOAT: left; WIDTH: 2px; MARGIN-RIGHT: 2px; HEIGHT: 22px
+}
+* HTML .SiteNavTabOnRight {
+	HEIGHT: 21px
+}
+.SiteNavigation .TabOff {
+	FONT-SIZE: 13px; FLOAT: left; PADDING-BOTTOM: 1px; CURSOR: pointer; PADDING-TOP: 2px; FONT-FAMILY: 'Segoe UI',Tahoma; HEIGHT: 17px
+}
+.SiteNavigation .TabOn {
+	FONT-SIZE: 13px; FLOAT: left; PADDING-BOTTOM: 1px; PADDING-TOP: 2px; FONT-FAMILY: 'Segoe UI',Tahoma; HEIGHT: 18px
+}
+* HTML .SiteNavigation .TabOn {
+	HEIGHT: 17px
+}
+.SiteNavigation .TabOn A {
+	CURSOR: pointer; COLOR: black
+}
+.SiteNavigation .TabOn A:hover {
+	COLOR: black
+}
+.SiteNavigation .TabOn A:visited {
+	COLOR: black
+}
+.SiteNavigation .TabOff {
+	BORDER-TOP: #7a1312 1px solid; BACKGROUND-COLOR: #7a1312
+}
+.SiteNavigation .TabOff A:hover {
+	BACKGROUND-COLOR: #902423
+}
+.SiteNavigation .TabOff:hover {
+	BACKGROUND-COLOR: #902423
+}
+.SiteNavTabOffLeft {
+	BACKGROUND-REPEAT: no-repeat
+}
+.SiteNavTabOffRight {
+	BACKGROUND-REPEAT: no-repeat
+}
+.SiteNavigation .TabOn {
+	BORDER-TOP: #3d0909 1px solid; BACKGROUND-COLOR: #eee
+}
+.SiteNavTabOnLeft {
+	BACKGROUND-REPEAT: no-repeat
+}
+.SiteNavTabOnRight {
+	BACKGROUND-REPEAT: no-repeat
+}
+.LocalNavigation {
+	BORDER-RIGHT: #000 1px solid; FLOAT: left; PADDING-BOTTOM: 3px; BORDER-LEFT: #000 1px solid; WIDTH: 100%; BORDER-BOTTOM: #000 1px solid; BACKGROUND-COLOR: #eee
+}
+.HeaderTabs {
+	MARGIN-LEFT: 3px
+}
+.LocalNavigation .Pipe {
+	MARGIN-TOP: 7px; FLOAT: left; COLOR: #8e8e8e
+}
+.LocalNavigation A {
+	FONT-SIZE: 10px; COLOR: #333; TEXT-DECORATION: none
+}
+.LocalNavigation A:hover {
+	COLOR: #000; TEXT-DECORATION: none
+}
+.LocalNavigation A:visited {
+	COLOR: #333
+}
+.LocalNavigation .TabOff A {
+	PADDING-RIGHT: 10px; MARGIN-TOP: 3px; PADDING-LEFT: 10px; FLOAT: left; PADDING-BOTTOM: 4px; CURSOR: pointer; COLOR: #333; PADDING-TOP: 4px
+}
+.LocalNavigation .TabOff A:hover {
+	BORDER-RIGHT: #a68f8f 1px solid; PADDING-RIGHT: 9px; BORDER-TOP: #a68f8f 1px solid; MARGIN-TOP: 3px; PADDING-LEFT: 9px; FLOAT: left; PADDING-BOTTOM: 3px; BORDER-LEFT: #a68f8f 1px solid; CURSOR: pointer; PADDING-TOP: 3px; BORDER-BOTTOM: #a68f8f 1px solid; BACKGROUND-COLOR: #d0d0d0
+}
+.LocalNavigation .TabOn {
+	BORDER-RIGHT: #4e1f1f 1px solid; PADDING-RIGHT: 9px; BORDER-TOP: #4e1f1f 1px solid; MARGIN-TOP: 3px; PADDING-LEFT: 9px; FONT-WEIGHT: bold; FLOAT: left; PADDING-BOTTOM: 3px; BORDER-LEFT: #4e1f1f 1px solid; PADDING-TOP: 3px; BORDER-BOTTOM: #4e1f1f 1px solid; WHITE-SPACE: nowrap; BACKGROUND-COLOR: #a1a1a1
+}
+.LocalNavigation .TabOn A {
+	CURSOR: default; COLOR: #fff; TEXT-DECORATION: none
+}
+.LocalNavigation .TabOn A:hover {
+	CURSOR: default; COLOR: #fff; TEXT-DECORATION: none
+}
+.LocalNavigation .TabOn A:visited {
+	CURSOR: default; COLOR: #fff; TEXT-DECORATION: none
+}
+.LocalNavBottom {
+	DISPLAY: none
+}
+.cleartabstrip {
+	CLEAR: both; HEIGHT: 0px
+}
+* HTML .cleartabstrip {
+	DISPLAY: none
+}
+.TFlyPopupAnimate {
+	BORDER-RIGHT: gray 1px solid; PADDING-RIGHT: 0px; BORDER-TOP: gray 1px solid; DISPLAY: block; PADDING-LEFT: 0px; Z-INDEX: 1; VISIBILITY: hidden; PADDING-BOTTOM: 0px; MARGIN: 0px; OVERFLOW: hidden; BORDER-LEFT: gray 1px solid; PADDING-TOP: 0px; BORDER-BOTTOM: gray 1px solid; POSITION: absolute
+}
+.toc LI {
+	LIST-STYLE-POSITION: inside; MARGIN: 3px 0px; OVERFLOW: visible; FONT-FAMILY: Verdana,Arial,Helvetica,sans-serif; WHITE-SPACE: nowrap; LIST-STYLE-TYPE: none
+}
+.toc LI A:hover {
+	COLOR: #000; BACKGROUND-COLOR: #ccc; TEXT-DECORATION: none
+}
+DIV.rootToc UL.toc {
+	MARGIN-TOP: 0px; PADDING-LEFT: 2em; MARGIN-BOTTOM: 0px; MARGIN-LEFT: 0px; TEXT-INDENT: -2em; PADDING-TOP: 0px; LIST-STYLE-TYPE: none
+}
+UL.toc LI UL.toc {
+	MARGIN-TOP: 0px; PADDING-LEFT: 2em; MARGIN-BOTTOM: 0px; MARGIN-LEFT: 0px; TEXT-INDENT: -2em; PADDING-TOP: 0px; LIST-STYLE-TYPE: none
+}
+.toc IMG {
+	VERTICAL-ALIGN: middle; WIDTH: 16px; MARGIN-RIGHT: 7px; HEIGHT: 16px
+}
+.hidden {
+	DISPLAY: none; VISIBILITY: hidden
+}
+.toc LI A.tocSelected {
+	COLOR: #fff; BACKGROUND-COLOR: #8e909c
+}
+.toc LI A {
+	BORDER-RIGHT: #f9f9f9 1px solid; BORDER-TOP: #f9f9f9 1px solid; BORDER-LEFT: #f9f9f9 1px solid; COLOR: #000; BORDER-BOTTOM: #f9f9f9 1px solid; TEXT-DECORATION: none
+}
+.toc LI A:visited {
+	BORDER-RIGHT: #f9f9f9 1px solid; BORDER-TOP: #f9f9f9 1px solid; BORDER-LEFT: #f9f9f9 1px solid; COLOR: #000; BORDER-BOTTOM: #f9f9f9 1px solid; TEXT-DECORATION: none
+}
+.twPopup {
+	BORDER-RIGHT: #aaa 1px solid; BORDER-TOP: #aaa 1px solid; Z-INDEX: 100; BACKGROUND: #fff; LEFT: 200px; VISIBILITY: hidden; BORDER-LEFT: #aaa 1px solid; WIDTH: 450px; BORDER-BOTTOM: #aaa 1px solid; POSITION: absolute; TOP: 100px
+}
+.twPopupHandle {
+	FONT: bold 120% Verdana,Arial,Helvetica,sans-serif; OVERFLOW: hidden; CURSOR: move; BORDER-BOTTOM: #bbb 1px solid; HEIGHT: 24px; BACKGROUND-COLOR: #eceefc
+}
+.twPopupTitle {
+	DISPLAY: block; FLOAT: left; MARGIN: 3px 0px 0px 5px; CURSOR: move
+}
+.twPopupHandle .twButton {
+	PADDING-RIGHT: 0px; DISPLAY: block; PADDING-LEFT: 0px; FLOAT: right; PADDING-BOTTOM: 0px; VERTICAL-ALIGN: bottom; PADDING-TOP: 0px; TEXT-DECORATION: none
+}
+.twClearBoth {
+	CLEAR: both
+}
+.twPopupCommands {
+	PADDING-RIGHT: 5px; PADDING-LEFT: 5px; PADDING-BOTTOM: 5px; FONT: bold 120% Verdana,Arial,Helvetica,sans-serif; PADDING-TOP: 5px; BORDER-BOTTOM: #bbb 1px solid; BACKGROUND-REPEAT: repeat-x; HEIGHT: 24px; BACKGROUND-COLOR: #eceefc; TEXT-ALIGN: right
+}
+#twPopupSuggestions {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; OVERFLOW: auto; PADDING-TOP: 0px; HEIGHT: 150px
+}
+#twPopupSuggestions TD {
+	VERTICAL-ALIGN: top; BORDER-BOTTOM: #bbb 1px solid
+}
+.twPopupControlColumn {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; WIDTH: 120px; PADDING-TOP: 0px; BACKGROUND-COLOR: #ccc
+}
+.twPopupSentenceColumn {
+	PADDING-LEFT: 3px; WIDTH: 300px; PADDING-TOP: 3px
+}
+.twPopupControlButton {
+	DISPLAY: block; FLOAT: left
+}
+#twPopupSuggestionsTitle {
+	PADDING-RIGHT: 5px; MARGIN-TOP: 2px; PADDING-LEFT: 5px; FONT-WEIGHT: 700; PADDING-BOTTOM: 3px; PADDING-TOP: 3px; BACKGROUND-COLOR: #ccc
+}
+#twPopupNoSuggestions {
+	MARGIN-TOP: 25px; FONT-WEIGHT: 700; FONT-STYLE: italic; TEXT-ALIGN: center
+}
+#twPopupProgress {
+	PADDING-BOTTOM: 10px; LINE-HEIGHT: 200%; PADDING-TOP: 10px; TEXT-ALIGN: center
+}
+.twPopupInfo {
+	PADDING-RIGHT: 3px; PADDING-LEFT: 3px; BACKGROUND: #cfc; PADDING-BOTTOM: 3px; PADDING-TOP: 3px; BORDER-BOTTOM: #ccc 1px solid
+}
+.twPopupError {
+	PADDING-RIGHT: 3px; PADDING-LEFT: 3px; BACKGROUND: #fc9; PADDING-BOTTOM: 3px; PADDING-TOP: 3px; BORDER-BOTTOM: #ccc 1px solid
+}
+.InlineEditor_Editor_Off {
+	BORDER-RIGHT: #87a9d1 0px solid; PADDING-RIGHT: 3px; BORDER-TOP: #87a9d1 0px solid; PADDING-LEFT: 3px; BACKGROUND: none transparent scroll repeat 0% 0%; PADDING-BOTTOM: 3px; BORDER-LEFT: #87a9d1 0px solid; PADDING-TOP: 3px; BORDER-BOTTOM: #87a9d1 0px solid; FONT-FAMILY: Verdana; HEIGHT: auto
+}
+.InlineEditor_Editor_On {
+	BORDER-RIGHT: #87a9d1 1px solid; PADDING-RIGHT: 3px; BORDER-TOP: #87a9d1 1px solid; PADDING-LEFT: 3px; MIN-HEIGHT: 120px; BACKGROUND: #fff; PADDING-BOTTOM: 3px; BORDER-LEFT: #87a9d1 1px solid; CURSOR: text; PADDING-TOP: 3px; BORDER-BOTTOM: #87a9d1 1px solid; FONT-FAMILY: Verdana; HEIGHT: 100%
+}
+* HTML .InlineEditor_Editor_On {
+	HEIGHT: 120px
+}
+* + HTML .InlineEditor_Editor_On {
+	HEIGHT: 120px
+}
+.InlineEditor_Toolbar {
+	BORDER-RIGHT: gray 1px solid; BORDER-TOP: gray 1px solid; BACKGROUND: #d3d3d3; BORDER-LEFT: gray 1px solid; WIDTH: 100%; BORDER-BOTTOM: gray 1px solid; HEIGHT: 24px
+}
+.InlineEditor_ImageButton {
+	FLOAT: left; MARGIN: 0px; CURSOR: pointer; HEIGHT: 24px
+}
+.InlineEditor_Separator {
+	FLOAT: left; MARGIN: 0px; CURSOR: default; HEIGHT: 24px
+}
+.InlineEditor_Title_Edit {
+	BORDER-RIGHT: #87a9d1 1px solid; PADDING-RIGHT: 0px; BORDER-TOP: #87a9d1 1px solid; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; BORDER-LEFT: #87a9d1 1px solid; WIDTH: 100%; PADDING-TOP: 0px; BORDER-BOTTOM: #87a9d1 1px solid
+}
+.InlineEditor_TagEditorPanel {
+	TEXT-ALIGN: left
+}
+TD.rade_toolZone {
+	BACKGROUND-COLOR: #cfd7eb! important
+}
+TD.rade_leftVerticalSide {
+	BACKGROUND-COLOR: #cfd7eb! important
+}
+TD.rade_rightVerticalSide {
+	BACKGROUND-COLOR: #cfd7eb! important
+}
+DIV.radeditor TABLE {
+	BACKGROUND-COLOR: #cfd7eb! important
+}
+.UserRecognitionStaticText {
+	PADDING-RIGHT: 1px; PADDING-LEFT: 1px; FONT-WEIGHT: 700; PADDING-BOTTOM: 1px; MARGIN: 1px 0px 1px 1px; COLOR: #000; PADDING-TOP: 1px; FONT-FAMILY: Tahoma,Verdana,Arial,Helvetica,sans-serif; WHITE-SPACE: nowrap
+}
+.UserRecognitionFlyoutPopup {
+	BORDER-RIGHT: #666 1px solid; BORDER-TOP: #666 1px solid; Z-INDEX: 10; BORDER-LEFT: #666 1px solid; BORDER-BOTTOM: #666 1px solid; FONT-FAMILY: Verdana,Tahoma,Arial,Helvetica,sans-serif; BACKGROUND-COLOR: #fff; TEXT-ALIGN: left; opacity: .95
+}
+.UserRecognitionFlyoutPopup A {
+	BORDER-RIGHT: #fff 1px solid; PADDING-RIGHT: 3px; BORDER-TOP: #fff 1px solid; DISPLAY: block; PADDING-LEFT: 3px; FONT-WEIGHT: 400; FONT-SIZE: 10px; PADDING-BOTTOM: 1px; MARGIN-LEFT: 0px; BORDER-LEFT: #fff 1px solid; COLOR: #000; PADDING-TOP: 1px; BORDER-BOTTOM: #fff 1px solid; WHITE-SPACE: nowrap; HEIGHT: 15px; TEXT-ALIGN: left; TEXT-DECORATION: none
+}
+.UserRecognitionFlyoutPopup A:visited {
+	BORDER-RIGHT: #fff 1px solid; PADDING-RIGHT: 3px; BORDER-TOP: #fff 1px solid; DISPLAY: block; PADDING-LEFT: 3px; FONT-WEIGHT: 400; FONT-SIZE: 10px; PADDING-BOTTOM: 1px; MARGIN-LEFT: 0px; BORDER-LEFT: #fff 1px solid; COLOR: #000; PADDING-TOP: 1px; BORDER-BOTTOM: #fff 1px solid; WHITE-SPACE: nowrap; HEIGHT: 15px; TEXT-ALIGN: left; TEXT-DECORATION: none
+}
+.UserRecognitionFlyoutPopup A:hover {
+	BORDER-RIGHT: #addbef 1px solid; PADDING-RIGHT: 3px; BORDER-TOP: #addbef 1px solid; DISPLAY: block; PADDING-LEFT: 3px; FONT-WEIGHT: 400; PADDING-BOTTOM: 1px; MARGIN-LEFT: 0px; BORDER-LEFT: #addbef 1px solid; COLOR: #000; PADDING-TOP: 1px; BORDER-BOTTOM: #addbef 1px solid; WHITE-SPACE: nowrap; HEIGHT: 15px; BACKGROUND-COLOR: #f0f7fd; TEXT-ALIGN: left; TEXT-DECORATION: none
+}
+.UserRecognitionFlyoutPopup A:active {
+	BORDER-RIGHT: #addbef 1px solid; PADDING-RIGHT: 3px; BORDER-TOP: #addbef 1px solid; DISPLAY: block; PADDING-LEFT: 3px; FONT-WEIGHT: 400; PADDING-BOTTOM: 1px; MARGIN-LEFT: 0px; BORDER-LEFT: #addbef 1px solid; COLOR: #000; PADDING-TOP: 1px; BORDER-BOTTOM: #addbef 1px solid; WHITE-SPACE: nowrap; HEIGHT: 15px; BACKGROUND-COLOR: #f0f7fd; TEXT-ALIGN: left; TEXT-DECORATION: none
+}
+A.UserRecognitionFlyoutIndented {
+	MARGIN-LEFT: 6px
+}
+A.UserRecognitionFlyoutIndented:visited {
+	MARGIN-LEFT: 6px
+}
+A.UserRecognitionFlyoutIndented:hover {
+	MARGIN-LEFT: 6px
+}
+A.UserRecognitionFlyoutIndented:active {
+	MARGIN-LEFT: 6px
+}
+A.UserRecognitionFlyoutIndentedExpired {
+	MARGIN-LEFT: 6px; CURSOR: default; COLOR: gray
+}
+A.UserRecognitionFlyoutIndentedExpired:visited {
+	MARGIN-LEFT: 6px; CURSOR: default; COLOR: gray
+}
+A.UserRecognitionFlyoutIndentedExpired:hover {
+	MARGIN-LEFT: 6px; CURSOR: default; COLOR: gray
+}
+A.UserRecognitionFlyoutIndentedExpired:active {
+	MARGIN-LEFT: 6px; CURSOR: default; COLOR: gray
+}
+.UserRecognitionFlyoutPopupHeading {
+	PADDING-LEFT: 5px; FONT-WEIGHT: 700; FONT-SIZE: 10px; COLOR: #039; TEXT-ALIGN: left
+}
+.UserRecognitionFlyoutPopupHr {
+	BACKGROUND: #d0e0f0; MARGIN: 0px 11px 21px; HEIGHT: 1px
+}
+.UserRecognitionFlyoutPopArrow {
+	PADDING-LEFT: 6px; MARGIN: 4px 0px 0px
+}
+.UserRecognitionFlyoutStatic {
+	BORDER-RIGHT: #fff 1px solid; PADDING-RIGHT: 3px; BORDER-TOP: #fff 1px solid; DISPLAY: inline; PADDING-LEFT: 0px; PADDING-BOTTOM: 1px; MARGIN: 1px 0px 1px 1px; BORDER-LEFT: #fff 1px solid; CURSOR: default; COLOR: #5b5b5b; PADDING-TOP: 1px; BORDER-BOTTOM: #fff 1px solid; FONT-FAMILY: Tahoma,Verdana,Arial,Helvetica,sans-serif; TEXT-DECORATION: none
+}
+.UserRecognitionFlyoutStaticHover {
+	BORDER-RIGHT: #fff 1px solid; PADDING-RIGHT: 3px; BORDER-TOP: #fff 1px solid; DISPLAY: inline; PADDING-LEFT: 0px; PADDING-BOTTOM: 1px; MARGIN: 1px 0px 1px 1px; BORDER-LEFT: #fff 1px solid; CURSOR: default; COLOR: #5b5b5b; PADDING-TOP: 1px; BORDER-BOTTOM: #fff 1px solid; FONT-FAMILY: Tahoma,Verdana,Arial,Helvetica,sans-serif; TEXT-DECORATION: none
+}
+.UserRecognitionFlyoutStaticHover {
+	BORDER-RIGHT: #a1c6eb 1px solid; PADDING-RIGHT: 3px; BORDER-TOP: #a1c6eb 1px solid; PADDING-LEFT: 0px; PADDING-BOTTOM: 1px; MARGIN: 1px 0px 1px 1px; BORDER-LEFT: #a1c6eb 1px solid; PADDING-TOP: 1px; BORDER-BOTTOM: #a1c6eb 1px solid
+}

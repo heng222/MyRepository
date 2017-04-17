@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Ribbon xmlns="ProWrite">
+  <ApplicationMenu></ApplicationMenu>
+  <PopMenus></PopMenus>
+  <Pages>
+    <RibbonPage 
+      CaptionKey="Dashboard" 
+      IsDefaultPage="true" 
+      ModuleName="Dashboard" 
+      ModuleClazz="ProWrite.UI.Controls.Modules.DashboardModule">
+      <Groups>
+        <RibbonPageGroup Name="dashboardSystem">
+          <Items>
+            <Item Ref="cmbSign"/>
+            <Item Ref="mnuNew"/>
+          </Items>
+        </RibbonPageGroup>
+        <RibbonPageGroup Name="dashboardEdit">
+          <Items>
+            <Item Ref="mnuDisplay"/>
+            <Item Ref="btnDelete"/>
+            <Item Ref="btnInsertSignPhoto"/>
+          </Items>
+        </RibbonPageGroup>
+        <RibbonPageGroup Name="dashboardConnection">
+          <Items>
+            <Item Ref="btnConnection"/>
+          </Items>
+        </RibbonPageGroup>
+        <RibbonPageGroup Name ="dashboardLiveView">
+          <Items>
+            <Item Ref="btnLiveView"/>
+          </Items>
+        </RibbonPageGroup>
+        <RibbonPageGroup Name ="dashboardTools">
+          <Items>
+            <Item Ref ="mnuTools"/>
+          </Items>
+        </RibbonPageGroup>
+      </Groups>
+    </RibbonPage>
+    <RibbonPage ModuleName="Editor" CaptionKey="Editor" ModuleClazz="">
+      <Groups>
+        <RibbonPageGroup Name="editorSystem" CaptionKey="Sign">
+          <Items>
+            <Item Ref="cmbSign"/>
+            <Item Ref="mnuNew"/>
+            <Item Ref="mnuOpen"/>
+          </Items>
+        </RibbonPageGroup>
+        <RibbonPageGroup Name ="editorFiles" CaptionKey="Files">
+          <Items>
+            <Item Ref="btnCopy"/>
+            <Item Ref="btnPaste"/>
+            <Item Ref ="mnuSendTo" BeginGroup="true"/>
+          </Items>
+        </RibbonPageGroup>
+        <RibbonPageGroup Name="editorContent" CaptionKey="Content">
+          <Items>
+            <Item Ref="mnuInsert"/>
+            <Item Ref ="btnDelete"/>
+          </Items>
+        </RibbonPageGroup>
+        <RibbonPageGroup Name="editorPaint" CaptionKey="Paint">
+          <Items>
+            <Item Ref="mnuPaint"/>
+            <Item Ref="cmbFillColor"/>
+            <Item Ref ="cmbLineWidth"/>
+            <Item Ref="btnCancelSelected"/>
+            <Item Ref ="btnLine"/>
+            <Item Ref ="cmbLineColor"/>
+            <Item Ref ="cmbLineDash"/>
+          </Items>
+        </RibbonPageGroup>
+        <RibbonPageGroup Name="editorText" CaptionKey="Text Font">
+          <Items>
+            <Item Ref="cmbFont"/>
+            <Item Ref="cmbFontSize"/>
+            <Item Ref ="cmbBackColor"/>
+            <Item Ref="cmbFontColor"/>
+            <Item Ref="btnBold"/>
+            <Item Ref ="btnItalic"/>
+            <Item Ref ="btnAlignLeft"/>
+            <Item Ref="btnAlignCenter"/>
+            <Item Ref="btnAlignRight"/>
+            <Item Ref="btnTextFrameFixed"/>
+            <Item Ref ="btnFontFixed"/>
+            <Item Ref="cmbLead" BeginGroup="true"/>
+            <Item Ref="cmbKern"/>
+          </Items>
+        </RibbonPageGroup>
+        <RibbonPageGroup Name="editorWindows" CaptionKey="Windows">
+          <Items>
+            <Item Ref="btnProperties"/>
+            <Item Ref="btnZoomIn"/>
+            <Item Ref="btnZoomOut"/>
+          </Items>
+        </RibbonPageGroup>
+      </Groups>
+    </RibbonPage>
+  </Pages>
+  <BarItems>
+    <BarItem 
+      Name="mnuNew"
+      Enable="true"
+      ButtonStyle="DropDown"
+      CaptionKey="New"
+      Type="BarButtonItem"
+      Shortcut="ControlKey N"
+      DropDownControl="ddcNew"
+      HintKey="New"
+      Command="New"
+      CommandHandler=""/>
+  </BarItems>
+</Ribbon>

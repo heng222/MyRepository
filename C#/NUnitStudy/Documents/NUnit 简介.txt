@@ -1,0 +1,40 @@
+﻿
+一 、Nunit 单元测试工具：
+	1. Nunit Gui
+	2. Nunit Console
+	3. TestDriver
+	4. Resharper
+
+
+二、NUnit 单元测框架：NUnit.Framework.dll，NUnit 单元测试主要常用类
+	    
+		TestFixure
+			用来标识一个测试类
+			Test:
+				标记测试方法
+			Assert：
+				断言期望的结果与实际执行结果进行比较，如果一致则测试成功，否则测试失败
+			ExpectedException：
+					期望的异常
+			Explicit：
+				显示运行，选中则运行，不选中则不运行
+			Ignore：
+					忽略当前测试方法，常常用在即将进行的测试
+			Category：
+					测试组，改组内的成员仅仅是测试方法
+			Setup：
+				在每个测试方法运行前运行
+			Teardown:
+				在每个测试方法运行后运行
+			TestFixtureSetup：
+				再执行第一个测试方法之前运行一次
+			TestFixtureTeardown:
+				再执行最后一个测试方法之前运行一次
+
+		TestSuite
+			测试用例集，里面可以包含多个TestFixture
+
+      
+三、 实战例子
+
+四、经验 

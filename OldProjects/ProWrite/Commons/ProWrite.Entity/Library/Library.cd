@@ -1,0 +1,330 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Font Name="SimSun" Size="9" />
+  <Class Name="ProWrite.Entity.Library.LibraryItem">
+    <Position X="16" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <FileName>Library\LibraryItem.cs</FileName>
+      <HashCode>AAAACAAAAAAAAAAAAAAAAAAAAAAAAAEAAQAAAABAAAA=</HashCode>
+    </TypeIdentifier>
+    <Members>
+      <Method Name="ToArray" Hidden="true" />
+    </Members>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ProWrite.Entity.Library.FileLibraryItem">
+    <Position X="16.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Library\FileLibraryItem.cs</FileName>
+      <HashCode>AAAAQAAAACACABIAAAAAAAQAAAAAAEAAAAAAAAAQAAA=</HashCode>
+    </TypeIdentifier>
+    <Members>
+      <Field Name="_lockerCounter" Hidden="true" />
+      <Field Name="_path" Hidden="true" />
+      <Method Name="Create" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Method Name="FileLibraryItem" Hidden="true" />
+      <Property Name="Name" Hidden="true" />
+    </Members>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ProWrite.Core.Library.ImageInfo" Collapsed="true">
+    <Position X="17.75" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Library\ImageInfo.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProWrite.Entity.Library.VideoInfo" Collapsed="true">
+    <Position X="15.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Library\VideoInfo.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProWrite.Entity.Library.MemoryLibraryItem">
+    <Position X="9.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Library\MemoryLibraryItem.cs</FileName>
+      <HashCode>AAAAAAAAACAIABAEACAAAABAAgAAQBAADAAAgABQAAI=</HashCode>
+    </TypeIdentifier>
+    <Members>
+      <Field Name="_color" Hidden="true" />
+      <Field Name="_image" Hidden="true" />
+      <Field Name="_length" Hidden="true" />
+      <Field Name="_lockerCounter" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Method Name="MemoryLibraryItem" Hidden="true" />
+      <Method Name="ToArray" Hidden="true" />
+      <Method Name="ToString" Hidden="true" />
+    </Members>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ProWrite.Entity.Library.LibraryAdapter">
+    <Position X="23.25" Y="3" Width="2" />
+    <TypeIdentifier>
+      <FileName>Library\LibraryAdapter.cs</FileName>
+      <HashCode>AAAAAAAAACAAAAAAAAAAACSAQAAAAAAgAAAAQABAAAI=</HashCode>
+    </TypeIdentifier>
+    <Members>
+      <Field Name="_target" Hidden="true" />
+      <Field Name="_targetName" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Method Name="LibraryAdapter" Hidden="true" />
+      <Method Name="OnTargetNameChanged" Hidden="true" />
+      <Method Name="SetTarget" Hidden="true" />
+      <Method Name="ToArray" Hidden="true" />
+    </Members>
+  </Class>
+  <Class Name="ProWrite.Entity.Library.MessageAdapterInfo" Collapsed="true">
+    <Position X="20" Y="5.25" Width="1.75" />
+    <TypeIdentifier>
+      <FileName>Library\MessageAdapterInfo.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAEIAAAAAAAAAAAAAAAQAAIAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProWrite.Entity.Library.MessageInfo">
+    <Position X="8" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Library\MessageInfo.cs</FileName>
+      <HashCode>AAJBCAAAACAIiEAAgCgAAIQIAgEAQJEAAWAAAAAUEAI=</HashCode>
+    </TypeIdentifier>
+    <Members>
+      <Field Name="_image" Hidden="true" />
+      <Field Name="_imagePath" Hidden="true" />
+      <Field Name="_isValid" Hidden="true" />
+      <Field Name="_layers" Hidden="true" />
+      <Field Name="_log" Hidden="true" />
+      <Field Name="_origSize" Hidden="true" />
+      <Property Name="AcceptType" Hidden="true" />
+      <Method Name="CanDeleteFile" Hidden="true" />
+      <Method Name="Copy" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Method Name="Equals" Hidden="true" />
+      <Method Name="FromTo" Hidden="true" />
+      <Method Name="GetHashCode" Hidden="true" />
+      <Property Name="Image" Hidden="true" />
+      <Property Name="ImagePath" Hidden="true" />
+      <Property Name="IsEmpty" Hidden="true" />
+      <Method Name="IsReferenceLibrary" Hidden="true" />
+      <Property Name="IsValid" Hidden="true" />
+      <Property Name="Name" Hidden="true" />
+      <Method Name="NewInstance" Hidden="true" />
+      <Method Name="PopulateValiad" Hidden="true" />
+      <Method Name="ToArrayTimeSliceGroupItem" Hidden="true" />
+      <Method Name="ToProxy" Hidden="true" />
+      <Property Name="Type" Hidden="true" />
+    </Members>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ProWrite.Entity.Library.PlaylistAdapterInfo" Collapsed="true">
+    <Position X="22.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Library\PlaylistAdapterInfo.cs</FileName>
+      <HashCode>AAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProWrite.Entity.Library.PlaylistInfo">
+    <Position X="10.25" Y="6.5" Width="2" />
+    <TypeIdentifier>
+      <FileName>Library\PlaylistInfo.cs</FileName>
+      <HashCode>AAJACBAAACAICAAAICAAKIAIABEAQBEAAQABAQBAAAI=</HashCode>
+    </TypeIdentifier>
+    <Members>
+      <Field Name="_image" Hidden="true" />
+      <Field Name="_imageAdapterName" Hidden="true" />
+      <Field Name="_imagePath" Hidden="true" />
+      <Field Name="_items" Hidden="true" />
+      <Field Name="_node" Hidden="true" />
+      <Property Name="AcceptType" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Method Name="FromTo" Hidden="true" />
+      <Property Name="Image" Hidden="true" />
+      <Property Name="ImageAdapterName" Hidden="true" />
+      <Property Name="ImagePath" Hidden="true" />
+      <Property Name="IsEmpty" Hidden="true" />
+      <Method Name="IsExist" Hidden="true" />
+      <Method Name="IsReferenceLibrary" Hidden="true" />
+      <Method Name="IsReferenceMessage" Hidden="true" />
+      <Method Name="NewInstance" Hidden="true" />
+      <Method Name="ToProxy" Hidden="true" />
+      <Property Name="Type" Hidden="true" />
+    </Members>
+  </Class>
+  <Class Name="ProWrite.Entity.Library.SchedulerInfo">
+    <Position X="13" Y="6.5" Width="1.75" />
+    <TypeIdentifier>
+      <FileName>Library\SchedulerInfo.cs</FileName>
+      <HashCode>AAJAAAAAACAICAAAAAIAAAAAABEAAAAAAQAAAADAAAI=</HashCode>
+    </TypeIdentifier>
+    <Members>
+      <Field Name="_items" Hidden="true" />
+      <Field Name="_schedulerViewType" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Method Name="FromTo" Hidden="true" />
+      <Property Name="IsEmpty" Hidden="true" />
+      <Method Name="NewInstance" Hidden="true" />
+      <Property Name="Type" Hidden="true" />
+    </Members>
+  </Class>
+  <Class Name="ProWrite.Entity.Library.TimeSliceGroupAdapterInfo" Collapsed="true">
+    <Position X="27" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Library\TimeSliceGroupAdapterInfo.cs</FileName>
+      <HashCode>AAIACAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAABAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProWrite.Entity.Library.TimeSliceGroupInfo">
+    <Position X="5.5" Y="6.5" Width="1.75" />
+    <TypeIdentifier>
+      <FileName>Library\TimeSliceGroupInfo.cs</FileName>
+      <HashCode>AAIACBAAACAICAAAACAgAIAIQBEAQBEAAQIBAABAQAI=</HashCode>
+    </TypeIdentifier>
+    <Members>
+      <Field Name="_image" Hidden="true" />
+      <Field Name="_imageMessageAdapterName" Hidden="true" />
+      <Field Name="_imagePath" Hidden="true" />
+      <Field Name="_isRandom" Hidden="true" />
+      <Field Name="_items" Hidden="true" />
+      <Field Name="_node" Hidden="true" />
+      <Property Name="AcceptType" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Method Name="FromTo" Hidden="true" />
+      <Method Name="GetMessageInfo" Hidden="true" />
+      <Property Name="Image" Hidden="true" />
+      <Property Name="ImageMessageAdapterName" Hidden="true" />
+      <Property Name="ImagePath" Hidden="true" />
+      <Property Name="IsRandom" Hidden="true" />
+      <Method Name="IsReferenceLibrary" Hidden="true" />
+      <Method Name="IsReferenceMessage" Hidden="true" />
+      <Method Name="NewInstance" Hidden="true" />
+      <Method Name="ToProxy" Hidden="true" />
+      <Property Name="Type" Hidden="true" />
+    </Members>
+  </Class>
+  <Class Name="ProWrite.Entity.Library.LibraryGroup" BaseTypeListCollapsed="true">
+    <Position X="31.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Library\LibraryGroup.cs</FileName>
+      <HashCode>ACYRCAAAAGAChBoGAICBBBCACABgoBAAEAAAFQARBBk=</HashCode>
+    </TypeIdentifier>
+    <Members>
+      <Field Name="_current" Hidden="true" />
+      <Field Name="_images" Hidden="true" />
+      <Field Name="_isActive" Hidden="true" />
+      <Field Name="_messages" Hidden="true" />
+      <Field Name="_playlists" Hidden="true" />
+      <Field Name="_schedulers" Hidden="true" />
+      <Field Name="_timeSliceGroups" Hidden="true" />
+      <Field Name="_typeFilter" Hidden="true" />
+      <Field Name="_videos" Hidden="true" />
+      <Method Name="AddFile" Hidden="true" />
+      <Field Name="controllers" Hidden="true" />
+      <Property Name="Controllers" Hidden="true" />
+      <Method Name="Deserialized" Hidden="true" />
+      <Field Name="DisplayAllFilter" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Field Name="EditorFilter" Hidden="true" />
+      <Method Name="GetEnumerator" Hidden="true" />
+      <Method Name="InitFiles" Hidden="true" />
+      <Method Name="LibraryGroup" Hidden="true" />
+      <Field Name="PlayListFilter" Hidden="true" />
+      <Method Name="PopulateController" Hidden="true" />
+      <Method Name="PopulateMessages" Hidden="true" />
+      <Method Name="PopulateRelation" Hidden="true" />
+      <Method Name="RefreshLibraryFiles" Hidden="true" />
+      <Field Name="SchedulerFilter" Hidden="true" />
+      <Method Name="System.Collections.IEnumerable.GetEnumerator" Hidden="true" />
+      <Method Name="ToString" Hidden="true" />
+    </Members>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ProWrite.Entity.Library.Controller.ImageController" Collapsed="true">
+    <Position X="7" Y="15" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Library\Controller\ImageController.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAIAAAAABAAAACAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProWrite.Entity.Library.Controller.MessageController" Collapsed="true">
+    <Position X="9.25" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Library\Controller\MessageController.cs</FileName>
+      <HashCode>AAYAgIBIAAAABAIAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProWrite.Entity.Library.Controller.SimpleController&lt;T&gt;">
+    <Position X="7" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Library\Controller\SimpleController.cs</FileName>
+      <HashCode>AAYAAAAAAAAAABAAAAAABEAAAAAAAAAAAAAAAAAQAAA=</HashCode>
+    </TypeIdentifier>
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ProWrite.Entity.Library.Controller.VideoController" Collapsed="true">
+    <Position X="4.75" Y="15" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Library\Controller\VideoController.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAIAAAAABAAAACAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProWrite.Entity.Library.Controller.LibraryEventArgs" Collapsed="true">
+    <Position X="29.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Library\Controller\ILibraryController.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProWrite.Entity.Library.Controller.FileController&lt;T&gt;">
+    <Position X="7" Y="11.25" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Library\Controller\FileController.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAIAAAAAAAAAAAAAAACAAAIAAEAAAAA=</HashCode>
+    </TypeIdentifier>
+    <Members>
+      <Field Name="_addCompleted" Hidden="true" />
+    </Members>
+  </Class>
+  <Class Name="ProWrite.Entity.Library.Controller.FileLibraryController&lt;T&gt;" Collapsed="true">
+    <Position X="5.75" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Library\Controller\FileLibraryController.cs</FileName>
+      <HashCode>AAAAAAEAAAAEAAIAAAAAAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+    <NestedTypes>
+      <Class Name="ProWrite.Entity.Library.Controller.FileLibraryController&lt;T&gt;.Pair" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Library\Controller\FileLibraryController.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+  </Class>
+  <Class Name="ProWrite.Entity.Library.AppointmentInfo" Collapsed="true">
+    <Position X="24.75" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Library\AppointmentInfo.cs</FileName>
+      <HashCode>QgIAAAAIACAigAUEApIAAAAAAiECAAgQASEAIMQAAgA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="ProWrite.Entity.Library.Controller.ILibraryController">
+    <Position X="12.5" Y="9.5" Width="2.25" />
+    <TypeIdentifier>
+      <FileName>Library\Controller\ILibraryController.cs</FileName>
+      <HashCode>AAYAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAQAAg=</HashCode>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ProWrite.Entity.Library.Controller.ILibraryController&lt;T&gt;">
+    <Position X="12.5" Y="12" Width="2" />
+    <TypeIdentifier>
+      <FileName>Library\Controller\ILibraryController.cs</FileName>
+      <HashCode>AAYAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAQAAg=</HashCode>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="ProWrite.Core.LibraryType">
+    <Position X="29.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier />
+  </Enum>
+</ClassDiagram>

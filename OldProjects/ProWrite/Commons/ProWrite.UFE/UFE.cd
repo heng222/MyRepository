@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ProWrite.UFE.UFEPacket" Collapsed="true">
+    <Position X="8.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAAAAEAAABAgAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Core.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ProWrite.UFE.UFERequest" Collapsed="true">
+    <Position X="9.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAA=</HashCode>
+      <FileName>Core.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ProWrite.UFE.UFEResponse" Collapsed="true">
+    <Position X="7.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIABAAQAAAAAA=</HashCode>
+      <FileName>Core.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="ProWrite.UFE.UFEPacket" Collapsed="true">
+    <Position X="11.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAEAAABAgAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Core.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ProWrite.UFE.IUFERequest" Collapsed="true">
+    <Position X="11.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Core.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ProWrite.UFE.UFEPacket" Collapsed="true">
+    <Position X="11.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Core.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ProWrite.UFE.IUFEAction">
+    <Position X="7.5" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAQAAAAAAAAAABAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Core.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ProWrite.UFE.IUFEConnection" Collapsed="true">
+    <Position X="3.5" Y="9.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAIAAIAAAAAAAAAAAAAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Core.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ProWrite.UFE.IUFEActionProcessor" Collapsed="true">
+    <Position X="10.5" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Core.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ProWrite.UFE.IUserManager" Collapsed="true">
+    <Position X="8.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>RAEDABAgAQAEgCAEAAASBAAAAAgAAAoABAARAAAACAA=</HashCode>
+      <FileName>Core.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ProWrite.UFE.IFileManager" Collapsed="true">
+    <Position X="2.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gCAEgAAAIAAAAAEAEAAgAAAAAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>Core.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ProWrite.UFE.ILogManager" Collapsed="true">
+    <Position X="6.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAgAAABAAAAAAAIAAAAAAAACIAAAAAAAAAAA=</HashCode>
+      <FileName>Core.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ProWrite.UFE.IMAManager" Collapsed="true">
+    <Position X="8.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QABgAAQBACAQYEIEAAoAAAAkABAMAA1FgsBAAwAAAAA=</HashCode>
+      <FileName>Core.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ProWrite.UFE.IUFEFrontController">
+    <Position X="3.5" Y="4.25" Width="5.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAABAAAAAAAAAAAACAAAAAAAAAAAAgAAA=</HashCode>
+      <FileName>Core.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="FileManager" />
+      <Property Name="MAManager" />
+      <Property Name="Sign" />
+      <Property Name="LogManager" />
+      <Property Name="UserManager" />
+    </ShowAsAssociation>
+  </Interface>
+  <Interface Name="ProWrite.UFE.ISignInfo" Collapsed="true">
+    <Position X="2.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAA=</HashCode>
+      <FileName>ISignInfo.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="System.Communication.Client.IFrontController&lt;TConnection, TActionProcessor, TAction, TRequest, TResponse&gt;">
+    <Position X="5.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="System.Communication.IRequest" Collapsed="true">
+    <Position X="14.75" Y="1.25" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="System.Communication.IResponse" Collapsed="true">
+    <Position X="14.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="System.Communication.Client.IActionProcessor&lt;TAction, TResponse&gt;" Collapsed="true">
+    <Position X="10.5" Y="9.5" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="System.Communication.Client.IAction&lt;TResponse&gt;" Collapsed="true">
+    <Position X="7.5" Y="9.5" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="System.Communication.Client.IConnection&lt;TRequest, TResponse&gt;">
+    <Position X="4" Y="6.5" Width="1.5" />
+    <TypeIdentifier />
+    <ShowAsAssociation>
+      <Property Name="State" />
+    </ShowAsAssociation>
+  </Interface>
+  <Enum Name="ProWrite.UFE.ConectionMode" Collapsed="true">
+    <Position X="17.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAIQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>Core.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="System.Communication.ConnectionState" Collapsed="true">
+    <Position X="1" Y="7.5" Width="1.5" />
+    <TypeIdentifier />
+  </Enum>
+  <Delegate Name="ProWrite.UFE.ReceivedHandler" Collapsed="true">
+    <Position X="17.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Core.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Font Name="SimSun" Size="9" />
+</ClassDiagram>

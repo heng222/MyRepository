@@ -1,0 +1,26 @@
+HKCR
+{
+	PWEffect.Radar.1 = s 'Radar Class'
+	{
+		CLSID = s '{3D75C64D-6706-4DC0-A287-BC8695676DAD}'
+	}
+	PWEffect.Radar = s 'Radar Class'
+	{
+		CLSID = s '{3D75C64D-6706-4DC0-A287-BC8695676DAD}'
+		CurVer = s 'PWEffect.Radar.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {3D75C64D-6706-4DC0-A287-BC8695676DAD} = s 'Radar Class'
+		{
+			ProgID = s 'PWEffect.Radar.1'
+			VersionIndependentProgID = s 'PWEffect.Radar'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{B1FEB9A2-A676-46da-83C5-B1CBEC33BC07}'
+		}
+	}
+}

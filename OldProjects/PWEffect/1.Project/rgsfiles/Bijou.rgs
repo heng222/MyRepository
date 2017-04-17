@@ -1,0 +1,26 @@
+HKCR
+{
+	PWEffect.Bijou.1 = s 'Bijou Class'
+	{
+		CLSID = s '{A4B54A75-6E38-4312-B5E9-C9950EE98141}'
+	}
+	PWEffect.Bijou = s 'Bijou Class'
+	{
+		CLSID = s '{A4B54A75-6E38-4312-B5E9-C9950EE98141}'
+		CurVer = s 'PWEffect.Bijou.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {A4B54A75-6E38-4312-B5E9-C9950EE98141} = s 'Bijou Class'
+		{
+			ProgID = s 'PWEffect.Bijou.1'
+			VersionIndependentProgID = s 'PWEffect.Bijou'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{B1FEB9A2-A676-46da-83C5-B1CBEC33BC07}'
+		}
+	}
+}

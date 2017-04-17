@@ -1,0 +1,26 @@
+HKCR
+{
+	PWEffect.Fade.1 = s 'Fade Class'
+	{
+		CLSID = s '{2F1F21F4-5093-4C2C-B96D-973295079000}'
+	}
+	PWEffect.Fade = s 'Fade Class'
+	{
+		CLSID = s '{2F1F21F4-5093-4C2C-B96D-973295079000}'
+		CurVer = s 'PWEffect.Fade.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {2F1F21F4-5093-4C2C-B96D-973295079000} = s 'Fade Class'
+		{
+			ProgID = s 'PWEffect.Fade.1'
+			VersionIndependentProgID = s 'PWEffect.Fade'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{B1FEB9A2-A676-46da-83C5-B1CBEC33BC07}'
+		}
+	}
+}

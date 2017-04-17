@@ -1,0 +1,26 @@
+HKCR
+{
+	PWEffect.WrapAround.1 = s 'WrapAround Class'
+	{
+		CLSID = s '{89BDCC9F-96B6-426F-B6CC-FEE51C3C818D}'
+	}
+	PWEffect.WrapAround = s 'WrapAround Class'
+	{
+		CLSID = s '{89BDCC9F-96B6-426F-B6CC-FEE51C3C818D}'
+		CurVer = s 'PWEffect.WrapAround.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {89BDCC9F-96B6-426F-B6CC-FEE51C3C818D} = s 'WrapAround Class'
+		{
+			ProgID = s 'PWEffect.WrapAround.1'
+			VersionIndependentProgID = s 'PWEffect.WrapAround'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{B1FEB9A2-A676-46da-83C5-B1CBEC33BC07}'
+		}
+	}
+}

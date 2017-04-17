@@ -1,0 +1,68 @@
+
+create table T_TFC_EVENT_LIVE
+(
+  EVENTID      VARCHAR2(10) not null,
+  ALARMTIME    DATE,
+  EVETTYPE     NUMBER(2) default 1,
+  HANLDEDSTATE NUMBER(1) default 1,
+  VALIDFLAG    NUMBER(1) default 1,
+  PHONENO      VARCHAR2(20),
+  PHONEX       NUMBER(10),
+  PHONEY       NUMBER(10),
+  ADDRX        NUMBER(10),
+  ADDRY        NUMBER(10),
+  CASEADDR     VARCHAR2(100),
+  CONTENT      VARCHAR2(800)
+)
+tablespace SPACESAT2006
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+
+comment on table T_TFC_EVENT_LIVE
+  is '交通事件实时信息';
+
+comment on column T_TFC_EVENT_LIVE.EVENTID
+  is '事件ID';
+comment on column T_TFC_EVENT_LIVE.ALARMTIME
+  is '报警时间';
+comment on column T_TFC_EVENT_LIVE.EVETTYPE
+  is '1.事故；2.拥堵；3.咨询；4.反映；5.其它';
+comment on column T_TFC_EVENT_LIVE.HANLDEDSTATE
+  is '处理状态. 0.未处理；1.已处理';
+comment on column T_TFC_EVENT_LIVE.VALIDFLAG
+  is '是否有效';
+comment on column T_TFC_EVENT_LIVE.PHONEX
+  is '电话定位的经度，精确到1/24秒';
+comment on column T_TFC_EVENT_LIVE.PHONEY
+  is '电话定位的经度，精确到1/24秒。';
+comment on column T_TFC_EVENT_LIVE.ADDRX
+  is '案发地点的经度，精确到1/24秒。';
+comment on column T_TFC_EVENT_LIVE.ADDRY
+  is '案发地点的纬度，精确到1/24秒。';
+comment on column T_TFC_EVENT_LIVE.CASEADDR
+  is '案发地点';
+comment on column T_TFC_EVENT_LIVE.CONTENT
+  is '报警内容';
+comment on column T_TFC_EVENT_LIVE.PHONENO
+  is '电话';
+
+alter table T_TFC_EVENT_LIVE
+  add constraint TK_TFCEVENT primary key (EVENTID)
+  using index 
+  tablespace SPACESAT2006
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );

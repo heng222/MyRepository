@@ -1,0 +1,26 @@
+HKCR
+{
+	PWEffect.Rain.1 = s 'Rain Class'
+	{
+		CLSID = s '{158BBBD4-B83C-4168-9598-6D30E99530DC}'
+	}
+	PWEffect.Rain = s 'Rain Class'
+	{
+		CLSID = s '{158BBBD4-B83C-4168-9598-6D30E99530DC}'
+		CurVer = s 'PWEffect.Rain.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {158BBBD4-B83C-4168-9598-6D30E99530DC} = s 'Rain Class'
+		{
+			ProgID = s 'PWEffect.Rain.1'
+			VersionIndependentProgID = s 'PWEffect.Rain'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{B1FEB9A2-A676-46da-83C5-B1CBEC33BC07}'
+		}
+	}
+}

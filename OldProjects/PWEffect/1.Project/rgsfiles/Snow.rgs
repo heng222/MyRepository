@@ -1,0 +1,26 @@
+HKCR
+{
+	PWEffect.Snow.1 = s 'Snow Class'
+	{
+		CLSID = s '{632BB53B-C02D-4AB1-B041-A14F524812EF}'
+	}
+	PWEffect.Snow = s 'Snow Class'
+	{
+		CLSID = s '{632BB53B-C02D-4AB1-B041-A14F524812EF}'
+		CurVer = s 'PWEffect.Snow.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {632BB53B-C02D-4AB1-B041-A14F524812EF} = s 'Snow Class'
+		{
+			ProgID = s 'PWEffect.Snow.1'
+			VersionIndependentProgID = s 'PWEffect.Snow'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{B1FEB9A2-A676-46da-83C5-B1CBEC33BC07}'
+		}
+	}
+}

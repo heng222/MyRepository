@@ -1,0 +1,12 @@
+<!-- Extension of Movie Maker's existing Blur effect by increasing the PixelRadius
+	 from 2.5 to 4.0.  -->
+<TransitionsAndEffects Version="1.0">
+	<Effects>
+		<EffectDLL guid="{7312498D-E87A-11D1-81E0-0000F87557DB}" comment="Blur">
+			<Effect name="Blur, Super" iconid="5" comment="Blur">
+				<Param name="PixelRadius" value="4" />
+			</Effect>
+		</EffectDLL>
+	</Effects>
+</TransitionsAndEffects>
+

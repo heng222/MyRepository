@@ -1,0 +1,104 @@
+[FRAMENUM]
+NUM=17
+
+[FRAME1]
+ID=103
+coordinates= 130 270
+size= 55 14
+SectionID= 0;
+
+[FRAME2]
+ID=102
+coordinates= 130 290
+size= 55 14
+SectionID= 0;
+
+[FRAME3]
+ID=101
+coordinates= 130 310
+size= 55 14
+SectionID= 0;
+
+[FRAME4]
+ID=203
+coordinates= 1100 230
+size= 55 14
+SectionID= 0;
+
+[FRAME5]
+ID=202
+coordinates= 1100 250
+size= 55 14
+SectionID= 0;
+
+[FRAME6]
+ID=201
+coordinates= 1100 270
+size= 55 14
+SectionID= 0;
+
+[FRAME7]
+ID=301
+coordinates= 1100 450
+size= 55 14
+SectionID= 0;
+
+[FRAME8]
+ID=302
+coordinates= 1100 470
+size= 55 14
+SectionID= 0;
+
+[FRAME9]
+ID=303
+coordinates= 1100 490
+size= 55 14
+SectionID= 0;
+
+[FRAME10]
+ID=16
+coordinates= 1100 300
+size= 55 14
+SectionID= 1; 32 
+
+[FRAME11]
+ID=12
+coordinates= 1100 420
+size= 55 14
+SectionID= 1; 28 
+
+[FRAME12]
+ID=6
+coordinates= 130 350
+size= 55 14
+SectionID= 1; 22 
+
+[FRAME13]
+ID=5
+coordinates= 605 195
+size= 55 14
+SectionID= 1; 21 
+
+[FRAME14]
+ID=4
+coordinates= 605 255
+size= 55 14
+SectionID= 1; 20 
+
+[FRAME15]
+ID=3
+coordinates= 605 315
+size= 55 14
+SectionID= 1; 19 
+
+[FRAME16]
+ID=2
+coordinates= 605 365
+size= 55 14
+SectionID= 1; 18 
+
+[FRAME17]
+ID=1
+coordinates= 605 425
+size= 55 14
+SectionID= 1; 17 

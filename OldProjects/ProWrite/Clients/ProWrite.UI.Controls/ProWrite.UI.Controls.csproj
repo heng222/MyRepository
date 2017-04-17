@@ -1,0 +1,1930 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A0C45DB5-FA97-481E-A1A6-E07A7F226FCF}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ProWrite.UI.Controls</RootNamespace>
+    <AssemblyName>ProWrite.UI.Controls</AssemblyName>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <PublishUrl>http://localhost/ProWrite.UI.Controls/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <StartupObject>
+    </StartupObject>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\Bin\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;DBC_CHECK_ALL,DBC_CHECK_INVARIANT,DBC_CHECK_POSTCONDITION,DBC_CHECK_PRECONDITION;USE_DEBUG_ASSERTION;VERSION_2</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\Bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release_X64|AnyCPU' ">
+    <OutputPath>bin\Release_X64\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug_X64|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug_X64\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;DBC_CHECK_ALL,DBC_CHECK_INVARIANT,DBC_CHECK_POSTCONDITION,DBC_CHECK_PRECONDITION;USE_DEBUG_ASSERTION</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.BonusSkins.v9.1, Version=9.1.2.0, Culture=neutral, PublicKeyToken=95fc6c5621878f0a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Libs\DevExpress.BonusSkins.v9.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Data.v9.1, Version=9.1.2.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Libs\DevExpress.Data.v9.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.OfficeSkins.v9.1, Version=9.1.2.0, Culture=neutral, PublicKeyToken=95fc6c5621878f0a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Libs\DevExpress.OfficeSkins.v9.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v9.1, Version=9.1.2.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Libs\DevExpress.Utils.v9.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraBars.v9.1, Version=9.1.2.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Libs\DevExpress.XtraBars.v9.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v9.1, Version=9.1.2.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Libs\DevExpress.XtraEditors.v9.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraGrid.v9.1, Version=9.1.2.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Libs\DevExpress.XtraGrid.v9.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraLayout.v9.1, Version=9.1.2.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Libs\DevExpress.XtraLayout.v9.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraNavBar.v9.1, Version=9.1.2.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Libs\DevExpress.XtraNavBar.v9.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraScheduler.v9.1, Version=9.1.2.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Libs\DevExpress.XtraScheduler.v9.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraScheduler.v9.1.Core, Version=9.1.2.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Libs\DevExpress.XtraScheduler.v9.1.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraScheduler.v9.1.Extensions, Version=9.1.2.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Libs\DevExpress.XtraScheduler.v9.1.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraSpellChecker.v9.1, Version=9.1.2.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Libs\DevExpress.XtraSpellChecker.v9.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraSpellChecker.v9.1.Core, Version=9.1.2.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Libs\DevExpress.XtraSpellChecker.v9.1.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraTreeList.v9.1, Version=9.1.2.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Libs\DevExpress.XtraTreeList.v9.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraVerticalGrid.v9.1, Version=9.1.2.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Libs\DevExpress.XtraVerticalGrid.v9.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DirectShowLib-2005, Version=2.0.0.0, Culture=neutral, PublicKeyToken=67e7b740cdfc2d3f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Libs\DirectShowLib-2005.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.9.0, Culture=neutral, PublicKeyToken=b32731d11ce58905">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Libs\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Threading, Version=1.0.3058.34407, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Libs\System.Threading.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Extensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ControlService.cs" />
+    <Compile Include="Dashboard\SignFormNew.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dashboard\SignFormNew.Designer.cs">
+      <DependentUpon>SignFormNew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dashboard\SignGroupForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dashboard\SignGroupForm.designer.cs">
+      <DependentUpon>SignGroupForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Designer\ImageButtonDesigner.cs" />
+    <Compile Include="Designer\NoneEditor.cs" />
+    <Compile Include="InputDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InputDialog.Designer.cs">
+      <DependentUpon>InputDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Designer\EffectEditor.cs" />
+    <Compile Include="Designer\VideoEditor.cs" />
+    <Compile Include="Editor\CanvasContextMenu.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Editor\CanvasPaint.cs" />
+    <Compile Include="Editor\EffectTreeControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Editor\Layers\ControlMoveResize.cs" />
+    <Compile Include="Editor\ToolBoxControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editor\ToolBoxControl.Designer.cs">
+      <DependentUpon>ToolBoxControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\ToolBoxMenu.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ImageButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Library\LibraryNode.cs" />
+    <Compile Include="Library\LibraryTreeControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Library\MapTable.cs" />
+    <Compile Include="PlayStopBar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PlayStopBar.Designer.cs">
+      <DependentUpon>PlayStopBar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Scheduler\AppointmentConverter.cs" />
+    <Compile Include="Scheduler\MyAppointmentEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Scheduler\MyAppointmentEditForm.designer.cs">
+      <DependentUpon>MyAppointmentEditForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ControlBase.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlBase.Designer.cs">
+      <DependentUpon>ControlBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dashboard\DashboardForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dashboard\DashboardTree.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Dashboard\DashboardTree.Designer.cs">
+      <DependentUpon>DashboardTree.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DialogForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DialogForm.Designer.cs">
+      <DependentUpon>DialogForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModuleControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ModuleControl.Designer.cs">
+      <DependentUpon>ModuleControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SignCombo.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Dashboard\SignForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dashboard\SignForm.Designer.cs">
+      <DependentUpon>SignForm.cs</DependentUpon>
+    </Compile>
+    <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Commons\Mentalis\Mentalis.csproj">
+      <Project>{8B0BAABE-3CEB-4CA9-837E-C198B0C0B203}</Project>
+      <Name>Mentalis</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Commons\Messages\Messages.csproj">
+      <Project>{3596709E-8A87-45AB-BC39-EAAE5DA2A3A7}</Project>
+      <Name>Messages</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Commons\ProWrite.Core\ProWrite.Core.csproj">
+      <Project>{FF80525C-029F-4EE1-BCF5-3547AFA06F0B}</Project>
+      <Name>ProWrite.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Commons\ProWrite.DES\ProWrite.DES.csproj">
+      <Project>{9C998B54-46BB-4688-B7C2-2DB0D055C250}</Project>
+      <Name>ProWrite.DES</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Commons\ProWrite.Entity\ProWrite.Entity.csproj">
+      <Project>{5915A60C-B679-4E48-86AD-C79D9F8C903F}</Project>
+      <Name>ProWrite.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Commons\ProWrite.SSL\ProWrite.SSL.vcproj">
+      <Project>{2ED2902C-82B4-4433-B057-329547CA0335}</Project>
+      <Name>ProWrite.SSL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Commons\ProWrite.UFE.Entity\ProWrite.UFE.Entity.csproj">
+      <Project>{5D1E0AF1-E69A-48F2-BE2E-DA9BEFA9AE2A}</Project>
+      <Name>ProWrite.UFE.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Commons\ProWrite.UFE.Files\ProWrite.UFE.Files.csproj">
+      <Project>{4AD4580A-CF1A-47F5-BD89-7B08B2343A08}</Project>
+      <Name>ProWrite.UFE.Files</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Commons\ProWrite.UFE\ProWrite.UFE.csproj">
+      <Project>{ACD7DEDB-AA50-4665-BEA0-729E64DDFA2D}</Project>
+      <Name>ProWrite.UFE</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Commons\ProWrite.Unsafe\ProWrite.Unsafe.csproj">
+      <Project>{D0B26CCB-0D5A-44F3-8FEE-0BAEA39226B1}</Project>
+      <Name>ProWrite.Unsafe</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Servers\ProWrite.DataProvider\ProWrite.DataProvider.csproj">
+      <Project>{0AE259C0-D7E3-4DE8-8726-C4A333D97E31}</Project>
+      <Name>ProWrite.DataProvider</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProWrite.UI.Core\ProWrite.UI.Core.csproj">
+      <Project>{6B3906BD-291E-4474-A924-32A526FE078D}</Project>
+      <Name>ProWrite.UI.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProWrite.UI.Resources\ProWrite.Resources.csproj">
+      <Project>{F2473A63-8F0D-48E1-B11F-AEEF54D1F021}</Project>
+      <Name>ProWrite.Resources</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProWrite.UI.Texts\ProWrite.UI.Texts.vcproj">
+      <Project>{B257EC94-F0B3-4DD7-BA27-94CEFFAE3F0B}</Project>
+      <Name>ProWrite.UI.Texts</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Dashboard\ConnectModemForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ConnectModemForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dashboard\ConnectRS232Form.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ConnectRS232Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dashboard\ConnectTcpIpForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ConnectTcpIpForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dashboard\CurrentClip.resx">
+      <DependentUpon>CurrentClip.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dashboard\SignFormNew.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>SignFormNew.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dashboard\SignGroupForm.resx">
+      <DependentUpon>SignGroupForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dashboard\SignImage.resx">
+      <DependentUpon>SignImage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dashboard\SignStatus.resx">
+      <DependentUpon>SignStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dashboard\UserChangePassword.resx">
+      <DependentUpon>UserChangePassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dashboard\UserDetailForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>UserDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dashboard\UserForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>UserForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\FontSelectForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FontSelectForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\LayerNameControl.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>LayerNameControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\Layers\EffectSetForm.resx">
+      <DependentUpon>EffectSetForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\Layers\LayerControl.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>LayerControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\MessageControl.resx">
+      <DependentUpon>MessageControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\TextEffectForm.resx">
+      <DependentUpon>TextEffectForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\TextInputForm.resx">
+      <DependentUpon>TextInputForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InputDialog.resx">
+      <DependentUpon>InputDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dashboard\DashboardForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>DashboardForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dashboard\DashboardTree.resx">
+      <DependentUpon>DashboardTree.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DialogForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>DialogForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\ToolBoxControl.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ToolBoxControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Library\FilesRenameForm.resx">
+      <DependentUpon>FilesRenameForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Library\LibraryDialog.resx">
+      <DependentUpon>LibraryDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Library\LibraryFileItem.resx">
+      <DependentUpon>LibraryFileItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Library\LibraryMessageItem.resx">
+      <DependentUpon>LibraryMessageItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Library\LibraryTree.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>LibraryTree.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Library\MessageFilesRenameForm.resx">
+      <DependentUpon>MessageFilesRenameForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Library\TimeSlieceGroupRenameForm.resx">
+      <DependentUpon>TimeSlieceGroupRenameForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MessageSaveForm.resx">
+      <DependentUpon>MessageSaveForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\DashboardModule.resx">
+      <DependentUpon>DashboardModule.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\EditModule.resx">
+      <DependentUpon>EditModule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\PlaylistModuleNew.resx">
+      <DependentUpon>PlaylistModuleNew.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PlayForm.resx">
+      <DependentUpon>PlayForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Playlist\PlaylistControl.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>PlaylistControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Playlist\TimeSliceGroupControl.resx">
+      <DependentUpon>TimeSliceGroupControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Playlist\TimeSliceGroupEditForm.resx">
+      <DependentUpon>TimeSliceGroupEditForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PlayStopBar.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>PlayStopBar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dashboard\SignForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>SignForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SaveAllDialog.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>SaveAllDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SaveItem.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>SaveItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\SchedulerModule.resx">
+      <DependentUpon>SchedulerModule.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Scheduler\MyAppointmentEditForm.resx">
+      <DependentUpon>MyAppointmentEditForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Scheduler\ScheduleControl.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ScheduleControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\DataPassThrough.resx">
+      <DependentUpon>DataPassThrough.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\DataPassThroughDetail.resx">
+      <DependentUpon>DataPassThroughDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\LogFileForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>LogFileForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\SettingDialog.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>SettingDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\SourceDetail.resx">
+      <DependentUpon>SourceDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\SourceList.resx">
+      <DependentUpon>SourceList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Options\Views\SignView.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>SignView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SignCombo.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>SignCombo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TrackBar.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>TrackBar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TrackBarNew.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>TrackBarNew.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\Version\AssemblyInfo.cs">
+      <Link>AssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="About.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="About.Designer.cs">
+      <DependentUpon>About.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Actions\SelectedSignAction.cs" />
+    <Compile Include="Actions\UFE\ActionHelper.cs" />
+    <Compile Include="Actions\UFE\Requests\ConnectionExceptionAction.cs" />
+    <Compile Include="Actions\UFE\Requests\DimmingAction.cs" />
+    <Compile Include="Actions\IRequestAction.cs" />
+    <Compile Include="Actions\UFE\Requests\GetCurrentClipAction.cs" />
+    <Compile Include="Actions\UFE\Requests\GetLiveModeAction.cs" />
+    <Compile Include="Actions\UFE\Requests\GetStatusAction.cs" />
+    <Compile Include="Actions\UFE\Requests\GoLiveAction.cs" />
+    <Compile Include="Actions\UFE\Requests\LiveImageAction.cs" />
+    <Compile Include="Actions\UFE\Requests\LiveSessionUploadAction.cs" />
+    <Compile Include="Actions\UFE\Requests\LoginAction.cs" />
+    <Compile Include="Actions\UFE\Requests\LogoffAction.cs" />
+    <Compile Include="Actions\UFE\Requests\BlankSignAction.cs" />
+    <Compile Include="Actions\UFE\Requests\LogViewAction.cs" />
+    <Compile Include="Actions\UFE\Requests\RebootAction.cs" />
+    <Compile Include="Actions\UFE\Requests\SetDateTimeAction.cs" />
+    <Compile Include="Actions\UFE\Requests\SimpleMAAction.cs" />
+    <Compile Include="Actions\UFE\Requests\StatusAction.cs" />
+    <Compile Include="Actions\UFE\Requests\TempOfferAction.cs" />
+    <Compile Include="Actions\UFE\Requests\TestPatternAction.cs" />
+    <Compile Include="Actions\UFE\Requests\TimeZoneAction.cs" />
+    <Compile Include="Actions\UFE\Requests\UFERequestActionBase.cs" />
+    <Compile Include="Actions\UFE\Requests\UFERequestService.cs" />
+    <Compile Include="Actions\UFE\Requests\UnBlankSignAction.cs" />
+    <Compile Include="Actions\UFE\Requests\UploadAction.cs" />
+    <Compile Include="Actions\UFE\Requests\UserManagerAction.cs" />
+    <Compile Include="Actions\UFE\Responses\ConnectionAction.cs" />
+    <Compile Include="Actions\UFE\Responses\FileUploadAction.cs" />
+    <Compile Include="Actions\UFE\Responses\FreeLockAction.cs" />
+    <Compile Include="Actions\UFE\Responses\GetLockAction.cs" />
+    <Compile Include="Actions\UFE\Responses\GetSignInfoAction.cs" />
+    <Compile Include="Actions\UFE\Responses\LoginAction.cs" />
+    <Compile Include="Actions\UFE\Responses\UFEResponseService.cs" />
+    <Compile Include="Actions\UFE\Responses\LogoffAction.cs" />
+    <Compile Include="ColorBarItem.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Common\ClipboardService.cs" />
+    <Compile Include="Common\CommonHelper.cs" />
+    <Compile Include="Common\DataGate.cs" />
+    <Compile Include="Common\ICopyAction.cs" />
+    <Compile Include="Common\LocalMessageRouter.cs" />
+    <Compile Include="Common\Messages.cs" />
+    <Compile Include="Common\MsgBox.cs" />
+    <Compile Include="Config\Ribbon.cs">
+      <DependentUpon>Ribbon.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ConnectionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dashboard\ConnectWebCam.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dashboard\ConnectWebCam.Designer.cs">
+      <DependentUpon>ConnectWebCam.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dashboard\GetStatus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dashboard\GetStatus.Designer.cs">
+      <DependentUpon>GetStatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dashboard\LogView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dashboard\LogView.Designer.cs">
+      <DependentUpon>LogView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CopyPaste\CopyAction.cs" />
+    <Compile Include="CopyPaste\ShapeCopyAction.cs" />
+    <Compile Include="Designer\LineStyleEditor.cs" />
+    <Compile Include="Editor\CustomDirtyWordsDictionary.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Editor\CustomDirtyWordsDictionary.Designer.cs">
+      <DependentUpon>CustomDirtyWordsDictionary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\DrawableObjectsCS.cs" />
+    <Compile Include="Editor\EditPicture.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Editor\EditPicture.Designer.cs">
+      <DependentUpon>EditPicture.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\EditPictureConfirm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Editor\EditPictureConfirm.Designer.cs">
+      <DependentUpon>EditPictureConfirm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\Effect\eucRadar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editor\Effect\eucRadar.Designer.cs">
+      <DependentUpon>eucRadar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LayerHelper.cs" />
+    <Compile Include="Live\Sessions\CategoriesControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Live\Sessions\CategoriesControl.Designer.cs">
+      <DependentUpon>CategoriesControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Live\Sessions\CategoryControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Live\Sessions\CategoryControl.Designer.cs">
+      <DependentUpon>CategoryControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Live\Sessions\HotButtonControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Live\Sessions\HotButtonControl.Designer.cs">
+      <DependentUpon>HotButtonControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Live\Sessions\HotButtonMediaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Live\Sessions\HotButtonMediaForm.Designer.cs">
+      <DependentUpon>HotButtonMediaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Live\Sessions\HotButtonPanelControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Live\Sessions\HotButtonPanelControl.Designer.cs">
+      <DependentUpon>HotButtonPanelControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Live\Sessions\HotButtonSettingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Live\Sessions\HotButtonSettingForm.Designer.cs">
+      <DependentUpon>HotButtonSettingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Live\Sessions\HotKeyAssignForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Live\Sessions\HotKeyAssignForm.Designer.cs">
+      <DependentUpon>HotKeyAssignForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Live\Sessions\LargeButtonControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Live\Sessions\LargeButtonControl.Designer.cs">
+      <DependentUpon>LargeButtonControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Live\Sessions\MessageGridControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Live\Sessions\MessageGridControl.Designer.cs">
+      <DependentUpon>MessageGridControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Live\Sessions\MessageQueue.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Live\Sessions\MessageQueue.Designer.cs">
+      <DependentUpon>MessageQueue.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Live\Sessions\NewCategoryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Live\Sessions\NewCategoryForm.Designer.cs">
+      <DependentUpon>NewCategoryForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Live\Sessions\LibraryCategoryControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Live\Sessions\LibraryCategoryControl.Designer.cs">
+      <DependentUpon>LibraryCategoryControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Live\Sessions\LoadSessionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Live\Sessions\LoadSessionForm.Designer.cs">
+      <DependentUpon>LoadSessionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Live\Sessions\SaveSessionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Live\Sessions\SaveSessionForm.Designer.cs">
+      <DependentUpon>SaveSessionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Live\Sessions\SessionCommon.cs" />
+    <Compile Include="Live\Sessions\SessionSetupForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Live\Sessions\SessionSetupForm.Designer.cs">
+      <DependentUpon>SessionSetupForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Live\Sessions\MessageNailControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Live\Sessions\MessageNailControl.Designer.cs">
+      <DependentUpon>MessageNailControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Live\Sessions\GeneralControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Live\Sessions\GeneralControl.Designer.cs">
+      <DependentUpon>GeneralControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Live\Sessions\SessionSetupControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Live\Sessions\SessionSetupControl.Designer.cs">
+      <DependentUpon>SessionSetupControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Live\Sessions\SignConfigControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Live\Sessions\SignConfigControl.Designer.cs">
+      <DependentUpon>SignConfigControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Live\Sessions\SignDashboardListToSessionList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Live\Sessions\SignDashboardListToSessionList.Designer.cs">
+      <DependentUpon>SignDashboardListToSessionList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dashboard\ConnectionChooseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dashboard\ConnectionChooseForm.Designer.cs">
+      <DependentUpon>ConnectionChooseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dashboard\ConnectionProgress.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dashboard\ConnectionProgress.Designer.cs">
+      <DependentUpon>ConnectionProgress.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dashboard\ConnectModemForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dashboard\ConnectModemForm.Designer.cs">
+      <DependentUpon>ConnectModemForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dashboard\ConnectRS232Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dashboard\ConnectRS232Form.Designer.cs">
+      <DependentUpon>ConnectRS232Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dashboard\ConnectTcpIpForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dashboard\ConnectTcpIpForm.Designer.cs">
+      <DependentUpon>ConnectTcpIpForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dashboard\CurrentClip.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Dashboard\CurrentClip.Designer.cs">
+      <DependentUpon>CurrentClip.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dashboard\DashboardTree.Connection.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Dashboard\DateTimeSet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dashboard\DateTimeSet.Designer.cs">
+      <DependentUpon>DateTimeSet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dashboard\Dimming.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dashboard\Dimming.designer.cs">
+      <DependentUpon>Dimming.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dashboard\MockConnectionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dashboard\SignForm.Connection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dashboard\SignImage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Dashboard\SignImage.Designer.cs">
+      <DependentUpon>SignImage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dashboard\SignStatus.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Dashboard\SignStatus.Designer.cs">
+      <DependentUpon>SignStatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dashboard\SignStorageIndicator.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Dashboard\SignStorageIndicator.Designer.cs">
+      <DependentUpon>SignStorageIndicator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dashboard\SSHLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dashboard\SSHLogin.Designer.cs">
+      <DependentUpon>SSHLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dashboard\TempOffset.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dashboard\TempOffset.Designer.cs">
+      <DependentUpon>TempOffset.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dashboard\TestPattern.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dashboard\TestPattern.Designer.cs">
+      <DependentUpon>TestPattern.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dashboard\TimeZone.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dashboard\TimeZone.Designer.cs">
+      <DependentUpon>TimeZone.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dashboard\UserChangePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dashboard\UserChangePassword.Designer.cs">
+      <DependentUpon>UserChangePassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dashboard\UserDetailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dashboard\UserDetailForm.Designer.cs">
+      <DependentUpon>UserDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dashboard\UserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dashboard\UserForm.Designer.cs">
+      <DependentUpon>UserForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Designer\EnumTypeEditor.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Designer\MessageEffectEditor.cs" />
+    <Compile Include="Designer\ReadOnlyImageEditor.cs" />
+    <Compile Include="Designer\SignImageEditor.cs" />
+    <Compile Include="DockManager.cs">
+    </Compile>
+    <Compile Include="Editor\Canvas.ShapePaint.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Editor\Document.cs" />
+    <Compile Include="Editor\Document.Extend.cs" />
+    <Compile Include="Editor\DynamicLayerFormatSelectionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Editor\DynamicLayerFormatSelectionForm.Designer.cs">
+      <DependentUpon>DynamicLayerFormatSelectionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\Effect\eucCoalesce.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editor\Effect\eucCoalesce.designer.cs">
+      <DependentUpon>eucCoalesce.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\Effect\eucCopy.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editor\Effect\eucCopy.Designer.cs">
+      <DependentUpon>eucCopy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\Effect\eucMultiWipe.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editor\Effect\eucMultiWipe.Designer.cs">
+      <DependentUpon>eucMultiWipe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\Effect\eucNone.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editor\Effect\eucNone.Designer.cs">
+      <DependentUpon>eucNone.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\Effect\eucLine.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editor\Effect\eucLine.Designer.cs">
+      <DependentUpon>eucLine.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\Effect\eucInterleave.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editor\Effect\eucInterleave.Designer.cs">
+      <DependentUpon>eucInterleave.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\Effect\eucFilter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editor\Effect\eucFilter.Designer.cs">
+      <DependentUpon>eucFilter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\Effect\eucBlackHole.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editor\Effect\eucBlackHole.Designer.cs">
+      <DependentUpon>eucBlackHole.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\Effect\eucSlide.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editor\Effect\eucSlide.Designer.cs">
+      <DependentUpon>eucSlide.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\Effect\eucTravel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editor\Effect\eucTravel.Designer.cs">
+      <DependentUpon>eucTravel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\Effect\eucVenetian.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editor\Effect\eucVenetian.Designer.cs">
+      <DependentUpon>eucVenetian.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\Effect\eucWipe.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editor\Effect\eucWipe.Designer.cs">
+      <DependentUpon>eucWipe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\Effect\eucWrapAround.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editor\Effect\eucWrapAround.Designer.cs">
+      <DependentUpon>eucWrapAround.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\Effect\eucFlash.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editor\Effect\eucFlash.Designer.cs">
+      <DependentUpon>eucFlash.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\Effect\eucSparkle.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editor\Effect\eucSparkle.Designer.cs">
+      <DependentUpon>eucSparkle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\Effect\eucBijou.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editor\Effect\eucBijou.Designer.cs">
+      <DependentUpon>eucBijou.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\Effect\eucRain.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editor\Effect\eucRain.Designer.cs">
+      <DependentUpon>eucRain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\Effect\eucBase.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editor\Effect\eucBase.Designer.cs">
+      <DependentUpon>eucBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\Effect\eucSnow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editor\Effect\eucSnow.Designer.cs">
+      <DependentUpon>eucSnow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\Layers\EffectSetForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Editor\Layers\EffectSetForm.Designer.cs">
+      <DependentUpon>EffectSetForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\Layers\LayerControl.EffectMouseEventHook.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editor\Layers\LayerControl.Event.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editor\MessageControl.ShapePaintControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editor\NailImageGenerator.cs" />
+    <Compile Include="Editor\RepositoryItemTextEffectEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Editor\TextEffectForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Editor\TextEffectForm.Designer.cs">
+      <DependentUpon>TextEffectForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\TextInputForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Editor\TextInputForm.Designer.cs">
+      <DependentUpon>TextInputForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FontPopupContainer.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="FontPopupContainer.Designer.cs">
+      <DependentUpon>FontPopupContainer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FutureHelper.cs" />
+    <Compile Include="HelpManager.cs" />
+    <Compile Include="IBarItem.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ImportExportBase.cs" />
+    <Compile Include="Library\ImportCheckEventArgs.cs" />
+    <Compile Include="Library\PlaylistRenameForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Library\PlaylistRenameForm.Designer.cs">
+      <DependentUpon>PlaylistRenameForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Library\ImportPlaylistItemControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Library\ImportPlaylistItemControl.Designer.cs">
+      <DependentUpon>ImportPlaylistItemControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Library\ImportTimeSliceGroupItemControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Library\ImportTimeSliceGroupItemControl.Designer.cs">
+      <DependentUpon>ImportTimeSliceGroupItemControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Library\ImportMessageItemControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Library\ImportMessageItemControl.Designer.cs">
+      <DependentUpon>ImportMessageItemControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Library\ImportFileItemControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Library\ImportFileItemControl.Designer.cs">
+      <DependentUpon>ImportFileItemControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Library\FilesRenameForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Library\FilesRenameForm.Designer.cs">
+      <DependentUpon>FilesRenameForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Library\LibraryDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Library\LibraryDialog.Designer.cs">
+      <DependentUpon>LibraryDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Library\LibraryFileCheckEventArgs.cs" />
+    <Compile Include="Library\LibraryFileItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Library\LibraryMessageCheckEventArgs.cs" />
+    <Compile Include="Library\LibraryMessageItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Library\LibraryMessageItem.Designer.cs">
+      <DependentUpon>LibraryMessageItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Library\MessageFilesRenameForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Library\MessageFilesRenameForm.Designer.cs">
+      <DependentUpon>MessageFilesRenameForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Library\RemoveLibraryEventArgs.cs" />
+    <Compile Include="Library\SendToConfirm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Library\SendToConfirm.Designer.cs">
+      <DependentUpon>SendToConfirm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Library\TimeSlieceGroupRenameForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Library\TimeSlieceGroupRenameForm.Designer.cs">
+      <DependentUpon>TimeSlieceGroupRenameForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LineBarItem.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Live\Sessions\SignSettingControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Live\Sessions\SignSettingControl.Designer.cs">
+      <DependentUpon>SignSettingControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Live\Sessions\SmallButtonControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Live\Sessions\SmallButtonControl.Designer.cs">
+      <DependentUpon>SmallButtonControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoginFormNew.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginFormNew.Designer.cs">
+      <DependentUpon>LoginFormNew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MemoryRenameEventArgs.cs" />
+    <Compile Include="MessageSaveForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MessageSaveForm.Designer.cs">
+      <DependentUpon>MessageSaveForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MLPlaylist\MLPlaylistControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MLPlaylist\MLPlaylistControl.Designer.cs">
+      <DependentUpon>MLPlaylistControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\AddLiveEventArgs.cs" />
+    <Compile Include="Modules\DashboardModule.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modules\DashboardModule.Designer.cs">
+      <DependentUpon>DashboardModule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\EditModule.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modules\EditModule.Designer.cs">
+      <DependentUpon>EditModule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\FontSelectForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Editor\FontSelectForm.Designer.cs">
+      <DependentUpon>FontSelectForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\ILayerService.cs" />
+    <Compile Include="Editor\LayerControlContextMenu.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Editor\LayerNameControlNew.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Editor\LayerNameControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editor\LayerNameControl.Designer.cs">
+      <DependentUpon>LayerNameControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\Layers\LayerControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editor\Layers\LayerControl.Designer.cs">
+      <DependentUpon>LayerControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\Layers\LayerControl.Property.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editor\Layers\LayerForsidePanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Editor\MessageControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editor\MessageControl.Designer.cs">
+      <DependentUpon>MessageControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\MessageControl.Play.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editor\Canvas.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Editor\RepositoryItemFontEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="IPlayService.cs" />
+    <Compile Include="Library\ILibraryTreeController.cs" />
+    <Compile Include="Library\LibraryGroupCombo.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Library\LibraryGroupLookup.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Library\LibraryTree.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Library\LibraryTreeControl.Behind.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Library\OpenLibraryEventArgs.cs" />
+    <Compile Include="Modules\LiveModule.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modules\LiveModule.Designer.cs">
+      <DependentUpon>LiveModule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\ManagerModule.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modules\MLPlaylistModule.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modules\MLPlaylistModule.Designer.cs">
+      <DependentUpon>MLPlaylistModule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\PlaylistModuleNew.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modules\PlaylistModuleNew.Designer.cs">
+      <DependentUpon>PlaylistModuleNew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MonoColorDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MonoColorDialog.Designer.cs">
+      <DependentUpon>MonoColorDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Options\OptionDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Options\OptionDialog.Designer.cs">
+      <DependentUpon>OptionDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Options\OptionNode.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Options\Views\DynamicTextView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Options\Views\DynamicTextView.Designer.cs">
+      <DependentUpon>DynamicTextView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Options\Views\ImageView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Options\Views\ImageView.Designer.cs">
+      <DependentUpon>ImageView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Options\Views\LineView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Options\Views\LineView.Designer.cs">
+      <DependentUpon>LineView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Options\Views\MessageView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Options\Views\MessageView.Designer.cs">
+      <DependentUpon>MessageView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Options\Views\PaintView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Options\Views\PaintView.Designer.cs">
+      <DependentUpon>PaintView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Options\Views\PlaylistView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Options\Views\PlaylistView.Designer.cs">
+      <DependentUpon>PlaylistView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Options\Views\SchedulerView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Options\Views\SchedulerView.Designer.cs">
+      <DependentUpon>SchedulerView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Options\Views\TemperatureView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Options\Views\TemperatureView.Designer.cs">
+      <DependentUpon>TemperatureView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Options\Views\TemplateGroupView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Options\Views\TextView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Options\Views\TextView.Designer.cs">
+      <DependentUpon>TextView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Options\Views\TimeView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Options\Views\TimeView.Designer.cs">
+      <DependentUpon>TimeView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Options\Views\VideoView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Options\Views\VideoView.Designer.cs">
+      <DependentUpon>VideoView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PageGroupEx.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PlayForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PlayForm.Designer.cs">
+      <DependentUpon>PlayForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Playlist\DragDropLine.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Playlist\DragDropLine.Designer.cs">
+      <DependentUpon>DragDropLine.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Playlist\PlaylistControl.DragDropControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Playlist\IPlaylistItemService.cs" />
+    <Compile Include="Playlist\PlaylistControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Playlist\PlaylistControl.Designer.cs">
+      <DependentUpon>PlaylistControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Playlist\PlaylistItemControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Playlist\PlayListTree.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Playlist\PlayListTree.Designer.cs">
+      <DependentUpon>PlayListTree.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Playlist\TimeSliceGroupControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Playlist\TimeSliceGroupControl.Designer.cs">
+      <DependentUpon>TimeSliceGroupControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Playlist\TimeSliceGroupEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Playlist\TimeSliceGroupEditForm.Designer.cs">
+      <DependentUpon>TimeSliceGroupEditForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Playlist\TrackBarNewZoomEventArgs.cs" />
+    <Compile Include="Playlist\TrackBarValueChangeEventArgs.cs" />
+    <Compile Include="Playlist\UpdateTotalLengthEventArgs.cs" />
+    <Compile Include="Playlist\UpdateTotalWidthEventArgs.cs" />
+    <Compile Include="ProgressForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProgressForm.Designer.cs">
+      <DependentUpon>ProgressForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="PropertyGridControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PWColorCellsControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PWColorEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PWColorSlider.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RibbonPageEx.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SaveAllDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SaveAllDialog.Designer.cs">
+      <DependentUpon>SaveAllDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SaveAllMemoryCheckEventArgs.cs" />
+    <Compile Include="SaveItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SaveItem.Designer.cs">
+      <DependentUpon>SaveItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\SchedulerModule.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modules\SchedulerModule.designer.cs">
+      <DependentUpon>SchedulerModule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Scheduler\DeleteRecurrenceConfirmDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Scheduler\DeleteRecurrenceConfirmDialog.Designer.cs">
+      <DependentUpon>DeleteRecurrenceConfirmDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Scheduler\NavigateDecorator.cs" />
+    <Compile Include="Scheduler\ScheduleControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Scheduler\ScheduleControl.Designer.cs">
+      <DependentUpon>ScheduleControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Scheduler\SchedulerStorageDecorator.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Settings\DataPassThrough.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings\DataPassThrough.Designer.cs">
+      <DependentUpon>DataPassThrough.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\DataPassThroughDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings\DataPassThroughDetail.Designer.cs">
+      <DependentUpon>DataPassThroughDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Options\Interfaces.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Settings\LogFileForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Settings\LogFileForm.Designer.cs">
+      <DependentUpon>LogFileForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\SettingDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings\SettingDialog.Designer.cs">
+      <DependentUpon>SettingDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\SourceDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings\SourceDetail.Designer.cs">
+      <DependentUpon>SourceDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\SourceList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings\SourceList.Designer.cs">
+      <DependentUpon>SourceList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\TreeListNode.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Options\Views\SignView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Options\Views\SignView.Designer.cs">
+      <DependentUpon>SignView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ShapeTools\ShapeTool.cs" />
+    <Compile Include="ShapeTools\ShapeToolDownArrow.cs" />
+    <Compile Include="ShapeTools\ShapeToolDynamicText.cs" />
+    <Compile Include="ShapeTools\ShapeToolDynamicVideo.cs" />
+    <Compile Include="ShapeTools\ShapeToolEllipse.cs" />
+    <Compile Include="ShapeTools\ShapeToolImage.cs" />
+    <Compile Include="ShapeTools\ShapeToolLeftArrow.cs" />
+    <Compile Include="ShapeTools\ShapeToolLine.cs" />
+    <Compile Include="ShapeTools\ShapeToolObject.cs" />
+    <Compile Include="ShapeTools\ShapeToolPointer.cs" />
+    <Compile Include="ShapeTools\ShapeToolRectangle.cs" />
+    <Compile Include="ShapeTools\ShapeToolRightArrow.cs" />
+    <Compile Include="ShapeTools\ShapeToolText.cs" />
+    <Compile Include="ShapeTools\ShapeToolType.cs" />
+    <Compile Include="ShapeTools\ShapeToolUpArrow.cs" />
+    <Compile Include="ShapeTools\ShapeToolVideo.cs" />
+    <Compile Include="ShowAgreement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ShowAgreement.Designer.cs">
+      <DependentUpon>ShowAgreement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SignRepositoryItemLookUpEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SplashForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SplashForm.Designer.cs">
+      <DependentUpon>SplashForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TabControlBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TestCommand.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestCommand.Designer.cs">
+      <DependentUpon>TestCommand.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TrackBar.cs">
+    </Compile>
+    <Compile Include="TrackBar.Designer.cs">
+      <DependentUpon>TrackBar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TrackBarNew.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TrackBarNew.Designer.cs">
+      <DependentUpon>TrackBarNew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TreeListExtensions.cs" />
+    <Compile Include="UndoControlBase.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UndoRedo\Action\AppointmentAddedAction.cs" />
+    <Compile Include="UndoRedo\Action\AppointmentRemovedAction.cs" />
+    <Compile Include="UndoRedo\Action\LayerEffectAddedAction.cs" />
+    <Compile Include="UndoRedo\Action\GotoDateAction.cs" />
+    <Compile Include="UndoRedo\Action\LayerAddedAction.cs" />
+    <Compile Include="UndoRedo\Action\LayerEffectRemovedAction.cs" />
+    <Compile Include="UndoRedo\Action\LayerMoveAction.cs" />
+    <Compile Include="UndoRedo\Action\LayerAction.cs" />
+    <Compile Include="UndoRedo\Action\NavigateBackwardAction.cs" />
+    <Compile Include="UndoRedo\Action\NavigateForwardAction.cs" />
+    <Compile Include="UndoRedo\Action\PlaylistAction.cs" />
+    <Compile Include="UndoRedo\Action\PropertyChangedAction.cs" />
+    <Compile Include="UndoRedo\Action\LayerRemovedAction.cs" />
+    <Compile Include="UndoRedo\Action\ShapeAddedAction.cs" />
+    <Compile Include="UndoRedo\Action\ShapeRemovedAction.cs" />
+    <Compile Include="UndoRedo\UndoService.cs" />
+    <Compile Include="Editor\Layers\LayerControl.EffectLabel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editor\MessageControl.Layer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editor\MessageControl.ShapeControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editor\MessageControl.UndoRedo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Playlist\PlaylistControl.Play.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WaitCursor.cs" />
+    <None Include="app.config" />
+    <None Include="ClassDiagram1.cd" />
+    <None Include="ClassDiagram2.cd" />
+    <None Include="Config\Ribbon.xsd">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <Compile Include="Library\ImportRenameEventArgs.cs" />
+    <None Include="Properties\DataSources\ProWrite.Entity.SignGroupInfo.datasource" />
+    <None Include="Properties\DataSources\ProWrite.Entity.SignInfo.datasource" />
+    <Compile Include="Scheduler\ScheduleControl.Uploader.cs">
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="About.resx">
+      <DependentUpon>About.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dashboard\ConnectionChooseForm.resx">
+      <DependentUpon>ConnectionChooseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dashboard\ConnectionProgress.resx">
+      <DependentUpon>ConnectionProgress.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dashboard\ConnectWebCam.resx">
+      <DependentUpon>ConnectWebCam.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dashboard\DateTimeSet.resx">
+      <DependentUpon>DateTimeSet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dashboard\Dimming.resx">
+      <DependentUpon>Dimming.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dashboard\GetStatus.resx">
+      <DependentUpon>GetStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dashboard\LogView.resx">
+      <DependentUpon>LogView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dashboard\SSHLogin.resx">
+      <DependentUpon>SSHLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dashboard\TempOffset.resx">
+      <DependentUpon>TempOffset.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dashboard\TestPattern.resx">
+      <DependentUpon>TestPattern.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dashboard\TimeZone.resx">
+      <DependentUpon>TimeZone.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\CustomDirtyWordsDictionary.resx">
+      <DependentUpon>CustomDirtyWordsDictionary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\DynamicLayerFormatSelectionForm.resx">
+      <DependentUpon>DynamicLayerFormatSelectionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\EditPicture.resx">
+      <DependentUpon>EditPicture.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\EditPictureConfirm.resx">
+      <DependentUpon>EditPictureConfirm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\Effect\eucCoalesce.resx">
+      <DependentUpon>eucCoalesce.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\Effect\eucFlash.resx">
+      <DependentUpon>eucFlash.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\Effect\eucMultiWipe.resx">
+      <DependentUpon>eucMultiWipe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\Effect\eucNone.resx">
+      <DependentUpon>eucNone.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\Effect\eucLine.resx">
+      <DependentUpon>eucLine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\Effect\eucInterleave.resx">
+      <DependentUpon>eucInterleave.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\Effect\eucFilter.resx">
+      <DependentUpon>eucFilter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\Effect\eucBlackHole.resx">
+      <DependentUpon>eucBlackHole.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\Effect\eucRadar.resx">
+      <DependentUpon>eucRadar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\Effect\eucSlide.resx">
+      <DependentUpon>eucSlide.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\Effect\eucTravel.resx">
+      <DependentUpon>eucTravel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\Effect\eucVenetian.resx">
+      <DependentUpon>eucVenetian.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\Effect\eucWipe.resx">
+      <DependentUpon>eucWipe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\Effect\eucWrapAround.resx">
+      <DependentUpon>eucWrapAround.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\Effect\eucSparkle.resx">
+      <DependentUpon>eucSparkle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\Effect\eucBijou.resx">
+      <DependentUpon>eucBijou.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\Effect\eucRain.resx">
+      <DependentUpon>eucRain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\Effect\eucBase.resx">
+      <DependentUpon>eucBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\Effect\eucSnow.resx">
+      <DependentUpon>eucSnow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FontPopupContainer.resx">
+      <DependentUpon>FontPopupContainer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Library\PlaylistRenameForm.resx">
+      <DependentUpon>PlaylistRenameForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Library\ImportPlaylistItemControl.resx">
+      <DependentUpon>ImportPlaylistItemControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Library\ImportTimeSliceGroupItemControl.resx">
+      <DependentUpon>ImportTimeSliceGroupItemControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Library\ImportMessageItemControl.resx">
+      <DependentUpon>ImportMessageItemControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Library\ImportFileItemControl.resx">
+      <DependentUpon>ImportFileItemControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Library\SendToConfirm.resx">
+      <DependentUpon>SendToConfirm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Live\Sessions\CategoriesControl.resx">
+      <DependentUpon>CategoriesControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Live\Sessions\CategoryControl.resx">
+      <DependentUpon>CategoryControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Live\Sessions\HotButtonControl.resx">
+      <DependentUpon>HotButtonControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Live\Sessions\HotButtonMediaForm.resx">
+      <DependentUpon>HotButtonMediaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Live\Sessions\HotButtonPanelControl.resx">
+      <DependentUpon>HotButtonPanelControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Live\Sessions\HotButtonSettingForm.resx">
+      <DependentUpon>HotButtonSettingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Live\Sessions\HotKeyAssignForm.resx">
+      <DependentUpon>HotKeyAssignForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Live\Sessions\LargeButtonControl.resx">
+      <DependentUpon>LargeButtonControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Live\Sessions\MessageGridControl.resx">
+      <DependentUpon>MessageGridControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Live\Sessions\MessageQueue.resx">
+      <DependentUpon>MessageQueue.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Live\Sessions\NewCategoryForm.resx">
+      <DependentUpon>NewCategoryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Live\Sessions\LibraryCategoryControl.resx">
+      <DependentUpon>LibraryCategoryControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Live\Sessions\LoadSessionForm.resx">
+      <DependentUpon>LoadSessionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Live\Sessions\SaveSessionForm.resx">
+      <DependentUpon>SaveSessionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Live\Sessions\SessionSetupForm.resx">
+      <DependentUpon>SessionSetupForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Live\Sessions\GeneralControl.resx">
+      <DependentUpon>GeneralControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Live\Sessions\SessionSetupControl.resx">
+      <DependentUpon>SessionSetupControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Live\Sessions\SignConfigControl.resx">
+      <DependentUpon>SignConfigControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Live\Sessions\SignDashboardListToSessionList.resx">
+      <DependentUpon>SignDashboardListToSessionList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Live\Sessions\SignSettingControl.resx">
+      <DependentUpon>SignSettingControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Live\Sessions\SmallButtonControl.resx">
+      <DependentUpon>SmallButtonControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginFormNew.resx">
+      <DependentUpon>LoginFormNew.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\LiveModule.resx">
+      <DependentUpon>LiveModule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MonoColorDialog.resx">
+      <DependentUpon>MonoColorDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Options\Views\DynamicTextView.resx">
+      <DependentUpon>DynamicTextView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Options\Views\ImageView.resx">
+      <DependentUpon>ImageView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Options\Views\MessageView.resx">
+      <DependentUpon>MessageView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Options\Views\PaintView.resx">
+      <DependentUpon>PaintView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Options\Views\PlaylistView.resx">
+      <DependentUpon>PlaylistView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Options\Views\SchedulerView.resx">
+      <DependentUpon>SchedulerView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Options\Views\TemperatureView.resx">
+      <DependentUpon>TemperatureView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Options\Views\TemplateGroupView.resx">
+      <DependentUpon>TemplateGroupView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Options\Views\TextView.resx">
+      <DependentUpon>TextView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Options\Views\TimeView.resx">
+      <DependentUpon>TimeView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Options\Views\VideoView.resx">
+      <DependentUpon>VideoView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Playlist\PlayListTree.resx">
+      <DependentUpon>PlayListTree.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProgressForm.resx">
+      <DependentUpon>ProgressForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Scheduler\DeleteRecurrenceConfirmDialog.resx">
+      <DependentUpon>DeleteRecurrenceConfirmDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ShapeTools\Ellipse.cur" />
+    <EmbeddedResource Include="ShapeTools\Line.cur" />
+    <EmbeddedResource Include="ShapeTools\Pencil.cur" />
+    <EmbeddedResource Include="ShapeTools\Rectangle.cur" />
+    <EmbeddedResource Include="ShowAgreement.resx">
+      <DependentUpon>ShowAgreement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SplashForm.resx">
+      <DependentUpon>SplashForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TestCommand.resx">
+      <DependentUpon>TestCommand.cs</DependentUpon>
+    </EmbeddedResource>
+    <Content Include="Config\Menu.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\colorbarIndicators.bmp" />
+    <Content Include="ShapeTools\TextTool.cur" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Editor\Menu\" />
+    <Folder Include="UFE\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

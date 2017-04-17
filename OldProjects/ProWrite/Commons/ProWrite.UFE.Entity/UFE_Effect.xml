@@ -1,0 +1,97 @@
+
+<!-- ISSoftStone Effects and Effects -->
+
+<PWEffects Version="1.0">
+
+  <EntryEffects>
+    <Effect ID="BOUNCE" PWName="BounceOn" PLName="BounceOn" /> 
+    <Effect ID="SLOT" PWName="SlotOn" PLName="SlotOn" /> 
+    <Effect ID="RAIN" PWName="RainOn" PLName="RainOn"> 
+        <Param name="Color"  value="0xA0A0A0" type="dword" />
+        <Param name="Amount" value="0.4" type="float" />
+    </Effect> 
+    <Effect ID="BLACKHOLE" PWName="BlackHoleOn" PLName="BlackHoleOn"> 
+        <Param name="StartY" value="0" type="int" />
+        <Param name="StartX" value="0" type="int" />
+    </Effect> 
+    <Effect ID="FILTER" PWName="FilterOn" PLName="FilterOn">
+        <Param name="Width"  value="10" type="int" />
+        <Param name="Height" value="10" type="int" />
+    </Effect>
+    <Effect ID="LINE" PWName="LineOn" PLName="LineOn">
+        <Param name="Direction" value="0" type="int" />
+        <Param name="PullPoint" value="100" type="int" />
+        <Param name="LagSpacing" value="3" type="int" />
+        <Param name="LineWidth" value="1" type="int" />
+    </Effect> 
+    <Effect ID="INTERLEAVE" PWName="InterleaveOn" PLName="InterleaveOn">
+        <Param name="Direction" value="0" type="int" />
+        <Param name="Lines" value="1" type="int" />
+        <Param name="Thickness" value="5" type="int" />
+    </Effect>
+  </EntryEffects>
+
+
+  <DisplayEffects>
+      <Effect ID="BIJOU" PWName="Bijou" PLName="Bijou">
+          <Param name="Direction" value="0" type="int" />
+          <Param name="Rate" value="10" type="int" />
+          <Param name="LampHeight" value="5" type="int" />
+          <Param name="LampLength" value="10" type="int" />
+          <Param name="GapLength" value="10" type="int" />
+          <Param name="CornersOn" value="1" type="int" />
+          <Param name="Color" value="0xFFFF" type="dword" />
+      </Effect> 
+      <Effect ID="SNOW" PWName="Snow" PLName="Snow">
+          <Param name="Color" value="0xFFFFFF" type="dword" />
+          <Param name="Rate" value="12" type="int" />
+          <Param name="Amount" value="0.15" type="float" />
+      </Effect> 
+      <Effect ID="SPARKLE" PWName="Sparkle" PLName="Sparkle">
+          <Param name="SparkleColor" value="0xFFFFFF" type="dword" />
+          <Param name="Size" value="6" type="int" />
+          <Param name="Amount" value="0.05" type="float" />
+      </Effect> 
+      <Effect ID="FLASH" PWName="Flash" PLName="Flash">
+          <Param name="FlashStyle" value="0" type="int"/><!--0:Blank ; 1:Invert;  2:Random(OnlyText)-->
+          <Param name="TextColor" value="0xFF" type="dword" />
+          <Param name="BackColor" value="0x0" type="dword" />
+          <Param name="OnTime" value="500" type="int" />
+          <Param name="OffTime" value="200" type="int" />
+      </Effect> 
+      <Effect ID="TRAVEL" PWName="Travel" PLName="Travel(Text-only)" >
+          <Param name="Angle" value="0" type="int" />
+          <Param name="Rate" value="10" type="int" />
+      </Effect>
+      <Effect ID="WRAPAROUND" PWName="WrapAround" PLName="WrapAround">
+          <Param name="Direction" value="0" type="int" />
+          <Param name="Rate" value="5" type="int" />
+      </Effect>
+  </DisplayEffects>
+
+
+  <ExitEffects>
+       <Effect ID="BLACKHOLE" PWName="BlackHoleOff" PLName="BlackHoleOff"> 
+            <Param name="State" value="0" type="int" />
+            <Param name="StartY" value="0" type="int" />
+            <Param name="StartX" value="0" type="int" />
+       </Effect> 
+       <Effect ID="INTERLEAVE" PWName="InterleaveOff" PLName="InterleaveOff">
+            <Param name="Direction" value="0" type="int" />
+            <Param name="Lines" value="0" type="int" />
+            <Param name="Thickness" value="5" type="int" />
+       </Effect> 
+       <Effect ID="LINE" PWName="LineOff" PLName="LineOff">
+            <Param name="Direction" value="2" type="int" />
+            <Param name="PullPoint" value="100" type="int" />
+            <Param name="LagSpacing" value="3" type="int" />
+            <Param name="LineWidth" value="1" type="int" />
+       </Effect> 
+       <Effect ID="FILTER" PWName="FilterOff" PLName="FilterOff">
+            <Param name="Width" value="10" type="int" />
+            <Param name="Height" value="10" type="int" />
+       </Effect> 
+  </ExitEffects>
+
+</PWEffects>
+

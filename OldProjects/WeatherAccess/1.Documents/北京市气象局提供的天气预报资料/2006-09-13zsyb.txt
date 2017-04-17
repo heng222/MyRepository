@@ -1,0 +1,39 @@
+晨练指数,1,非常适宜
+空调指数,1,强风制冷
+清洁度指数,2,空气质量较好，适宜在户外活动
+舒适度指数,7,偏热
+紫外线指数,1,最弱，不需要采取防护措施
+洗车指数,1,非常适宜
+
+[COUNT]
+NUM=6
+
+[ITEM]
+NAME= 晨练指数
+LEVEL= 1
+CMMT= 非常适宜
+
+[ITEM]
+NAME= 空调指数
+LEVEL= 1
+CMMT= 强风制冷
+
+[ITEM]
+NAME= 清洁度指数
+LEVEL= 2
+CMMT= 空气质量较好，适宜在户外活动
+
+[ITEM]
+NAME= 舒适度指数
+LEVEL= 7
+CMMT= 偏热
+
+[ITEM]
+NAME= 紫外线指数
+LEVEL= 1
+CMMT= 最弱，不需要采取防护措施
+
+[ITEM]
+NAME= 洗车指数
+LEVEL= 1
+CMMT= 非常适宜

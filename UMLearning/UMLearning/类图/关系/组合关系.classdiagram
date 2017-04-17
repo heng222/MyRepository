@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="120f8584-830d-4267-a5f9-3e85cd1bc099" name="组合关系" linkedPackageId="0f415330-3ee6-4574-a4a1-219d255d7e79" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+  <profileInstances>
+    <packageHasProfileInstances Id="e9a7fa35-569b-46da-aff4-6d132a976051">
+      <profileInstance Id="1681e4ef-1165-44e1-8a3b-17229f84aaac" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="bbf75d80-cad1-4c4d-bf3b-722a79c228f0">
+      <profileInstance Id="c8a575d0-a5e9-4333-8ec4-119082b6e98b" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="60ce3183-9604-457d-8343-9022a11292c2" name="股道" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="f5b7bfe2-19be-45b8-9ff7-87b592568757" />
+        <targetEnds>
+          <association Id="0c2540dc-42e5-4368-81a0-35f36ea4a5c3" isDerived="false" sourceEndRoleName="股道" targetEndRoleName="Point" isLeaf="false" isAbstract="false">
+            <classMoniker Id="091bda96-e8cf-40e6-aac5-eb2be5a6fe26" LastKnownName="Point" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="ce9601d9-5e78-4358-a484-e8b5bed2d051" name="股道" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Composite" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="185dd732-b4dd-4261-8437-5987be7e2736" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="6e7ef683-6ecc-4089-8f85-c2f198caf0ca" name="Point" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="true">
+                  <lowerValueInternal>
+                    <literalString Id="4c416a3d-3e27-4139-b940-2f48a1d56979" name="Lower" value="*">
+                      <elementDefinition Id="14434d77-98d9-4923-9761-1a5a2ff50874" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="f31cdf55-8aff-4256-85df-e88cc4505cb3" name="Upper" value="*">
+                      <elementDefinition Id="3d378bbc-6ade-45ff-be30-48f2797ed8ec" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="7fd90b8f-7e69-475a-8107-40ffe31c0d11" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="9e1d8604-c686-44d6-b67b-c69d663988d4" />
+          </association>
+        </targetEnds>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="091bda96-e8cf-40e6-aac5-eb2be5a6fe26" name="Point" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="bcfcb870-0a69-4801-8f35-e67cb0b4d8f8" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="10ce723c-35b1-413b-ba96-ce8e85c3aabd" name="信号机" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="5b0796a9-bd40-4624-af84-bf7ee13a5c45" />
+        <targetEnds>
+          <association Id="a233d7ba-29ce-4376-a830-d528395db7d6" isDerived="false" sourceEndRoleName="信号机" targetEndRoleName="Point" isLeaf="false" isAbstract="false">
+            <classMoniker Id="7a4e75ff-5eac-4c86-8a35-a65b9cff17f2" LastKnownName="Point" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="6432b217-1649-4f4e-8687-cd247b77be52" name="信号机" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Composite" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="3e894012-ed98-4444-b22f-fda660f8a59d" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="b5a1eb52-69e1-4d81-8541-57c0411b9ae8" name="Point" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="true">
+                  <lowerValueInternal>
+                    <literalString Id="39fc18ab-c364-4eb0-9f39-7fe140b4ac28" name="Lower" value="*">
+                      <elementDefinition Id="f1aebcb5-cdc7-451e-8438-5b2ec729f4ea" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="ef040046-2394-4318-b48c-8ce1778e93a9" name="Upper" value="*">
+                      <elementDefinition Id="4b3605ef-5d25-41bd-85a0-a769ca8d5378" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="e348021e-e3e1-4df7-8fc3-1b2c55c9e8c2" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="cdab21a9-8616-4cce-8df9-206bd3695f05" />
+          </association>
+          <association Id="ca078c4d-e706-46b7-82ad-4314d17c181e" isDerived="false" sourceEndRoleName="信号机" targetEndRoleName="Circular" isLeaf="false" isAbstract="false">
+            <classMoniker Id="e0b56bb7-092e-4d88-ae3d-12bbacf3dd89" LastKnownName="Circular" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="0b809a3a-0203-453b-920f-b6740e5054f9" name="信号机" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Composite" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="a42037e4-74eb-4e5b-b42c-10c4c55e134f" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="c2b24b93-ab1a-40e9-8a0a-3272500382ae" name="Circular" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="true">
+                  <lowerValueInternal>
+                    <literalString Id="aff71e0d-b685-4bd3-88ad-bc1c7e11fb26" name="Lower" value="*">
+                      <elementDefinition Id="ad7563c1-39f4-4202-8295-32fc53a78f1b" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="305f701d-83c0-404b-85da-46ac0317fee1" name="Upper" value="*">
+                      <elementDefinition Id="c5431960-dfa0-4b7d-92f7-2d7c2f5f4fba" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="f8de4eaf-a03c-463d-98b9-4feaaa3790a1" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="376d8e10-38b3-4436-8acc-73a15c1d2cb2" />
+          </association>
+        </targetEnds>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="7a4e75ff-5eac-4c86-8a35-a65b9cff17f2" name="Point" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="bcfcb870-0a69-4801-8f35-e67cb0b4d8f8" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="e0b56bb7-092e-4d88-ae3d-12bbacf3dd89" name="Circular" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="c3a0407d-1d00-4176-8d44-8fd852874d46" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+  </packagedElements>
+  <package Id="0f415330-3ee6-4574-a4a1-219d255d7e79" name="UMLearning">
+    <elementDefinition Id="baf8f03b-1fe8-4860-9ae1-10efb35b8e0a" />
+  </package>
+</logicalClassDesignerModel>

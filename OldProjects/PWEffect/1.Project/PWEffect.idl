@@ -1,0 +1,1051 @@
+
+
+
+//import "dxtmsft.idl";/I "D:\DirectX\DMSDK6\Include" 
+
+//import "oaidl.idl";
+import "D:\DirectX\DMSDK6\Include\dxtrans.idl";
+import "oaidl.idl";
+
+/////////////////////////////////////////////////////////////////////////////////////
+// Single Direction definition
+	typedef enum _tagSingleDirection
+	{
+		ED_LEFT = 0,
+		ED_RIGHT,
+		ED_UP,
+		ED_DOWN,
+		ED_IN,
+		ED_OUT,
+		ED_UPPERLEFT,
+		ED_UPPERRIGHT,
+		ED_LOWERLEFT,
+		ED_LOWERRIGHT,
+		ED_UPPERCENTER,
+		ED_LOWERCENTER,
+		ED_UPPERCORNERS,
+		ED_LOWERCORNERS,
+		ED_CENTER,
+		ED_ALLCORNERS,
+	} TSingleDir;
+
+///////////////////////////////////////////////////////////////////////////////////////
+// Round Direction definition
+	typedef enum _tagRoundDirection
+	{
+		EClockwise = 0,		// clock wise.
+		ECounterClockwise,	// counter clock wise
+		EAlternating,		// alternating.
+
+	}TRoundDir;
+
+
+//////////////////// Special Effect(Effect/Transition) Interface //////////////////////
+//
+
+// 
+	[
+		object,
+		uuid(DA519EB6-DDC9-42bd-B2DC-2F2960BD233F),
+		dual,
+		helpstring("ISS ProWrite Effect Interface"),
+		pointer_default(unique)
+	] 
+	interface IPWEffect : IDXEffect
+	{
+		// The Red property determines the amount of Blue (-1.0 to 1.0) to add or subtract from the video
+		// Values are set by Movie Maker and taken from the sample add on XML file.
+		[propget, id(10)] HRESULT Red([out,retval] float* pfRed);
+		[propput, id(10)] HRESULT Red([in] float fRed);
+
+
+		// The Green property determines the amount of Blue (-1.0 to 1.0) to add or subtract from the video
+		// Values are set by Movie Maker and taken from the sample add on XML file.
+		[propget, id(11)] HRESULT Green([out,retval] float* pfGreen);
+		[propput, id(11)] HRESULT Green([in] float fGreen);
+
+
+		// The Blue property determines the amount of Blue (-1.0 to 1.0) to add or subtract from the video
+		// Values are set by Movie Maker and taken from the sample add on XML file.
+		[propget, id(12)] HRESULT Blue([out,retval] float* pfBlue);
+		[propput, id(12)] HRESULT Blue([in] float fBlue);
+
+		// The background color, sometimes used as transparent color.
+		[propget, id(13)] HRESULT BackColor([out,retval] OLE_COLOR* pValue);
+		[propput, id(13)] HRESULT BackColor([in] OLE_COLOR newValue);
+
+	};
+
+
+///////////////////////// Effect£ºColor adjust /////////////////////////////////////
+
+	// Adjust type 
+	const BSTR AT_NOCHANGE = L"RGB";			// No change/original
+	const BSTR AT_GRAY =	 L"Gray";			// Gray
+	const BSTR AT_RED =		 L"Red";			// red
+	const BSTR AT_GREEN =	 L"Green";			// Green
+	const BSTR AT_BLUE =	 L"Blue";			// Blue
+	const BSTR AT_WHITE =	 L"White";			// White
+	const BSTR AT_AMBER =	 L"Amber";			// Amber
+	const BSTR AT_BLUEGREEN =	L"BlueGreen";		// Blue-Green
+	const BSTR AT_REDGREEN =	L"RedGreen";		// Red-Green
+
+
+	// 
+	[
+		object,
+		uuid(AC9B6F92-A7F3-4c23-8AB3-CB5F9F260017),
+		dual,
+		helpstring("ISS PW Color Adjust Interface"),
+		pointer_default(unique)
+	] 
+	interface IColorAdjust : IPWEffect
+	{
+		// Adjust type
+		[propget, id(30)] 
+		HRESULT AdjustType([out,retval] BSTR* pstrType);
+		[propput, id(30)] 
+		HRESULT AdjustType([in] BSTR strType);
+
+		// Sunglass color
+		[propget, id(31), helpstring("property SunglassColor")] 
+		HRESULT SunglassColor([out, retval] OLE_COLOR *pVal);
+		[propput, id(31), helpstring("property SunglassColor")] 
+		HRESULT SunglassColor([in] OLE_COLOR newVal);
+	};
+
+
+///////////////////////// Effect£ºText effect /////////////////////////////////////
+// 
+	typedef enum _tagTextType
+	{
+		EStatic = 0,	// Static text
+		ESystemTime,	// system time text with bouncing
+		EBounce,		// BounceText
+	}TTextType;
+
+	// Text effect interface
+	[
+		object,
+		uuid(1A53FF7F-192B-4006-ACF7-95F3DAB78406),
+		dual,
+		helpstring("ISS Text Effect Interface"),
+		pointer_default(unique)
+	] 
+	interface ITextEffect : IPWEffect
+	{
+		// Title Type
+		[propget,id(30)] HRESULT TitleType([out, retval] INT *pVal);
+		[propput,id(30)] HRESULT TitleType([in] INT newVal);
+
+		// Title
+		[propget,id(31)] HRESULT Title([out,retval] BSTR* pstrType);
+		[propput,id(31)] HRESULT Title([in] BSTR strType);
+
+		// TextColor
+		[propget,id(32)] HRESULT TextColor([out, retval] OLE_COLOR *pVal);
+		[propput,id(32)] HRESULT TextColor([in] OLE_COLOR newVal);
+
+		
+		// Font name
+		[propget,id(33)] HRESULT FontName([out, retval] BSTR *pVal);
+		[propput,id(33)] HRESULT FontName([in] BSTR newVal);
+
+		// Font height
+		[propget,id(34)] HRESULT FontHeight([out, retval] WORD *pVal);
+		[propput,id(34)] HRESULT FontHeight([in] WORD newVal);
+
+	};
+
+
+///////////////////////// Effect: Bijou /////////////////////////////////////
+// 
+	// 
+	[
+		object,
+		uuid(575956D4-A9CC-4FA4-A2BC-7034F968BAC0),
+		dual,
+		helpstring("IBijou Interface"),
+		pointer_default(unique)
+	]
+	interface IBijou : IPWEffect
+	{
+		// Direction
+		[propget,id(30)] HRESULT Direction([out, retval] INT *pVal);
+		[propput,id(30)] HRESULT Direction([in] INT newVal);
+		
+		// Rate
+		[propget,id(31)] HRESULT Rate([out, retval] INT *pVal);
+		[propput,id(31)] HRESULT Rate([in] INT newVal);
+		
+		// lamp Height
+		[propget,id(32)] HRESULT LampHeight([out, retval] INT *pVal);
+		[propput,id(32)] HRESULT LampHeight([in] INT newVal);
+		
+		// lamp Length
+		[propget,id(33)] HRESULT LampLength([out, retval] INT *pVal);
+		[propput,id(33)] HRESULT LampLength([in] INT newVal);
+		
+		// gap length
+		[propget,id(34)] HRESULT GapLength([out, retval] INT *pVal);
+		[propput,id(34)] HRESULT GapLength([in] INT newVal);
+		
+		// corners always on
+		[propget, id(35), helpstring("Corners always on")] 
+		HRESULT CornersOn([out, retval] BOOL *pVal);
+		[propput, id(35), helpstring("Corners always on")] 
+		HRESULT CornersOn([in] BOOL newVal);
+		
+		// Lamp color
+		[propget, id(36), helpstring("Lamp Color")] 
+		HRESULT LampColor([out, retval] OLE_COLOR *pVal);
+		[propput, id(36), helpstring("Lamp Color")] 
+		HRESULT LampColor([in] OLE_COLOR newVal);
+
+		// Gap color
+		[propget, id(37), helpstring("property GapColor")] 
+		HRESULT GapColor([out, retval] OLE_COLOR *pVal);
+		[propput, id(37), helpstring("property GapColor")] 
+		HRESULT GapColor([in] OLE_COLOR newVal);
+	};
+
+
+
+///////////////////////// Effect: Pixel Play /////////////////////////////////////
+// 
+
+	[
+		object,
+		uuid(83D4C206-E254-489C-B93E-F4CD86DA8A31),
+		dual,
+		helpstring("IPixelPlay Interface"),
+		pointer_default(unique)
+	]
+	interface IPixelPlay : IPWEffect
+	{
+		// Ratio1
+		[propget, id(31), helpstring("Resource to actual ration")] 
+		HRESULT R2ARatio([out, retval] INT *pVal);
+		[propput, id(31), helpstring("Resource to actual ration")] 
+		HRESULT R2ARatio([in] INT newVal);
+
+		// Ratio2
+		[propget, id(32), helpstring("Actual to virtual ration")] 
+		HRESULT A2VRatio([out, retval] INT *pVal);
+		[propput, id(32), helpstring("Actual to virtual ration")] 
+		HRESULT A2VRatio([in] INT newVal);
+
+	};
+
+///////////////////////// Effect: Snowing /////////////////////////////////////
+// 	
+	[
+		object,
+		uuid(7A9866E0-3FE5-403E-A0F8-37044C8B1DC8),
+		dual,
+		helpstring("ISnow Interface"),
+		pointer_default(unique)
+	]
+	interface ISnow : IPWEffect
+	{
+		// snow color
+		[propget, id(31), helpstring("Snow Color")] 
+		HRESULT Color([out, retval] OLE_COLOR *pVal);
+		[propput, id(31), helpstring("Snow Color")] 
+		HRESULT Color([in] OLE_COLOR newVal);
+		
+		// snow rate
+		[propget, id(32), helpstring("Snow Rate")] 
+		HRESULT Rate([out, retval] INT *pVal);
+		[propput, id(32), helpstring("Snow Rate")] 
+		HRESULT Rate([in] INT newVal);
+
+		// snow amount
+		[propget, id(33), helpstring("Amount")] 
+		HRESULT Amount([out, retval] FLOAT *pVal);
+		[propput, id(33), helpstring("Amount")] 
+		HRESULT Amount([in] FLOAT newVal);
+	};
+
+///////////////////////// Effect: Flash /////////////////////////////////////
+//
+	
+	typedef enum _tagFlashStype
+	{
+		EBlank = 0,  // blank flash
+		EInvert,	 // invert flash color
+		ERandom,	 // random flash color
+
+	} TFlashStyle;
+
+	[
+		object,
+		uuid(BEB3782E-7FC1-4803-B114-D0AB58B2DA1B),
+		dual,
+		helpstring("IFlash Interface"),
+		pointer_default(unique)
+	]
+	interface IFlash : IPWEffect
+	{
+		[propget, id(31), helpstring("Text Flash Style")] 
+		HRESULT FlashStyle([out, retval] INT *pVal);
+		[propput, id(31), helpstring("Text Flash Style")] 
+		HRESULT FlashStyle([in] INT newVal);
+
+		[propget, id(32), helpstring("Duration when on")] 
+		HRESULT OnTime([out, retval] DWORD *pVal);
+		[propput, id(32), helpstring("Duration when on")] 
+		HRESULT OnTime([in] DWORD newVal);
+
+		[propget, id(33), helpstring("Duration when off")] 
+		HRESULT OffTime([out, retval] DWORD *pVal);
+		[propput, id(33), helpstring("Duration when off")] 
+		HRESULT OffTime([in] DWORD newVal);
+
+		[propget, id(34), helpstring("weighted Euclidean Distance")] 
+		HRESULT WED([out, retval] FLOAT *pVal);
+		[propput, id(34), helpstring("weighted Euclidean Distance")] 
+		HRESULT WED([in] FLOAT newVal);
+
+		[propget, id(35), helpstring("TextColor")] 
+		HRESULT TextColor([out, retval] OLE_COLOR *pVal);
+		[propput, id(35), helpstring("TextColor")] 
+		HRESULT TextColor([in] OLE_COLOR newVal);
+	};
+
+
+	
+///////////////////////// Effect: Sparkle /////////////////////////////////////
+//
+	[
+		object,
+		uuid(3BBA06D5-7767-4E68-9C90-4817E0FD35AB),
+		dual,
+		helpstring("ISparkle Interface"),
+		pointer_default(unique)
+	]
+	interface ISparkle : IPWEffect
+	{
+		// color
+		[propget, id(50), helpstring("SparkleColor")] 
+		HRESULT SparkleColor([out, retval] OLE_COLOR *pVal);
+		[propput, id(50), helpstring("SparkleColor")] 
+		HRESULT SparkleColor([in] OLE_COLOR newVal);
+		
+		// amount
+		[propget, id(51), helpstring("Stars Amount")] 
+		HRESULT Amount([out, retval] FLOAT *pVal);
+		[propput, id(51), helpstring("Stars Amount")] 
+		HRESULT Amount([in] FLOAT newVal);
+		
+		// size
+		[propget, id(52), helpstring("Sparkle Size")] 
+		HRESULT Size([out, retval] INT *pVal);
+		[propput, id(52), helpstring("Sparkle Size")] 
+		HRESULT Size([in] INT newVal);
+	};
+
+///////////////////////// Transition: Rain On ///////////////////////////////////
+//
+	[
+		object,
+		uuid(1DB5495A-4F88-4E4B-8F3D-A107FD10AD67),
+		dual,
+		helpstring("IRain Interface"),
+		pointer_default(unique)
+	]
+	interface IRain : IPWEffect
+	{
+		[propget, id(31), helpstring("Rain Amount ratio[0,1]")] 
+		HRESULT Amount([out, retval] FLOAT *pVal);
+		[propput, id(31), helpstring("Rain Amount ratio[0,1]")] 
+		HRESULT Amount([in] FLOAT newVal);
+
+		[propget, id(32), helpstring("Rain Color")] 
+		HRESULT Color([out, retval] OLE_COLOR *pVal);
+		[propput, id(32), helpstring("Rain Color")]
+		HRESULT Color([in] OLE_COLOR newVal);
+
+		[propget, id(33), helpstring("Angle with X-Coordinate")] 
+		HRESULT Angle([out, retval] FLOAT *pVal);
+		[propput, id(33), helpstring("Angle with X-Coordinate")] 
+		HRESULT Angle([in] FLOAT newVal);
+	};
+
+
+///////////////////////// Effect: Travel /////////////////////////////////////
+//
+	[
+		object,
+		uuid(0D917FCE-B34C-4298-89DC-F739F0057B66),
+		dual,
+		helpstring("ITravel Interface"),
+		pointer_default(unique)
+	]
+	interface ITravel : IPWEffect
+	{		
+		[propget, id(32), helpstring("Pixels per frame")] 
+		HRESULT Rate([out, retval] INT *pVal);
+		[propput, id(32), helpstring("Pixels per frame")] 
+		HRESULT Rate([in] INT newVal);
+		
+		[propget, id(33), helpstring("The number of degrees clockwise beyond negative X-axis.")] 
+		HRESULT Angle([out, retval] FLOAT *pVal);
+		[propput, id(33), helpstring("The number of degrees clockwise beyond negative X-axis.")] 
+		HRESULT Angle([in] FLOAT newVal);
+
+		[propget, id(34), helpstring("Circular Flag")] 
+		HRESULT Circular([out, retval] BOOL *pVal);
+		[propput, id(34), helpstring("Circular Flag")] 
+		HRESULT Circular([in] BOOL newVal);
+
+		[propget, id(35), helpstring("property Spacing")] 
+		HRESULT Spacing([out, retval] INT *pVal);
+		[propput, id(35), helpstring("property Spacing")] 
+		HRESULT Spacing([in] INT newVal);
+	};
+
+
+///////////////////////// Effect: Bounce on/off /////////////////////////////////////
+//
+	[
+		object,
+		uuid(315FB4C0-5639-409B-9756-8F670969072E),
+		dual,
+		helpstring("IBounce Interface"),
+		pointer_default(unique)
+	]
+	interface IBounce : IPWEffect
+	{
+	};
+
+	
+///////////////////////// Effect: Black hole /////////////////////////////////////
+//
+	[
+		object,
+		uuid(553CF076-C625-48C0-90C5-F4F155830C72),
+		dual,
+		helpstring("IBlackHole Interface"),
+		pointer_default(unique)
+	]
+	interface IBlackHole : IDispatch
+	{
+		[propget, id(50), helpstring("X-axis of Start Position")] 
+		HRESULT StartX([out, retval] INT *pVal);
+		[propput, id(50), helpstring("X-axis of Start Position")] 
+		HRESULT StartX([in] INT newVal);
+
+		[propget, id(51), helpstring("Y-axis of Start Position")] 
+		HRESULT StartY([out, retval] INT *pVal);
+		[propput, id(51), helpstring("Y-axis of Start Position")] 
+		HRESULT StartY([in] INT newVal);
+
+		[propget, id(52), helpstring("0=BlackHole Off, nonzero=blackhole on")] 
+		HRESULT State([out, retval] BOOL *pVal);
+		[propput, id(52), helpstring("0=BlackHole Off, nonzero=blackhole on")] 
+		HRESULT State([in] BOOL newVal);
+	};
+
+///////////////////////// Effect: Slot /////////////////////////////////////
+//
+	[
+		object,
+		uuid(B942993A-149E-4C7B-A8FF-331C75D106FB),
+		dual,
+		helpstring("ISlot Interface"),
+		pointer_default(unique)
+	]
+	interface ISlot : IPWEffect
+	{
+	};	
+	
+	
+///////////////////////// Effect: Filter /////////////////////////////////////
+// 
+	[
+		object,
+		uuid(CE2541ED-70BD-48AC-824D-5D0BE2DAF157),
+		dual,
+		helpstring("IFilter Interface"),
+		pointer_default(unique)
+	]
+	interface IFilter : IPWEffect
+	{
+		[propget, id(30), helpstring("Thickness")] 
+		HRESULT Thickness([out, retval] INT *pVal);
+		[propput, id(30), helpstring("Thickness")] 
+		HRESULT Thickness([in] INT newVal);
+
+		[propget, id(31), helpstring("Spacing")] 
+		HRESULT Spacing([out, retval] INT *pVal);
+		[propput, id(31), helpstring("Spacing")] 
+		HRESULT Spacing([in] INT newVal);
+
+		[propget, id(32), helpstring("zero=filter off; nonezero=filter on")] 
+		HRESULT State([out, retval] BOOL *pVal);
+		[propput, id(32), helpstring("zero=filter off; nonezero=filter on")] 
+		HRESULT State([in] BOOL newVal);
+	};
+
+///////////////////////// Effect: Interleave On/Off /////////////////////////////////////
+//
+	// interleave direction
+	typedef enum _tagInterleaveDirection
+	{
+		
+		ETop_Bottom		= 0,
+		ELeft_Right,
+		EIn_Out,
+		ETopLeft_BottomRight,
+		EBottomLeft_TopRight,
+		ETopCorners,
+		EBottomCorners,
+
+	} TILDir;
+
+	[
+		object,
+		uuid(F418DFE9-5700-4223-87EF-793D08372DE2),
+		dual,
+		helpstring("IInterleave Interface"),
+		pointer_default(unique)
+	]
+	interface IInterleave : IPWEffect
+	{
+		[propget, id(30), helpstring("State of interleave(On=nonzero/off=zero)")] 
+		HRESULT State([out, retval] BOOL *pVal);
+		[propput, id(30), helpstring("State of interleave(On=nonzero/off=zero)")] 
+		HRESULT State([in] BOOL newVal);
+		
+		[propget, id(31), helpstring("Lines[zero=Horizontal,nonzero=Vertical]")] 
+		HRESULT Lines([out, retval] BOOL *pVal);
+		[propput, id(31), helpstring("Lines[zero=Horizontal,nonzero=Vertical]")] 
+		HRESULT Lines([in] BOOL newVal);
+
+		[propget, id(32), helpstring("Thickness")] 
+		HRESULT Thickness([out, retval] INT *pVal);
+		[propput, id(32), helpstring("Thickness")] 
+		HRESULT Thickness([in] INT newVal);
+
+		[propget, id(33), helpstring("Interleave Direction")] 
+		HRESULT Direction([out, retval] INT *pVal);
+		[propput, id(33), helpstring("Interleave Direction")] 
+		HRESULT Direction([in] INT newVal);
+
+	};
+
+
+///////////////////////// Effect: Wrap Around /////////////////////////////////////
+//
+
+	[
+		object,
+		uuid(DB271786-ED1B-4DEB-8152-FF4C37D62A3D),
+		dual,
+		helpstring("IWrapAround Interface"),
+		pointer_default(unique)
+	]
+	interface IWrapAround : IPWEffect
+	{
+		[propget, id(30), helpstring("Movement Rate")] 
+		HRESULT Rate([out, retval] INT *pVal);
+		[propput, id(30), helpstring("Movement Rate")] 
+		HRESULT Rate([in] INT newVal);
+
+		[propget, id(31), helpstring("Movement Direction")] 
+		HRESULT Direction([out, retval] INT *pVal);
+		[propput, id(31), helpstring("Movement Direction")] 
+		HRESULT Direction([in] INT newVal);
+
+		[propget, id(32), helpstring("Spacing")] 
+		HRESULT Spacing([out, retval] INT *pVal);
+		[propput, id(32), helpstring("Spacing")] 
+		HRESULT Spacing([in] INT newVal);
+	};
+
+
+///////////////////////// Transition: LineOn/Off /////////////////////////////////////
+//
+	[
+		object,
+		uuid(7CA714FD-8055-4A95-81A5-2A56CDB8A58E),
+		dual,
+		helpstring("ILineOn Interface"),
+		pointer_default(unique)
+	]
+	interface ILineOn : IPWEffect
+	{
+		[propget, id(30), helpstring("zero=LineOff,nonzero=lineOn")] 
+		HRESULT State([out, retval] BOOL *pVal);
+		[propput, id(30), helpstring("zero=LineOff,nonzero=lineOn")] 
+		HRESULT State([in] BOOL newVal);
+
+		[propget, id(31), helpstring("Direction(left,right,up or down)")] 
+		HRESULT Direction([out, retval] INT *pVal);
+		[propput, id(31), helpstring("Direction(left,right,up or down)")] 
+		HRESULT Direction([in] INT newVal);
+
+		[propget, id(32), helpstring("LagSpacing")] 
+		HRESULT LagSpacing([out, retval] INT *pVal);
+		[propput, id(32), helpstring("LagSpacing")] 
+		HRESULT LagSpacing([in] INT newVal);
+
+		[propget, id(33), helpstring("LineWidth")] 
+		HRESULT LineWidth([out, retval] INT *pVal);
+		[propput, id(33), helpstring("LineWidth")] 
+		HRESULT LineWidth([in] INT newVal);
+
+		[propget, id(34), helpstring("PullPoint")] 
+		HRESULT PullPoint([out, retval] INT *pVal);
+		[propput, id(34), helpstring("PullPoint")] 
+		HRESULT PullPoint([in] INT newVal);
+	};
+
+	///////////////////////// Transitionct: Slide On/Off /////////////////////////////////////
+//
+	[
+		object,
+		uuid(4A96D297-3ED3-4E8D-A312-8E558B36F43A),
+	    dual,
+		helpstring("ISlide Interface"),
+		pointer_default(unique)
+	]
+	interface ISlide : IPWEffect
+	{
+		[propget, id(30), helpstring("zero=SlideOff,nonzero=SlideOn")] 
+		HRESULT State([out, retval] BOOL *pVal);
+		[propput, id(30), helpstring("zero=SlideOff,nonzero=SlideOn")] 
+		HRESULT State([in] BOOL newVal);
+		
+		[propget, id(31), helpstring("Direction")] 
+		HRESULT Direction([out, retval] INT *pVal);
+		[propput, id(31), helpstring("Direction")] 
+		HRESULT Direction([in] INT newVal);
+	};
+
+///////////////////////// Transition: Wipe On/Off /////////////////////////////////////
+//
+	[
+		object,
+		uuid(231C248A-F1E3-4453-B371-B1CB1E38441A),
+		dual,
+		helpstring("IWipe Interface"),
+		pointer_default(unique)
+	]
+	interface IWipe : IPWEffect
+	{
+		[propget, id(30), helpstring("zero=WipeOff,nonzero=WipeOn")] 
+		HRESULT State([out, retval] BOOL *pVal);
+		[propput, id(30), helpstring("zero=WipeOff,nonzero=WipeOn")] 
+		HRESULT State([in] BOOL newVal);
+		
+		[propget, id(31), helpstring("Direction")] 
+		HRESULT Direction([out, retval] INT *pVal);
+		[propput, id(31), helpstring("Direction")] 
+		HRESULT Direction([in] INT newVal);
+	};
+
+///////////////////////// Transition: MultiWipe On/Off /////////////////////////////////////
+//
+	[
+		object,
+		uuid(F76D4167-04EB-40D7-B479-251D53810CC4),
+		dual,
+		helpstring("IMultiWipe Interface"),
+		pointer_default(unique)
+	]
+	interface IMultiWipe : IPWEffect
+	{
+		[propget, id(30), helpstring("zero=WipeOff,nonzero=WipeOn")] 
+		HRESULT State([out, retval] BOOL *pVal);
+		[propput, id(30), helpstring("zero=WipeOff,nonzero=WipeOn")] 
+		HRESULT State([in] BOOL newVal);
+
+		[propget, id(31), helpstring("Horizontal wipes number")] 		
+		HRESULT HWNum([out, retval] INT *pVal);
+		[propput, id(31), helpstring("Horizontal wipes number")] 
+		HRESULT HWNum([in] INT newVal);
+		
+		[propget, id(32), helpstring("Vertical wipes number")] 
+		HRESULT VWNum([out, retval] INT *pVal);
+		[propput, id(32), helpstring("Vertical wipes number")] 
+		HRESULT VWNum([in] INT newVal);
+
+	};
+
+	///////////////////////// Transition: Push On /////////////////////////////////////
+//
+	[
+		object,
+		uuid(2457899E-06FD-4A0B-B8AE-A4E03986ADF2),
+		dual,
+		helpstring("IPushOn Interface"),
+		pointer_default(unique)
+	]
+	interface IPushOn : IPWEffect
+	{
+		[propget, id(30), helpstring("Direction")] 
+		HRESULT Direction([out, retval] INT *pVal);
+		[propput, id(30), helpstring("Direction")] 
+		HRESULT Direction([in] INT newVal);
+	};
+
+//////////////////////// Transition: Radar On/Off /////////////////////////////////////
+//
+	[
+		object,
+		uuid(50DF9763-B9DA-4904-8554-BA73B5C58D19),
+		dual,
+		helpstring("IRadar Interface"),
+		pointer_default(unique)
+	]
+	interface IRadar : IPWEffect
+	{
+		[propget, id(30), helpstring("zero=RadarOff,nonzero=RadarOn")] 
+		HRESULT State([out, retval] BOOL *pVal);
+		[propput, id(30), helpstring("zero=RadarOff,nonzero=RadarOn")] 
+		HRESULT State([in] BOOL newVal);
+
+		[propget, id(31), helpstring("Direction")] 
+		HRESULT Direction([out, retval] INT *pVal);
+		[propput, id(31), helpstring("Direction")] 
+		HRESULT Direction([in] INT newVal);
+
+		[propget, id(32), helpstring("property PointerColor")] 
+		HRESULT PointerColor([out, retval] OLE_COLOR *pVal);
+		[propput, id(32), helpstring("property PointerColor")] 
+		HRESULT PointerColor([in] OLE_COLOR newVal);
+
+		[propget, id(33), helpstring("property PointerWidth")] 
+		HRESULT PointerWidth([out, retval] INT *pVal);
+		[propput, id(33), helpstring("property PointerWidth")] 
+		HRESULT PointerWidth([in] INT newVal);
+	};
+
+
+//////////////////////// Transition: Venetian On/Off /////////////////////////////////////
+//
+	[
+		object,
+		uuid(89C8FF82-206F-437F-864B-FECFF44AE7B4),
+		dual,
+		helpstring("IVenetian Interface"),
+		pointer_default(unique)
+	]
+	interface IVenetian : IPWEffect
+	{
+		[propget, id(30), helpstring("zero=VenetianOff,nonzero=VenetianOn")] 
+		HRESULT State([out, retval] BOOL *pVal);
+		[propput, id(30), helpstring("zero=VenetianOff,nonzero=VenetianOn")] 
+		HRESULT State([in] BOOL newVal);
+
+		[propget, id(31), helpstring("Direction")] 
+		HRESULT Direction([out, retval] INT *pVal);
+		[propput, id(31), helpstring("Direction")] 
+		HRESULT Direction([in] INT newVal);
+
+		[propget, id(32), helpstring("Blind Width")] 
+		HRESULT BlindWidth([out, retval] INT *pVal);
+		[propput, id(32), helpstring("Blind Width")] 
+		HRESULT BlindWidth([in] INT newVal);
+	};
+
+//////////////////////// Transition: Fade On/Off /////////////////////////////////////
+//
+	[
+		object,
+		uuid(EB5385D6-5F3F-4E84-B8D1-E8624DE5B1BA),
+		dual,
+		helpstring("IFade Interface"),
+		pointer_default(unique)
+	]
+	interface IFade : IPWEffect
+	{
+		[propget, id(30), helpstring("zero=Fade Off,nonzero=Fade On")] 
+		HRESULT State([out, retval] BOOL *pVal);
+		[propput, id(30), helpstring("zero=Fade Off,nonzero=Fade On")]
+		HRESULT State([in] BOOL newVal);
+	};
+
+//////////////////////// Transition: Coalesce On/Off /////////////////////////////////////
+//
+	[
+		object,
+		uuid(A1CFEA04-B91F-4C06-B62D-5F6D60F6B01E),
+		dual,
+		helpstring("ICoalesce Interface"),
+		pointer_default(unique)
+	]
+	interface ICoalesce : IPWEffect
+	{
+		[propget, id(30), helpstring("zero=Fade Off,nonzero=Fade On")] 
+		HRESULT State([out, retval] BOOL *pVal);
+		[propput, id(30), helpstring("zero=Fade Off,nonzero=Fade On")]
+		HRESULT State([in] BOOL newVal);
+
+		[propget, id(31), helpstring("Entity Width")] 
+		HRESULT EntityWidth([out, retval] INT *pVal);
+		[propput, id(31), helpstring("Entity Width")] 
+		HRESULT EntityWidth([in] INT newVal);
+		[propget, id(32), helpstring("property EntityHeight")] HRESULT EntityHeight([out, retval] INT *pVal);
+		[propput, id(32), helpstring("property EntityHeight")] HRESULT EntityHeight([in] INT newVal);
+
+	};
+
+
+
+////////////////////////////////////////////////////////////////////////////
+// Type library definitions  
+[
+	uuid(B1FEB9A2-A676-46da-83C5-B1CBEC33BC07),
+	version(1.0),
+	helpstring("ISS ProWrite Effects Type Library")
+] 
+library ISSPWEffectLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	// Color adjust
+	[
+		uuid(5317AB02-6923-492d-ABFC-742B6194B739),
+		helpstring("PW Color Adjust Effect Class")
+	]
+	coclass ClrAdjustEffect
+	{
+		[default] interface	IColorAdjust;
+	};
+
+	// Text Effect
+	[
+		uuid(D11F6A7F-079E-4D1D-93FD-3B20E9BBC748),
+		helpstring("PW Text Effect Class")
+	]
+	coclass DTOText
+	{
+		[default] interface ITextEffect;
+	};
+
+	// Bijou
+	[
+		uuid(A4B54A75-6E38-4312-B5E9-C9950EE98141),
+		helpstring("Bijou Class")
+	]
+	coclass Bijou
+	{
+		[default] interface IBijou;
+	};
+
+	// Pixel play
+	[
+		uuid(F67BBA3B-1980-48CB-92BB-CC826BF458E6),
+		helpstring("PixelPlay Class")
+	]
+	coclass PixelPlay
+	{
+		[default] interface IPixelPlay;
+	};
+
+	// Snow
+	[
+		uuid(632BB53B-C02D-4AB1-B041-A14F524812EF),
+		helpstring("Snow Class")
+	]
+	coclass Snow
+	{
+		[default] interface ISnow;
+	};
+
+	// Flash
+	[
+		uuid(66CAB342-DDEF-4E2C-B407-19DA2D41A938),
+		helpstring("Flash Class")
+	]
+	coclass Flash
+	{
+		[default] interface IFlash;
+	};
+
+	// Sparkle
+	[
+		uuid(9D15677F-1972-41A9-8573-2D037055743C),
+		helpstring("Sparkle Class")
+	]
+	coclass Sparkle
+	{
+		[default] interface ISparkle;
+	};
+
+	// Rain
+	[
+		uuid(158BBBD4-B83C-4168-9598-6D30E99530DC),
+		helpstring("Rain Class")
+	]
+	coclass Rain
+	{
+		[default] interface IRain;
+	};
+
+	// Travel
+	[
+		uuid(0740D73C-0676-4AFC-BEB9-07F3AE6A8FA3),
+		helpstring("Travel Class")
+	]
+	coclass Travel
+	{
+		[default] interface ITravel;
+	};
+
+	// bounce
+	[
+		uuid(A631D229-A165-4db7-B28D-32D4CE2CA42C),
+		helpstring("Bounce Class")
+	]
+	coclass Bounce
+	{
+		[default] interface IBounce;
+	};
+
+	// black-hole on/off
+	[
+		uuid(B058D4C2-1D75-4226-8C8C-66CCD2802735),
+		helpstring("BlackHole Class")
+	]
+	coclass BlackHole
+	{
+		[default] interface IBlackHole;
+	};
+
+	// slot on/off
+	[
+		uuid(4615B371-8A88-4141-8CF5-3993386EAF69),
+		helpstring("Slot Class")
+	]
+	coclass Slot
+	{
+		[default] interface ISlot;
+	};
+
+	// Filter on/off
+	[
+		uuid(D0AA7BDD-F81F-48ca-B914-5DD196EFC398),
+		helpstring("Filter Class")
+	]
+	coclass Filter
+	{
+		[default] interface IFilter;
+	};
+
+	// Interleave on/off
+	[
+		uuid(098EA7F1-DA86-48ca-BB90-3C730BC32AD7),
+		helpstring("Interleave Class")
+	]
+	coclass Interleave
+	{
+		[default] interface IInterleave;
+	};
+
+	// Wrap around
+	[
+		uuid(89BDCC9F-96B6-426F-B6CC-FEE51C3C818D),
+		helpstring("WrapAround Class")
+	]
+	coclass WrapAround
+	{
+		[default] interface IWrapAround;
+	};
+
+	// Line on/off
+	[
+		uuid(F51A5AD6-D26C-4c90-BCA5-7698EF5BD317),
+		helpstring("LineOn Class")
+	]
+	coclass LineOn
+	{
+		[default] interface ILineOn;
+	};
+
+	// Slide On/Off
+	[
+		uuid(86E33B61-4FDF-4514-95D4-8BCDB5C33D1C),
+		helpstring("Slide Class")
+	]
+	coclass Slide
+	{
+		[default] interface ISlide;
+	};
+
+	// Wipe On/Off
+	[
+		uuid(87A66F87-E9BE-47DF-A5AD-4C7FF1582079),
+		helpstring("Wipe Class")
+	]
+	coclass Wipe
+	{
+		[default] interface IWipe;
+	};
+
+	// MultiWipe On/Off
+	[
+		uuid(1105251F-2672-466D-9D8C-DAD7F90AA0C2),
+		helpstring("MultiWipe Class")
+	]
+	coclass MultiWipe
+	{
+		[default] interface IMultiWipe;
+	};
+
+	// Push On
+	[
+		uuid(2386E440-D525-4227-A275-E06A6D2D2F81),
+		helpstring("PushOn Class")
+	]
+	coclass PushOn
+	{
+		[default] interface IPushOn;
+	};
+
+	// Radar on/off
+	[
+		uuid(3D75C64D-6706-4DC0-A287-BC8695676DAD),
+		helpstring("Radar Class")
+	]
+	coclass Radar
+	{
+		[default] interface IRadar;
+	};
+
+	// Venetian On/Off
+	[
+		uuid(A43598F6-C2FC-4FE3-816C-9599E6D0CD9B),
+		helpstring("Venetian Class")
+	]
+	coclass Venetian
+	{
+		[default] interface IVenetian;
+	};
+
+	// Fade On/Off
+	[
+		uuid(2F1F21F4-5093-4C2C-B96D-973295079000),
+		helpstring("Fade Class")
+	]
+	coclass Fade
+	{
+		[default] interface IFade;
+	};
+
+	// Colaesce On/Off
+	[
+		uuid(C83F0057-B7F1-44E9-9EBF-648A57B3BE7E),
+		helpstring("Coalesce Class")
+	]
+	coclass Coalesce
+	{
+		[default] interface ICoalesce;
+	};
+};
+
+//////////////////////////////////////////////////

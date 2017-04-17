@@ -1,0 +1,291 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="About" xml:space="preserve">
+    <value>Files\Commons\About.htm</value>
+  </data>
+  <data name="CurrentSign" xml:space="preserve">
+    <value>Files\SelectSign.htm</value>
+  </data>
+  <data name="Dashboard" xml:space="preserve">
+    <value>Files\Dashboard.htm</value>
+  </data>
+  <data name="Dashboard.AddSign" xml:space="preserve">
+    <value>Files\AddSign.htm</value>
+  </data>
+  <data name="Dashboard.Connect" xml:space="preserve">
+    <value>Files\Connect.htm</value>
+  </data>
+  <data name="Dashboard.CurrentClip" xml:space="preserve">
+    <value>Files\CurrentClip.htm</value>
+  </data>
+  <data name="Dashboard.Display" xml:space="preserve">
+    <value>Files\Display.htm</value>
+  </data>
+  <data name="Dashboard.Init" xml:space="preserve">
+    <value>Files\Initialization.htm</value>
+  </data>
+  <data name="Dashboard.LiveView" xml:space="preserve">
+    <value>Files\LiveView.htm</value>
+  </data>
+  <data name="Dashboard.Modify" xml:space="preserve">
+    <value>Files\Modify.htm</value>
+  </data>
+  <data name="Dashboard.Monitor" xml:space="preserve">
+    <value>Files\Monitor.htm</value>
+  </data>
+  <data name="Dashboard.New" xml:space="preserve">
+    <value>Files\DashboardSignNew.htm</value>
+  </data>
+  <data name="Dashboard.SettingDefault" xml:space="preserve">
+    <value>Files\SettingDefault.htm</value>
+  </data>
+  <data name="Dashboard.Setup" xml:space="preserve">
+    <value>Files\Setup.htm</value>
+  </data>
+  <data name="Dashboard.Sign" xml:space="preserve">
+    <value>Files\Sign.htm</value>
+  </data>
+  <data name="Dashboard.SignImage" xml:space="preserve">
+    <value>Files\SignImage.htm</value>
+  </data>
+  <data name="Dashboard.SignList" xml:space="preserve">
+    <value>Files\SignList.htm</value>
+  </data>
+  <data name="Dashboard.SignStatus" xml:space="preserve">
+    <value>Files\Dashboard\SignStatus.htm</value>
+  </data>
+  <data name="Dashboard.SystemDefault" xml:space="preserve">
+    <value>Files\SystemDefault.htm</value>
+  </data>
+  <data name="Dashboard.Tools" xml:space="preserve">
+    <value>Files\Tools.htm</value>
+  </data>
+  <data name="Dashboard.UserLogin" xml:space="preserve">
+    <value>Files\UserLogin.htm</value>
+  </data>
+  <data name="Dashboard.UserManager" xml:space="preserve">
+    <value>Files\UserManager.htm</value>
+  </data>
+  <data name="Editor" xml:space="preserve">
+    <value>Files\Editor.htm</value>
+  </data>
+  <data name="Editor.Content" xml:space="preserve">
+    <value>Files\EditorContent.htm</value>
+  </data>
+  <data name="Editor.Effect" xml:space="preserve">
+    <value>Files\Effect.htm</value>
+  </data>
+  <data name="Editor.Files" xml:space="preserve">
+    <value>Files\EditorFiles.htm</value>
+  </data>
+  <data name="Editor.Library" xml:space="preserve">
+    <value>Files\Library.htm</value>
+  </data>
+  <data name="Editor.Message" xml:space="preserve">
+    <value>Files\EditorMessage.htm</value>
+  </data>
+  <data name="Editor.New" xml:space="preserve">
+    <value>Files\EditorNew.htm</value>
+  </data>
+  <data name="Editor.Open" xml:space="preserve">
+    <value>Files\EditorOpen.htm</value>
+  </data>
+  <data name="Editor.Paint" xml:space="preserve">
+    <value>Files\Paint.htm</value>
+  </data>
+  <data name="Editor.Property" xml:space="preserve">
+    <value>Files\EditorProperty.htm</value>
+  </data>
+  <data name="Editor.Sign" xml:space="preserve">
+    <value>Files\EditorSign.htm</value>
+  </data>
+  <data name="Editor.TextFont" xml:space="preserve">
+    <value>Files\TextFont.htm</value>
+  </data>
+  <data name="Editor.ToolBox" xml:space="preserve">
+    <value>Files\EditorContent.htm</value>
+  </data>
+  <data name="Editor.Windows" xml:space="preserve">
+    <value>Files\EditorWindows.htm</value>
+  </data>
+  <data name="Playlist.New" xml:space="preserve">
+    <value>Files\PlaylistNew.htm</value>
+  </data>
+  <data name="Playlist.Open" xml:space="preserve">
+    <value>Files\PlaylistOpen.htm</value>
+  </data>
+  <data name="Playlists" xml:space="preserve">
+    <value>Files\Playlists.htm</value>
+  </data>
+  <data name="Playlists.Content" xml:space="preserve">
+    <value>Files\PlaylistsContent.htm</value>
+  </data>
+  <data name="Playlists.Files" xml:space="preserve">
+    <value>Files\PlaylistsFiles.htm</value>
+  </data>
+  <data name="Playlists.Player" xml:space="preserve">
+    <value>Files\PlaylistsPlayer.htm</value>
+  </data>
+  <data name="Playlists.Preview" xml:space="preserve">
+    <value>Files\PlaylistsPreview.htm</value>
+  </data>
+  <data name="Playlists.Properties" xml:space="preserve">
+    <value>Files\PlaylistsProperties.htm</value>
+  </data>
+  <data name="Playlists.Sign" xml:space="preserve">
+    <value>Files\PlaylistsSign.htm</value>
+  </data>
+  <data name="Playlists.TimeSliceGroup" xml:space="preserve">
+    <value>Files\TimeSliceGroup.htm</value>
+  </data>
+  <data name="QuickStart" xml:space="preserve">
+    <value>Files\QuickStart.htm</value>
+  </data>
+  <data name="Scheduler" xml:space="preserve">
+    <value>Files\Scheduler.htm</value>
+  </data>
+  <data name="Scheduler.Calendar" xml:space="preserve">
+    <value>Files\Calendar.htm</value>
+  </data>
+  <data name="Scheduler.Content" xml:space="preserve">
+    <value>Files\SchedulerContent.htm</value>
+  </data>
+  <data name="Scheduler.Files" xml:space="preserve">
+    <value>Files\SchedulerFiles.htm</value>
+  </data>
+  <data name="Scheduler.New" xml:space="preserve">
+    <value>Files\SchedulerNew.htm</value>
+  </data>
+  <data name="Scheduler.Open" xml:space="preserve">
+    <value>Files\SchedulerOpen.htm</value>
+  </data>
+  <data name="Scheduler.Properties" xml:space="preserve">
+    <value>Files\SchedulerProperties.htm</value>
+  </data>
+  <data name="Scheduler.Sign" xml:space="preserve">
+    <value>Files\SchedulerSign.htm</value>
+  </data>
+  <data name="~HelpFileName" xml:space="preserve">
+    <value>PWHelp.chm</value>
+  </data>
+  <data name="~HelpFileNameRelease" xml:space="preserve">
+    <value>HelpFile\PWHelp.chm</value>
+  </data>
+</root>

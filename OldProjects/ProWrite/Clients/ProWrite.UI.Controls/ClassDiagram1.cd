@@ -1,0 +1,202 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Font Name="SimSun" Size="9" />
+  <Class Name="ProWrite.UI.Controls.TabControlBase" Collapsed="true">
+    <Position X="2.75" Y="5" Width="1.75" />
+    <TypeIdentifier>
+      <FileName>TabControlBase.cs</FileName>
+      <HashCode>AAAAAIAAAAAACAAAAAAAAAAAAAAAgAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ProWrite.UI.Controls.TabControlBase&lt;TModel, TControlPanel&gt;" Collapsed="true">
+    <Position X="7" Y="6.5" Width="3.25" />
+    <TypeIdentifier>
+      <FileName>TabControlBase.cs</FileName>
+      <HashCode>AAAAAIAAAQAACAAAAACAAAAEAAAAgAAAAABAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+    <Members>
+      <Method Name="AddPage" Hidden="true" />
+      <Method Name="ClosePage" Hidden="true" />
+      <Property Name="Current" Hidden="true" />
+      <Field Name="MaxPageCount" Hidden="true" />
+      <Method Name="OnCloseButtonClick" Hidden="true" />
+      <Method Name="OnSelectedPageChanged" Hidden="true" />
+      <Method Name="Save" Hidden="true" />
+      <Method Name="TabControlBase" Hidden="true" />
+    </Members>
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Class Name="ProWrite.UI.Controls.TabControlBase&lt;TModel, TControlPanel&gt;.TabPage" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>TabControlBase.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+  </Class>
+  <Class Name="ProWrite.UI.Controls.MessageTabControl" Collapsed="true">
+    <Position X="3.25" Y="8" Width="2.75" />
+    <TypeIdentifier>
+      <FileName>TabControlBase.cs</FileName>
+      <HashCode>AAAAAIAAAoAAAAAAAACAAAAEAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProWrite.UI.Controls.PlaylistTabControl" Collapsed="true">
+    <Position X="6.75" Y="8" Width="3.5" />
+    <TypeIdentifier>
+      <FileName>TabControlBase.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProWrite.UI.Controls.ScheduleTabControl" Collapsed="true">
+    <Position X="11" Y="8" Width="3.25" />
+    <TypeIdentifier>
+      <FileName>TabControlBase.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProWrite.UI.Controls.UndoControlBase" Collapsed="true">
+    <Position X="24.25" Y="2" Width="2.5" />
+    <TypeIdentifier>
+      <FileName>UndoControlBase.cs</FileName>
+      <HashCode>AAAAAAgAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProWrite.UI.Controls.Playlist.PlaylistControl" Collapsed="true">
+    <Position X="20.5" Y="4.75" Width="2.75" />
+    <TypeIdentifier>
+      <FileName>Playlist\PlaylistControl.cs</FileName>
+      <HashCode>AlEAAI0IAiIAAyMAGCCAIACiCEIyABRAACgCBgJAKAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProWrite.UI.Controls.Scheduler.ScheduleControl" Collapsed="true">
+    <Position X="24" Y="4.75" Width="3" />
+    <TypeIdentifier>
+      <FileName>Scheduler\SchedulerControl.cs</FileName>
+      <HashCode>QAhIACABAiAoAAAQIECAwkAKw0AkAAUECIgASQIEAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProWrite.UI.Controls.Editor.MessageControl" Collapsed="true">
+    <Position X="27.75" Y="4.75" Width="2.75" />
+    <TypeIdentifier>
+      <FileName>Editor\MessageControl.cs</FileName>
+      <HashCode>M3EBoryhUiRoBQEFsijTOAAC1EO5Ic4FoTgDZ1gEhKA=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ProWrite.UI.Controls.ControlBase" Collapsed="true">
+    <Position X="16.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>ControlBase.cs</FileName>
+      <HashCode>AQAAAAAAACAAAAAAACCEAAACAAIAAAAAAAACBAAgAAA=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ProWrite.UI.Controls.ModuleControl" Collapsed="true">
+    <Position X="11" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>ModuleControl.cs</FileName>
+      <HashCode>AAIAAIAQQiIAACABECGACAACAAEEAAACAEgABAAAAAA=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ProWrite.UI.Controls.ModuleControl&lt;TModel, TTabControl, TControlPanel&gt;">
+    <Position X="11.25" Y="3.25" Width="3.5" />
+    <TypeIdentifier>
+      <FileName>ModuleControl.cs</FileName>
+      <HashCode>AAAAAIAIAAIEACABAAEEAAAAAAAAAAAAwBAAAAAAAAI=</HashCode>
+    </TypeIdentifier>
+    <Members>
+      <Field Name="_containers" Hidden="true" />
+      <Field Name="_tabControl" Hidden="true" />
+      <Method Name="InitModule" Hidden="true" />
+      <Property Name="ITabModuleControl.TabControl" Hidden="true" />
+      <Property Name="ModelType" Hidden="true" />
+      <Method Name="ModuleClosed" Hidden="true" />
+      <Method Name="ModuleControl" Hidden="true" />
+      <Method Name="ModuleShown" Hidden="true" />
+      <Method Name="New" Hidden="true" />
+      <Method Name="OnOpenLibrayItem" Hidden="true" />
+      <Method Name="OpenLibrary" Hidden="true" />
+      <Method Name="RegisterDockPanel" Hidden="true" />
+      <Method Name="Save" Hidden="true" />
+    </Members>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ProWrite.UI.Controls.EditorModuleNew">
+    <Position X="6.25" Y="5.25" Width="4" />
+    <TypeIdentifier>
+      <FileName>Modules\EditModule.cs</FileName>
+      <HashCode>IAAAAAEQQiIEAAAAAACARAACAAEEAAgGAAgAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+    <Members>
+      <Method Name="BatchLoad" Hidden="true" />
+      <Field Name="components" Hidden="true" />
+      <Property Name="CopyAction" Hidden="true" />
+      <Method Name="Delete" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Field Name="dockManager1" Hidden="true" />
+      <Field Name="dockPanelBottom" Hidden="true" />
+      <Field Name="dockPanelEffect" Hidden="true" />
+      <Field Name="dockPanelLeft" Hidden="true" />
+      <Field Name="dockPanelLibrary" Hidden="true" />
+      <Field Name="dockPanelPropertyGrid" Hidden="true" />
+      <Field Name="dockPanelToolBox" Hidden="true" />
+      <Field Name="dockPanelTop" Hidden="true" />
+      <Method Name="EditorModuleNew" Hidden="true" />
+      <Method Name="InitializeComponent" Hidden="true" />
+      <Method Name="InitMenu" Hidden="true" />
+      <Property Name="ModelType" Hidden="true" />
+      <Property Name="ModuleName" Hidden="true" />
+      <Method Name="ModuleShown" Hidden="true" />
+    </Members>
+  </Class>
+  <Class Name="ProWrite.UI.Controls.PlaylistModuleNew" Collapsed="true">
+    <Position X="11" Y="5.25" Width="4" />
+    <TypeIdentifier>
+      <FileName>Modules\PlaylistModuleNew.cs</FileName>
+      <HashCode>IAAAAAAAACIEABAUIACAAAACEAAAAAICAAgACAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProWrite.UI.Controls.SchedulerModule" Collapsed="true">
+    <Position X="15.75" Y="5.25" Width="4" />
+    <TypeIdentifier>
+      <FileName>Modules\SchedulerModule.cs</FileName>
+      <HashCode>IABAAAAAACIEABAQAACADAACAAAACAQCAAgAADBEAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProWrite.UI.Controls.DashboardModule" Collapsed="true">
+    <Position X="8.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Modules\DashboardModule.cs</FileName>
+      <HashCode>BAQAACCADCoAAgwBYgGQUAACggMaAAACCAgGARgoQBA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProWrite.UI.Controls.ControlPanel&lt;TModel, TControlPanel&gt;" Collapsed="true">
+    <Position X="24.25" Y="3.25" Width="2.5" />
+    <TypeIdentifier>
+      <FileName>UndoControlBase.cs</FileName>
+      <HashCode>CAAAIAQAACAAAAIAEgCAAAAAAAAAAAQAAAgQBAAAAAA=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="ProWrite.UI.Controls.IPageController" Collapsed="true">
+    <Position X="31.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>TabControlBase.cs</FileName>
+      <HashCode>AAAAAIAAAAAACAAAAAAAAAAAAAAAgAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ProWrite.UI.Controls.ITabModuleControl">
+    <Position X="0.5" Y="2.75" Width="2" />
+    <TypeIdentifier>
+      <FileName>ModuleControl.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="TabControl" />
+    </ShowAsAssociation>
+  </Interface>
+</ClassDiagram>

@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E1D600DA-4038-4920-B1A5-52623EBD189C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SecurityServices</RootNamespace>
+    <AssemblyName>Org.Mentalis.SecurityServices</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\Bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\Bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\Version\AssemblyInfo.cs">
+      <Link>AssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="Authentication\AlphaValidator.cs" />
+    <Compile Include="Authentication\AuthenticationStructures.cs" />
+    <Compile Include="Authentication\CharacterValidator.cs" />
+    <Compile Include="Authentication\CharEnumerator.cs" />
+    <Compile Include="Authentication\Credential.cs" />
+    <Compile Include="Authentication\CredentialCollection.cs" />
+    <Compile Include="Authentication\CredentialException.cs" />
+    <Compile Include="Authentication\IValidator.cs" />
+    <Compile Include="Authentication\LengthValidator.cs" />
+    <Compile Include="Authentication\NumericValidator.cs" />
+    <Compile Include="Authentication\PasswordValidator.cs" />
+    <Compile Include="Authentication\SymbolValidator.cs" />
+    <Compile Include="Cryptography\ARCFourManaged.cs" />
+    <Compile Include="Cryptography\ARCFourManagedTransform.cs" />
+    <Compile Include="Cryptography\CryptoHandle.cs" />
+    <Compile Include="Cryptography\HMAC.cs" />
+    <Compile Include="Cryptography\MD2.cs" />
+    <Compile Include="Cryptography\MD2CryptoServiceProvider.cs" />
+    <Compile Include="Cryptography\MD4.cs" />
+    <Compile Include="Cryptography\MD4CryptoServiceProvider.cs" />
+    <Compile Include="Cryptography\RC4.cs" />
+    <Compile Include="Cryptography\RC4CryptoServiceProvider.cs" />
+    <Compile Include="Cryptography\RC4UnmanagedTransform.cs" />
+    <Compile Include="Cryptography\RijndaelCryptoServiceProvider.cs" />
+    <Compile Include="Cryptography\RijndaelUnmanagedTransform.cs" />
+    <Compile Include="Cryptography\StringEncryption.cs" />
+    <Compile Include="Cryptography\SymmetricKey.cs" />
+    <Compile Include="NativeMethods.cs" />
+    <Compile Include="Permissions\PermissionStructures.cs" />
+    <Compile Include="Permissions\SmartcardPermission.cs" />
+    <Compile Include="Permissions\SmartcardPermissionAttribute.cs" />
+    <Compile Include="Platform.cs" />
+    <Compile Include="Resources\ResourceController.cs" />
+    <Compile Include="Resources\SecurityServicesMessages.Designer.cs" />
+    <Compile Include="Smartcard\ApduCommand.cs" />
+    <Compile Include="Smartcard\ApduReply.cs" />
+    <Compile Include="Smartcard\Atr.cs" />
+    <Compile Include="Smartcard\SmartcardException.cs" />
+    <Compile Include="Smartcard\SmartcardReader.cs" />
+    <Compile Include="Smartcard\SmartcardStructures.cs" />
+    <Compile Include="Smartcard\UI\InputPinForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Smartcard\UI\SelectReaderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Smartcard\VendorAttributes.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\SecurityServicesMessages.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Smartcard\UI\InputPinForm.resx">
+      <DependentUpon>InputPinForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Smartcard\UI\SelectReaderForm.resx">
+      <DependentUpon>SelectReaderForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

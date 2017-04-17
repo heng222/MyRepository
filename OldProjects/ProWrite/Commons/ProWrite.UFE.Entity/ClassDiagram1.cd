@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ProWrite.UFE.Entity.Library">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAARAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Contract.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProWrite.UFE.Entity.Message">
+    <Position X="3" Y="2.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Contract.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProWrite.UFE.Entity.TimesliceGroup">
+    <Position X="5.25" Y="2.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>Contract.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProWrite.UFE.Entity.Playlist">
+    <Position X="7.5" Y="2.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Contract.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProWrite.UFE.Entity.Schedule">
+    <Position X="0.75" Y="2.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAAgCAAAgAAAAAAACIIAEAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Contract.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProWrite.UFE.Entity.TemplateSign" Collapsed="true">
+    <Position X="10" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAACAQAAAAAAAAAAAAAAAAAAAAAAAAAAAQAQAAAAAAA=</HashCode>
+      <FileName>Contract.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="ProWrite.UFE.Entity.Layer" Collapsed="true">
+    <Position X="13.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAIAAAAAAAABCIBAAAAAAAQAQAAIAAgA=</HashCode>
+      <FileName>Contract.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="ProWrite.UFE.Entity.Effect" Collapsed="true">
+    <Position X="11.75" Y="1.75" Width="1.5" />
+    <NestedTypes>
+      <Struct Name="ProWrite.UFE.Entity.Effect.Parameter" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Contract.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAACAAIAAAAAAAAAAAAAAARAIAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Contract.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="ProWrite.UFE.Entity.ScrollEffect" Collapsed="true">
+    <Position X="11.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAACAAAAABAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Contract.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="ProWrite.UFE.Entity.Bounds" Collapsed="true">
+    <Position X="10" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAYAA=</HashCode>
+      <FileName>Contract.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="ProWrite.UFE.Entity.LibraryRefItem" Collapsed="true">
+    <Position X="10" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Contract.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Enum Name="ProWrite.UFE.Entity.LibraryType" Collapsed="true">
+    <Position X="10" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAAAAAAAAQAAEAAAAAIAAAAIAAAAAA=</HashCode>
+      <FileName>Contract.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="ProWrite.UFE.Entity.DataType" Collapsed="true">
+    <Position X="10" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAIQAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Contract.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="ProWrite.UFE.Entity.InputType" Collapsed="true">
+    <Position X="11.75" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAQAAAAAA=</HashCode>
+      <FileName>Contract.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="ProWrite.UFE.Entity.LayerType" Collapsed="true">
+    <Position X="13.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAACAAIAgg=</HashCode>
+      <FileName>Contract.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="ProWrite.UFE.Entity.ScrollDirectionType" Collapsed="true">
+    <Position X="11.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAACACAAAEAAAI=</HashCode>
+      <FileName>Contract.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="SimSun" Size="9" />
+</ClassDiagram>

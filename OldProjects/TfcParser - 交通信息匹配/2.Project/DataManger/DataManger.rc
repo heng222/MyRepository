@@ -1,0 +1,284 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// 中文(中华人民共和国) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+#ifdef _WIN32
+LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_SIMPLIFIED
+#pragma code_page(936)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)\r\n"
+    "LANGUAGE 4, 2\r\n"
+    "#pragma code_page(936)\r\n"
+    "#include ""res\\DataManger.rc2""  // 不是由 Microsoft Visual C++ 编辑过的资源\r\n"
+    "#include ""afxres.rc""     // 标准组件\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x2L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "080403a8"
+        BEGIN
+            VALUE "CompanyName", "TODO: <公司名>"
+            VALUE "FileDescription", "TODO: <文件说明>"
+            VALUE "FileVersion", "1.0.0.1"
+            VALUE "InternalName", "DataManger.dll"
+            VALUE "LegalCopyright", "TODO: (C) <公司名>。保留所有权利。"
+            VALUE "OriginalFilename", "DataManger.dll"
+            VALUE "ProductName", "TODO: <产品名>"
+            VALUE "ProductVersion", "1.0.0.1"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x804, 936
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_POPMENU_WTHVIEW MENU 
+BEGIN
+    POPUP "WTHMENU"
+    BEGIN
+        MENUITEM "信息提示",                    ID_MENU_INFTIP, CHECKED
+        MENUITEM SEPARATOR
+        MENUITEM "其它城市气象信息...",         ID_MENU_WTHINF
+    END
+END
+
+IDR_POPMENU_TFCVIEW MENU 
+BEGIN
+    POPUP "TFCMENU"
+    BEGIN
+        MENUITEM "全屏(Shift+Alt+Enter)",       ID_TFCMENU_FULLSCR
+    END
+END
+
+IDR_MENU_TFCROAD MENU 
+BEGIN
+    POPUP "交通路况视图菜单"
+    BEGIN
+        MENUITEM "选择道路(&R)\tCtrl+S",        ID_TFCROAD_SELECTROAD
+        MENUITEM "解析(&P)...\tCtrl+P",         ID_TFCROAD_PARSE
+        MENUITEM "节点名称(&N)\tCtrl+N",        ID_TFCROAD_NODENAME
+    END
+END
+
+IDR_MENU_TFCPARSED MENU 
+BEGIN
+    POPUP "Link视图菜单"
+    BEGIN
+        MENUITEM "选择Link(&L)...",             ID_LINK_SELECTION
+        MENUITEM "Link方向(&D)",                ID_LINK_DIRECTION
+        MENUITEM SEPARATOR
+        MENUITEM "交通监测节点(&T)",            ID_LINK_TFCNODE
+        MENUITEM "节点名称(&N)",                ID_LINK_NODENAME
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_DLG_WEATHER DIALOGEX 0, 0, 273, 210
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+EXSTYLE WS_EX_TOOLWINDOW
+CAPTION "查询各城市气象信息"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    PUSHBUTTON      "确定",IDOK,91,189,50,14
+    PUSHBUTTON      "取消",IDCANCEL,193,189,50,14
+    CONTROL         "",IDC_TREE1,"SysTreeView32",TVS_HASBUTTONS | 
+                    TVS_HASLINES | TVS_LINESATROOT | WS_BORDER | WS_TABSTOP | 
+                    0x800,9,10,94,168,WS_EX_STATICEDGE
+    GROUPBOX        "",IDC_STATIC,7,3,258,178
+    COMBOBOX        IDC_COMBO_PERIOD,126,12,71,76,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "查询(&Q)",IDC_BTN_QUERY,210,13,43,12
+    GROUPBOX        "",IDC_STATIC,107,3,158,178
+    GROUPBOX        "",IDC_STATIC,107,26,158,155
+    EDITTEXT        IDC_EDIT_WTHINF,110,32,152,146,ES_MULTILINE | 
+                    ES_AUTOVSCROLL | ES_READONLY | WS_VSCROLL
+END
+
+IDD_DLG_ROADATTRI DIALOGEX 0, 0, 311, 249
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CENTER | WS_MINIMIZEBOX | 
+    WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "道路解析"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    PUSHBUTTON      "取消",IDCANCEL,228,228,47,14
+    CONTROL         "",IDC_LIST1,"SysListView32",LVS_REPORT | LVS_SINGLESEL | 
+                    LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,10,10,289,201
+    PUSHBUTTON      "解析(&P)",IDC_BTN_PARSE,33,228,47,14
+    GROUPBOX        "",IDC_STATIC,7,3,297,213
+    PUSHBUTTON      "保存(&S)...",IDC_BTN_SAVE,123,228,47,14
+END
+
+IDD_DLG_LINKATTRI DIALOGEX 0, 0, 272, 130
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "Link属性"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "确定",IDOK,93,109,50,14
+    PUSHBUTTON      "取消",IDCANCEL,184,109,50,14
+    CONTROL         "",IDC_LIST1,"SysListView32",LVS_REPORT | LVS_ALIGNLEFT | 
+                    WS_BORDER | WS_TABSTOP,7,12,254,66
+    GROUPBOX        "",IDC_STATIC,3,3,263,86
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_DLG_WEATHER, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 266
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 203
+        HORZGUIDE, 26
+        HORZGUIDE, 180
+    END
+
+    IDD_DLG_ROADATTRI, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 304
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 242
+    END
+
+    IDD_DLG_LINKATTRI, DIALOG
+    BEGIN
+        LEFTMARGIN, 3
+        RIGHTMARGIN, 266
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 123
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog Info
+//
+
+IDD_DLG_WEATHER DLGINIT
+BEGIN
+    IDC_COMBO_PERIOD, 0x403, 5, 0
+0xf1bd, 0xeccc, "\000" 
+    IDC_COMBO_PERIOD, 0x403, 5, 0
+0xf7c3, 0xeccc, "\000" 
+    IDC_COMBO_PERIOD, 0x403, 5, 0
+0xf3ba, 0xeccc, "\000" 
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Cursor
+//
+
+IDC_CURSOR_SELECTION    CURSOR                  "cursor1.cur"
+#endif    // 中文(中华人民共和国) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+LANGUAGE 4, 2
+#pragma code_page(936)
+#include "res\DataManger.rc2"  // 不是由 Microsoft Visual C++ 编辑过的资源
+#include "afxres.rc"     // 标准组件
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

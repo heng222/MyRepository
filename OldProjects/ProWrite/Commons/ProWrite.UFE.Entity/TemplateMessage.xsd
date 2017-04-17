@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="PWTM" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="TemplateMessage" nillable="true" type="TemplateMessage" />
+  <xs:complexType name="TemplateMessage">
+    <xs:complexContent mixed="false">
+      <xs:extension base="LibraryObject">
+        <xs:sequence>
+          <xs:element minOccurs="1" maxOccurs="1" name="EmphasisEffect" type="Effect" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Regions" type="Region" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="LibraryObject">
+    <xs:complexContent mixed="false">
+      <xs:extension base="IdObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="1" name="Name" type="xs:string" />
+          <xs:element minOccurs="1" maxOccurs="1" name="Type" type="LibraryType" />
+          <xs:element minOccurs="1" maxOccurs="1" name="Duration" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="IdObject">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="Id" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="LibraryRefItem">
+    <xs:complexContent mixed="false">
+      <xs:extension base="IdObject">
+        <xs:sequence>
+          <xs:element minOccurs="1" maxOccurs="1" name="Type" type="LibraryType" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="LibraryType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Message" />
+      <xs:enumeration value="TimesliceGroup" />
+      <xs:enumeration value="Playlist" />
+      <xs:enumeration value="Schedule" />
+      <xs:enumeration value="TemplateMessage" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="Region">
+    <xs:complexContent mixed="false">
+      <xs:extension base="IdObject">
+        <xs:sequence>
+          <xs:element minOccurs="1" maxOccurs="1" name="Bounds" type="Bounds" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Items" type="LibraryRefItem" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Bounds">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="X" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Y" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Width" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Height" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Effect">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="Name" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="StartTime" type="xs:long" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Length" type="xs:long" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Params" type="ArrayOfParameter" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfParameter">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Parameter" type="Parameter" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Parameter">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="Name" type="xs:string" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+</xs:schema>

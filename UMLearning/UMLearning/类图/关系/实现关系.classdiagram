@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="d78a867c-d41f-48cd-9bbf-00d1182d4954" name="实现关系" linkedPackageId="2de4ad10-93aa-4814-972d-30021e922df6" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+  <profileInstances>
+    <packageHasProfileInstances Id="373a16b0-ff16-436c-aef5-6ca8aae4a7a2">
+      <profileInstance Id="6af985fb-7cdf-491e-82a9-9066f0ea44af" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="8c0ee620-db4c-4922-a682-1290088ec783">
+      <profileInstance Id="9be5b649-4aa9-4be1-89e7-efd15f1526f0" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <logicalClassDesignerModelHasTypes>
+      <Interface Id="e6d9a5cb-ea79-4693-92ab-2cfca2756aa6" name="ICollection" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="ec3986c1-567d-4a0d-b545-7b8454250adc" />
+      </Interface>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="66c63f80-7395-4b42-9f94-290c89008eb2" name="List" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="6d5c6d06-eb27-42e9-9511-89418f6dbd75" />
+        <suppliersInternal>
+          <interfaceRealization Id="ebc78106-59d6-492c-8d8a-126a626a30c6">
+            <interfaceMoniker Id="e6d9a5cb-ea79-4693-92ab-2cfca2756aa6" LastKnownName="ICollection" />
+            <elementDefinition Id="e8124878-e6c9-42a0-b98f-dc314b97bf25" />
+          </interfaceRealization>
+        </suppliersInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="1b54248f-b3b2-4f0d-a646-ff2b63e42939" name="Stack" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="078b5042-11e0-44da-98a2-876062e49be7" />
+        <suppliersInternal>
+          <interfaceRealization Id="80956e98-5652-4335-bf30-3cbd3b433483">
+            <interfaceMoniker Id="e6d9a5cb-ea79-4693-92ab-2cfca2756aa6" LastKnownName="ICollection" />
+            <elementDefinition Id="11163abe-1811-4e37-ac7d-16f8b48ddcd0" />
+          </interfaceRealization>
+        </suppliersInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="93696ed9-e646-4974-a4df-36f5e2a4f61c" name="Queue" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="20f141ef-bde1-48a7-addb-9c124f7cf906" />
+        <suppliersInternal>
+          <interfaceRealization Id="22d37284-c124-44d9-9366-56beffa73b74">
+            <interfaceMoniker Id="e6d9a5cb-ea79-4693-92ab-2cfca2756aa6" LastKnownName="ICollection" />
+            <elementDefinition Id="a1ddf989-253d-4614-98be-fab77c83414a" />
+          </interfaceRealization>
+        </suppliersInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+  </packagedElements>
+  <package Id="2de4ad10-93aa-4814-972d-30021e922df6" name="UMLearning">
+    <elementDefinition Id="baf8f03b-1fe8-4860-9ae1-10efb35b8e0a" />
+  </package>
+</logicalClassDesignerModel>

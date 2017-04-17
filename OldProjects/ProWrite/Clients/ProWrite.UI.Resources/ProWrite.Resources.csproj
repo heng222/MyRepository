@@ -1,0 +1,977 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F2473A63-8F0D-48E1-B11F-AEEF54D1F021}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ProWrite.Resources</RootNamespace>
+    <AssemblyName>ProWrite.Resources</AssemblyName>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <PublishUrl>http://localhost/ProWrite.Resources/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\Bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\Bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release_X64|AnyCPU' ">
+    <OutputPath>bin\Release_X64\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug_X64|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug_X64\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\Version\AssemblyInfo.cs">
+      <Link>AssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="Resources.cs" />
+    <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ResHelps.resx">
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResImages.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResStrings.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Default.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PWLogoG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PWLogoR.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PWLogoY.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Playlist16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Playlist.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RecycleClose16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RecycleClose.png.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RecycleOpen16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RecycleOpen.png.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Video16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Video.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pause16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pause.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Play16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Play.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Temp16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Temp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TextLayer16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TextLayer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Time16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Time.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\VisiableLayer16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\VisiableLayer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ZoomIn16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ZoomIn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ZoomOut16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ZoomOut.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BatchLoad16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BatchLoad.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Connect16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Connect.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Copy16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Copy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Delete16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Disconnect16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Disconnect.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Display16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Display.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Drawing16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Drawing.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Edit16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\InsertMessage16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\InsertMessage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\InsertPlaylist16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\InsertPlaylist.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\InsertSignPhoto16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\InsertSignPhoto.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\InsertTimeSliceGroup16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\InsertTimeSliceGroup.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NewLibrary16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NewLibrary.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NewMessage16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NewMessage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NewPlaylist16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NewPlaylist.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NewSchedule16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NewSchedule.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NewSign16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NewSign.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NewSignGroup16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NewSignGroup.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Paste16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Paste.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Properties16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Properties.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Redo16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Redo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RefreshView16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RefreshView.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Save16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SaveAs16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SaveAs.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SendTo16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SendTo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SignPhotoView16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SignPhotoView.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tools16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tools.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Undo16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Undo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\group.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Trans lux.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PWLogoG.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Default.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ZoomOutBar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ZoomInBar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PlayNext.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PlayPrevious.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Image16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\line16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shape16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\new16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\new.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dimming.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dimming16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Test_Pattern.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Blank_Sign16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Blank_Sign.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Display_Message16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Display_Message.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Test_Pattern16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\View_Logs.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\View_Logs16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LiveView.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LiveView16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FillPaintCan.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FillPaintCan16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Eraser16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Eraser.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pen16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LiveStorage16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LiveStorage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sign.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sign16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Schedule.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Schedul16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ArrowUp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ArrowDown16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ArrowDown.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ArrowLeft16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ArrowLeft.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ArrowRight16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ArrowRight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ArrowUp16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Rectangle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ellipse16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ellipse.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Rectangle16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cancel16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cancel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\按钮背景.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\play1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\play2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\play3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\play4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\stop1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\stop2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\stop3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\stop4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NewLayer16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Exit16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Exit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WindowsLarge.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BackColor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FontBold.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FontItalic.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ForeColor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\JustifyCenter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\JustifyLeft.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\JustifyRight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Windows.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Line_Color16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OpenFile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Insert.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Line_Thickness.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Line_Thickness16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\live32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DataPassThrough16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DataPassThrough32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\live16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ShapeLayer32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CXCInit16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CXCInit32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\deletelog16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\deletelog32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DynamicInfo16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DynamicInfo32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\EnterEffect16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\EnterEffect32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ExitEffect16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ExitEffect32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Export16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Export32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Import16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Import32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\InsertNew16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\InsertNew32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PaintFill16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PaintFill32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PlayEffect16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PlayEffect32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PW_Logo16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PW_Logor16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PW_Logoy16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ScrollText16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ScrollText32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\send_to16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\send_to32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ShapeLayer16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FontFrameFixed32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FontSizeFixed32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Insert16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Insert32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Manager16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Manager32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\StopPush.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NextDisable.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NextHover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NextNormal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NextPush.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PauseDisable.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PauseHover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PauseNormal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PausePush.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PlayBarBackground.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PlayDisable.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PlayHover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PlayNormal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PlayPush.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PreviousDisable.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PreviousHover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PreviousNormal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PreviousPush.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\StopDisable.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\StopHover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\StopNormal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FontFrameFixed16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FontSizeFixed16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DashBoard32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Edit32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Playlist32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Schedule32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Schedule16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DashBoard16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PlayBarBackground_01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PlayBar_01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PlayBarBackground_02.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Play2Disable.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Play2Hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Play2Normal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Play2Push.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pointerTool.Image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\about2.jpg" />
+    <None Include="Resources\Add to Group.png" />
+    <None Include="Resources\Bring to Front.png" />
+    <None Include="Resources\Cancel Background.png" />
+    <None Include="Resources\Close Show All Layers.png" />
+    <None Include="Resources\export.png" />
+    <None Include="Resources\Fit to Sign.png" />
+    <None Include="Resources\Generale Nail Image.png" />
+    <None Include="Resources\import.png" />
+    <None Include="Resources\Eye30_25.png" />
+    <None Include="Resources\Image30_25.png" />
+    <None Include="Resources\Delete Emphasis Effect.png" />
+    <None Include="Resources\Delete Entry Effect.png" />
+    <None Include="Resources\Delete Exit Effect.png" />
+    <None Include="Resources\FrameFixed32.png" />
+    <None Include="Resources\FrameFixed16.png" />
+    <None Include="Resources\FrameFixedTrue16.png" />
+    <None Include="Resources\BitMap16.png" />
+    <None Include="Resources\help.png" />
+    <None Include="Resources\about.png" />
+    <None Include="Resources\Layer.ico" />
+    <None Include="Resources\Library.ico" />
+    <None Include="Resources\bijou.ico" />
+    <None Include="Resources\blackhole.ico" />
+    <None Include="Resources\bounce.ico" />
+    <None Include="Resources\coalesce.ico" />
+    <None Include="Resources\fade.ico" />
+    <None Include="Resources\filter.ico" />
+    <None Include="Resources\flash.ico" />
+    <None Include="Resources\green.ico" />
+    <None Include="Resources\interleave.ico" />
+    <None Include="Resources\line.ico" />
+    <None Include="Resources\DashboardIcon16x16.png" />
+    <None Include="Resources\DashboardGroupIcon 16x16.png" />
+    <None Include="Resources\DashboardIcon 16x16.png" />
+    <None Include="Resources\DashboardIcon 32x32.png" />
+    <None Include="Resources\DashboardGroupIcon 32x32.png" />
+    <None Include="Resources\EditorAddToIcon 32x32.png" />
+    <None Include="Resources\LibraryIcon 32x32.png" />
+    <None Include="Resources\DashboardConnectIcon 16x16 copy.png" />
+    <None Include="Resources\LibraryIcon 16x16.PNG" />
+    <None Include="Resources\about1.jpg" />
+    <None Include="Resources\about1_modify.jpg" />
+    <None Include="Resources\ConnectingProgress.JPG" />
+    <None Include="Resources\baffle.JPG" />
+    <None Include="Resources\GreenStatus.png" />
+    <None Include="Resources\CurrentContent.png" />
+    <None Include="Resources\GoLive.png" />
+    <None Include="Resources\GoLive16.png" />
+    <Content Include="Resources\loading.gif" />
+    <None Include="Resources\Setup.png" />
+    <None Include="Resources\Setup16.png" />
+    <None Include="Resources\Message.ico" />
+    <None Include="Resources\NewMessage16.ico" />
+    <None Include="Resources\Playlist.ico" />
+    <None Include="Resources\Schedule.ico" />
+    <None Include="Resources\Sign.ico" />
+    <None Include="Resources\multiwipe.ico" />
+    <None Include="Resources\questionmark.ico" />
+    <None Include="Resources\radar.ico" />
+    <None Include="Resources\rain.ico" />
+    <None Include="Resources\red.ico" />
+    <None Include="Resources\rss.ico" />
+    <None Include="Resources\Reboot.gif" />
+    <None Include="Resources\MessageIcon16x16.png" />
+    <None Include="Resources\Playlist Icon 16x16.png" />
+    <None Include="Resources\SchedulerIcon16x16.png" />
+    <None Include="Resources\SchedulerUpload 32x32.png" />
+    <None Include="Resources\MessageIcon 32x32.png" />
+    <None Include="Resources\PlaylistAddToIcon 32x32.png" />
+    <None Include="Resources\PlaylistIcon 32x32.png" />
+    <None Include="Resources\ScheduleIcon 32x32.png" />
+    <None Include="Resources\plays.png" />
+    <None Include="Resources\pass.JPG" />
+    <None Include="Resources\Play3Push.png" />
+    <None Include="Resources\Play3Disable.png" />
+    <None Include="Resources\Play3Hover.png" />
+    <None Include="Resources\Play3Normal.png" />
+    <None Include="Resources\PlayNowIcon_32.png" />
+    <None Include="Resources\RedStatus.png" />
+    <None Include="Resources\PW_LogoY16.ico" />
+    <None Include="Resources\PW_LogoG16.ico" />
+    <None Include="Resources\PW_LogoR16.ico" />
+    <Content Include="Resources\SignConnectNew.png" />
+    <None Include="Resources\YellowStatus.png" />
+    <None Include="Resources\Splash.gif" />
+    <None Include="Resources\stop.png" />
+    <None Include="Resources\xingji32.png" />
+    <None Include="Resources\xingji16.png" />
+    <None Include="Resources\Slide.ico" />
+    <None Include="Resources\wipe.ico" />
+    <None Include="Resources\TimeZone.png" />
+    <None Include="Resources\SignImageDefault.png" />
+    <None Include="Resources\SignImageDefault.bmp" />
+    <None Include="Resources\yellow.ico" />
+    <None Include="Resources\wraparound.ico" />
+    <None Include="Resources\venitian.ico" />
+    <None Include="Resources\sparkle.ico" />
+    <None Include="Resources\snow.ico" />
+    <None Include="Resources\slot.ico" />
+    <None Include="Resources\SignGroup.ico" />
+    <None Include="Resources\TrueType16.png" />
+    <None Include="Resources\Set Exit Effect.png" />
+    <None Include="Resources\Set entry Effect.png" />
+    <None Include="Resources\Set Emphasis Effect.png" />
+    <None Include="Resources\Remove from this group.png" />
+    <None Include="Resources\Move Layer Forward.png" />
+    <None Include="Resources\Move Layer Backwards.png" />
+    <None Include="Resources\SignConnect161.png" />
+    <None Include="Resources\ProWriteInit32.png" />
+    <None Include="Resources\ProWriteInit16.png" />
+    <None Include="Resources\SystemDefault32.png" />
+    <None Include="Resources\SystemDefault16.png" />
+    <None Include="Resources\UserManager32.png" />
+    <None Include="Resources\UserManager16.png" />
+    <None Include="Resources\Time30_25.png" />
+    <None Include="Resources\Text30_25.png" />
+    <None Include="Resources\Temp30_25.png" />
+    <None Include="Resources\shape30_25.png" />
+    <None Include="Resources\ScrollText30_25.png" />
+    <None Include="Resources\Video30_25.png" />
+    <None Include="Resources\Viable30_25.png" />
+    <None Include="Resources\Snap All Layers.png" />
+    <None Include="Resources\Show all layers.png" />
+    <None Include="Resources\Set Background.png" />
+    <None Include="Resources\Send to Back.png" />
+    <None Include="Resources\rename.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

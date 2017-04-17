@@ -1,0 +1,25 @@
+HKCR
+{
+    DXImageTransform.Microsoft.MMSampleEffect.1 = s 'Movie Maker Sample Effect'
+    {
+	CLSID = s '{294D0DE1-1B57-408d-A33F-FA708A5A28D6}'
+    }
+    DXImageTransform.Microsoft.MMSampleEffect = s 'Movie Maker Sample Effect'
+    {
+	CurVer = s 'DXImageTransform.Microsoft.MMSampleEffect.1'
+	CLSID = s '{294D0DE1-1B57-408d-A33F-FA708A5A28D6}'
+    }
+    NoRemove CLSID
+    {
+	ForceRemove {294D0DE1-1B57-408d-A33F-FA708A5A28D6} = s 'Movie Maker Sample Effect'
+	{
+	    ProgID = s 'DXImageTransform.Microsoft.MMSampleEffect.1'
+	    VersionIndependentProgID = s 'DXImageTransform.Microsoft.MMSampleEffect'
+	    ForceRemove 'Programmable'
+	    InprocServer32 = s '%MODULE%'
+	    {
+		val ThreadingModel = s 'Both'
+	    }
+	}
+    }
+}

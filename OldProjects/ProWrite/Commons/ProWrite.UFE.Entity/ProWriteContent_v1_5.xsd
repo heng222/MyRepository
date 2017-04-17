@@ -1,0 +1,483 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--Created with Liquid XML Studio 6.1.17.0 - FREE Community Edition (http://www.liquid-technologies.com)-->
+<!-- Version History -->
+<!-- 1.0  Initial release to iSoftStone 3/22/08 -->
+<!-- 1.1  Added versioning number and added ScheduleInfo, Playlists, Schedules -->
+<!--          and TimeSliceGroups. Also modified FO's to be scheduled  3/31/08 -->
+<!-- 1.2  Enhanced Content to match how the FO's will operate.  No Multi-FO's  -->
+<!--          Added, Transition Effects, Emphasis Effects, Scroll, and timing  -->
+<!-- 1.4  Added include by reference for FrameObjects, Playlists, etc.         -->
+<!-- 1.5  12/3/08 DN                                                           -->
+<!--      Removed ScheduleInfo from FrameObjects, Playlists,                   -->
+<!--         TemplateFrameObjects, and TimeSliceGroups.  Added ScheduleInfo    -->
+<!--          into new complex type ScheduleItem                               -->
+<!--      Made some elements in FrameContentType optional                      -->
+<!--      Changed IncludeType to be a simple type                              -->
+<!--      Reorganized repeatable elements in playlists, regions, times slice   -->
+<!--          groups, schedules, frame objects                                 -->
+<!-- NOTE:  This is a preliminary Schema Definition for ProWrite Frame Objects -->
+<!-- The Target Namespace  may need to be modified -->
+<xsd:schema xmlns:tns="http://xml.netbeans.org/schema/ProWriteSchedule" elementFormDefault="qualified" targetNamespace="http://xml.netbeans.org/schema/ProWriteSchedule" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:element name="Schedule" type="tns:ScheduleType" />
+  <xsd:element name="Playlist" type="tns:PlaylistType" />
+  <xsd:element name="TimeSliceGroup" type="tns:TimeSliceGroupType" />
+  <xsd:element name="TemplateFrameObject" type="tns:TemplateFrameObjectType" />
+  <xsd:element name="FrameObject" type="tns:FrameObjectType" />
+  <xsd:complexType name="ScheduleType">
+    <xsd:sequence>
+      <xsd:element name="UniqueIdentifier" type="xsd:string" />
+      <xsd:element name="DefaultDisplayContent" type="tns:ScheduleContentType" />
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="ScheduleItem">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="Timing" type="tns:ScheduleInfoType" />
+            <xsd:element name="DisplayContent" type="tns:ScheduleContentType" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ScheduleInfoType">
+    <xsd:sequence>
+      <xsd:element default="false" name="IsScheduled" type="xsd:boolean" />
+      <xsd:element default="00:00:00" name="StartTime" type="xsd:time" />
+      <xsd:element default="23:59:59" name="StopTime" type="xsd:time" />
+      <xsd:element default="2008-08-01" name="StartDate" type="xsd:date" />
+      <xsd:element default="2012-08-01" name="StopDate" type="xsd:date" />
+      <xsd:element maxOccurs="6" default="MTWTHFSSU" name="DaysChoice" type="tns:DayChoiceType" />
+      <xsd:element default="false" name="IsExact" type="xsd:boolean" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ScheduleContentType">
+    <xsd:choice>
+      <xsd:element name="Playlist" type="tns:PlaylistType" />
+      <xsd:element name="TimeSliceGroup" type="tns:TimeSliceGroupType" />
+      <xsd:element name="TemplateFrameObject" type="tns:TemplateFrameObjectType" />
+      <xsd:element name="FrameObject" type="tns:FrameObjectType" />
+      <xsd:element name="PlaylistRef" type="tns:IncludeFileType" />
+      <xsd:element name="TimeSliceGroupRef" type="tns:IncludeFileType" />
+      <xsd:element name="TemplateFrameObjectRef" type="tns:IncludeFileType" />
+      <xsd:element name="FrameObjectRef" type="tns:IncludeFileType" />
+    </xsd:choice>
+  </xsd:complexType>
+  <xsd:complexType name="PlaylistType">
+    <xsd:sequence>
+      <xsd:element name="UniqueIdentifier" type="xsd:string" />
+      <xsd:element default="-1" name="PlayLength" type="xsd:float" />
+      <xsd:element minOccurs="1" maxOccurs="unbounded" name="DisplayContent" type="tns:ScheduleContentType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="TimeSliceGroupType">
+    <xsd:sequence>
+      <xsd:element name="UniqueIdentifier" type="xsd:string" />
+      <xsd:element default="true" name="IsRandom" type="xsd:boolean" />
+      <xsd:element default="1.0" name="DisplayLength" type="xsd:float" />
+      <xsd:element minOccurs="1" maxOccurs="unbounded" name="DisplayContent">
+        <xsd:complexType>
+          <xsd:choice>
+            <xsd:element name="FrameObject" type="tns:FrameObjectType" />
+            <xsd:element name="TemplateFrameObject" type="tns:TemplateFrameObjectType" />
+            <xsd:element name="FrameObjectRef" type="tns:IncludeFileType" />
+            <xsd:element name="TemplateFrameObjectRef" type="tns:IncludeFileType" />
+          </xsd:choice>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="TemplateFrameObjectType">
+    <xsd:sequence>
+      <xsd:element name="UniqueIdentifier" type="xsd:string" />
+      <xsd:element name="EmphasisEffect" type="xsd:string" />
+      <xsd:element minOccurs="1" maxOccurs="unbounded" name="Region">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="UniqueIdentifier" type="xsd:string" />
+            <xsd:element name="Dimension" type="tns:Rectangle" />
+            <xsd:element name="Location" type="tns:Point" />
+            <xsd:element minOccurs="1" maxOccurs="unbounded" name="DisplayContent">
+              <xsd:complexType>
+                <xsd:choice>
+                  <xsd:element name="FrameObject" type="tns:FrameObjectType" />
+                  <xsd:element name="FrameObjectRef" type="tns:IncludeFileType" />
+                </xsd:choice>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="FrameObjectType">
+    <xsd:sequence>
+      <xsd:element name="UniqueIdentifier" type="xsd:string" />
+      <xsd:element default="1.0" name="DisplayTime" type="xsd:float" />
+      <xsd:element name="EmphasisEffect" type="xsd:string" />
+      <xsd:element maxOccurs="unbounded" name="Content" type="tns:FrameContentType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <!-- *** definition of FrameContentType *** -->
+  <xsd:complexType name="FrameContentType">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en-US">The FrameContent Object defines what is to be displayed inside a frame object.  There
+can be multiple [list] of contents associated with a Frame Object.  Each Content
+Object identifies the Dimensions of the content to be displayed [Rectangle],
+A starting offset of the Top Left Corner location of where to be displayed 
+[Point], the type of content [ContentType], and the file name and path to the 
+the content [String]</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="UniqueIdentifier" type="xsd:string" />
+      <xsd:element name="Dimension" type="tns:Rectangle" />
+      <xsd:element name="Location" type="tns:Point" />
+      <xsd:element default="JPEG" name="Type" type="tns:ContentType" />
+      <xsd:element name="FileName" type="xsd:string" />
+      <xsd:element default="0.0" name="TimeOffset" type="xsd:float" />
+      <xsd:element default="1.0" name="TimeDisplayLength" type="xsd:float" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="EntryTransitionEffect" type="tns:TransitionEffectType" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="ExitTransitionEffect" type="tns:TransitionEffectType" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="EmphasisEffect" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="ScrollInformation" type="tns:ScrollEffectType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <!-- *** definition of Point *** -->
+  <xsd:element name="VTTElement" type="tns:VTTtype" />
+  <xsd:element name="TextElement" type="tns:Texttype" />
+  <!-- *** definition of TransitionEffectType *** -->
+  <xsd:complexType name="TransitionEffectType">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en-US">The Transition Effect Type identifies what transition
+is to be used on the content [TransitionEffect: tns:TransitionType] and for how 
+long it is to occur in seconds[Duration: xsd:float].  The Effect Speed 
+[EffectSpeed: xsd:integer] is a value from 1 to 4 with 1 being the slowest.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element default="1.0" name="Duration" type="xsd:float" />
+      <xsd:element default="COPY" name="TransitionEffect" type="tns:TransitionType" />
+      <xsd:element default="1" name="EffectSpeed" type="xsd:integer" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="Point">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en-US">A Point Object defines a 
+location by the X and Y coordinates [Integer] on a Cartesian Plane.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element default="0" name="XCoordinate" type="xsd:integer" />
+      <xsd:element default="0" name="YCoordinate" type="xsd:integer" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <!-- *** definition of Rectangle *** -->
+  <xsd:complexType name="Rectangle">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en-US">A Rectangle Object defines a 
+Rectangle by identifying the Top Left Corner [TLCorner] and the Bottom Right
+Corner [BRCorner] as type Point.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="TLCorner" type="tns:Point" />
+      <xsd:element name="BRCorner" type="tns:Point" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <!-- *** definition of ScrollEffectType *** -->
+  <xsd:complexType name="ScrollEffectType">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en-US">The Scroll Effect indicates that the content is
+has scrolling properties [IsScrolling: xsd:boolean].  If the Content is
+scrolling, then the Scroll Direction is indicated [ScrollDirection: 
+tns:ScrollDirectionType] and the scrolling speed in pixels per frame update rate
+[ScrollSpeed: xsd:float].  I.e. ScrollSpeed = 1 with a sign running at 30 fps
+means the content will scroll 30 pixels in 1.0 second,  if ScrollSpeed = 2.0, then
+60 pixels in 1 second.  However, if the frame update rate is 60 fps and 
+ScrollSpeed = 1.0, then in 1 second the content will have scrolled 60 pixels.  
+NOTE:  It is expected that the ScrollSpeed will be a multiple of .5, i.e. 
+0.5, 1.0, 1.5, 2.0...</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element default="false" name="IsScrolling" type="xsd:boolean" />
+      <xsd:element default="RIGHT" name="ScrollDirection" type="tns:ScrollDirectionType" />
+      <xsd:element default="1" name="ScrollSpeed" type="xsd:float" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <!-- *** definition of VTTtype *** -->
+  <xsd:complexType name="VTTtype">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en-US">The VTT Type indicates that the information 
+necessary for displaying the Variable/Replaceable content.  The content contains 
+a unique identifier for internal tracking [UniqueIdentifier: xsd:string].  Next
+the location of the content is indicated by the top left corner position of it
+[Location: tns:Point].  Then the dimensions of the content display area in
+pixels both vertically and horizontally [Dimension: tns:Rectangle].  
+VTTDefinition indicates what data item is to be used for the data source
+[VTTDefinition: xsd:string].  Finally the font information is indicated.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="UniqueIdentifier" type="xsd:string" />
+      <xsd:element name="Location" type="tns:Point" />
+      <xsd:element name="Dimension" type="tns:Rectangle" />
+      <xsd:element name="VTTDefinition" type="xsd:string" />
+      <xsd:element name="FontInfo" type="tns:FontInfoType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <!-- *** definition of Texttype *** -->
+  <xsd:complexType name="Texttype">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en-US">The Text Type is very similar to
+the VTT Type.  Except the VTTDefinition is replaced with the content string.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="UniqueIdentifier" type="xsd:string" />
+      <xsd:element name="Location" type="tns:Point" />
+      <xsd:element name="Dimension" type="tns:Rectangle" />
+      <xsd:element name="DisplayText" type="xsd:string" />
+      <xsd:element name="FontInfo" type="tns:FontInfoType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <!-- *** definition of FontInfoType *** -->
+  <xsd:complexType name="FontInfoType">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en-US">This object defines the font information necessary
+to display the fonts.  The font type is listed [Font: xsd:string], the size of 
+the font [FontSize: xsd:integer], the font color [FontColor: xsd:hexBinary] as
+a 32bit hex, the font Kerning [FontKerning: xsd:integer] and the font lead
+[FontLead: xsd:integer].  See http://en.wikipedia.org/wiki/Kerning and 
+http://en.wikipedia.org/wiki/Leading for definitions of Kerning and Lead.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="Font" type="xsd:string" />
+      <xsd:element default="16" name="FontSize" type="xsd:integer" />
+      <xsd:element default="FFFFFFFF" name="FontColor" type="xsd:hexBinary" />
+      <xsd:element default="0" name="FontKerning" type="xsd:integer" />
+      <xsd:element default="0" name="FontLead" type="xsd:integer" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="IncludeFileType">
+    <xsd:restriction base="xsd:string" />
+  </xsd:simpleType>
+  <!-- definition of simple Types -->
+  <!-- *** definition of ContentType *** -->
+  <xsd:simpleType name="ContentType">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en-US">The Content Type defines what the content is.  Either
+VTT [Variable Text Type], JPEG [JPEG image], MPEG [MPEG-2] or Text [Text] 
+enumerations of type strings.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="VTT">
+        <xsd:annotation>
+          <xsd:documentation>A Variable Text type of Content, file type will be *.xml</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="JPEG">
+        <xsd:annotation>
+          <xsd:documentation>A JPEG image type of Content, file type will be *.jpg</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="MPEG">
+        <xsd:annotation>
+          <xsd:documentation>A MPEG image type of Content, file type will be *.mpg</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="TEXT">
+        <xsd:annotation>
+          <xsd:documentation>A text type of Content, file type will be *.xml</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:whiteSpace value="preserve" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <!-- *** definition of FOType *** -->
+  <xsd:simpleType name="FOType">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en-US">The Frame Object Type defines what the Frame Object is.  Either
+TEMPLATE [regioned] or NORMAL [Non-Template/Non-Region] enumerations of type 
+strings.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="TEMPLATE">
+        <xsd:annotation>
+          <xsd:documentation>A Template type of Frame Object</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="NORMAL">
+        <xsd:annotation>
+          <xsd:documentation>A non-Template type of Frame Object, No regions</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:whiteSpace value="preserve" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <!-- *** definition of DayChoice *** -->
+  <xsd:simpleType name="DayChoiceType">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en-US">This enumeration defines what day of the week the message
+is to be displayed.  The message can have a List for more than one day.  I.e. "M" and
+"W" for Monday and Wednesday only.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="M">
+        <xsd:annotation>
+          <xsd:documentation>Message is to play on Monday</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="T">
+        <xsd:annotation>
+          <xsd:documentation>Message is to play on Tuesday</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="W">
+        <xsd:annotation>
+          <xsd:documentation>Message is to play on Wednesday</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="TH">
+        <xsd:annotation>
+          <xsd:documentation>Message is to play on Thursday</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="F">
+        <xsd:annotation>
+          <xsd:documentation>Message is to play on Friday</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="S">
+        <xsd:annotation>
+          <xsd:documentation>Message is to play on Saturday</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="SU">
+        <xsd:annotation>
+          <xsd:documentation>Message is to play on Sunday</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="MTWTHFSSU">
+        <xsd:annotation>
+          <xsd:documentation>Message is to play every day of the week</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:whiteSpace value="preserve" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <!-- *** definition of ScrollDirectionType *** -->
+  <xsd:simpleType name="ScrollDirectionType">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en-US">The Scroll direction indicates what direction
+the Content is to be scrolled.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="UP">
+        <xsd:annotation>
+          <xsd:documentation>Message is to Scroll upwards</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="DOWN">
+        <xsd:annotation>
+          <xsd:documentation>Message is to Scroll down</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="LEFT">
+        <xsd:annotation>
+          <xsd:documentation>Message is to Scroll to the left</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="RIGHT">
+        <xsd:annotation>
+          <xsd:documentation>Message is to Scroll to the right</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <!-- *** definition of TransitionType *** -->
+  <xsd:simpleType name="TransitionType">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en-US">This enumeration defines the entry and exit transition
+effects.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="AUTOMATIC">
+        <xsd:annotation>
+          <xsd:documentation>The automatic transition effect</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="BLACKHOLE">
+        <xsd:annotation>
+          <xsd:documentation>The black hole transition effect </xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="BOUNCE">
+        <xsd:annotation>
+          <xsd:documentation>The bounce transition effect</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="COALESCE">
+        <xsd:annotation>
+          <xsd:documentation>The coalesce transition effect</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="COPY">
+        <xsd:annotation>
+          <xsd:documentation>The copy transition effect</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="FADE">
+        <xsd:annotation>
+          <xsd:documentation>The fade transition effect</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="FILTER">
+        <xsd:annotation>
+          <xsd:documentation>The filter transition effect</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="INTERLEAVE">
+        <xsd:annotation>
+          <xsd:documentation>The interleave transition effect</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="LINE">
+        <xsd:annotation>
+          <xsd:documentation>The line transition effect</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="MULTIWIPE">
+        <xsd:annotation>
+          <xsd:documentation>The multiwipe transition effect</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="PUSH">
+        <xsd:annotation>
+          <xsd:documentation>The push transition effect</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="RADAR">
+        <xsd:annotation>
+          <xsd:documentation>The radar transition effect</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="RAIN">
+        <xsd:annotation>
+          <xsd:documentation>The rain transition effect</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="SLIDE">
+        <xsd:annotation>
+          <xsd:documentation>The slide transition effect</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="SLOT">
+        <xsd:annotation>
+          <xsd:documentation>The slot transition effect</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="VENETIAN">
+        <xsd:annotation>
+          <xsd:documentation>The venetian transition effect</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="WIPE">
+        <xsd:annotation>
+          <xsd:documentation>The wipe transition effect</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+    </xsd:restriction>
+  </xsd:simpleType>
+</xsd:schema>

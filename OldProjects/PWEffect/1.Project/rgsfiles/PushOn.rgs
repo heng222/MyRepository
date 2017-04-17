@@ -1,0 +1,26 @@
+HKCR
+{
+	PWEffect.PushOn.1 = s 'PushOn Class'
+	{
+		CLSID = s '{2386E440-D525-4227-A275-E06A6D2D2F81}'
+	}
+	PWEffect.PushOn = s 'PushOn Class'
+	{
+		CLSID = s '{2386E440-D525-4227-A275-E06A6D2D2F81}'
+		CurVer = s 'PWEffect.PushOn.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {2386E440-D525-4227-A275-E06A6D2D2F81} = s 'PushOn Class'
+		{
+			ProgID = s 'PWEffect.PushOn.1'
+			VersionIndependentProgID = s 'PWEffect.PushOn'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{B1FEB9A2-A676-46da-83C5-B1CBEC33BC07}'
+		}
+	}
+}

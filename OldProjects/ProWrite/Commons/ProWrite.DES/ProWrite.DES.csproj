@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9C998B54-46BB-4688-B7C2-2DB0D055C250}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ProWrite.DES</RootNamespace>
+    <AssemblyName>ProWrite.DES</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\Bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release_X64|AnyCPU' ">
+    <OutputPath>bin\Release_X64\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug_X64|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug_X64\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DirectShowLib-2005, Version=2.0.0.0, Culture=neutral, PublicKeyToken=67e7b740cdfc2d3f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Libs\DirectShowLib-2005.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.9.0, Culture=neutral, PublicKeyToken=b32731d11ce58905">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Libs\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\Version\AssemblyInfo.cs">
+      <Link>AssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="DESCallback.cs" />
+    <Compile Include="DESCombine.cs" />
+    <Compile Include="DESConsts.cs" />
+    <Compile Include="DESGroup.cs" />
+    <Compile Include="DESHelper.cs" />
+    <Compile Include="DesLayerCollectionConverter.cs" />
+    <Compile Include="DESLayerConverter.cs" />
+    <Compile Include="DESSign.cs" />
+    <Compile Include="DESTransition.cs" />
+    <Compile Include="DESVideoCallBack.cs" />
+    <Compile Include="DirectEncode\AspectRatio.cs" />
+    <Compile Include="DirectEncode\AudioOutputFormat.cs" />
+    <Compile Include="DirectEncode\BitrateMode.cs" />
+    <Compile Include="DirectEncode\Constraint.cs" />
+    <Compile Include="DirectEncode\EncodeMode.cs" />
+    <Compile Include="DirectEncode\IPropertyPage.cs" />
+    <Compile Include="DirectEncode\IPropertyPageSite.cs" />
+    <Compile Include="DirectEncode\IStandardMpegEncoder.cs" />
+    <Compile Include="DirectEncode\IStandardMpegEncoderProfile.cs" />
+    <Compile Include="DirectEncode\IStandardMpegEncoderStats.cs" />
+    <Compile Include="DirectEncode\IStandardMpegMultiplexerProfile.cs" />
+    <Compile Include="DirectEncode\IUnknown.cs" />
+    <Compile Include="DirectEncode\StandardMpegEncoder.cs" />
+    <Compile Include="DirectEncode\StandardMpegEncoderAudioProps.cs" />
+    <Compile Include="DirectEncode\StandardMpegEncoderAudioPropsClass.cs" />
+    <Compile Include="DirectEncode\StandardMpegEncoderClass.cs" />
+    <Compile Include="DirectEncode\StandardMpegEncoderGeneralProps.cs" />
+    <Compile Include="DirectEncode\StandardMpegEncoderGeneralPropsClass.cs" />
+    <Compile Include="DirectEncode\StandardMpegEncoderProfile.cs" />
+    <Compile Include="DirectEncode\StandardMpegEncoderProfileClass.cs" />
+    <Compile Include="DirectEncode\StandardMpegEncoderStats.cs" />
+    <Compile Include="DirectEncode\StandardMpegEncoderStatsClass.cs" />
+    <Compile Include="DirectEncode\StandardMpegEncoderVideoProps.cs" />
+    <Compile Include="DirectEncode\StandardMpegEncoderVideoPropsClass.cs" />
+    <Compile Include="DirectEncode\StandardMpegMultiplexerProfile.cs" />
+    <Compile Include="DirectEncode\StandardMpegMultiplexerProfileClass.cs" />
+    <Compile Include="DirectEncode\SystemsOutputFormat.cs" />
+    <Compile Include="DirectEncode\tagMSG.cs" />
+    <Compile Include="DirectEncode\tagPOINT.cs" />
+    <Compile Include="DirectEncode\tagPROPPAGEINFO.cs" />
+    <Compile Include="DirectEncode\tagRECT.cs" />
+    <Compile Include="DirectEncode\tagSIZE.cs" />
+    <Compile Include="DirectEncode\VideoOutputFormat.cs" />
+    <Compile Include="DirectEncode\_AspectRatio.cs" />
+    <Compile Include="DirectEncode\_AudioOutputFormat.cs" />
+    <Compile Include="DirectEncode\_BitrateMode.cs" />
+    <Compile Include="DirectEncode\_Constraint.cs" />
+    <Compile Include="DirectEncode\_EncodeMode.cs" />
+    <Compile Include="DirectEncode\_GUID.cs" />
+    <Compile Include="DirectEncode\_RemotableHandle.cs" />
+    <Compile Include="DirectEncode\_SystemsOutputFormat.cs" />
+    <Compile Include="DirectEncode\_VideoOutputFormat.cs" />
+    <Compile Include="DirectEncode\__MIDL_IWinTypes_0009.cs" />
+    <Compile Include="IMessageInspector.cs" />
+    <Compile Include="MediaFile.cs" />
+    <Compile Include="NailImageGenerator.cs" />
+    <Compile Include="NailImageMessageInspector.cs" />
+    <Compile Include="Play.cs" />
+    <Compile Include="StandardMpegEncoderDll.cs" />
+    <Compile Include="VideoGenerator.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Messages\Messages.csproj">
+      <Project>{3596709E-8A87-45AB-BC39-EAAE5DA2A3A7}</Project>
+      <Name>Messages</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProWrite.Core\ProWrite.Core.csproj">
+      <Project>{FF80525C-029F-4EE1-BCF5-3547AFA06F0B}</Project>
+      <Name>ProWrite.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProWrite.Entity\ProWrite.Entity.csproj">
+      <Project>{5915A60C-B679-4E48-86AD-C79D9F8C903F}</Project>
+      <Name>ProWrite.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProWrite.UFE.Entity\ProWrite.UFE.Entity.csproj">
+      <Project>{5D1E0AF1-E69A-48F2-BE2E-DA9BEFA9AE2A}</Project>
+      <Name>ProWrite.UFE.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProWrite.UFE\ProWrite.UFE.csproj">
+      <Project>{ACD7DEDB-AA50-4665-BEA0-729E64DDFA2D}</Project>
+      <Name>ProWrite.UFE</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

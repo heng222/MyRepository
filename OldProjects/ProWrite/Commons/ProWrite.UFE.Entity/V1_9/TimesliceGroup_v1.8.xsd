@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--Created with Liquid XML Studio - FREE Community Edition 7.0.1.654 (http://www.liquid-technologies.com)-->
+<xs:schema xmlns:tns="http://xml.netbeans.org/schema/ProWriteFrameTimeSliceGroup" elementFormDefault="qualified" targetNamespace="http://xml.netbeans.org/schema/ProWriteFrameTimeSliceGroup" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="TimeSliceGroup" nillable="true" type="tns:TimeSliceGroupType" />
+  <xs:complexType name="TimeSliceGroupType">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="ContentID" type="tns:ContentIDType" />
+      <xs:element minOccurs="1" maxOccurs="1" name="DisplayTime" type="xs:float" />
+      <xs:element minOccurs="1" maxOccurs="1" name="IsRandom" type="xs:boolean" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Contents" type="tns:ArrayOfTimeSliceGroupIncludeItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfTimeSliceGroupIncludeItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Content" nillable="true" type="tns:TimeSliceGroupIncludeItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="TimeSliceGroupIncludeItem">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="UniqueIdentifier" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Type" type="tns:TimeSliceGroupItemType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="TimeSliceGroupItemType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="FrameObject" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="ContentIDType">
+    <xs:sequence>
+      <xs:element name="CXCUniqueIdentifier" type="xs:string" />
+      <xs:element name="FileType" type="xs:string" />
+      <xs:element name="HumanReadableName" type="xs:string" />
+      <xs:element name="LibraryName" type="xs:string" />
+      <xs:element name="ProWriteIdentifier" type="xs:string" />
+      <xs:element name="Create" type="tns:FileActionType" />
+      <xs:element name="Modify" type="tns:FileActionType" />
+      <xs:element name="Upload" type="tns:FileActionType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FileActionType">
+    <xs:sequence>
+      <xs:element name="User" type="xs:string" />
+      <xs:element name="DateTime" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CppUnitTestConsoleApp", "CppUnitTestConsoleApp\CppUnitTestConsoleApp.vcxproj", "{FEE3014C-232D-FD97-4030-ED6C72057A5C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{49409AB1-4B53-90CB-27AD-C2C27910EAC4} = {49409AB1-4B53-90CB-27AD-C2C27910EAC4}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CppUnitTestMfcApp", "CppUnitTestMfcApp\CppUnitTestMfcApp.vcxproj", "{E1FF3D2B-DAA3-BAEF-16F0-33C846A6E4F5}"
+	ProjectSection(ProjectDependencies) = postProject
+		{49409AB1-4B53-90CB-27AD-C2C27910EAC4} = {49409AB1-4B53-90CB-27AD-C2C27910EAC4}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Math", "Math\Math.vcxproj", "{49409AB1-4B53-90CB-27AD-C2C27910EAC4}"
+EndProject
+Global
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+		Template|Win32 = Template|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FEE3014C-232D-FD97-4030-ED6C72057A5C}.Debug|Win32.ActiveCfg = Debug|Win32
+		{FEE3014C-232D-FD97-4030-ED6C72057A5C}.Debug|Win32.Build.0 = Debug|Win32
+		{FEE3014C-232D-FD97-4030-ED6C72057A5C}.Release|Win32.ActiveCfg = Release|Win32
+		{FEE3014C-232D-FD97-4030-ED6C72057A5C}.Release|Win32.Build.0 = Release|Win32
+		{FEE3014C-232D-FD97-4030-ED6C72057A5C}.Template|Win32.ActiveCfg = Release|Win32
+		{FEE3014C-232D-FD97-4030-ED6C72057A5C}.Template|Win32.Build.0 = Release|Win32
+		{E1FF3D2B-DAA3-BAEF-16F0-33C846A6E4F5}.Debug|Win32.ActiveCfg = Debug|Win32
+		{E1FF3D2B-DAA3-BAEF-16F0-33C846A6E4F5}.Debug|Win32.Build.0 = Debug|Win32
+		{E1FF3D2B-DAA3-BAEF-16F0-33C846A6E4F5}.Release|Win32.ActiveCfg = Release|Win32
+		{E1FF3D2B-DAA3-BAEF-16F0-33C846A6E4F5}.Release|Win32.Build.0 = Release|Win32
+		{E1FF3D2B-DAA3-BAEF-16F0-33C846A6E4F5}.Template|Win32.ActiveCfg = Template|Win32
+		{E1FF3D2B-DAA3-BAEF-16F0-33C846A6E4F5}.Template|Win32.Build.0 = Template|Win32
+		{49409AB1-4B53-90CB-27AD-C2C27910EAC4}.Debug|Win32.ActiveCfg = Debug|Win32
+		{49409AB1-4B53-90CB-27AD-C2C27910EAC4}.Debug|Win32.Build.0 = Debug|Win32
+		{49409AB1-4B53-90CB-27AD-C2C27910EAC4}.Release|Win32.ActiveCfg = Release|Win32
+		{49409AB1-4B53-90CB-27AD-C2C27910EAC4}.Release|Win32.Build.0 = Release|Win32
+		{49409AB1-4B53-90CB-27AD-C2C27910EAC4}.Template|Win32.ActiveCfg = Template|Win32
+		{49409AB1-4B53-90CB-27AD-C2C27910EAC4}.Template|Win32.Build.0 = Template|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

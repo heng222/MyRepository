@@ -1,0 +1,10 @@
+添加一个Bundle时注意事项
+
+1、修改Debug、Release输出目录、“生成事件”。
+
+3、排除Assembley.cs（使用Anknsvn将Property目录增加到SVN后再排除此文件），增加Assembly.tpl文件
+
+4、添加相关引用。（输出本地设置为false）
+
+5、添加Manifest.xml、Prefers.xml、BundleSpecification.cs、Activtor.cs。
+

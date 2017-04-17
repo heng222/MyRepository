@@ -1,0 +1,391 @@
+<?xml version="1.0"?>
+<ArrayOfEffectCategory xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <EffectCategory Name="Entry">
+    <Effects>
+      <Effect>
+        <Name>DxtJpeg</Name>
+        <GUID>de75d012-7a65-11d2-8cea-00a0c9441e20</GUID>
+        <Property>
+          <Item Name="BorderColor" Value="0" InputType="Input" DataType="dword">
+            <Enum />
+          </Item>
+          <Item Name="BorderSoftness" Value="0" InputType="Input" DataType="number">
+            <Enum />
+          </Item>
+          <Item Name="BorderWidth" Value="0" InputType="Input" DataType="number">
+            <Enum />
+          </Item>
+          <Item Name="MaskNum" Value="0" InputType="Select" DataType="number">
+            <Enum>
+              <Item Key="1" Value="Horizontal" />
+              <Item Key="2" Value="Vertical" />
+              <Item Key="3" Value="Upper left" />
+              <Item Key="4" Value="Upper right" />
+              <Item Key="5" Value="Lower right" />
+              <Item Key="6" Value="Lower left" />
+              <Item Key="7" Value="Four corners" />
+              <Item Key="8" Value="Four squares" />
+              <Item Key="21" Value="Barn doors, vertical" />
+              <Item Key="22" Value="Barn doors, horizontal" />
+              <Item Key="23" Value="Top center" />
+              <Item Key="24" Value="Right center" />
+              <Item Key="25" Value="Bottom center" />
+              <Item Key="26" Value="Left center" />
+              <Item Key="41" Value="Diagonal, NW to SE" />
+              <Item Key="42" Value="Diagonal, NE to SW" />
+              <Item Key="43" Value="Triangles, top/bottom" />
+              <Item Key="44" Value="Triangles, left/right" />
+              <Item Key="45" Value="Diagonal stripe, SW to NE" />
+              <Item Key="46" Value="Diagonal stripe, NW to SE" />
+              <Item Key="47" Value="Cross" />
+              <Item Key="48" Value="Diamond Box" />
+              <Item Key="61" Value="Wedge, top" />
+              <Item Key="62" Value="Wedge, right" />
+              <Item Key="63" Value="Wedge, bottom" />
+              <Item Key="64" Value="Wedge, left" />
+              <Item Key="65" Value="V" />
+              <Item Key="66" Value="V, right" />
+              <Item Key="67" Value="V, inverted" />
+              <Item Key="68" Value="V, left" />
+              <Item Key="71" Value="Sawtooth, left" />
+              <Item Key="72" Value="Sawtooth, top" />
+              <Item Key="73" Value="Sawtooth, vertical" />
+              <Item Key="74" Value="Sawtooth, horizontal" />
+              <Item Key="101" Value="Box" />
+              <Item Key="102" Value="Diamond" />
+              <Item Key="103" Value="Triangle, up" />
+              <Item Key="104" Value="Triangle, right" />
+              <Item Key="105" Value="Triangle, bottom" />
+              <Item Key="106" Value="Triangle, left" />
+              <Item Key="107" Value="Arrow head, up" />
+              <Item Key="108" Value="Arrow head, right" />
+              <Item Key="109" Value="Arrow head, down" />
+              <Item Key="110" Value="Arrow head, left" />
+              <Item Key="111" Value="Pentagon, up" />
+              <Item Key="112" Value="Pentagon, down" />
+              <Item Key="113" Value="Hexagon" />
+              <Item Key="114" Value="Hexagon, rotated" />
+              <Item Key="119" Value="Circle" />
+              <Item Key="120" Value="Oval, horizontal" />
+              <Item Key="121" Value="Oval, vertical" />
+              <Item Key="122" Value="Eye, horizontal" />
+              <Item Key="123" Value="Eye, vertical" />
+              <Item Key="124" Value="Rounded rectangle, horizontal" />
+              <Item Key="125" Value="Rounded rectangle, vertical" />
+              <Item Key="127" Value="4-point star" />
+              <Item Key="128" Value="4-point star" />
+              <Item Key="129" Value="6-point star" />
+              <Item Key="130" Value="Heart" />
+              <Item Key="131" Value="Keyhole" />
+              <Item Key="201" Value="Radial, 12 o'clock" />
+              <Item Key="202" Value="Radial, 3 o'clock" />
+              <Item Key="203" Value="Radial, 6 o'clock" />
+              <Item Key="204" Value="Radial, 9 o'clock" />
+              <Item Key="205" Value="Radial, 12 + 6 o'clock" />
+              <Item Key="206" Value="Radial, 3 + 9 o'clock" />
+              <Item Key="207" Value="Radial, 4-way" />
+              <Item Key="211" Value="Radial, left-right, top" />
+              <Item Key="212" Value="Radial, up-down, right" />
+              <Item Key="213" Value="Radial, left-right, top-bottom" />
+              <Item Key="214" Value="Radial, up-down, left-right" />
+              <Item Key="221" Value="Radial, top " />
+              <Item Key="222" Value="Radial, right " />
+              <Item Key="223" Value="Radial, bottom" />
+              <Item Key="224" Value="Radial, left" />
+              <Item Key="225" Value="Radial, top clockwise, bottom clockwise" />
+              <Item Key="226" Value="Radial, left clockwise, right clockwise" />
+              <Item Key="227" Value="Radial, top clockwise, bottom anticlockwise" />
+              <Item Key="228" Value="Radial, left clockwise, right anticlockwise" />
+              <Item Key="231" Value="Radial, top split" />
+              <Item Key="232" Value="Radial, right split" />
+              <Item Key="233" Value="Radial, bottom split" />
+              <Item Key="234" Value="Radial, left split" />
+              <Item Key="235" Value="Radial, top-bottom split" />
+              <Item Key="236" Value="Radial, left-right split" />
+              <Item Key="241" Value="Radial, top-left corner" />
+              <Item Key="242" Value="Radial, bottom-left corner" />
+              <Item Key="243" Value="Radial, bottom-right corner" />
+              <Item Key="244" Value="Radial, top-right corner" />
+              <Item Key="245" Value="Radial, top-left, bottom-right" />
+              <Item Key="246" Value="Radial, bottom-left, top-right" />
+              <Item Key="251" Value="Center radial, top" />
+              <Item Key="252" Value="Center radial, left" />
+              <Item Key="253" Value="Center radial, bottom" />
+              <Item Key="254" Value="Center radial, right" />
+              <Item Key="261" Value="Box radial, right" />
+              <Item Key="262" Value="Box radial, top" />
+              <Item Key="263" Value="Center radial, top, bottom" />
+              <Item Key="264" Value="Center radial, left, right" />
+              <Item Key="301" Value="Matrix, horizontal" />
+              <Item Key="302" Value="Matrix, vertical" />
+              <Item Key="303" Value="Matrix, diagonal, top-left" />
+              <Item Key="304" Value="Matrix, diagonal, top-right" />
+              <Item Key="305" Value="Matrix, diagonal, bottom-right" />
+              <Item Key="306" Value="Matrix, diagonal, bottom-left" />
+              <Item Key="310" Value="Matrix, clockwise top-left" />
+              <Item Key="311" Value="Matrix, clockwise top-right" />
+              <Item Key="312" Value="Matrix, clockwise bottom-right" />
+              <Item Key="313" Value="Matrix, clockwise bottom-left" />
+              <Item Key="314" Value="Matrix, anticlockwise top-left" />
+              <Item Key="315" Value="Matrix, anticlockwise top-right" />
+              <Item Key="316" Value="Matrix, anticlockwise bottom-right" />
+              <Item Key="317" Value="Matrix, anticlockwise bottom-left" />
+              <Item Key="320" Value="Matrix, vertical top-left, top-right" />
+              <Item Key="321" Value="Matrix, vertical bottom-left, bottom-right" />
+              <Item Key="322" Value="Matrix, vertical top-left, bottom-right" />
+              <Item Key="323" Value="Matrix, vertical bottom-left, top-right" />
+              <Item Key="324" Value="Matrix, horizontal top-left, bottom-left" />
+              <Item Key="325" Value="Matrix, horizontal top-right, bottom-right" />
+              <Item Key="326" Value="Matrix, horizontal top-left, bottom-right" />
+              <Item Key="327" Value="Matrix, horizontal top-right, bottom-left" />
+              <Item Key="328" Value="Matrix, diagonal bottom-left, top-right" />
+              <Item Key="329" Value="Matrix, diagonal top-left, bottom-right" />
+              <Item Key="340" Value="Matrix, top double spiral" />
+              <Item Key="341" Value="Matrix, bottom double spiral" />
+              <Item Key="342" Value="Matrix, left double spiral" />
+              <Item Key="343" Value="Matrix, right double spiral" />
+              <Item Key="344" Value="Matrix, quad spiral, top-bottom" />
+              <Item Key="345" Value="Matrix, quad spiral, left-right" />
+              <Item Key="350" Value="Waterfall, left" />
+              <Item Key="351" Value="Waterfall, right" />
+              <Item Key="352" Value="Waterfall, horizontal, left" />
+              <Item Key="353" Value="Waterfall, horizontal, right" />
+            </Enum>
+          </Item>
+          <Item Name="OffsetX" Value="0" InputType="Input" DataType="number">
+            <Enum />
+          </Item>
+          <Item Name="OffsetY" Value="0" InputType="Input" DataType="number">
+            <Enum />
+          </Item>
+          <Item Name="ReplicateX" Value="0" InputType="Input" DataType="number">
+            <Enum />
+          </Item>
+          <Item Name="ReplicateY" Value="0" InputType="Input" DataType="number">
+            <Enum />
+          </Item>
+          <Item Name="ScaleX" Value="0" InputType="Input" DataType="number">
+            <Enum />
+          </Item>
+          <Item Name="ScaleY" Value="0" InputType="Input" DataType="number">
+            <Enum />
+          </Item>
+        </Property>
+        <Direction>false</Direction>
+      </Effect>
+      
+      <Effect>
+        <Name>Fade On</Name>
+        <GUID>16b280c5-ee70-11d1-9066-00c04fd9189d</GUID>
+        <Property />
+        <Direction>false</Direction>
+      </Effect>
+      
+      <Effect>
+        <Name>Inset On</Name>
+        <GUID>76f363f2-7e9f-4ed7-a6a7-ee30351b6628</GUID>
+        <Property />
+        <Direction>false</Direction>
+      </Effect>
+
+
+      <Effect>
+        <Name>Bounce On</Name>
+        <GUID>B051F408-B5E2-4F7B-8A85-C74E04E0CEDE</GUID>
+        <Property>
+          <Item Name="BackColor" Value="0" InputType="Input" DataType="number">
+            <Enum />
+          </Item>
+        </Property>
+        <Direction>false</Direction>
+      </Effect>
+      
+    </Effects>
+  </EffectCategory>
+  <EffectCategory Name="Emphasis">
+    <Effects>
+      <Effect>
+        <Name>BasicImage</Name>
+        <GUID>16b280c8-ee70-11d1-9066-00c04fd9189d</GUID>
+        <Property>
+          <Item Name="Invert" Value="1" InputType="Input" DataType="varchar">
+            <Enum />
+          </Item>
+          <Item Name="Rotation" Value="0" InputType="Input" DataType="varchar">
+            <Enum />
+          </Item>
+          <Item Name="XRay" Value="0" InputType="Input" DataType="varchar">
+            <Enum />
+          </Item>
+          <Item Name="Mirror" Value="0" InputType="Input" DataType="varchar">
+            <Enum />
+          </Item>
+          <Item Name="Grayscale" Value="0" InputType="Input" DataType="varchar">
+            <Enum />
+          </Item>
+          <Item Name="Opacity" Value="1" InputType="Input" DataType="varchar">
+            <Enum />
+          </Item>
+        </Property>
+        <Direction>false</Direction>
+      </Effect>
+      <Effect>
+        <Name>Blur</Name>
+        <GUID>7312498d-e87a-11d1-81e0-0000f87557db</GUID>
+        <Property />
+        <Direction>false</Direction>
+      </Effect>
+      <Effect>
+        <Name>Emboss</Name>
+        <GUID>f515306d-0156-11d2-81ea-0000f87557db</GUID>
+        <Property />
+        <Direction>false</Direction>
+      </Effect>
+      
+      <Effect>
+        <Name>Bijou</Name>
+        <GUID>A4B54A75-6E38-4312-B5E9-C9950EE98141</GUID>
+        <Property>
+          <Item Name="Direction" Value="0" InputType="Input" DataType="number">
+            <Enum />
+          </Item>
+          <Item Name="Rate" Value="10" InputType="Input" DataType="number">
+            <Enum />
+          </Item>
+          <Item Name="LampHeight" Value="5" InputType="Input" DataType="number">
+            <Enum />
+          </Item>
+          <Item Name="LampLength" Value="10" InputType="Input" DataType="number">
+            <Enum />
+          </Item>
+          <Item Name="GapLength" Value="10" InputType="Input" DataType="number">
+            <Enum />
+          </Item>
+          <Item Name="CornersOn" Value="1" InputType="Input" DataType="number">
+            <Enum />
+          </Item>
+          <Item Name="Color" Value="0xFF" InputType="Input" DataType="dword">
+            <Enum />
+          </Item>
+        </Property>
+        <Direction>false</Direction>
+      </Effect>
+
+      <Effect>
+        <Name>Snow</Name>
+        <GUID>632BB53B-C02D-4AB1-B041-A14F524812EF</GUID>
+        <Property>
+          <Item Name="Amount" Value="0.85" InputType="Input" DataType="number">
+            <Enum />
+          </Item>
+          <Item Name="Rate" Value="15" InputType="Input" DataType="number">
+            <Enum />
+          </Item>
+          <Item Name="Color" Value="0xFFFFFF" InputType="Input" DataType="dword">
+            <Enum />
+          </Item>
+        </Property>
+        <Direction>false</Direction>
+      </Effect>
+
+
+      <Effect>
+        <Name>Travel</Name>
+        <GUID>0740D73C-0676-4AFC-BEB9-07F3AE6A8FA3</GUID>
+        <Property>
+          <Item Name="Angle" Value="180" InputType="Input" DataType="number">
+            <Enum />
+          </Item>
+          <Item Name="Rate" Value="5" InputType="Input" DataType="number">
+            <Enum />
+          </Item>
+          <Item Name="BackColor" Value="0x0" InputType="Input" DataType="dword">
+            <Enum />
+          </Item>
+        </Property>
+        <Direction>false</Direction>
+      </Effect>
+
+      <Effect>
+        <Name>Rain</Name>
+        <GUID>5CBB2733-FB65-4218-9867-476797D76F4F</GUID>
+        <Property>
+          <Item Name="Angle" Value="50" InputType="Input" DataType="number">
+            <Enum />
+          </Item>
+          <Item Name="Amount" Value="0.4" InputType="Input" DataType="number">
+            <Enum />
+          </Item>
+          <Item Name="BackColor" Value="0xA0A0A0" InputType="Input" DataType="dword">
+            <Enum />
+          </Item>
+        </Property>
+        <Direction>false</Direction>
+      </Effect>
+
+      <Effect>
+        <Name>Sparkle</Name>
+        <GUID>9D15677F-1972-41A9-8573-2D037055743C</GUID>
+        <Property>
+          <Item Name="Size" Value="6" InputType="Input" DataType="number">
+            <Enum />
+          </Item>
+          <Item Name="Amount" Value="0.15" InputType="Input" DataType="number">
+            <Enum />
+          </Item>
+          <Item Name="SparkleColor" Value="0xFFFFFF" InputType="Input" DataType="dword">
+            <Enum />
+          </Item>
+        </Property>
+        <Direction>false</Direction>
+      </Effect>
+
+      <Effect>
+        <Name>Flash</Name>
+        <GUID>66CAB342-DDEF-4E2C-B407-19DA2D41A938</GUID>
+        <Property>
+          <Item Name="FlashStyle" Value="0" InputType="Input" DataType="number">
+            <Enum />
+          </Item>
+          <Item Name="BackColor" Value="0x00" InputType="Input" DataType="dword">
+            <Enum />
+          </Item>
+          <Item Name="OnTime" Value="500" InputType="Input" DataType="dword">
+            <Enum />
+          </Item>
+          <Item Name="OffTime" Value="200" InputType="Input" DataType="dword">
+            <Enum />
+          </Item>
+          <Item Name="WED" Value="0" InputType="Input" DataType="dword">
+            <Enum />
+          </Item>
+        </Property>
+        <Direction>false</Direction>
+      </Effect>
+      
+      
+    </Effects>
+  </EffectCategory>
+  <EffectCategory Name="Exit">
+    <Effects>
+      <Effect>
+        <Name>Blinds</Name>
+        <GUID>9a4a4a51-fb3a-4f4b-9b57-a2912a289769</GUID>
+        <Property />
+        <Direction>true</Direction>
+      </Effect>
+      <Effect>
+        <Name>CherkerBoard</Name>
+        <GUID>b3ee7802-8224-4787-a1ea-f0de16deabd3</GUID>
+        <Property />
+        <Direction>true</Direction>
+      </Effect>
+      <Effect>
+        <Name>Spiral</Name>
+        <GUID>4a03dcb9-6e17-4a39-8845-4ee7dc5331a5</GUID>
+        <Property />
+        <Direction>true</Direction>
+      </Effect>
+    </Effects>
+  </EffectCategory>
+</ArrayOfEffectCategory>

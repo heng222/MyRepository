@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="GB2312"?>
+<rr_resp>
+	<header>
+		<version></version><!--版本号-->
+		<ret></ret><!--响应结果-->
+	</header>
+  <body>  
+  	<road_info>
+    	<road_id></road_id><!--道路编号-->
+    	<start_pt></start_pt><!--起始点-->
+    	<end_pt></end_pt><!--结束点-->
+    	<velocity></velocity><!--速度-->
+    	<start_point_x></start_point_x><!--起始点x坐标-->
+    	<start_point_y></start_point_y><!--起始点y坐标-->
+    	<end_point_x></end_point_x><!--结束点x坐标-->
+    	<end_point_y></end_point_y><!--结束y坐标-->
+    	<publish_time></publish_time><!--发布时间-->
+    <road_info>
+  
+  </body>
+</rr_resp>

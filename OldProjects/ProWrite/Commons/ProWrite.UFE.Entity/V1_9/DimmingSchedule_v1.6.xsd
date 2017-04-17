@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--Created with Liquid XML Studio - FREE Community Edition 7.0.1.654 (http://www.liquid-technologies.com)-->
+<xs:schema xmlns:tns="http://xml.netbeans.org/schema/ProWriteDimmingSchedule" elementFormDefault="qualified" targetNamespace="http://xml.netbeans.org/schema/ProWriteDimmingSchedule" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="DimmingSchedule" nillable="true" type="tns:DimmingScheduleType" />
+  <xs:complexType name="DimmingScheduleType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="UniqueIdentifier" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="DimmingScheduleItems" type="tns:ArrayOfDimmingScheduleItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfDimmingScheduleItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DimmingScheduleItem" nillable="true" type="tns:DimmingScheduleItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DimmingScheduleItem">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="StartTime" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="DimmingValue" type="tns:DimmingValue" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DimmingValue">
+    <xs:choice minOccurs="1" maxOccurs="1">
+      <xs:element minOccurs="1" maxOccurs="1" name="Percent" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Nits" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Sensor" />
+    </xs:choice>
+  </xs:complexType>
+</xs:schema>

@@ -1,0 +1,71 @@
+-- Create table
+create table T_CITYWEATHER
+(
+  CITY_CODE           VARCHAR2(10) not null,
+  UPDATE_STAMP        DATE,
+  CITY_NAME           VARCHAR2(30),
+  PROVINCE            VARCHAR2(20),
+  TODAY_TEMP_MIN      NUMBER(4) default 0,
+  TODAY_TEMP_MAX      NUMBER(4) default 0,
+  TODAY_WEATHER_DES   VARCHAR2(60),
+  TODAY_WINDDIRECTION VARCHAR2(40),
+  TODAY_WINDPOWER_MIN NUMBER(2) default 0,
+  TODAY_WINDPOWER_MAX NUMBER(2) default 0,
+  TODAY_HUMIDITY      NUMBER(2) default 0,
+  CUR_WEATHER_DES     VARCHAR2(400),
+  LIFE_INDEX          VARCHAR2(1000)
+)
+tablespace SPACESAT2006
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+-- Add comments to the table 
+comment on table T_CITYWEATHER
+  is '全国主要城市(约350个)的气象信息';
+-- Add comments to the columns 
+comment on column T_CITYWEATHER.CITY_CODE
+  is '城市代码';
+comment on column T_CITYWEATHER.UPDATE_STAMP
+  is '本条记录的更新日期';
+comment on column T_CITYWEATHER.CITY_NAME
+  is '城市名称';
+comment on column T_CITYWEATHER.PROVINCE
+  is '城市所在省份';
+comment on column T_CITYWEATHER.TODAY_TEMP_MIN
+  is '当天的最低气温';
+comment on column T_CITYWEATHER.TODAY_TEMP_MAX
+  is '当天的最高气温';
+comment on column T_CITYWEATHER.TODAY_WEATHER_DES
+  is '当天的天气状况';
+comment on column T_CITYWEATHER.TODAY_WINDDIRECTION
+  is '当天的风向';
+comment on column T_CITYWEATHER.TODAY_WINDPOWER_MIN
+  is '当天的最小风力';
+comment on column T_CITYWEATHER.TODAY_WINDPOWER_MAX
+  is '当天的最大风力';
+comment on column T_CITYWEATHER.TODAY_HUMIDITY
+  is '当天的空气湿度';
+comment on column T_CITYWEATHER.CUR_WEATHER_DES
+  is '当前的实况天气描述';
+comment on column T_CITYWEATHER.LIFE_INDEX
+  is '当天的生活指数';
+-- Create/Recreate primary, unique and foreign key constraints 
+alter table T_CITYWEATHER
+  add constraint KTCW_CYCODE primary key (CITY_CODE)
+  using index 
+  tablespace SPACESAT2006
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );

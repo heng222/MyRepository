@@ -1,0 +1,26 @@
+HKCR
+{
+	PWEffect.Flash.1 = s 'Flash Class'
+	{
+		CLSID = s '{66CAB342-DDEF-4E2C-B407-19DA2D41A938}'
+	}
+	PWEffect.Flash = s 'Flash Class'
+	{
+		CLSID = s '{66CAB342-DDEF-4E2C-B407-19DA2D41A938}'
+		CurVer = s 'PWEffect.Flash.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {66CAB342-DDEF-4E2C-B407-19DA2D41A938} = s 'Flash Class'
+		{
+			ProgID = s 'PWEffect.Flash.1'
+			VersionIndependentProgID = s 'PWEffect.Flash'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{B1FEB9A2-A676-46da-83C5-B1CBEC33BC07}'
+		}
+	}
+}

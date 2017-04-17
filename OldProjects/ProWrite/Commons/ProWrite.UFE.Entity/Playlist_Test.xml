@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<Playlist xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://xml.netbeans.org/schema/ProWritePlaylist">
+  <UniqueIdentifier>e7a8eee7e3324f28bf4c0ec21301c7ac</UniqueIdentifier>
+  <DisplayTime>60</DisplayTime>
+  <Contents>
+    <Content>
+      <UniqueIdentifier>1567e43c29cd4dacb179a33696e7d0cf</UniqueIdentifier>
+      <Type>FrameObject</Type>
+    </Content>
+    <Content>
+      <UniqueIdentifier>bef0c02cbbd54ec2bd6134d3b61a5228</UniqueIdentifier>
+      <Type>TimeSliceGroup</Type>
+    </Content>
+    <Content>
+      <UniqueIdentifier>3d3d2a6424fb4fb08603ec90ffa3cd21</UniqueIdentifier>
+      <Type>Playlist</Type>
+    </Content>
+  </Contents>
+</Playlist>

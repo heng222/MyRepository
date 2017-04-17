@@ -1,0 +1,27 @@
+HKCR
+{
+	PWEffect.DTOText.1 = s 'DTOText Class'
+	{
+		CLSID = s '{D11F6A7F-079E-4D1D-93FD-3B20E9BBC748}'
+	}
+
+	PWEffect.DTOText = s 'DTOText Class'
+	{
+		CLSID = s '{D11F6A7F-079E-4D1D-93FD-3B20E9BBC748}'
+		CurVer = s 'PWEffect.DTOText.1'
+	}
+
+	NoRemove CLSID
+	{
+		ForceRemove {D11F6A7F-079E-4D1D-93FD-3B20E9BBC748} = s 'DTOText Class'
+		{
+			ProgID = s 'PWEffect.DTOText.1'
+			VersionIndependentProgID = s 'PWEffect.DTOText'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+		}
+	}
+}

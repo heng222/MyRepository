@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{17F2B0F6-679F-486C-866C-601B2F1BEB30}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NUnitStudy</RootNamespace>
+    <AssemblyName>NUnitStudy</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Moq, Version=4.0.10818.0, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libs\Moq.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework, Version=2.6.2.12296, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libs\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Mocks\IEntity.cs" />
+    <Compile Include="Mocks\IRepositoryOfT.cs" />
+    <Compile Include="Mocks\Mvp\IOrdersView.cs" />
+    <Compile Include="Mocks\Mvp\Order.cs" />
+    <Compile Include="Mocks\Mvp\OrderEventArgs.cs" />
+    <Compile Include="Mocks\Mvp\OrdersPresenter.cs" />
+    <Compile Include="Mocks\Mvp\OrdersPresenterTest.cs" />
+    <Compile Include="Mocks\Person.cs" />
+    <Compile Include="Mocks\PersonMockRepository.cs" />
+    <Compile Include="Mocks\PersonService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Specs\Adder\AdderSpec.cs" />
+    <Compile Include="Specs\Adder\AdderTest.cs" />
+    <Compile Include="Specs\Table\TableSpec.cs" />
+    <Compile Include="Specs\Table.cs" />
+    <Compile Include="Study\1. TestFixtureTest.cs" />
+    <Compile Include="Study\2. ExpectedExceptionTest.cs" />
+    <Compile Include="Study\3. ExplicitTest.cs" />
+    <Compile Include="Study\4. IgnoreTest.cs" />
+    <Compile Include="Study\5. CategoryTest.cs" />
+    <Compile Include="Study\6. SetUpTest.cs" />
+    <Compile Include="Study\7. TearDownTest.cs" />
+    <Compile Include="Study\9. SetUpTearDownTest.cs" />
+    <Compile Include="Study\10. TestFixtureSetupTest.cs" />
+    <Compile Include="Study\11. TestFixtureTeardown.cs" />
+    <Compile Include="Study\12. TestFixtureSetup_TearDownTest.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Documents\Nunit--测试和项目结合的几种方法.txt" />
+    <Content Include="Documents\NUnit-Console.txt" />
+    <None Include="Specs\Table\Contact.data.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Specs\Table\EmptyRow.Contact.data.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Specs\Table\Invalid.Contact.data.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Specs\Adder\Adder.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Specs\Adder\Adder2.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Specs\Adder\Overflow.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <Content Include="Documents\NUnit 简介.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Specs\3. Adder\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

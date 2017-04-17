@@ -1,0 +1,29 @@
+
+
+HKCR
+{
+    ISS.ProwriteEffect.ColorAdjust.1 = s 'DTOColorAdjust Class'
+    {
+		CLSID = s '{5317AB02-6923-492d-ABFC-742B6194B739}'
+    }
+
+    ISS.ProwriteEffect.ColorAdjust = s 'DTOColorAdjust Class'
+    {
+		CLSID = s '{5317AB02-6923-492d-ABFC-742B6194B739}'
+		CurVer = s 'ISS.ProwriteEffect.ColorAdjust.1'
+    }
+
+    NoRemove CLSID
+    {
+		ForceRemove {5317AB02-6923-492d-ABFC-742B6194B739} = s 'DTOColorAdjust Class'
+		{
+			ProgID = s 'ISS.ProwriteEffect.ColorAdjust.1'
+			VersionIndependentProgID = s 'ISS.ProwriteEffect.ColorAdjust'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+		}
+    }
+}

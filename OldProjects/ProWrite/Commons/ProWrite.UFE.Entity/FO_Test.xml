@@ -1,0 +1,302 @@
+<?xml version="1.0"?>
+<FrameObject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://xml.netbeans.org/schema/ProWriteFrameObject">
+  <UniqueIdentifier>20d523f7ea884b22a0cb7ad1e17981b0</UniqueIdentifier>
+  <DisplayTime>60</DisplayTime>
+  <EmphasisEffect>
+    <TransitionEffect>SNOW</TransitionEffect>
+    <Duration>60</Duration>
+    <EffectSpeed>0</EffectSpeed>
+  </EmphasisEffect>
+  <Contents>
+    <Content>
+      <UniqueIdentifier>86ea0e19d5334267abf834f83f2c3f71</UniqueIdentifier>
+      <Type>JPEG</Type>
+      <Dimension>
+        <TLCorner>
+          <XCoordinate>0</XCoordinate>
+          <YCoordinate>0</YCoordinate>
+        </TLCorner>
+        <BRCorner>
+          <XCoordinate>50</XCoordinate>
+          <YCoordinate>50</YCoordinate>
+        </BRCorner>
+      </Dimension>
+      <TimeOffset>3</TimeOffset>
+      <TimeDisplayLength>4</TimeDisplayLength>
+      <FilenName>Test1.jpg</FilenName>
+      <EntryTransitionEffect>
+        <TransitionEffect>FILTER</TransitionEffect>
+        <Duration>3</Duration>
+        <EffectSpeed>0</EffectSpeed>
+        <Params>
+          <Parameter Name="Width" Value="10" />
+          <Parameter Name="Hight" Value="10" />
+        </Params>
+      </EntryTransitionEffect>
+      <EmphasisTransitionEffect>
+        <TransitionEffect>SNOW</TransitionEffect>
+        <Duration>12</Duration>
+        <EffectSpeed>0</EffectSpeed>
+        <Params>
+          <Parameter Name="Color" Value="0xFFFFFF" />
+          <Parameter Name="Rate" Value="12" />
+          <Parameter Name="Amount" Value="0.15" />
+        </Params>
+      </EmphasisTransitionEffect>
+      <ExitTransitionEffect>
+        <TransitionEffect>BLACKHOLE</TransitionEffect>
+        <Duration>4</Duration>
+        <EffectSpeed>0</EffectSpeed>
+      </ExitTransitionEffect>
+      <ScrollInformation>
+        <IsScrolling>true</IsScrolling>
+        <ScrollDirection>UP</ScrollDirection>
+        <Speed>12</Speed>
+        <Content>
+          <Text>
+            <DisplayText>Hello ProWrite</DisplayText>
+            <FontInfo>
+              <Font>PL6CAPBD</Font>
+              <FontSize>12</FontSize>
+              <FontColor>255</FontColor>
+              <FontKerning>1</FontKerning>
+              <FontLead>3</FontLead>
+            </FontInfo>
+          </Text>
+        </Content>
+      </ScrollInformation>
+    </Content>
+    <Content>
+      <UniqueIdentifier>530c2afbee814bc6a8051cad736d6599</UniqueIdentifier>
+      <Type>JPEG</Type>
+      <Dimension>
+        <TLCorner>
+          <XCoordinate>0</XCoordinate>
+          <YCoordinate>0</YCoordinate>
+        </TLCorner>
+        <BRCorner>
+          <XCoordinate>50</XCoordinate>
+          <YCoordinate>50</YCoordinate>
+        </BRCorner>
+      </Dimension>
+      <TimeOffset>3</TimeOffset>
+      <TimeDisplayLength>4</TimeDisplayLength>
+      <FilenName>Test2.jpg</FilenName>
+      <EntryTransitionEffect>
+        <TransitionEffect>FILTER</TransitionEffect>
+        <Duration>3</Duration>
+        <EffectSpeed>0</EffectSpeed>
+        <Params>
+          <Parameter Name="Width" Value="10" />
+          <Parameter Name="Hight" Value="10" />
+        </Params>
+      </EntryTransitionEffect>
+      <EmphasisTransitionEffect>
+        <TransitionEffect>SNOW</TransitionEffect>
+        <Duration>12</Duration>
+        <EffectSpeed>0</EffectSpeed>
+        <Params>
+          <Parameter Name="Color" Value="0xFFFFFF" />
+          <Parameter Name="Rate" Value="12" />
+          <Parameter Name="Amount" Value="0.15" />
+        </Params>
+      </EmphasisTransitionEffect>
+      <ExitTransitionEffect>
+        <TransitionEffect>BLACKHOLE</TransitionEffect>
+        <Duration>4</Duration>
+        <EffectSpeed>0</EffectSpeed>
+      </ExitTransitionEffect>
+      <ScrollInformation>
+        <IsScrolling>true</IsScrolling>
+        <ScrollDirection>UP</ScrollDirection>
+        <Speed>12</Speed>
+        <Content>
+          <Text>
+            <DisplayText>Hello ProWrite</DisplayText>
+            <FontInfo>
+              <Font>PL6CAPBD</Font>
+              <FontSize>12</FontSize>
+              <FontColor>255</FontColor>
+              <FontKerning>1</FontKerning>
+              <FontLead>3</FontLead>
+            </FontInfo>
+          </Text>
+        </Content>
+      </ScrollInformation>
+    </Content>
+    <Content>
+      <UniqueIdentifier>31439fc50a7e4baabe964900d61b45cc</UniqueIdentifier>
+      <Type>JPEG</Type>
+      <Dimension>
+        <TLCorner>
+          <XCoordinate>0</XCoordinate>
+          <YCoordinate>0</YCoordinate>
+        </TLCorner>
+        <BRCorner>
+          <XCoordinate>50</XCoordinate>
+          <YCoordinate>50</YCoordinate>
+        </BRCorner>
+      </Dimension>
+      <TimeOffset>3</TimeOffset>
+      <TimeDisplayLength>4</TimeDisplayLength>
+      <FilenName>Test3.jpg</FilenName>
+      <EntryTransitionEffect>
+        <TransitionEffect>FILTER</TransitionEffect>
+        <Duration>3</Duration>
+        <EffectSpeed>0</EffectSpeed>
+        <Params>
+          <Parameter Name="Width" Value="10" />
+          <Parameter Name="Hight" Value="10" />
+        </Params>
+      </EntryTransitionEffect>
+      <EmphasisTransitionEffect>
+        <TransitionEffect>SNOW</TransitionEffect>
+        <Duration>12</Duration>
+        <EffectSpeed>0</EffectSpeed>
+        <Params>
+          <Parameter Name="Color" Value="0xFFFFFF" />
+          <Parameter Name="Rate" Value="12" />
+          <Parameter Name="Amount" Value="0.15" />
+        </Params>
+      </EmphasisTransitionEffect>
+      <ExitTransitionEffect>
+        <TransitionEffect>BLACKHOLE</TransitionEffect>
+        <Duration>4</Duration>
+        <EffectSpeed>0</EffectSpeed>
+      </ExitTransitionEffect>
+      <ScrollInformation>
+        <IsScrolling>true</IsScrolling>
+        <ScrollDirection>UP</ScrollDirection>
+        <Speed>12</Speed>
+        <Content>
+          <Text>
+            <DisplayText>Hello ProWrite</DisplayText>
+            <FontInfo>
+              <Font>PL6CAPBD</Font>
+              <FontSize>12</FontSize>
+              <FontColor>255</FontColor>
+              <FontKerning>1</FontKerning>
+              <FontLead>3</FontLead>
+            </FontInfo>
+          </Text>
+        </Content>
+      </ScrollInformation>
+    </Content>
+    <Content>
+      <UniqueIdentifier>d935348616a34feaaf3dfee8e5d88bbe</UniqueIdentifier>
+      <Type>JPEG</Type>
+      <Dimension>
+        <TLCorner>
+          <XCoordinate>0</XCoordinate>
+          <YCoordinate>0</YCoordinate>
+        </TLCorner>
+        <BRCorner>
+          <XCoordinate>50</XCoordinate>
+          <YCoordinate>50</YCoordinate>
+        </BRCorner>
+      </Dimension>
+      <TimeOffset>3</TimeOffset>
+      <TimeDisplayLength>4</TimeDisplayLength>
+      <FilenName>Test4.jpg</FilenName>
+      <EntryTransitionEffect>
+        <TransitionEffect>FILTER</TransitionEffect>
+        <Duration>3</Duration>
+        <EffectSpeed>0</EffectSpeed>
+        <Params>
+          <Parameter Name="Width" Value="10" />
+          <Parameter Name="Hight" Value="10" />
+        </Params>
+      </EntryTransitionEffect>
+      <EmphasisTransitionEffect>
+        <TransitionEffect>SNOW</TransitionEffect>
+        <Duration>12</Duration>
+        <EffectSpeed>0</EffectSpeed>
+        <Params>
+          <Parameter Name="Color" Value="0xFFFFFF" />
+          <Parameter Name="Rate" Value="12" />
+          <Parameter Name="Amount" Value="0.15" />
+        </Params>
+      </EmphasisTransitionEffect>
+      <ExitTransitionEffect>
+        <TransitionEffect>BLACKHOLE</TransitionEffect>
+        <Duration>4</Duration>
+        <EffectSpeed>0</EffectSpeed>
+      </ExitTransitionEffect>
+      <ScrollInformation>
+        <IsScrolling>true</IsScrolling>
+        <ScrollDirection>UP</ScrollDirection>
+        <Speed>12</Speed>
+        <Content>
+          <Text>
+            <DisplayText>Hello ProWrite</DisplayText>
+            <FontInfo>
+              <Font>PL6CAPBD</Font>
+              <FontSize>12</FontSize>
+              <FontColor>255</FontColor>
+              <FontKerning>1</FontKerning>
+              <FontLead>3</FontLead>
+            </FontInfo>
+          </Text>
+        </Content>
+      </ScrollInformation>
+    </Content>
+    <Content>
+      <UniqueIdentifier>4a24b97176e044e0bf73c43f91634e06</UniqueIdentifier>
+      <Type>JPEG</Type>
+      <Dimension>
+        <TLCorner>
+          <XCoordinate>0</XCoordinate>
+          <YCoordinate>0</YCoordinate>
+        </TLCorner>
+        <BRCorner>
+          <XCoordinate>50</XCoordinate>
+          <YCoordinate>50</YCoordinate>
+        </BRCorner>
+      </Dimension>
+      <TimeOffset>3</TimeOffset>
+      <TimeDisplayLength>4</TimeDisplayLength>
+      <FilenName>Test5.jpg</FilenName>
+      <EntryTransitionEffect>
+        <TransitionEffect>FILTER</TransitionEffect>
+        <Duration>3</Duration>
+        <EffectSpeed>0</EffectSpeed>
+        <Params>
+          <Parameter Name="Width" Value="10" />
+          <Parameter Name="Hight" Value="10" />
+        </Params>
+      </EntryTransitionEffect>
+      <EmphasisTransitionEffect>
+        <TransitionEffect>SNOW</TransitionEffect>
+        <Duration>12</Duration>
+        <EffectSpeed>0</EffectSpeed>
+        <Params>
+          <Parameter Name="Color" Value="0xFFFFFF" />
+          <Parameter Name="Rate" Value="12" />
+          <Parameter Name="Amount" Value="0.15" />
+        </Params>
+      </EmphasisTransitionEffect>
+      <ExitTransitionEffect>
+        <TransitionEffect>BLACKHOLE</TransitionEffect>
+        <Duration>4</Duration>
+        <EffectSpeed>0</EffectSpeed>
+      </ExitTransitionEffect>
+      <ScrollInformation>
+        <IsScrolling>true</IsScrolling>
+        <ScrollDirection>UP</ScrollDirection>
+        <Speed>12</Speed>
+        <Content>
+          <Text>
+            <DisplayText>Hello ProWrite</DisplayText>
+            <FontInfo>
+              <Font>PL6CAPBD</Font>
+              <FontSize>12</FontSize>
+              <FontColor>255</FontColor>
+              <FontKerning>1</FontKerning>
+              <FontLead>3</FontLead>
+            </FontInfo>
+          </Text>
+        </Content>
+      </ScrollInformation>
+    </Content>
+  </Contents>
+</FrameObject>

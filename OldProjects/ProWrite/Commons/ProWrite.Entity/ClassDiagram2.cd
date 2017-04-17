@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ProWrite.Entity.Live.SessionInfos">
+    <Position X="2.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Live\SessionInfos.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProWrite.Core.ListSet&lt;T&gt;" Collapsed="true">
+    <Position X="2.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ProWrite.Entity.Live.SessionInfo">
+    <Position X="6.5" Y="2.25" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>ACAAegABAiAIQDKGbsiAUQUgAmAgIUAgAGkADAQYRAI=</HashCode>
+      <FileName>Live\SessionInfo.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="SessionCategories" />
+      <Property Name="RedALert" />
+      <Property Name="YellowAlert" />
+      <Property Name="GreenAlert" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="LibraryCategories" />
+      <Property Name="SignItems" />
+      <Property Name="HotButtons" />
+    </ShowAsCollectionAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ProWrite.Entity.Live.LiveCategory">
+    <Position X="3.5" Y="4" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAGAICAAAkCAAAAQAAhAACoEAASAAAKAAAAI=</HashCode>
+      <FileName>Live\LiveCategory.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="ViewState" />
+      <Property Name="Type" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Items" />
+    </ShowAsCollectionAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ProWrite.Entity.Live.LiveMessageItem">
+    <Position X="0.5" Y="7.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAIAACAgCAACCAAQQAAApAACWAABAAAEAI=</HashCode>
+      <FileName>Live\LiveMessageItem.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="State" />
+      <Property Name="Type" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ProWrite.Entity.Live.QueueAlertItem" Collapsed="true">
+    <Position X="6.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAAAAAAAAAQBAggAAAAABBAAAAAAAAAA=</HashCode>
+      <FileName>Live\QueueAlertItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProWrite.Entity.Live.LiveSign">
+    <Position X="9.5" Y="2.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAIABAQgSAAAAQAAQCAAoAAESACIAAAAAI=</HashCode>
+      <FileName>Live\LiveSign.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Message" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ProWrite.Entity.Live.HotButtonItemInfo" Collapsed="true">
+    <Position X="6.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABCAIABEAgCIAAABAAAAAAoAQASAAAAAAAAI=</HashCode>
+      <FileName>Live\HotButtonItemInfo.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Enum Name="ProWrite.Core.LiveCategoryViewState">
+    <Position X="3.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier />
+  </Enum>
+  <Enum Name="ProWrite.Core.LiveMessageState">
+    <Position X="0.5" Y="10.5" Width="1.5" />
+    <TypeIdentifier />
+  </Enum>
+  <Enum Name="ProWrite.Core.LiveType">
+    <Position X="0.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier />
+  </Enum>
+  <Font Name="SimSun" Size="9" />
+</ClassDiagram>

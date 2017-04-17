@@ -1,0 +1,351 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5915A60C-B679-4E48-86AD-C79D9F8C903F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ProWrite.Entity</RootNamespace>
+    <AssemblyName>ProWrite.Entity</AssemblyName>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <PublishUrl>http://localhost/ProWrite.Entity/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\Bin\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;DBC_CHECK_ALL,DBC_CHECK_INVARIANT,DBC_CHECK_POSTCONDITION,DBC_CHECK_PRECONDITION;USE_DEBUG_ASSERTION</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\Bin\</OutputPath>
+    <DefineConstants>TRACE;bf</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release_X64|AnyCPU' ">
+    <OutputPath>bin\Release_X64\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug_X64|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug_X64\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;DBC_CHECK_ALL,DBC_CHECK_INVARIANT,DBC_CHECK_POSTCONDITION,DBC_CHECK_PRECONDITION;USE_DEBUG_ASSERTION</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net, Version=1.2.9.0, Culture=neutral, PublicKeyToken=b32731d11ce58905">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Libs\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Threading, Version=1.0.3058.34407, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Libs\System.Threading.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Dashboard\DashboardItem.cs" />
+    <Compile Include="Dashboard\LogInfo.cs" />
+    <Compile Include="Dashboard\LoginInfo.cs" />
+    <Compile Include="Dashboard\SignGroupInfo.cs" />
+    <Compile Include="Dashboard\SignGroupTree.cs" />
+    <Compile Include="Dashboard\SignInfo.cs" />
+    <Compile Include="Dashboard\StatusInfo.cs" />
+    <Compile Include="DataManager\DataItem.cs" />
+    <Compile Include="DES\EffectCategory.cs" />
+    <Compile Include="DES\Effect\EffectCopy.cs" />
+    <Compile Include="DES\Effect\EffectMultiWipe.cs" />
+    <Compile Include="DES\Effect\EffectRadar.cs" />
+    <Compile Include="DES\Effect\EffectSlide.cs" />
+    <Compile Include="DES\Effect\EffectFade.cs" />
+    <Compile Include="DES\Effect\EffectCoalesce.cs" />
+    <Compile Include="DES\Effect\EffectLine.cs" />
+    <Compile Include="DES\Effect\EffectInterleave.cs" />
+    <Compile Include="DES\Effect\EffectSlot.cs" />
+    <Compile Include="DES\Effect\EffectFilter.cs" />
+    <Compile Include="DES\Effect\EffectBlackHole.cs" />
+    <Compile Include="DES\Effect\EffectBounce.cs" />
+    <Compile Include="DES\Effect\EffectTravel.cs" />
+    <Compile Include="DES\Effect\EffectVenetian.cs" />
+    <Compile Include="DES\Effect\EffectWipe.cs" />
+    <Compile Include="DES\Effect\EffectWrapAround.cs" />
+    <Compile Include="DES\Effect\EffectFlash.cs" />
+    <Compile Include="DES\Effect\EffectSparkle.cs" />
+    <Compile Include="DES\Effect\EffectBijou.cs" />
+    <Compile Include="DES\Effect\EffectRain.cs" />
+    <Compile Include="DES\Effect\EffectBase.cs" />
+    <Compile Include="DES\Effect\EffectSnow.cs" />
+    <Compile Include="DES\LayerEffect.cs" />
+    <Compile Include="DES\Struct.cs" />
+    <Compile Include="DES\TextInfo.cs" />
+    <Compile Include="DES\VideoLayer.cs" />
+    <Compile Include="DES\VideoLayerCollection.cs" />
+    <Compile Include="IDataProvider.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Library\AppointmentChangedEventArgs.cs" />
+    <Compile Include="Library\AppointmentInfo.cs" />
+    <Compile Include="Library\Controller\FileController.cs" />
+    <Compile Include="Library\Controller\FileLibraryController.cs" />
+    <Compile Include="Library\Controller\ILibraryController.cs" />
+    <Compile Include="Library\Controller\ImageController.cs" />
+    <Compile Include="Library\Controller\MessageController.cs" />
+    <Compile Include="Library\Controller\MLPlaylistController.cs" />
+    <Compile Include="Library\Controller\PlaylistController.cs" />
+    <Compile Include="Library\Controller\SimpleController.cs" />
+    <Compile Include="Library\Controller\TimeSliceGroupController.cs" />
+    <Compile Include="Library\Controller\VideoController.cs" />
+    <Compile Include="Library\FileLibraryItem.cs" />
+    <Compile Include="Library\ILibraryItem.cs" />
+    <Compile Include="Library\ImageInfo.cs" />
+    <Compile Include="Library\ImportExport\FileItem.cs" />
+    <Compile Include="Library\ImportExport\MessageFileItem.cs" />
+    <Compile Include="Library\ImportExport\MessageItem.cs" />
+    <Compile Include="Library\ImportExport\MessageReplaceItem.cs" />
+    <Compile Include="Library\ImportExport\MessageWrapper.cs" />
+    <Compile Include="Library\ImportExport\NailImageFileItem.cs" />
+    <Compile Include="Library\ImportExport\PlaylistItem.cs" />
+    <Compile Include="Library\ImportExport\PlaylistWrapper.cs" />
+    <Compile Include="Library\ImportExport\TimeSliceGroupItem.cs" />
+    <Compile Include="Library\ImportExport\TimeSliceGroupWrapper.cs" />
+    <Compile Include="Library\IReferenceCounter.cs" />
+    <Compile Include="Library\LibraryAdapter.cs" />
+    <Compile Include="Library\LibraryDeleteItem.cs" />
+    <Compile Include="Library\LibraryFile.cs" />
+    <Compile Include="Library\LibraryGroup.cs" />
+    <Compile Include="Library\LibraryGroups.cs" />
+    <Compile Include="Library\LibraryItem.cs" />
+    <Compile Include="Library\LibraryItemColor.cs" />
+    <Compile Include="Library\LibraryPropertys.cs" />
+    <Compile Include="Library\MemoryLibraryItem.cs" />
+    <Compile Include="Library\MessageAdapterInfo.cs" />
+    <Compile Include="Library\MessageInfo.cs" />
+    <Compile Include="Library\MLPlaylistInfo.cs" />
+    <Compile Include="Library\PlaylistAdapterInfo.cs" />
+    <Compile Include="Library\PlaylistInfo.cs" />
+    <Compile Include="Library\PWRecurrenceInfo.cs" />
+    <Compile Include="Library\RegionInfo.cs" />
+    <Compile Include="Library\SchedulerInfo.cs" />
+    <Compile Include="Library\TemplateInfo.cs" />
+    <Compile Include="Library\TimeSliceGroupAdapterInfo.cs" />
+    <Compile Include="Library\TimeSliceGroupInfo.cs" />
+    <Compile Include="IGenerator.cs" />
+    <Compile Include="Library\VideoInfo.cs" />
+    <Compile Include="Live\Controller\ILiveController.cs" />
+    <Compile Include="Live\Controller\LiveController.cs" />
+    <Compile Include="Live\Controller\LiveMessageItemController.cs" />
+    <Compile Include="Live\Controller\LiveSignController.cs" />
+    <Compile Include="Live\LiveSignAdapterInfo.cs" />
+    <Compile Include="Live\LiveMessageItemAdapterInfo.cs" />
+    <Compile Include="Live\LiveCategoryAdapterInfo.cs" />
+    <Compile Include="Live\HotButtonItemAdapterInfo.cs" />
+    <Compile Include="Live\HotButtonAdapterInfo.cs" />
+    <Compile Include="Live\HotButtonInfo.cs" />
+    <Compile Include="Live\HotButtonItemInfo.cs" />
+    <Compile Include="Live\ILiveItem.cs" />
+    <Compile Include="Live\LiveAdapter.cs" />
+    <Compile Include="Live\LiveCategory.cs" />
+    <Compile Include="Live\LiveItem.cs" />
+    <Compile Include="Live\LiveMessageItem.cs" />
+    <Compile Include="Live\LiveMessageItemConfig.cs" />
+    <Compile Include="Live\LiveSign.cs" />
+    <Compile Include="Live\MemoryLiveItem.cs" />
+    <Compile Include="Live\QueueAlertItem.cs" />
+    <Compile Include="Live\SessionInfo.cs" />
+    <Compile Include="Live\SessionInfos.cs" />
+    <Compile Include="ProjectInfo.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PropertyChangedEventHandler.cs" />
+    <Compile Include="RecentInfo.cs" />
+    <Compile Include="Settings\MessageTemplate.cs" />
+    <Compile Include="Settings\PlayListTemplate.cs" />
+    <Compile Include="Settings\SchedulerTemplate.cs" />
+    <Compile Include="Settings\SettingViewAttribute.cs" />
+    <Compile Include="Settings\ShapeFigureTemplate.cs" />
+    <Compile Include="Settings\ShapeImageTemplate.cs" />
+    <Compile Include="Settings\ShapeLabelTemplate.cs" />
+    <Compile Include="Settings\ShapeLineTemplate.cs" />
+    <Compile Include="Settings\ShapeMarqueeTemplate.cs" />
+    <Compile Include="Settings\ShapeTemperatureTemplate.cs" />
+    <Compile Include="Settings\ShapeTemplate.cs" />
+    <Compile Include="Settings\ShapeTimeTemplate.cs" />
+    <Compile Include="Settings\ShapeVideoTemplate.cs" />
+    <Compile Include="Settings\SignTemplateInfo.cs" />
+    <Compile Include="Settings\SR.cs" />
+    <Compile Include="Settings\TemplateGroup.cs" />
+    <Compile Include="Settings\TemplateGroups.cs" />
+    <Compile Include="Settings\TemplateInfo.cs" />
+    <Compile Include="Settings\TemplateType.cs" />
+    <Compile Include="Shape\AddLayersEventArgs.cs" />
+    <Compile Include="Shape\ShapeDynamicVideo.cs" />
+    <Compile Include="Shape\DefaultShape.cs" />
+    <Compile Include="Shape\DrawingPens.cs" />
+    <Compile Include="Shape\FillBrushes.cs" />
+    <Compile Include="Shape\FontWrapper.cs" />
+    <Compile Include="IFileHandle.cs" />
+    <Compile Include="Shape\LocationValidatorAttribute.cs" />
+    <Compile Include="Shape\PWFont.cs" />
+    <Compile Include="Shape\RichTextDrawing.cs" />
+    <Compile Include="Shape\ShapeBase.cs" />
+    <Compile Include="Shape\ShapeDraw.cs" />
+    <Compile Include="Shape\ShapeDynamicText.cs" />
+    <Compile Include="Shape\ShapeFigure.cs" />
+    <Compile Include="Shape\ShapeFontBase.cs" />
+    <Compile Include="Shape\ShapeImage.cs" />
+    <Compile Include="Shape\ShapeLabel.cs" />
+    <Compile Include="Shape\ShapeLayer.cs" />
+    <Compile Include="Shape\ShapeLine.cs" />
+    <Compile Include="Shape\ShapeMarquee.cs" />
+    <Compile Include="Shape\ShapeMasterLayer.cs" />
+    <Compile Include="Shape\ShapePaint.cs" />
+    <Compile Include="Shape\ShapePaintHelper.cs" />
+    <Compile Include="Shape\ShapeBase.Extend.cs" />
+    <Compile Include="Shape\ShapeTemp.cs" />
+    <Compile Include="Shape\ShapeTextBase.cs" />
+    <Compile Include="Shape\ShapeTime.cs" />
+    <Compile Include="Shape\ShapeVideo.cs" />
+    <Compile Include="Shape\SignTypeHandler.cs" />
+    <Compile Include="Shape\TextEffect.cs" />
+    <Compile Include="Visitor\DesignPaintVisitor.cs" />
+    <Compile Include="Visitor\DESPaintVisitor.cs" />
+    <Compile Include="Visitor\IDesignPaintVisitor.cs" />
+    <Compile Include="Visitor\IDESPaintVisitor.cs" />
+    <Compile Include="Visitor\IVisitor.cs" />
+    <Compile Include="Visitor\ResetSignVisitor.cs" />
+    <Compile Include="Visitor\UFEPaintVisitor.cs" />
+    <Compile Include="Visitor\VisitorAdapter.cs" />
+    <Compile Include="UndoObject.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Library\Library.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram2.cd" />
+    <None Include="Effect.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Clients\ProWrite.UI.Texts\ProWrite.UI.Texts.vcproj">
+      <Project>{B257EC94-F0B3-4DD7-BA27-94CEFFAE3F0B}</Project>
+      <Name>ProWrite.UI.Texts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mentalis\Mentalis.csproj">
+      <Project>{8B0BAABE-3CEB-4CA9-837E-C198B0C0B203}</Project>
+      <Name>Mentalis</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Messages\Messages.csproj">
+      <Project>{3596709E-8A87-45AB-BC39-EAAE5DA2A3A7}</Project>
+      <Name>Messages</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProWrite.Core\ProWrite.Core.csproj">
+      <Project>{FF80525C-029F-4EE1-BCF5-3547AFA06F0B}</Project>
+      <Name>ProWrite.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProWrite.UFE.Entity\ProWrite.UFE.Entity.csproj">
+      <Project>{5D1E0AF1-E69A-48F2-BE2E-DA9BEFA9AE2A}</Project>
+      <Name>ProWrite.UFE.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProWrite.UFE\ProWrite.UFE.csproj">
+      <Project>{ACD7DEDB-AA50-4665-BEA0-729E64DDFA2D}</Project>
+      <Name>ProWrite.UFE</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProWrite.Unsafe\ProWrite.Unsafe.csproj">
+      <Project>{D0B26CCB-0D5A-44F3-8FEE-0BAEA39226B1}</Project>
+      <Name>ProWrite.Unsafe</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\ResStrings.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Live\ImportExport\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

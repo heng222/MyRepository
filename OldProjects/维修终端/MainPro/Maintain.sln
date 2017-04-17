@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Maintain", "Maintain.vcproj", "{5764F695-C1A0-41A2-AE75-9932B463CF91}"
+	ProjectSection(ProjectDependencies) = postProject
+		{D7EABB43-C865-4891-BDCB-490630876BA3} = {D7EABB43-C865-4891-BDCB-490630876BA3}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ZCTDraw", "..\ZCTDraw\ZCTDraw.vcproj", "{D7EABB43-C865-4891-BDCB-490630876BA3}"
+EndProject
+Global
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5764F695-C1A0-41A2-AE75-9932B463CF91}.Debug|Win32.ActiveCfg = Debug|Win32
+		{5764F695-C1A0-41A2-AE75-9932B463CF91}.Debug|Win32.Build.0 = Debug|Win32
+		{5764F695-C1A0-41A2-AE75-9932B463CF91}.Release|Win32.ActiveCfg = Release|Win32
+		{5764F695-C1A0-41A2-AE75-9932B463CF91}.Release|Win32.Build.0 = Release|Win32
+		{D7EABB43-C865-4891-BDCB-490630876BA3}.Debug|Win32.ActiveCfg = Debug|Win32
+		{D7EABB43-C865-4891-BDCB-490630876BA3}.Debug|Win32.Build.0 = Debug|Win32
+		{D7EABB43-C865-4891-BDCB-490630876BA3}.Release|Win32.ActiveCfg = Release|Win32
+		{D7EABB43-C865-4891-BDCB-490630876BA3}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

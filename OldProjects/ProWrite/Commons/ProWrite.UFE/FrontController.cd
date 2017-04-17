@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ProWrite.UFE.MockConnection">
+    <Position X="4.25" Y="4" Width="1.5" />
+    <NestedTypes>
+      <Class Name="ProWrite.UFE.MockConnection.UfeUser" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>MockConnection.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="ProWrite.UFE.MockConnection.QueueItem" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>MockConnection.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="ProWrite.UFE.MockConnection.MockData" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>MockConnection.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAACAAIOAQIAAAAEAAAAAQAAAAAAAAAAAAABCAAAQ=</HashCode>
+      <FileName>MockConnection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProWrite.UFE.UFEFrontController">
+    <Position X="1.25" Y="2.75" Width="1.5" />
+    <Members>
+      <Field Name="_conn" Hidden="true" />
+      <Field Name="_user" Hidden="true" />
+      <Event Name="ChangePasswordFailed" Hidden="true" />
+      <Event Name="ChangePasswordSuccessed" Hidden="true" />
+      <Event Name="ClearLogFailed" Hidden="true" />
+      <Event Name="ClearLogSuccessed" Hidden="true" />
+      <Event Name="ClearQueueMessagedFailed" Hidden="true" />
+      <Event Name="ClearQueueMessageSuccessed" Hidden="true" />
+      <Property Name="Connection" Hidden="true" />
+      <Event Name="CreateUserFailed" Hidden="true" />
+      <Event Name="CreateUserSuccessed" Hidden="true" />
+      <Event Name="DeleteUserFailed" Hidden="true" />
+      <Event Name="DeleteUserSuccessed" Hidden="true" />
+      <Event Name="DiagnosticsFailed" Hidden="true" />
+      <Event Name="DiagnosticsSuccessed" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Property Name="FileManager" Hidden="true" />
+      <Event Name="FreeLockFailed" Hidden="true" />
+      <Event Name="FreeLockSuccessed" Hidden="true" />
+      <Event Name="GetLockFailed" Hidden="true" />
+      <Event Name="GetLockSuccessed" Hidden="true" />
+      <Event Name="GetLogFailed" Hidden="true" />
+      <Event Name="GetLogSuccessed" Hidden="true" />
+      <Event Name="GetStatusFailed" Hidden="true" />
+      <Event Name="GetStatusSuccessed" Hidden="true" />
+      <Event Name="GetUserListFailed" Hidden="true" />
+      <Event Name="GetUserListSuccessed" Hidden="true" />
+      <Method Name="IFileManager.FreeLock" Hidden="true" />
+      <Method Name="IFileManager.GetLock" Hidden="true" />
+      <Method Name="IFileManager.UploadFile" Hidden="true" />
+      <Method Name="ILogManager.ClearLog" Hidden="true" />
+      <Method Name="ILogManager.GetLog" Hidden="true" />
+      <Method Name="IMAManager.ClearQueueMessage" Hidden="true" />
+      <Method Name="IMAManager.Diagnostics" Hidden="true" />
+      <Method Name="IMAManager.GetStatus" Hidden="true" />
+      <Method Name="IMAManager.InitSetup" Hidden="true" />
+      <Method Name="IMAManager.LoadScheduler" Hidden="true" />
+      <Method Name="IMAManager.Play" Hidden="true" />
+      <Method Name="IMAManager.RebootCXC" Hidden="true" />
+      <Method Name="IMAManager.SetDateTime" Hidden="true" />
+      <Method Name="IMAManager.SkipQueueMessage" Hidden="true" />
+      <Method Name="IMAManager.StartRender" Hidden="true" />
+      <Method Name="IMAManager.StopRender" Hidden="true" />
+      <Event Name="InitSetupFailed" Hidden="true" />
+      <Event Name="InitSetupSuccessed" Hidden="true" />
+      <Property Name="IsConnected" Hidden="true" />
+      <Method Name="IUserManager.ChangePassword" Hidden="true" />
+      <Method Name="IUserManager.CreateUser" Hidden="true" />
+      <Method Name="IUserManager.DeleteUser" Hidden="true" />
+      <Method Name="IUserManager.GetUserList" Hidden="true" />
+      <Method Name="IUserManager.Login" Hidden="true" />
+      <Method Name="IUserManager.Logoff" Hidden="true" />
+      <Method Name="IUserManager.UpdateUserRole" Hidden="true" />
+      <Property Name="IUserManager.User" Hidden="true" />
+      <Event Name="LoadSchedulerFailed" Hidden="true" />
+      <Event Name="LoadSchedulerSuccessed" Hidden="true" />
+      <Event Name="LoginFailed" Hidden="true" />
+      <Event Name="LoginSuccessed" Hidden="true" />
+      <Property Name="LogManager" Hidden="true" />
+      <Event Name="LogoffFailed" Hidden="true" />
+      <Event Name="LogoffSuccessed" Hidden="true" />
+      <Property Name="MAManager" Hidden="true" />
+      <Method Name="OnConnectionException" Hidden="true" />
+      <Event Name="PlayCompleted" Hidden="true" />
+      <Event Name="PlayFailed" Hidden="true" />
+      <Event Name="PlaySuccessed" Hidden="true" />
+      <Event Name="RebootCXCFailed" Hidden="true" />
+      <Event Name="RebootCXCSuccessed" Hidden="true" />
+      <Event Name="SetDateAndTimeFailed" Hidden="true" />
+      <Event Name="SetDateTimeSuccessed" Hidden="true" />
+      <Event Name="SkipQueueMessageFailed" Hidden="true" />
+      <Event Name="SkipQueueMessageSuccessed" Hidden="true" />
+      <Event Name="StartRenderFailed" Hidden="true" />
+      <Event Name="StartRenderSuccessed" Hidden="true" />
+      <Event Name="StopRenderFailed" Hidden="true" />
+      <Event Name="StopRenderSuccessed" Hidden="true" />
+      <Method Name="SubscribeConnectionEvent" Hidden="true" />
+      <Method Name="UnSubscribeConnectionEvent" Hidden="true" />
+      <Event Name="UpdateUserRoleFailed" Hidden="true" />
+      <Event Name="UpdateUserRoleSuccessed" Hidden="true" />
+      <Event Name="UploadFilesFailed" Hidden="true" />
+      <Event Name="UploadFilesSuccessed" Hidden="true" />
+      <Property Name="UserManager" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>xAE2qT2BIiQVYHFEdkoSDAYIRAjYJI/NRIBTE4AhmAA=</HashCode>
+      <FileName>UFEFrontController.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="ActionProcessor" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="ProWrite.UFE.IUFEActionProcessor" Collapsed="true">
+    <Position X="4.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Core.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="SimSun" Size="9" />
+</ClassDiagram>

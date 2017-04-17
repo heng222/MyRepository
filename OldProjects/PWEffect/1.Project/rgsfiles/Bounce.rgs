@@ -1,0 +1,26 @@
+HKCR
+{
+	PWEffect.Bounce.1 = s 'Bounce Class'
+	{
+		CLSID = s '{A631D229-A165-4db7-B28D-32D4CE2CA42C}'
+	}
+	PWEffect.Bounce = s 'Bounce Class'
+	{
+		CLSID = s '{A631D229-A165-4db7-B28D-32D4CE2CA42C}'
+		CurVer = s 'PWEffect.Bounce.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {A631D229-A165-4db7-B28D-32D4CE2CA42C} = s 'Bounce Class'
+		{
+			ProgID = s 'PWEffect.Bounce.1'
+			VersionIndependentProgID = s 'PWEffect.Bounce'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{B1FEB9A2-A676-46da-83C5-B1CBEC33BC07}'
+		}
+	}
+}

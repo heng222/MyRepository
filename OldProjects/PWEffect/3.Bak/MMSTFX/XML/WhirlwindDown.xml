@@ -1,0 +1,14 @@
+<!-- Extends Movie Maker's existing Whirlwind transition. -->
+<TransitionsAndEffects Version="1.0">
+	<Transitions>
+		<TransitionDLL guid="{C63344D8-70D3-4032-9B32-7A3CAD5091A5}">
+			<Transition name="Whirlwind, Down, Small Blocks" iconid="77" comment="Whirlwind, Down, Small Blocks">
+				<Param name="InternalName" value="ParticleSystem" />
+				<Param name="ScatterDirection" value="down" />
+				<Param name="ParticleSpeed" value="2.0" />
+				<Param name="MaxParticles" value="300" />
+			</Transition>
+		</TransitionDLL>
+	</Transitions>
+</TransitionsAndEffects>
+

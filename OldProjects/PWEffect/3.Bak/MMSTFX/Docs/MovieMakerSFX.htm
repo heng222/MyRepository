@@ -1,0 +1,2841 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML DIR="LTR"><HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<style>
+/* Style sheet optimized for IE4x - Last updated 2/9/99 */
+
+body    		{ color: #000000;
+		margin-top: -.5em;
+		background: #FFFFFF;  	
+		font-size: 80%;    		
+		font-family: Verdana, Arial, Helvetica, Sans Serif }
+
+a:link, a:visited 	{ color: "#0000FF"; text-decoration:"underline";}
+
+a:active, a:hover 	{ color: "#FF0000";  cursor:hand; text-decoration:"underline";}
+
+h1
+		{ font-size: 150%; 
+		margin-bottom:" .5em"; clear:both; }
+
+h2
+		{ font-size: 135%;  
+		margin-top: 1.5em;
+		margin-bottom:" .5em"; clear:both; }
+
+h3
+		{ font-size: 125%; 
+		margin-top: 1.2em;  
+		margin-bottom: ".5em"; clear:both; color:blue;}
+
+h4
+		{ font-size: 110%; 
+		margin-top: "1.2em";  
+		margin-bottom: ".5em"; clear:both; }
+
+h5
+		{ font-size: 105%; 
+		margin-top: "1.2em";  
+		margin-bottom: ".5em"; clear:both; }
+
+p
+		{ margin-top:" .6em"; 
+		margin-bottom: ".6em"; }
+			
+ol
+		{ margin-top: ".5em"; 
+		margin-bottom: 0; 
+		margin-left: "2.1em"; 
+		padding-left: "0em"; }
+	
+ul
+		{ margin-top: ".6em"; 	
+		margin-bottom: 0;
+		list-style-type: disc;
+		margin-left: "1.5em";
+		padding-left: "0em"; }
+		
+li
+		{ margin-bottom: ".7em"; clear:both; }
+
+dd
+		{ margin-bottom: 0; 
+		margin-left: "1.5em"; } 
+
+/* for defined terms, follow the "Document Conventions" listing in the Microsoft Manual of Style: */
+/* Keywords, functions, and anything else the user must enter exactly as shown are bold--add "font-weight: bold;" to the dt tag */
+/* Variables, book titles, and placeholders the user must provide are italic--add "font-style: italic;" to the dt tag */
+/* pre-defined arguments are bold and italic--add "font-weight: bold;" and "font-style: italic;" to the dt tag */
+
+table.main{									
+	font-family: Verdana, Arial, Helvetica, MS Sans Serif;			
+	background-color: #FFFFFF;						
+	margin-top: -.5em; 							
+	margin-bottom: 0em;
+	margin-left: -.7em;					
+	padding-left: 0em;							
+	padding-right: 0em; 
+	}
+
+td.main
+		{ background: #FFFFFF;
+		vertical-align: top; }
+
+dt
+		{ margin-top: "2em"; }
+
+pre
+		{ margin-top: "1.2em";
+		background: #EEEEEE;
+		margin-bottom: "1.5em"; }
+
+code
+		{ font-family: Courier New; 
+		font-size: 110% }
+
+table
+		{ font-size: 100%;
+		margin-top: "1em"; 
+		margin-bottom: "1em"; 
+		cellpadding: "0.5em"; }
+		
+th
+		{ text-align: left;
+		background: #DDDDDD;
+		vertical-align: bottom;}
+		
+tr
+		{ vertical-align: top; }
+
+td
+		{ background: #EEEEEE;
+		vertical-align: top; }
+
+.blue {
+	color: #0000CC }
+
+
+/****      extended class styles ************************/
+/*                       					*/
+/* add comment tags to disable the style 		*/
+
+p.indent		{ margin-left: "2em"; }       /* this class style is used to indent text for notes and warnings; use this instead of the blockquote tag */
+
+p.indent2		{ margin-left: "3.5em"; }   /* this class style is used to indent text a second level under the first  indent */
+		
+p.proclabel	{ font-size: 100%; 	
+		font-weight: bold; clear: both; }
+
+/**************************************************************************************************************/
+/* these class styles are used for the expanding and collapsing text files (expand function in shared.js)  */
+
+#expand 			{margin-bottom: "0.6em";}
+
+a:link.expandToggle, a:visited.expandToggle 	{color:"#000000"; font-weight: bold;  text-decoration:none;}
+
+a:hover.expandToggle, a:active.expandToggle 	{color:"#0000FF";}
+ 
+img.expand 		{ border: none; width:".8em"; margin-right:"0.5em";}
+		
+div.expand		{ margin-left: "1.5em"; margin-bottom: "1em"; display:none }
+
+
+p.empty			{ font-weight: bold; }
+
+span.empty		{ font-weight: bold; margin-bottom: 12; margin-left: 16 }
+
+/*******************************************/
+/*  these classes are for thumbnail art      */
+
+a:link img.thumbnail		{border-color: "#0000FF";}
+
+a:active img.thumbnail	{ border-color: "#FF0000";}
+
+a:hover img.thumbnail	{border-color: "#FF0000";}
+
+img.thumbnail		{vertical-align: top; margin-left: 0;
+			 width:90; border-width:1;}
+		 
+div.thumbnail		{float:left; width: 105;}
+		
+
+/*********************************************/				
+/* this class style is used for the navigation tree in MMC */
+		
+p.navTree		{ margin-top:" .2em"; }
+
+ul.navTree 	{list-style-image: url(MS-ITS:ntshared.chm::/elle.gif);
+		 list-style-type: none; margin-left:"2em"; }
+
+li.branch		{ margin-top:" -.5em"; margin-bottom: ".6em"; }
+
+a.where			{}	/* use for the expand <a> tag 
+
+/***************************************************************/
+/* these class styles are used for <span> tags  simulating buttons & their div */
+
+.button		{ border-top-color: "#000000";
+		  border-left-color: "#000000";
+		  border-bottom-color: "#666666";
+		  border-right-color: "#666666";
+		  background-color: "#dddddd";
+		}
+.push		{ border-top-color: "#666666";
+		  border-left-color: "#666666";
+		  border-bottom-color: "#000000";
+		  border-right-color: "#000000";
+		  background-color: "#FFFFFF";
+		}
+
+#buttonDiv	{ padding: 0.5em 0.3em 0.1em 0.3em;
+		  border-bottom: thin groove #808080;
+		  background: "#C0C0C0";
+		  align:top;
+		  }
+/************************************************/
+/* class styles reserved for mouseover/mouseout DHTML   */
+
+.cold		{}
+.hot		{}
+
+/**********************************************************************/
+/* ID styles reserved for <a> tags  calling OCX's within HTML Help by creating  OBJECTS */
+
+
+#wPopup		{}
+
+a:link#wPopup		{color: "#006600";}
+a:hover#wPopup		{color: "#FF0000";}
+a:active#wPopup		{color: "#FF0000";}
+a:visited#wPopup		{color: "#006600";}
+
+img.popup 	{border: none; margin-right: "0.5em"; vertical-align:middle;}
+
+#shortcut		{}
+
+img.shortcut 	{border: none; margin-right: "0.5em"; vertical-align:middle;}
+
+#specLoc		{}
+
+#relTopics		{}
+
+p.relTopics img 	{vertical-align:top;}	 /* img is class=alert */
+
+#altLoc		{}
+
+p.note,p.tip, p.important, p.caution, p.warning 
+		{ font-weight:bold; clear:both;
+		 margin-top:"1em"; 
+		 margin-bottom:"-.25em"; }    
+
+img.alert		{border:none;} 		 /* for icon images - note, tip, important, caution, warning*/
+
+
+/***********************************/
+/*   Style for print only functionality used with external URL link   coUA_print.css*/
+
+span.printOnly	{display:none }
+
+/***********************************/
+/*   Styles for checklists   */
+
+.userData 		{behavior:url(#default#userdata); }  /*sets persistance*/
+
+#checklist		{width:100%;  text-align:left; margin:"0.3em 0em";}
+
+#checklist li 	{text-indent:"0.2em";}
+
+/*********************************/				
+/*  these classes are for previous next navigation     */
+
+a:hover.navbar, a:active.navbar		{} /* text in nav */
+a:link.navbar, a:visited.navbar		{}
+			  
+#nav	{ left:0; top:0px;
+	  text-align:left; 
+	  margin:0; 
+	  position:absolute;
+	  padding-bottom: 1px; padding-top: 3px;
+	  padding-right:6px; padding-left:5px;
+	  align:top;
+	  visibility:hidden;
+	  z-index:1;  }
+
+#text	{ left:0; top:0px;
+	   text-align:left;
+	   margin:0; 
+	   position:absolute;
+	   padding:10px;
+	   overflow:auto;
+	   height:100%;
+	   z-index:1; 
+         	   background-repeat:no-repeat;
+	   background-position: bottom right;
+	   background-attachment:fixed; }
+
+
+/***************************************************/
+/* STYLES USED IN THE WEB DELIVERABLE ONLY  */
+
+
+/***********************************/
+/*   links   */
+
+#wPopupWeb	{}
+
+a:link#wPopupWeb			{color: "#006600";}
+a:hover#wPopupWeb		{color: "#FF0000";}
+a:active#wPopupWeb		{color: "#FF0000";}
+a:visited#wPopupWeb		{color: "#006600";}
+
+#shortcutWeb	{}
+
+#specLocWeb	{}
+
+#relTopicsWeb	{}
+
+#altLocWeb	{}
+
+
+/***********************************/
+/*   popups   */
+
+div.popup		{ visibility:hidden; z-index:3;
+				 position:absolute; 
+                 top:200; left:200; 
+                 width:"250"; padding:"6px"; 
+                 background-color:#FFFFCC;
+                 border-style: solid;
+                 border-width: 1;
+                 border-color: #666666;
+                                      }
+
+
+
+			  
+
+</style>
+</HEAD>
+<BODY>
+<!-- Document last modified on  Friday, December 20, 2002 at 1:27 PM-->
+
+<H1><A NAME="MovieMakerSFX"></A>Creating Custom Effects and Transitions in Windows Movie Maker</H1>
+
+<P>by Josh Cohen, Mike Matsel, and Peter Turcan</P>
+
+<P>Windows Digital Media Division</P>
+
+<P>December 2002 </P>
+
+<H2><A NAME="keywords"></A>Keywords</H2>
+
+<UL type=disc>
+	<LI>Windows Movie Maker</LI>
+
+	<LI>Effects</LI>
+
+	<LI>Transitions</LI>
+
+	<LI>DirectX Transforms</LI>
+
+	<LI>DirectX Media</LI>
+</UL>
+
+<H2><A NAME="summary"></A>Summary</H2>
+
+<P>Microsoft&reg; Windows&reg; Movie Maker enables programmers to add their own custom special effects and transitions to the Windows Movie Maker interface. These effects can be created with an XML file that modifies the supplied effects or transitions, or can be built from scratch using C++ and the Windows Media&reg; Transforms supplied by the Microsoft DirectX&reg; Media SDK.</P>
+
+<H2><A NAME="introduction_tpwd"></A>Introduction</H2>
+
+<P>Microsoft&reg; Windows&reg; Movie Maker 2.0 enables programmers to load their own custom effects and transitions into the Windows Movie Maker interface. These effects or transitions can be as simple as a modification of an existing effect or transition, or as complex as a custom-coded DirectX&reg; Transform object. This article includes three main topics about creating your own effects or transitions. In order from simplest to most complex, they are:
+
+<UL type=disc>
+	<LI><A HREF="#creatingwindowsmoviemakereffectsandtransitionsinxm"><B>Creating Windows Movie Maker Effects and Transitions in XML</B></A>&nbsp;&nbsp;This is a fairly simple task that requires only a text editor and a basic understanding of XML.</LI>
+
+	<LI><A HREF="#addingcustomiconstomoviemaker"><B>Adding Custom Icons to Windows Movie Maker</B></A>&nbsp;&nbsp;&nbsp;This is a slightly more complex topic that requires the knowledge of how to compile a C++ project using Microsoft Visual Studio&reg;, and the ability to use any graphics software needed to make custom icons.</LI>
+
+	<LI><A HREF="#creatingnewtransitionsandspecialeffects"><B>Creating New Transition and Effect Objects</B></A>&nbsp;&nbsp;&nbsp;This requires knowledge of COM and ATL programming, DirectX Transforms, and Direct3D&reg; architecture. Additionally, it requires you to have the DirectX Media 6.0 SDK and the headers for the DirectX 7.0 SDK installed. (The DirectX Media SDK was not included in DirectX 7.0.) Both Visual Studio .NET and the DirectX Media SDK installed from the location given at the end of this document include the DirectX 7.0 headers, but neither includes the documentation. The 7.0 SDK documentation is only included with the complete installation of the DirectX 7.0 SDK (which can be installed using the link at the end of this document). If you want to experiment with making new DirectX Transform Objects, you can download a compressed file that includes sample code for several new effects and transitions at the <A HREF="http://go.microsoft.com/fwlink/?LinkId=12522" TARGET="_blank"><U>Microsoft Web site</U></A>.&nbsp;&nbsp;&nbsp;&nbsp; </LI>
+</UL>
+
+<P>To do the tasks described in all these topics, you must have Windows Movie Maker 2.0 and Windows XP Home Edition or Windows XP Professional Edition installed on your computer. Creating custom icons or new transition or effect objects also requires Microsoft Visual Studio. Sources of additional information, and the installation locations of the DirectX Media SDK and the DirectX 7.0 SDK, can be found in the For More Information section at the end of this paper.</P>
+
+<H2><A NAME="creatingwindowsmoviemakereffectsandtransitionsinxm"></A>Creating Windows Movie Maker Effects and Transitions in XML</H2>
+
+<P>Windows Movie Maker reads a private XML file on startup that specifies all the effects and transitions to load, and the values of each object's parameters. This XML file cannot be viewed or changed; however you can create your own XML file that loads the objects you choose, using your own parameters, and displays them with your custom names. </P>
+
+<P>Windows Movie Maker stores its built-in effects and transitions as COM objects inside one of several DLLs provided with the program. Each COM object represents one transition or effect, and is identified by a globally unique identifier (GUID). One DLL can contain several COM objects. Each object has zero or more parameters, such as color or brightness, that can be set for that effect or transition. The XML file specifies which objects to load, and sets values for any number of those objects' parameters. An object can be loaded more than once, using different parameters, to create different effects or transitions based on the same object. For example, the slow-motion and fast-motion effects are the same object, differing only in the value of the speed parameter passed in. After learning how these effects and transitions are addressed in the XML file, you will be able to make your own effects and transitions from the COM objects provided. </P>
+
+<P>This section explains: 
+
+<UL type=disc>
+	<LI>how to create your own XML file, </LI>
+
+	<LI>the required and optional XML tags you can use in your custom XML file, </LI>
+
+	<LI>the objects and parameters available for creating effects and transitions, and </LI>
+
+	<LI>the private XML code that Windows Movie Maker uses to load its standard effects and transitions, so that you can copy and modify them quickly and easily. </LI>
+</UL>
+
+<H3><A NAME="readingthexmlfile"></A>Reading the XML File</H3>
+
+<P>The following code shows a segment of a Windows Movie Maker private XML file that describes one transition (Flip Right) and one effect (Sepia).</P>
+
+<PRE class=syntax><CODE>&lt;TransitionsAndEffects Version="1.0"&gt;
+   &lt;Transitions&gt;
+      &lt;TransitionDLL guid="{C63344D8-70D3-4032-9B32-7A3CAD5091A5}"&gt;
+         &lt;Transition nameID="62800" iconid="91" comment="Flip, right"&gt;
+            &lt;Param name="InternalName" value="Simple3D" /&gt;
+            &lt;Param name="RevolveCamera" value="true" /&gt;
+            &lt;Param name="ShowAFront" value="true" /&gt;
+            &lt;Param name="ShowABack" value="false" /&gt;
+            &lt;Param name="ShowBFront" value="false" /&gt;
+            &lt;Param name="ShowBBack" value="true" /&gt;
+         &lt;/Transition&gt;
+         ...
+      &lt;/TransitionDLL&gt;
+      ...
+   &lt;/Transitions&gt;
+   &lt;Effects&gt;
+      &lt;EffectDLL guid="{B4DC8DD9-2CC1-4081-9B2B-20D7030234EF}"&gt;
+         &lt;Effect nameID="62863" iconid="25" comment="Sepia tone"&gt;
+            &lt;Param name="InternalName" value="Standard" /&gt;
+            &lt;Param name="Desaturate" value="true" /&gt;
+            &lt;Param name="Red" value="0.10" /&gt;
+            &lt;Param name="Magenta" value="0.09" /&gt;
+            &lt;Param name="Yellow" value="0.25" /&gt;
+            &lt;Param name="contrast" value="1.0" /&gt;
+         &lt;/Effect&gt;
+         ...
+      &lt;/EffectDLL&gt;
+      ...
+   &lt;/Effects&gt;
+&lt;/TransitionsAndEffects&gt;
+</CODE></PRE>
+
+<P>The following table explains the tags and attributes in the preceding code. Transitions and effects use mostly the same tags. Where the tags differ, the table indicates the difference.</P>
+
+<TABLE border=0 cellpadding=5 cols=3 frame=below rules=rows>
+
+<TR VALIGN="top">
+<TD class=blue width=28%><B>Element</B></TD>
+<TD class=blue width=20%><B>Attributes</B></TD>
+<TD class=blue width=52%><B>Description</B></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=28%>TransitionsAndEffects </TD>
+<TD width=20%>&nbsp;</TD>
+<TD width=52%>The boundary tag for the whole XML file.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=28%>&nbsp;</TD>
+<TD width=20%>Version</TD>
+<TD width=52%>A required field that should be set to "1.0".</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=28%>Transitions<BR>
+or<BR>
+Effects</TD>
+<TD width=20%>&nbsp;</TD>
+<TD width=52%>This tag bounds the group of all transitions or the group of all effects. Use the appropriate tag for a transition or effect.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=28%>TransitionDLL<BR>
+or<BR>
+EffectDLL</TD>
+<TD width=20%>&nbsp;</TD>
+<TD width=52%>This tag bounds a single effect or transition COM object, identified by a GUID. It can hold one or more custom effects or transitions. Use the appropriate tag for a transition or effect.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=28%>&nbsp;</TD>
+<TD width=20%>guid</TD>
+<TD width=52%>Lists the GUID defining the transition or effect COM object. (This GUID is actually the ClassID of a COM object that implements the DirectShow <B>IDXEffect</B> interface in the underlying code.) The values provided are given in <A HREF="#moviemakersprovidedeffectandtransitionobjects"><B>Effect and Transition Objects Provided by Windows Movie Maker</B></A>.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=28%>Transition<BR>
+or<BR>
+Effect</TD>
+<TD width=20%>&nbsp;</TD>
+<TD width=52%>This is the boundary tag for an individual transition or effect using the transition or effect COM object specified by the TransitionDLL or EffectDLL tag. One COM object can contain several transitions or effects. (A DLL file can contain several COM objects, although the name of the DLL is not needed for the COM objects that Windows Movie Maker provides.) Use the appropriate tag for a transition or effect.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=28%>&nbsp;</TD>
+<TD width=20%>nameID
+<P>or</P>
+
+<P>name</P>
+</TD>
+<TD width=52%><B>Do not use nameID;</B> this is the internal identifier that Windows Movie Maker uses for the transition. Instead, when creating your own file, substitute the <B>name</B> attribute as shown here:
+<P>&lt;Effect <B>name</B>="My New Effect" iconid="25" comment="My cool new effect"&gt;</P>
+
+<P>The value you assign will be displayed by Windows Movie Maker. If a name is not unique, the effect or transition shown in the preview may not be the proper one; however, Windows Movie Maker will apply the correct effect or transition to the actual edited video.</P>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=28%>&nbsp;</TD>
+<TD width=20%>iconID</TD>
+<TD width=52%>Identifies the icon that Windows Movie Maker displays for the transition. In custom icons, this is a zero-based number indicating which icon in a bitmap strip to use. You can also use one of the existing Windows Movie Maker icons by choosing a number from 1 to approximately 90. For more information on adding custom icons, see <A HREF="#addingcustomiconstomoviemaker"><B>Adding Custom Icons to Windows Movie Maker</B></A>.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=28%>&nbsp;</TD>
+<TD width=20%>comment</TD>
+<TD width=52%>Information ignored by Windows Movie Maker. The comment attribute in the standard tags usually shows the display name for an effect or transition, although it does not always match exactly.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=28%>Param</TD>
+<TD width=20%>&nbsp;</TD>
+<TD width=52%>Tag holding a parameter in the object that you can set. You can have as many <B>Param</B> tags as the containing object has parameters.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=28%>&nbsp;</TD>
+<TD width=20%>Name</TD>
+<TD width=52%>The name of the parameter to set. </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=28%>&nbsp;</TD>
+<TD width=20%>Value</TD>
+<TD width=52%>The value, in quotation marks, to assign to the parameter.</TD>
+</TR>
+</TABLE><BR>
+
+<H3><A NAME="makingyourownxmlfile"></A>Making Your Own XML File</H3>
+
+<P>To make your own XML file for Windows Movie Maker, you must create a new folder called <B>AddOnTFX</B> in one of two places:
+
+<UL type=disc>
+	<LI>Inside the Windows Movie Maker installation folder, under the folder given the name of the locale ID of the language version installed (1033 is the locale ID for English, for example). So, for example, your new folder might be in the path C:\Program Files\Movie Maker\1033\AddOnTFX. This makes your effects usable by everyone, but to create the folder in this location, you must have Administrator privileges on your computer.</LI>
+
+	<LI>Inside the local user's settings path, at <I>OS Path</I>\Documents and Settings\<I>username</I>\Application Data\Microsoft Movie Maker\. The user always has permission to add the new folder here, but the created effects can be used only by the user logged on as <I>username</I>.</LI>
+</UL>
+
+<P>Windows Movie Maker checks both paths listed above, and loads all transitions and effects it finds in both locations.</P>
+
+<P>Inside the <B>AddOnTFX</B> folder you've created, create a new file with an .xml extension in Notepad or any other XML authoring software. There are no naming restrictions on the file, other than that it must have an .xml extension. After creating your new XML file, you can paste in the previous code sample (See Reading the XML File.) and make a few changes (such as changing the <B>nameID</B> attribute to <B>name</B>, adding your own name, and removing the "..."). The following code block shows a modified version of the previous sample. This is a complete XML file that creates a custom variation of the Flip Right transition and the Sepia effect. This new code uses new icons taken from the standard Windows Movie Maker icon set.</P>
+
+<PRE class=syntax><CODE>&lt;TransitionsAndEffects Version="1.0" &gt;
+   &lt;Transitions&gt;
+      &lt;TransitionDLL guid="{C63344D8-70D3-4032-9B32-7A3CAD5091A5}"&gt;
+         &lt;Transition name="My cool transition" iconid="88"&gt;
+            &lt;Param name="InternalName" value="Simple3D" /&gt;
+            &lt;Param name="RevolveCamera" value="true" /&gt;
+            &lt;Param name="ShowAFront" value="true" /&gt;
+            &lt;Param name="ShowABack" value="false" /&gt;
+            &lt;Param name="InitialScaleA" value="smaller" /&gt;
+            &lt;Param name="FinalScaleA" value="bigger" /&gt;
+            &lt;Param name="ShowBFront" value="false" /&gt;
+            &lt;Param name="ShowBBack" value="true" /&gt;
+         &lt;/Transition&gt;
+      &lt;/TransitionDLL&gt;
+   &lt;/Transitions&gt;
+   &lt;Effects&gt;
+      &lt;EffectDLL guid="{B4DC8DD9-2CC1-4081-9B2B-20D7030234EF}"&gt;
+         &lt;Effect name="My Yellow, Rotated Effect" iconid="20" comment="Yellow, turned 3/4"&gt;
+            &lt;Param name="InternalName" value="Standard" /&gt;
+            &lt;Param name="Desaturate" value="true" /&gt;
+            &lt;Param name="Red" value="0.0" /&gt;
+            &lt;Param name="Magenta" value="0.09" /&gt;
+            &lt;Param name="Yellow" value="0.75" /&gt;
+            &lt;Param name="contrast" value="1.0" /&gt;
+            &lt;Param name="Rotate2DA" value="270.0" /&gt;
+         &lt;/Effect&gt;
+      &lt;/EffectDLL&gt;
+   &lt;/Effects&gt;
+&lt;/TransitionsAndEffects&gt;
+</CODE></PRE>
+
+<P><B><B>When creating your custom XML file, be aware of the following two precautions:</B></B>
+
+<UL type=disc>
+	<LI>If your XML file is not well formed, if the GUID you use is incorrect, or there is some other problem with your XML file, Windows Movie Maker will probably not load any effects or transitions from that file and will not tell you that the file was not loaded. If an effect or transition you create does not appear in the Windows Movie Maker interface, search your XML file for errors. </LI>
+
+	<LI>Windows Movie Maker will load XML files only on startup. Any changes you make to the XML file when Windows Movie Maker is running will not take effect until you close and restart Windows Movie Maker.</LI>
+</UL>
+
+<H3><A NAME="moviemakersprovidedeffectandtransitionobjects"></A>Effect and Transition Objects Provided by Windows Movie Maker</H3>
+
+<P>The two tables in this topic list all the base transition and effect objects that Windows Movie Maker provides. Each transition or effect object may include one or more parameters that can be changed, or even subclasses with their own parameters. You do not have to set all parameters for any effect or transition you create, because every parameter has a default value.</P>
+
+<P>Transitions and effects are shown in separate tables. You cannot use a transition object as an effect, or an effect object as a transition. So, for example, the following code would not work because the <B>Pixelate</B> object is an effect, not a transition:</P>
+
+<PRE class=syntax><CODE>&lt;TransitionDLL guid="{4CCEA634-FBE0-11D1-906A-00C04FD9189D}" comment="Pixelate"&gt;
+   &lt;Transition nameID="62818" iconid="19" comment="Pixelate"&gt;
+      &lt;Param name="MaxSquare" value="25" /&gt;
+   &lt;/Transition&gt;
+&lt;/TransitionDLL&gt;
+</CODE></PRE>
+
+<P>Details about all transitions and effects are given in topics that follow the tables, and the tables contain links to those topics. Each topic includes the XML code that Windows Movie Maker uses to load the effect or transition supplied with Windows Movie Maker. The names used in the following tables are arbitrary; the names that Windows Movie Maker displays are similar to those assigned to the <B>comment</B> attribute of the EffectDLL tag in the XML code shown. </P>
+
+<P class=blue><B>Transitions</B></P>
+
+<TABLE border=0 cellpadding=5 cols=3 frame=below rules=rows>
+
+<TR VALIGN="top">
+<TD class=blue width=25%><B>Name</B></TD>
+<TD class=blue width=32%><B>GUID</B></TD>
+<TD class=blue width=43%><B>Description</B></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=25%><A HREF="#barstransition">Bars</A></TD>
+<TD width=32%>2E7700B7-27C4-437F-9FBF-1E8BE2817566</TD>
+<TD width=43%>Merges the first video into the second video in horizontal segments. </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=25%><A HREF="#checkerboardtransition">Checkerboard</A></TD>
+<TD width=32%>B3EE7802-8224-4787-A1EA-F0DE16DEABD3</TD>
+<TD width=43%>Merges the first video into the second video by fields of squares.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=25%><A HREF="#directxmediawipetransition">DirectX Media Wipe</A></TD>
+<TD width=32%>AF279B30-86EB-11D1-81BF-0000F87557DB</TD>
+<TD width=43%>A variety of custom DirectX Media wipes.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=25%><A HREF="#dissolvetransition">Dissolve</A></TD>
+<TD width=32%>F7F4A1B6-8E87-452F-A2D7-3077F508DBC0</TD>
+<TD width=43%>Dissolves one video segment into another in discrete dots (as opposed to a fade, which causes the videos to seamlessly exchange). </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=25%><A HREF="#fadetransition">Fade</A></TD>
+<TD width=32%>16B280C5-EE70-11D1-9066-00C04FD9189D</TD>
+<TD width=43%>Fades the first video into the second.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=25%><A HREF="#iristransition">Iris</A></TD>
+<TD width=32%>049F2CE6-D996-4721-897A-DB15CE9EB73D</TD>
+<TD width=43%>Splits the first video into four segments that move out from the center diagonally.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=25%><A HREF="#pixelatetransition">Pixelate</A></TD>
+<TD width=32%>4CCEA634-FBE0-11D1-906A-00C04FD9189D</TD>
+<TD width=43%>Causes the first video to coarsen and then resolve into the second video.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=25%><A HREF="#smptewipetransitions">SMPTE Wipe</A></TD>
+<TD width=32%>DE75D012-7A65-11D2-8CEA-00A0C9441E20</TD>
+<TD width=43%>A variety of standard SMPTE transitions. See Microsoft DirectShow&reg; documentation for more details.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=25%><A HREF="#wheeltransition">Wheel</A></TD>
+<TD width=32%>5AE1DAE0-1461-11D2-A484-00C04F8EFB69</TD>
+<TD width=43%>Provides a spinning wheel-spoke wipe from the first video to the second video. </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=25%><A HREF="#wmtfxtransitionsandeffects">WMTFX transitions</A> </TD>
+<TD width=32%>C63344D8-70D3-4032-9B32-7A3CAD5091A5</TD>
+<TD width=43%>A variety of transitions and effects.</TD>
+</TR>
+</TABLE><BR>
+
+<P class=blue><B>Effects</B></P>
+
+<TABLE border=0 cellpadding=5 cols=3 frame=below rules=rows>
+
+<TR VALIGN="top">
+<TD class=blue width=25%><B>Name</B></TD>
+<TD class=blue width=32%><B>GUID</B></TD>
+<TD class=blue width=43%><B>Description</B></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=25%><A HREF="#blureffect">Blur</A> </TD>
+<TD width=32%>7312498D-E87A-11D1-81E0-0000F87557DB</TD>
+<TD width=43%>Blurs an image.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=25%><A HREF="#brightnesseffect">Brightness</A> </TD>
+<TD width=32%>5A20FD6F-F8FE-4a22-9EE7-307D72D09E6E</TD>
+<TD width=43%>Modifies the brightness of a segment of video.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=25%><A HREF="#fadeeffect">Fade</A> </TD>
+<TD width=32%>EC85D8F1-1C4E-46e4-A748-7AA04E7C0496</TD>
+<TD width=43%>Causes a clip to fade in to or out from a solid color of your choice.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=25%><A HREF="#filmageingeffect">Film Aging</A> </TD>
+<TD width=32%>ADEADEB8-E54B-11d1-9A72-0000F875EADE</TD>
+<TD width=43%>Introduces graininess, scratches, and other visual artifacts that make it appear as if a film is old.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=25%><A HREF="#filtereffects">Filter</A> </TD>
+<TD width=32%>E673DCF2-C316-4c6f-AA96-4E4DC6DC291E</TD>
+<TD width=43%>Provides a variety of visual effects, such as neon glow, sponge, and emboss.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=25%><A HREF="#mirrorandgrayscaleeffects">Mirror and Grayscale</A> </TD>
+<TD width=32%>16B280C8-EE70-11D1-9066-00C04FD9189D</TD>
+<TD width=43%>Causes an image to flip horizontally or change from color to grayscale, creating a black-and-white image.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=25%><A HREF="#pixelateeffect">Pixelate</A> </TD>
+<TD width=32%>4CCEA634-FBE0-11D1-906A-00C04FD9189D</TD>
+<TD width=43%>Causes an image to coarsen into squares of a single, solid color for each square, representing the average color of the original pixels from that area.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=25%><A HREF="#speedeffects">Speed</A> </TD>
+<TD width=32%>00000000-0000-0000-0000-000000000000</TD>
+<TD width=43%>Null GUID used only for slowing down or speeding up.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=25%><A HREF="#wmtfxtransitionsandeffects">WMTFX effects</A></TD>
+<TD width=32%>B4DC8DD9-2CC1-4081-9B2B-20D7030234EF</TD>
+<TD width=43%>Provides a variety of transitions and effects. </TD>
+</TR>
+</TABLE><BR>
+
+<H4><A NAME="barstransition"></A>Bars Transition</H4>
+
+<P>The Bars transition merges the first video into the second video in horizontal segments. It takes no parameters. The following XML code shows the Bars transition included in Windows Movie Maker. </P>
+
+<PRE class=syntax><CODE>&lt;TransitionDLL guid="{2E7700B7-27C4-437F-9FBF-1E8BE2817566}"&gt;
+   &lt;Transition nameID="62817" iconid="37" comment="Bars"/&gt;
+&lt;/TransitionDLL&gt;
+</CODE></PRE>
+
+<P class=blue><B>See Also</B>
+
+<UL type=disc>
+	<LI><A HREF="#moviemakersprovidedeffectandtransitionobjects">Effect and Transition Objects Provided by Windows Movie Maker</A></LI>
+</UL>
+
+<H4><A NAME="checkerboardtransition"></A>Checkerboard Transition</H4>
+
+<P>The Checkerboard transition merges the first video into the second video by fields of squares. It takes no parameters. The following XML code shows the Checkerboard transition included in Windows Movie Maker. </P>
+
+<PRE class=syntax><CODE>&lt;TransitionDLL guid="{B3EE7802-8224-4787-A1EA-F0DE16DEABD3}"&gt;
+   &lt;Transition nameID="62815" iconid="4" comment="Checkerboard, Across" /&gt;
+&lt;/TransitionDLL&gt;
+</CODE></PRE>
+
+<P class=blue><B>See Also</B>
+
+<UL type=disc>
+	<LI><A HREF="#moviemakersprovidedeffectandtransitionobjects">Effect and Transition Objects Provided by Windows Movie Maker</A></LI>
+</UL>
+
+<H4><A NAME="directxmediawipetransition"></A>DirectX Media Wipe Transition</H4>
+
+<P>The DirectX Media Wipe transition provides wipes based on the DirectX Media Wipe. DirectX Media Wipes take the following parameters.</P>
+
+<TABLE border=0 cellpadding=5 cols=5 frame=below rules=rows>
+
+<TR VALIGN="top">
+<TD class=blue width=21%><B>Parameter</B></TD>
+<TD class=blue width=13%><B>Type</B></TD>
+<TD class=blue width=14%><B>Default</B></TD>
+<TD class=blue width=15%><B>Range</B></TD>
+<TD class=blue width=37%><B>Description</B></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=21%><I>GradientSize</I></TD>
+<TD width=13%><B>float</B></TD>
+<TD width=14%>0.25</TD>
+<TD width=15%>0.0 to 1.0</TD>
+<TD width=37%>Width of the gradient transition area between the two inputs, as a percentage of the output size.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=21%><I>WipeStype</I></TD>
+<TD width=13%><B>int</B></TD>
+<TD width=14%>0</TD>
+<TD width=15%>0 or 1</TD>
+<TD width=37%>Direction of the wipe. Can be horizontal (0) or vertical (1).</TD>
+</TR>
+</TABLE><BR>
+
+<P>The following XML code shows the DirectX Media Wipe transitions included in Windows Movie Maker. </P>
+
+<PRE class=syntax><CODE>&lt;TransitionDLL guid="{AF279B30-86EB-11D1-81BF-0000F87557DB}" comment="Wipe"&gt;
+   &lt;Transition nameID="62820" iconid="60" comment="Wipe, Wide Down"&gt;
+      &lt;Param name="GradientSize" value="0.6" /&gt;
+      &lt;Param name="wipeStyle" value="1" /&gt;
+   &lt;/Transition&gt;
+   &lt;Transition nameID="62821" iconid="58" comment="Wipe, Normal Down"&gt;
+      &lt;Param name="GradientSize" value="0.5" /&gt;
+      &lt;Param name="wipeStyle" value="1" /&gt;
+   &lt;/Transition&gt;
+   &lt;Transition nameID="62822" iconid="56" comment="Wipe, Narrow Down"&gt;
+      &lt;Param name="GradientSize" value="0.2" /&gt;
+      &lt;Param name="wipeStyle" value="1" /&gt;
+   &lt;/Transition&gt;
+   &lt;Transition nameID="62823" iconid="59" comment="Wipe, Wide right"&gt;
+      &lt;Param name="GradientSize" value="0.6" /&gt;
+      &lt;Param name="wipeStyle" value="0" /&gt;
+   &lt;/Transition&gt;
+   &lt;Transition nameID="62824" iconid="57" comment="Wipe, Normal right"&gt;
+      &lt;Param name="GradientSize" value="0.5" /&gt;
+      &lt;Param name="wipeStyle" value="0" /&gt;
+   &lt;/Transition&gt;
+   &lt;Transition nameID="62825" iconid="55" comment="Wipe, Narrow right"&gt;
+      &lt;Param name="GradientSize" value="0.2" /&gt;
+      &lt;Param name="wipeStyle" value="0" /&gt;
+   &lt;/Transition&gt;
+&lt;/TransitionDLL&gt;
+</CODE></PRE>
+
+<P class=blue><B>See Also</B>
+
+<UL type=disc>
+	<LI><A HREF="#moviemakersprovidedeffectandtransitionobjects">Effect and Transition Objects Provided by Windows Movie Maker</A></LI>
+</UL>
+
+<H4><A NAME="dissolvetransition"></A>Dissolve Transition</H4>
+
+<P>The Dissolve transition dissolves one video segment into another in discrete dots (as opposed to a fade, which causes the videos to seamlessly exchange). It takes no parameters. The following XML code shows the Dissolve transition included in MovieMaker. </P>
+
+<PRE class=syntax><CODE>&lt;TransitionDLL guid="{F7F4A1B6-8E87-452F-A2D7-3077F508DBC0}"&gt;
+   &lt;Transition nameID="62816" iconid="38" comment="Dissolve" /&gt;
+&lt;/TransitionDLL&gt;
+</CODE></PRE>
+
+<P class=blue><B>See Also</B>
+
+<UL type=disc>
+	<LI><A HREF="#moviemakersprovidedeffectandtransitionobjects">Effect and Transition Objects Provided by Windows Movie Maker</A></LI>
+</UL>
+
+<H4><A NAME="fadetransition"></A>Fade Transition</H4>
+
+<P>The Fade transition provides some functionality for creating fade transitions using DirectX Media transitions. It takes no parameters.</P>
+
+<P>The following XML code shows the fade transition included in Windows Movie Maker. </P>
+
+<PRE class=syntax><CODE>&lt;TransitionDLL guid="{16B280C5-EE70-11D1-9066-00C04FD9189D}"&gt;
+   &lt;Transition nameID="62814" iconid="12" comment="Fade" /&gt;
+&lt;/TransitionDLL&gt;
+</CODE></PRE>
+
+<P class=blue><B>See Also</B>
+
+<UL type=disc>
+	<LI><A HREF="#moviemakersprovidedeffectandtransitionobjects">Effect and Transition Objects Provided by Windows Movie Maker</A></LI>
+</UL>
+
+<H4><A NAME="iristransition"></A>Iris Transition</H4>
+
+<P>The Iris transition splits the screen into four segments that move out from the center diagonally. It takes no parameters.</P>
+
+<P>The following XML code shows the Iris transition included in Windows Movie Maker. </P>
+
+<PRE class=syntax><CODE>&lt;TransitionDLL guid="{049F2CE6-D996-4721-897A-DB15CE9EB73D}"&gt;
+   &lt;Transition nameID="62813" iconid="29" comment="Iris" /&gt;
+&lt;/TransitionDLL&gt;
+</CODE></PRE>
+
+<P class=blue><B>See Also</B>
+
+<UL type=disc>
+	<LI><A HREF="#moviemakersprovidedeffectandtransitionobjects">Effect and Transition Objects Provided by Windows Movie Maker</A></LI>
+</UL>
+
+<H4><A NAME="pixelatetransition"></A>Pixelate Transition</H4>
+
+<P>The Pixelate transition causes the first video to coarsen and then resolve into the second video. It takes no parameters. The following XML code shows the Pixelate transition included in Windows Movie Maker. </P>
+
+<PRE class=syntax><CODE>&lt;TransitionDLL guid="{4CCEA634-FBE0-11D1-906A-00C04FD9189D}"&gt;
+   &lt;Transition nameID="62818" iconid="36" comment="Pixelate"/&gt;
+&lt;/TransitionDLL&gt;
+</CODE></PRE>
+
+<P class=blue><B>See Also</B>
+
+<UL type=disc>
+	<LI><A HREF="#moviemakersprovidedeffectandtransitionobjects">Effect and Transition Objects Provided by Windows Movie Maker</A></LI>
+</UL>
+
+<H4><A NAME="smptewipetransitions"></A>SMPTE Wipe Transitions</H4>
+
+<P>SMPTE wipes are standard SMPTE (Society of Motion Picture &amp; Television Engineers) wipes, as described in the DirectShow documentation. The following table shows the parameters available for SMPTE wipes.</P>
+
+<TABLE border=0 cellpadding=5 cols=4 frame=below rules=rows>
+
+<TR VALIGN="top">
+<TD class=blue width=25%><B>Parameter</B></TD>
+<TD class=blue width=14%><B>Type</B></TD>
+<TD class=blue width=16%><B>Default</B></TD>
+<TD class=blue width=45%><B>Description</B></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=25%><I>BorderColor</I></TD>
+<TD width=14%><B>long</B></TD>
+<TD width=16%>none</TD>
+<TD width=45%>Color of the border around the edges of the wipe pattern. The value of this attribute is a hexadecimal number with the format 0xRRGGBB, where RR is the red hexadecimal value, GG is the green hexadecimal value, and BB is the blue hexadecimal value. (Thus, pure red, green, and blue are 0xFF000, 0x00FF00, and 0x0000FF, respectively.)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=25%><I>BorderSoftness</I></TD>
+<TD width=14%><B>long</B></TD>
+<TD width=16%>0.0</TD>
+<TD width=45%>Width of the blurry region around the edges of the wipe pattern. Specify 0 (zero) for no blurry region</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=25%><I>BorderWidth</I></TD>
+<TD width=14%><B>long</B></TD>
+<TD width=16%>0</TD>
+<TD width=45%>Width of the solid border around the edges of the wipe pattern. Specify 0 (zero) for no border.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=25%><I>MaskName</I></TD>
+<TD width=14%><B>string</B></TD>
+<TD width=16%>NULL</TD>
+<TD width=45%>If not NULL, specifies the name of a JPEG file to use as the wipe mask instead of a standard, built-in wipe. The file must contain a monochrome, 8-bits-per-pixel gradient. The gradient is used as a mask to define the wipe's progression.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=25%><I>MaskNum</I></TD>
+<TD width=14%><B>long</B></TD>
+<TD width=16%>1</TD>
+<TD width=45%>Standard SMPTE wipe code specifying the style of wipe to use. For a list of wipe codes and their associated schematics, see SMPTE document 258M-1993.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=25%><I>OffsetX</I></TD>
+<TD width=14%><B>long</B></TD>
+<TD width=16%>0</TD>
+<TD width=45%>Offset of the wipe origin from the center of the image, in the horizontal direction. Valid only for values of <I>MaskNum</I> from 101 to 131.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=25%><I>OffsetY</I></TD>
+<TD width=14%><B>long</B></TD>
+<TD width=16%>0</TD>
+<TD width=45%>Offset of the wipe origin from the center of the image, in the vertical direction. Valid only for values of <I>MaskNum</I> from 101 to 131</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=25%><I>ReplicateX</I></TD>
+<TD width=14%><B>long</B></TD>
+<TD width=16%>0</TD>
+<TD width=45%>Number of times to replicate the wipe pattern in the horizontal direction. Valid only for values of <I>MaskNum</I> from 101 to 131.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=25%><I>ReplicateY</I></TD>
+<TD width=14%><B>long</B></TD>
+<TD width=16%>0</TD>
+<TD width=45%>Number of times to replicate the wipe pattern in the vertical direction. Valid only for values of <I>MaskNum</I> from 101 to 131.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=25%><I>ScaleX</I></TD>
+<TD width=14%><B>long</B></TD>
+<TD width=16%>0.0</TD>
+<TD width=45%>Amount by which to stretch the wipe in the horizontal direction, as a percentage of the original wipe definition. Valid only for values of <I>MaskNum</I> from 101 to 131.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=25%><I>ScaleY</I></TD>
+<TD width=14%><B>long</B></TD>
+<TD width=16%>0.0</TD>
+<TD width=45%>Amount by which to stretch the wipe in the vertical direction, as a percentage of the original wipe definition. Valid only for values of <I>MaskNum</I> from 101 to 131.</TD>
+</TR>
+</TABLE><BR>
+
+<P>The following XML code describes the standard SMPTE wipes included in Windows Movie Maker. The <I>comment</I> parameter usually gives the transition name shown in the Windows Movie Maker transition list.</P>
+
+<PRE class=syntax><CODE>&lt;TransitionDLL guid="{DE75D012-7A65-11D2-8CEA-00A0C9441E20}" comment="DxtJpeg/SMPTE wipes"&gt;
+   &lt;Transition nameID="62826" iconid="41" comment="Reveal, Right|(smpte 1)"&gt;
+      &lt;Param name="MaskNum" value="1" /&gt;
+   &lt;/Transition&gt;
+   &lt;Transition nameID="62827" iconid="40" comment="Reveal, Down|(smpte 2)" &gt;
+      &lt;Param name="MaskNum" value="2" /&gt;
+   &lt;/Transition&gt;
+   &lt;Transition nameID="62828" iconid="27" comment="Inset, Down Right|(smpte 3)"&gt;
+      &lt;Param name="MaskNum" value="3" /&gt;
+   &lt;/Transition&gt;
+   &lt;Transition nameID="62829" iconid="28" comment="Inset, Down Left|(smpte 4)" &gt;
+      &lt;Param name="MaskNum" value="4" /&gt;
+   &lt;/Transition&gt;
+   &lt;Transition nameID="62830" iconid="25" comment="Inset, Up Left|(smpte 5)"&gt;
+      &lt;Param name="MaskNum" value="5" /&gt;
+   &lt;/Transition&gt;
+   &lt;Transition nameID="62831" iconid="24" comment="Inset, Up Right|(smpte 6)"&gt;
+      &lt;Param name="MaskNum" value="6" /&gt;
+   &lt;/Transition&gt;
+   &lt;Transition nameID="62832" iconid="50" comment="Split, Vertical|(smpte 21)" &gt;
+      &lt;Param name="MaskNum" value="21" /&gt;
+   &lt;/Transition&gt;
+   &lt;Transition nameID="62833" iconid="22" comment="Split, Horizontal|(smpte 22)"&gt;
+      &lt;Param name="MaskNum" value="22" /&gt;
+   &lt;/Transition&gt;
+   &lt;Transition nameID="62834" iconid="9" comment="Diagonal, Down Right|(smpte 41)"&gt;
+      &lt;Param name="MaskNum" value="41" /&gt;
+   &lt;/Transition&gt;
+   &lt;Transition nameID="62835" iconid="51" comment="Bow Tie, Vertical|(smpte 43)"&gt;
+      &lt;Param name="MaskNum" value="43" /&gt;
+   &lt;/Transition&gt;
+   &lt;Transition nameID="62836" iconid="23" comment="Bow Tie, Horizontal|(smpte 44)"&gt;
+      &lt;Param name="MaskNum" value="44" /&gt;
+   &lt;/Transition&gt;
+   &lt;Transition nameID="62837" iconid="8" comment="Diagonal, Cross Out|(smpte 47)"&gt;
+      &lt;Param name="MaskNum" value="47" /&gt;
+   &lt;/Transition&gt;
+   &lt;Transition nameID="62838" iconid="7" comment="Diagonal, Box Out|(smpte 48)"&gt;
+      &lt;Param name="MaskNum" value="48" /&gt;
+   &lt;/Transition&gt;
+   &lt;Transition nameID="62839" iconid="16" comment="Filled V, Down|(smpte 61)"&gt;
+      &lt;Param name="MaskNum" value="61" /&gt;
+   &lt;/Transition&gt;
+   &lt;Transition nameID="62840" iconid="15" comment="Filled V, Left|(smpte 62)"&gt;
+      &lt;Param name="MaskNum" value="62" /&gt;
+   &lt;/Transition&gt;
+   &lt;Transition nameID="62841" iconid="13" comment="Filled V, Up|(smpte 63)"&gt;
+      &lt;Param name="MaskNum" value="63" /&gt;
+   &lt;/Transition&gt;
+   &lt;Transition nameID="62842" iconid="14" comment="Filled V, Right|(smpte 64)"&gt;
+      &lt;Param name="MaskNum" value="64" /&gt;
+   &lt;/Transition&gt;
+   &lt;Transition nameID="62844" iconid="64" comment="Zig Zag, Vertical|(smpte 73)"&gt;
+      &lt;Param name="MaskNum" value="73" /&gt;
+   &lt;/Transition&gt;
+   &lt;Transition nameID="62845" iconid="62" comment="Zig Zag, Horizontal|(smpte 74)"&gt;
+      &lt;Param name="MaskNum" value="74" /&gt;
+   &lt;/Transition&gt;
+   &lt;Transition nameID="62846" iconid="39" comment="Rectangle, Out|(smpte 101)"&gt;
+      &lt;Param name="MaskNum" value="101" /&gt;
+   &lt;/Transition&gt;
+   &lt;Transition nameID="62847" iconid="11" comment="Diamond, Out|(smpte 102)"&gt;
+      &lt;Param name="MaskNum" value="102" /&gt;
+   &lt;/Transition&gt;
+   &lt;Transition nameID="62848" iconid="80" comment="Circle, Out, Soft|(smpte 119)"&gt;
+      &lt;Param name="MaskNum" value="119" /&gt;
+      &lt;Param name="BorderSoftness" value="20" /&gt;
+   &lt;/Transition&gt;
+   &lt;Transition nameID="62849" iconid="81" comment="Circles, Out, Soft|(smpte 119)"&gt;
+      &lt;Param name="MaskNum" value="119" /&gt;
+      &lt;Param name="ReplicateX" value="8" /&gt;
+      &lt;Param name="ReplicateY" value="6" /&gt;
+      &lt;Param name="BorderSoftness" value="75" /&gt;
+   &lt;/Transition&gt;
+   &lt;Transition nameID="62850" iconid="46" comment="Star, 5 Points|(smpte 128)"&gt;
+      &lt;Param name="MaskNum" value="128" /&gt;
+      &lt;Param name="BorderSoftness" value="20" /&gt;
+   &lt;/Transition&gt;
+   &lt;Transition nameID="62851" iconid="83" comment="Stars, 5 Points|(smpte 128)"&gt;
+      &lt;Param name="MaskNum" value="128" /&gt;
+      &lt;Param name="ReplicateX" value="5" /&gt;
+      &lt;Param name="ReplicateY" value="5" /&gt;
+      &lt;Param name="BorderSoftness" value="75" /&gt;
+   &lt;/Transition&gt;
+   &lt;Transition nameID="62852" iconid="18" comment="Heart|(smpte 130)"&gt;
+      &lt;Param name="MaskNum" value="130" /&gt;
+      &lt;Param name="BorderSoftness" value="20" /&gt;
+   &lt;/Transition&gt;
+   &lt;Transition nameID="62853" iconid="30" comment="Key Hole|(smpte 131)" &gt;
+      &lt;Param name="MaskNum" value="131" /&gt;
+      &lt;Param name="BorderSoftness" value="20" /&gt;
+   &lt;/Transition&gt;
+   &lt;Transition nameID="62854" iconid="84" comment="Sweep, Diagonal|(smpte 226)"&gt;
+      &lt;Param name="MaskNum" value="226" /&gt;
+   &lt;/Transition&gt;
+   &lt;Transition nameID="62855" iconid="85" comment="Sweep, Horizontal|(smpte 228)"&gt;
+      &lt;Param name="MaskNum" value="228" /&gt;
+   &lt;/Transition&gt;
+   &lt;Transition nameID="62856" iconid="82" comment="Fan, In, Vertical|(smpte 231)"&gt;
+      &lt;Param name="MaskNum" value="231" /&gt;
+   &lt;/Transition&gt;
+   &lt;Transition nameID="62857" iconid="3" comment="Eye|(smpte 122)"&gt;
+      &lt;Param name="MaskNum" value="122" /&gt;
+      &lt;Param name="BorderSoftness" value="20" /&gt;
+   &lt;/Transition&gt;
+   &lt;Transition nameID="62858" iconid="86" comment="Swinging Door, Bottom|(smpte 253)"&gt;
+      &lt;Param name="MaskNum" value="253" /&gt;
+   &lt;/Transition&gt;
+   &lt;Transition nameID="62859" iconid="87" comment="Windshield, Up|(smpte 262)"&gt;
+      &lt;Param name="MaskNum" value="262" /&gt;
+   &lt;/Transition&gt;
+   &lt;Transition nameID="62860" iconid="88" comment="Windshield, Vertical|(smpte 263)" &gt;
+      &lt;Param name="MaskNum" value="263" /&gt;
+   &lt;/Transition&gt;
+   &lt;/TransitionDLL&gt;
+&lt;/Transitions&gt;
+</CODE></PRE>
+
+<P class=blue><B>See Also</B>
+
+<UL type=disc>
+	<LI><A HREF="#moviemakersprovidedeffectandtransitionobjects">Effect and Transition Objects Provided by Windows Movie Maker</A></LI>
+</UL>
+
+<H4><A NAME="wheeltransition"></A>Wheel Transition</H4>
+
+<P>The Wheel transition provides a spinning wheel-spoke wipe. It takes the following parameter.</P>
+
+<TABLE border=0 cellpadding=5 cols=5 frame=below rules=rows>
+
+<TR VALIGN="top">
+<TD class=blue width=20%><B>Parameter</B></TD>
+<TD class=blue width=13%><B>Type</B></TD>
+<TD class=blue width=14%><B>Default</B></TD>
+<TD class=blue width=15%><B>Range</B></TD>
+<TD class=blue width=38%><B>Description</B></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=20%><I>Spokes</I></TD>
+<TD width=13%><B>int</B></TD>
+<TD width=14%>4</TD>
+<TD width=15%>2 to 20</TD>
+<TD width=38%>Number of spokes.</TD>
+</TR>
+</TABLE><BR>
+
+<P>The following XML code shows the Wheel transition included in Windows Movie Maker.</P>
+
+<PRE class=syntax><CODE>&lt;TransitionDLL guid="{5AE1DAE0-1461-11D2-A484-00C04F8EFB69}"&gt;
+   &lt;Transition nameID="62819" iconid="53" comment="Wheel, 4 spokes"&gt;
+      &lt;Param name="spokes" value="4" /&gt;
+   &lt;/Transition&gt;
+&lt;/TransitionDLL&gt;
+</CODE></PRE>
+
+<P class=blue><B>See Also</B>
+
+<UL type=disc>
+	<LI><A HREF="#moviemakersprovidedeffectandtransitionobjects">Effect and Transition Objects Provided by Windows Movie Maker</A></LI>
+</UL>
+
+<H4><A NAME="wmtfxtransitionsandeffects"></A>WMTFX Transitions and Effects</H4>
+
+<P>Windows Media Transform Effects (WMTFX) are a group of effects and transitions that can be built from components specified by parameters passed in. These WMTFX objects are based on two COM objects that are nearly identical, except that one is for transitions (C63344D8-70D3-4032-9B32-7A3CAD5091A5), and the other is for effects (B4DC8DD9-2CC1-4081-9B2B-20D7030234EF). The list of components available to each is identical. When creating WMTFX transitions or effects, be sure that you specify the appropriate GUID, and that an effect is inside the &lt;effect&gt; block and a transition is inside the &lt;transition&gt; block. </P>
+
+<P>The WMTFX objects are unique in that they are based upon classes that you specify. Each class has a set of specific parameters that it exposes. An effect or transition can be based only upon a single class; however, some WMTFX classes are based upon others, and a class exposes the parameters of classes from which it derives, as well as its own. The following table shows the names and inheritance of WMTFX classes.</P>
+
+<TABLE border=0 cellpadding=5 cols=2 frame=below rules=rows>
+
+<TR VALIGN="top">
+<TD class=blue width=50%><B>Class</B></TD>
+<TD class=blue width=50%><B>Inherits from</B></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=50%><B>Standard</B></TD>
+<TD width=50%>Nothing; this is a base class.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=50%><B>Hue</B></TD>
+<TD width=50%>Standard.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=50%><B>Simple3D</B></TD>
+<TD width=50%>Nothing; this is a base class.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=50%><B>ParticleSystem</B></TD>
+<TD width=50%>Simple3D.</TD>
+</TR>
+</TABLE><BR>
+
+<P>So, for example, an effect based on the <B>ParticleSystem</B> class will expose both <B>ParticleSystem</B> parameters and <B>Simple3D</B> parameters.</P>
+
+<P>When basing an effect or transition on one of these classes, the first Param tag must set the <B>name</B> attribute to "InternalName" and the <B>value</B> to the base class used, as the following code shows in the creation of a <B>ParticleSystem</B> object.</P>
+
+<PRE class=syntax><CODE>&lt;Param name="InternalName" value=ParticleSystem /&gt;
+</CODE></PRE>
+
+<P class=indent><B><B>Note</B></B>&nbsp;&nbsp;&nbsp;When a base object is not specified, the default object is <I>not</I> <B>Standard</B>, and the object will not work properly. </P>
+
+<P>Although classes and parameters are the same for effects and transitions, a transition should have additional "verb" parameters set. So, for example, setting the <I>Rotate2DA</I> and <I>Posterize</I><B> </B>parameters on an effect will cause the picture to be rotated and posterized, but there will be an abrupt jump between the end of the first clip and the beginning of the next clip because no transition "verb" is specified. If you were to set a <I>FadeStartA</I><B> </B>parameter, then the transition would occur at the time specified for this parameter.</P>
+
+<P>The following tables list the specific parameters that each class supports (not including the inherited parameters). When an "A" or "B" appears in a parameter name, "A" refers to the existing or previous clip or picture, and "B" refers to the new clip or picture replacing it.</P>
+
+<P class=blue><B>Standard Class Parameters</B></P>
+
+<TABLE border=0 cellpadding=5 cols=5 frame=below rules=rows>
+
+<TR VALIGN="top">
+<TD class=blue width=21%><B>Parameter</B></TD>
+<TD class=blue width=13%><B>Type</B></TD>
+<TD class=blue width=14%><B>Default value</B></TD>
+<TD class=blue width=15%><B>Range</B></TD>
+<TD class=blue width=37%><B>Description</B></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=21%><I>InternalName</I></TD>
+<TD width=13%><B>string</B></TD>
+<TD width=14%>none</TD>
+<TD width=15%>none</TD>
+<TD width=37%>Specifies the class that this transition is based upon. The list of exposed parameters is determined by this class, and all the other classes from which it derives.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=21%><I>Invert</I></TD>
+<TD width=13%><B>float</B></TD>
+<TD width=14%>None</TD>
+<TD width=15%>0.0 to 1.0</TD>
+<TD width=37%>Color inversion produces new color values that are the previous color values subtracted from 255. Only values above the submitted value of the <I>Invert</I> parameter times 255 are inverted.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=21%><I>Red</I></TD>
+<TD width=13%><B>float</B></TD>
+<TD width=14%>None</TD>
+<TD width=15%>-1.0 to 1.0</TD>
+<TD width=37%>Adjusts color balance.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=21%><I>Green</I></TD>
+<TD width=13%><B>float</B></TD>
+<TD width=14%>None</TD>
+<TD width=15%>-1.0 to 1.0</TD>
+<TD width=37%>Adjusts color balance.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=21%><I>Blue</I></TD>
+<TD width=13%><B>float</B></TD>
+<TD width=14%>None</TD>
+<TD width=15%>-1.0 to 1.0</TD>
+<TD width=37%>Adjusts color balance.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=21%><I>Cyan</I></TD>
+<TD width=13%><B>float</B></TD>
+<TD width=14%>None</TD>
+<TD width=15%>-1.0 to 1.0</TD>
+<TD width=37%>Adjusts color balance. Ignored if <I>Red</I> is specified.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=21%><I>Magenta</I></TD>
+<TD width=13%><B>float</B></TD>
+<TD width=14%>None</TD>
+<TD width=15%>-1.0 to 1.0</TD>
+<TD width=37%>Adjusts color balance. Ignored if <I>Green</I> is specified.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=21%><I>Yellow</I></TD>
+<TD width=13%><B>float</B></TD>
+<TD width=14%>None</TD>
+<TD width=15%>-1.0 to 1.0</TD>
+<TD width=37%>Adjusts color balance. Ignored if <I>Blue</I> is specified.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=21%><I>Brightness</I></TD>
+<TD width=13%><B>float</B></TD>
+<TD width=14%>None</TD>
+<TD width=15%>0.0 to infinity</TD>
+<TD width=37%>For brightness adjustment, each color channel value is multiplied by the submitted value.&nbsp; These values should be greater than or equal to zero and are usually around 1.0.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=21%><I>Contrast</I></TD>
+<TD width=13%><B>float</B></TD>
+<TD width=14%>None</TD>
+<TD width=15%>0.0 to infinity</TD>
+<TD width=37%>Contrast adjustment shifts the range of each color channel around a midpoint. These values should be greater than or equal to zero, and are usually around 1.0. </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=21%><I>Posterize</I></TD>
+<TD width=13%><B>int</B></TD>
+<TD width=14%>None</TD>
+<TD width=15%>0 to 255</TD>
+<TD width=37%>This value is the number of color levels that should remain after posterization.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=21%><I>Threshold</I></TD>
+<TD width=13%><B>float</B></TD>
+<TD width=14%>None</TD>
+<TD width=15%>0.0 to 1.0</TD>
+<TD width=37%>For the threshold filtering adjustment, each sample color channel whose value is below the submitted <I>Threshold</I> value times 255 is set to zero. Each color channel with a value equal to or above that threshold is set to 255.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=21%><I>Gamma</I></TD>
+<TD width=13%><B>float</B></TD>
+<TD width=14%>None</TD>
+<TD width=15%>0.0 to infinity</TD>
+<TD width=37%>Gamma correction for pixels.&nbsp; Less than 1.0 is dimmer, greater than 1.0 is brighter.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=21%><I>ExponentialProgressDuration</I></TD>
+<TD width=13%><B>float</B></TD>
+<TD width=14%>0.0</TD>
+<TD width=15%>0.0 to 1.0</TD>
+<TD width=37%>Length of time, starting from 0.0, during which progress will happen on a logarithmic scale.&nbsp; Progress is linear after that time.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=21%><I>ExponentialProgressScale</I></TD>
+<TD width=13%><B>float</B></TD>
+<TD width=14%>0.3</TD>
+<TD width=15%>0.0 to infinity</TD>
+<TD width=37%>The equation is:&nbsp; LogrithmicScale = -log(1.0 - LinearProgress ) * <I>ExponentialProgressScale</I></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=21%><I>MirrorVertical</I></TD>
+<TD width=13%><B>bool</B></TD>
+<TD width=14%>false</TD>
+<TD width=15%>false or true</TD>
+<TD width=37%>Draw output upside down if true.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=21%><I>Desaturate</I></TD>
+<TD width=13%><B>bool</B></TD>
+<TD width=14%>false</TD>
+<TD width=15%>false or true</TD>
+<TD width=37%>Convert the image to grayscale (black-and-white) if true, allow color if false. </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=21%><I>Rotate2DA</I></TD>
+<TD width=13%><B>int</B></TD>
+<TD width=14%>0.0</TD>
+<TD width=15%>0.0 to 359.0</TD>
+<TD width=37%>Amount to rotate output video in degrees.</TD>
+</TR>
+</TABLE><BR>
+
+<P class=blue><B>Hue Class Parameters</B></P>
+
+<P>This class inherits from the <B>Standard</B> class and is used only for the hue cycle effect included in Windows Movie Maker. The effect cycles the video through a color spectrum&#0151;blue, cyan, green, yellow, red, magenta, then back to blue&#0151;and lets the user to choose the starting and ending colors on a scale from 0 to 1, where 0 and 1 are both blue on this path.</P>
+
+<TABLE border=0 cellpadding=5 cols=5 frame=below rules=rows>
+
+<TR VALIGN="top">
+<TD class=blue width=21%><B>Parameter</B></TD>
+<TD class=blue width=13%><B>Type</B></TD>
+<TD class=blue width=14%><B>Default value</B></TD>
+<TD class=blue width=15%><B>Range</B></TD>
+<TD class=blue width=37%><B>Description</B></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=21%><I>Value</I></TD>
+<TD width=13%><B>float</B></TD>
+<TD width=14%>0.0</TD>
+<TD width=15%>0.0 to 1.0</TD>
+<TD width=37%>The starting color on a scale where zero is blue, 0.5 is yellow, and one is blue again.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=21%><I>EndValue</I></TD>
+<TD width=13%><B>float</B></TD>
+<TD width=14%>None</TD>
+<TD width=15%>0.0 to 1.0</TD>
+<TD width=37%>The ending color on a scale where zero is blue, 0.5 is yellow, and one is blue again. If <I>Value</I> is specified, <I>EndValue</I> must be specified as well, or the effect will not work.</TD>
+</TR>
+</TABLE><BR>
+
+<P class=blue><B>Simple3D Class Parameters</B></P>
+
+<P>This is not based upon any other class. </P>
+
+<TABLE border=0 cellpadding=5 cols=5 frame=below rules=rows>
+
+<TR VALIGN="top">
+<TD class=blue width=21%><B>Parameter</B></TD>
+<TD class=blue width=13%><B>Type</B></TD>
+<TD class=blue width=14%><B>Default value</B></TD>
+<TD class=blue width=15%><B>Range</B></TD>
+<TD class=blue width=37%><B>Description</B></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=21%><I>MoveA</I></TD>
+<TD width=13%><B>string</B></TD>
+<TD width=14%>none</TD>
+<TD width=15%>left, right, up, down</TD>
+<TD width=37%>Slide first video in direction of property: left, right, up, down, in, or out</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=21%><I>MoveSpeedA</I></TD>
+<TD width=13%><B>float</B></TD>
+<TD width=14%>1.0</TD>
+<TD width=15%>0.0 to infinity</TD>
+<TD width=37%>Speed at which <I>MoveA</I> parameter is applied.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=21%><I>RotateA</I></TD>
+<TD width=13%><B>string</B></TD>
+<TD width=14%>none</TD>
+<TD width=15%>left, right, up, down</TD>
+<TD width=37%>Direction of rotation of the first video.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=21%><I>ScaleA</I></TD>
+<TD width=13%><B>string</B></TD>
+<TD width=14%>none</TD>
+<TD width=15%>Smaller, Bigger, or a <B>float</B> &gt; 0</TD>
+<TD width=37%>Final video size compared to the original video. "Smaller" and "Bigger" give generic relative values, while a floating-point number is a size multiplier (1.0 would give you a final size the same as the original size).</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=21%><I>InitialScaleA</I></TD>
+<TD width=13%><B>string</B></TD>
+<TD width=14%>1.0</TD>
+<TD width=15%>Smaller, Bigger, or a <B>float</B> &gt; 0</TD>
+<TD width=37%>Initial video size compared to original video.&nbsp; "Smaller" and "Bigger" give generic relative values, while a floating-point number is a size multiplier (1.0 would give you an initial size the same as the original size).</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=21%><I>RotateCenterA</I></TD>
+<TD width=13%><B>string</B></TD>
+<TD width=14%>none</TD>
+<TD width=15%>lowerright only</TD>
+<TD width=37%>Center of rotation for first video.&nbsp; </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=21%><I>ZScaleAStart</I></TD>
+<TD width=13%><B>string</B></TD>
+<TD width=14%>none</TD>
+<TD width=15%>0.0 to 1.0</TD>
+<TD width=37%>Time when X axis stops scaling and Z axis starts.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=21%><I>ShowAFront</I></TD>
+<TD width=13%><B>bool</B></TD>
+<TD width=14%>true</TD>
+<TD width=15%>true or false</TD>
+<TD width=37%>The front polygon of the first video is rendered when this parameter is true.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=21%><I>ShowABack</I></TD>
+<TD width=13%><B>bool</B></TD>
+<TD width=14%>false</TD>
+<TD width=15%>true or false</TD>
+<TD width=37%>The rear polygon of the first video is rendered when this parameter is true.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=21%><I>ShowBFront</I></TD>
+<TD width=13%><B>bool</B></TD>
+<TD width=14%>true</TD>
+<TD width=15%>true or false</TD>
+<TD width=37%>The front polygon of the second video is rendered when this parameter is true.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=21%><I>ShowBBack</I></TD>
+<TD width=13%><B>bool</B></TD>
+<TD width=14%>false</TD>
+<TD width=15%>true or false</TD>
+<TD width=37%>The rear polygon of the second video is rendered when this parameter is true.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=21%><I>RevolveCamera</I></TD>
+<TD width=13%><B>string</B></TD>
+<TD width=14%>nothing</TD>
+<TD width=15%>true or nothing</TD>
+<TD width=37%>Camera rotates around the world x-axis when true. If any value is passed into this parameter, it will set the value to true. </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=21%><I>PageCurlA</I></TD>
+<TD width=13%><B>string</B></TD>
+<TD width=14%>none</TD>
+<TD width=15%>lowerright, lowerleft, upperleft, upperright, right, left, upper, or lower.</TD>
+<TD width=37%>Where the page curl starts.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=21%><I>FadeStartA</I></TD>
+<TD width=13%><B>float</B></TD>
+<TD width=14%>none</TD>
+<TD width=15%>0.0 to 1.0</TD>
+<TD width=37%>Time when first video starts to fade out.&nbsp; </TD>
+</TR>
+</TABLE><BR>
+
+<P class=blue><B>ParticleSystem Class Parameters</B></P>
+
+<P>This class inherits from the <B>Simple3D</B> class. These effects enable an image to be divided into spinning, three-dimensional particles (squares or rectangles) that can move in a desired direction.</P>
+
+<TABLE border=0 cellpadding=5 cols=5 frame=below rules=rows>
+
+<TR VALIGN="top">
+<TD class=blue width=22%><B>Parameter</B></TD>
+<TD class=blue width=13%><B>Type</B></TD>
+<TD class=blue width=13%><B>Default value</B></TD>
+<TD class=blue width=15%><B>Range</B></TD>
+<TD class=blue width=37%><B>Description</B></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=22%><I>ScatterDirection</I></TD>
+<TD width=13%><B>string</B></TD>
+<TD width=13%>none</TD>
+<TD width=15%>left, right, up, down, in, out</TD>
+<TD width=37%>Direction in which pieces of the first video will move, where "in" means away from the viewer, and "out" means toward the viewer. You may choose more than one direction, so "up, left" makes the pieces move to the upper left of the screen.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=22%><I>ParticleSpeed</I></TD>
+<TD width=13%><B>float</B></TD>
+<TD width=13%>1.0</TD>
+<TD width=15%>&gt; 0</TD>
+<TD width=37%>The speed at which the pieces move. </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=22%><I>SpinDirection</I></TD>
+<TD width=13%><B>string</B></TD>
+<TD width=13%>none</TD>
+<TD width=15%>left, right, up, down, in, out</TD>
+<TD width=37%>Direction in which the pieces of the first video will rotate, where "in" means toward the screen and "out" means away from the screen. Choose only one direction.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=22%><I>ParticleSpinSpeed</I></TD>
+<TD width=13%><B>float</B></TD>
+<TD width=13%>1.0</TD>
+<TD width=15%>&gt; 0</TD>
+<TD width=37%>How fast the particles spin.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=22%><I>MaxParticles</I></TD>
+<TD width=13%><B>int</B></TD>
+<TD width=13%>100</TD>
+<TD width=15%>3 to 1000</TD>
+<TD width=37%>Maximum number of particles in the scene.&nbsp; </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=22%><I>Gravity</I></TD>
+<TD width=13%><B>float</B></TD>
+<TD width=13%>0.0</TD>
+<TD width=15%>0 to 8</TD>
+<TD width=37%>Vertical acceleration of the particles.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=22%><I>RandomizeSpeed</I></TD>
+<TD width=13%><B>float</B></TD>
+<TD width=13%>1.0</TD>
+<TD width=15%>-8 to +8</TD>
+<TD width=37%>Randomization multiplier.&nbsp; Set to 0 (zero) to make the speed uniform for all particles.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=22%><I>BothDirections</I></TD>
+<TD width=13%><B>bool</B></TD>
+<TD width=13%>false</TD>
+<TD width=15%>true or false</TD>
+<TD width=37%>If true, particles will move in both directions with equal probability.</TD>
+</TR>
+</TABLE><BR>
+
+<P>The following XML code describes all the WMTFX transitions and effects included with Windows Movie Maker. The <I>comment</I> parameter usually gives the name shown in the Windows Movie Maker transition or effect list.</P>
+
+<P class=blue><B>WMTFX Transitions </B></P>
+
+<PRE class=syntax><CODE>&lt;TransitionDLL guid="{C63344D8-70D3-4032-9B32-7A3CAD5091A5}"&gt;
+   &lt;Transition nameID="62800" iconid="91" comment="Flip, right"&gt;
+      &lt;Param name="InternalName" value="Simple3D" /&gt;
+      &lt;Param name="RevolveCamera" value="true" /&gt;
+      &lt;Param name="ShowAFront" value="true" /&gt;
+      &lt;Param name="ShowABack" value="false" /&gt;
+      &lt;Param name="ShowBFront" value="false" /&gt;
+      &lt;Param name="ShowBBack" value="true" /&gt;
+   &lt;/Transition&gt;
+   &lt;Transition nameID="62801" iconid="72" comment="Slide, up"&gt;
+      &lt;Param name="InternalName" value="Simple3D" /&gt;
+      &lt;Param name="MoveA" value="up" /&gt;
+   &lt;/Transition&gt;
+   &lt;Transition nameID="62802" iconid="73" comment="Slide up, center"&gt;
+      &lt;Param name="InternalName" value="Simple3D" /&gt;
+      &lt;Param name="MoveA" value="up" /&gt;
+      &lt;Param name="ScaleA" value="smaller" /&gt;
+      &lt;Param name="MoveSpeedA" value="0.75" /&gt;
+   &lt;/Transition&gt;
+   &lt;Transition nameID="62803" iconid="70" comment="Roll, right"&gt;
+      &lt;Param name="InternalName" value="Simple3D" /&gt;
+      &lt;Param name="RotateA" value="right" /&gt;
+      &lt;Param name="RotateCenterA" value="lowerright" /&gt;
+   &lt;/Transition&gt;
+   &lt;Transition nameID="62804" iconid="74" comment="Spin out, left"&gt;
+      &lt;Param name="InternalName" value="Simple3D" /&gt;
+      &lt;Param name="ScaleA" value="smaller" /&gt;
+      &lt;Param name="RotateA" value="left" /&gt;
+      &lt;Param name="FadeStartA" value="0.2" /&gt;
+   &lt;/Transition&gt;
+   &lt;Transition nameID="62805" iconid="89" comment="Page Curl, lower left"&gt;
+      &lt;Param name="InternalName" value="Simple3D" /&gt;
+      &lt;Param name="PageCurlA" value="lowerleft" /&gt;
+      &lt;Param name="ShowABack" value="true" /&gt;
+   &lt;/Transition&gt;
+   &lt;Transition nameID="62806" iconid="90" comment="Page Curl, lower right"&gt;
+      &lt;Param name="InternalName" value="Simple3D" /&gt;
+      &lt;Param name="PageCurlA" value="lowerright" /&gt;
+      &lt;Param name="ShowABack" value="true" /&gt;
+      &lt;Param name="FadeStartA" value="0.8" /&gt;
+   &lt;/Transition&gt;
+   &lt;Transition nameID="62807" iconid="77" comment="Shatter, Right"&gt;
+      &lt;Param name="InternalName" value="ParticleSystem" /&gt;
+      &lt;Param name="ScatterDirection" value="right" /&gt;
+      &lt;Param name="SpinDirection" value="right" /&gt;
+      &lt;Param name="MaxParticles" value="200" /&gt;
+   &lt;/Transition&gt;
+   &lt;Transition nameID="62808" iconid="78" comment="Shatter, up left"&gt;
+      &lt;Param name="InternalName" value="ParticleSystem" /&gt;
+      &lt;Param name="ScatterDirection" value="up, left" /&gt;
+      &lt;Param name="MaxParticles" value="64" /&gt;
+      &lt;Param name="ExponentialProgressDuration" value="0.4" /&gt;
+      &lt;Param name="ExponentialProgressScale" value="0.33" /&gt;
+   &lt;/Transition&gt;
+   &lt;Transition nameID="62809" iconid="76" comment="Shatter, in"&gt;
+      &lt;Param name="InternalName" value="ParticleSystem" /&gt;
+      &lt;Param name="ScatterDirection" value="in" /&gt;
+      &lt;Param name="MaxParticles" value="600" /&gt;
+      &lt;Param name="SpinDirection" value="right" /&gt;
+      &lt;Param name="ParticleSpeed" value="40.0" /&gt;
+      &lt;Param name="ParticleSpinSpeed" value="0.5" /&gt;
+      &lt;Param name="ExponentialProgressDuration" value="0.9" /&gt;
+      &lt;Param name="ExponentialProgressScale" value="0.25" /&gt;
+   &lt;/Transition&gt;
+   &lt;Transition nameID="62810" iconid="75" comment="Whirlwind, Fade"&gt;
+      &lt;Param name="InternalName" value="ParticleSystem" /&gt;
+      &lt;Param name="MaxParticles" value="200" /&gt;
+      &lt;Param name="SpinDirection" value="right" /&gt;
+      &lt;Param name="BothDirections" value="true" /&gt;
+   &lt;/Transition&gt;
+   &lt;Transition nameID="62811" iconid="79" comment="Shatter, up right"&gt;
+      &lt;Param name="InternalName" value="ParticleSystem" /&gt;
+      &lt;Param name="MaxParticles" value="700" /&gt;
+      &lt;Param name="ScatterDirection" value="up, right" /&gt;
+      &lt;Param name="BothDirections" value="true" /&gt;
+   &lt;/Transition&gt;
+   &lt;Transition nameID="62812" iconid="71" comment="Shrink vertical, then horizontal"&gt;
+      &lt;Param name="InternalName" value="Simple3D" /&gt;
+      &lt;Param name="ScaleA" value="smaller" /&gt;
+      &lt;Param name="ZScaleAStart" value="0.5" /&gt;
+      &lt;Param name="FadeStartA" value="0.5" /&gt;
+   &lt;/Transition&gt;
+&lt;/TransitionDLL&gt;
+</CODE></PRE>
+
+<P class=blue><B>WMTFX Effects </B></P>
+
+<PRE class=syntax><CODE>&lt;EffectDLL guid="{B4DC8DD9-2CC1-4081-9B2B-20D7030234EF}"&gt;
+   &lt;Effect nameID="62863" iconid="25" comment="Sepia tone"&gt;
+      &lt;Param name="InternalName" value="Standard" /&gt;
+      &lt;Param name="Desaturate" value="true" /&gt;
+      &lt;Param name="Red" value="0.10" /&gt;
+      &lt;Param name="Magenta" value="0.09" /&gt;
+      &lt;Param name="Yellow" value="0.25" /&gt;
+      &lt;Param name="contrast" value="1.0" /&gt;
+   &lt;/Effect&gt;
+   &lt;Effect nameID="62864" iconid="18" comment="Negative"&gt;
+      &lt;Param name="InternalName" value="Standard" /&gt;
+      &lt;Param name="Invert" value="-1.0" /&gt;
+   &lt;/Effect&gt;
+   &lt;Effect nameID="62865" iconid="20"  comment="Posterize"&gt;
+      &lt;Param name="InternalName" value="Standard" /&gt;
+      &lt;Param name="Posterize" value="6" /&gt;
+   &lt;/Effect&gt;
+   &lt;Effect nameID="62866" iconid="29" comment="Threshold"&gt;
+      &lt;Param name="InternalName" value="Standard" /&gt;
+      &lt;Param name="Threshold" value="0.5" /&gt;
+   &lt;/Effect&gt;
+   &lt;Effect nameID="62867" iconid="16" comment="Hue, Cycles Entire Color Spectrum"&gt;
+      &lt;Param name="InternalName" value="Hue" /&gt;
+      &lt;Param name="Value" value="0.0" /&gt;
+      &lt;Param name="EndValue" value="1.0" /&gt;
+   &lt;/Effect&gt;
+   &lt;Effect nameID="62868" iconid="33" comment="Ease In"&gt;
+      &lt;Param name="InternalName" value="Simple3D" /&gt;
+      &lt;Param name="ScaleA" value="bigger" /&gt;
+      &lt;Param name="ExponentialProgressDuration" value="0.01" /&gt;
+   &lt;/Effect&gt;
+   &lt;Effect nameID="62869" iconid="34" comment="Ease Out"&gt;
+      &lt;Param name="InternalName" value="Simple3D" /&gt;
+      &lt;Param name="ScaleA" value="smaller" /&gt;
+      &lt;Param name="InitialScaleA" value="bigger" /&gt;
+      &lt;Param name="ExponentialProgressDuration" value="0.01" /&gt;
+   &lt;/Effect&gt;
+   &lt;Effect nameID="62870" iconid="35" comment="Mirror, Vertical"&gt;
+      &lt;Param name="InternalName" value="Standard" /&gt;
+      &lt;Param name="MirrorVertical" value="true" /&gt;
+   &lt;/Effect&gt;
+   &lt;Effect nameID="62871" iconid="24" comment="Rotate 90"&gt;
+      &lt;Param name="InternalName" value="Standard" /&gt;
+      &lt;Param name="Rotate2DA" value="90" /&gt;
+   &lt;/Effect&gt;
+   &lt;Effect nameID="62872" iconid="22" comment="Rotate 180"&gt;
+      &lt;Param name="InternalName" value="Standard" /&gt;
+      &lt;Param name="Rotate2DA" value="180" /&gt;
+   &lt;/Effect&gt;
+   &lt;Effect nameID="62873" iconid="23" comment="Rotate 270"&gt;
+      &lt;Param name="InternalName" value="Standard" /&gt;
+      &lt;Param name="Rotate2DA" value="270" /&gt;
+   &lt;/Effect&gt;
+&lt;/EffectDLL&gt;
+</CODE></PRE>
+
+<P class=blue><B>See Also</B>
+
+<UL type=disc>
+	<LI><A HREF="#moviemakersprovidedeffectandtransitionobjects">Effect and Transition Objects Provided by Windows Movie Maker</A></LI>
+</UL>
+
+<H4><A NAME="blureffect"></A>Blur Effect</H4>
+
+<P>The Blur effect blurs an image by custom amounts. It takes the following parameters.</P>
+
+<TABLE border=0 cellpadding=5 cols=5 frame=below rules=rows>
+
+<TR VALIGN="top">
+<TD class=blue width=20%><B>Parameter</B></TD>
+<TD class=blue width=9%><B>Type</B></TD>
+<TD class=blue width=13%><B>Default</B></TD>
+<TD class=blue width=11%><B>Range</B></TD>
+<TD class=blue width=47%><B>Description</B></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=20%><I>PixelRadius</I></TD>
+<TD width=9%><B>float</B></TD>
+<TD width=13%>2.0</TD>
+<TD width=11%>0.0 to 25</TD>
+<TD width=47%>The larger the number, the blurrier the picture. </TD>
+</TR>
+</TABLE><BR>
+
+<P>The following XML code shows the Blur effect included in Windows Movie Maker.</P>
+
+<PRE class=syntax><CODE>&lt;EffectDLL guid="{7312498D-E87A-11D1-81E0-0000F87557DB}" comment="Blur"&gt;
+   &lt;Effect nameID="62890" iconid="30" comment="Blur"&gt;
+      &lt;Param name="PixelRadius" value="2.5" /&gt;
+   &lt;/Effect&gt;
+&lt;/EffectDLL&gt;
+</CODE></PRE>
+
+<P class=blue><B>See Also</B>
+
+<UL type=disc>
+	<LI><A HREF="#moviemakersprovidedeffectandtransitionobjects">Effect and Transition Objects Provided by Windows Movie Maker</A></LI>
+</UL>
+
+<H4><A NAME="brightnesseffect"></A>Brightness Effect</H4>
+
+<P>The Brightness effect modifies the brightness of a segment of video. It takes the following parameter.</P>
+
+<TABLE border=0 cellpadding=5 cols=5 frame=below rules=rows>
+
+<TR VALIGN="top">
+<TD class=blue width=20%><B>Parameter</B></TD>
+<TD class=blue width=10%><B>Type</B></TD>
+<TD class=blue width=12%><B>Default</B></TD>
+<TD class=blue width=13%><B>Range</B></TD>
+<TD class=blue width=45%><B>Description</B></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=20%><I>Brightness</I></TD>
+<TD width=10%><B>long</B></TD>
+<TD width=12%>0</TD>
+<TD width=13%>-255 to 255</TD>
+<TD width=45%>Amount to modify the brightness by, where zero is no difference.</TD>
+</TR>
+</TABLE><BR>
+
+<P>The following XML code shows the brightness effects included in Windows Movie Maker.</P>
+
+<PRE class=syntax><CODE>&lt;EffectDLL guid="{5A20FD6F-F8FE-4a22-9EE7-307D72D09E6E}"&gt;
+   &lt;Effect nameID="62881" iconid="7" comment="Brightness increase"&gt;
+      &lt;Param name="Brightness" value="25" /&gt;
+   &lt;/Effect&gt;
+   &lt;Effect nameID="62882" iconid="6" comment="Brightness decrease"&gt;
+      &lt;Param name="Brightness" value="-25" /&gt;
+   &lt;/Effect&gt;
+&lt;/EffectDLL&gt;
+</CODE></PRE>
+
+<P class=blue><B>See Also</B>
+
+<UL type=disc>
+	<LI><A HREF="#moviemakersprovidedeffectandtransitionobjects">Effect and Transition Objects Provided by Windows Movie Maker</A></LI>
+</UL>
+
+<H4><A NAME="fadeeffect"></A>Fade Effect</H4>
+
+<P>The Fade effect causes a clip to fade in to or out from a solid color of your choice. It takes the following parameters.</P>
+
+<TABLE border=0 cellpadding=5 cols=5 frame=below rules=rows>
+
+<TR VALIGN="top">
+<TD class=blue width=20%><B>Parameter</B></TD>
+<TD class=blue width=10%><B>Type</B></TD>
+<TD class=blue width=12%><B>Default</B></TD>
+<TD class=blue width=14%><B>Range</B></TD>
+<TD class=blue width=44%><B>Description</B></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=20%><I>FadeIn</I></TD>
+<TD width=10%><B>bool</B></TD>
+<TD width=12%>0</TD>
+<TD width=14%>0 or 1</TD>
+<TD width=44%>0 indicates that the clip will fade out <I>to</I> a color; 1 indicates that a clip will fade in <I>from</I> a color.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=20%><I>FadeColor</I></TD>
+<TD width=10%><B>long</B></TD>
+<TD width=12%>0</TD>
+<TD width=14%>0 to 0xFFFFFF</TD>
+<TD width=44%>The number can be given in hexadecimal or binary. In hexadecimal, the values represent blue, green, and red values as 0xBBGGRR. (This is not a misprint. The blue value must be first.)</TD>
+</TR>
+</TABLE><BR>
+
+<P>The following XML code shows the Film Aging effects included in Windows Movie Maker.</P>
+
+<PRE class=syntax><CODE>&lt;EffectDLL guid="{EC85D8F1-1C4E-46e4-A748-7AA04E7C0496}"&gt;
+   &lt;Effect nameID="62877" iconid="11" comment="Fade Out, To black"&gt;
+      &lt;Param name="FadeIn" value="0" /&gt;
+      &lt;Param name="FadeColor" value="0" /&gt;
+   &lt;/Effect&gt;
+   &lt;Effect nameID="62878" iconid="9" comment="Fade in, from black"&gt;
+      &lt;Param name="FadeIn" value="1" /&gt;
+      &lt;Param name="FadeColor" value="0" /&gt;
+   &lt;/Effect&gt;
+   &lt;Effect nameID="62879" iconid="12" comment="Fade Out, to white"&gt;
+      &lt;Param name="FadeIn" value="0" /&gt;
+      &lt;Param name="FadeColor" value="16777215" /&gt;
+   &lt;/Effect&gt;
+   &lt;Effect nameID="62880" iconid="10" comment="Fade in, to white"&gt;
+      &lt;Param name="FadeIn" value="1" /&gt;
+      &lt;Param name="FadeColor" value="16777215" /&gt;
+   &lt;/Effect&gt;
+&lt;/EffectDLL&gt;
+</CODE></PRE>
+
+<P class=blue><B>See Also</B>
+
+<UL type=disc>
+	<LI><A HREF="#moviemakersprovidedeffectandtransitionobjects">Effect and Transition Objects Provided by Windows Movie Maker</A></LI>
+</UL>
+
+<H4><A NAME="filmageingeffect"></A>Film Aging Effect</H4>
+
+<P>The Film Aging effect introduces graininess, scratches, and other visual artifacts that make it appear as if a film is old. It takes the following parameters.</P>
+
+<TABLE border=0 cellpadding=5 cols=5 frame=below rules=rows>
+
+<TR VALIGN="top">
+<TD class=blue width=21%><B>Parameter</B></TD>
+<TD class=blue width=9%><B>Type</B></TD>
+<TD class=blue width=12%><B>Default</B></TD>
+<TD class=blue width=11%><B>Range</B></TD>
+<TD class=blue width=47%><B>Description</B></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=21%><I>Age</I></TD>
+<TD width=9%><B>long</B></TD>
+<TD width=12%>0</TD>
+<TD width=11%>0 to 100</TD>
+<TD width=47%>Number of "years" to age the film.</TD>
+</TR>
+</TABLE><BR>
+
+<P>The <I>Age</I> parameter is actually a combination of ten separate parameters. If you want to set these parameters independently, rather than using the Age parameter, you can do so. These are the parameters that Age includes.</P>
+
+<TABLE border=0 cellpadding=5 cols=5 frame=below rules=rows>
+
+<TR VALIGN="top">
+<TD class=blue width=21%><B>Parameter</B></TD>
+<TD class=blue width=9%><B>Type</B></TD>
+<TD class=blue width=12%><B>Default</B></TD>
+<TD class=blue width=11%><B>Range</B></TD>
+<TD class=blue width=47%><B>Description</B></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=21%><I>BlurAmount</I></TD>
+<TD width=9%><B>long</B></TD>
+<TD width=12%>0</TD>
+<TD width=11%>0 to 255</TD>
+<TD width=47%>Higher value means blurrier image.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=21%><I>EdgeFade</I></TD>
+<TD width=9%><B>long</B></TD>
+<TD width=12%>0</TD>
+<TD width=11%>0 to 255</TD>
+<TD width=47%>Higher value means more edge fade.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=21%><I>FilmJerkiness</I></TD>
+<TD width=9%><B>long</B></TD>
+<TD width=12%>0</TD>
+<TD width=11%>0 to 255</TD>
+<TD width=47%>Degree of film jerkiness, where 0 is least and 255 is most.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=21%><I>FlickerFrequency</I></TD>
+<TD width=9%><B>long</B></TD>
+<TD width=12%>0</TD>
+<TD width=11%>0, 1 to 255</TD>
+<TD width=47%>This effect sets the darkness of intervening, regularly spaced frames, where the lower the number, the darker the intervening frames, giving a flickering appearance. Zero means no visible flicker.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=21%><I>FrameSkips</I></TD>
+<TD width=9%><B>long</B></TD>
+<TD width=12%>0</TD>
+<TD width=11%>0 to 255</TD>
+<TD width=47%>Number of frames to skip before showing the next frame.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=21%><I>Grey</I></TD>
+<TD width=9%><B>bool</B></TD>
+<TD width=12%>false</TD>
+<TD width=11%>true, false</TD>
+<TD width=47%>True means grayscale (black-and-white) image.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=21%><I>LineFrequency</I></TD>
+<TD width=9%><B>long</B></TD>
+<TD width=12%>0</TD>
+<TD width=11%>0 to 255</TD>
+<TD width=47%>The frequency of white traveling "cracks" or lines in the image, where 0 creates the fewest lines and 255 the most.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=21%><I>LintFrequency</I></TD>
+<TD width=9%><B>long</B></TD>
+<TD width=12%>0</TD>
+<TD width=11%>0 to 255</TD>
+<TD width=47%>Frequency of "lint" or "tears" on the screen, where 0 creates the least and 255 the most.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=21%><I>NoiseFrequency</I></TD>
+<TD width=9%><B>long</B></TD>
+<TD width=12%>0</TD>
+<TD width=11%>0 to 255</TD>
+<TD width=47%>Adds noise to the image, where 0 creates the least noise and 255 the most.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=21%><I>PosterizeBits</I></TD>
+<TD width=9%><B>long</B></TD>
+<TD width=12%>0</TD>
+<TD width=11%>0 to 8</TD>
+<TD width=47%>Amount of posterization to apply to the image, where zero is least and 8 is most.</TD>
+</TR>
+</TABLE><BR>
+
+<P>The following XML code shows the Film Aging effects included in Windows Movie Maker.</P>
+
+<PRE class=syntax><CODE>&lt;EffectDLL guid="{ADEADEB8-E54B-11d1-9A72-0000F875EADE}"&gt;
+   &lt;Effect nameID="62874" iconid="4" comment="Film Age, Oldest"&gt;
+      &lt;Param name="Age" value="90" /&gt;
+   &lt;/Effect&gt;
+   &lt;Effect nameID="62875" iconid="3" comment="Older"&gt;
+      &lt;Param name="Age" value="60" /&gt;
+   &lt;/Effect&gt;
+   &lt;Effect nameID="62876" iconid="2" comment="Old"&gt;
+      &lt;Param name="Age" value="30" /&gt;
+   &lt;/Effect&gt;
+&lt;/EffectDLL&gt;
+</CODE></PRE>
+
+<P class=blue><B>See Also</B>
+
+<UL type=disc>
+	<LI><A HREF="#moviemakersprovidedeffectandtransitionobjects">Effect and Transition Objects Provided by Windows Movie Maker</A></LI>
+</UL>
+
+<H4><A NAME="filtereffects"></A>Filter Effects</H4>
+
+<P>Filter effects provide a variety of effects often associated with print media. Each effect has a number of parameters associated with it, passed in by generic names <I>Control1Value</I> through <I>Control8Value</I>. Not all parameters are used for every effect. Effects cannot be combined. The following table describes the parameters for all effects:</P>
+
+<TABLE border=0 cellpadding=5 cols=5 frame=below rules=rows>
+
+<TR VALIGN="top">
+<TD class=blue width=21%><B>Parameter</B></TD>
+<TD class=blue width=10%><B>Type</B></TD>
+<TD class=blue width=13%><B>Default</B></TD>
+<TD class=blue width=19%><B>Range</B></TD>
+<TD class=blue width=37%><B>Description</B></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=21%><I>EffectID</I></TD>
+<TD width=10%><B>long</B></TD>
+<TD width=13%>0</TD>
+<TD width=19%>0 or 1</TD>
+<TD width=37%>The ID of an effect to use, described in the next table.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=21%><I>Control1Value</I>
+<P>to</P>
+
+<P><I>Control8Value</I></P>
+</TD>
+<TD width=10%><B>long</B></TD>
+<TD width=13%>Varies by effect</TD>
+<TD width=19%>0 or 1</TD>
+<TD width=37%>Up to eight custom parameters for the effect.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=21%><I>Transparency</I></TD>
+<TD width=10%><B>long</B></TD>
+<TD width=13%>0</TD>
+<TD width=19%>0 to 100</TD>
+<TD width=37%>How transparent the added effect is, with a higher number indicating more transparent.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=21%><I>RGBForeColor</I></TD>
+<TD width=10%><B>string</B></TD>
+<TD width=13%>black</TD>
+<TD width=19%>Any standard HTML color string that Internet Explorer will accept</TD>
+<TD width=37%>Depends on the <I>EffectID</I>.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=21%><I>RGBBackColor</I></TD>
+<TD width=10%><B>string</B></TD>
+<TD width=13%>white</TD>
+<TD width=19%>Any standard HTML color string that Internet Explorer will accept</TD>
+<TD width=37%>Depends on the <I>EffectID</I>.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=21%><I>RGBExtraColor</I></TD>
+<TD width=10%><B>string</B></TD>
+<TD width=13%>black</TD>
+<TD width=19%>Any standard HTML color string that Internet Explorer will accept</TD>
+<TD width=37%>Depends on the <I>EffectID</I>.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=21%><I>TextureURL</I></TD>
+<TD width=10%><B>string</B></TD>
+<TD width=13%>none</TD>
+<TD width=19%>Any standard HTML color string that Internet Explorer will accept</TD>
+<TD width=37%>Applies to ConteCrayon, RoughPastel, Texturizer, and Underpainting effects.</TD>
+</TR>
+</TABLE><BR>
+
+<P>The following table lists the effects that can be specified by the <B>EffectID</B> parameter.</P>
+
+<TABLE border=0 cellpadding=5 cols=2 frame=below rules=rows>
+
+<TR VALIGN="top">
+<TD class=blue width=16%><B><I>EffectID</I></B></TD>
+<TD class=blue width=84%><B>Effect name</B></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=16%>0</TD>
+<TD width=84%>None</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=16%>1</TD>
+<TD width=84%>Accents</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=16%>2</TD>
+<TD width=84%>AngledStrokes</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=16%>3</TD>
+<TD width=84%>BasRelief</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=16%>4</TD>
+<TD width=84%>Mosaic</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=16%>5</TD>
+<TD width=84%>ChalkAndCharcoal</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=16%>6</TD>
+<TD width=84%>Charcoal</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=16%>7</TD>
+<TD width=84%>Chrome</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=16%>8</TD>
+<TD width=84%>ColoredPencil</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=16%>9</TD>
+<TD width=84%>Craquelure</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=16%>10</TD>
+<TD width=84%>Crosshatch</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=16%>11</TD>
+<TD width=84%>Cutout</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=16%>12</TD>
+<TD width=84%>DarkStrokes</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=16%>13</TD>
+<TD width=84%>DiffuseGlow</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=16%>14</TD>
+<TD width=84%>DryBrush</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=16%>15</TD>
+<TD width=84%>Emboss</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=16%>16</TD>
+<TD width=84%>FilmGrain</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=16%>17</TD>
+<TD width=84%>InkOutline</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=16%>18</TD>
+<TD width=84%>NotePaper</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=16%>19</TD>
+<TD width=84%>Fresco</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=16%>20</TD>
+<TD width=84%>GlowingEdges</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=16%>21</TD>
+<TD width=84%>Grain</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=16%>22</TD>
+<TD width=84%>HalftoneScreen</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=16%>23</TD>
+<TD width=84%>Patchwork</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=16%>24</TD>
+<TD width=84%>NeonGlow</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=16%>25</TD>
+<TD width=84%>PaintDaubs</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=16%>26</TD>
+<TD width=84%>PaletteKnife</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=16%>27</TD>
+<TD width=84%>Plaster</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=16%>28</TD>
+<TD width=84%>PlasticWrap</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=16%>29</TD>
+<TD width=84%>PosterEdges</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=16%>30</TD>
+<TD width=84%>Ripple</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=16%>31</TD>
+<TD width=84%>Reticulation</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=16%>32</TD>
+<TD width=84%>SmudgeStick</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=16%>33</TD>
+<TD width=84%>Sponge</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=16%>34</TD>
+<TD width=84%>SprayedStrokes</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=16%>35</TD>
+<TD width=84%>Stamp</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=16%>36</TD>
+<TD width=84%>Photocopy</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=16%>37</TD>
+<TD width=84%>Sumie</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=16%>38</TD>
+<TD width=84%>GraphicPen</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=16%>39</TD>
+<TD width=84%>TornEdges</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=16%>40</TD>
+<TD width=84%>Watercolor</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=16%>41</TD>
+<TD width=84%>WaterPaper</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=16%>42</TD>
+<TD width=84%>StainedGlass</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=16%>43</TD>
+<TD width=84%>Glass</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=16%>44</TD>
+<TD width=84%>Texturizer</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=16%>45</TD>
+<TD width=84%>Underpainting</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=16%>46</TD>
+<TD width=84%>ConteCrayon</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=16%>47</TD>
+<TD width=84%>RoughPastel</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=16%>48</TD>
+<TD width=84%>Spatter</TD>
+</TR>
+</TABLE><BR>
+
+<P>The following XML code shows the Filter effects included in Windows Movie Maker.</P>
+
+<PRE class=syntax><CODE>&lt;EffectDLL guid="{E673DCF2-C316-4c6f-AA96-4E4DC6DC291E}" &gt;
+   &lt;Effect nameID="62886" iconid="13"&gt;
+      &lt;Param name="EffectID" value="16" comment="Film Grain" /&gt;
+      &lt;Param name="Control1Value" value="4" /&gt;
+      &lt;Param name="Control2Value" value="0" /&gt;
+      &lt;Param name="Control3Value" value="10" /&gt;
+   &lt;/Effect&gt;
+   &lt;Effect nameID="62887" iconid="27" comment="Smudge Stick"&gt;
+      &lt;Param name="EffectID" value="32" /&gt;
+      &lt;Param name="Control1Value" value="2" /&gt;
+      &lt;Param name="Control2Value" value="0" /&gt;
+      &lt;Param name="Control3Value" value="10" /&gt;
+   &lt;/Effect&gt;
+   &lt;Effect nameID="62888" iconid="14" comment="Graphic Pen"&gt;
+      &lt;Param name="EffectID" value="38" /&gt;
+      &lt;Param name="Control1Value" value="15" /&gt;
+      &lt;Param name="Control2Value" value="0" /&gt;
+      &lt;Param name="Control3Value" value="40" /&gt;
+   &lt;/Effect&gt;
+   &lt;Effect nameID="62889" iconid="30" comment="Watercolor"&gt;
+      &lt;Param name="EffectID" value="40" /&gt;
+      &lt;Param name="Control1Value" value="9" /&gt;
+      &lt;Param name="Control2Value" value="1" /&gt;
+      &lt;Param name="Control3Value" value="1" /&gt;
+   &lt;/Effect&gt;
+  &lt;/EffectDLL&gt;
+</CODE></PRE>
+
+<P class=blue><B>See Also</B>
+
+<UL type=disc>
+	<LI><A HREF="#moviemakersprovidedeffectandtransitionobjects">Effect and Transition Objects Provided by Windows Movie Maker</A></LI>
+</UL>
+
+<H4><A NAME="mirrorandgrayscaleeffects"></A>Mirror and Grayscale Effects</H4>
+
+<P>This object provides two abilities: creating a mirror image, and changing a color image to grayscale. This object takes the following parameters.</P>
+
+<TABLE border=0 cellpadding=5 cols=5 frame=below rules=rows>
+
+<TR VALIGN="top">
+<TD class=blue width=20%><B>Parameter</B></TD>
+<TD class=blue width=10%><B>Type</B></TD>
+<TD class=blue width=12%><B>Default</B></TD>
+<TD class=blue width=14%><B>Range</B></TD>
+<TD class=blue width=44%><B>Description</B></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=20%><I>Mirror</I></TD>
+<TD width=10%><B>long</B></TD>
+<TD width=12%>0</TD>
+<TD width=14%>0 or 1</TD>
+<TD width=44%>A value of 1 indicates that the picture should be flipped horizontally.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=20%><I>GrayScale</I></TD>
+<TD width=10%><B>long</B></TD>
+<TD width=12%>0</TD>
+<TD width=14%>0 or 1</TD>
+<TD width=44%>A value of 1 indicates that colors should be changed to grayscale, creating a black-and-white image.</TD>
+</TR>
+</TABLE><BR>
+
+<P>The following XML code shows the Mirror and Grayscale effects included in Windows Movie Maker.</P>
+
+<PRE class=syntax><CODE>&lt;EffectDLL guid="{16B280C8-EE70-11D1-9066-00C04FD9189D}"&gt;
+   &lt;Effect nameID="62884" iconid="17" comment="Mirror, Horizontal"&gt;
+      &lt;Param name="Mirror" value="1" /&gt;
+   &lt;/Effect&gt;
+   &lt;Effect nameID="62885" iconid="15" comment="Grayscale"&gt;
+      &lt;Param name="Grayscale" value="1" /&gt;
+   &lt;/Effect&gt;
+&lt;/EffectDLL&gt;
+</CODE></PRE>
+
+<P class=blue><B>See Also</B>
+
+<UL type=disc>
+	<LI><A HREF="#moviemakersprovidedeffectandtransitionobjects">Effect and Transition Objects Provided by Windows Movie Maker</A></LI>
+</UL>
+
+<H4><A NAME="pixelateeffect"></A>Pixelate Effect</H4>
+
+<P>The Pixelate effect causes an image to coarsen into squares of a single, solid color for each square, representing the average color of the original pixels from that area. It takes the following parameter.</P>
+
+<TABLE border=0 cellpadding=5 cols=5 frame=below rules=rows>
+
+<TR VALIGN="top">
+<TD class=blue width=20%><B>Parameter</B></TD>
+<TD class=blue width=10%><B>Type</B></TD>
+<TD class=blue width=12%><B>Default</B></TD>
+<TD class=blue width=14%><B>Range</B></TD>
+<TD class=blue width=44%><B>Description</B></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=20%><I>MaxSquare</I></TD>
+<TD width=10%><B>long</B></TD>
+<TD width=12%>50</TD>
+<TD width=14%>2 to 50</TD>
+<TD width=44%>The larger the number, the larger the squares and the coarser the picture.</TD>
+</TR>
+</TABLE><BR>
+
+<P>The following XML code shows the Pixelate effect included in Windows Movie Maker.</P>
+
+<PRE class=syntax><CODE>&lt;EffectDLL guid="{4CCEA634-FBE0-11D1-906A-00C04FD9189D}" comment="Pixelate"&gt;
+   &lt;Effect nameID="62818" iconid="19" comment="Pixelate"&gt;
+      &lt;Param name="MaxSquare" value="25" /&gt;
+   &lt;/Effect&gt;
+&lt;/EffectDLL&gt;
+</CODE></PRE>
+
+<P class=blue><B>See Also</B>
+
+<UL type=disc>
+	<LI><A HREF="#moviemakersprovidedeffectandtransitionobjects">Effect and Transition Objects Provided by Windows Movie Maker</A></LI>
+</UL>
+
+<H4><A NAME="speedeffects"></A>Speed Effects</H4>
+
+<P>Speed effects speed up or slow down the playback of a video. They cannot be used for pausing or backward motion. These effects are not tied to an actual GUID, but are passed the null GUID. Speed effects may cause frame skipping, so selecting a value that is too large will cause an unsatisfactory result. This effect takes the following parameter.</P>
+
+<TABLE border=0 cellpadding=5 cols=5 frame=below rules=rows>
+
+<TR VALIGN="top">
+<TD class=blue width=20%><B>Parameter</B></TD>
+<TD class=blue width=10%><B>Type</B></TD>
+<TD class=blue width=12%><B>Default</B></TD>
+<TD class=blue width=14%><B>Range</B></TD>
+<TD class=blue width=44%><B>Description</B></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=20%><I>Speed</I></TD>
+<TD width=10%><B>float</B></TD>
+<TD width=12%>1.0</TD>
+<TD width=14%>Greater than 0.0</TD>
+<TD width=44%>A value of 1.0 is normal speed, less means slower, and greater means faster.</TD>
+</TR>
+</TABLE><BR>
+
+<P>The following XML code shows the Speed effects included in Windows Movie Maker.</P>
+
+<PRE class=syntax><CODE>&lt;EffectDLL guid="{00000000-0000-0000-0000-000000000000}"&gt;
+   &lt;Effect nameID="62861" iconid="32" speed="2.0" comment="Speed up"&gt;&lt;/Effect&gt;
+   &lt;Effect nameID="62862" iconid="31" speed="0.5" comment="Slow down"&gt;&lt;/Effect&gt;
+&lt;/EffectDLL&gt;
+</CODE></PRE>
+
+<P class=blue><B>See Also</B>
+
+<UL type=disc>
+	<LI><A HREF="#moviemakersprovidedeffectandtransitionobjects">Effect and Transition Objects Provided by Windows Movie Maker</A></LI>
+</UL>
+
+<H2><A NAME="addingcustomiconstomoviemaker"></A>Adding Custom Icons to Windows Movie Maker</H2>
+
+<P>You can attach custom icons to your custom effects and transitions for Windows Movie Maker. These icons are created as a resource file in a C++ project and compiled into a DLL. If you are not providing any custom transition or effect code, the project will contain only the icon resource file. </P>
+
+<P>Windows Movie Maker can use a single bitmap image consisting of one or more icons joined at the sides. Windows Movie Maker automatically cuts the image into 96-pixel-wide, 84-pixel-high segments, each segment being one icon. The top and bottom 6 pixels should be left blank for image padding, which trims the visible icon size to 96 x 72 (3 x 4) segments. Windows Movie Maker assigns an identification number to each segment, starting at 0 and incrementing by 1, which describes how many "jumps" into the strip an icon is. In your XML file you specify which icon to use for each effect. You can use all custom icons, or all Windows Movie Maker standard icons, but you cannot mix the two types. The following diagram shows the layout of a bitmap image strip for icons.</P>
+
+<P><IMG SRC="moviemakersfx1.gif" ALT="Windows Movie Maker sees five icons in this bitmap strip. " BORDER=0></P>
+
+<P>In the preceding diagram, an effect or transition would set <B>iconid</B> = 0 for the smiley-face icon, and 4 for the sun icon. </P>
+
+<P>When creating an icon strip, the top and bottom 6 pixels should be pure white, as this margin will be trimmed to make a 4 x 3 thumbnail to be displayed in the storyboard. Pure white (255,255,255) will be transparent when displayed. </P>
+
+<P>To add your own icons, you must add two additional attributes to the TransitionsAndEffects tag:
+
+<UL type=disc>
+	<LI><B><B>SpecialIconFileID&nbsp;&nbsp;&nbsp;</B></B>An attribute that is used in an XML file only when including your own custom icons. It should be a unique number from 1 to 8192. This number must be unique for all <B>SpecialIconFileID</B> attributes in all other custom Windows Movie Maker XML files, but otherwise has no meaning. </LI>
+
+	<LI><B><B>SpecialIconResourceID&nbsp;&nbsp;</B></B>&nbsp;An attribute that is used in an XML file only when including your own custom icons. This is the number assigned to the icon bitmap resource in your custom DLL. You can find this number in your Visual Studio project, in the resource file.</LI>
+</UL>
+
+<P>Here is XML code that specifies custom icons.</P>
+
+<PRE class=syntax><CODE>&lt;TransitionsAndEffects Version="1.0" SpecialIconFileID="22" SpecialIconResourceID="101"&gt;
+</CODE></PRE>
+
+<H6 class=proclabel><A NAME="tocreatecustomiconsforyoureffectsandtransitions"></A>To create custom icons for your effects and transitions</H6>
+
+<OL>
+	<LI>Open Visual Studio and create a new C++ project. If only creating a DLL to hold icons, create a new Win32 project, and when asked for settings choose an empty project that compiles to a DLL.</LI>
+
+	<LI>Add a new resource to the project. When asked what kind of resource, choose "bitmap."</LI>
+
+	<LI>Draw or import a bitmap in the resource editor. The largest icon size is 96 pixels wide and 84 pixels high (including the six-pixel white buffers on top and bottom). Windows Movie Maker measures an image from the bottom left corner: if the image is too high, the extra material will be cropped; if the image is too wide, the extra material will be assigned to the next higher icon. If your image is less than 96 pixels wide, Windows Movie Maker will include part of the next icon. Insert as many icon images as you need in these 96-pixel-wide windows.</LI>
+
+	<LI>Note the ID assigned to the bitmap in the resource.h file. This will be assigned to the <B>SpecialIconResourceID</B> attribute. For example, the following line shows a bitmap that has been assigned 101 as its identifier.
+<PRE class=syntax><CODE>#define IDB_BITMAP1                     101
+</CODE></PRE>
+</LI>
+
+	<LI>Compile the DLL, and place it in the \AddOnTFX folder with your XML file. The image DLL must have the same name as the XML file that uses the icons. So, for example, if your DLL is called MyIcons.dll, your XML file must be MyIcons.xml.</LI>
+
+	<LI>In your XML file, add a <B>SpecialIconFileID</B> attribute to the TransitionsAndEffects XML tag and assign it a unique integer from 1 to 8192. The value of this number is not important as long as no other XML effect file uses this number to identify itself.</LI>
+
+	<LI>Add a <B>SpecialIconResourceID</B> attribute to the TransitionsAndEffects tag, and assign it the number that Visual Studio assigned to the bitmap: in this example, the 101 shown in step 4.</LI>
+
+	<LI>In each transition or effect XML block, add an <B>iconid</B> attribute to the Transition tag, and choose the offset into your bitmap, starting at zero, where your icon is located. These numbers do not have to be sequential, and regions may be skipped.</LI>
+</OL>
+
+<P>The following XML snippet shows two custom transitions using the first and third icons in a bitmap image, with the ID 101 from the DLL, and a unique ID of 22 assigned to the files.</P>
+
+<PRE class=syntax><CODE>&lt;TransitionsAndEffects Version="1.0" SpecialIconFileID="22" SpecialIconResourceID="101"&gt;
+   &lt;Transitions&gt;
+      &lt;TransitionDLL guid="{C63344D8-70D3-4032-9B32-7A3CAD5091A5}"&gt;
+         &lt;Transition name="Grow, custom icon 1" iconid="0"&gt;
+            &lt;Param name="InternalName" value="Simple3D" /&gt;
+            &lt;Param name="ScaleA" value="bigger" /&gt;
+            &lt;Param name="ExponentialProgressDuration" value="3.0" /&gt;
+            &lt;Param name="ExponentialProgressScale" value="1.0" /&gt;
+         &lt;/Transition&gt;
+      &lt;/TransitionDLL&gt;
+      &lt;TransitionDLL guid="{C63344D8-70D3-4032-9B32-7A3CAD5091A5}"&gt;
+         &lt;Transition name="Grow, custom icon 3" iconid="2"&gt;
+            &lt;Param name="InternalName" value="Simple3D" /&gt;
+            &lt;Param name="ScaleA" value="bigger" /&gt;
+            &lt;Param name="ExponentialProgressDuration" value="3.0" /&gt;
+            &lt;Param name="ExponentialProgressScale" value="2.0" /&gt;
+         &lt;/Transition&gt;
+      &lt;/TransitionDLL&gt;
+   &lt;/Transitions&gt;
+&lt;/TransitionsAndEffects&gt;
+</CODE></PRE>
+
+<P class=indent><B><B>Note</B></B>&nbsp;&nbsp;&nbsp;The XML file name and the DLL file name must match only when the DLL is used only for holding an image. If the DLL is not holding an image (as when it holds custom effects and transition objects) the names do not need to match.</P>
+
+<H2><A NAME="creatingnewtransitionsandspecialeffects"></A>Creating New Transition and Effect Objects</H2>
+
+<P>In addition to modifying the existing transitions and special effects, it is possible to create completely new ones. These objects, called DirectX Transforms (DXTs), require considerable knowledge of COM and DirectX programming, as well as ATL, and is only briefly described in this section. To learn where you can read about DXTs, see <A HREF="#formoreinformation_stny">For More Information</A>. </P>
+
+<P>This download includes two Visual Studio projects you can use to create new transition and effect objects; one version is for Visual Studio .NET, and the other is for Visual Studio 6.0. If you use the version 6.0 project, you must also install the Microsoft DirectX 7.0 SDK to obtain the necessary headers for this project. You can find this at the location shown in <A HREF="#formoreinformation_stny">For More Information</A>.</P>
+
+<P>In addition, both projects require you to install the Microsoft DirectX Media SDK, available at the <A HREF="http://go.microsoft.com/fwlink/?LinkId=12229" TARGET="_blank"><U>Microsoft Web site</U></A>. </P>
+
+<P>The downloadable executable file associated with this document is a self-extracting group of files and folders. The downloaded project includes the following files:
+
+<UL type=disc>
+	<LI>C++ project files containing code for several sample effects</LI>
+
+	<LI>XML files to load these effects and some additional effects into Windows Movie Maker</LI>
+
+	<LI>Readme.txt describing the contents of each file</LI>
+
+	<LI>HowToInstall.txt describing the installation process</LI>
+
+	<LI>MMSTFX.dll, which is an already compiled sample of the DLL this project will create</LI>
+</UL>
+
+<P>Running the self-extraction program creates a top-level MMSTFX folder containing the project and text files, an MMSTFX\Bin folder containing the DLL, and an MMSTFX\XML folder containing the XML files.</P>
+
+<P>The sample C++ code creates a new effect (Blue Adjust) and a new transition (Melt) in a DLL named MMSTFX.dll. Also included are XML files that modify the effects provided with Windows Movie Maker. These "new" effects include "Page Curl, Down Left," "Page Curl, Down Right," "Blur, Super," "Brightness, Super Increase," "Brightness, Super Decrease," and "Whirlwind, Down, Small Blocks." More details on these objects can be found in the ReadMe.txt file included with the download.</P>
+
+<P>To open the project in Visual Studio 6.0, double-click the file MMSTFX.dsp. To open the project in Visual Studio .NET, double-click the file MMSTFX.vcproj.</P>
+
+<P class=indent><B><B>Note</B></B>&nbsp;&nbsp;&nbsp;If you receive an error message that you cannot compile DXTrans.idl, be sure that you list the path to the DXMedia\include folder on your computer. This path should be specified in the <B>Tools</B> &gt; <B>Options</B> &gt; <B>Projects</B> &gt; <B>VC++ Directories</B> dialog box.</P>
+
+<P>After you open and compile the sample DLL, you can run the program in debug mode. You will receive a warning dialog box indicating that the project does not include debug symbols for the Windows Movie Maker program; click OK. When asked what program to attach to, navigate to and select the moviemk.exe program file.</P>
+
+<H3><A NAME="overviewofthesamplecode"></A>Overview of the Sample Code</H3>
+
+<P>The following diagram shows the important classes provided in the sample code.</P>
+
+<P><IMG SRC="moviemakersfx2.gif" ALT="Overview of the classes and objects in the sample file. " BORDER=0></P>
+
+<P>The following describes classes and objects of the sample code:</P>
+
+<P class=dt><B><B>CMMSampleEffect </B></B>and <B><B>CMMSampleTransition</B></B></P>
+
+<P class=indent>These are the top-level effect and transition DXT classes of the sample. <B>CMMSampleEffect</B> implements the Blue Adjust sample effect; <B>CMMSampleTransition</B> implements the Melt sample transition. These classes may be modified to change the samples, or copied and modified to create new effects or transitions. Windows Movie Maker creates these classes with COM using the GUID assigned to each. These classes create a helper object to handle video by calling <B>CreateSpecialEffectByName</B>: <B>CMMSampleEffect</B> creates <B>CMMSpecialEffect</B>, and <B>CMMSampleTransition</B> creates <B>CMMSimple3DSpecialEffect</B>. The default number of input buffers is one (the only number permitted for an effect), but <B>CMMSampleTransition</B> increases this to two (the correct number for a transition). </P>
+
+<P class=dt><B><B>CMMSpecialEffectDXT</B></B></P>
+
+<P class=indent>Handles communication and buffer manipulation between Windows Movie Maker and the video-handling class (<B>CMMSpecialEffect</B> or its inheriting class).</P>
+
+<P class=dt><B><B>CVideoPlane</B></B></P>
+
+<P class=indent>This is a tool class used by 3-D effects to draw an input video onto a single plane.</P>
+
+<P class=dt><B><B>CMMSpecialEffect</B></B></P>
+
+<P class=indent>This is the base class for the graphics object used in 2-D effects and transitions. The Blue Adjust sample effect uses this class directly to tint the video blue. The Melt sample transition uses a derived class, <B>CMM3DSpecialEffect</B>, which is suited for 3-D manipulations. When creating a 2-D effect or transition, inherit from this class and override its <B>Execute</B> method.</P>
+
+<P><B><B>CMM3DSpecialEffect</B></B></P>
+
+<P class=indent>This is the base class for 3-D effects or transitions. It creates textures and a rendering surface on the output buffer. To create new effects or transitions, override the following methods: <B>CreateScene</B>, <B>RenderScene</B>, <B>ReleaseScene</B>, <B>CreateSurfaces</B>, <B>RestoreSurfaces</B>, and <B>ReleaseSurfaces</B>. The <B>Execute</B> method overridden from <B>CMMSpecialEffect</B>, handles low-level logic; you should not override it yourself. To modify or create a new effect or transition, you should override <B>RenderScene</B>. <B>CMM3DSpecialEffect</B> does not perform the rendering for 3-D objects; this is done by <B>CSimple3DSpecialEffect</B>.</P>
+
+<P class=dt><B><B>CSimple3DSpecialEffect</B></B></P>
+
+<P class=indent>The top level class used for 3-D effect and transition rendering. It performs the rendering for the Melt sample transition. This class overrides several functions from its base class, and creates a helper object based on <B>CVideoPlane</B>. To create a new Direct3D-based effect or transition, you can modify or create a new class inheriting this class. </P>
+
+<H3><A NAME="gettingstartedonaneweffect"></A>Getting Started on a New Effect</H3>
+
+<P>Starting with the code provided in the sample is a good way to develop your own effect or transition. To replace the Blue Adjust effect with your own, first look at the CMMSpecialEffect.cpp and CMMSpecialEffect.h files. The methods <B>Initialize</B> and <B>Terminate</B> are called once each for the lifetime of the effect, and the <B>Execute</B> method is called each time a new video frame is rendered. To create a new effect, you can implement a class that inherits the <B>CMMSpecialEffect</B> class, and override the <B>Initialize</B>, <B>Execute</B>, and <B>Terminate</B> methods.</P>
+
+<P>The <B>CMMSampleEffect</B> class, which in turn inherits from the <B>CMMSpecialEffectDXT</B> class, calls <B>CreateSpecialEffectByName</B> to create a drawing object, <B>CMMSpecialEffect</B>. If you define a new DXT, you can modify the object by changing the behavior of the <B>CreateSpecialEffectByName </B>function. These classes and objects handle much of the tedious work required to create new effects.</P>
+
+<P class=indent><B><B>Note&nbsp;&nbsp;&nbsp;</B></B>The <B>CMMSampleEffect</B> and <B>CMMSampleTransition</B> classes reference a CoClass GUID, which is the same GUID specified in the add-on XML file describing new or amended effects. When developing your own effects or transitions, you should copy and rename the <B>CMMSampleEffect</B> and <B>CMMSampleTransition</B> classes and generate a new GUID to use in this class and XML file, hence ensuring the uniqueness of the GUIDs used. Use the Guidgen tool provided with Visual Studio to generate a new GUID. COM objects reference their GUIDs in the .idl file describing them, the .rgs file that contains their registration information, and the .h file generated from the .idl file. When changing GUIDs, you must search the entire project for references to the old GUID.&nbsp; The XML file required by Windows Movie Maker to display the effect must also be updated to use the new GUID.</P>
+
+<H3><A NAME="gettingstartedonanewtransition"></A>Getting Started on a New Transition</H3>
+
+<P>Writing a new transition usually requires more work than writing a new effect. The Melt sample used Direct3D to manipulate the image and render the result. Direct3D requires a substantial amount of initialization and execution code, which is provided in the Melt sample by the <B>CSimple3DSpecialEffect</B> class, which inherits from <B>CMM3DSpecialEffect</B>, which in turn inherits from <B>CMMSpecialEffect</B>. Similar to the Blue Adjust code, you should inherit the <B>CMM3DSpecialEffect</B> class and override the <B>CreateScene</B>, <B>ReleaseScene</B> and <B>RenderScene</B> methods to create your own transition. <B>CreateScene</B> and <B>ReleaseScene</B> are called once only; <B>RenderScene</B> is called each time a new frame is rendered.</P>
+
+<P>Three other methods in the <B>CMM3DSpecialEffect</B> class may also be overridden if your transition needs to manage 3D vertex buffers differently than the Melt sample does. The three methods are <B>CreateSurfaces</B>, <B>RestoreSurfaces</B>, and <B>ReleaseSurfaces</B>.</P>
+
+<P class=indent><B><B>Note&nbsp;&nbsp;&nbsp;</B></B>The <B>Initialize</B>, <B>Terminate</B>, and <B>Execute</B> methods should not be overridden when you are using the <B>CMM3DSpecialEffect</B> class, as this class overrides these methods itself.</P>
+
+<P>Also, you should copy and rename the <B>CMMSampleTransition</B> class, and provide it with a new GUID.</P>
+
+<P>For drawing graphics, the Melt sample uses <B>CSimple3DSpecialEffect</B> inheriting from <B>CMM3DSpecialEffect</B> to create a transition, but these classes could also be used to create 3-D effects such as Blue Adjust. The only difference between an effect and a transition in Windows Movie Maker is the number of video input sources&#0151;one for an effect and two for a transition. The number of inputs is set to one by default, but the <B>FinalConstruct</B> method of <B>CMMSampleTransition</B> sets this value to two.</P>
+
+<P class=indent><B><B>Note&nbsp;&nbsp;&nbsp;</B></B>After an object is associated with an effect or transition, it cannot be changed to the other type without removing all references to its GUID from the registry. DirectShow stores the type of the effect or transition in the registry when Windows Movie Maker 2 starts up.</P>
+
+<P>To create a new transition that does not use Direct3D, amend the <B>CreateSpecialEffectByName</B> method of the <B>CMMSpecialEffectDXT</B> class to create a <B>CMMSpecialEffect</B> object (or an object from a class that inherits from <B>CMMSpecialEffect</B>), avoiding any calls to Direct3D interfaces and methods.</P>
+
+<P>The division of methods into the two classes, <B>CMMSpecialEffect</B> and <B>CSimple3DSpecialEffect</B> is to provide clarity to the sample. These could be combined into a single class if code brevity and optimization are important.</P>
+
+<H3><A NAME="passingparameterstoyourdll"></A>Passing Parameters to Your DLL</H3>
+
+<P>Passing in parameters from the XML file to your C++ DLL will enable users of your special effect to modify it to their tastes.</P>
+
+<P>The first step is to add properties for these parameters to the .IDL file. For example, the following code exposes the <I>Blue</I> and <I>MeltIntensity</I> parameters of your object. </P>
+
+<PRE class=syntax><CODE>interface IMMSampleTFX : IDXEffect
+{
+[propget] HRESULT Blue([out,retval] float* pfBlue);
+[propput] HRESULT Blue([in] float fBlue);
+[propget] HRESULT MeltIntensity([out,retval] float* pfMeltIntensity);
+[propput] HRESULT MeltIntensity([in] float fMeltIntensity);
+};
+</CODE></PRE>
+
+<P>Note how the <B>IMMSampleTFX</B> interface, which exposes the <I>Blue</I> and <I>MeltIntensity</I> parameters, is inherited by CMMSpecialEffectDXT.</P>
+
+<PRE class=syntax><CODE>class CMMSpecialEffectDXT : 
+    public CDXBaseNTo1,
+    public IDispatchImpl&lt;IMMSampleTFX, &amp;IID_IMMSampleTFX, &amp;LIBID_MMFXLib&gt;,
+    public IObjectSafetyImpl2&lt;CMMSpecialEffectDXT&gt;
+</CODE></PRE>
+
+<P>The next stage is to write the code for the four methods, for example:</P>
+
+<PRE class=syntax><CODE>STDMETHODIMP CMMSpecialEffectDXT::put_Blue(float fBlueAmount)
+{
+   m_fBlueAmount = fBlueAmount;
+   return S_OK;
+}
+</CODE></PRE>
+
+<P>In the XML file, the Blue effect will be made available to Windows Movie Maker with the following statements:</P>
+
+<PRE class=syntax><CODE>&lt;TransitionsAndEffects Version="1.0"&gt;
+   &lt;Effects&gt;
+      &lt;EffectDLL guid="{294D0DE1-1B57-408d-A33F-FA708A5A28D6}"&gt;
+         &lt;Effect name="Blue Color Adjust" iconid="12"&gt;
+            &lt;Param name="Blue" value="2.0" /&gt;
+         &lt;/Effect&gt; 
+      &lt;/EffectDLL&gt;
+   &lt;/Effects&gt;
+&lt;/TransitionsAndEffects&gt;
+</CODE></PRE>
+
+<P>Windows Movie Maker then uses the GUID to identify which DLL to search, the effect name to identify the effect, then the parameter name to identify which property to change. The parameter name &quot;Blue&quot; will identify the <B>put_Blue</B> method described earlier.</P>
+
+<H3><A NAME="debuggingyourdll"></A>Debugging Your DLL</H3>
+
+<P>Debugging a DLL is very similar to debugging any other program; however, you must change the name of the executable file to Windows Movie Maker in the settings for your project. The simplest way to do this is to specify moviemk.exe as the executable you want to debug with. See <I>Debugging: DLLs</I> in the MSDN library for more information.</P>
+
+<H3><A NAME="changingblueadjusteffecttopurpleadjust"></A>Changing the Blue Adjust Effect to Purple Adjust</H3>
+
+<P>It is possible to change the provided <I>Blue Adjust</I> effect to a <I>Purple Adjust</I> by simply adding a red parameter to the code that adjusts the amount of red in the rendered image. This effect takes advantage of existing code in the sample that modifies the red color channel. The new red parameter can be set independently in the XML to create purple (or red, or blue, or any combination of the two). This section describes how to modify the C++ and XML files to add the red parameter.</P>
+
+<P>The sample Blue Adjust effect uses the <B>DXLookupTable</B> object (from the DXMedia SDK) to increase the amount of blue in the image.&nbsp; This object is capable of color balancing, altering brightness, contrast, or gamma, and applying thresholding and posterization effects.&nbsp; We will limit our change to increasing the amount of red as well as blue to create purple. </P>
+
+<P>To add the red parameter, you will simply copy the blue parameter code and add similar functions and members to a new red parameter. The following steps show what code must be added.</P>
+
+<P>In the file MMSpecialEffect.cpp, in the function <B>CMMSpecialEffect::InitStandardOperations</B>, find the following lines:</P>
+
+<PRE class=syntax><CODE>RTN_HR_IF_FAILED(m_pDXT-&gt;get_Blue(&amp;fValue));
+if (!IsEqual(fValue, 0.0f))
+{
+   m_fBlue = fValue;
+}
+</CODE></PRE>
+
+<P>Add the following snippet to get the red value:</P>
+
+<PRE class=syntax><CODE>RTN_HR_IF_FAILED(m_pDXT-&gt;get_Red(&amp;fValue));
+if (!IsEqual(fValue, 0.0f))
+{
+   m_fRed = fValue;
+}
+</CODE></PRE>
+
+<P>In the file MMSpecialEffectDXT.h, find the declaration of the get and put methods for the blue property and add declarations for identical red methods as shown in bold here: </P>
+
+<PRE class=syntax><CODE>STDMETHOD(get_Blue)(float* pfBlue);
+STDMETHOD(put_Blue)(float fBlue);
+<B>STDMETHOD(get_Red)(float* pfRed);</B>
+<B>STDMETHOD(put_Red)(float fRed);</B>
+</CODE></PRE>
+
+<P>In the file MMSpecialEffectDXT.cpp, copy the definitions of the <B>put_Blue</B> and <B>get_Blue</B> methods, and add two identical methods called <B>put_Red</B> and <B>get_Red</B>, renaming all the ...Blue... values to ...Red....</P>
+
+<P>In the file MMSpecialEffectDXT.h, declare a member variable <I>m_fRedAmount</I> identical to <I>m_fBlueAmount</I>, as shown in bold here:</P>
+
+<PRE class=syntax><CODE>float m_fBlueAmount;
+<B>float m_fRedAmount;</B>
+</CODE></PRE>
+
+<P>In the file MMSpecialEffectDXT.cpp, in CMMSpecialEffectDXT's <B>FinalConstruct</B> method, initialize this new red member variable in the same place you initialize the blue member, as shown in bold here:</P>
+
+<PRE class=syntax><CODE>m_fBlueAmount = 0.0f;
+<B>m_fRedAmount = 0.0f;</B>
+</CODE></PRE>
+
+<P>In the file MMSTFX.idl, find the blue property declarations and add identical red declarations as shown here:</P>
+
+<PRE class=syntax><CODE>[propget] HRESULT Blue([out,retval] float* pfBlue);
+[propput] HRESULT Blue([in] float fBlue);
+<B>[propget] HRESULT Red([out,retval] float* pfRed);</B>
+<B>[propput] HRESULT Red([in] float fRed);</B>
+</CODE></PRE>
+
+<P>Finally, to add the new Purple Color Adjust effect to the Windows Movie Maker interface, you must add the XML code to call it. Find the BlueAdjust.xml file included in the sample project. Create a copy of this file in the \AddOnTFX directory next to BlueAdjust.xml and rename the file PurpleAdjust.xml.&nbsp; Open the new file, find the effect named Blue Color Adjust, change the <I>name</I> parameter value to "Purple Color Adjust", and add the <I>Red</I> parameter as shown here:</P>
+
+<PRE class=syntax><CODE>&lt;Param name="Blue" value="2.0" /&gt;
+<B>&lt;Param name="Red" value="1.5" /&gt;</B>
+</CODE></PRE>
+
+<P>You can keep the BlueAdjust.xml file, which will call the same TFX but simply not modify the red value, or you can merge both effects into one XML file.</P>
+
+<P>The rest of the necessary code that applies the value of <I>m_fRed</I> to the <B>DXLookupTable</B> object is already provided in the sample code in the <B>CMMSpecialEffect::InitStandardOperations</B> method, which calls the DXMedia <B>SetColorBalance</B> method to modify the red channel value. </P>
+
+<P>Compile your changes.&nbsp; When the project is built, run Windows Movie Maker, open the effects area and scroll down to find the Purple Color Adjust effect. You can try adding a green parameter yourself.</P>
+
+<H2><A NAME="glossary"></A>Glossary</H2>
+
+<P>The following terms are used in this document, or more generally when creating effects or transitions for DirectX or Windows Movie Maker.</P>
+
+<P class=dt><B><B>AddOnTFX</B></B></P>
+
+<P class=indent>The name of the directory where XML files are placed to extend Movie Maker transitions and effects. For example, C:\Program Files\Movie Maker\Shared\AddOnTFX. You must create this directory.&nbsp; </P>
+
+<P class=dt><B><B>DXT</B></B></P>
+
+<P class=indent>DirectX Transform. An object built with the DirectX Media SDK and used to build special effects.&nbsp; Movie Maker uses DXTs that are installed on the system and referenced in an XML file.</P>
+
+<P class=dt><B><B>output video buffer</B></B></P>
+
+<P class=indent>The memory buffer that the effect or transition writes to for each frame.</P>
+
+<P class=dt><B><B>pitch</B></B></P>
+
+<P class=indent>The distance, in bytes, between two memory addresses that represent the beginning of one bitmap line and the beginning of the next bitmap line. </P>
+
+<P class=dt><B><B>render</B></B></P>
+
+<P class=indent>Drawing video output into the output video buffer.</P>
+
+<P class=dt><B><B>special effect</B></B></P>
+
+<P class=indent>The generic term for both a transition and an effect for Windows Movie Maker, used to enhance visual content.</P>
+
+<P class=dt><B><B>video buffer A</B></B></P>
+
+<P class=indent>The first input buffer for a transition, or the only input buffer for an effect.&nbsp; Effects read each pixel in this buffer for every frame and write the result into the output buffer. For transitions this is video being transitioned FROM. Movie Maker uses 24-bit RGB natively, though 32-bit may be used in a DXT.</P>
+
+<P class=dt><B><B>video buffer B</B></B>&nbsp;&nbsp;&nbsp;</P>
+
+<P class=indent>The second input buffer in a transition.&nbsp; This is the video image being transitioned TO.</P>
+
+<H2><A NAME="formoreinformation_stny"></A>For More Information</H2>
+
+<UL type=disc>
+	<LI>See the DirectShow SDK documentation for more information on SMPTE wipes.</LI>
+
+	<LI>The MSDN library at the Microsoft Web site has articles on creating DirectX Transforms, as well as COM and ATL documentation.</LI>
+
+	<LI>The DirectX Transform SDK contains the documentation and objects used to create the effects and transitions. This SDK is installed as part of the DirectX 6.0 SDK, also called the DirectX Media SDK, or DirectX Media 6.0 SDK, available at the <A HREF="http://go.microsoft.com/fwlink/?LinkId=12229" TARGET="_blank"><U>Microsoft Web site</U></A>. The objects packaged with this SDK enable you to create your own transform or effect objects.</LI>
+
+	<LI>The DirectX 7.0 SDK can be downloaded from the <A HREF="http://go.microsoft.com/fwlink/?LinkId=12328" TARGET="_blank"><U>MSDN Web site</U></A>.&nbsp; The version 7 headers are included with Visual Studio .NET and with the DirectX Transform SDK at the link in the previous paragraph, but the documentation is available only by installing the full version 7 SDK.</LI>
+
+	<LI>Several newsgroups cover Windows Movie Maker and DirectX programming. The following two groups might be useful for different purposes:
+<UL type=disc>
+	<LI><B>microsoft.public.windowsxp.moviemaker</B> is a newsgroup that covers Windows Movie Maker issues and might be appropriate for XML issues; </LI>
+
+	<LI><B>microsoft.public.multimedia.directx.dshow.programming</B> is a newsgroup that covers technical aspects about DirectShow programming, including the DirectX Media SDK.</LI>
+</UL>
+</LI>
+</UL>
+
+<H3>Legal Notice</H3>
+
+<P>This software is based in part on the work of the Independent JPEG Group.</P>
+
+<P><I>GIF decompression code, copyright 1990, David Koblas. Permission to use, copy, modify, and distribute this software and its documentation for any purpose and without fee is hereby granted, provided that the above copyright notice appear in all copies and that both that copyright notice and this permission notice appear in supporting documentation. This software is provided "as is" without express or implied warranty.</I>
+
+<UL type=disc></UL>
+
+</BODY>
+</HTML>
+

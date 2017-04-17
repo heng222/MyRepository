@@ -1,0 +1,93 @@
+// Venetian.h : Declaration of the CVenetian
+
+#ifndef __VENETIAN_H_
+#define __VENETIAN_H_
+
+#include "resource.h"       // main symbols
+#include "DTOTransBase.h"
+#include "TVenetianCtrl.h"
+
+
+/////////////////////////////////////////////////////////////////////////////
+// CVenetian
+class ATL_NO_VTABLE CVenetian : 
+    public CDTOTransBase,
+	public CComCoClass<CVenetian, &CLSID_Venetian>,
+	public IDispatchImpl<IVenetian, &IID_IVenetian, &LIBID_ISSPWEffectLib>
+{
+
+public:
+    
+    typedef CDTOTransBase _basex;
+    typedef CVenetian _thisx;
+    typedef IVenetian _selfI;
+    
+public:
+    
+    // ATL Setup
+    BEGIN_COM_MAP(_thisx)
+        COM_INTERFACE_ENTRY(_selfI)
+        COM_INTERFACE_ENTRY2(IDispatch,_selfI)
+        COM_INTERFACE_ENTRY_CHAIN( _basex )
+    END_COM_MAP()
+        
+        // _selfI Interface
+public:
+    
+    STDMETHOD(get_State)(/*[out, retval]*/ BOOL *pVal);
+    STDMETHOD(put_State)(/*[in]*/ BOOL newVal);
+    STDMETHOD(get_Direction)(/*[out, retval]*/ INT *pVal);
+    STDMETHOD(put_Direction)(/*[in]*/ INT newVal);
+    STDMETHOD(get_BlindWidth)(/*[out, retval]*/ INT *pVal);
+	STDMETHOD(put_BlindWidth)(/*[in]*/ INT newVal);
+    
+public: 
+    
+    //Implement registration for DX Transform
+    DECLARE_REGISTER_DX_IMAGE_TRANS(IDR_VENETIAN)
+        
+    DECLARE_POLY_AGGREGATABLE(_thisx)
+    
+    //Implement IDXEffect properties: Progress, Duration, etc..
+    //DECLARE_IDXEFFECT_METHODS(DXTET_MORPH)
+    
+    // From IPWEffect
+    DECLARE_IPWEFFECT_METHODS(_basex)
+        
+        
+        // From _basex
+public:
+    
+    virtual HRESULT FinalConstruct();
+    
+    virtual HRESULT OnInitialize();
+    
+    virtual HRESULT OnTerminate();
+    
+    virtual HRESULT ResetControlValue();
+    virtual HRESULT UpdateControlValue();
+    
+    virtual HRESULT DrawLiveBitmap(IN HDC hdcHide,
+        IN HDC hdcShow,
+        IN HDC hdcOutput);
+    
+    // Private utilities methods
+private:    
+    
+    HRESULT  Initialize(TMRect rectExtent);    
+    
+    
+    // Properties
+private:
+    
+    TSingleDir  m_iDirection;
+    INT         m_iBlindWidth;  // [4,64]
+
+    // Control values
+private:    
+    
+    TVenetianCtrl    m_VenetianMgr;
+
+};
+
+#endif //__VENETIAN_H_

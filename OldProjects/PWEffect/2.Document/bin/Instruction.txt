@@ -1,0 +1,4 @@
+How to use PWEffect in MoiveMake
+
+1. Copy AddOnTFX to C:\Program Files\Movie Maker\Shared
+2. run Register.cmd

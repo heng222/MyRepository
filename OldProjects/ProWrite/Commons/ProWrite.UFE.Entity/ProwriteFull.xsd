@@ -1,0 +1,217 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="PWF" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="IdObject" nillable="true" type="IdObject" />
+  <xs:complexType name="IdObject">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="Id" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LibraryObject" nillable="true" type="LibraryObject" />
+  <xs:complexType name="LibraryObject">
+    <xs:complexContent mixed="false">
+      <xs:extension base="IdObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="1" name="Name" type="xs:string" />
+          <xs:element minOccurs="1" maxOccurs="1" name="Type" type="LibraryType" />
+          <xs:element minOccurs="1" maxOccurs="1" name="Duration" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="LibraryType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Message" />
+      <xs:enumeration value="TimesliceGroup" />
+      <xs:enumeration value="Playlist" />
+      <xs:enumeration value="Schedule" />
+      <xs:enumeration value="TemplateMessage" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Message" nillable="true" type="Message" />
+  <xs:complexType name="Message">
+    <xs:complexContent mixed="false">
+      <xs:extension base="LibraryObject">
+        <xs:sequence>
+          <xs:element minOccurs="1" maxOccurs="1" name="EmphasisEffect" type="Effect" />
+          <xs:element minOccurs="0" maxOccurs="1" name="Items" type="ArrayOfLayer" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Effect">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="Name" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="StartTime" type="xs:long" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Length" type="xs:long" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Params" type="ArrayOfParameter" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfParameter">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Parameter" type="Parameter" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Parameter">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="Name" type="xs:string" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfLayer">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Layer" nillable="true" type="Layer" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Layer">
+    <xs:complexContent mixed="false">
+      <xs:extension base="IdObject">
+        <xs:sequence>
+          <xs:element minOccurs="1" maxOccurs="1" name="Type" type="LayerType" />
+          <xs:element minOccurs="1" maxOccurs="1" name="Bounds" type="Bounds" />
+          <xs:element minOccurs="1" maxOccurs="1" name="StartTime" type="xs:long" />
+          <xs:element minOccurs="1" maxOccurs="1" name="Length" type="xs:long" />
+          <xs:element minOccurs="0" maxOccurs="1" name="FileId" type="xs:string" />
+          <xs:element minOccurs="1" maxOccurs="1" name="EntryEffect" type="Effect" />
+          <xs:element minOccurs="1" maxOccurs="1" name="EmphasisEffect" type="Effect" />
+          <xs:element minOccurs="1" maxOccurs="1" name="ExitEffect" type="Effect" />
+          <xs:element minOccurs="1" maxOccurs="1" name="ScrollEffect" type="ScrollEffect" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="LayerType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Text" />
+      <xs:enumeration value="Paint" />
+      <xs:enumeration value="Image" />
+      <xs:enumeration value="Video" />
+      <xs:enumeration value="VTT" />
+      <xs:enumeration value="VTV" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="Bounds">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="X" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Y" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Width" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Height" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ScrollEffect">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="Direction" type="ScrollDirectionType" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Speed" type="xs:float" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="ScrollDirectionType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="Up" />
+      <xs:enumeration value="Down" />
+      <xs:enumeration value="Left" />
+      <xs:enumeration value="Right" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="TimesliceGroup" nillable="true" type="TimesliceGroup" />
+  <xs:complexType name="TimesliceGroup">
+    <xs:complexContent mixed="false">
+      <xs:extension base="LibraryObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Items" type="xs:string" />
+          <xs:element minOccurs="1" maxOccurs="1" name="IsRandom" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Playlist" nillable="true" type="Playlist" />
+  <xs:complexType name="Playlist">
+    <xs:complexContent mixed="false">
+      <xs:extension base="LibraryObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Items" type="LibraryRefItem" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="LibraryRefItem">
+    <xs:complexContent mixed="false">
+      <xs:extension base="IdObject">
+        <xs:sequence>
+          <xs:element minOccurs="1" maxOccurs="1" name="Type" type="LibraryType" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Schedule" nillable="true" type="Schedule" />
+  <xs:complexType name="Schedule">
+    <xs:complexContent mixed="false">
+      <xs:extension base="LibraryObject">
+        <xs:sequence>
+          <xs:element minOccurs="1" maxOccurs="1" name="IsScheduled" type="xs:boolean" />
+          <xs:element minOccurs="0" maxOccurs="1" name="StartTime" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="1" name="StopTime" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="1" name="StartDay" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="1" name="StopDay" type="xs:string" />
+          <xs:element minOccurs="1" maxOccurs="1" name="DaysChoice" type="DaysChoiceType" />
+          <xs:element minOccurs="1" maxOccurs="1" name="IsExact" type="xs:boolean" />
+          <xs:element minOccurs="0" maxOccurs="1" name="Content" type="LibraryRefItem" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="DaysChoiceType">
+    <xs:list>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="M" />
+          <xs:enumeration value="T" />
+          <xs:enumeration value="W" />
+          <xs:enumeration value="TH" />
+          <xs:enumeration value="F" />
+          <xs:enumeration value="S" />
+          <xs:enumeration value="SU" />
+          <xs:enumeration value="Full" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:list>
+  </xs:simpleType>
+  <xs:element name="Schedules" nillable="true" type="ArrayOfSchedule" />
+  <xs:complexType name="ArrayOfSchedule">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Schedule" nillable="true" type="Schedule" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TemplateMessage" nillable="true" type="TemplateMessage" />
+  <xs:complexType name="TemplateMessage">
+    <xs:complexContent mixed="false">
+      <xs:extension base="LibraryObject">
+        <xs:sequence>
+          <xs:element minOccurs="1" maxOccurs="1" name="EmphasisEffect" type="Effect" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Regions" type="Region" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Region">
+    <xs:complexContent mixed="false">
+      <xs:extension base="IdObject">
+        <xs:sequence>
+          <xs:element minOccurs="1" maxOccurs="1" name="Bounds" type="Bounds" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Items" type="LibraryRefItem" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Layer" nillable="true" type="Layer" />
+  <xs:element name="Effect" type="Effect" />
+  <xs:element name="Parameter" type="Parameter" />
+  <xs:element name="ScrollEffect" type="ScrollEffect" />
+  <xs:element name="Bounds" type="Bounds" />
+  <xs:element name="LibraryRefItem" nillable="true" type="LibraryRefItem" />
+  <xs:element name="Region" nillable="true" type="Region" />
+  <xs:element name="LibraryType" type="LibraryType" />
+  <xs:element name="LayerType" type="LayerType" />
+  <xs:element name="ScrollDirectionType" type="ScrollDirectionType" />
+  <xs:element name="DaysChoiceType" type="DaysChoiceType" />
+</xs:schema>

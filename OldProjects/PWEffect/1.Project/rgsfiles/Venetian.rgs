@@ -1,0 +1,26 @@
+HKCR
+{
+	PWEffect.Venetian.1 = s 'Venetian Class'
+	{
+		CLSID = s '{A43598F6-C2FC-4FE3-816C-9599E6D0CD9B}'
+	}
+	PWEffect.Venetian = s 'Venetian Class'
+	{
+		CLSID = s '{A43598F6-C2FC-4FE3-816C-9599E6D0CD9B}'
+		CurVer = s 'PWEffect.Venetian.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {A43598F6-C2FC-4FE3-816C-9599E6D0CD9B} = s 'Venetian Class'
+		{
+			ProgID = s 'PWEffect.Venetian.1'
+			VersionIndependentProgID = s 'PWEffect.Venetian'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{B1FEB9A2-A676-46da-83C5-B1CBEC33BC07}'
+		}
+	}
+}

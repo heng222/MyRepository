@@ -1,0 +1,26 @@
+HKCR
+{
+	PWEffect.Travel.1 = s 'Travel Class'
+	{
+		CLSID = s '{0740D73C-0676-4AFC-BEB9-07F3AE6A8FA3}'
+	}
+	PWEffect.Travel = s 'Travel Class'
+	{
+		CLSID = s '{0740D73C-0676-4AFC-BEB9-07F3AE6A8FA3}'
+		CurVer = s 'PWEffect.Travel.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {0740D73C-0676-4AFC-BEB9-07F3AE6A8FA3} = s 'Travel Class'
+		{
+			ProgID = s 'PWEffect.Travel.1'
+			VersionIndependentProgID = s 'PWEffect.Travel'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{B1FEB9A2-A676-46da-83C5-B1CBEC33BC07}'
+		}
+	}
+}

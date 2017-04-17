@@ -1,0 +1,76 @@
+/*****************************************************************************
+ * module MMSTFX.cpp 
+ *
+ *	Main module for DLL.  Defines ATL _Module object and object map entries for
+ *  COM objects supplied by this DLL.
+ *	
+ *	Definition for IMMSampleTFX, the interface used for both the sample Blue Adjust 
+ *	effect (CMMSampleEffect) and the Melt transition (CMMSampleTransition).  Note sharing a
+ *	single interface is purely for convenience and brievity of the sample code, a DXT may 
+ *	use any interface which inherits from IDXEffect.
+ *
+ * Copyright (c) Microsoft Corporation. All rights reserved.
+ *****************************************************************************/
+
+//Import base idl
+
+import "D:\Program Files\DMSDK6\include\dxtrans.idl";
+
+//Declare interface for the sample effect and transition.  This interface inherits from IDXEffect to
+//support Progress and Duration properties.  Note that for convenience the same interface is used for 
+//both the Blue adjust effect object and the Melt transition object.  
+//It is more common to have a separate interface for each object.
+[
+	object,
+	uuid(D32D4A9E-229A-4793-8BBD-28E88DCFCD84),
+	dual,
+	helpstring("IMMSampleTFX Interface"),
+	pointer_default(unique)
+]
+interface IMMSampleTFX : IDXEffect
+{
+	//The Blue property determines the amount of Blue (-1.0 to 1.0) to add or subtract from the video
+	//Values are set by Movie Maker and taken from the sample add on XML file.
+	[propget] HRESULT Blue([out,retval] float* pfBlue);
+	[propput] HRESULT Blue([in] float fBlue);
+
+	//
+	[propget] HRESULT MeltIntensity([out,retval] float* pfMeltIntensity);
+	[propput] HRESULT MeltIntensity([in] float fMeltIntensity);
+};
+
+
+
+//Type library definitions for the sample effect (Blue Adjust) object and sample transition (Melt) object.  
+[
+	uuid(F5DC7984-6F59-423e-8ED4-92A8F0CE8A4D),
+	version(1.0),
+	helpstring("MovieMaker Sample Effects Type Library")
+]
+library MMFXLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	//Define the sample effect object
+	[
+		uuid(294D0DE1-1B57-408d-A33F-FA708A5A28D6),
+		helpstring("MMSampleEffect Class")
+	]
+	coclass MMSampleEffect
+	{
+		[default] interface	IMMSampleTFX;
+	};
+
+	//Define the sample	transition object
+	[
+		uuid(978DABA8-F330-4f09-BEC5-4D53C541BB4D),
+		helpstring("MMSampleTransition Class")
+	]
+	coclass MMSampleTransition
+	{
+		[default] interface	IMMSampleTFX;
+	};
+};
+
+//////////////////////////////////////////////////

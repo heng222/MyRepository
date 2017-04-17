@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="0c85c279-d995-4da5-8da0-44431b0a5af4" name="UMLClassDiagram1" linkedPackageId="3c2e38af-6a79-4654-a230-10636723e5e0" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+  <profileInstances>
+    <packageHasProfileInstances Id="65ab97d4-c9f4-4119-8791-4dcf4c93251f">
+      <profileInstance Id="83925282-ef31-4931-a3a6-2424658d72eb" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="51725115-5287-4c3d-975b-319ac96eb342">
+      <profileInstance Id="c02bded1-6cf3-4767-ba34-e38fb1c394ea" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <logicalClassDesignerModelHasPackages>
+      <package Id="4fc29bb9-e505-4cbb-a00e-f43d3976122e" name="Drawing">
+        <elementDefinition Id="bfff1374-697b-4f12-a6e8-d16e60990985" />
+        <suppliersInternal>
+          <dependency Id="8cd52e52-d7e4-4dda-92af-364c667aa00f">
+            <packageMoniker Id="1ffbb16f-d2e3-48b4-8d0b-172bb1be185a" LastKnownName="Exceptions" />
+            <elementDefinition Id="9adf4cd8-0616-4666-8da3-580fe1c2b2a6" />
+          </dependency>
+          <dependency Id="aaedabeb-7045-4136-8eb1-6ebf6c6df2be">
+            <packageMoniker Id="be403fb7-1e43-4876-8650-0b29cafab927" LastKnownName="Events" />
+            <elementDefinition Id="47369b75-1991-4e83-a9ed-8f98a8390ebb" />
+          </dependency>
+          <dependency Id="ba1f4cd1-5bff-416f-ad77-8d0fde75dec2">
+            <packageMoniker Id="2da2ecf8-8212-43c5-9fba-98d7f82382bc" LastKnownName="Serialization" />
+            <elementDefinition Id="779cce2a-2d03-4b82-b355-487e74f7ba41" />
+          </dependency>
+        </suppliersInternal>
+        <packagedElements>
+          <packageHasNamedElement>
+            <class Id="0284ac74-9281-4f9c-b48c-7acd29197eb3" name="TrackDrawing" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="c5e5d061-8b7e-4652-b39b-94e6a22341cc" />
+            </class>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <class Id="0ab1635c-74c6-4e45-a108-b061e5c506fb" name="SignalDrawing" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="8d34531f-32d8-4226-97e0-473d34a615da" />
+            </class>
+          </packageHasNamedElement>
+        </packagedElements>
+      </package>
+    </logicalClassDesignerModelHasPackages>
+    <logicalClassDesignerModelHasPackages>
+      <package Id="aa1ad75f-b32b-447e-84e9-0ca2738fa5eb" name="Data">
+        <elementDefinition Id="2101659a-7a57-46d9-a734-77c8a3bfed6b" />
+        <suppliersInternal>
+          <dependency Id="c1ced321-7481-415e-ad72-e04459f0717a">
+            <packageMoniker Id="1ffbb16f-d2e3-48b4-8d0b-172bb1be185a" LastKnownName="Exceptions" />
+            <elementDefinition Id="d867ef87-59f9-4d0a-820a-6121e5405598" />
+          </dependency>
+          <dependency Id="20a5aeab-dec3-40f5-963f-3f178dbc5731">
+            <packageMoniker Id="be403fb7-1e43-4876-8650-0b29cafab927" LastKnownName="Events" />
+            <elementDefinition Id="7cfd5f82-3ed5-41f6-a8cf-84d833e67f49" />
+          </dependency>
+          <dependency Id="83f7b404-db2b-46dd-867d-336ec1db6356">
+            <packageMoniker Id="2da2ecf8-8212-43c5-9fba-98d7f82382bc" LastKnownName="Serialization" />
+            <elementDefinition Id="810e5604-88f6-4e33-b8be-d4ad7eff9622" />
+          </dependency>
+        </suppliersInternal>
+        <packagedElements>
+          <packageHasNamedElement>
+            <class Id="d13aa8c1-558e-4d3b-9959-482525886dd5" name="Track" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="8f05a55b-1d87-4d1a-b967-c510a7394db8" />
+            </class>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <class Id="8039c377-6a1a-4a41-bf3a-9e2055b6cc6b" name="Signal" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="6447ee18-347d-4376-a432-b7889f6b87bb" />
+            </class>
+          </packageHasNamedElement>
+        </packagedElements>
+      </package>
+    </logicalClassDesignerModelHasPackages>
+    <logicalClassDesignerModelHasPackages>
+      <package Id="2da2ecf8-8212-43c5-9fba-98d7f82382bc" name="Serialization">
+        <elementDefinition Id="09a0db78-6b81-4b90-9fb0-26e3f6574923" />
+      </package>
+    </logicalClassDesignerModelHasPackages>
+    <logicalClassDesignerModelHasPackages>
+      <package Id="be403fb7-1e43-4876-8650-0b29cafab927" name="Events">
+        <elementDefinition Id="3cc2ad25-8b35-416a-8ee3-fb4376d11ed2" />
+      </package>
+    </logicalClassDesignerModelHasPackages>
+    <logicalClassDesignerModelHasPackages>
+      <package Id="1ffbb16f-d2e3-48b4-8d0b-172bb1be185a" name="Exceptions">
+        <elementDefinition Id="ac2e7e3c-1187-49d8-bfa3-15b91612bf18" />
+      </package>
+    </logicalClassDesignerModelHasPackages>
+  </packagedElements>
+  <package Id="3c2e38af-6a79-4654-a230-10636723e5e0" name="UMLearning">
+    <elementDefinition Id="baf8f03b-1fe8-4860-9ae1-10efb35b8e0a" />
+  </package>
+</logicalClassDesignerModel>

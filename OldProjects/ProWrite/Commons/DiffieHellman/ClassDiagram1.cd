@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Org.Mentalis.Security.Cryptography.DiffieHellman" Collapsed="true">
+    <Position X="3.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAgABAAAAACAAEAAAAUAAAAAAAAAAIAA=</HashCode>
+      <FileName>DiffieHellman.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Org.Mentalis.Security.Cryptography.DiffieHellmanManaged" Collapsed="true">
+    <Position X="3.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAQAAAAAACAAAwAAEQAIAAAAUAAQARAAAAAAAAAAIAA=</HashCode>
+      <FileName>DiffieHellmanManaged.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Mono.Math.BigInteger" Collapsed="true">
+    <Position X="6" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAmAEEAkAAAAAAE8MWJogiBAAgAAIIAQgBQAIBAJyA=</HashCode>
+      <FileName>mono\BigInteger.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Mono.Math.Prime.PrimalityTests" Collapsed="true">
+    <Position X="7.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAA=</HashCode>
+      <FileName>mono\PrimalityTests.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Mono.Xml.MiniParser" Collapsed="true">
+    <Position X="3.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEgAAAAABAABBAAAAEAAQAgBAAAAAQAAAQABAAAAAA=</HashCode>
+      <FileName>mono\MiniParser.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Mono.Xml.SecurityParser" Collapsed="true">
+    <Position X="3.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAgAAAAAAAgAIAggBAAAIIEAAAgIAAAABA=</HashCode>
+      <FileName>mono\SecurityParser.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Mono.Math.Prime.Generator.NextPrimeFinder" Collapsed="true">
+    <Position X="0.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>mono\NextPrimeFinder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Mono.Math.Prime.Generator.PrimeGeneratorBase" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAAAAAFAAAAEAAAAAAAIAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>mono\PrimeGeneratorBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Mono.Math.Prime.Generator.SequentialSearchPrimeGeneratorBase" Collapsed="true">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAAEAAAAAAAAAgAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>mono\SequentialSearchPrimeGeneratorBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TestApp" Collapsed="true">
+    <Position X="6" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>TestApp.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="Org.Mentalis.Security.Cryptography.DHParameters" Collapsed="true">
+    <Position X="6" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACABAQAA=</HashCode>
+      <FileName>DHParameters.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Enum Name="Org.Mentalis.Security.Cryptography.DHKeyGeneration" Collapsed="true">
+    <Position X="7.75" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAABAAEAAAAAAAAAAA=</HashCode>
+      <FileName>DHKeyGeneration.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Mono.Math.Prime.ConfidenceFactor" Collapsed="true">
+    <Position X="6" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAAAAAAgAAAAAQAAgAAAAAAAAAAAAEBAA=</HashCode>
+      <FileName>mono\ConfidenceFactor.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Delegate Name="Mono.Math.Prime.PrimalityTest" Collapsed="true">
+    <Position X="6" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAAAAAAAAAAAgAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>mono\PrimalityTests.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MouseHook", "MouseHook\MouseHook.vcproj", "{871F0C4D-B06F-4B2E-9683-6A92EBF8F12C}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "hook", "hook.vcproj", "{7C88DFE8-33FA-4D24-AE2D-9BD225CA24BE}"
+	ProjectSection(ProjectDependencies) = postProject
+		{871F0C4D-B06F-4B2E-9683-6A92EBF8F12C} = {871F0C4D-B06F-4B2E-9683-6A92EBF8F12C}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{871F0C4D-B06F-4B2E-9683-6A92EBF8F12C}.Debug|Win32.ActiveCfg = Debug|Win32
+		{871F0C4D-B06F-4B2E-9683-6A92EBF8F12C}.Debug|Win32.Build.0 = Debug|Win32
+		{871F0C4D-B06F-4B2E-9683-6A92EBF8F12C}.Release|Win32.ActiveCfg = Release|Win32
+		{871F0C4D-B06F-4B2E-9683-6A92EBF8F12C}.Release|Win32.Build.0 = Release|Win32
+		{7C88DFE8-33FA-4D24-AE2D-9BD225CA24BE}.Debug|Win32.ActiveCfg = Debug|Win32
+		{7C88DFE8-33FA-4D24-AE2D-9BD225CA24BE}.Debug|Win32.Build.0 = Debug|Win32
+		{7C88DFE8-33FA-4D24-AE2D-9BD225CA24BE}.Release|Win32.ActiveCfg = Release|Win32
+		{7C88DFE8-33FA-4D24-AE2D-9BD225CA24BE}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

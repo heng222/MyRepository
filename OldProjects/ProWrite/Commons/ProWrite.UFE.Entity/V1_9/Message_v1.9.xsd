@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--Created with Liquid XML Studio - FREE Community Edition 7.0.1.654 (http://www.liquid-technologies.com)-->
+<xs:schema xmlns:tns="http://xml.netbeans.org/schema/ProWriteFrameObject" elementFormDefault="qualified" targetNamespace="http://xml.netbeans.org/schema/ProWriteFrameObject" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="FrameObject" nillable="true" type="tns:FrameObjectType" />
+  <xs:complexType name="FrameObjectType">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="ContentID" type="tns:ContentIDType" />
+      <xs:element name="MasterLayer" type="tns:MasterLayerType" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Contents" type="tns:ArrayOfFrameContentType" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="EmphasisEffectType">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="EmphasisEffect" type="tns:EmphasisType" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Duration" type="xs:float" />
+      <xs:element minOccurs="1" maxOccurs="1" name="EffectSpeed" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Params" type="tns:ArrayOfParameter" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="EmphasisType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NONE" />
+      <xs:enumeration value="BIJOU" />
+      <xs:enumeration value="FLASH" />
+      <xs:enumeration value="SNOW" />
+      <xs:enumeration value="SPARKLE" />
+      <xs:enumeration value="TRAVEL" />
+      <xs:enumeration value="WRAPAROUND" />
+    </xs:restriction>
+  </xs:simpleType>
+
+
+  <xs:complexType name="TransitionEffectType">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="TransitionEffect" type="tns:TransitionType" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Duration" type="xs:float" />
+      <xs:element minOccurs="1" maxOccurs="1" name="EffectSpeed" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Params" type="tns:ArrayOfParameter" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="TransitionType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NONE" />
+		<xs:enumeration value="AUTOMATIC" />
+      <xs:enumeration value="BLACKHOLE" />
+      <xs:enumeration value="BLANK" />
+      <xs:enumeration value="BOUNCE" />
+      <xs:enumeration value="COALESCE" />
+      <xs:enumeration value="COPY" />
+      <xs:enumeration value="FADE" />
+      <xs:enumeration value="FILTER" />
+      <xs:enumeration value="INTERLEAVE" />
+      <xs:enumeration value="LINE" />
+      <xs:enumeration value="MULTIWIPE" />
+      <xs:enumeration value="PUSH" />
+      <xs:enumeration value="RADAR" />
+      <xs:enumeration value="RAIN" />
+      <xs:enumeration value="SLIDE" />
+      <xs:enumeration value="SLOT" />
+      <xs:enumeration value="VENETIAN" />
+      <xs:enumeration value="WIPE" />
+    </xs:restriction>
+  </xs:simpleType>
+
+
+  <xs:complexType name="ArrayOfParameter">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Parameter" type="tns:Parameter" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Parameter">
+    <xs:attribute name="Name" type="xs:string" />
+    <xs:attribute name="Value" type="xs:string" />
+  </xs:complexType>
+
+  <xs:complexType name="ArrayOfFrameContentType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Content" nillable="true" type="tns:FrameContentType" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="FrameContentType">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="UniqueIdentifier" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="HumanReadableName" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Type" type="tns:ContentType" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Dimension" type="tns:Rectangle" />
+      <xs:element minOccurs="1" maxOccurs="1" name="TimeOffset" type="xs:float" />
+      <xs:element minOccurs="1" maxOccurs="1" name="TimeDisplayLength" type="xs:float" />
+      <xs:element minOccurs="0" maxOccurs="1" name="FileName" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Text" type="tns:TextType" />
+      <xs:element minOccurs="0" maxOccurs="1" name="DLTSource" type="tns:DLTSourceType" />
+      <xs:element minOccurs="0" maxOccurs="1" name="DLTField" type="tns:DLTFieldType" />
+      <xs:element minOccurs="0" maxOccurs="1" name="DLTisLocal" type="xs:boolean" />
+      <xs:element minOccurs="0" maxOccurs="1" name="EntryTransitionEffect" type="tns:TransitionEffectType" />
+      <xs:element minOccurs="0" maxOccurs="1" name="EmphasisTransitionEffect" type="tns:EmphasisEffectType" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ExitTransitionEffect" type="tns:TransitionEffectType" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ScrollInformation" type="tns:ScrollEffectType" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="ContentType">
+    <xs:restriction base="xs:string">
+      <!--Fixed text -->
+      <xs:enumeration value="TEXT" />
+      <!--Dynamic layer text (used for time, temp, and other real-time content -->
+      <xs:enumeration value="DLT" />
+      <!--Fixed graphics data -->
+      <xs:enumeration value="PNG" />
+      <!--Video -->
+      <xs:enumeration value="MPEG" />
+      <!--Live video feed -->
+      <xs:enumeration value="LIVEVIDEO" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="Rectangle">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="TLCorner" type="tns:Point" />
+      <xs:element minOccurs="1" maxOccurs="1" name="BRCorner" type="tns:Point" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Point">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="XCoordinate" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="YCoordinate" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ScrollEffectType">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="IsScrolling" type="xs:boolean" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ScrollDirection" type="tns:ScrollDirectionType" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Speed" type="xs:float" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="ScrollDirectionType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="UP" />
+      <xs:enumeration value="DOWN" />
+      <xs:enumeration value="LEFT" />
+      <xs:enumeration value="RIGHT" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="TextType">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="Font" type="tns:FontInfoType" />
+      <xs:element minOccurs="0" maxOccurs="1" name="TextString" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FontInfoType">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="Font" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="FontSize" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="FontColor" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="FontKerning" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="FontLead" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="WordWrap" type="xs:boolean" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Bold" type="xs:boolean" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Italic" type="xs:boolean" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Underline" type="xs:boolean" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Outline" type="xs:boolean" />
+      <xs:element minOccurs="0" maxOccurs="1" name="HorizontalJustify" type="tns:TextHorzJustify" />
+      <xs:element minOccurs="0" maxOccurs="1" name="VerticalJustify" type="tns:TextVertJustify" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Effect" type="tns:TextEffect" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ShadeXOffset" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ShadeYOffset" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="BubbleSize" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="EffectColor" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="BackgroundColor" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="TextHorzJustify">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="LEFT" />
+      <xs:enumeration value="RIGHT" />
+      <xs:enumeration value="CENTER" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="TextVertJustify">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="TOP" />
+      <xs:enumeration value="BOTTOM" />
+      <xs:enumeration value="CENTER" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="TextEffect">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NONE" />
+      <xs:enumeration value="SHADED" />
+      <xs:enumeration value="BUBBLE" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="DLTSourceType">
+    <xs:restriction base="xs:int" />
+  </xs:simpleType>
+  <xs:simpleType name="DLTFieldType">
+    <xs:restriction base="xs:int" />
+  </xs:simpleType>
+  <xs:complexType name="ContentIDType">
+    <xs:sequence>
+      <xs:element name="CXCUniqueIdentifier" type="xs:string" />
+      <xs:element name="FileType" type="xs:string" />
+      <xs:element name="HumanReadableName" type="xs:string" />
+      <xs:element name="LibraryName" type="xs:string" />
+      <xs:element name="ProWriteIdentifier" type="xs:string" />
+      <xs:element name="Create" type="tns:FileActionType" />
+      <xs:element name="Modify" type="tns:FileActionType" />
+      <xs:element name="Upload" type="tns:FileActionType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FileActionType">
+    <xs:sequence>
+      <xs:element name="User" type="xs:string" />
+      <xs:element name="DateTime" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="MasterLayerType">
+    <xs:sequence>
+      <xs:element name="DisplayTime" type="xs:float" />
+      <xs:element name="BackgroundColor" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="EntryTransitionEffect" type="tns:TransitionEffectType" />
+      <xs:element minOccurs="0" maxOccurs="1" name="EmphasisTransitionEffect" type="tns:EmphasisEffectType" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ExitTransitionEffect" type="tns:TransitionEffectType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="LineLocationType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="VERTICAL" />
+      <xs:enumeration value="HORIZONTAL" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

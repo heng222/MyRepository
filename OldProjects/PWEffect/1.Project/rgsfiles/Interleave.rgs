@@ -1,0 +1,26 @@
+HKCR
+{
+	PWEffect.Interleave.1 = s 'Interleave Class'
+	{
+		CLSID = s '{098EA7F1-DA86-48ca-BB90-3C730BC32AD7}'
+	}
+	PWEffect.Interleave = s 'Interleave Class'
+	{
+		CLSID = s '{098EA7F1-DA86-48ca-BB90-3C730BC32AD7}'
+		CurVer = s 'PWEffect.Interleave.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {098EA7F1-DA86-48ca-BB90-3C730BC32AD7} = s 'Interleave Class'
+		{
+			ProgID = s 'PWEffect.Interleave.1'
+			VersionIndependentProgID = s 'PWEffect.Interleave'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{B1FEB9A2-A676-46da-83C5-B1CBEC33BC07}'
+		}
+	}
+}

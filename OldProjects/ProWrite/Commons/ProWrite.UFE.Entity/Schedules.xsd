@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://xml.netbeans.org/schema/ProWriteSchedule" elementFormDefault="qualified" targetNamespace="http://xml.netbeans.org/schema/ProWriteSchedule" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="Schedule" nillable="true" type="tns:ScheduleType" />
+  <xs:complexType name="ScheduleType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="UniqueIdentifier" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ScheduleItems" type="tns:ArrayOfScheduleItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfScheduleItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ScheduleItem" nillable="true" type="tns:ScheduleItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ScheduleItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="DisplayContent" type="tns:ScheduleIncludeItem" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Timing" type="tns:ScheduleInfoType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ScheduleIncludeItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="UniqueIdentifier" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Type" type="tns:ScheduleItemType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="ScheduleItemType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="FrameObject" />
+      <xs:enumeration value="TimeSliceGroup" />
+      <xs:enumeration value="Playlist" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="ScheduleInfoType">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="IsScheduled" type="xs:boolean" />
+      <xs:element minOccurs="0" maxOccurs="1" name="StartTime" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="StartDay" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="StopTime" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="StopDay" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="IsAllDayEvent" type="xs:boolean" />
+      <xs:element minOccurs="1" maxOccurs="1" name="IsExact" type="xs:boolean" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Recurrence" type="tns:ScheduleRecurrenceType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ScheduleRecurrenceType">
+    <xs:sequence>
+      <xs:choice minOccurs="1" maxOccurs="1">
+        <xs:element minOccurs="1" maxOccurs="1" name="NoEndDate" type="xs:boolean" />
+        <xs:element minOccurs="0" maxOccurs="1" name="EndByDate" type="xs:string" />
+        <xs:element minOccurs="1" maxOccurs="1" name="EndAfterByOccurence" type="xs:int" />
+      </xs:choice>
+      <xs:choice minOccurs="1" maxOccurs="1">
+        <xs:element minOccurs="1" maxOccurs="1" name="Daily" type="xs:int" />
+        <xs:element minOccurs="1" maxOccurs="1" name="Weekly" type="tns:WeeklyRecurrence" />
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="WeeklyRecurrence">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="DaysChoice" type="tns:WeeklyChoiceType" />
+      <xs:element minOccurs="1" maxOccurs="1" name="RecurCycle" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="WeeklyChoiceType">
+    <xs:list>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="M" />
+          <xs:enumeration value="T" />
+          <xs:enumeration value="W" />
+          <xs:enumeration value="TH" />
+          <xs:enumeration value="F" />
+          <xs:enumeration value="S" />
+          <xs:enumeration value="SU" />
+          <xs:enumeration value="MTWTHFSSU" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:list>
+  </xs:simpleType>
+</xs:schema>

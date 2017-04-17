@@ -1,0 +1,24 @@
+
+
+#Gu Dao Status Data
+7
+# X   Y   COMMANDID    Text
+ 240  690 24        	IG
+ 300  690 25        	IIG
+ 360  690 26       	3G
+ 420  690 27       	4G
+ 480  690 28       	5G
+ 540  690 29       	6G
+ 600  690 30       	7G
+
+
+#Qu Jian Data
+5
+#  X   Y       COMMANDID StationNo   XHLAN_ID   StationNo   XHLAN_ID   COMMANDID   Text
+  760  690      101          4          31           3          30         201     S·âËø
+  820  690      102          4          30           3          29         202     SF·âËø
+  880  690      201          4          28           5          24         101     XF·âËø
+  940  690      202          4          27           5          25         102     X·âËø
+  1000 690      203          4          29           4          0           0      XD·âËø
+	
+

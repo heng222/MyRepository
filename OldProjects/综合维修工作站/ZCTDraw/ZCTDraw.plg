@@ -1,0 +1,96 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: ZCTDraw - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\Daniel\LOCALS~1\Temp\RSPC1.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_WINDLL" /D "_AFXDLL" /D "_MBCS" /D "_AFXEXT" /FR"Debug/" /Fp"Debug/ZCTDraw.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"E:\WORK\Project\×ÛºÏÎ¬ÐÞ¹¤×÷Õ¾\ZCTDraw\ZCTSingleWnd.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\Daniel\LOCALS~1\Temp\RSPC1.tmp" 
+Creating temporary file "C:\DOCUME~1\Daniel\LOCALS~1\Temp\RSPC2.tmp" with contents
+[
+/nologo /subsystem:windows /dll /incremental:yes /pdb:"Debug/ZCTDraw.pdb" /debug /machine:I386 /def:".\ZCTDraw.def" /out:"..\ExeFiles\ZCTDraw.dll" /implib:"Debug/ZCTDraw.lib" /pdbtype:sept 
+".\Debug\AnN.obj"
+".\Debug\BaseElement.obj"
+".\Debug\BSD.obj"
+".\Debug\CommFunction.obj"
+".\Debug\DaoC.obj"
+".\Debug\DCAN.obj"
+".\Debug\EntRailway.obj"
+".\Debug\FrameTrainNo.obj"
+".\Debug\FrameTrainNoList.obj"
+".\Debug\FuncBtn.obj"
+".\Debug\GdStatus.obj"
+".\Debug\HanZ.obj"
+".\Debug\JT.obj"
+".\Debug\JYJ.obj"
+".\Debug\NQD.obj"
+".\Debug\ParseStationInfo.obj"
+".\Debug\PasRailway.obj"
+".\Debug\PassWordDlg.obj"
+".\Debug\QjStatus.obj"
+".\Debug\ReadStationInf.obj"
+".\Debug\StdAfx.obj"
+".\Debug\WcQD.obj"
+".\Debug\XinHJ.obj"
+".\Debug\ZCTDraw.obj"
+".\Debug\ZCTInterlockJuge.obj"
+".\Debug\zctmag.obj"
+".\Debug\ZCTMultiWnd.obj"
+".\Debug\ZCTWnd.obj"
+".\Debug\ZCTDraw.res"
+".\Debug\ZCTSingleWnd.obj"
+]
+Creating command line "link.exe @C:\DOCUME~1\Daniel\LOCALS~1\Temp\RSPC2.tmp"
+<h3>Output Window</h3>
+Compiling...
+ZCTSingleWnd.cpp
+Linking...
+Creating temporary file "C:\DOCUME~1\Daniel\LOCALS~1\Temp\RSPC3.tmp" with contents
+[
+/nologo /o"Debug/ZCTDraw.bsc" 
+".\Debug\StdAfx.sbr"
+".\Debug\AnN.sbr"
+".\Debug\BaseElement.sbr"
+".\Debug\BSD.sbr"
+".\Debug\CommFunction.sbr"
+".\Debug\DaoC.sbr"
+".\Debug\DCAN.sbr"
+".\Debug\EntRailway.sbr"
+".\Debug\FrameTrainNo.sbr"
+".\Debug\FrameTrainNoList.sbr"
+".\Debug\FuncBtn.sbr"
+".\Debug\GdStatus.sbr"
+".\Debug\HanZ.sbr"
+".\Debug\JT.sbr"
+".\Debug\JYJ.sbr"
+".\Debug\NQD.sbr"
+".\Debug\ParseStationInfo.sbr"
+".\Debug\PasRailway.sbr"
+".\Debug\PassWordDlg.sbr"
+".\Debug\QjStatus.sbr"
+".\Debug\ReadStationInf.sbr"
+".\Debug\WcQD.sbr"
+".\Debug\XinHJ.sbr"
+".\Debug\ZCTDraw.sbr"
+".\Debug\ZCTInterlockJuge.sbr"
+".\Debug\zctmag.sbr"
+".\Debug\ZCTMultiWnd.sbr"
+".\Debug\ZCTWnd.sbr"
+".\Debug\ZCTSingleWnd.sbr"]
+Creating command line "bscmake.exe @C:\DOCUME~1\Daniel\LOCALS~1\Temp\RSPC3.tmp"
+Creating browse info file...
+<h3>Output Window</h3>
+
+
+
+<h3>Results</h3>
+ZCTDraw.dll - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

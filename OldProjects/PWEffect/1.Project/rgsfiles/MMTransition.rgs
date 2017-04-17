@@ -1,0 +1,25 @@
+HKCR
+{
+    DXImageTransform.Microsoft.MMSampleTransition.1 = s 'Movie Maker Sample Transition'
+    {
+	CLSID = s '{A80A2F60-2CF2-4fd1-ABA6-F33FD8B509A8}'
+    }
+    DXImageTransform.Microsoft.MMSampleTransition = s 'Movie Maker Sample Transition'
+    {
+	CurVer = s 'DXImageTransform.Microsoft.MMSampleTransition.1'
+	CLSID = s '{A80A2F60-2CF2-4fd1-ABA6-F33FD8B509A8}'
+    }
+    NoRemove CLSID
+    {
+	ForceRemove {A80A2F60-2CF2-4fd1-ABA6-F33FD8B509A8} = s 'Movie Maker Sample Transition'
+	{
+	    ProgID = s 'DXImageTransform.Microsoft.MMSampleTransition.1'
+	    VersionIndependentProgID = s 'DXImageTransform.Microsoft.MMSampleTransition'
+	    ForceRemove 'Programmable'
+	    InprocServer32 = s '%MODULE%'
+	    {
+		val ThreadingModel = s 'Both'
+	    }
+	}
+    }
+}

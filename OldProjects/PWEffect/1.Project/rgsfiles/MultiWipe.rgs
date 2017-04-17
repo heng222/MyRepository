@@ -1,0 +1,26 @@
+HKCR
+{
+	PWEffect.MultiWipe.1 = s 'MultiWipe Class'
+	{
+		CLSID = s '{1105251F-2672-466D-9D8C-DAD7F90AA0C2}'
+	}
+	PWEffect.MultiWipe = s 'MultiWipe Class'
+	{
+		CLSID = s '{1105251F-2672-466D-9D8C-DAD7F90AA0C2}'
+		CurVer = s 'PWEffect.MultiWipe.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {1105251F-2672-466D-9D8C-DAD7F90AA0C2} = s 'MultiWipe Class'
+		{
+			ProgID = s 'PWEffect.MultiWipe.1'
+			VersionIndependentProgID = s 'PWEffect.MultiWipe'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{B1FEB9A2-A676-46da-83C5-B1CBEC33BC07}'
+		}
+	}
+}

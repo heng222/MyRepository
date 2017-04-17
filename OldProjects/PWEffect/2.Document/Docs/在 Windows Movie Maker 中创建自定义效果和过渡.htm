@@ -1,0 +1,3835 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+<!-- saved from url=(0058)http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#E3AA -->
+<HTML xmlns="http://www.w3.org/1999/xhtml"><HEAD id=ctl00_Head1><TITLE>在 Windows Movie Maker 中创建自定义效果和过渡</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=utf-8"><LINK 
+id=ctl00_HeaderLink1 
+href="在%20Windows%20Movie%20Maker%20中创建自定义效果和过渡_files/Global-bn2036.0.css" 
+type=text/css rel=stylesheet><LINK id=ctl00_HeaderLink2 
+href="在%20Windows%20Movie%20Maker%20中创建自定义效果和过渡_files/Library-bn2036.0.css" 
+type=text/css rel=stylesheet>
+<META content=NOINDEX,NOFOLLOW name=ROBOTS>
+<META content="74838603-12:44:56 AM" name=MN>
+<META content=zh-cn name=ms.locale>
+<META content=ms867186 name=Search.ShortId><!-- Looking for metadata? Use the robot view instead http://currentsite/currenturl(robot).aspx -->
+<META content=/zh-cn/library(d=default)/ms867186(l=zh-cn,v=MSDN.10).aspx 
+name=DCS.dcsuri><LINK 
+href="在%20Windows%20Movie%20Maker%20中创建自定义效果和过渡_files/mtps-bn2036.0.css" 
+type=text/css rel=stylesheet></LINK><LINK media=print 
+href="/zh-cn/library/ms867186(printer).aspx" rel=alternate>
+<META content="MSHTML 6.00.5730.13" name=GENERATOR></HEAD>
+<BODY id=ctl00_Mtps_body dir=ltr>
+<FORM id=aspnetForm name=aspnetForm action=ms867186.aspx method=post>
+<DIV><INPUT id=__EVENTTARGET type=hidden name=__EVENTTARGET> <INPUT 
+id=__EVENTARGUMENT type=hidden name=__EVENTARGUMENT> <INPUT id=__VIEWSTATE 
+type=hidden 
+value=/wEPDwUBMGQYAQUeX19Db250cm9sc1JlcXVpcmVQb3N0QmFja0tleV9fFgEFImN0bDAwJE1hc3RoZWFkMSRjdGwwMCRTZWFyY2hCdXR0b261z3iErITQQyPa/d1CAHypvsUEkQ== 
+name=__VIEWSTATE> </DIV>
+<SCRIPT type=text/javascript>
+//<![CDATA[
+var theForm = document.forms['aspnetForm'];
+if (!theForm) {
+    theForm = document.aspnetForm;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</SCRIPT>
+
+<SCRIPT src="在%20Windows%20Movie%20Maker%20中创建自定义效果和过渡_files/WebResource.axd" 
+type=text/javascript></SCRIPT>
+
+<SCRIPT type=text/javascript>
+//<![CDATA[
+function wkAddNewItemClick(){CCE_EditAnnotation(-1);};
+var CCS_AddLinkID="ctl00_rs1_WikiContent_Add";var CCS_User="";var CCS_ContentUrl="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx";//]]>
+</SCRIPT>
+
+<SCRIPT 
+src="在%20Windows%20Movie%20Maker%20中创建自定义效果和过渡_files/Silverlight-bn2036.0.js" 
+type=text/javascript></SCRIPT>
+
+<SCRIPT type=text/javascript>
+//<![CDATA[
+var wt_nvr_ru = "WT_NVR_RU";var wt_fpcdom = ".microsoft.com";var wt_domlist = "msdn.microsoft.com";var wt_pathlist = "";var wt_paramlist = "DCSext.mtps_devcenter";var wt_siteid = "MSDN";var gDomain="m.webtrends.com";
+var gDcsId="dcsmgru7m99k7mqmgrhudo0k8_8c6m";
+var gFpc="WT_FPC";
+/*<![CDATA[*/
+if(document.cookie.indexOf(gFpc+"=")==-1){document.write("<scr"+"ipt type='text/javascript' src='"+"http"+(window.location.protocol.indexOf('https:')==0?'s':'')+"://"+gDomain+"/"+gDcsId+"/wtid.js"+"'><\/scr"+"ipt>");}
+/*]]>*/
+var detectedLocale = 'zh-cn';
+var wtsp="msdnlib_hp";
+var gTrackEvents = 0;
+function ra_OnResizeableAreaToggle(isCollapsing) {}var ra_WidthCookieName = "tocwidth"; var ra_CollapsedCookieName = "toccollapsed";function ra_OnPageResize(){
+var object = document.getElementById("ctl00_rs1_ra1");
+object.style.height = object.parentNode.offsetHeight ;
+}//]]>
+</SCRIPT>
+
+<SCRIPT 
+src="在%20Windows%20Movie%20Maker%20中创建自定义效果和过渡_files/compositejscript1.js" 
+type=text/javascript></SCRIPT>
+
+<SCRIPT 
+src="在%20Windows%20Movie%20Maker%20中创建自定义效果和过渡_files/Microsoft.Mtps.Web.UI.MtpsRating.MtpsRatingBehavior.js" 
+type=text/javascript></SCRIPT>
+
+<SCRIPT type=text/javascript>
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('ctl00$ScriptManager1', document.getElementById('aspnetForm'));
+Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tctl00$ib1$up1'], [], [], 90);
+//]]>
+</SCRIPT>
+
+<DIV id=rheader>
+<DIV class=mastheadfontbase>
+<DIV>
+<DIV class=GlobalBar>
+<DIV class=Teaser></DIV>
+<DIV class=GlobalBarRight>
+<DIV class=LocaleFlyout>
+<DIV class=LocaleManagementFlyoutStatic 
+id=ctl00$Masthead1$LocaleManagement$ctl00 style="POSITION: relative"><A 
+class=LocaleManagementFlyoutStaticLink href="javascript:void(0)">中国 - 
+简体中文&nbsp;</A><IMG class="LocaleManagementFlyoutPopArrow LibC_popdownarrow" 
+style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; WIDTH: 7px; HEIGHT: 4px; BORDER-RIGHT-WIDTH: 0px" 
+alt="Dropdown Arrow" 
+src="在%20Windows%20Movie%20Maker%20中创建自定义效果和过渡_files/clear.gif">
+<DIV class=LocaleManagementFlyoutPopup 
+id=ctl00$Masthead1$LocaleManagement$ctl00_Popup 
+style="LEFT: -65534px; VISIBILITY: hidden; POSITION: absolute">
+<TABLE style="WIDTH: 175px" border=0>
+  <TBODY>
+  <TR>
+    <TD><A 
+      href="javascript:__doPostBack('ctl00$Masthead1$LocaleManagement$ctl00$ctl05','')">Argentina 
+      (Español)</A></TD></TR>
+  <TR>
+    <TD><A 
+      href="javascript:__doPostBack('ctl00$Masthead1$LocaleManagement$ctl00$ctl06','')">Australia 
+      (English)</A></TD></TR>
+  <TR>
+    <TD><A 
+      href="javascript:__doPostBack('ctl00$Masthead1$LocaleManagement$ctl00$ctl07','')">Brasil 
+      (Português)</A></TD></TR>
+  <TR>
+    <TD><A 
+      href="javascript:__doPostBack('ctl00$Masthead1$LocaleManagement$ctl00$ctl08','')">Canada 
+      (English)</A></TD></TR>
+  <TR>
+    <TD><A 
+      href="javascript:__doPostBack('ctl00$Masthead1$LocaleManagement$ctl00$ctl09','')">Canada 
+      (Français)</A></TD></TR>
+  <TR>
+    <TD><A 
+      href="javascript:__doPostBack('ctl00$Masthead1$LocaleManagement$ctl00$ctl10','')">中国 
+      (简体中文)</A></TD></TR>
+  <TR>
+    <TD><A 
+      href="javascript:__doPostBack('ctl00$Masthead1$LocaleManagement$ctl00$ctl11','')">Colombia 
+      (Español)</A></TD></TR>
+  <TR>
+    <TD><A 
+      href="javascript:__doPostBack('ctl00$Masthead1$LocaleManagement$ctl00$ctl12','')">Deutschland 
+      (Deutsch)</A></TD></TR>
+  <TR>
+    <TD><A 
+      href="javascript:__doPostBack('ctl00$Masthead1$LocaleManagement$ctl00$ctl13','')">España 
+      (Español)</A></TD></TR>
+  <TR>
+    <TD><A 
+      href="javascript:__doPostBack('ctl00$Masthead1$LocaleManagement$ctl00$ctl14','')">France 
+      (Français)</A></TD></TR>
+  <TR>
+    <TD><A 
+      href="javascript:__doPostBack('ctl00$Masthead1$LocaleManagement$ctl00$ctl15','')">India 
+      (English)</A></TD></TR>
+  <TR>
+    <TD><A 
+      href="javascript:__doPostBack('ctl00$Masthead1$LocaleManagement$ctl00$ctl16','')">Italia 
+      (Italiano)</A></TD></TR>
+  <TR>
+    <TD><A 
+      href="javascript:__doPostBack('ctl00$Masthead1$LocaleManagement$ctl00$ctl17','')">日本 
+      (日本語)</A></TD></TR>
+  <TR>
+    <TD><A 
+      href="javascript:__doPostBack('ctl00$Masthead1$LocaleManagement$ctl00$ctl18','')">México 
+      (Español)</A></TD></TR>
+  <TR>
+    <TD><A 
+      href="javascript:__doPostBack('ctl00$Masthead1$LocaleManagement$ctl00$ctl19','')">Perú 
+      (Español)</A></TD></TR>
+  <TR>
+    <TD><A 
+      href="javascript:__doPostBack('ctl00$Masthead1$LocaleManagement$ctl00$ctl20','')">Россия 
+      (Pусский)</A></TD></TR>
+  <TR>
+    <TD><A 
+      href="javascript:__doPostBack('ctl00$Masthead1$LocaleManagement$ctl00$ctl21','')">United 
+      Kingdom (English)</A></TD></TR>
+  <TR>
+    <TD><A 
+      href="javascript:__doPostBack('ctl00$Masthead1$LocaleManagement$ctl00$ctl22','')">United 
+      States (English)</A></TD></TR>
+  <TR>
+    <TD class=LocaleManagementFlyoutPopupHr></TD></TR>
+  <TR>
+    <TD><A href="http://msdn.microsoft.com/zh-cn/ms376822.aspx">更多 
+  </A></TD></TR></TBODY></TABLE></DIV>
+<DIV class=TFlyPopupAnimate 
+id=ctl00$Masthead1$LocaleManagement$ctl00_Anim></DIV></DIV></DIV>
+<DIV class=SiteMap>
+<DIV class=QuickLinksFlyoutStatic_msdn id=ctl00$Masthead1$QuickLinks$ctrlFlyout 
+style="POSITION: relative"><A class=QuickLinksFlyoutStaticLink_msdn 
+id=ctl00_Masthead1_QuickLinks_ctrlFlyout_ctrlTitle 
+title="Microsoft.com Quick Links" 
+href="javascript:void(0)"><SPAN>Microsoft.com&nbsp;</SPAN><IMG 
+class="QuickLinksPopArrow LibC_popdownarrow" 
+style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; WIDTH: 7px; HEIGHT: 4px; BORDER-RIGHT-WIDTH: 0px" 
+alt="Dropdown arrow" 
+src="在%20Windows%20Movie%20Maker%20中创建自定义效果和过渡_files/clear.gif"></A>
+<DIV class=QuickLinksFlyoutPopup id=ctl00$Masthead1$QuickLinks$ctrlFlyout_Popup 
+style="LEFT: -65534px; VISIBILITY: hidden; POSITION: absolute"><?xml version="1.0" encoding="utf-16"?>
+<TABLE>
+  <TBODY>
+  <TR>
+    <TD vAlign=top>
+      <H4>产品家族</H4>
+      <DIV class=list>
+      <DIV class=listitem><A 
+      href="http://www.microsoft.com/china/office/">Office</A></DIV>
+      <DIV class=listitem><A 
+      href="http://www.microsoft.com/china/windows/">Windows</A></DIV>
+      <DIV class=listitem><A 
+      href="http://www.microsoft.com/china/windowsserversystem/">Windows Server 
+      System</A></DIV>
+      <DIV class=listitem><A 
+      href="http://www.microsoft.com/china/windowsmobile/">Windows 
+      Mobile</A></DIV>
+      <DIV class=listitem><A 
+      href="http://www.microsoft.com/china/msdn/">开发工具</A></DIV>
+      <DIV class=listitem><A 
+      href="http://www.microsoft.com/china/BusinessSolutions/">商务管理解决方案(MBS)</A></DIV>
+      <DIV class=listitem><A 
+href="http://www.msn.com.cn/">MSN</A></DIV></DIV></TD>
+    <TD vAlign=top>
+      <H4>产品资源</H4>
+      <DIV class=list>
+      <DIV class=listitem><A href="http://update.microsoft.com/">Microsoft 
+      Update</A></DIV>
+      <DIV class=listitem><A 
+      href="http://office.microsoft.com/zh-cn/default.aspx">Office 
+      Update</A></DIV>
+      <DIV class=listitem><A 
+      href="http://www.microsoft.com/china/downloads/">下载中心</A></DIV>
+      <DIV class=listitem><A 
+      href="http://support.microsoft.com/">客户帮助与支持</A></DIV>
+      <DIV class=listitem><A 
+      href="http://www.microsoft.com/china/security/">安全性与隐私保护</A></DIV>
+      <DIV class=listitem><A 
+      href="http://www.microsoft.com/china/community/">微软中文社区</A></DIV>
+      <DIV class=listitem><A 
+      href="http://www.microsoft.com/china/learning/">教育培训与认证</A></DIV>
+      <DIV class=listitem><A 
+      href="http://www.microsoft.com/china/events/">活动与培训</A></DIV></DIV>
+      <H4>关于微软</H4>
+      <DIV class=list>
+      <DIV class=listitem><A 
+      href="http://www.microsoft.com/china/mscorp/">微软总部</A></DIV>
+      <DIV class=listitem><A 
+      href="http://www.microsoft.com/china/info/">微软中国</A></DIV>
+      <DIV class=listitem><A 
+      href="http://www.microsoft.com/china/press/">新闻报道</A></DIV></DIV></TD>
+    <TD vAlign=top>
+      <H4>热门栏目</H4>
+      <DIV class=list>
+      <DIV class=listitem><A 
+      href="http://www.microsoft.com/china/msdn/">MSDN</A></DIV>
+      <DIV class=listitem><A 
+      href="http://www.microsoft.com/china/technet/">TechNet</A></DIV>
+      <DIV class=listitem><A 
+      href="http://www.microsoft.com/china/business/">企业用户</A></DIV>
+      <DIV class=listitem><A 
+      href="http://www.microsoft.com/china/partner/">合作伙伴</A></DIV>
+      <DIV class=listitem><A 
+      href="http://www.microsoft.com/china/hardware/">硬件产品</A></DIV>
+      <DIV class=listitem><A 
+      href="http://www.microsoft.com/products/info/default.aspx?view=2">所有产品</A></DIV>
+      <DIV class=listitem><A 
+      href="http://www.microsoft.com/library/toolbar/3.0/sitemap/zh-cn.mspx">Microsoft.com 
+      站点地图</A></DIV></DIV></TD></TR></TBODY></TABLE></DIV>
+<DIV class=TFlyPopupAnimate 
+id=ctl00$Masthead1$QuickLinks$ctrlFlyout_Anim></DIV></DIV></DIV>
+<DIV class=PassportScarab><SPAN class=UserRecognitionStaticText 
+id=ctl00_Masthead1_UserRecognitionFlyout_lbwelcom>欢迎您</SPAN> <A id=idPPScarab 
+onclick="MtpsLoginStatus.OverlayImagePath = &quot;http://i.msdn.microsoft.com:80/Platform/Controls/MtpsLoginStatus/resources/veil.gif&quot;; return MtpsLoginStatus.DoPassportSignIn('http://login.live.com/login.srf?wa=wsignin1.0&amp;rpsnv=10&amp;ct=1227257096&amp;rver=5.5.4177.0&amp;wp=MCLBI&amp;wlcxt=msdn%24msdn%24msdn&amp;wreply=http:%2F%2Fmsdn.microsoft.com%2FPlatform%2FControls%2FMtpsLoginStatus%2FPassport%2Fppsignin.htm&amp;lc=2052&amp;id=254354');" 
+href="http://login.live.com/login.srf?wa=wsignin1.0&amp;rpsnv=10&amp;ct=1227257096&amp;rver=5.5.4177.0&amp;wp=MCLBI&amp;wlcxt=msdn%24msdn%24msdn&amp;wreply=http:%2F%2Fmsdn.microsoft.com%2Fzh-cn%2Flibrary%2Fms867186.aspx&amp;lc=2052&amp;id=254354"><SPAN 
+class=MTPS_GlobalToolbarLinks_msdn id=idPPScarabSIT>登录</SPAN></A> 
+<DIV id=idPPMWOverlay style="DISPLAY: none"></DIV></DIV></DIV></DIV></DIV>
+<DIV class=ThinNavBox><A id=ctl00_Masthead1_brandlink 
+href="http://msdn.microsoft.com/zh-cn/default.aspx">
+<DIV class=BrandLogo id=ctl00_Masthead1_BrandLogo></DIV></A>
+<DIV class=SearchBox id=ctl00_Masthead1_ctl00_SearchBox><INPUT 
+id=ctl00_Masthead1_ctl00_returnSubmit style="DISPLAY: none; VISIBILITY: hidden" 
+name=ctl00$Masthead1$ctl00$returnSubmit> <INPUT class=TextBoxSearchActive 
+id=ctl00_Masthead1_ctl00_SearchTextBox title="搜索 MSDN" 
+name=ctl00$Masthead1$ctl00$SearchTextBox> <INPUT 
+class="SearchButton LibC_search" id=ctl00_Masthead1_ctl00_SearchButton 
+title=单击此处开始搜索 
+style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px" 
+type=image alt=单击此处开始搜索 
+src="在%20Windows%20Movie%20Maker%20中创建自定义效果和过渡_files/clear.gif" 
+name=ctl00$Masthead1$ctl00$SearchButton> <INPUT class=WebButton id=ctl00_Masthead1_ctl00_WebButton title="搜索 Microsoft" onclick="dolivesearch('ctl00_Masthead1_ctl00_SearchTextBox');" type=submit value=网络 name=ctl00$Masthead1$ctl00$WebButton> 
+<INPUT id=go type=hidden value=true name=go>
+<SCRIPT id=mscom.srch.searchBox 
+src="在%20Windows%20Movie%20Maker%20中创建自定义效果和过渡_files/SearchBox.jss" defer 
+type=text/javascript></SCRIPT>
+ </DIV>
+<DIV class=evergreenLinks>
+<DIV class=ThinNavTarget id=ctl00_Masthead1_CenterButtonArea>
+<DIV class=thinnavtabright></DIV>
+<DIV class=BrowseCenter id=ctl00_Masthead1_CenterButton><A 
+id=ctl00_Masthead1_ctl01 title=开发中心 
+onclick="javascript:Track('|Masthead|ctl00_Masthead1_CenterButton|ctl00_Masthead1_ctl01',this);" 
+href="http://msdn.microsoft.com/zh-cn/aa937802.aspx">开发中心</A></DIV>
+<DIV class=thinnavtableft></DIV></DIV>
+<DIV class=ThinNavTarget id=ctl00_Masthead1_SiteButtonArea>
+<DIV class=thinnavtabright></DIV>
+<DIV class=BrowseSite id=ctl00_Masthead1_SiteButton><A id=ctl00_Masthead1_ctl02 
+title="MSDN 主页" 
+onclick="javascript:Track('|Masthead|ctl00_Masthead1_SiteButton|ctl00_Masthead1_ctl02',this);" 
+href="http://msdn.microsoft.com/zh-cn/default.aspx">MSDN 主页</A></DIV>
+<DIV class=thinnavtableft></DIV></DIV></DIV></DIV>
+<DIV class=Clear></DIV>
+<DIV class=NavigationBox>
+<DIV class=HeaderTitle id=ctl00_Masthead1_tabs_CenterTitle>Microsoft 
+开发人员网络</DIV>
+<DIV class=Sponsor></DIV>
+<DIV class=ClearLeft></DIV>
+<DIV class=SiteNavigation id=ctl00_Masthead1_tabs_manTabsHolder>
+<DIV class="SiteNavTabOffLeft msdn_TabC_msdn_SiteNavTabOff1Left"></DIV>
+<DIV class=TabOff><A id=ctl00_Masthead1_tabs_ctl01 
+onclick="javascript:Track('|TabStrip Link|ctl00_Masthead1_tabs_ctl00|ctl00_Masthead1_tabs_ctl01',this);" 
+href="http://msdn.microsoft.com/zh-cn/default.aspx">主页</A></DIV>
+<DIV class="SiteNavTabOffRight msdn_TabC_msdn_SiteNavTabOff1Right"></DIV>
+<DIV class="SiteNavTabOnLeft msdn_TabC_msdn_SiteNavTabOnLeft"></DIV>
+<DIV class=TabOn><A id=ctl00_Masthead1_tabs_ctl03 
+onclick="javascript:Track('|TabStrip Link|ctl00_Masthead1_tabs_ctl02|ctl00_Masthead1_tabs_ctl03',this);" 
+href="http://msdn.microsoft.com/zh-cn/library/ms123401.aspx">技术资源库</A></DIV>
+<DIV class="SiteNavTabOnRight msdn_TabC_msdn_SiteNavTabOnRight"></DIV>
+<DIV class="SiteNavTabOffLeft msdn_TabC_msdn_SiteNavTabOff1Left"></DIV>
+<DIV class=TabOff><A id=ctl00_Masthead1_tabs_ctl05 
+onclick="javascript:Track('|TabStrip Link|ctl00_Masthead1_tabs_ctl04|ctl00_Masthead1_tabs_ctl05',this);" 
+href="http://msdn.microsoft.com/zh-cn/bb188199.aspx">学习</A></DIV>
+<DIV class="SiteNavTabOffRight msdn_TabC_msdn_SiteNavTabOff1Right"></DIV>
+<DIV class="SiteNavTabOffLeft msdn_TabC_msdn_SiteNavTabOff1Left"></DIV>
+<DIV class=TabOff><A id=ctl00_Masthead1_tabs_ctl07 
+onclick="javascript:Track('|TabStrip Link|ctl00_Masthead1_tabs_ctl06|ctl00_Masthead1_tabs_ctl07',this);" 
+href="http://msdn.microsoft.com/zh-cn/aa570309.aspx">下载</A></DIV>
+<DIV class="SiteNavTabOffRight msdn_TabC_msdn_SiteNavTabOff1Right"></DIV>
+<DIV class="SiteNavTabOffLeft msdn_TabC_msdn_SiteNavTabOff1Left"></DIV>
+<DIV class=TabOff><A id=ctl00_Masthead1_tabs_ctl09 
+onclick="javascript:Track('|TabStrip Link|ctl00_Masthead1_tabs_ctl08|ctl00_Masthead1_tabs_ctl09',this);" 
+href="http://msdn.microsoft.com/zh-cn/aa570318.aspx">支持</A></DIV>
+<DIV class="SiteNavTabOffRight msdn_TabC_msdn_SiteNavTabOff1Right"></DIV>
+<DIV class="SiteNavTabOffLeft msdn_TabC_msdn_SiteNavTabOff1Left"></DIV>
+<DIV class=TabOff><A id=ctl00_Masthead1_tabs_ctl11 
+onclick="javascript:Track('|TabStrip Link|ctl00_Masthead1_tabs_ctl10|ctl00_Masthead1_tabs_ctl11',this);" 
+href="http://msdn.microsoft.com/zh-cn/aa497440.aspx">社区</A></DIV>
+<DIV 
+class="SiteNavTabOffRight msdn_TabC_msdn_SiteNavTabOff1Right"></DIV></DIV></DIV>
+<DIV class=Clear></DIV>
+<DIV class=LocalNavigation id=ctl00_Masthead1_tabs_LocalNavigation 
+style="HEIGHT: 2px"><IMG class=LibC_space 
+style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px" 
+height=1 src="在%20Windows%20Movie%20Maker%20中创建自定义效果和过渡_files/clear.gif" 
+width="100%"></DIV>
+<DIV class=cleartabstrip></DIV>
+<DIV class=LocalNavBottom id=ctl00_Masthead1_tabs_LocalNavBottom><IMG 
+class=LibC_space 
+style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px" 
+height=1 src="在%20Windows%20Movie%20Maker%20中创建自定义效果和过渡_files/clear.gif" 
+width="100%"></DIV></DIV>
+<DIV class=Clear></DIV>
+<DIV class=miniRatings id=ctl00_ib1_Panel1>
+<DIV class=miniRatings_left id=ctl00_ib1_miniRatings_left><A class=itPrint 
+id=ctl00_ib1_hlPrint title=可打印版本 
+onclick="javascript: WebForm_DoCallback('ctl00$ib1','printerFriendlyPage',GetServerData,null,null,false);" 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186(printer).aspx"><IMG 
+class=LibC_rtg_print id=ctl00_ib1_imgPrint 
+style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px" 
+src="在%20Windows%20Movie%20Maker%20中创建自定义效果和过渡_files/clear.gif">&nbsp;可打印版本</A>&nbsp;&nbsp; 
+<A class=itFav id=ctl00_ib1_hlFav title=添加到收藏夹 
+onclick="javascript: WebForm_DoCallback('ctl00$ib1','addToFavorites',GetServerData,null,null,false);" 
+href="javascript:OnSave();"><IMG class=LibC_rtg_save id=ctl00_ib1_imgFav 
+style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px" 
+src="在%20Windows%20Movie%20Maker%20中创建自定义效果和过渡_files/clear.gif">&nbsp;添加到收藏夹</A>&nbsp;&nbsp; 
+<A class=itSend id=ctl00_ib1_hlSendCont title=发送此内容 
+onclick="javascript: WebForm_DoCallback('ctl00$ib1','sendThisPage',GetServerData,null,null,false);" 
+href="mailto:?subject=%e5%9c%a8 Windows Movie Maker %e4%b8%ad%e5%88%9b%e5%bb%ba%e8%87%aa%e5%ae%9a%e4%b9%89%e6%95%88%e6%9e%9c%e5%92%8c%e8%bf%87%e6%b8%a1&amp;body=此 URL 指向您可能感兴趣的 MSDN 页面： http://msdn.microsoft.com/zh-cn/library/ms867186.aspx"><IMG 
+class=LibC_rtg_email id=ctl00_ib1_imgSendCont 
+style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px" 
+src="在%20Windows%20Movie%20Maker%20中创建自定义效果和过渡_files/clear.gif">提交</A>&nbsp;&nbsp; 
+&nbsp;&nbsp; </DIV>
+<DIV id=ctl00_ib1_up1>
+<DIV class=miniRatings_right id=ctl00_ib1_miniRatings_right>
+<DIV class=ratingFlyoutStatic id=ctl00$ib1$Flyout style="POSITION: relative">
+<DIV id=ctl00_ib1_Flyout_rtgContainer title=打开脚本编写以提交评估结果并发送反馈 
+style="DISPLAY: block; TEXT-ALIGN: right">
+<TABLE>
+  <TBODY>
+  <TR>
+    <TD style="LINE-HEIGHT: 70%; TEXT-ALIGN: right"><SPAN class=tbFont 
+      id=ctl00_ib1_Flyout_rateTitleLabel>请单击以进行评分并提供反馈</SPAN> </TD>
+    <TD id=ctl00_ib1_Flyout_tdRtg style="WIDTH: 85px" 
+    onclick="if($get('ctl00_ib1_Flyout_tbComments')!=null) $get('ctl00_ib1_Flyout_tbComments').focus();">
+      <DIV id=ctl00_ib1_Flyout_Rating1 dir=ltr title=请单击星形符号并提供反馈><INPUT 
+      id=ctl00_ib1_Flyout_Rating1_RatingExtender_ClientState type=hidden value=1 
+      name=ctl00$ib1$Flyout$Rating1_RatingExtender_ClientState><A 
+      id=ctl00_ib1_Flyout_Rating1_A title=请单击星形符号并提供反馈 
+      style="TEXT-DECORATION: none" 
+      href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#"><SPAN 
+      class="ratingStar filledRatingStar" id=ctl00_ib1_Flyout_Rating1_Star_1 
+      style="FLOAT: left">&nbsp;</SPAN><SPAN class="ratingStar emptyRatingStar" 
+      id=ctl00_ib1_Flyout_Rating1_Star_2 style="FLOAT: left">&nbsp;</SPAN><SPAN 
+      class="ratingStar emptyRatingStar" id=ctl00_ib1_Flyout_Rating1_Star_3 
+      style="FLOAT: left">&nbsp;</SPAN><SPAN class="ratingStar emptyRatingStar" 
+      id=ctl00_ib1_Flyout_Rating1_Star_4 style="FLOAT: left">&nbsp;</SPAN><SPAN 
+      class="ratingStar emptyRatingStar" id=ctl00_ib1_Flyout_Rating1_Star_5 
+      style="FLOAT: left">&nbsp;</SPAN></A> </DIV></TD></TR></TBODY></TABLE></DIV>
+<DIV style="CLEAR: both; DISPLAY: block; FLOAT: none"></DIV>
+<DIV class=ratingFlyoutPopup id=ctl00$ib1$Flyout_Popup 
+style="LEFT: -65534px; VISIBILITY: hidden; POSITION: absolute"><SPAN 
+class=OptionalText id=ctl00_ib1_Flyout_lbOptText>请就此内容提供反馈</SPAN><TEXTAREA class=Comment id=ctl00_ib1_Flyout_tbComments name=ctl00$ib1$Flyout$tbComments></TEXTAREA><INPUT class=Button id=ctl00_ib1_Flyout_btnClose onclick='CloseFLY("ctl00$ib1$Flyout") ' type=button value=关闭 name=ctl00$ib1$Flyout$btnClose><INPUT class=Button id=ctl00_ib1_Flyout_btnSubmit title=发送此内容 onclick="return IsPageRated(&quot;ctl00_ib1_Flyout_Rating1&quot;,&quot;ctl00_ib1_Flyout_lbOptText&quot;,'请先为本页内容评分', &quot;ctl00$ib1$Flyout&quot;,this);" type=submit value=提交 name=ctl00$ib1$Flyout$btnSubmit></DIV>
+<DIV class=TFlyPopupAnimate id=ctl00$ib1$Flyout_Anim></DIV></DIV></DIV></DIV>
+<DIV style="CLEAR: both; DISPLAY: block; VISIBILITY: hidden"></DIV></DIV></DIV>
+<DIV id=contents>
+<DIV class=resizableArea id=ctl00_rs1_ra1>
+<DIV class=leftSection id=ctl00_rs1_raLeft style="WIDTH: 132px"><IMG 
+class=hidden id=ctl00_rs1_TocVector1_o 
+style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px" 
+src="在%20Windows%20Movie%20Maker%20中创建自定义效果和过渡_files/clear.gif"> <IMG 
+class=hidden id=ctl00_rs1_TocVector1_c 
+style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px" 
+src="在%20Windows%20Movie%20Maker%20中创建自定义效果和过渡_files/clear.gif"> <IMG 
+class=hidden id=ctl00_rs1_TocVector1_e 
+style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px" 
+src="在%20Windows%20Movie%20Maker%20中创建自定义效果和过渡_files/clear.gif"> 
+<DIV id=holder onclick=TocClick(event)>
+<DIV class=rootToc id=ctl00_rs1_TocVector1_root>
+<UL class=toc id=tocVectorTreeId>
+  <LI name="ms310241(n)"><IMG class=LibC_c 
+  src="在%20Windows%20Movie%20Maker%20中创建自定义效果和过渡_files/clear.gif"><A 
+  href="http://msdn.microsoft.com/zh-cn/library/ms123401.aspx" target=_top>MSDN 
+  Library</A></LI></UL></DIV></DIV></DIV>
+<DIV onmouseup=ra_resizeStop() class=splitter 
+onmousedown="ra_resizeStart(event,this,'ctl00_rs1_raLeft')" 
+id=ctl00_rs1_raSplitter 
+ondblclick="ra_OpenCollapse('ctl00_rs1_raSplitter','ctl00_rs1_raLeft')" 
+onmouseover=HighlightSplitterBar(this.id,0); 
+title="单击并拖动可调整大小。双击或按 't' 可在隐藏和显示之间切换。" style="LEFT: 132px" 
+onmouseout=HighlightSplitterBar(this.id,1);>
+<DIV class=LibC_lib_grippy style="POSITION: absolute; TOP: 50%"></DIV></DIV>
+<DIV class=rightSection id=ctl00_rs1_raRight 
+onkeyup=' ra_keyPress(window.event?window.event:event, "ctl00_rs1_raSplitter","ctl00_rs1_raLeft")'>
+<DIV>
+<DIV class=EyebrowMenuBar id=ctl00_rs1_eb1_Panel1>
+<DIV class=stat id=ctl00$rs1$eb1$ctl00 style="POSITION: relative"><A title=MSDN 
+href="http://msdn.microsoft.com/zh-cn/ms348103.aspx">MSDN</A>
+<DIV class=popup id=ctl00$rs1$eb1$ctl00_Popup 
+style="LEFT: -65534px; VISIBILITY: hidden; POSITION: absolute"><SPAN 
+name="http://msdn.microsoft.com/zh-cn/library/36cf08ac-18d1-4fe0-abc8-466852a0f9c7(n).aspx">请稍候</SPAN></DIV>
+<DIV class=TFlyPopupAnimate id=ctl00$rs1$eb1$ctl00_Anim></DIV></DIV>
+<DIV class=stat id=ctl00$rs1$eb1$ctl01 style="POSITION: relative"><A 
+title="MSDN Library" 
+href="http://msdn.microsoft.com/zh-cn/library/ms123401.aspx">MSDN Library</A>
+<DIV class=popup id=ctl00$rs1$eb1$ctl01_Popup 
+style="LEFT: -65534px; VISIBILITY: hidden; POSITION: absolute"><SPAN 
+name="http://msdn.microsoft.com/zh-cn/library/ms310241(n).aspx">请稍候</SPAN></DIV>
+<DIV class=TFlyPopupAnimate id=ctl00$rs1$eb1$ctl01_Anim></DIV></DIV>
+<DIV class=stat id=ctl00$rs1$eb1$ctl02 style="POSITION: relative"><A title=技术文章 
+href="http://msdn.microsoft.com/zh-cn/library/bb814937.aspx">技术文章</A>
+<DIV class=popup id=ctl00$rs1$eb1$ctl02_Popup 
+style="LEFT: -65534px; VISIBILITY: hidden; POSITION: absolute"><SPAN 
+name="http://msdn.microsoft.com/zh-cn/library/bb814937(n).aspx">请稍候</SPAN></DIV>
+<DIV class=TFlyPopupAnimate id=ctl00$rs1$eb1$ctl02_Anim></DIV></DIV>
+<DIV class=stat id=ctl00$rs1$eb1$ctl03 style="POSITION: relative"><A 
+title="MSDN 开发" 
+href="http://msdn.microsoft.com/zh-cn/library/bb507200.aspx">MSDN 开发</A>
+<DIV class=popup id=ctl00$rs1$eb1$ctl03_Popup 
+style="LEFT: -65534px; VISIBILITY: hidden; POSITION: absolute"><SPAN 
+name="http://msdn.microsoft.com/zh-cn/library/bb507200(n).aspx">请稍候</SPAN></DIV>
+<DIV class=TFlyPopupAnimate id=ctl00$rs1$eb1$ctl03_Anim></DIV></DIV>
+<DIV class=nochildstat><STRONG>&nbsp;在 Windows Movie Maker 
+中创建自定义效果和过渡</STRONG></DIV><SPAN 
+style="CLEAR: both; DISPLAY: block; FLOAT: none"></SPAN></DIV></DIV>
+<DIV class=RightPanel>
+<DIV class=ContentBar>
+<STYLE type=text/css>.vb {
+	DISPLAY: none
+}
+.cs {
+	DISPLAY: none
+}
+.cpp {
+	DISPLAY: none
+}
+.nu {
+	DISPLAY: none
+}
+</STYLE>
+
+<STYLE id=LanguageSpecificTextStyle type=text/css>.nu {
+	DISPLAY: inline
+}
+</STYLE>
+</DIV>
+<DIV class=ContentArea>
+<DIV class=topic>
+<DIV class=majorTitle xmlns:msxsl="urn:schemas-microsoft-com:xslt"></DIV>
+<DIV class=title xmlns:msxsl="urn:schemas-microsoft-com:xslt">在 Windows Movie 
+Maker 中创建自定义效果和过渡 </DIV><!--Content type: DocStudio. Transform: psdk2mtps.xslt.-->
+<DIV id=mainSection>
+<DIV id=mainBody>
+<DIV>
+<DIV>发布日期 : 1/11/2005<SPAN> | </SPAN>更新日期 : 1/11/2005</DIV>
+<P>Josh Cohen</P>
+<P>Mike Matsel</P>
+<P>Peter Turcan</P>
+<P>Microsoft Corporation</P>
+<P><B>适用于：</B> </P>
+<P>Microsoft® Windows® Movie Maker 2.0</P>
+<P>Microsoft Windows Movie Maker 2.1</P>
+<P><B>摘要：</B>Microsoft Windows Movie Maker 允许程序员为 Windows Movie Maker 
+界面添加他们自己的自定义的特殊效果和过渡。这些效果可以通过一个修改支持效果或过渡的 XML 文件来创建，或者可以用 C++ 和 Microsoft 
+DirectX Media SDK 提供的 Windows Media Transforms 从头创建。</P>
+<H5>本页内容</H5>
+<P><A href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#E0BB0AA"><IMG 
+alt=简介 
+src="在%20Windows%20Movie%20Maker%20中创建自定义效果和过渡_files/ms867186.arrow_px_down(zh-cn,MSDN.10).gif" 
+border=0> </A><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#E0BB0AA">简介</A> 
+<BR><A href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#E0AB0AA"><IMG 
+alt="在 XML 中创建 Windows Movie Maker 效果和过渡" 
+src="在%20Windows%20Movie%20Maker%20中创建自定义效果和过渡_files/ms867186.arrow_px_down(zh-cn,MSDN.10).gif" 
+border=0> </A><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#E0AB0AA">在 XML 中创建 
+Windows Movie Maker 效果和过渡</A> <BR><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#E6AA"><IMG 
+alt="读取 XML 文件" 
+src="在%20Windows%20Movie%20Maker%20中创建自定义效果和过渡_files/ms867186.arrow_px_down(zh-cn,MSDN.10).gif" 
+border=0> </A><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#E6AA">读取 XML 文件</A> 
+<BR><A href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#E5AA"><IMG 
+alt="生成您自己的 XML 文件" 
+src="在%20Windows%20Movie%20Maker%20中创建自定义效果和过渡_files/ms867186.arrow_px_down(zh-cn,MSDN.10).gif" 
+border=0> </A><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#E5AA">生成您自己的 XML 
+文件</A> <BR><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#E4AA"><IMG 
+alt="由 Windows Movie Maker 提供的效果和过渡对象" 
+src="在%20Windows%20Movie%20Maker%20中创建自定义效果和过渡_files/ms867186.arrow_px_down(zh-cn,MSDN.10).gif" 
+border=0> </A><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#E4AA">由 Windows 
+Movie Maker 提供的效果和过渡对象</A> <BR><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#E3AA"><IMG alt=条形过渡 
+src="在%20Windows%20Movie%20Maker%20中创建自定义效果和过渡_files/ms867186.arrow_px_down(zh-cn,MSDN.10).gif" 
+border=0> </A><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#E3AA">条形过渡</A> 
+<BR><A href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#E2AA"><IMG 
+alt=棋格过渡 
+src="在%20Windows%20Movie%20Maker%20中创建自定义效果和过渡_files/ms867186.arrow_px_down(zh-cn,MSDN.10).gif" 
+border=0> </A><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#E2AA">棋格过渡</A> 
+<BR><A href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#E1AA"><IMG 
+alt="DirectX Media 擦除过渡" 
+src="在%20Windows%20Movie%20Maker%20中创建自定义效果和过渡_files/ms867186.arrow_px_down(zh-cn,MSDN.10).gif" 
+border=0> </A><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#E1AA">DirectX Media 
+擦除过渡</A> <BR><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#EZAA"><IMG alt=消隐过渡 
+src="在%20Windows%20Movie%20Maker%20中创建自定义效果和过渡_files/ms867186.arrow_px_down(zh-cn,MSDN.10).gif" 
+border=0> </A><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#EZAA">消隐过渡</A> 
+<BR><A href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#EYAA"><IMG 
+alt=淡入淡出过渡 
+src="在%20Windows%20Movie%20Maker%20中创建自定义效果和过渡_files/ms867186.arrow_px_down(zh-cn,MSDN.10).gif" 
+border=0> </A><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#EYAA">淡入淡出过渡</A> 
+<BR><A href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#EXAA"><IMG 
+alt="Iris 过渡" 
+src="在%20Windows%20Movie%20Maker%20中创建自定义效果和过渡_files/ms867186.arrow_px_down(zh-cn,MSDN.10).gif" 
+border=0> </A><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#EXAA">Iris 过渡</A> 
+<BR><A href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#EWAA"><IMG 
+alt=像素化过渡 
+src="在%20Windows%20Movie%20Maker%20中创建自定义效果和过渡_files/ms867186.arrow_px_down(zh-cn,MSDN.10).gif" 
+border=0> </A><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#EWAA">像素化过渡</A> 
+<BR><A href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#EVAA"><IMG 
+alt="SMPTE 擦除过渡" 
+src="在%20Windows%20Movie%20Maker%20中创建自定义效果和过渡_files/ms867186.arrow_px_down(zh-cn,MSDN.10).gif" 
+border=0> </A><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#EVAA">SMPTE 擦除过渡</A> 
+<BR><A href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#EUAA"><IMG 
+alt=轮型过渡 
+src="在%20Windows%20Movie%20Maker%20中创建自定义效果和过渡_files/ms867186.arrow_px_down(zh-cn,MSDN.10).gif" 
+border=0> </A><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#EUAA">轮型过渡</A> 
+<BR><A href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#ETAA"><IMG 
+alt="WMTFX 过渡和效果" 
+src="在%20Windows%20Movie%20Maker%20中创建自定义效果和过渡_files/ms867186.arrow_px_down(zh-cn,MSDN.10).gif" 
+border=0> </A><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#ETAA">WMTFX 
+过渡和效果</A> <BR><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#ESAA"><IMG alt=模糊效果 
+src="在%20Windows%20Movie%20Maker%20中创建自定义效果和过渡_files/ms867186.arrow_px_down(zh-cn,MSDN.10).gif" 
+border=0> </A><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#ESAA">模糊效果</A> 
+<BR><A href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#ERAA"><IMG 
+alt=亮度效果 
+src="在%20Windows%20Movie%20Maker%20中创建自定义效果和过渡_files/ms867186.arrow_px_down(zh-cn,MSDN.10).gif" 
+border=0> </A><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#ERAA">亮度效果</A> 
+<BR><A href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#EQAA"><IMG 
+alt=淡入淡出效果 
+src="在%20Windows%20Movie%20Maker%20中创建自定义效果和过渡_files/ms867186.arrow_px_down(zh-cn,MSDN.10).gif" 
+border=0> </A><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#EQAA">淡入淡出效果</A> 
+<BR><A href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#EPAA"><IMG 
+alt=旧胶片效果 
+src="在%20Windows%20Movie%20Maker%20中创建自定义效果和过渡_files/ms867186.arrow_px_down(zh-cn,MSDN.10).gif" 
+border=0> </A><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#EPAA">旧胶片效果</A> 
+<BR><A href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#EOAA"><IMG 
+alt=过滤器效果 
+src="在%20Windows%20Movie%20Maker%20中创建自定义效果和过渡_files/ms867186.arrow_px_down(zh-cn,MSDN.10).gif" 
+border=0> </A><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#EOAA">过滤器效果</A> 
+<BR><A href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#ENAA"><IMG 
+alt=镜像和灰度效果 
+src="在%20Windows%20Movie%20Maker%20中创建自定义效果和过渡_files/ms867186.arrow_px_down(zh-cn,MSDN.10).gif" 
+border=0> </A><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#ENAA">镜像和灰度效果</A> 
+<BR><A href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#EMAA"><IMG 
+alt=像素化效果 
+src="在%20Windows%20Movie%20Maker%20中创建自定义效果和过渡_files/ms867186.arrow_px_down(zh-cn,MSDN.10).gif" 
+border=0> </A><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#EMAA">像素化效果</A> 
+<BR><A href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#ELAA"><IMG 
+alt=速度效果 
+src="在%20Windows%20Movie%20Maker%20中创建自定义效果和过渡_files/ms867186.arrow_px_down(zh-cn,MSDN.10).gif" 
+border=0> </A><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#ELAA">速度效果</A> 
+<BR><A href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#EKAA"><IMG 
+alt="将自定义图标添加到 Windows Movie Maker 中" 
+src="在%20Windows%20Movie%20Maker%20中创建自定义效果和过渡_files/ms867186.arrow_px_down(zh-cn,MSDN.10).gif" 
+border=0> </A><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#EKAA">将自定义图标添加到 
+Windows Movie Maker 中</A> <BR><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#EJAA"><IMG 
+alt=创建新的过渡和效果对象 
+src="在%20Windows%20Movie%20Maker%20中创建自定义效果和过渡_files/ms867186.arrow_px_down(zh-cn,MSDN.10).gif" 
+border=0> </A><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#EJAA">创建新的过渡和效果对象</A> 
+<BR><A href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#EIAA"><IMG 
+alt=示例代码概述 
+src="在%20Windows%20Movie%20Maker%20中创建自定义效果和过渡_files/ms867186.arrow_px_down(zh-cn,MSDN.10).gif" 
+border=0> </A><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#EIAA">示例代码概述</A> 
+<BR><A href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#EHAA"><IMG 
+alt=开始创建一种新效果 
+src="在%20Windows%20Movie%20Maker%20中创建自定义效果和过渡_files/ms867186.arrow_px_down(zh-cn,MSDN.10).gif" 
+border=0> </A><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#EHAA">开始创建一种新效果</A> 
+<BR><A href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#EGAA"><IMG 
+alt=开始创建一种新过渡 
+src="在%20Windows%20Movie%20Maker%20中创建自定义效果和过渡_files/ms867186.arrow_px_down(zh-cn,MSDN.10).gif" 
+border=0> </A><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#EGAA">开始创建一种新过渡</A> 
+<BR><A href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#EFAA"><IMG 
+alt="向 DLL 传递参数" 
+src="在%20Windows%20Movie%20Maker%20中创建自定义效果和过渡_files/ms867186.arrow_px_down(zh-cn,MSDN.10).gif" 
+border=0> </A><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#EFAA">向 DLL 传递参数</A> 
+<BR><A href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#EEAA"><IMG 
+alt="调试 DLL" 
+src="在%20Windows%20Movie%20Maker%20中创建自定义效果和过渡_files/ms867186.arrow_px_down(zh-cn,MSDN.10).gif" 
+border=0> </A><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#EEAA">调试 DLL</A> 
+<BR><A href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#EDAA"><IMG 
+alt="将 Blue Adjust 效果更改为 Purple Adjust" 
+src="在%20Windows%20Movie%20Maker%20中创建自定义效果和过渡_files/ms867186.arrow_px_down(zh-cn,MSDN.10).gif" 
+border=0> </A><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#EDAA">将 Blue Adjust 
+效果更改为 Purple Adjust</A> <BR><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#ECAA"><IMG alt=词汇表 
+src="在%20Windows%20Movie%20Maker%20中创建自定义效果和过渡_files/ms867186.arrow_px_down(zh-cn,MSDN.10).gif" 
+border=0> </A><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#ECAA">词汇表</A> <BR><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#EBAA"><IMG alt=更多信息 
+src="在%20Windows%20Movie%20Maker%20中创建自定义效果和过渡_files/ms867186.arrow_px_down(zh-cn,MSDN.10).gif" 
+border=0> </A><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#EBAA">更多信息</A> 
+<BR></P>
+<H3 id=E0BB0AA>简介</H3>
+<P>Microsoft® Windows® Movie Maker 2.0 和更高版本允许程序员将他们自己的自定义效果和过渡加载到 Windows Movie 
+Maker 界面中。这些效果或过渡可以是对现有效果或过渡的简单修改，或者是一个自定义编码的 Microsoft DirectX® Transform 
+复杂对象。本文包含了三个有关创建您自己的效果或过渡的主题。按照从最简单到最复杂的顺序，它们是： </P>
+<UL>
+  <LI>
+  <P><A id=ctl00_rs1_mainContentContainer_ctl01 
+  onclick="javascript:Track('ctl00_rs1_mainContentContainer_ctl00|ctl00_rs1_mainContentContainer_ctl01',this);" 
+  href="http://msdn.microsoft.com/library/en-us/dnwmt/html/moviemakersfx.asp?frame=true"><EM>在 
+  XML 中创建 Windows Movie Maker 效果和过渡</EM></A> 这是一项十分简单的任务，只需要一个文本编辑器以及对 XML 
+  有一个基本的了解。 </P>
+  <P><B>注要在</B> <B>Movie Maker 2.1 </B><B>中完成这一切，您必须拥有计算机的管理员特权。</B> </P>
+  <LI>
+  <P><A id=ctl00_rs1_mainContentContainer_ctl02 
+  onclick="javascript:Track('ctl00_rs1_mainContentContainer_ctl00|ctl00_rs1_mainContentContainer_ctl02',this);" 
+  href="http://msdn.microsoft.com/library/en-us/dnwmt/html/moviemakersfx.asp?frame=true"><EM>将自定义图标添加到 
+  Windows Movie Maker 中</EM></A> 这是一个稍微复杂一些的主题，它需要有如何利用 Microsoft Visual Studio 
+  来编译 C++ 项目的知识，以及能够使用制作自定义图标所需要的任何图形软件。 </P>
+  <LI>
+  <P><A id=ctl00_rs1_mainContentContainer_ctl03 
+  onclick="javascript:Track('ctl00_rs1_mainContentContainer_ctl00|ctl00_rs1_mainContentContainer_ctl03',this);" 
+  href="http://msdn.microsoft.com/library/en-us/dnwmt/html/moviemakersfx.asp?frame=true"><EM>创建新的过渡和效果对象</EM></A> 
+  这需要有 COM 和 ATL 编程、DirectX Transforms、与 Microsoft Direct3D® 体系结构的知识。另外，这还需要安装有 
+  DirectX Media 6.0 SDK 和 DirectX 7.0 SDK 头文件。（DirectX Media SDK 没有包含在 DirectX 
+  7.0 中。）从本文档末尾指定的位置安装的 Visual Studio .NET 和 DirectX Media SDK 都包括 DirectX 7.0 
+  头文件，但两者都不包含文档。只有完全安装的 DirectX 7.0 SDK（可以用本文档末尾的链接进行安装）才包含 DirectX 7.0 SDK 
+  文档。如果您想体验一下如何创建新的 DirectX Transform 对象，可以从 <A 
+  id=ctl00_rs1_mainContentContainer_ctl04 
+  onclick="javascript:Track('ctl00_rs1_mainContentContainer_ctl00|ctl00_rs1_mainContentContainer_ctl04',this);" 
+  href="http://go.microsoft.com/fwlink/?LinkId=12522"><EM>Microsoft 
+  网站</EM></A>下载包含有几种新的效果和过渡的示例代码的压缩文件。 </P></LI></UL>
+<P>为了完成在所有这些主题中描述的任务，您的计算机上必须安装有 Windows Movie Maker 2.0 或更高版本以及 Microsoft 
+Windows XP Home Edition 或 Windows XP Professional Edition 
+操作系统。创建自定义的图标或者新的过渡或效果对象还需要安装有 Visual Studio。其他的信息源，以及 DirectX Media SDK 与 
+DirectX 7.0 SDK 的安装位置可以在本文末尾的“更多信息”部分找到。</P>
+<DIV><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#mainSection"><IMG 
+alt="" 
+src="在%20Windows%20Movie%20Maker%20中创建自定义效果和过渡_files/ms867186.arrow_px_up(zh-cn,MSDN.10).gif" 
+border=0> </A><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#mainSection">返回页首</A> 
+<BR></DIV>
+<H3 id=E0AB0AA>在 XML 中创建 Windows Movie Maker 效果和过渡</H3>
+<P>Windows Movie Maker 在启动时读取一个专用 XML 文件，该文件指定要加载的所有效果和过渡，以及每个对象的参数值。虽然不能查看或更改该 
+XML 文件；但是您可以利用自己的参数创建自己的 XML 文件来加载选择的对象，并以自定义的名称来显示它们。 </P>
+<P>Windows Movie Maker 将其内置效果和过渡作为 COM 对象存储在几个随程序提供的 DLL 中。每个 COM 
+对象表示一种过渡或效果，并用一个全局唯一标识符 (GUID) 来识别。一个 DLL 可以包含几个 COM 
+对象。每个对象可以没有或者有多个参数，例如颜色或亮度，可以为这种效果或过渡设置这些参数。该 XML 
+文件指定加载哪些对象，并设定这些对象的任何数量的参数值。一个对象可以用不同的参数加载多次，从而可以根据同一个对象创建不同的效果或过渡。例如，缓慢运动和快速运动效果是同一个对象，只是传递进来的速度参数值不同。了解了这些效果和过渡是如何在 
+XML 文件中表达之后，您就可以用提供的 COM 对象创建自己的效果和过渡。 </P>
+<P><B>注对于</B> <B>Movie Maker 2.1</B> <B>，您必须拥有计算机的管理员特权。</B> </P>
+<P>本节介绍： </P>
+<UL>
+  <LI>
+  <P>如何创建自己的 XML 文件， </P>
+  <LI>
+  <P>可以在自定义 XML 文件中使用的必需的和可选的 XML 标记， </P>
+  <LI>
+  <P>创建效果和过渡可用的对象和参数，以及 </P>
+  <LI>
+  <P>Windows Movie Maker 用来加载它的标准效果和过渡的专用 
+XML代码，这样您可以快速、轻松地对其进行复制和修改。</P></LI></UL>
+<DIV><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#mainSection"><IMG 
+alt="" 
+src="在%20Windows%20Movie%20Maker%20中创建自定义效果和过渡_files/ms867186.arrow_px_up(zh-cn,MSDN.10).gif" 
+border=0> </A><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#mainSection">返回页首</A> 
+<BR></DIV>
+<H3 id=E6AA>读取 XML 文件</H3>
+<P>下面是 Windows Movie Maker 专用 XML 文件的一段代码，它描述了一种过渡 (Flip Right) 和一种效果 
+(Sepia)：</P><PRE>&lt;TransitionsAndEffects Version="1.0"&gt; 
+   &lt;Transitions&gt; 
+      &lt;TransitionDLL guid="{C63344D8-70D3-4032-9B32-7A3CAD5091A5}"&gt; 
+         &lt;Transition nameID="62800" iconid="91" comment="Flip, right"&gt; 
+            &lt;Param name="InternalName" value="Simple3D" /&gt; 
+            &lt;Param name="RevolveCamera" value="true" /&gt; 
+            &lt;Param name="ShowAFront" value="true" /&gt; 
+            &lt;Param name="ShowABack" value="false" /&gt; 
+            &lt;Param name="ShowBFront" value="false" /&gt; 
+            &lt;Param name="ShowBBack" value="true" /&gt; 
+         &lt;/Transition&gt; 
+         ... 
+      &lt;/TransitionDLL&gt; 
+      ... 
+   &lt;/Transitions&gt; 
+   &lt;Effects&gt; 
+      &lt;EffectDLL guid="{B4DC8DD9-2CC1-4081-9B2B-20D7030234EF}"&gt; 
+         &lt;Effect nameID="62863" iconid="25" comment="Sepia tone"&gt; 
+            &lt;Param name="InternalName" value="Standard" /&gt; 
+            &lt;Param name="Desaturate" value="true" /&gt; 
+            &lt;Param name="Red" value="0.10" /&gt; 
+            &lt;Param name="Magenta" value="0.09" /&gt; 
+            &lt;Param name="Yellow" value="0.25" /&gt; 
+            &lt;Param name="contrast" value="1.0" /&gt; 
+         &lt;/Effect&gt; 
+         ... 
+      &lt;/EffectDLL&gt; 
+      ... 
+   &lt;/Effects&gt; 
+&lt;/TransitionsAndEffects&gt; 
+</PRE>
+<P>下表解释了前面代码中的标记和属性。过渡和效果使用的标记大多数都相同。对于不同的标记，该表都指出了区别之处。</P>
+<TABLE>
+  <TBODY>
+  <TR>
+    <TH>
+      <P>元素</P></TH>
+    <TH>
+      <P>属性</P></TH>
+    <TH>
+      <P>说明</P></TH></TR>
+  <TR>
+    <TD>
+      <P>TransitionsAndEffects</P></TD>
+    <TD>&nbsp; 
+      <P></P></TD>
+    <TD>
+      <P>整个 XML 文件的边界标记。</P></TD></TR>
+  <TR>
+    <TD>&nbsp; 
+      <P></P></TD>
+    <TD>
+      <P>Version</P></TD>
+    <TD>
+      <P>一个必需的域，应当设置为“1.0”。</P></TD></TR>
+  <TR>
+    <TD>
+      <P>Transitions<BR>或<BR>Effects</P></TD>
+    <TD>&nbsp; 
+      <P></P></TD>
+    <TD>
+      <P>该标记是所有过渡组或所有效果组的边界。对于一种过渡或效果，要正确使用该标记。</P></TD></TR>
+  <TR>
+    <TD>
+      <P>TransitionDLL<BR>或<BR>EffectDLL</P></TD>
+    <TD>&nbsp; 
+      <P></P></TD>
+    <TD>
+      <P>该标记是单个效果或过渡 COM 对象的边界，由 GUID 
+      标识。它可以保存一种或多种自定义效果或过渡。对于一种过渡或效果，要正确使用该标记。</P></TD></TR>
+  <TR>
+    <TD>&nbsp; 
+      <P></P></TD>
+    <TD>
+      <P>guid</P></TD>
+    <TD>
+      <P>列出定义过渡或效果 COM 对象的 GUID。（该 GUID 实际上就是 COM 对象的 ClassID，它实现基础代码中的 
+      DirectShow <B>IDXEffect</B> 界面。）这些值由<A 
+      id=ctl00_rs1_mainContentContainer_ctl05 
+      onclick="javascript:Track('ctl00_rs1_mainContentContainer_ctl00|ctl00_rs1_mainContentContainer_ctl05',this);" 
+      href="http://msdn.microsoft.com/library/en-us/dnwmt/html/moviemakersfx.asp?frame=true"><EM>Windows 
+      Movie Maker 提供的效果和过渡对象</EM></A>给定。</P></TD></TR>
+  <TR>
+    <TD>
+      <P>Transition<BR>或<BR>Effect</P></TD>
+    <TD>&nbsp; 
+      <P></P></TD>
+    <TD>
+      <P>这是利用由 TransitionDLL 或 EffectDLL 标记指定的过渡或效果 COM 对象的单个过渡或效果的边界标记。一个 COM 
+      对象可以包含几个过渡或效果。（虽然一个 DLL 文件可以包含几个 COM 对象，但是对于由 Windows Movie Maker 提供的 COM 
+      对象则不需要 DLL 的名称。）对于一种过渡或效果，要正确使用该标记。</P></TD></TR>
+  <TR>
+    <TD>&nbsp; 
+      <P></P></TD>
+    <TD>
+      <P>nameID </P>
+      <P>或</P>
+      <P>name</P></TD>
+    <TD>
+      <P><B>Do not use nameID;</B> 这是 Windows Movie Maker 
+      用于过渡的内部标识符。相反，当创建自己的文件时，按如下所示替换 <B>name</B> 属性： </P>
+      <P>&lt;Effect <B>name</B>="My New Effect" iconid="25" comment="My cool new 
+      effect"&gt;</P>
+      <P>赋的值将会由 Windows Movie Maker 显示。如果名称不唯一，在预览时显示的效果或过渡就可能不正确；但是 Windows 
+      Movie Maker 将会在实际的剪辑视频中使用正确的效果或过渡。</P></TD></TR>
+  <TR>
+    <TD>&nbsp; 
+      <P></P></TD>
+    <TD>
+      <P>iconID</P></TD>
+    <TD>
+      <P>标识 Windows Movie Maker 
+      显示的过渡图标。对于自定义图标，这是一个以零为基数的数值，它表明使用位图条中的哪一个图标。通过选择从 1 到大约 90 的数值，也可以使用 
+      Windows Movie Maker 现有的图标之一。有关添加自定义图标的更多信息，请参阅<A 
+      id=ctl00_rs1_mainContentContainer_ctl06 
+      onclick="javascript:Track('ctl00_rs1_mainContentContainer_ctl00|ctl00_rs1_mainContentContainer_ctl06',this);" 
+      href="http://msdn.microsoft.com/library/en-us/dnwmt/html/moviemakersfx.asp?frame=true"><EM>将自定义图标添加到 
+      Windows Movie Maker 中</EM></A>。</P></TD></TR>
+  <TR>
+    <TD>&nbsp; 
+      <P></P></TD>
+    <TD>
+      <P>comment</P></TD>
+    <TD>
+      <P>Windows Movie Maker 忽略的信息。标准标记中的 Comment 
+      属性，通常显示某种效果或过渡的显示名称，尽管它并不总是完全地匹配。</P></TD></TR>
+  <TR>
+    <TD>
+      <P>Param</P></TD>
+    <TD>&nbsp; 
+      <P></P></TD>
+    <TD>
+      <P>保存对象中可设置参数的标记。对象有多少个参数，就有多少个 <B>Param</B> 标记。</P></TD></TR>
+  <TR>
+    <TD>&nbsp; 
+      <P></P></TD>
+    <TD>
+      <P>Name</P></TD>
+    <TD>
+      <P>要设置的参数的名称。</P></TD></TR>
+  <TR>
+    <TD>&nbsp; 
+      <P></P></TD>
+    <TD>
+      <P>Value</P></TD>
+    <TD>
+      <P>引号中赋给参数的值。</P></TD></TR></TBODY></TABLE>
+<TABLE>
+  <TBODY></TBODY></TABLE>
+<DIV><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#mainSection"><IMG 
+alt="" 
+src="在%20Windows%20Movie%20Maker%20中创建自定义效果和过渡_files/ms867186.arrow_px_up(zh-cn,MSDN.10).gif" 
+border=0> </A><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#mainSection">返回页首</A> 
+<BR></DIV>
+<H3 id=E5AA>生成您自己的 XML 文件</H3>
+<P>要为 Windows Movie Maker 建立自己的 XML 文件，必须在两个地方中的一处创建（或使用现有的）名为 <B>AddOnTFX</B> 
+的文件夹，这取决于您拥有的是哪一个版本的 Movie Maker。</P>
+<P><B>对于</B> <B>Movie Maker 2.0</B> <B>：</B> </P>
+<UL>
+  <LI>
+  <P>创建或使用 &lt;Movie Maker installation path&gt;\&lt;decimal LCID&gt; \AddOnTFX 
+  文件夹，其中，&lt;Movie Maker installation path&gt; 是 Movie Maker 的安装位置，而&lt;decimal 
+  LCID&gt; 是所安装的语言版本的 decimal 区域设置 ID（英语版本的区域设置 ID 为 1033）。</P>
+  <P>例如，对于英文版的 Movie Maker，您可以使用<B>C:\Program Files\Movie 
+  Maker\1033\AddOnTFX</B>。这个位置可以使每个人都能使用您的效果，但是要在这个位置创建文件夹，必须有计算机的管理员特权。</P>
+  <LI>
+  <P>创建或使用 &lt;OS Drive&gt;\Documents and Settings\&lt;username&gt;\Application 
+  Data\Microsoft Movie Maker\AddOnTFX 文件夹，其中， &lt;OS Drive&gt;是安装 Windows 
+  的磁盘驱动器，而 &lt;username&gt;是您的登录名。总是允许用户在这里添加新文件夹，但是只允许登录名为 username 
+  的用户使用创建的效果。</P></LI></UL>
+<P>对于<B> Movie Maker 2.1</B> <B>：</B> </P>
+<P>对于 Movie Maker 2.1，您必须拥有安装自定义效果的管理员特权。利用下面的一个或两个位置来安装您的 XML（以及任何自定义 
+DLL）文件：</P>
+<UL>
+  <LI>
+  <P>&lt;Movie Maker installation path&gt;\MUI\&lt;hexadecimal LCID 
+  &gt;\AddOnTFX，其中， &lt;Movie Maker installation path&gt;是 Movie Maker 的安装位置，而 
+  &lt;hexadecimal LCID&gt;是安装的语言版本的十六进制区域设置 ID（英语版本的十六进制区域设置 ID 为 0409）。</P>
+  <P>例如，对于英文版的 Movie Maker，您可以使用<B>C:\Program Files\Movie 
+  Maker\0409\AddOnTFX</B>。这个位置可以使每个人都能使用您的效果，但是要在这个位置创建文件夹，必须有计算机的管理员特权。</P>
+  <LI>
+  <P>&lt;Movie Maker installation path&gt; 
+  \shared\AddOnTFX。例如，在您的计算机上，这个文件夹路径可以是<B>C:\Program Files\Movie 
+  Maker\Shared\AddOnTFX</B>。这使得各个地方的每个人都可以使用您的效果，但是要在这个位置创建文件夹，必须有计算机的管理员特权。</P></LI></UL>
+<P>Windows Movie Maker 
+对这两条路径（每个版本的）都进行检查，并加载在这两个位置发现的所有过渡和效果。如果您计划拥有本地版本的过渡，一定要使用区域设置 ID 
+文件夹，而不要使用本地用户或共享文件夹。</P>
+<P>在已经创建的<B>AddOnTFX</B>文件夹中，用记事本或任何其他 XML 制作软件创建一个扩展名为 .xml 的新文件。除了扩展名必须为 .xml 
+外，对该文件的命名没有限制。创建新 XML 文件之后，可以粘贴到前面的示例代码中（请参阅“读取 XML 
+文件”）并做一些更改（例如，将<B>nameID</B>属性更改为<B>name</B>，添加您自己的名称，并删除“...”）。下面的代码块显示了前面的示例修改后的版本。这是一个完整的 
+XML 文件，它创建了一个不同的自定义 Flip Right 过渡和 Sepia 效果。这些新代码使用了从标准 Windows Movie Maker 
+图标集中获得的新图标：</P><PRE>&lt;TransitionsAndEffects Version="1.0" &gt; 
+   &lt;Transitions&gt; 
+      &lt;TransitionDLL guid="{C63344D8-70D3-4032-9B32-7A3CAD5091A5}"&gt; 
+         &lt;Transition name="My cool transition" iconid="88"&gt; 
+            &lt;Param name="InternalName" value="Simple3D" /&gt; 
+            &lt;Param name="RevolveCamera" value="true" /&gt; 
+            &lt;Param name="ShowAFront" value="true" /&gt; 
+            &lt;Param name="ShowABack" value="false" /&gt; 
+            &lt;Param name="InitialScaleA" value="smaller" /&gt; 
+            &lt;Param name="FinalScaleA" value="bigger" /&gt; 
+            &lt;Param name="ShowBFront" value="false" /&gt; 
+            &lt;Param name="ShowBBack" value="true" /&gt; 
+         &lt;/Transition&gt; 
+      &lt;/TransitionDLL&gt; 
+   &lt;/Transitions&gt; 
+   &lt;Effects&gt; 
+      &lt;EffectDLL guid="{B4DC8DD9-2CC1-4081-9B2B-20D7030234EF}"&gt; 
+         &lt;Effect name="My Yellow, Rotated Effect" iconid="20" comment="Yellow, turned 3/4"&gt; 
+            &lt;Param name="InternalName" value="Standard" /&gt; 
+            &lt;Param name="Desaturate" value="true" /&gt; 
+            &lt;Param name="Red" value="0.0" /&gt; 
+            &lt;Param name="Magenta" value="0.09" /&gt; 
+            &lt;Param name="Yellow" value="0.75" /&gt; 
+            &lt;Param name="contrast" value="1.0" /&gt; 
+            &lt;Param name="Rotate2DA" value="270.0" /&gt; 
+         &lt;/Effect&gt; 
+      &lt;/EffectDLL&gt; 
+   &lt;/Effects&gt; 
+&lt;/TransitionsAndEffects&gt; 
+</PRE>
+<P>在创建自定义 XML 文件时，要了解下面的两条预防措施： </P>
+<UL>
+  <LI>
+  <P>如果您的 XML 文件格式不正确，如果使用的 GUID 不正确，或者您的 XML 文件有一些其他问题，则 Windows Movie Maker 
+  将可能不会从该文件加载任何效果或过渡，并且不会通知您没有加载该文件。如果创建的效果或过渡没有出现在 Windows Movie Maker 界面中，则要查找 
+  XML 文件中的错误。 </P>
+  <LI>
+  <P>Windows Movie Maker 只在启动时加载 XML 文件。在 Windows Movie Maker 运行时对 XML 
+  文件所做的任何更改都不会生效，直到您关闭和重新启动 Windows Movie Maker。 </P></LI></UL>
+<DIV><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#mainSection"><IMG 
+alt="" 
+src="在%20Windows%20Movie%20Maker%20中创建自定义效果和过渡_files/ms867186.arrow_px_up(zh-cn,MSDN.10).gif" 
+border=0> </A><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#mainSection">返回页首</A> 
+<BR></DIV>
+<H3 id=E4AA>由 Windows Movie Maker 提供的效果和过渡对象</H3>
+<P>本主题中的两个表列出了 Windows Movie Maker 
+提供的所有基本过渡和效果对象。每个过渡或效果对象可能包含一个或多个可以更改的参数，甚至还包括带其自己的参数的子类。不必为创建的效果或过渡设置所有的参数，因为每个参数都有一个默认值。</P>
+<P>过渡和效果在不同的表中显示。不能将过渡对象用作效果，也不能将效果对象用作过渡。例如，因为 <B>Pixelate</B> 
+对象是一种效果，而不是一种过渡，所以下面的代码将不会起作用：</P><PRE>&lt;TransitionDLL guid="{4CCEA634-FBE0-11D1-906A-00C04FD9189D}" comment="Pixelate"&gt; 
+   &lt;Transition nameID="62818" iconid="19" comment="Pixelate"&gt; 
+      &lt;Param name="MaxSquare" value="25" /&gt; 
+   &lt;/Transition&gt; 
+&lt;/TransitionDLL&gt; 
+</PRE>
+<P>有关所有过渡和效果的详细信息在这些表下面的主题中进行了说明，这些表中包含有这些主题的链接。每个主题都包含有 Windows Movie Maker 
+用来加载 Windows Movie Maker 提供的效果或过渡的 XML 代码。下面表中使用的名称是任意的；Windows Movie Maker 
+显示的名称类似于显示的 XML 代码中分配给 EffectDLL 标记的 <B>comment</B> 属性的名称。 </P>
+<TABLE><B>过渡</B> 
+  <TBODY>
+  <TR>
+    <TH>
+      <P>名称</P></TH>
+    <TH>
+      <P>GUID</P></TH>
+    <TH>
+      <P>说明</P></TH></TR>
+  <TR>
+    <TD>
+      <P><A id=ctl00_rs1_mainContentContainer_ctl07 
+      onclick="javascript:Track('ctl00_rs1_mainContentContainer_ctl00|ctl00_rs1_mainContentContainer_ctl07',this);" 
+      href="http://msdn.microsoft.com/library/en-us/dnwmt/html/moviemakersfx.asp?frame=true"><EM>Bars</EM></A> 
+      </P></TD>
+    <TD>
+      <P>2E7700B7-27C4-437F-9FBF-1E8BE2817566</P></TD>
+    <TD>
+      <P>在水平段上，将第一个视频合并到第二个视频中。</P></TD></TR>
+  <TR>
+    <TD>
+      <P><A id=ctl00_rs1_mainContentContainer_ctl08 
+      onclick="javascript:Track('ctl00_rs1_mainContentContainer_ctl00|ctl00_rs1_mainContentContainer_ctl08',this);" 
+      href="http://msdn.microsoft.com/library/en-us/dnwmt/html/moviemakersfx.asp?frame=true"><EM>Checkerboard</EM></A> 
+      </P></TD>
+    <TD>
+      <P>B3EE7802-8224-4787-A1EA-F0DE16DEABD3</P></TD>
+    <TD>
+      <P>通过方形区域将第一个视频合并到第二个视频中。</P></TD></TR>
+  <TR>
+    <TD>
+      <P><A id=ctl00_rs1_mainContentContainer_ctl09 
+      onclick="javascript:Track('ctl00_rs1_mainContentContainer_ctl00|ctl00_rs1_mainContentContainer_ctl09',this);" 
+      href="http://msdn.microsoft.com/library/en-us/dnwmt/html/moviemakersfx.asp?frame=true"><EM>DirectX 
+      Media Wipe</EM></A> </P></TD>
+    <TD>
+      <P>AF279B30-86EB-11D1-81BF-0000F87557DB</P></TD>
+    <TD>
+      <P>各种自定义 DirectX Media 擦除。</P></TD></TR>
+  <TR>
+    <TD>
+      <P><A id=ctl00_rs1_mainContentContainer_ctl10 
+      onclick="javascript:Track('ctl00_rs1_mainContentContainer_ctl00|ctl00_rs1_mainContentContainer_ctl10',this);" 
+      href="http://msdn.microsoft.com/library/en-us/dnwmt/html/moviemakersfx.asp?frame=true"><EM>Dissolve</EM></A> 
+      </P></TD>
+    <TD>
+      <P>F7F4A1B6-8E87-452F-A2D7-3077F508DBC0</P></TD>
+    <TD>
+      <P>将一个视频段以离散点的形式消隐到另一个视频段中（与淡入淡出相对，它可以使视频实现无缝交换）。</P></TD></TR>
+  <TR>
+    <TD>
+      <P><A id=ctl00_rs1_mainContentContainer_ctl11 
+      onclick="javascript:Track('ctl00_rs1_mainContentContainer_ctl00|ctl00_rs1_mainContentContainer_ctl11',this);" 
+      href="http://msdn.microsoft.com/library/en-us/dnwmt/html/moviemakersfx.asp?frame=true"><EM>Fade</EM></A> 
+      </P></TD>
+    <TD>
+      <P>16B280C5-EE70-11D1-9066-00C04FD9189D</P></TD>
+    <TD>
+      <P>将第一个视频淡入到第二个视频中。</P></TD></TR>
+  <TR>
+    <TD>
+      <P><A id=ctl00_rs1_mainContentContainer_ctl12 
+      onclick="javascript:Track('ctl00_rs1_mainContentContainer_ctl00|ctl00_rs1_mainContentContainer_ctl12',this);" 
+      href="http://msdn.microsoft.com/library/en-us/dnwmt/html/moviemakersfx.asp?frame=true"><EM>Iris</EM></A> 
+      </P></TD>
+    <TD>
+      <P>049F2CE6-D996-4721-897A-DB15CE9EB73D</P></TD>
+    <TD>
+      <P>将第一个视频分裂成四部分并从中心按对角线方向向外移动。</P></TD></TR>
+  <TR>
+    <TD>
+      <P><A id=ctl00_rs1_mainContentContainer_ctl13 
+      onclick="javascript:Track('ctl00_rs1_mainContentContainer_ctl00|ctl00_rs1_mainContentContainer_ctl13',this);" 
+      href="http://msdn.microsoft.com/library/en-us/dnwmt/html/moviemakersfx.asp?frame=true"><EM>Pixelate</EM></A> 
+      </P></TD>
+    <TD>
+      <P>4CCEA634-FBE0-11D1-906A-00C04FD9189D</P></TD>
+    <TD>
+      <P>使第一个视频粗化，然后转换到第二个视频。</P></TD></TR>
+  <TR>
+    <TD>
+      <P><A id=ctl00_rs1_mainContentContainer_ctl14 
+      onclick="javascript:Track('ctl00_rs1_mainContentContainer_ctl00|ctl00_rs1_mainContentContainer_ctl14',this);" 
+      href="http://msdn.microsoft.com/library/en-us/dnwmt/html/moviemakersfx.asp?frame=true"><EM>SMPTE 
+      Wipe</EM></A> </P></TD>
+    <TD>
+      <P>DE75D012-7A65-11D2-8CEA-00A0C9441E20</P></TD>
+    <TD>
+      <P>各种标准的 SMPTE 过渡。有关详细信息，请参阅 Microsoft DirectShow 文档。</P></TD></TR>
+  <TR>
+    <TD>
+      <P><A id=ctl00_rs1_mainContentContainer_ctl15 
+      onclick="javascript:Track('ctl00_rs1_mainContentContainer_ctl00|ctl00_rs1_mainContentContainer_ctl15',this);" 
+      href="http://msdn.microsoft.com/library/en-us/dnwmt/html/moviemakersfx.asp?frame=true"><EM>Wheel</EM></A> 
+      </P></TD>
+    <TD>
+      <P>5AE1DAE0-1461-11D2-A484-00C04F8EFB69</P></TD>
+    <TD>
+      <P>提供从第一个视频到第二个视频的旋转轮辐擦除。</P></TD></TR>
+  <TR>
+    <TD>
+      <P><A id=ctl00_rs1_mainContentContainer_ctl16 
+      onclick="javascript:Track('ctl00_rs1_mainContentContainer_ctl00|ctl00_rs1_mainContentContainer_ctl16',this);" 
+      href="http://msdn.microsoft.com/library/en-us/dnwmt/html/moviemakersfx.asp?frame=true"><EM>WMTFX 
+      transitions</EM></A> </P></TD>
+    <TD>
+      <P>C63344D8-70D3-4032-9B32-7A3CAD5091A5</P></TD>
+    <TD>
+      <P>各种过渡和效果。</P></TD></TR></TBODY></TABLE>
+<TABLE>
+  <TBODY></TBODY></TABLE>
+<TABLE><B>效果</B> 
+  <TBODY>
+  <TR>
+    <TH>
+      <P>名称</P></TH>
+    <TH>
+      <P>GUID</P></TH>
+    <TH>
+      <P>说明</P></TH></TR>
+  <TR>
+    <TD>
+      <P><A id=ctl00_rs1_mainContentContainer_ctl17 
+      onclick="javascript:Track('ctl00_rs1_mainContentContainer_ctl00|ctl00_rs1_mainContentContainer_ctl17',this);" 
+      href="http://msdn.microsoft.com/library/en-us/dnwmt/html/moviemakersfx.asp?frame=true"><EM>Blur</EM></A> 
+      </P></TD>
+    <TD>
+      <P>7312498D-E87A-11D1-81E0-0000F87557DB</P></TD>
+    <TD>
+      <P>模糊图像。</P></TD></TR>
+  <TR>
+    <TD>
+      <P><A id=ctl00_rs1_mainContentContainer_ctl18 
+      onclick="javascript:Track('ctl00_rs1_mainContentContainer_ctl00|ctl00_rs1_mainContentContainer_ctl18',this);" 
+      href="http://msdn.microsoft.com/library/en-us/dnwmt/html/moviemakersfx.asp?frame=true"><EM>Brightness</EM></A> 
+      </P></TD>
+    <TD>
+      <P>5A20FD6F-F8FE-4a22-9EE7-307D72D09E6E</P></TD>
+    <TD>
+      <P>修改视频段的亮度。</P></TD></TR>
+  <TR>
+    <TD>
+      <P><A id=ctl00_rs1_mainContentContainer_ctl19 
+      onclick="javascript:Track('ctl00_rs1_mainContentContainer_ctl00|ctl00_rs1_mainContentContainer_ctl19',this);" 
+      href="http://msdn.microsoft.com/library/en-us/dnwmt/html/moviemakersfx.asp?frame=true"><EM>Fade</EM></A> 
+      </P></TD>
+    <TD>
+      <P>EC85D8F1-1C4E-46e4-A748-7AA04E7C0496</P></TD>
+    <TD>
+      <P>使剪辑淡入或淡出选择的纯色。</P></TD></TR>
+  <TR>
+    <TD>
+      <P><A id=ctl00_rs1_mainContentContainer_ctl20 
+      onclick="javascript:Track('ctl00_rs1_mainContentContainer_ctl00|ctl00_rs1_mainContentContainer_ctl20',this);" 
+      href="http://msdn.microsoft.com/library/en-us/dnwmt/html/moviemakersfx.asp?frame=true"><EM>Film 
+      Aging</EM></A> </P></TD>
+    <TD>
+      <P>ADEADEB8-E54B-11d1-9A72-0000F875EADE</P></TD>
+    <TD>
+      <P>采用颗粒状、涂抹，以及其他的视觉假象，使胶片看起来好像是旧的。</P></TD></TR>
+  <TR>
+    <TD>
+      <P><A id=ctl00_rs1_mainContentContainer_ctl21 
+      onclick="javascript:Track('ctl00_rs1_mainContentContainer_ctl00|ctl00_rs1_mainContentContainer_ctl21',this);" 
+      href="http://msdn.microsoft.com/library/en-us/dnwmt/html/moviemakersfx.asp?frame=true"><EM>Filter</EM></A> 
+      </P></TD>
+    <TD>
+      <P>E673DCF2-C316-4c6f-AA96-4E4DC6DC291E</P></TD>
+    <TD>
+      <P>提供各种视频效果，如霓虹灯闪烁、海绵状和浮雕。</P></TD></TR>
+  <TR>
+    <TD>
+      <P><A id=ctl00_rs1_mainContentContainer_ctl22 
+      onclick="javascript:Track('ctl00_rs1_mainContentContainer_ctl00|ctl00_rs1_mainContentContainer_ctl22',this);" 
+      href="http://msdn.microsoft.com/library/en-us/dnwmt/html/moviemakersfx.asp?frame=true"><EM>Mirror 
+      and Grayscale</EM></A> </P></TD>
+    <TD>
+      <P>16B280C8-EE70-11D1-9066-00C04FD9189D</P></TD>
+    <TD>
+      <P>使图像水平翻转或从彩色转变成灰度，创建黑白图像。</P></TD></TR>
+  <TR>
+    <TD>
+      <P><A id=ctl00_rs1_mainContentContainer_ctl23 
+      onclick="javascript:Track('ctl00_rs1_mainContentContainer_ctl00|ctl00_rs1_mainContentContainer_ctl23',this);" 
+      href="http://msdn.microsoft.com/library/en-us/dnwmt/html/moviemakersfx.asp?frame=true"><EM>Pixelate</EM></A> 
+      </P></TD>
+    <TD>
+      <P>4CCEA634-FBE0-11D1-906A-00C04FD9189D</P></TD>
+    <TD>
+      <P>使图像粗化成纯色的方格，表示原来区域像素的平均颜色。</P></TD></TR>
+  <TR>
+    <TD>
+      <P><A id=ctl00_rs1_mainContentContainer_ctl24 
+      onclick="javascript:Track('ctl00_rs1_mainContentContainer_ctl00|ctl00_rs1_mainContentContainer_ctl24',this);" 
+      href="http://msdn.microsoft.com/library/en-us/dnwmt/html/moviemakersfx.asp?frame=true"><EM>Speed</EM></A> 
+      </P></TD>
+    <TD>
+      <P>00000000-0000-0000-0000-000000000000</P></TD>
+    <TD>
+      <P>空 GUID 只用于减速或加速。</P></TD></TR>
+  <TR>
+    <TD>
+      <P><A id=ctl00_rs1_mainContentContainer_ctl25 
+      onclick="javascript:Track('ctl00_rs1_mainContentContainer_ctl00|ctl00_rs1_mainContentContainer_ctl25',this);" 
+      href="http://msdn.microsoft.com/library/en-us/dnwmt/html/moviemakersfx.asp?frame=true"><EM>WMTFX 
+      effects</EM></A> </P></TD>
+    <TD>
+      <P>B4DC8DD9-2CC1-4081-9B2B-20D7030234EF</P></TD>
+    <TD>
+      <P>提供各种过渡和效果。</P></TD></TR></TBODY></TABLE>
+<TABLE>
+  <TBODY></TBODY></TABLE>
+<DIV><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#mainSection"><IMG 
+alt="" 
+src="在%20Windows%20Movie%20Maker%20中创建自定义效果和过渡_files/ms867186.arrow_px_up(zh-cn,MSDN.10).gif" 
+border=0> </A><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#mainSection">返回页首</A> 
+<BR></DIV>
+<H3 id=E3AA>条形过渡</H3>
+<P>条形过渡在水平段上将第一个视频合并到第二个视频中。它不采用参数。下列 XML 代码显示了 Windows Movie Maker 中包括的条形过渡： 
+</P><PRE>&lt;TransitionDLL guid="{2E7700B7-27C4-437F-9FBF-1E8BE2817566}"&gt; 
+   &lt;Transition nameID="62817" iconid="37" comment="Bars"/&gt; 
+&lt;/TransitionDLL&gt; 
+</PRE>
+<P>另请参阅 </P>
+<UL>
+  <LI>
+  <P><A id=ctl00_rs1_mainContentContainer_ctl26 
+  onclick="javascript:Track('ctl00_rs1_mainContentContainer_ctl00|ctl00_rs1_mainContentContainer_ctl26',this);" 
+  href="http://msdn.microsoft.com/library/en-us/dnwmt/html/moviemakersfx.asp?frame=true">Effect 
+  and Transition Objects Provided by Windows Movie Maker </A></P></LI></UL>
+<DIV><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#mainSection"><IMG 
+alt="" 
+src="在%20Windows%20Movie%20Maker%20中创建自定义效果和过渡_files/ms867186.arrow_px_up(zh-cn,MSDN.10).gif" 
+border=0> </A><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#mainSection">返回页首</A> 
+<BR></DIV>
+<H3 id=E2AA>棋格过渡</H3>
+<P>棋格过渡通过方形区域将第一个视频合并到第二个视频中。它不采用参数。下列 XML 代码显示了 Windows Movie Maker 中包括的棋格过渡： 
+</P><PRE>&lt;TransitionDLL guid="{B3EE7802-8224-4787-A1EA-F0DE16DEABD3}"&gt; 
+   &lt;Transition nameID="62815" iconid="4" comment="Checkerboard, Across" /&gt; 
+&lt;/TransitionDLL&gt; 
+</PRE>
+<P>另请参阅 </P>
+<UL>
+  <LI>
+  <P><A id=ctl00_rs1_mainContentContainer_ctl27 
+  onclick="javascript:Track('ctl00_rs1_mainContentContainer_ctl00|ctl00_rs1_mainContentContainer_ctl27',this);" 
+  href="http://msdn.microsoft.com/library/en-us/dnwmt/html/moviemakersfx.asp?frame=true">Effect 
+  and Transition Objects Provided by Windows Movie Maker </A></P></LI></UL>
+<DIV><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#mainSection"><IMG 
+alt="" 
+src="在%20Windows%20Movie%20Maker%20中创建自定义效果和过渡_files/ms867186.arrow_px_up(zh-cn,MSDN.10).gif" 
+border=0> </A><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#mainSection">返回页首</A> 
+<BR></DIV>
+<H3 id=E1AA>DirectX Media 擦除过渡</H3>
+<P>DirectX Media 擦除过渡提供基于 DirectX Media 擦除的擦除。DirectX Media 擦除采用下列参数。</P>
+<TABLE>
+  <TBODY>
+  <TR>
+    <TH>
+      <P>参数</P></TH>
+    <TH>
+      <P>类型</P></TH>
+    <TH>
+      <P>默认值</P></TH>
+    <TH>
+      <P>范围</P></TH>
+    <TH>
+      <P>说明</P></TH></TR>
+  <TR>
+    <TD>
+      <P>GradientSize</P></TD>
+    <TD>
+      <P><B>float</B> </P></TD>
+    <TD>
+      <P>0.25</P></TD>
+    <TD>
+      <P>0.0 to 1.0</P></TD>
+    <TD>
+      <P>两个输入之间渐变过渡区的宽度，用占输出大小的百分比表示。</P></TD></TR>
+  <TR>
+    <TD>
+      <P>WipeStype</P></TD>
+    <TD>
+      <P><B>int</B> </P></TD>
+    <TD>
+      <P>0</P></TD>
+    <TD>
+      <P>0 or 1</P></TD>
+    <TD>
+      <P>擦除的方向。可以是水平的 (0) 或垂直的 (1)。</P></TD></TR></TBODY></TABLE>
+<TABLE>
+  <TBODY></TBODY></TABLE>
+<P>下列 XML 代码显示了 Windows Movie Maker 中包括的 DirectX Media 擦除过渡： </P><PRE>&lt;TransitionDLL guid="{AF279B30-86EB-11D1-81BF-0000F87557DB}" comment="Wipe"&gt; 
+   &lt;Transition nameID="62820" iconid="60" comment="Wipe, Wide Down"&gt; 
+      &lt;Param name="GradientSize" value="0.6" /&gt; 
+      &lt;Param name="wipeStyle" value="1" /&gt; 
+   &lt;/Transition&gt; 
+   &lt;Transition nameID="62821" iconid="58" comment="Wipe, Normal Down"&gt; 
+      &lt;Param name="GradientSize" value="0.5" /&gt; 
+      &lt;Param name="wipeStyle" value="1" /&gt; 
+   &lt;/Transition&gt; 
+   &lt;Transition nameID="62822" iconid="56" comment="Wipe, Narrow Down"&gt; 
+      &lt;Param name="GradientSize" value="0.2" /&gt; 
+      &lt;Param name="wipeStyle" value="1" /&gt; 
+   &lt;/Transition&gt; 
+   &lt;Transition nameID="62823" iconid="59" comment="Wipe, Wide right"&gt; 
+      &lt;Param name="GradientSize" value="0.6" /&gt; 
+      &lt;Param name="wipeStyle" value="0" /&gt; 
+   &lt;/Transition&gt; 
+   &lt;Transition nameID="62824" iconid="57" comment="Wipe, Normal right"&gt; 
+      &lt;Param name="GradientSize" value="0.5" /&gt; 
+      &lt;Param name="wipeStyle" value="0" /&gt; 
+   &lt;/Transition&gt; 
+   &lt;Transition nameID="62825" iconid="55" comment="Wipe, Narrow right"&gt; 
+      &lt;Param name="GradientSize" value="0.2" /&gt; 
+      &lt;Param name="wipeStyle" value="0" /&gt; 
+   &lt;/Transition&gt; 
+&lt;/TransitionDLL&gt; 
+</PRE>
+<P>另请参阅 </P>
+<UL>
+  <LI>
+  <P><A id=ctl00_rs1_mainContentContainer_ctl28 
+  onclick="javascript:Track('ctl00_rs1_mainContentContainer_ctl00|ctl00_rs1_mainContentContainer_ctl28',this);" 
+  href="http://msdn.microsoft.com/library/en-us/dnwmt/html/moviemakersfx.asp?frame=true">Effect 
+  and Transition Objects Provided by Windows Movie Maker </A></P></LI></UL>
+<DIV><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#mainSection"><IMG 
+alt="" 
+src="在%20Windows%20Movie%20Maker%20中创建自定义效果和过渡_files/ms867186.arrow_px_up(zh-cn,MSDN.10).gif" 
+border=0> </A><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#mainSection">返回页首</A> 
+<BR></DIV>
+<H3 id=EZAA>消隐过渡</H3>
+<P>消隐过渡以离散点的形式将一个视频段消隐到另一个视频段中（与淡入淡出相对，它可以使视频实现无缝交换）。它不采用参数。下列 XML 代码显示了 
+MovieMaker 中包括的消隐过渡： </P><PRE>&lt;TransitionDLL guid="{F7F4A1B6-8E87-452F-A2D7-3077F508DBC0}"&gt; 
+   &lt;Transition nameID="62816" iconid="38" comment="Dissolve" /&gt; 
+&lt;/TransitionDLL&gt; 
+</PRE>
+<P>另请参阅 </P>
+<UL>
+  <LI>
+  <P><A id=ctl00_rs1_mainContentContainer_ctl29 
+  onclick="javascript:Track('ctl00_rs1_mainContentContainer_ctl00|ctl00_rs1_mainContentContainer_ctl29',this);" 
+  href="http://msdn.microsoft.com/library/en-us/dnwmt/html/moviemakersfx.asp?frame=true">Effect 
+  and Transition Objects Provided by Windows Movie Maker </A></P></LI></UL>
+<DIV><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#mainSection"><IMG 
+alt="" 
+src="在%20Windows%20Movie%20Maker%20中创建自定义效果和过渡_files/ms867186.arrow_px_up(zh-cn,MSDN.10).gif" 
+border=0> </A><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#mainSection">返回页首</A> 
+<BR></DIV>
+<H3 id=EYAA>淡入淡出过渡</H3>
+<P>淡入淡出过渡提供了利用 DirectX Media 过渡创建淡入淡出过渡的一些功能。它不采用参数。</P>
+<P>下列 XML 代码显示了 Windows Movie Maker 中包括的淡入淡出过渡： </P><PRE>&lt;TransitionDLL guid="{16B280C5-EE70-11D1-9066-00C04FD9189D}"&gt; 
+   &lt;Transition nameID="62814" iconid="12" comment="Fade" /&gt; 
+&lt;/TransitionDLL&gt; 
+</PRE>
+<P>另请参阅 </P>
+<UL>
+  <LI>
+  <P><A id=ctl00_rs1_mainContentContainer_ctl30 
+  onclick="javascript:Track('ctl00_rs1_mainContentContainer_ctl00|ctl00_rs1_mainContentContainer_ctl30',this);" 
+  href="http://msdn.microsoft.com/library/en-us/dnwmt/html/moviemakersfx.asp?frame=true">Effect 
+  and Transition Objects Provided by Windows Movie Maker </A></P></LI></UL>
+<DIV><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#mainSection"><IMG 
+alt="" 
+src="在%20Windows%20Movie%20Maker%20中创建自定义效果和过渡_files/ms867186.arrow_px_up(zh-cn,MSDN.10).gif" 
+border=0> </A><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#mainSection">返回页首</A> 
+<BR></DIV>
+<H3 id=EXAA>Iris 过渡</H3>
+<P>Iris 过渡将屏幕分裂成四部分，并从中心按对角线方向向外移动。它不采用参数。</P>
+<P>下列 XML 代码显示了 Windows Movie Maker 中包括的 Iris 过渡： </P><PRE>&lt;TransitionDLL guid="{049F2CE6-D996-4721-897A-DB15CE9EB73D}"&gt; 
+   &lt;Transition nameID="62813" iconid="29" comment="Iris" /&gt; 
+&lt;/TransitionDLL&gt; 
+</PRE>
+<P>另请参阅 </P>
+<UL>
+  <LI>
+  <P><A id=ctl00_rs1_mainContentContainer_ctl31 
+  onclick="javascript:Track('ctl00_rs1_mainContentContainer_ctl00|ctl00_rs1_mainContentContainer_ctl31',this);" 
+  href="http://msdn.microsoft.com/library/en-us/dnwmt/html/moviemakersfx.asp?frame=true">Effect 
+  and Transition Objects Provided by Windows Movie Maker </A></P></LI></UL>
+<DIV><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#mainSection"><IMG 
+alt="" 
+src="在%20Windows%20Movie%20Maker%20中创建自定义效果和过渡_files/ms867186.arrow_px_up(zh-cn,MSDN.10).gif" 
+border=0> </A><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#mainSection">返回页首</A> 
+<BR></DIV>
+<H3 id=EWAA>像素化过渡</H3>
+<P>像素化过渡使第一个视频粗化，然后转换到第二个视频。它不采用参数。下列 XML 代码显示了 Windows Movie Maker 中包括的像素化过渡： 
+</P><PRE>&lt;TransitionDLL guid="{4CCEA634-FBE0-11D1-906A-00C04FD9189D}"&gt; 
+   &lt;Transition nameID="62818" iconid="36" comment="Pixelate"/&gt; 
+&lt;/TransitionDLL&gt; 
+</PRE>
+<P>另请参阅 </P>
+<UL>
+  <LI>
+  <P><A id=ctl00_rs1_mainContentContainer_ctl32 
+  onclick="javascript:Track('ctl00_rs1_mainContentContainer_ctl00|ctl00_rs1_mainContentContainer_ctl32',this);" 
+  href="http://msdn.microsoft.com/library/en-us/dnwmt/html/moviemakersfx.asp?frame=true">Effect 
+  and Transition Objects Provided by Windows Movie Maker </A></P></LI></UL>
+<DIV><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#mainSection"><IMG 
+alt="" 
+src="在%20Windows%20Movie%20Maker%20中创建自定义效果和过渡_files/ms867186.arrow_px_up(zh-cn,MSDN.10).gif" 
+border=0> </A><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#mainSection">返回页首</A> 
+<BR></DIV>
+<H3 id=EVAA>SMPTE 擦除过渡</H3>
+<P>SMPTE 擦除是标准的 SMPTE（活动图像和电视工程师协会）擦除，如 DirectShow 文档中所述。下表显示了可用于 SMPTE 
+擦除的参数。</P>
+<TABLE>
+  <TBODY>
+  <TR>
+    <TH>
+      <P>参数</P></TH>
+    <TH>
+      <P>类型</P></TH>
+    <TH>
+      <P>默认值</P></TH>
+    <TH>
+      <P>说明</P></TH></TR>
+  <TR>
+    <TD>
+      <P>BorderColor</P></TD>
+    <TD>
+      <P><B>long</B> </P></TD>
+    <TD>
+      <P>无</P></TD>
+    <TD>
+      <P>擦除图案边缘的边界颜色。该属性值是个十六进制数，其格式为 0xRRGGBB，其中，RR 是红色十六进制值，GG 是绿色十六进制值，而 BB 
+      是蓝色十六进制值。（因此，纯红、纯绿和纯蓝分别是 0xFF000、0x00FF00 和 0x0000FF）。</P></TD></TR>
+  <TR>
+    <TD>
+      <P>BorderSoftness</P></TD>
+    <TD>
+      <P><B>long</B> </P></TD>
+    <TD>
+      <P>0.0</P></TD>
+    <TD>
+      <P>擦除图案边缘模糊区域的宽度。没有模糊区域指定为 0（零）</P></TD></TR>
+  <TR>
+    <TD>
+      <P>BorderWidth</P></TD>
+    <TD>
+      <P><B>long</B> </P></TD>
+    <TD>
+      <P>0</P></TD>
+    <TD>
+      <P>擦除图案边缘的纯色边界宽度。没有边界指定为 0（零）。</P></TD></TR>
+  <TR>
+    <TD>
+      <P>MaskName</P></TD>
+    <TD>
+      <P><B>string</B> </P></TD>
+    <TD>
+      <P>NULL</P></TD>
+    <TD>
+      <P>如果不是 NULL，指定某个 JPEG 文件的名称，用作擦除掩码，替代标准的内置擦除。该文件必须包含一个单色的、每像素 8 
+      位的梯度。该梯度用作定义擦除级数的掩码。</P></TD></TR>
+  <TR>
+    <TD>
+      <P>MaskNum</P></TD>
+    <TD>
+      <P><B>long</B> </P></TD>
+    <TD>
+      <P>1</P></TD>
+    <TD>
+      <P>标准的 SMPTE 擦除代码指定要使用的擦除的样式。有关擦除代码列表及其相关的示意图，请参阅 SMPTE 文档 
+    258M-1993。</P></TD></TR>
+  <TR>
+    <TD>
+      <P>OffsetX</P></TD>
+    <TD>
+      <P><B>long</B> </P></TD>
+    <TD>
+      <P>0</P></TD>
+    <TD>
+      <P>擦除的起点在水平方向上到图像中心的偏移距离。仅从 101 到 131 的MaskNum 值有效。</P></TD></TR>
+  <TR>
+    <TD>
+      <P>OffsetY</P></TD>
+    <TD>
+      <P><B>long</B> </P></TD>
+    <TD>
+      <P>0</P></TD>
+    <TD>
+      <P>擦除的起点在垂直方向上到图像中心的偏移距离。仅从 101 到 131 的 MaskNum 值有效。</P></TD></TR>
+  <TR>
+    <TD>
+      <P>ReplicateX</P></TD>
+    <TD>
+      <P><B>long</B> </P></TD>
+    <TD>
+      <P>0</P></TD>
+    <TD>
+      <P>在水平方向上复制擦除图案的次数。仅从 101 到 131 的 MaskNum 值有效。</P></TD></TR>
+  <TR>
+    <TD>
+      <P>ReplicateY</P></TD>
+    <TD>
+      <P><B>long</B> </P></TD>
+    <TD>
+      <P>0</P></TD>
+    <TD>
+      <P>在垂直方向上复制擦除图案的次数。仅从 101 到 131 的 MaskNum 值有效。</P></TD></TR>
+  <TR>
+    <TD>
+      <P>ScaleX</P></TD>
+    <TD>
+      <P><B>long</B> </P></TD>
+    <TD>
+      <P>0.0</P></TD>
+    <TD>
+      <P>在水平方向上擦除的伸展量，用占原先定义擦除的百分比表示。仅从 101 到 131 的 MaskNum 值有效。</P></TD></TR>
+  <TR>
+    <TD>
+      <P>ScaleY</P></TD>
+    <TD>
+      <P><B>long</B> </P></TD>
+    <TD>
+      <P>0.0</P></TD>
+    <TD>
+      <P>在垂直方向上擦除的伸展量，用占原先擦除定义的百分比表示。仅从 101 到 131 的 MaskNum 
+  值有效。</P></TD></TR></TBODY></TABLE>
+<TABLE>
+  <TBODY></TBODY></TABLE>
+<P>下列 XML 代码说明了 Windows Movie Maker 中包括的标准 SMPTE 擦除。comment 参数通常给出 Windows Movie 
+Maker 过渡列表中显示的过渡名称。</P><PRE>&lt;TransitionDLL guid="{DE75D012-7A65-11D2-8CEA-00A0C9441E20}" comment="DxtJpeg/SMPTE wipes"&gt; 
+   &lt;Transition nameID="62826" iconid="41" comment="Reveal, Right|(smpte 1)"&gt; 
+      &lt;Param name="MaskNum" value="1" /&gt; 
+   &lt;/Transition&gt; 
+   &lt;Transition nameID="62827" iconid="40" comment="Reveal, Down|(smpte 2)" &gt; 
+      &lt;Param name="MaskNum" value="2" /&gt; 
+   &lt;/Transition&gt; 
+   &lt;Transition nameID="62828" iconid="27" comment="Inset, Down Right|(smpte 3)"&gt; 
+      &lt;Param name="MaskNum" value="3" /&gt; 
+   &lt;/Transition&gt; 
+   &lt;Transition nameID="62829" iconid="28" comment="Inset, Down Left|(smpte 4)" &gt; 
+      &lt;Param name="MaskNum" value="4" /&gt; 
+   &lt;/Transition&gt; 
+   &lt;Transition nameID="62830" iconid="25" comment="Inset, Up Left|(smpte 5)"&gt; 
+      &lt;Param name="MaskNum" value="5" /&gt; 
+   &lt;/Transition&gt; 
+   &lt;Transition nameID="62831" iconid="24" comment="Inset, Up Right|(smpte 6)"&gt; 
+      &lt;Param name="MaskNum" value="6" /&gt; 
+   &lt;/Transition&gt; 
+   &lt;Transition nameID="62832" iconid="50" comment="Split, Vertical|(smpte 21)" &gt; 
+      &lt;Param name="MaskNum" value="21" /&gt; 
+   &lt;/Transition&gt; 
+   &lt;Transition nameID="62833" iconid="22" comment="Split, Horizontal|(smpte 22)"&gt; 
+      &lt;Param name="MaskNum" value="22" /&gt; 
+   &lt;/Transition&gt; 
+   &lt;Transition nameID="62834" iconid="9" comment="Diagonal, Down Right|(smpte 41)"&gt; 
+      &lt;Param name="MaskNum" value="41" /&gt; 
+   &lt;/Transition&gt; 
+   &lt;Transition nameID="62835" iconid="51" comment="Bow Tie, Vertical|(smpte 43)"&gt; 
+      &lt;Param name="MaskNum" value="43" /&gt; 
+   &lt;/Transition&gt; 
+   &lt;Transition nameID="62836" iconid="23" comment="Bow Tie, Horizontal|(smpte 44)"&gt; 
+      &lt;Param name="MaskNum" value="44" /&gt; 
+   &lt;/Transition&gt; 
+   &lt;Transition nameID="62837" iconid="8" comment="Diagonal, Cross Out|(smpte 47)"&gt; 
+      &lt;Param name="MaskNum" value="47" /&gt; 
+   &lt;/Transition&gt; 
+   &lt;Transition nameID="62838" iconid="7" comment="Diagonal, Box Out|(smpte 48)"&gt; 
+      &lt;Param name="MaskNum" value="48" /&gt; 
+   &lt;/Transition&gt; 
+   &lt;Transition nameID="62839" iconid="16" comment="Filled V, Down|(smpte 61)"&gt; 
+      &lt;Param name="MaskNum" value="61" /&gt; 
+   &lt;/Transition&gt; 
+   &lt;Transition nameID="62840" iconid="15" comment="Filled V, Left|(smpte 62)"&gt; 
+      &lt;Param name="MaskNum" value="62" /&gt; 
+   &lt;/Transition&gt; 
+   &lt;Transition nameID="62841" iconid="13" comment="Filled V, Up|(smpte 63)"&gt; 
+      &lt;Param name="MaskNum" value="63" /&gt; 
+   &lt;/Transition&gt; 
+   &lt;Transition nameID="62842" iconid="14" comment="Filled V, Right|(smpte 64)"&gt; 
+      &lt;Param name="MaskNum" value="64" /&gt; 
+   &lt;/Transition&gt; 
+   &lt;Transition nameID="62844" iconid="64" comment="Zig Zag, Vertical|(smpte 73)"&gt; 
+      &lt;Param name="MaskNum" value="73" /&gt; 
+   &lt;/Transition&gt; 
+   &lt;Transition nameID="62845" iconid="62" comment="Zig Zag, Horizontal|(smpte 74)"&gt; 
+      &lt;Param name="MaskNum" value="74" /&gt; 
+   &lt;/Transition&gt; 
+   &lt;Transition nameID="62846" iconid="39" comment="Rectangle, Out|(smpte 101)"&gt; 
+      &lt;Param name="MaskNum" value="101" /&gt; 
+   &lt;/Transition&gt; 
+   &lt;Transition nameID="62847" iconid="11" comment="Diamond, Out|(smpte 102)"&gt; 
+      &lt;Param name="MaskNum" value="102" /&gt; 
+   &lt;/Transition&gt; 
+   &lt;Transition nameID="62848" iconid="80" comment="Circle, Out, Soft|(smpte 119)"&gt; 
+      &lt;Param name="MaskNum" value="119" /&gt; 
+      &lt;Param name="BorderSoftness" value="20" /&gt; 
+   &lt;/Transition&gt; 
+   &lt;Transition nameID="62849" iconid="81" comment="Circles, Out, Soft|(smpte 119)"&gt; 
+      &lt;Param name="MaskNum" value="119" /&gt; 
+      &lt;Param name="ReplicateX" value="8" /&gt; 
+      &lt;Param name="ReplicateY" value="6" /&gt; 
+      &lt;Param name="BorderSoftness" value="75" /&gt; 
+   &lt;/Transition&gt; 
+   &lt;Transition nameID="62850" iconid="46" comment="Star, 5 Points|(smpte 128)"&gt; 
+      &lt;Param name="MaskNum" value="128" /&gt; 
+      &lt;Param name="BorderSoftness" value="20" /&gt; 
+   &lt;/Transition&gt; 
+   &lt;Transition nameID="62851" iconid="83" comment="Stars, 5 Points|(smpte 128)"&gt; 
+      &lt;Param name="MaskNum" value="128" /&gt; 
+      &lt;Param name="ReplicateX" value="5" /&gt; 
+      &lt;Param name="ReplicateY" value="5" /&gt; 
+      &lt;Param name="BorderSoftness" value="75" /&gt; 
+   &lt;/Transition&gt; 
+   &lt;Transition nameID="62852" iconid="18" comment="Heart|(smpte 130)"&gt; 
+      &lt;Param name="MaskNum" value="130" /&gt; 
+      &lt;Param name="BorderSoftness" value="20" /&gt; 
+   &lt;/Transition&gt; 
+   &lt;Transition nameID="62853" iconid="30" comment="Key Hole|(smpte 131)" &gt; 
+      &lt;Param name="MaskNum" value="131" /&gt; 
+      &lt;Param name="BorderSoftness" value="20" /&gt; 
+   &lt;/Transition&gt; 
+   &lt;Transition nameID="62854" iconid="84" comment="Sweep, Diagonal|(smpte 226)"&gt; 
+      &lt;Param name="MaskNum" value="226" /&gt; 
+   &lt;/Transition&gt; 
+   &lt;Transition nameID="62855" iconid="85" comment="Sweep, Horizontal|(smpte 228)"&gt; 
+      &lt;Param name="MaskNum" value="228" /&gt; 
+   &lt;/Transition&gt; 
+   &lt;Transition nameID="62856" iconid="82" comment="Fan, In, Vertical|(smpte 231)"&gt; 
+      &lt;Param name="MaskNum" value="231" /&gt; 
+   &lt;/Transition&gt; 
+   &lt;Transition nameID="62857" iconid="3" comment="Eye|(smpte 122)"&gt; 
+      &lt;Param name="MaskNum" value="122" /&gt; 
+      &lt;Param name="BorderSoftness" value="20" /&gt; 
+   &lt;/Transition&gt; 
+   &lt;Transition nameID="62858" iconid="86" comment="Swinging Door, Bottom|(smpte 253)"&gt; 
+      &lt;Param name="MaskNum" value="253" /&gt; 
+   &lt;/Transition&gt; 
+   &lt;Transition nameID="62859" iconid="87" comment="Windshield, Up|(smpte 262)"&gt; 
+      &lt;Param name="MaskNum" value="262" /&gt; 
+   &lt;/Transition&gt; 
+   &lt;Transition nameID="62860" iconid="88" comment="Windshield, Vertical|(smpte 263)" &gt; 
+      &lt;Param name="MaskNum" value="263" /&gt; 
+   &lt;/Transition&gt; 
+   &lt;/TransitionDLL&gt; 
+&lt;/Transitions&gt; 
+</PRE>
+<P>另请参阅 </P>
+<UL>
+  <LI>
+  <P><A id=ctl00_rs1_mainContentContainer_ctl33 
+  onclick="javascript:Track('ctl00_rs1_mainContentContainer_ctl00|ctl00_rs1_mainContentContainer_ctl33',this);" 
+  href="http://msdn.microsoft.com/library/en-us/dnwmt/html/moviemakersfx.asp?frame=true">Effect 
+  and Transition Objects Provided by Windows Movie Maker </A></P></LI></UL>
+<DIV><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#mainSection"><IMG 
+alt="" 
+src="在%20Windows%20Movie%20Maker%20中创建自定义效果和过渡_files/ms867186.arrow_px_up(zh-cn,MSDN.10).gif" 
+border=0> </A><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#mainSection">返回页首</A> 
+<BR></DIV>
+<H3 id=EUAA>轮型过渡</H3>
+<P>轮型过渡提供了一种旋转轮辐的擦除。它采用下列参数。</P>
+<TABLE>
+  <TBODY>
+  <TR>
+    <TH>
+      <P>参数</P></TH>
+    <TH>
+      <P>类型</P></TH>
+    <TH>
+      <P>默认值</P></TH>
+    <TH>
+      <P>范围</P></TH>
+    <TH>
+      <P>说明</P></TH></TR>
+  <TR>
+    <TD>
+      <P><I>Spokes</I> </P></TD>
+    <TD>
+      <P><B>int</B> </P></TD>
+    <TD>
+      <P>4</P></TD>
+    <TD>
+      <P>2 to 20</P></TD>
+    <TD>
+      <P>轮辐的数量。</P></TD></TR></TBODY></TABLE>
+<TABLE>
+  <TBODY></TBODY></TABLE>
+<P>下列 XML 代码显示了 Windows Movie Maker 中包括的轮型过渡：</P><PRE>&lt;TransitionDLL guid="{5AE1DAE0-1461-11D2-A484-00C04F8EFB69}"&gt; 
+   &lt;Transition nameID="62819" iconid="53" comment="Wheel, 4 spokes"&gt; 
+      &lt;Param name="spokes" value="4" /&gt; 
+   &lt;/Transition&gt; 
+&lt;/TransitionDLL&gt; 
+</PRE>
+<P>另请参阅 </P>
+<UL>
+  <LI>
+  <P><A id=ctl00_rs1_mainContentContainer_ctl34 
+  onclick="javascript:Track('ctl00_rs1_mainContentContainer_ctl00|ctl00_rs1_mainContentContainer_ctl34',this);" 
+  href="http://msdn.microsoft.com/library/en-us/dnwmt/html/moviemakersfx.asp?frame=true">Effect 
+  and Transition Objects Provided by Windows Movie Maker </A></P></LI></UL>
+<DIV><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#mainSection"><IMG 
+alt="" 
+src="在%20Windows%20Movie%20Maker%20中创建自定义效果和过渡_files/ms867186.arrow_px_up(zh-cn,MSDN.10).gif" 
+border=0> </A><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#mainSection">返回页首</A> 
+<BR></DIV>
+<H3 id=ETAA>WMTFX 过渡和效果</H3>
+<P>Windows 媒体转换效果 (WMTFX) 是一组可以用一系列标准参数组合的效果和过渡。这些过渡和效果基于两个 COM 
+对象中的一个对象，这两个对象公开了相同的参数，但是一个对象用来构建过渡 (GUID 
+C63344D8-70D3-4032-9B32-7A3CAD5091A5)，而另一个用于构建效果 (GUID 
+B4DC8DD9-2CC1-4081-9B2B-20D7030234EF)。当创建 WMTFX 过渡或效果时，一定要确保指定相应对象的 GUID，并且效果是在 
+&lt;effect&gt; 块内，而过渡在 &lt;transition&gt; 块内。下列代码显示了一个示例过渡和一个示例效果：</P><PRE>&lt;TransitionsAndEffects Version="1.0"&gt; 
+   &lt;Transitions&gt; 
+      &lt;TransitionDLL guid="{C63344D8-70D3-4032-9B32-7A3CAD5091A5}"&gt; 
+         &lt;Transition name="My rotating fade" iconid="91"&gt; 
+            &lt;Param name="InternalName" value="ParticleSystem"/&gt; 
+            &lt;Param name="RotateA" value="left"/&gt; 
+            &lt;Param name="FadeStartA" value="0.1"/&gt; 
+         &lt;/Transition&gt; 
+      &lt;/TransitionDLL&gt; 
+   &lt;/Transitions&gt; 
+   &lt;Effects&gt; 
+      &lt;EffectDLL guid="{B4DC8DD9-2CC1-4081-9B2B-20D7030234EF}"&gt; 
+         &lt;Effect name="My yellow effect" iconid="9"&gt; 
+            &lt;Param name="InternalName" value="Standard"/&gt; 
+            &lt;Param name="Yellow" value="1.0"/&gt; 
+            &lt;Param name="Magenta" value="-1.0"/&gt; 
+            &lt;Param name="Cyan" value="-1.0"/&gt; 
+         &lt;/Effect&gt; 
+      &lt;/EffectDLL&gt; 
+   &lt;/Effects&gt; 
+&lt;/TransitionsAndEffects&gt; 
+</PRE>
+<P>WMTFX 过渡或效果可以基于下列四种类中的一种： </P>
+<UL>
+  <LI>
+  <P><B>Standard </B></P>
+  <LI>
+  <P><B>Hue</B> </P>
+  <LI>
+  <P><B>Simple3D</B> </P>
+  <LI>
+  <P><B>ParticleSystem </B></P></LI></UL>
+<P>每个类公开特定的参数，后面的内容将对此进行说明。您使用的类由 <B>InternalName</B> 参数指定，如下所示：</P><PRE>&lt;Param name="InternalName" value=someclassname /&gt; 
+</PRE>
+<P>这必须是提供给该类的第一个参数。 </P>
+<P>请注意，<B>ParticleSystem </B>类扩展了 <B>Simple3D</B> 类，并公开了它的两个参数和 <B>Simple3D</B> 
+参数。例如，一个基于 <B>ParticleSystem</B> 类的效果将同时公开 <B>ParticleSystem</B> 参数和 
+<B>Simple3D</B> 参数。</P>
+<P>虽然效果和过渡的类和参数都是相同的，但是并不是所有参数对所有的效果和过渡都起作用。例如，某个基于 Standard 
+类的过渡就将没有指定过渡何时发生的参数。必须通过一些试验来查看对于某种效果或过渡需要哪些类和参数一起工作。</P>
+<P>下表列出了每个类公开的参数。当“A”或“B”出现在参数名中时，“A”表示目前的或前面的剪辑或图片，而“B”表示取代它的新剪辑或图片。</P>
+<P>Standard 类参数</P>
+<TABLE>
+  <TBODY>
+  <TR>
+    <TH>
+      <P>参数</P></TH>
+    <TH>
+      <P>类型</P></TH>
+    <TH>
+      <P>默认值</P></TH>
+    <TH>
+      <P>范围</P></TH>
+    <TH>
+      <P>说明</P></TH></TR>
+  <TR>
+    <TD>
+      <P>Invert</P></TD>
+    <TD>
+      <P><B>float</B> </P></TD>
+    <TD>
+      <P>None</P></TD>
+    <TD>
+      <P>0.0 to 1.0</P></TD>
+    <TD>
+      <P>颜色转换将生成新的颜色值，就是 255 减去以前的颜色值。只转换大于 Invert 参数的提交值与 255 的乘积的值。</P></TD></TR>
+  <TR>
+    <TD>
+      <P>Red</P></TD>
+    <TD>
+      <P><B>float</B> </P></TD>
+    <TD>
+      <P>None</P></TD>
+    <TD>
+      <P>-1.0 to 1.0</P></TD>
+    <TD>
+      <P>调整颜色平衡。</P></TD></TR>
+  <TR>
+    <TD>
+      <P>Green</P></TD>
+    <TD>
+      <P><B>float</B> </P></TD>
+    <TD>
+      <P>None</P></TD>
+    <TD>
+      <P>-1.0 to 1.0</P></TD>
+    <TD>
+      <P>调整颜色平衡。</P></TD></TR>
+  <TR>
+    <TD>
+      <P>Blue</P></TD>
+    <TD>
+      <P><B>float</B> </P></TD>
+    <TD>
+      <P>None</P></TD>
+    <TD>
+      <P>-1.0 to 1.0</P></TD>
+    <TD>
+      <P>调整颜色平衡。</P></TD></TR>
+  <TR>
+    <TD>
+      <P>Cyan</P></TD>
+    <TD>
+      <P><B>float</B> </P></TD>
+    <TD>
+      <P>None</P></TD>
+    <TD>
+      <P>-1.0 to 1.0</P></TD>
+    <TD>
+      <P>调整颜色平衡。如果指定 Red，则忽略。</P></TD></TR>
+  <TR>
+    <TD>
+      <P>Magenta</P></TD>
+    <TD>
+      <P><B>float</B> </P></TD>
+    <TD>
+      <P>None</P></TD>
+    <TD>
+      <P>-1.0 to 1.0</P></TD>
+    <TD>
+      <P>调整颜色平衡。如果指定 Green，则忽略。</P></TD></TR>
+  <TR>
+    <TD>
+      <P>Yellow</P></TD>
+    <TD>
+      <P><B>float</B> </P></TD>
+    <TD>
+      <P>None</P></TD>
+    <TD>
+      <P>-1.0 to 1.0</P></TD>
+    <TD>
+      <P>调整颜色平衡。如果指定 Blue，则忽略。</P></TD></TR>
+  <TR>
+    <TD>
+      <P>Brightness</P></TD>
+    <TD>
+      <P><B>float</B> </P></TD>
+    <TD>
+      <P>None</P></TD>
+    <TD>
+      <P>0.0 to infinity</P></TD>
+    <TD>
+      <P>对于亮度调整，每种颜色通道值要乘以提交值。这些值应当大于或等于 0，通常为 1.0 左右。</P></TD></TR>
+  <TR>
+    <TD>
+      <P>Contrast</P></TD>
+    <TD>
+      <P><B>float</B> </P></TD>
+    <TD>
+      <P>None</P></TD>
+    <TD>
+      <P>0.0 to infinity</P></TD>
+    <TD>
+      <P>对比调整围绕中点改变每种颜色通道的范围。这些值应该大于或等于 0，通常为 1.0 左右。</P></TD></TR>
+  <TR>
+    <TD>
+      <P>Posterize</P></TD>
+    <TD>
+      <P><B>int</B> </P></TD>
+    <TD>
+      <P>None</P></TD>
+    <TD>
+      <P>0 to 255</P></TD>
+    <TD>
+      <P>该值是分色后应当保持的颜色深度。</P></TD></TR>
+  <TR>
+    <TD>
+      <P>Threshold</P></TD>
+    <TD>
+      <P><B>float</B> </P></TD>
+    <TD>
+      <P>None</P></TD>
+    <TD>
+      <P>0.0 to 1.0</P></TD>
+    <TD>
+      <P>对于阈值过滤调整，将其值小于提交的 Threshold 值与 255 的乘积的每个示例颜色通道设置为 
+      0。值等于或大于该阈值的每种颜色通道被设置为 255。</P></TD></TR>
+  <TR>
+    <TD>
+      <P>Gamma</P></TD>
+    <TD>
+      <P><B>float</B> </P></TD>
+    <TD>
+      <P>None</P></TD>
+    <TD>
+      <P>0.0 to infinity</P></TD>
+    <TD>
+      <P>像素的灰度系数修正。小于 1.0 变暗，大于 1.0 变亮。</P></TD></TR>
+  <TR>
+    <TD>
+      <P>ExponentialProgressDuration</P></TD>
+    <TD>
+      <P><B>float</B> </P></TD>
+    <TD>
+      <P>0.0</P></TD>
+    <TD>
+      <P>0.0 to 1.0</P></TD>
+    <TD>
+      <P>从 0.0 开始的时间长度，在该时间段内，进度是按对数衡量的。此后进度是线性的。</P></TD></TR>
+  <TR>
+    <TD>
+      <P>ExponentialProgressScale</P></TD>
+    <TD>
+      <P><B>float</B> </P></TD>
+    <TD>
+      <P>0.3</P></TD>
+    <TD>
+      <P>0.0 to infinity</P></TD>
+    <TD>
+      <P>按指数衡量的进度。等式是：LogrithmicScale = -log(1.0 - LinearProgress ) * 
+      ExponentialProgressScale</P></TD></TR>
+  <TR>
+    <TD>
+      <P>MirrorVertical</P></TD>
+    <TD>
+      <P><B>bool</B> </P></TD>
+    <TD>
+      <P>false</P></TD>
+    <TD>
+      <P>"false" or "true"</P></TD>
+    <TD>
+      <P>如果为真，则颠倒输出图形。</P></TD></TR>
+  <TR>
+    <TD>
+      <P>Desaturate</P></TD>
+    <TD>
+      <P><B>bool</B> </P></TD>
+    <TD>
+      <P>false</P></TD>
+    <TD>
+      <P>"false" or "true"</P></TD>
+    <TD>
+      <P>如果为真，则将图像转换为灰度（黑白）；如果为假，则为彩色。</P></TD></TR>
+  <TR>
+    <TD>
+      <P>Rotate2DA</P></TD>
+    <TD>
+      <P><B>int</B> </P></TD>
+    <TD>
+      <P>0</P></TD>
+    <TD>
+      <P>0 to 359</P></TD>
+    <TD>
+      <P>输出视频的旋转度数。</P></TD></TR></TBODY></TABLE>
+<TABLE>
+  <TBODY></TBODY></TABLE>
+<P>Hue 类参数</P>
+<P>该类从 <B>Standard</B> 类继承而来，只用于 Windows Movie Maker 
+中包括的色调循环效果。该效果通过色谱循环视频—蓝色、青色、绿色、黄色、红色、洋红，再回到蓝色—允许用户在从 0 到 1 的范围内选择开始和结束的颜色，其中 0 
+和 1 在此路径上都是蓝色。</P>
+<TABLE>
+  <TBODY>
+  <TR>
+    <TH>
+      <P>参数</P></TH>
+    <TH>
+      <P>类型</P></TH>
+    <TH>
+      <P>默认值</P></TH>
+    <TH>
+      <P>范围</P></TH>
+    <TH>
+      <P>说明</P></TH></TR>
+  <TR>
+    <TD>
+      <P>Value</P></TD>
+    <TD>
+      <P><B>float</B> </P></TD>
+    <TD>
+      <P>0.0</P></TD>
+    <TD>
+      <P>0.0 to 1.0</P></TD>
+    <TD>
+      <P>开始颜色的范围，其中 0 表示蓝色，0.5 表示黄色，而 1 又表示蓝色。</P></TD></TR>
+  <TR>
+    <TD>
+      <P>EndValue</P></TD>
+    <TD>
+      <P><B>float</B> </P></TD>
+    <TD>
+      <P>None</P></TD>
+    <TD>
+      <P>0.0 to 1.0</P></TD>
+    <TD>
+      <P>结束颜色的范围，其中 0 表示蓝色，0.5 表示黄色，而 1 又表示蓝色。如果指定 Value，则也必须指定 
+      EndValue，否则该效果无效。</P></TD></TR></TBODY></TABLE>
+<TABLE>
+  <TBODY></TBODY></TABLE>
+<P>Simple3D 类参数</P>
+<P>该类一般是由基本的旋转、扩展、收缩或翻页过渡使用的。</P>
+<TABLE>
+  <TBODY>
+  <TR>
+    <TH>
+      <P>参数</P></TH>
+    <TH>
+      <P>类型</P></TH>
+    <TH>
+      <P>默认值</P></TH>
+    <TH>
+      <P>范围</P></TH>
+    <TH>
+      <P>说明</P></TH></TR>
+  <TR>
+    <TD>
+      <P><I>MoveA</I> </P></TD>
+    <TD>
+      <P><B>string</B> </P></TD>
+    <TD>
+      <P>无</P></TD>
+    <TD>
+      <P>左、右、上、下</P></TD>
+    <TD>
+      <P>按属性方向滑动第一个视频：左、右、上、下、入或出</P></TD></TR>
+  <TR>
+    <TD>
+      <P><I>MoveSpeedA</I> </P></TD>
+    <TD>
+      <P><B>float</B> </P></TD>
+    <TD>
+      <P>1.0</P></TD>
+    <TD>
+      <P>0.0 to infinity</P></TD>
+    <TD>
+      <P><I>MoveA</I> 参数应用的速度。</P></TD></TR>
+  <TR>
+    <TD>
+      <P><I>RotateA</I> </P></TD>
+    <TD>
+      <P><B>string</B> </P></TD>
+    <TD>
+      <P>无</P></TD>
+    <TD>
+      <P>左、右、上、下</P></TD>
+    <TD>
+      <P>第一个视频旋转的方向。</P></TD></TR>
+  <TR>
+    <TD>
+      <P><I>ScaleA</I> </P></TD>
+    <TD>
+      <P><B>string</B> </P></TD>
+    <TD>
+      <P>none</P></TD>
+    <TD>
+      <P>较小、较大或 <B>float</B> &gt; 0</P></TD>
+    <TD>
+      <P>最终视频大小与原始视频的比较。“较小”和“较大”给出了一般的相对值，而浮点数是个尺寸因子（1.0 
+    表示最后的大小和原先的大小相同）。</P></TD></TR>
+  <TR>
+    <TD>
+      <P><I>InitialScaleA</I> </P></TD>
+    <TD>
+      <P><B>string</B> </P></TD>
+    <TD>
+      <P>1.0</P></TD>
+    <TD>
+      <P>较小、较大或 <B>float</B> &gt; 0</P></TD>
+    <TD>
+      <P>初始视频大小与原始视频的比较。“较小”和“较大”给出了一般的相对值，而浮点数是个大小因子（1.0 
+    表示最初的尺寸和原先的尺寸相同）。</P></TD></TR>
+  <TR>
+    <TD>
+      <P><I>RotateCenterA</I> </P></TD>
+    <TD>
+      <P><B>string</B> </P></TD>
+    <TD>
+      <P>none</P></TD>
+    <TD>
+      <P>仅右下方</P></TD>
+    <TD>
+      <P>第一个视频的旋转中心。</P></TD></TR>
+  <TR>
+    <TD>
+      <P><I>ZScaleAStart</I> </P></TD>
+    <TD>
+      <P><B>string</B> </P></TD>
+    <TD>
+      <P>none</P></TD>
+    <TD>
+      <P>0.0 to 1.0</P></TD>
+    <TD>
+      <P>X 轴停止缩放而 Z 轴开始缩放的时间。</P></TD></TR>
+  <TR>
+    <TD>
+      <P><I>ShowAFront</I> </P></TD>
+    <TD>
+      <P><B>bool</B> </P></TD>
+    <TD>
+      <P>true</P></TD>
+    <TD>
+      <P>true 或 false</P></TD>
+    <TD>
+      <P>该参数为 true 时，呈现第一个视频前面的多边形。</P></TD></TR>
+  <TR>
+    <TD>
+      <P><I>ShowABack</I> </P></TD>
+    <TD>
+      <P><B>bool</B> </P></TD>
+    <TD>
+      <P>false</P></TD>
+    <TD>
+      <P>true 或 false</P></TD>
+    <TD>
+      <P>该参数为 true 时，呈现第一个视频后面的多边形。</P></TD></TR>
+  <TR>
+    <TD>
+      <P><I>ShowBFront</I> </P></TD>
+    <TD>
+      <P><B>bool</B> </P></TD>
+    <TD>
+      <P>true</P></TD>
+    <TD>
+      <P>true 或 false</P></TD>
+    <TD>
+      <P>该参数为 true 时，呈现第二个视频前面的多边形。</P></TD></TR>
+  <TR>
+    <TD>
+      <P><I>ShowABack</I> </P></TD>
+    <TD>
+      <P><B>bool</B> </P></TD>
+    <TD>
+      <P>false</P></TD>
+    <TD>
+      <P>true 或 false</P></TD>
+    <TD>
+      <P>该参数为 true 时，呈现第一个视频后面的多边形。</P></TD></TR>
+  <TR>
+    <TD>
+      <P><I>ShowBFront</I> </P></TD>
+    <TD>
+      <P><B>bool</B> </P></TD>
+    <TD>
+      <P>true</P></TD>
+    <TD>
+      <P>true 或 false</P></TD>
+    <TD>
+      <P>该参数为 true 时，呈现第二个视频前面的多边形。</P></TD></TR>
+  <TR>
+    <TD>
+      <P><I>ShowBBack</I> </P></TD>
+    <TD>
+      <P><B>bool</B> </P></TD>
+    <TD>
+      <P>false</P></TD>
+    <TD>
+      <P>true 或 false</P></TD>
+    <TD>
+      <P>该参数为 true 时，呈现第二个视频后面的多边形。</P></TD></TR>
+  <TR>
+    <TD>
+      <P><I>RevolveCamera</I> </P></TD>
+    <TD>
+      <P><B>string</B> </P></TD>
+    <TD>
+      <P>nothing</P></TD>
+    <TD>
+      <P>true 或无</P></TD>
+    <TD>
+      <P>为 true 时，摄像机绕着世界坐标系的 x 轴旋转。如果任一值被传送到该参数，那么它将该值设置为 true。</P></TD></TR>
+  <TR>
+    <TD>
+      <P><I>PageCurlA</I> </P></TD>
+    <TD>
+      <P><B>string</B> </P></TD>
+    <TD>
+      <P>none</P></TD>
+    <TD>
+      <P>右下、左下、左上、右上、右、左、上或下。</P></TD>
+    <TD>
+      <P>页面开始卷曲的地方。</P></TD></TR>
+  <TR>
+    <TD>
+      <P><I>FadeStartA</I> </P></TD>
+    <TD>
+      <P><B>float</B> </P></TD>
+    <TD>
+      <P>none</P></TD>
+    <TD>
+      <P>.0 到 1.0</P></TD>
+    <TD>
+      <P>第一个视频开始淡出的时间。</P></TD></TR></TBODY></TABLE>
+<TABLE>
+  <TBODY></TBODY></TABLE>
+<P>ParticleSystem 类参数</P>
+<P>该类从 <B>Simple3D</B> 类继承而来，并公开了所有的 <B>Simple3D</B> 
+参数和这些参数。这些效果使得图像能够分为旋转、三维颗粒（正方形或矩形），并可按期望的方向移动。</P>
+<TABLE>
+  <TBODY>
+  <TR>
+    <TH>
+      <P>参数</P></TH>
+    <TH>
+      <P>类型</P></TH>
+    <TH>
+      <P>默认值</P></TH>
+    <TH>
+      <P>范围</P></TH>
+    <TH>
+      <P>说明</P></TH></TR>
+  <TR>
+    <TD>
+      <P>ScatterDirection</P></TD>
+    <TD>
+      <P><B>string</B> </P></TD>
+    <TD>
+      <P>无</P></TD>
+    <TD>
+      <P>左、右、上、下、入、出</P></TD>
+    <TD>
+      <P>第一个视频的碎片移动的方向，其中“入”表示远离查看器，而“出”表示朝向查看器。可以选择多个方向，所以“上、左”表示该部分移向屏幕的左上方。</P></TD></TR>
+  <TR>
+    <TD>
+      <P>ParticleSpeed</P></TD>
+    <TD>
+      <P><B>float</B> </P></TD>
+    <TD>
+      <P>1.0</P></TD>
+    <TD>
+      <P>&gt; 0</P></TD>
+    <TD>
+      <P>碎片移动的速度。</P></TD></TR>
+  <TR>
+    <TD>
+      <P>SpinDirection</P></TD>
+    <TD>
+      <P><B>string</B> </P></TD>
+    <TD>
+      <P>无</P></TD>
+    <TD>
+      <P>左、右、上、下、入、出</P></TD>
+    <TD>
+      <P>第一个视频的碎片旋转的方向，其中“入”表示朝向屏幕，而“出”表示远离屏幕。只选择一个方向。</P></TD></TR>
+  <TR>
+    <TD>
+      <P>ParticleSpinSpeed</P></TD>
+    <TD>
+      <P><B>float</B> </P></TD>
+    <TD>
+      <P>1.0</P></TD>
+    <TD>
+      <P>&gt; 0</P></TD>
+    <TD>
+      <P>颗粒的旋转速度。</P></TD></TR>
+  <TR>
+    <TD>
+      <P>MaxParticles</P></TD>
+    <TD>
+      <P><B>int</B> </P></TD>
+    <TD>
+      <P>100</P></TD>
+    <TD>
+      <P>3 to 1000</P></TD>
+    <TD>
+      <P>情节中的最多颗粒数。</P></TD></TR>
+  <TR>
+    <TD>
+      <P>Gravity</P></TD>
+    <TD>
+      <P><B>float</B> </P></TD>
+    <TD>
+      <P>0.0</P></TD>
+    <TD>
+      <P>0 到无穷大</P></TD>
+    <TD>
+      <P>颗粒的垂直加速度。</P></TD></TR>
+  <TR>
+    <TD>
+      <P>RandomizeSpeed</P></TD>
+    <TD>
+      <P><B>float</B> </P></TD>
+    <TD>
+      <P>1.0</P></TD>
+    <TD>
+      <P>任意数值</P></TD>
+    <TD>
+      <P>随机因子。设置为 0（零）使所有颗粒的速度相同。</P></TD></TR>
+  <TR>
+    <TD>
+      <P>BothDirections</P></TD>
+    <TD>
+      <P><B>bool</B> </P></TD>
+    <TD>
+      <P>false</P></TD>
+    <TD>
+      <P>true 或 false</P></TD>
+    <TD>
+      <P>如果为 true，则颗粒向两个方向移动的概率相同。</P></TD></TR></TBODY></TABLE>
+<TABLE>
+  <TBODY></TBODY></TABLE>
+<P>下列 XML 代码描述了 Windows Movie Maker 中包含的所有 WMTFX 过渡和效果。<I>comment</I> 参数通常给出 
+Windows Movie Maker 过渡或效果列表中显示的名称。</P>
+<P><B>WMTFX </B><B>过渡</B> </P><PRE>&lt;TransitionDLL guid="{C63344D8-70D3-4032-9B32-7A3CAD5091A5}"&gt; 
+   &lt;Transition nameID="62800" iconid="91" comment="Flip, right"&gt; 
+      &lt;Param name="InternalName" value="Simple3D" /&gt; 
+      &lt;Param name="RevolveCamera" value="true" /&gt; 
+      &lt;Param name="ShowAFront" value="true" /&gt; 
+      &lt;Param name="ShowABack" value="false" /&gt; 
+      &lt;Param name="ShowBFront" value="false" /&gt; 
+      &lt;Param name="ShowBBack" value="true" /&gt; 
+   &lt;/Transition&gt; 
+   &lt;Transition nameID="62801" iconid="72" comment="Slide, up"&gt; 
+      &lt;Param name="InternalName" value="Simple3D" /&gt; 
+      &lt;Param name="MoveA" value="up" /&gt; 
+   &lt;/Transition&gt; 
+   &lt;Transition nameID="62802" iconid="73" comment="Slide up, center"&gt; 
+      &lt;Param name="InternalName" value="Simple3D" /&gt; 
+      &lt;Param name="MoveA" value="up" /&gt; 
+      &lt;Param name="ScaleA" value="smaller" /&gt; 
+      &lt;Param name="MoveSpeedA" value="0.75" /&gt; 
+   &lt;/Transition&gt; 
+   &lt;Transition nameID="62803" iconid="70" comment="Roll, right"&gt; 
+      &lt;Param name="InternalName" value="Simple3D" /&gt; 
+      &lt;Param name="RotateA" value="right" /&gt; 
+      &lt;Param name="RotateCenterA" value="lowerright" /&gt; 
+   &lt;/Transition&gt; 
+   &lt;Transition nameID="62804" iconid="74" comment="Spin out, left"&gt; 
+      &lt;Param name="InternalName" value="Simple3D" /&gt; 
+      &lt;Param name="ScaleA" value="smaller" /&gt; 
+      &lt;Param name="RotateA" value="left" /&gt; 
+      &lt;Param name="FadeStartA" value="0.2" /&gt; 
+   &lt;/Transition&gt; 
+   &lt;Transition nameID="62805" iconid="89" comment="Page Curl, lower left"&gt; 
+      &lt;Param name="InternalName" value="Simple3D" /&gt; 
+      &lt;Param name="PageCurlA" value="lowerleft" /&gt; 
+      &lt;Param name="ShowABack" value="true" /&gt; 
+   &lt;/Transition&gt; 
+   &lt;Transition nameID="62806" iconid="90" comment="Page Curl, lower right"&gt; 
+      &lt;Param name="InternalName" value="Simple3D" /&gt; 
+      &lt;Param name="PageCurlA" value="lowerright" /&gt; 
+      &lt;Param name="ShowABack" value="true" /&gt; 
+      &lt;Param name="FadeStartA" value="0.8" /&gt; 
+   &lt;/Transition&gt; 
+   &lt;Transition nameID="62807" iconid="77" comment="Shatter, Right"&gt; 
+      &lt;Param name="InternalName" value="ParticleSystem" /&gt; 
+      &lt;Param name="ScatterDirection" value="right" /&gt; 
+      &lt;Param name="SpinDirection" value="right" /&gt; 
+      &lt;Param name="MaxParticles" value="200" /&gt; 
+   &lt;/Transition&gt; 
+   &lt;Transition nameID="62808" iconid="78" comment="Shatter, up left"&gt; 
+      &lt;Param name="InternalName" value="ParticleSystem" /&gt; 
+      &lt;Param name="ScatterDirection" value="up, left" /&gt; 
+      &lt;Param name="MaxParticles" value="64" /&gt; 
+      &lt;Param name="ExponentialProgressDuration" value="0.4" /&gt; 
+      &lt;Param name="ExponentialProgressScale" value="0.33" /&gt; 
+   &lt;/Transition&gt; 
+   &lt;Transition nameID="62809" iconid="76" comment="Shatter, in"&gt; 
+      &lt;Param name="InternalName" value="ParticleSystem" /&gt; 
+      &lt;Param name="ScatterDirection" value="in" /&gt; 
+      &lt;Param name="MaxParticles" value="600" /&gt; 
+      &lt;Param name="SpinDirection" value="right" /&gt; 
+      &lt;Param name="ParticleSpeed" value="40.0" /&gt; 
+      &lt;Param name="ParticleSpinSpeed" value="0.5" /&gt; 
+      &lt;Param name="ExponentialProgressDuration" value="0.9" /&gt; 
+      &lt;Param name="ExponentialProgressScale" value="0.25" /&gt; 
+   &lt;/Transition&gt; 
+   &lt;Transition nameID="62810" iconid="75" comment="Whirlwind, Fade"&gt; 
+      &lt;Param name="InternalName" value="ParticleSystem" /&gt; 
+      &lt;Param name="MaxParticles" value="200" /&gt; 
+      &lt;Param name="SpinDirection" value="right" /&gt; 
+      &lt;Param name="BothDirections" value="true" /&gt; 
+   &lt;/Transition&gt; 
+   &lt;Transition nameID="62811" iconid="79" comment="Shatter, up right"&gt; 
+      &lt;Param name="InternalName" value="ParticleSystem" /&gt; 
+      &lt;Param name="MaxParticles" value="700" /&gt; 
+      &lt;Param name="ScatterDirection" value="up, right" /&gt; 
+      &lt;Param name="BothDirections" value="true" /&gt; 
+   &lt;/Transition&gt; 
+   &lt;Transition nameID="62812" iconid="71" comment="Shrink vertical, then horizontal"&gt; 
+      &lt;Param name="InternalName" value="Simple3D" /&gt; 
+      &lt;Param name="ScaleA" value="smaller" /&gt; 
+      &lt;Param name="ZScaleAStart" value="0.5" /&gt; 
+      &lt;Param name="FadeStartA" value="0.5" /&gt; 
+   &lt;/Transition&gt; 
+&lt;/TransitionDLL&gt; 
+</PRE>
+<P>WMTFX 效果 </P><PRE>&lt;EffectDLL guid="{B4DC8DD9-2CC1-4081-9B2B-20D7030234EF}"&gt; 
+   &lt;Effect nameID="62863" iconid="25" comment="Sepia tone"&gt; 
+      &lt;Param name="InternalName" value="Standard" /&gt; 
+      &lt;Param name="Desaturate" value="true" /&gt; 
+      &lt;Param name="Red" value="0.10" /&gt; 
+      &lt;Param name="Magenta" value="0.09" /&gt; 
+      &lt;Param name="Yellow" value="0.25" /&gt; 
+      &lt;Param name="contrast" value="1.0" /&gt; 
+   &lt;/Effect&gt; 
+   &lt;Effect nameID="62864" iconid="18" comment="Negative"&gt; 
+      &lt;Param name="InternalName" value="Standard" /&gt; 
+      &lt;Param name="Invert" value="-1.0" /&gt; 
+   &lt;/Effect&gt; 
+   &lt;Effect nameID="62865" iconid="20"  comment="Posterize"&gt; 
+      &lt;Param name="InternalName" value="Standard" /&gt; 
+      &lt;Param name="Posterize" value="6" /&gt; 
+   &lt;/Effect&gt; 
+   &lt;Effect nameID="62866" iconid="29" comment="Threshold"&gt; 
+      &lt;Param name="InternalName" value="Standard" /&gt; 
+      &lt;Param name="Threshold" value="0.5" /&gt; 
+   &lt;/Effect&gt; 
+   &lt;Effect nameID="62867" iconid="16" comment="Hue, Cycles Entire Color Spectrum"&gt; 
+      &lt;Param name="InternalName" value="Hue" /&gt; 
+      &lt;Param name="Value" value="0.0" /&gt; 
+      &lt;Param name="EndValue" value="1.0" /&gt; 
+   &lt;/Effect&gt; 
+   &lt;Effect nameID="62868" iconid="33" comment="Ease In"&gt; 
+      &lt;Param name="InternalName" value="Simple3D" /&gt; 
+      &lt;Param name="ScaleA" value="bigger" /&gt; 
+      &lt;Param name="ExponentialProgressDuration" value="0.01" /&gt; 
+   &lt;/Effect&gt; 
+   &lt;Effect nameID="62869" iconid="34" comment="Ease Out"&gt; 
+      &lt;Param name="InternalName" value="Simple3D" /&gt; 
+      &lt;Param name="ScaleA" value="smaller" /&gt; 
+      &lt;Param name="InitialScaleA" value="bigger" /&gt; 
+      &lt;Param name="ExponentialProgressDuration" value="0.01" /&gt; 
+   &lt;/Effect&gt; 
+   &lt;Effect nameID="62870" iconid="35" comment="Mirror, Vertical"&gt; 
+      &lt;Param name="InternalName" value="Standard" /&gt; 
+      &lt;Param name="MirrorVertical" value="true" /&gt; 
+   &lt;/Effect&gt; 
+   &lt;Effect nameID="62871" iconid="24" comment="Rotate 90"&gt; 
+      &lt;Param name="InternalName" value="Standard" /&gt; 
+      &lt;Param name="Rotate2DA" value="90" /&gt; 
+   &lt;/Effect&gt; 
+   &lt;Effect nameID="62872" iconid="22" comment="Rotate 180"&gt; 
+      &lt;Param name="InternalName" value="Standard" /&gt; 
+      &lt;Param name="Rotate2DA" value="180" /&gt; 
+   &lt;/Effect&gt; 
+   &lt;Effect nameID="62873" iconid="23" comment="Rotate 270"&gt; 
+      &lt;Param name="InternalName" value="Standard" /&gt; 
+      &lt;Param name="Rotate2DA" value="270" /&gt; 
+   &lt;/Effect&gt; 
+&lt;/EffectDLL&gt; 
+</PRE>
+<P>另请参阅 </P>
+<UL>
+  <LI>
+  <P><A id=ctl00_rs1_mainContentContainer_ctl35 
+  onclick="javascript:Track('ctl00_rs1_mainContentContainer_ctl00|ctl00_rs1_mainContentContainer_ctl35',this);" 
+  href="http://msdn.microsoft.com/library/en-us/dnwmt/html/moviemakersfx.asp?frame=true">Effect 
+  and Transition Objects Provided by Windows Movie Maker </A></P></LI></UL>
+<DIV><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#mainSection"><IMG 
+alt="" 
+src="在%20Windows%20Movie%20Maker%20中创建自定义效果和过渡_files/ms867186.arrow_px_up(zh-cn,MSDN.10).gif" 
+border=0> </A><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#mainSection">返回页首</A> 
+<BR></DIV>
+<H3 id=ESAA>模糊效果</H3>
+<P>模糊效果通过自定义数量使图像模糊。它采用下列参数。</P>
+<TABLE>
+  <TBODY>
+  <TR>
+    <TH>
+      <P>参数</P></TH>
+    <TH>
+      <P>类型</P></TH>
+    <TH>
+      <P>默认值</P></TH>
+    <TH>
+      <P>范围</P></TH>
+    <TH>
+      <P>说明</P></TH></TR>
+  <TR>
+    <TD>
+      <P><I>PixelRadius</I> </P></TD>
+    <TD>
+      <P><B>float</B> </P></TD>
+    <TD>
+      <P>2.0</P></TD>
+    <TD>
+      <P>0.0 to 25</P></TD>
+    <TD>
+      <P>数值越大，图片越模糊。</P></TD></TR></TBODY></TABLE>
+<TABLE>
+  <TBODY></TBODY></TABLE>
+<P>下列 XML 代码显示了 Windows Movie Maker 中包括的模糊效果：</P><PRE>&lt;EffectDLL guid="{7312498D-E87A-11D1-81E0-0000F87557DB}" comment="Blur"&gt; 
+   &lt;Effect nameID="62890" iconid="30" comment="Blur"&gt; 
+      &lt;Param name="PixelRadius" value="2.5" /&gt; 
+   &lt;/Effect&gt; 
+&lt;/EffectDLL&gt; 
+</PRE>
+<P>另请参阅 </P>
+<UL>
+  <LI>
+  <P><A id=ctl00_rs1_mainContentContainer_ctl36 
+  onclick="javascript:Track('ctl00_rs1_mainContentContainer_ctl00|ctl00_rs1_mainContentContainer_ctl36',this);" 
+  href="http://msdn.microsoft.com/library/en-us/dnwmt/html/moviemakersfx.asp?frame=true">Effect 
+  and Transition Objects Provided by Windows Movie Maker </A></P></LI></UL>
+<DIV><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#mainSection"><IMG 
+alt="" 
+src="在%20Windows%20Movie%20Maker%20中创建自定义效果和过渡_files/ms867186.arrow_px_up(zh-cn,MSDN.10).gif" 
+border=0> </A><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#mainSection">返回页首</A> 
+<BR></DIV>
+<H3 id=ERAA>亮度效果</H3>
+<P>亮度效果修改视频段的亮度。它采用下列参数。</P>
+<TABLE>
+  <TBODY>
+  <TR>
+    <TH>
+      <P>参数</P></TH>
+    <TH>
+      <P>类型</P></TH>
+    <TH>
+      <P>默认值</P></TH>
+    <TH>
+      <P>范围</P></TH>
+    <TH>
+      <P>说明</P></TH></TR>
+  <TR>
+    <TD>
+      <P><I>Brightness</I> </P></TD>
+    <TD>
+      <P><B>long</B> </P></TD>
+    <TD>
+      <P>0</P></TD>
+    <TD>
+      <P>-255 to 255</P></TD>
+    <TD>
+      <P>用来修改亮度的数值，其中 0 表示没有变化。</P></TD></TR></TBODY></TABLE>
+<TABLE>
+  <TBODY></TBODY></TABLE>
+<P>下列 XML 代码显示了 Windows Movie Maker 中包括的亮度效果：</P><PRE>&lt;EffectDLL guid="{5A20FD6F-F8FE-4a22-9EE7-307D72D09E6E}"&gt; 
+   &lt;Effect nameID="62881" iconid="7" comment="Brightness increase"&gt; 
+      &lt;Param name="Brightness" value="25" /&gt; 
+   &lt;/Effect&gt; 
+   &lt;Effect nameID="62882" iconid="6" comment="Brightness decrease"&gt; 
+      &lt;Param name="Brightness" value="-25" /&gt; 
+   &lt;/Effect&gt; 
+&lt;/EffectDLL&gt; 
+</PRE>
+<P>另请参阅 </P>
+<UL>
+  <LI>
+  <P><A id=ctl00_rs1_mainContentContainer_ctl37 
+  onclick="javascript:Track('ctl00_rs1_mainContentContainer_ctl00|ctl00_rs1_mainContentContainer_ctl37',this);" 
+  href="http://msdn.microsoft.com/library/en-us/dnwmt/html/moviemakersfx.asp?frame=true">Effect 
+  and Transition Objects Provided by Windows Movie Maker </A></P></LI></UL>
+<DIV><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#mainSection"><IMG 
+alt="" 
+src="在%20Windows%20Movie%20Maker%20中创建自定义效果和过渡_files/ms867186.arrow_px_up(zh-cn,MSDN.10).gif" 
+border=0> </A><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#mainSection">返回页首</A> 
+<BR></DIV>
+<H3 id=EQAA>淡入淡出效果</H3>
+<P>淡入淡出效果使剪辑淡入淡出选择的纯色。它采用下列参数。</P>
+<TABLE>
+  <TBODY>
+  <TR>
+    <TH>
+      <P>参数</P></TH>
+    <TH>
+      <P>类型</P></TH>
+    <TH>
+      <P>默认值</P></TH>
+    <TH>
+      <P>范围</P></TH>
+    <TH>
+      <P>说明</P></TH></TR>
+  <TR>
+    <TD>
+      <P><I>FadeIn</I> </P></TD>
+    <TD>
+      <P><B>bool</B> </P></TD>
+    <TD>
+      <P>0</P></TD>
+    <TD>
+      <P>0 or 1</P></TD>
+    <TD>
+      <P>0 表示该剪辑将淡出到 某种颜色；1 表示剪辑将从 某种颜色淡入。</P></TD></TR>
+  <TR>
+    <TD>
+      <P><I>FadeColor</I> </P></TD>
+    <TD>
+      <P><B>long</B> </P></TD>
+    <TD>
+      <P>0</P></TD>
+    <TD>
+      <P>0 to 0xFFFFFF</P></TD>
+    <TD>
+      <P>该数值可以用十六进制或二进制给出。以十六进制给出，该值将蓝色、绿色和红色值表示为 
+      0xBBGGRR。（这不是印刷错误。蓝色值必须是第一个。）</P></TD></TR></TBODY></TABLE>
+<TABLE>
+  <TBODY></TBODY></TABLE>
+<P>下列 XML 代码显示了 Windows Movie Maker 中包括的旧胶片效果：</P><PRE>&lt;EffectDLL guid="{EC85D8F1-1C4E-46e4-A748-7AA04E7C0496}"&gt; 
+   &lt;Effect nameID="62877" iconid="11" comment="Fade Out, To black"&gt; 
+      &lt;Param name="FadeIn" value="0" /&gt; 
+      &lt;Param name="FadeColor" value="0" /&gt; 
+   &lt;/Effect&gt; 
+   &lt;Effect nameID="62878" iconid="9" comment="Fade in, from black"&gt; 
+      &lt;Param name="FadeIn" value="1" /&gt; 
+      &lt;Param name="FadeColor" value="0" /&gt; 
+   &lt;/Effect&gt; 
+   &lt;Effect nameID="62879" iconid="12" comment="Fade Out, to white"&gt; 
+      &lt;Param name="FadeIn" value="0" /&gt; 
+      &lt;Param name="FadeColor" value="16777215" /&gt; 
+   &lt;/Effect&gt; 
+   &lt;Effect nameID="62880" iconid="10" comment="Fade in, to white"&gt; 
+      &lt;Param name="FadeIn" value="1" /&gt; 
+      &lt;Param name="FadeColor" value="16777215" /&gt; 
+   &lt;/Effect&gt; 
+&lt;/EffectDLL&gt; 
+</PRE>
+<P>另请参阅 </P>
+<UL>
+  <LI>
+  <P><A id=ctl00_rs1_mainContentContainer_ctl38 
+  onclick="javascript:Track('ctl00_rs1_mainContentContainer_ctl00|ctl00_rs1_mainContentContainer_ctl38',this);" 
+  href="http://msdn.microsoft.com/library/en-us/dnwmt/html/moviemakersfx.asp?frame=true">Effect 
+  and Transition Objects Provided by Windows Movie Maker </A></P></LI></UL>
+<DIV><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#mainSection"><IMG 
+alt="" 
+src="在%20Windows%20Movie%20Maker%20中创建自定义效果和过渡_files/ms867186.arrow_px_up(zh-cn,MSDN.10).gif" 
+border=0> </A><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#mainSection">返回页首</A> 
+<BR></DIV>
+<H3 id=EPAA>旧胶片效果</H3>
+<P>旧胶片效果引入了颗粒状、涂抹和其他的视觉假象，使胶片看起来好像是旧的。它采用下列参数。</P>
+<TABLE>
+  <TBODY>
+  <TR>
+    <TH>
+      <P>参数</P></TH>
+    <TH>
+      <P>类型</P></TH>
+    <TH>
+      <P>默认值</P></TH>
+    <TH>
+      <P>范围</P></TH>
+    <TH>
+      <P>说明</P></TH></TR>
+  <TR>
+    <TD>
+      <P><I>Age</I> </P></TD>
+    <TD>
+      <P><B>long</B> </P></TD>
+    <TD>
+      <P>0</P></TD>
+    <TD>
+      <P>0 to 100</P></TD>
+    <TD>
+      <P>旧胶片的年限。</P></TD></TR></TBODY></TABLE>
+<TABLE>
+  <TBODY></TBODY></TABLE>
+<P>Age 参数实际上是 10 个独立参数的组合。如果要单独设置这些参数，而不用 Age 参数，可以这样做。下面是 Age 包括的参数。</P>
+<TABLE>
+  <TBODY>
+  <TR>
+    <TH>
+      <P>参数</P></TH>
+    <TH>
+      <P>类型</P></TH>
+    <TH>
+      <P>默认值</P></TH>
+    <TH>
+      <P>范围</P></TH>
+    <TH>
+      <P>说明</P></TH></TR>
+  <TR>
+    <TD>
+      <P><I>BlurAmount</I> </P></TD>
+    <TD>
+      <P><B>long</B> </P></TD>
+    <TD>
+      <P>0</P></TD>
+    <TD>
+      <P>0 to 255</P></TD>
+    <TD>
+      <P>值越大表示图像越模糊。</P></TD></TR>
+  <TR>
+    <TD>
+      <P><I>EdgeFade</I> </P></TD>
+    <TD>
+      <P><B>long</B> </P></TD>
+    <TD>
+      <P>0</P></TD>
+    <TD>
+      <P>0 to 255</P></TD>
+    <TD>
+      <P>值越大表示淡入淡出的边缘越大。</P></TD></TR>
+  <TR>
+    <TD>
+      <P><I>FilmJerkiness</I> </P></TD>
+    <TD>
+      <P><B>long</B> </P></TD>
+    <TD>
+      <P>0</P></TD>
+    <TD>
+      <P>0 to 255</P></TD>
+    <TD>
+      <P>胶片图像跳跃的程度，其中 0 最小，255 最大。</P></TD></TR>
+  <TR>
+    <TD>
+      <P><I>FlickerFrequency</I> </P></TD>
+    <TD>
+      <P><B>long</B> </P></TD>
+    <TD>
+      <P>0</P></TD>
+    <TD>
+      <P>0, 1 to 255</P></TD>
+    <TD>
+      <P>该效果设置中间固定间隙帧的暗度，数值越小，中间帧越暗，外观闪烁不定。0 表示看不见闪烁。</P></TD></TR>
+  <TR>
+    <TD>
+      <P><I>FrameSkips</I> </P></TD>
+    <TD>
+      <P><B>long</B> </P></TD>
+    <TD>
+      <P>0</P></TD>
+    <TD>
+      <P>0 to 255</P></TD>
+    <TD>
+      <P>显示下一个帧之前跳过的帧数。</P></TD></TR>
+  <TR>
+    <TD>
+      <P><I>Grey</I> </P></TD>
+    <TD>
+      <P><B>bool</B> </P></TD>
+    <TD>
+      <P>false</P></TD>
+    <TD>
+      <P>true，false</P></TD>
+    <TD>
+      <P>True 表示灰度（黑白）图像。</P></TD></TR>
+  <TR>
+    <TD>
+      <P><I>LineFrequency</I> </P></TD>
+    <TD>
+      <P><B>long</B> </P></TD>
+    <TD>
+      <P>0</P></TD>
+    <TD>
+      <P>0 to 255</P></TD>
+    <TD>
+      <P>在图像中移动白色“裂纹”或行的频率，其中 0 表示创建行的频率最低，255 表示最高。</P></TD></TR>
+  <TR>
+    <TD>
+      <P><I>LintFrequency</I> </P></TD>
+    <TD>
+      <P><B>long</B> </P></TD>
+    <TD>
+      <P>0</P></TD>
+    <TD>
+      <P>0 to 255</P></TD>
+    <TD>
+      <P>屏幕上“lint”或“tears”的频率，其中 0 表示创建的频率最低，255 表示最高。</P></TD></TR>
+  <TR>
+    <TD>
+      <P><I>NoiseFrequency</I> </P></TD>
+    <TD>
+      <P><B>long</B> </P></TD>
+    <TD>
+      <P>0</P></TD>
+    <TD>
+      <P>0 to 255</P></TD>
+    <TD>
+      <P>将噪音加到图像中，其中 0 表示产生的噪音最少，255 表示最多。</P></TD></TR>
+  <TR>
+    <TD>
+      <P><I>PosterizeBits</I> </P></TD>
+    <TD>
+      <P><B>long</B> </P></TD>
+    <TD>
+      <P>0</P></TD>
+    <TD>
+      <P>0 to 8</P></TD>
+    <TD>
+      <P>对图像应用多色调分色的数量，其中 0 表示最少，8 表示最大。</P></TD></TR></TBODY></TABLE>
+<TABLE>
+  <TBODY></TBODY></TABLE>
+<P>下列 XML 代码显示了 Windows Movie Maker 中包括的旧胶片效果：</P><PRE>&lt;EffectDLL guid="{ADEADEB8-E54B-11d1-9A72-0000F875EADE}"&gt; 
+   &lt;Effect nameID="62874" iconid="4" comment="Film Age, Oldest"&gt; 
+      &lt;Param name="Age" value="90" /&gt; 
+   &lt;/Effect&gt; 
+   &lt;Effect nameID="62875" iconid="3" comment="Older"&gt; 
+      &lt;Param name="Age" value="60" /&gt; 
+   &lt;/Effect&gt; 
+   &lt;Effect nameID="62876" iconid="2" comment="Old"&gt; 
+      &lt;Param name="Age" value="30" /&gt; 
+   &lt;/Effect&gt; 
+&lt;/EffectDLL&gt; 
+</PRE>
+<P>另请参阅 </P>
+<UL>
+  <LI>
+  <P><A id=ctl00_rs1_mainContentContainer_ctl39 
+  onclick="javascript:Track('ctl00_rs1_mainContentContainer_ctl00|ctl00_rs1_mainContentContainer_ctl39',this);" 
+  href="http://msdn.microsoft.com/library/en-us/dnwmt/html/moviemakersfx.asp?frame=true">Effect 
+  and Transition Objects Provided by Windows Movie Maker </A></P></LI></UL>
+<DIV><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#mainSection"><IMG 
+alt="" 
+src="在%20Windows%20Movie%20Maker%20中创建自定义效果和过渡_files/ms867186.arrow_px_up(zh-cn,MSDN.10).gif" 
+border=0> </A><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#mainSection">返回页首</A> 
+<BR></DIV>
+<H3 id=EOAA>过滤器效果</H3>
+<P>过滤器效果给出了与印刷媒体相关的多种效果。每种效果都有与之相关的大量参数，并通过一般性名程 Control1Value 经由 Control8Value 
+传递进来。并不是每种效果都使用所有的参数。效果不能组合。下表说明了所有效果的参数。</P>
+<TABLE>
+  <TBODY>
+  <TR>
+    <TH>
+      <P>参数</P></TH>
+    <TH>
+      <P>类型</P></TH>
+    <TH>
+      <P>默认值</P></TH>
+    <TH>
+      <P>范围</P></TH>
+    <TH>
+      <P>说明</P></TH></TR>
+  <TR>
+    <TD>
+      <P><I>EffectID</I> </P></TD>
+    <TD>
+      <P><B>long</B> </P></TD>
+    <TD>
+      <P>0</P></TD>
+    <TD>
+      <P>0 or 1</P></TD>
+    <TD>
+      <P>使用的效果的 ID，在下一个表中进行了说明。</P></TD></TR>
+  <TR>
+    <TD>
+      <P><I>Control1Value</I> </P>
+      <P><I>到</I> </P>
+      <P><I>Control8Value</I> </P></TD>
+    <TD>
+      <P><B>long</B> </P></TD>
+    <TD>
+      <P>Varies by effect</P></TD>
+    <TD>
+      <P>0 or 1</P></TD>
+    <TD>
+      <P>该效果最多有 8 个自定义参数。</P></TD></TR>
+  <TR>
+    <TD>
+      <P><I>Transparency</I> </P></TD>
+    <TD>
+      <P><B>long</B> </P></TD>
+    <TD>
+      <P>0</P></TD>
+    <TD>
+      <P>0 to 100</P></TD>
+    <TD>
+      <P>添加效果的透明度，数值越大表示透明度越高。</P></TD></TR>
+  <TR>
+    <TD>
+      <P><I>RGBForeColor</I> </P></TD>
+    <TD>
+      <P><B>string</B> </P></TD>
+    <TD>
+      <P>黑色</P></TD>
+    <TD>
+      <P>Internet Explorer 接受的任何标准的 HTML 颜色字符串</P></TD>
+    <TD>
+      <P>取决于 EffectID。</P></TD></TR>
+  <TR>
+    <TD>
+      <P><I>RGBBackColor</I> </P></TD>
+    <TD>
+      <P><B>string</B> </P></TD>
+    <TD>
+      <P>白色</P></TD>
+    <TD>
+      <P>Internet Explorer 接受的任何标准的 HTML 颜色字符串</P></TD>
+    <TD>
+      <P>取决于 EffectID。</P></TD></TR>
+  <TR>
+    <TD>
+      <P><I>RGBExtraColor</I> </P></TD>
+    <TD>
+      <P><B>string</B> </P></TD>
+    <TD>
+      <P>黑色</P></TD>
+    <TD>
+      <P>Internet Explorer 接受的任何标准的 HTML 颜色字符串</P></TD>
+    <TD>
+      <P>取决于 EffectID。</P></TD></TR>
+  <TR>
+    <TD>
+      <P><I>TextureURL</I> </P></TD>
+    <TD>
+      <P><B>string</B> </P></TD>
+    <TD>
+      <P>无</P></TD>
+    <TD>
+      <P>Internet Explorer 接受的任何标准的 HTML 颜色字符串</P></TD>
+    <TD>
+      <P>应用于 ConteCrayon、RoughPastel、Texturizer 和 Underpainting 
+  效果。</P></TD></TR></TBODY></TABLE>
+<TABLE>
+  <TBODY></TBODY></TABLE>
+<P>下表列出了 EffectID 参数指定的效果。</P>
+<TABLE>
+  <TBODY>
+  <TR>
+    <TH>
+      <P>EffectID</P></TH>
+    <TH>
+      <P>效果名称</P></TH></TR>
+  <TR>
+    <TD>
+      <P>0</P></TD>
+    <TD>
+      <P>None</P></TD></TR>
+  <TR>
+    <TD>
+      <P>1</P></TD>
+    <TD>
+      <P>Accents</P></TD></TR>
+  <TR>
+    <TD>
+      <P>2</P></TD>
+    <TD>
+      <P>AngledStrokes</P></TD></TR>
+  <TR>
+    <TD>
+      <P>3</P></TD>
+    <TD>
+      <P>BasRelief</P></TD></TR>
+  <TR>
+    <TD>
+      <P>4</P></TD>
+    <TD>
+      <P>Mosaic</P></TD></TR>
+  <TR>
+    <TD>
+      <P>5</P></TD>
+    <TD>
+      <P>ChalkAndCharcoal</P></TD></TR>
+  <TR>
+    <TD>
+      <P>6</P></TD>
+    <TD>
+      <P>Charcoal</P></TD></TR>
+  <TR>
+    <TD>
+      <P>7</P></TD>
+    <TD>
+      <P>Chrome</P></TD></TR>
+  <TR>
+    <TD>
+      <P>8</P></TD>
+    <TD>
+      <P>ColoredPencil</P></TD></TR>
+  <TR>
+    <TD>
+      <P>9</P></TD>
+    <TD>
+      <P>Craquelure</P></TD></TR>
+  <TR>
+    <TD>
+      <P>10</P></TD>
+    <TD>
+      <P>Crosshatch</P></TD></TR>
+  <TR>
+    <TD>
+      <P>11</P></TD>
+    <TD>
+      <P>Cutout</P></TD></TR>
+  <TR>
+    <TD>
+      <P>12</P></TD>
+    <TD>
+      <P>DarkStrokes</P></TD></TR>
+  <TR>
+    <TD>
+      <P>13</P></TD>
+    <TD>
+      <P>DiffuseGlow</P></TD></TR>
+  <TR>
+    <TD>
+      <P>14</P></TD>
+    <TD>
+      <P>DryBrush</P></TD></TR>
+  <TR>
+    <TD>
+      <P>15</P></TD>
+    <TD>
+      <P>Emboss</P></TD></TR>
+  <TR>
+    <TD>
+      <P>16</P></TD>
+    <TD>
+      <P>FilmGrain</P></TD></TR>
+  <TR>
+    <TD>
+      <P>17</P></TD>
+    <TD>
+      <P>InkOutline</P></TD></TR>
+  <TR>
+    <TD>
+      <P>18</P></TD>
+    <TD>
+      <P>NotePaper</P></TD></TR>
+  <TR>
+    <TD>
+      <P>19</P></TD>
+    <TD>
+      <P>Fresco</P></TD></TR>
+  <TR>
+    <TD>
+      <P>20</P></TD>
+    <TD>
+      <P>GlowingEdges</P></TD></TR>
+  <TR>
+    <TD>
+      <P>21</P></TD>
+    <TD>
+      <P>Grain</P></TD></TR>
+  <TR>
+    <TD>
+      <P>22</P></TD>
+    <TD>
+      <P>HalftoneScreen</P></TD></TR>
+  <TR>
+    <TD>
+      <P>23</P></TD>
+    <TD>
+      <P>Patchwork</P></TD></TR>
+  <TR>
+    <TD>
+      <P>24</P></TD>
+    <TD>
+      <P>NeonGlow</P></TD></TR>
+  <TR>
+    <TD>
+      <P>25</P></TD>
+    <TD>
+      <P>PaintDaubs</P></TD></TR>
+  <TR>
+    <TD>
+      <P>26</P></TD>
+    <TD>
+      <P>PaletteKnife</P></TD></TR>
+  <TR>
+    <TD>
+      <P>27</P></TD>
+    <TD>
+      <P>Plaster</P></TD></TR>
+  <TR>
+    <TD>
+      <P>28</P></TD>
+    <TD>
+      <P>PlasticWrap</P></TD></TR>
+  <TR>
+    <TD>
+      <P>29</P></TD>
+    <TD>
+      <P>PosterEdges</P></TD></TR>
+  <TR>
+    <TD>
+      <P>30</P></TD>
+    <TD>
+      <P>Ripple</P></TD></TR>
+  <TR>
+    <TD>
+      <P>31</P></TD>
+    <TD>
+      <P>Reticulation</P></TD></TR>
+  <TR>
+    <TD>
+      <P>32</P></TD>
+    <TD>
+      <P>SmudgeStick</P></TD></TR>
+  <TR>
+    <TD>
+      <P>33</P></TD>
+    <TD>
+      <P>Sponge</P></TD></TR>
+  <TR>
+    <TD>
+      <P>34</P></TD>
+    <TD>
+      <P>SprayedStrokes</P></TD></TR>
+  <TR>
+    <TD>
+      <P>35</P></TD>
+    <TD>
+      <P>Stamp</P></TD></TR>
+  <TR>
+    <TD>
+      <P>36</P></TD>
+    <TD>
+      <P>Photocopy</P></TD></TR>
+  <TR>
+    <TD>
+      <P>37</P></TD>
+    <TD>
+      <P>Sumie</P></TD></TR>
+  <TR>
+    <TD>
+      <P>38</P></TD>
+    <TD>
+      <P>GraphicPen</P></TD></TR>
+  <TR>
+    <TD>
+      <P>39</P></TD>
+    <TD>
+      <P>TornEdges</P></TD></TR>
+  <TR>
+    <TD>
+      <P>40</P></TD>
+    <TD>
+      <P>Watercolor</P></TD></TR>
+  <TR>
+    <TD>
+      <P>41</P></TD>
+    <TD>
+      <P>WaterPaper</P></TD></TR>
+  <TR>
+    <TD>
+      <P>42</P></TD>
+    <TD>
+      <P>StainedGlass</P></TD></TR>
+  <TR>
+    <TD>
+      <P>43</P></TD>
+    <TD>
+      <P>Glass</P></TD></TR>
+  <TR>
+    <TD>
+      <P>44</P></TD>
+    <TD>
+      <P>Texturizer</P></TD></TR>
+  <TR>
+    <TD>
+      <P>45</P></TD>
+    <TD>
+      <P>Underpainting</P></TD></TR>
+  <TR>
+    <TD>
+      <P>46</P></TD>
+    <TD>
+      <P>ConteCrayon</P></TD></TR>
+  <TR>
+    <TD>
+      <P>47</P></TD>
+    <TD>
+      <P>RoughPastel</P></TD></TR>
+  <TR>
+    <TD>
+      <P>48</P></TD>
+    <TD>
+      <P>Spatter</P></TD></TR></TBODY></TABLE>
+<TABLE>
+  <TBODY></TBODY></TABLE>
+<P>下列 XML 代码显示了 Windows Movie Maker 中包括的过滤器效果：</P><PRE>&lt;EffectDLL guid="{E673DCF2-C316-4c6f-AA96-4E4DC6DC291E}" &gt; 
+   &lt;Effect nameID="62886" iconid="13"&gt; 
+      &lt;Param name="EffectID" value="16" comment="Film Grain" /&gt; 
+      &lt;Param name="Control1Value" value="4" /&gt; 
+      &lt;Param name="Control2Value" value="0" /&gt; 
+      &lt;Param name="Control3Value" value="10" /&gt; 
+   &lt;/Effect&gt; 
+   &lt;Effect nameID="62887" iconid="27" comment="Smudge Stick"&gt; 
+      &lt;Param name="EffectID" value="32" /&gt; 
+      &lt;Param name="Control1Value" value="2" /&gt; 
+      &lt;Param name="Control2Value" value="0" /&gt; 
+      &lt;Param name="Control3Value" value="10" /&gt; 
+   &lt;/Effect&gt; 
+   &lt;Effect nameID="62888" iconid="14" comment="Graphic Pen"&gt; 
+      &lt;Param name="EffectID" value="38" /&gt; 
+      &lt;Param name="Control1Value" value="15" /&gt; 
+      &lt;Param name="Control2Value" value="0" /&gt; 
+      &lt;Param name="Control3Value" value="40" /&gt; 
+   &lt;/Effect&gt; 
+   &lt;Effect nameID="62889" iconid="30" comment="Watercolor"&gt; 
+      &lt;Param name="EffectID" value="40" /&gt; 
+      &lt;Param name="Control1Value" value="9" /&gt; 
+      &lt;Param name="Control2Value" value="1" /&gt; 
+      &lt;Param name="Control3Value" value="1" /&gt; 
+   &lt;/Effect&gt; 
+  &lt;/EffectDLL&gt; 
+</PRE>
+<P>另请参阅 </P>
+<UL>
+  <LI>
+  <P><A id=ctl00_rs1_mainContentContainer_ctl40 
+  onclick="javascript:Track('ctl00_rs1_mainContentContainer_ctl00|ctl00_rs1_mainContentContainer_ctl40',this);" 
+  href="http://msdn.microsoft.com/library/en-us/dnwmt/html/moviemakersfx.asp?frame=true">Effect 
+  and Transition Objects Provided by Windows Movie Maker </A></P></LI></UL>
+<DIV><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#mainSection"><IMG 
+alt="" 
+src="在%20Windows%20Movie%20Maker%20中创建自定义效果和过渡_files/ms867186.arrow_px_up(zh-cn,MSDN.10).gif" 
+border=0> </A><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#mainSection">返回页首</A> 
+<BR></DIV>
+<H3 id=ENAA>镜像和灰度效果</H3>
+<P>该对象提供两个功能：创建镜像图像，并将彩色图像改为灰度。该对象采用下列参数。</P>
+<TABLE>
+  <TBODY>
+  <TR>
+    <TH>
+      <P>参数</P></TH>
+    <TH>
+      <P>类型</P></TH>
+    <TH>
+      <P>默认值</P></TH>
+    <TH>
+      <P>范围</P></TH>
+    <TH>
+      <P>说明</P></TH></TR>
+  <TR>
+    <TD>
+      <P><I>Mirror</I> </P></TD>
+    <TD>
+      <P><B>long</B> </P></TD>
+    <TD>
+      <P>0</P></TD>
+    <TD>
+      <P>0 or 1</P></TD>
+    <TD>
+      <P>值为 1 表示图片应该水平翻转。</P></TD></TR>
+  <TR>
+    <TD>
+      <P><I>GrayScale</I> </P></TD>
+    <TD>
+      <P><B>long</B> </P></TD>
+    <TD>
+      <P>0</P></TD>
+    <TD>
+      <P>0 or 1</P></TD>
+    <TD>
+      <P>值为 1 表示颜色应改为灰度，创建一个黑白图像。</P></TD></TR></TBODY></TABLE>
+<TABLE>
+  <TBODY></TBODY></TABLE>
+<P>下列 XML 代码显示了 Windows Movie Maker 中包括的镜像和灰度效果：</P><PRE>&lt;EffectDLL guid="{4CCEA634-FBE0-11D1-906A-00C04FD9189D}" comment="Pixelate"&gt; 
+   &lt;Effect nameID="62818" iconid="19" comment="Pixelate"&gt; 
+      &lt;Param name="MaxSquare" value="25" /&gt; 
+   &lt;/Effect&gt; 
+&lt;/EffectDLL&gt; 
+</PRE>
+<P>另请参阅 </P>
+<UL>
+  <LI>
+  <P><A id=ctl00_rs1_mainContentContainer_ctl41 
+  onclick="javascript:Track('ctl00_rs1_mainContentContainer_ctl00|ctl00_rs1_mainContentContainer_ctl41',this);" 
+  href="http://msdn.microsoft.com/library/en-us/dnwmt/html/moviemakersfx.asp?frame=true">Effect 
+  and Transition Objects Provided by Windows Movie Maker </A></P></LI></UL>
+<DIV><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#mainSection"><IMG 
+alt="" 
+src="在%20Windows%20Movie%20Maker%20中创建自定义效果和过渡_files/ms867186.arrow_px_up(zh-cn,MSDN.10).gif" 
+border=0> </A><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#mainSection">返回页首</A> 
+<BR></DIV>
+<H3 id=EMAA>像素化效果</H3>
+<P>像素化效果将图像粗化成单独的纯色方格，表示该区域原先像素的平均颜色。它采用下列参数。</P>参数类型默认值范围说明
+<P>MaxSquare</P>
+<P>long</P>
+<P>50</P>
+<P>2 to 50</P>
+<P>数值越大，方格越大，图片越粗糙。</P>
+<P>下列 XML 代码显示了 Windows Movie Maker 中包括的像素化效果：</P><PRE>&lt;EffectDLL guid="{4CCEA634-FBE0-11D1-906A-00C04FD9189D}" comment="Pixelate"&gt; 
+   &lt;Effect nameID="62818" iconid="19" comment="Pixelate"&gt; 
+      &lt;Param name="MaxSquare" value="25" /&gt; 
+   &lt;/Effect&gt; 
+&lt;/EffectDLL&gt; 
+</PRE>
+<P>另请参阅 </P>
+<UL>
+  <LI>
+  <P><A id=ctl00_rs1_mainContentContainer_ctl42 
+  onclick="javascript:Track('ctl00_rs1_mainContentContainer_ctl00|ctl00_rs1_mainContentContainer_ctl42',this);" 
+  href="http://msdn.microsoft.com/library/en-us/dnwmt/html/moviemakersfx.asp?frame=true">Effect 
+  and Transition Objects Provided by Windows Movie Maker </A></P></LI></UL>
+<DIV><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#mainSection"><IMG 
+alt="" 
+src="在%20Windows%20Movie%20Maker%20中创建自定义效果和过渡_files/ms867186.arrow_px_up(zh-cn,MSDN.10).gif" 
+border=0> </A><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#mainSection">返回页首</A> 
+<BR></DIV>
+<H3 id=ELAA>速度效果</H3>
+<P>速度效果加速或减缓视频的播放。速度效果不能用于暂停或后退操作。这些效果不依赖于某个实际的 GUID，而是传递空 
+GUID。速度效果可引起帧跳跃，所以选择的值过大将导致令人不满意的结果。该效果采用下列参数。</P>
+<TABLE>
+  <TBODY>
+  <TR>
+    <TH>
+      <P>参数</P></TH>
+    <TH>
+      <P>类型</P></TH>
+    <TH>
+      <P>默认值</P></TH>
+    <TH>
+      <P>范围</P></TH>
+    <TH>
+      <P>说明</P></TH></TR>
+  <TR>
+    <TD>
+      <P><I>Speed</I> </P></TD>
+    <TD>
+      <P><B>float</B> </P></TD>
+    <TD>
+      <P>1.0</P></TD>
+    <TD>
+      <P>大于 0.0</P></TD>
+    <TD>
+      <P>值为 1.0 表示正常速度，小于 1.0 表示速度较慢，大于 1.0 表示速度较快。</P></TD></TR></TBODY></TABLE>
+<TABLE>
+  <TBODY></TBODY></TABLE>
+<P>下列 XML 代码显示了 Windows Movie Maker 中包括的速度效果：</P><PRE>&lt;EffectDLL guid="{00000000-0000-0000-0000-000000000000}"&gt; 
+   &lt;Effect nameID="62861" iconid="32" speed="2.0" comment="Speed up"&gt;&lt;/Effect&gt; 
+   &lt;Effect nameID="62862" iconid="31" speed="0.5" comment="Slow down"&gt;&lt;/Effect&gt; 
+&lt;/EffectDLL&gt; 
+</PRE>
+<P>另请参阅 </P>
+<UL>
+  <LI>
+  <P><A id=ctl00_rs1_mainContentContainer_ctl43 
+  onclick="javascript:Track('ctl00_rs1_mainContentContainer_ctl00|ctl00_rs1_mainContentContainer_ctl43',this);" 
+  href="http://msdn.microsoft.com/library/en-us/dnwmt/html/moviemakersfx.asp?frame=true">Effect 
+  and Transition Objects Provided by Windows Movie Maker </A></P></LI></UL>
+<DIV><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#mainSection"><IMG 
+alt="" 
+src="在%20Windows%20Movie%20Maker%20中创建自定义效果和过渡_files/ms867186.arrow_px_up(zh-cn,MSDN.10).gif" 
+border=0> </A><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#mainSection">返回页首</A> 
+<BR></DIV>
+<H3 id=EKAA>将自定义图标添加到 Windows Movie Maker 中</H3>
+<P>可以将自定义图标添加到 Windows Movie Maker 的自定义效果和过渡中。这些图标是作为 C++ 项目中的资源文件创建的，并编译为 
+DLL。如果不提供任何自定义过渡或效果代码，则该项目将只包括图标资源文件。 </P>
+<P>Windows Movie Maker 可以使用由一个或多个图标组合在一起而构成的单个位图图像。Windows Movie Maker 自动将图像分割成宽 
+96 像素、高 84 像素的段，每段就是一个图标。顶部和底部的 6 个像素应该保留为空以便用于图像填充，它将可见图标大小修整为 96 x 72 (3 x 4) 
+的段。Windows Movie Maker 为每个段分配一个标识号，从 0 开始，增量为 1，它说明图标“跳跃”到条中的次数。在 XML 
+文件中指定要为每种效果使用哪个图标。可使用所有的自定义图标，或者所有的 Windows Movie Maker 
+标准图标，但不能将两种类型混合。下图显示了图标的位图图像条的布局。</P>
+<P><IMG alt="" 
+src="在%20Windows%20Movie%20Maker%20中创建自定义效果和过渡_files/ms867186.moviemakersfx1(zh-cn,MSDN.10).gif"> 
+</P>
+<P>在上图中，效果或过渡可将笑脸图标设为 <B>iconid</B> = 0，而将太阳图标的标识号设为 4。 </P>
+<P>在创建图标条时，顶部和底部的 6 像素应是纯白的，因为这个空白部分将被修整为 4 x 3 的缩略图以显示在情节串连图板中。纯白 (255,255,255) 
+在显示时是透明的。 </P>
+<P>要添加自己的图标，必须将两个额外的属性添加到 TransitionsAndEffects 标记中： </P>
+<UL>
+  <LI>
+  <P><B>SpecialIconFileID</B> 该属性只在包含您自己的自定义图标时才在 XML 文件中使用。它应是从 1 到 8192 
+  的一个唯一数字。这个数字对于所有其他自定义 Windows Movie Maker XML 文件中的所有 <B>SpecialIconFileID</B> 
+  属性来说必须是唯一的，否则就没有意义。 </P>
+  <LI>
+  <P><B>SpecialIconResourceID</B> 该属性只在包含您自己的自定义图标时才在 XML 文件中使用。这是分配给自定义 DLL 
+  中图标位图资源的数值。可以在 Visual Studio 项目的资源文件中找到该数值。 </P></LI></UL>
+<P>下面是指定自定义图标的 XML 代码：</P><PRE>&lt;TransitionsAndEffects Version="1.0" SpecialIconFileID="22" SpecialIconResourceID="101"&gt; 
+</PRE>
+<P><B>为效果和过渡创建自定义图标</B> </P>
+<OL>
+  <LI>
+  <P><B>打开</B> <B>Visual Studio</B> <B>，创建一个新的</B> <B>C++ </B><B>项目。如果只是创建</B> 
+  <B>DLL </B><B>来保存图标，那么创建一个新的</B> <B>Win32 </B><B>项目，当要求进行设置时，选择一个编译为</B> 
+  <B>DLL </B><B>的空项目。</B> <B></B></P>
+  <LI>
+  <P>将新资源添加到该项目中。当询问何种资源时，选择“bitmap”。 </P>
+  <LI>
+  <P>绘制或导入资源编辑器中的位图。最大的图标大小是宽 96 像素、高 84 像素（包括顶部和底部的 6 像素白色缓冲区）。Windows Movie 
+  Maker 从左下角测量图像：如果图像过高，则将裁剪掉多余的部分；如果图像过宽，则将把多余部分分配给下一个更高的图标。如果图像宽度小于 96 像素，则 
+  Windows Movie Maker 将包含下一个图标的一部分。将所需数量的图标图像插入到这些 96 像素宽的窗口中。 </P>
+  <LI>
+  <P>注意分配给 resource.h 文件中的位图的 ID。这将分配给 <B>SpecialIconResourceID 
+  </B>属性。例如，下面的行显示了已经分配 101 作为其标识符的位图： </P><PRE>#define IDB_BITMAP1                     101 
+</PRE>
+  <LI>
+  <P>编译 DLL，将它与 \AddOnTFX 文件夹中的 XML 文件放在一起。图像 DLL 必须与使用这些图标的 XML 文件名称相同。例如，如果 
+  DLL 名为 MyIcons.dll，则 XML 文件必须为 MyIcons.xml。 </P>
+  <LI>
+  <P>在 XML 文件中，将 <B>SpecialIconFileID</B> 属性添加到 TransitionsAndEffects XML 
+  标记中，并为之分配一个从 1 到 8192 的唯一整数。只要其他 XML 效果文件没使用该整数进行标识，那么该整数的值并不重要。 </P>
+  <LI>
+  <P>将 <B>SpecialIconResourceID</B> 属性添加到 TransitionsAndEffects 标记中，并将 Visual 
+  Studio 分配给位图的数值分配给它：在本示例中是第 4 步中显示的 101。 </P>
+  <LI>
+  <P>在每个过渡或效果 XML 块中，将 <B>iconid</B> 属性添加到 Transition 标记中，选择到位图的偏移量，从 
+  0（即图标所处的位置）开始。这些数字不必是连续的，可以跳过区域。 </P></LI></OL>
+<P>下面的 XML 代码片断显示了使用某位图图像中第一个和第三个图标的两个自定义过渡，DLL 的 ID 为 101，唯一的 ID 22 
+分配给了该文件：</P><PRE>&lt;TransitionsAndEffects Version="1.0" SpecialIconFileID="22" SpecialIconResourceID="101"&gt; 
+   &lt;Transitions&gt; 
+      &lt;TransitionDLL guid="{C63344D8-70D3-4032-9B32-7A3CAD5091A5}"&gt; 
+         &lt;Transition name="Grow, custom icon 1" iconid="0"&gt; 
+            &lt;Param name="InternalName" value="Simple3D" /&gt; 
+            &lt;Param name="ScaleA" value="bigger" /&gt; 
+            &lt;Param name="ExponentialProgressDuration" value="3.0" /&gt; 
+            &lt;Param name="ExponentialProgressScale" value="1.0" /&gt; 
+         &lt;/Transition&gt; 
+      &lt;/TransitionDLL&gt; 
+      &lt;TransitionDLL guid="{C63344D8-70D3-4032-9B32-7A3CAD5091A5}"&gt; 
+         &lt;Transition name="Grow, custom icon 3" iconid="2"&gt; 
+            &lt;Param name="InternalName" value="Simple3D" /&gt; 
+            &lt;Param name="ScaleA" value="bigger" /&gt; 
+            &lt;Param name="ExponentialProgressDuration" value="3.0" /&gt; 
+            &lt;Param name="ExponentialProgressScale" value="2.0" /&gt; 
+         &lt;/Transition&gt; 
+      &lt;/TransitionDLL&gt; 
+   &lt;/Transitions&gt; 
+&lt;/TransitionsAndEffects&gt; 
+</PRE>
+<P><B>注</B> 仅当使用 DLL 保存图像时，XML 的文件名和 DLL 的文件名才必须匹配。如果 DLL 
+不保存图像（正如当它保存自定义效果和过渡对象时一样），它们的名称不需要匹配。</P>
+<DIV><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#mainSection"><IMG 
+alt="" 
+src="在%20Windows%20Movie%20Maker%20中创建自定义效果和过渡_files/ms867186.arrow_px_up(zh-cn,MSDN.10).gif" 
+border=0> </A><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#mainSection">返回页首</A> 
+<BR></DIV>
+<H3 id=EJAA>创建新的过渡和效果对象</H3>
+<P>除了修改现有的过渡和特殊效果，还有可以创建一个全新的过渡和效果。这些对象称为 DirectX Transforms (DXT)，创建它们需要了解相当多的 
+COM 与 DirectX 编程知识，以及 ATL 知识，本节只简要地加以介绍。要了解在何处可以阅读有关 DXT 的信息，请参阅<A 
+id=ctl00_rs1_mainContentContainer_ctl44 
+onclick="javascript:Track('ctl00_rs1_mainContentContainer_ctl00|ctl00_rs1_mainContentContainer_ctl44',this);" 
+href="http://msdn.microsoft.com/library/en-us/dnwmt/html/moviemakersfx.asp?frame=true">更多信息</A>。 
+</P>
+<P>该下载内容包括两个可用来创建新的过渡和效果对象的 Visual Studio 项目；一个是 Visual Studio .NET 版本，另一个是 
+Visual Studio 6.0 版本。如果使用 6.0 版本的项目，还必须安装 Microsoft DirectX 7.0 
+SDK，以获得该项目所必需的头文件。可以在<A id=ctl00_rs1_mainContentContainer_ctl45 
+onclick="javascript:Track('ctl00_rs1_mainContentContainer_ctl00|ctl00_rs1_mainContentContainer_ctl45',this);" 
+href="http://msdn.microsoft.com/library/en-us/dnwmt/html/moviemakersfx.asp?frame=true">更多信息</A>中显示的位置处找到它。</P>
+<P>另外，这两个项目都需要安装有 Microsoft DirectX Media SDK，可以从 <A 
+id=ctl00_rs1_mainContentContainer_ctl46 
+onclick="javascript:Track('ctl00_rs1_mainContentContainer_ctl00|ctl00_rs1_mainContentContainer_ctl46',this);" 
+href="http://go.microsoft.com/fwlink/?LinkId=12229">Microsoft 网站</A>获得。 </P>
+<P>与本文档相关的可下载、可执行文件是一个自解压文件组和文件夹。下载的项目包括下列文件： </P>
+<UL>
+  <LI>
+  <P>C++ 项目文件，包含几种示例效果的代码 </P>
+  <LI>
+  <P>将这些效果和一些其他效果加载到 Windows Movie Maker 中的 XML 文件 </P>
+  <LI>
+  <P>介绍每个文件内容的 Readme.txt </P>
+  <LI>
+  <P>介绍安装过程的 HowToInstall.txt </P>
+  <LI>
+  <P>MMSTFX.dll，是该项目将要创建的已经编译过的示例 DLL。 </P></LI></UL>
+<P>运行自解压程序将会创建一个包含项目和文本文件的顶级 MMSTFX 文件夹、一个包含 DLL 的 MMSTFX\Bin 文件夹，以及一个包含 XML 文件的 
+MMSTFX\XML 文件夹。</P>
+<P>示例 C++ 代码会在名为 MMSTFX.dll 的 DLL 中创建一种新效果 (Blue Adjust) 和一种新过渡 (Melt)。同时还包括修改随 
+Windows Movie Maker 提供的效果的 XML 文件。这些“新”效果包括“Page Curl, Down Left”、“Page Curl, 
+Down Right”、“Blur, Super”、“Brightness, Super Increase”、“Brightness, Super 
+Decrease”和“Whirlwind, Down, Small Blocks”。有关这些对象的详细信息可以在下载软件包中包含的 ReadMe.txt 
+文件中找到。</P>
+<P>要在 Visual Studio 6.0 中打开该项目，双击 MMSTFX.dsp 文件。要在 Visual Studio .NET 中打开该项目，双击 
+MMSTFX.vcproj 文件。</P>
+<P><B>注</B> 如果您收到不能编译 DXTrans.idl 的错误消息，一定要确保您列出了您的计算机上 DXMedia\include 
+文件夹的路径。该路径应该在 <B>Tools &gt; Options &gt; Projects &gt; VC++ Directories</B> 
+对话框中指定。</P>
+<P>打开和编译示例 DLL 后，就可以调试模式运行程序。您将会收到一个警告对话框，指出该项目不包含 Windows Movie Maker 
+程序的调试符号；单击 OK。当询问要附加到哪一个程序时，导航到 moviemk.exe 程序文件并选择该文件。</P>
+<DIV><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#mainSection"><IMG 
+alt="" 
+src="在%20Windows%20Movie%20Maker%20中创建自定义效果和过渡_files/ms867186.arrow_px_up(zh-cn,MSDN.10).gif" 
+border=0> </A><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#mainSection">返回页首</A> 
+<BR></DIV>
+<H3 id=EIAA>示例代码概述</H3>
+<P>下图显示了示例代码中提供的重要类。</P>
+<P><IMG alt="" 
+src="在%20Windows%20Movie%20Maker%20中创建自定义效果和过渡_files/ms867186.moviemakersfx2(zh-cn,MSDN.10).gif"> 
+</P>
+<P>下面介绍示例代码中的类与对象：</P>
+<P><B>CMMSampleEffect</B> 和 <B>CMMSampleTransition</B> </P>
+<P>这些是示例的顶级效果和过渡 DXT 类。<B>CMMSampleEffect</B> 实现 Blue Adjust 
+示例效果；<B>CMMSampleTransition</B> 实现 Melt 
+示例过渡。这些类可以被修改以更改示例，或者被复制和修改以创建新的效果或过渡。Windows Movie Maker 利用分配给每个类的 GUID 和 COM 
+创建这些类。这些类创建一个帮助器对象，通过调用 <B>CreateSpecialEffectByName</B> 
+来处理视频：<B>CMMSampleEffect </B>创建 <B>CMMSpecialEffect</B>，而 
+<B>CMMSampleTransition</B> 创建 <B>CMMSimple3DSpecialEffect</B>。输入缓冲区的默认数量为 
+1（效果允许的唯一数量值），但 <B>CMMSampleTransition</B> 将该值增加到 2（过渡的正确数量）。 </P>
+<P><B>CMMSpecialEffectDXT</B> </P>
+<P>处理 Windows Movie Maker 和视频处理类（<B>CMMSpecialEffect</B> 或者它的继承类）之间的通信和缓冲操作。</P>
+<P><B>CVideoPlane</B> </P>
+<P>这是一种三维效果使用的工具类，用来在单个平面上绘制输入视频。</P>
+<P><B>CMMSpecialEffect</B> </P>
+<P>这是二维效果和过渡使用的图形对象的基类。Blue Adjust 示例效果直接利用该类将视频的色调设置为蓝色。Melt 示例过渡使用一个派生类 
+<B>CMM3DSpecialEffect</B>，它适用于三维操作。当创建二维效果或过渡时，从该类继承并覆盖它的 <B>Execute</B> 方法。</P>
+<P><B>CMM3DSpecialEffect</B> </P>
+<P>这是一种用于三维效果或过渡的基类。它在输出缓冲区上创建纹理和一个呈现表面。要创建新的效果或过渡，覆盖下面的方法：<B>CreateScene</B>、<B>RenderScene</B>、<B>ReleaseScene</B>、<B>CreateSurfaces</B>、<B>RestoreSurfaces</B> 
+和 <B>ReleaseSurfaces</B>。<B>Execute</B> 方法覆盖 <B>CMMSpecialEffect</B> 
+中的方法，处理低级逻辑；您不要自行覆盖它。要修改或创建一个新的效果或过渡，应该覆盖 
+<B>RenderScene</B>。<B>CMM3DSpecialEffect</B> 不呈现三维对象；这是由 
+<B>CSimple3DSpecialEffect</B> 完成的。</P>
+<P><B>CSimple3DSpecialEffect</B> </P>
+<P>用于三维效果和过渡呈现的顶级类。它呈现 Melt 示例过渡。该类覆盖了它的基类中的几个函数，并创建了一个基于 <B>CVideoPlane</B> 
+的帮助器对象。要新建一个基于 Direct3D 的效果或过渡，可以更改或创建一个继承该类的新类。 </P>
+<DIV><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#mainSection"><IMG 
+alt="" 
+src="在%20Windows%20Movie%20Maker%20中创建自定义效果和过渡_files/ms867186.arrow_px_up(zh-cn,MSDN.10).gif" 
+border=0> </A><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#mainSection">返回页首</A> 
+<BR></DIV>
+<H3 id=EHAA>开始创建一种新效果</H3>
+<P>利用示例中提供的代码作为开端是一种开发自己的效果或过渡的不错方法。为了用自己的效果替代 Blue Adjust 效果，首先要查看 
+CMMSpecialEffect.cpp 和 CMMSpecialEffect.h 文件。在效果的生存期内，<B>Initialize</B> 和 
+<B>Terminate</B> 方法各被调用一次，而每次呈现一个新视频帧时就要调用一次 <B>Execute</B> 方法。要创建一种新效果，可以实现一个继承 
+<B>CMMSpecialEffect</B> 类的类，并覆盖 <B>Initialize</B>、<B>Execute</B> 和 
+<B>Terminate</B> 方法。</P>
+<P>反过来，CMMSampleEffect 类又继承了 CMMSpecialEffectDXT 类，它调用 
+<B>CreateSpecialEffectByName</B> 来创建一个图形对象 <B>CMMSpecialEffect</B>。如果定义了一个新 
+DXT，就可以通过改变 <B>CreateSpecialEffectByName 
+</B>函数的行为来修改该对象。由这些类和对象来处理创建新效果需要完成的大量乏味工作。</P>
+<P><B>注</B> <B>CMMSampleEffect</B> 和 <B>CMMSampleTransition</B> 类引用一个 CoClass 
+GUID，它和描述新的或修改效果的附加 XML 文件中指定的 GUID 相同。当开发自己的效果或过渡时，应当复制和重命名 
+<B>CMMSampleEffect</B> 与 <B>CMMSampleTransition</B> 类，并生成一个用于该类和 XML 文件的新 
+GUID，这样就保证了使用的 GUID 的唯一性。利用 Visual Studio 提供的 Guidgen 工具来生成一个新 GUID。COM 对象在描述它们的 
+.idl 文件中、包含有它们的注册信息的 .rgs 文件中，以及由 .idl 文件生成的 .h 文件中引用它们的 GUID。更改 GUID 
+时，必须搜索出整个项目中引用原先的 GUID的地方。Windows Movie Maker 显示效果需要的 XML 文件也必须进行更新以使用新的 
+GUID。</P>
+<DIV><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#mainSection"><IMG 
+alt="" 
+src="在%20Windows%20Movie%20Maker%20中创建自定义效果和过渡_files/ms867186.arrow_px_up(zh-cn,MSDN.10).gif" 
+border=0> </A><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#mainSection">返回页首</A> 
+<BR></DIV>
+<H3 id=EGAA>开始创建一种新过渡</H3>
+<P>编写一种新过渡通常比编写一种新效果需做的工作要多。Melt 示例利用 Direct3D 来控制图像并呈现结果。Direct3D 
+需要的初始化和执行代码相当多，这些代码由 Melt 示例中的 <B>CSimple3DSpecialEffect</B> 类提供，该类继承了 
+<B>CMM3DSpecialEffect</B>，而它反过来又继承了 <B>CMMSpecialEffect</B>。类似于 Blue Adjust 
+代码，要创建自己的过渡，应该继承 <B>CMM3DSpecialEffect</B> 类并覆盖 
+<B>CreateScene</B>、<B>ReleaseScene </B>和 <B>RenderScene</B> 
+方法。<B>CreateScene</B> 和 <B>ReleaseScene</B> 只被调用一次；而每次呈现一个新帧时都要调用 
+<B>RenderScene</B>。</P>
+<P>与 Melt 示例不同，如果您的过渡需要管理三维顶点缓冲区，可能还需要覆盖 <B>CMM3DSpecialEffect</B> 
+类中的其他三种方法。这三种方法是 <B>CreateSurfaces</B>、<B>RestoreSurfaces</B> 和 
+<B>ReleaseSurfaces</B>。</P>
+<P><B>注</B> <B>Initialize</B>、<B>Terminate </B>和 <B>Execute </B>方法在使用 
+<B>CMM3DSpecialEffect</B> 类时不应被覆盖，因为该类自身已经覆盖了这些方法。</P>
+<P>同时，应该复制和重命名 <B>CMMSampleTransition </B>类，并为其提供一个新 GUID。</P>
+<P>对于绘图，Melt 示例利用继承 <B>CMM3DSpecialEffect</B> 的 <B>CSimple3DSpecialEffect</B> 
+来创建过渡，但是这些类也可以用来创建三维效果，例如 Blue Adjust。Windows Movie Maker 
+中效果和过渡的唯一区别是视频输入源的数量不同—对于效果有一个，而对于过渡有两个。默认情况下，输入数量设置为 1，但 
+<B>CMMSampleTransition</B> 的 <B>FinalConstruct</B> 方法将该值设置为 2。</P>
+<P><B>注</B> 对象与效果或过渡关联后，没有从注册表删除所有对其 GUID 的引用，就不能将该对象更改为其他类型。在 Windows Movie 
+Maker 2 启动时，DirectShow 将存储注册表中效果或过渡的类型。</P>
+<P>要不使用 Direct3D 来创建一种新过渡，修改 <B>CMMSpecialEffectDXT</B> 类的 
+<B>CreateSpecialEffectByName</B> 方法来创建一个 <B>CMMSpecialEffect</B> 对象（或者一个继承 
+<B>CMMSpecialEffect</B> 类的对象），避免对 Direct3D 界面和方法的任何调用。</P>
+<P>将方法划分为两个类 <B>CMMSpecialEffect</B> 和 <B>CSimple3DSpecialEffect</B> 
+中，可使示例更清楚。如果代码的简洁性和优化性非常重要的话，可以将这两个类组合成一个类。</P>
+<DIV><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#mainSection"><IMG 
+alt="" 
+src="在%20Windows%20Movie%20Maker%20中创建自定义效果和过渡_files/ms867186.arrow_px_up(zh-cn,MSDN.10).gif" 
+border=0> </A><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#mainSection">返回页首</A> 
+<BR></DIV>
+<H3 id=EFAA>向 DLL 传递参数</H3>
+<P>将参数从 XML 文件传递给 C++ DLL 将使您的特殊效果用户能够根据自己的爱好修改它。</P>
+<P>第一步是将这些参数的属性添加到 .IDL 文件中。例如，下面的代码公开了对象的 Blue 和 MeltIntensity 参数： </P><PRE>interface IMMSampleTFX : IDXEffect 
+{ 
+[propget] HRESULT Blue([out,retval] float* pfBlue); 
+[propput] HRESULT Blue([in] float fBlue); 
+[propget] HRESULT MeltIntensity([out,retval] float* pfMeltIntensity); 
+[propput] HRESULT MeltIntensity([in] float fMeltIntensity); 
+}; 
+</PRE>
+<P>请注意 CMMSpecialEffectDXT 是如何继承 <B>IMMSampleTFX</B> 界面的，它公开了 Blue 和 
+MeltIntensity 参数：</P><PRE>class CMMSpecialEffectDXT :  
+    public CDXBaseNTo1, 
+    public IDispatchImpl&lt;IMMSampleTFX, &amp;IID_IMMSampleTFX, &amp;LIBID_MMFXLib&gt;, 
+    public IObjectSafetyImpl2&lt;CMMSpecialEffectDXT&gt; 
+</PRE>
+<P>下一步是编写四种方法的代码，例如：</P><PRE>STDMETHODIMP CMMSpecialEffectDXT::put_Blue(float fBlueAmount) 
+{ 
+   m_fBlueAmount = fBlueAmount; 
+   return S_OK; 
+} 
+</PRE>
+<P>在 XML 文件中，使用下面的语句 Windows Movie Maker 就可以使用 Blue 效果：</P><PRE>&lt;TransitionsAndEffects Version="1.0"&gt; 
+   &lt;Effects&gt; 
+      &lt;EffectDLL guid="{294D0DE1-1B57-408d-A33F-FA708A5A28D6}"&gt; 
+         &lt;Effect name="Blue Color Adjust" iconid="12"&gt; 
+            &lt;Param name="Blue" value="2.0" /&gt; 
+         &lt;/Effect&gt;  
+      &lt;/EffectDLL&gt; 
+   &lt;/Effects&gt; 
+&lt;/TransitionsAndEffects&gt; 
+</PRE>
+<P>然后，Windows Movie Maker 利用 GUID 来识别查找的是哪一个 
+DLL，用效果名来识别效果，然后用参数名来识别要更改哪一种属性。名为“Blue”的参数将会识别先前介绍的 <B>put_Blue </B>方法。</P>
+<DIV><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#mainSection"><IMG 
+alt="" 
+src="在%20Windows%20Movie%20Maker%20中创建自定义效果和过渡_files/ms867186.arrow_px_up(zh-cn,MSDN.10).gif" 
+border=0> </A><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#mainSection">返回页首</A> 
+<BR></DIV>
+<H3 id=EEAA>调试 DLL</H3>
+<P>调试 DLL 与调试任何其他的程序非常类似；但是必须在项目的设置中将可执行文件的名称更改为 Windows Movie Maker。最简单的方法就是将 
+moviemk.exe 指定为希望调试的可执行文件。有关更多信息，请参阅 MSDN 库中的Debugging: DLLs。</P>
+<DIV><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#mainSection"><IMG 
+alt="" 
+src="在%20Windows%20Movie%20Maker%20中创建自定义效果和过渡_files/ms867186.arrow_px_up(zh-cn,MSDN.10).gif" 
+border=0> </A><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#mainSection">返回页首</A> 
+<BR></DIV>
+<H3 id=EDAA>将 Blue Adjust 效果更改为 Purple Adjust</H3>
+<P>通过在代码中添加一个红色参数，可以将提供的 <I>Blue Adjust </I>效果更改为<I> Purple 
+Adjust</I>，该红色参数调整呈现图像中的红色数量。该效果利用示例中现有的代码修改红色通道。可以在 XML 
+中独立地设置新的红色参数，从而创建紫色（或者红色，或者蓝色，或者两者的任何组合色）。本节介绍如何修改 C++ 和 XML 文件来添加红色参数。</P>
+<P>示例 Blue Adjust 效果使用 <B>DXLookupTable</B> 对象（来自 DXMedia 
+SDK）来增加图像中蓝色的数量。该对象可以平衡颜色、改变亮度、对比度或灰度系数，并应用阈值与多色调分色效果。我们将限制对增加红色和蓝色的数量的更改以创建紫色。 
+</P>
+<P>要添加红色参数，只需复制蓝色参数代码并为新的红色参数添加类似的函数和成员。下面的步骤说明了必须添加的代码。</P>
+<P>在 MMSpecialEffect.cpp 文件的 <B>CMMSpecialEffect::InitStandardOperations</B> 
+函数中，找到下面的行：</P><PRE>RTN_HR_IF_FAILED(m_pDXT-&gt;get_Blue(&amp;fValue)); 
+if (!IsEqual(fValue, 0.0f)) 
+{ 
+   m_fBlue = fValue; 
+} 
+</PRE>
+<P>添加下面的代码片段，可获得红色值：</P><PRE>RTN_HR_IF_FAILED(m_pDXT-&gt;get_Red(&amp;fValue)); 
+if (!IsEqual(fValue, 0.0f)) 
+{ 
+   m_fRed = fValue; 
+} 
+</PRE>
+<P>在 MMSpecialEffectDXT.h 文件中，找到蓝色属性的 get 与 put 方法的声明，并添加完全相同的红色方法的声明，它以粗体显示： 
+</P><PRE>STDMETHOD(get_Blue)(float* pfBlue); 
+STDMETHOD(put_Blue)(float fBlue); 
+STDMETHOD(get_Red)(float* pfRed); 
+STDMETHOD(put_Red)(float fRed); 
+</PRE>
+<P>在 MMSpecialEffectDXT.cpp 文件中，复制 <B>put_Blue</B> 和 <B>get_Blue</B> 
+方法的定义，并添加两个名为 <B>put_Red</B> 和 <B>get_Red</B> 的完全相同的方法，将所有 ...Blue... 值重命名为 
+...Red...。</P>
+<P>在 MMSpecialEffectDXT.h 文件中，声明一个成员变量 m fRedAmount 和 m fBlueAmount 
+完全相同，它以粗体显示：</P><PRE>float m_fBlueAmount; 
+float m_fRedAmount; 
+</PRE>
+<P>在 MMSpecialEffectDXT.cpp 文件中 CMMSpecialEffectDXT 的 <B>FinalConstruct</B> 
+方法中，在初始化蓝色成员的同一位置初始化该新的红色成员变量，它以粗体所示：</P><PRE>m_fBlueAmount = 0.0f; 
+m_fRedAmount = 0.0f; 
+</PRE>
+<P>在 MMSTFX.idl 文件中，找到蓝色属性声明，按如下所示添加完全相同的红色声明：</P><PRE>[propget] HRESULT Blue([out,retval] float* pfBlue); 
+[propput] HRESULT Blue([in] float fBlue); 
+[propget] HRESULT Red([out,retval] float* pfRed); 
+[propput] HRESULT Red([in] float fRed); 
+</PRE>
+<P>最后，要将这个新的 Purple Color Adjust 效果添加到 Windows Movie Maker 界面中，必须添加调用它的 XML 
+代码。找到示例项目中包含的 BlueAdjust.xml 文件。在 \AddOnTFX 目录中 BlueAdjust.xml 
+的旁边创建该文件的副本，将该文件重命名为 PurpleAdjust.xml。打开该新文件，找到名称 Blue Color Adjust 的效果，将 name 
+参数值更改为“Purple Color Adjust”，并按如下所示添加 Red 参数：</P><PRE>&lt;Param name="Blue" value="2.0" /&gt; 
+&lt;Param name="Red" value="1.5" /&gt; 
+</PRE>
+<P>可以保留 BlueAdjust.xml 文件，该文件将调用同样的 TFX，但只是不修改红色值，或者可以将两种效果合并到一个 XML 文件中。</P>
+<P>将 <I>m_fRed</I>值应用到 <B>DXLookupTable</B> 对象中的其他必需代码已经在示例代码中的 
+<B>CMMSpecialEffect::InitStandardOperations</B> 方法中提供，该方法调用 
+<B>SetColorBalance</B> 方法来修改红色通道值。 </P>
+<P>编译更改。当构建完项目后，运行 Windows Movie Maker，打开效果区域并向下滚动找到 Purple Color Adjust 
+效果。可以尝试自己添加一个绿色参数。</P>
+<DIV><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#mainSection"><IMG 
+alt="" 
+src="在%20Windows%20Movie%20Maker%20中创建自定义效果和过渡_files/ms867186.arrow_px_up(zh-cn,MSDN.10).gif" 
+border=0> </A><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#mainSection">返回页首</A> 
+<BR></DIV>
+<H3 id=ECAA>词汇表</H3>
+<P>下面的术语是本文档中使用的术语，通常在为 DirectX 或 Windows Movie Maker创建效果或过渡时更为常用。</P>
+<P><B>AddOnTFX</B> </P>
+<P>放置扩展 Movie Maker 的过渡和效果的 XML 文件的目录名称。例如，C:\Program Files\Movie 
+Maker\Shared\AddOnTFX。必须创建该目录。 </P>
+<P><B>DXT</B> </P>
+<P>DirectX Transform。用 DirectX Media SDK 构建的对象，用于构建特殊效果。Movie Maker 使用安装在系统上并在 
+XML 文件中引用的 DXT。</P>
+<P><B>输出视频缓冲区</B> </P>
+<P>效果或过渡的每帧所写入的内存缓冲区。</P>
+<P><B>跨度</B> </P>
+<P>以字节为单位，表示某个位图行起始位置和下一个位图行起始位置的两个内存地址之间的距离。 </P>
+<P><B>呈现</B> </P>
+<P>将视频输出绘制到输出视频缓冲区中。</P>
+<P><B>特殊效果</B> </P>
+<P>用于 Windows Movie Maker 过渡和效果的通用术语，用来提高视觉满意度。</P>
+<P><B>视频缓冲区</B> <B>A</B> </P>
+<P>过渡的第一个输入缓冲区，或效果的唯一输入缓冲区。效果从该缓冲区中读取每一帧的每个像素，并将结果写入输出缓冲区中。对于过渡，这就是转换视频的“起点”。Movie 
+Maker 在本地使用 24 位 RGB，尽管在 DXT 中可能使用 32 位。</P>
+<P><B>视频缓冲区</B> <B>B </B></P>
+<P>过渡中的第二个输入缓冲区。这就是转换视频图像的“目的地”。</P>
+<DIV><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#mainSection"><IMG 
+alt="" 
+src="在%20Windows%20Movie%20Maker%20中创建自定义效果和过渡_files/ms867186.arrow_px_up(zh-cn,MSDN.10).gif" 
+border=0> </A><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#mainSection">返回页首</A> 
+<BR></DIV>
+<H3 id=EBAA>更多信息</H3>
+<UL>
+  <LI>
+  <P>请参阅 DirectShow SDK 文档，获得有关 SMPTE 擦除的更多信息。 </P>
+  <LI>
+  <P>Microsoft 网站上的 MSDN 库中有关创建 DirectX Transforms 的文章，以及有关 COM 和 ATL 的文档。 </P>
+  <LI>
+  <P>DirectX Transform SDK 包含用来创建效果和过渡的文档和对象。该 SDK 是作为 DirectX 6.0 SDK 
+  的一部分而安装的，也称为 DirectX Media SDK 或 DirectX Media 6.0 SDK，可以从 <A 
+  id=ctl00_rs1_mainContentContainer_ctl47 
+  onclick="javascript:Track('ctl00_rs1_mainContentContainer_ctl00|ctl00_rs1_mainContentContainer_ctl47',this);" 
+  href="http://go.microsoft.com/fwlink/?LinkId=12229">Microsoft 网站</A>上获得。利用该 
+  SDK 打包的对象，可以创建自己的转换或效果对象。版本 7 的头文件包含在 Visual Studio .NET 和 DirectX Transform 
+  SDK 中，但是只有 DirectX 7.0 SDK 中有文档，该文档已不能再从 Microsoft 网站上获得。 </P>
+  <LI>
+  <P>几个新闻组涉及 Windows Movie Maker 和 DirectX 编程的内容。下面的两个组可用于不同的目的： </P>
+  <UL>
+    <LI>
+    <P><B>microsoft.public.windowsxp.moviemaker</B> 是一个涉及 Windows Movie Maker 
+    问题的新闻组，并且对于 XML 问题可能是适当的； </P>
+    <LI>
+    <P><B>microsoft.public.multimedia.directx.dshow.programming</B> 是一个涉及 
+    DirectShow 编程技术方面的新闻组，包括 DirectX Media SDK。 </P></LI></UL></LI></UL>
+<P><A id=ctl00_rs1_mainContentContainer_ctl48 
+onclick="javascript:Track('ctl00_rs1_mainContentContainer_ctl00|ctl00_rs1_mainContentContainer_ctl48',this);" 
+href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/dnwmt/html/moviemakersfx.asp">转到原英文页面</A> 
+</P>
+<DIV><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#mainSection"><IMG 
+alt=返回页首 
+src="在%20Windows%20Movie%20Maker%20中创建自定义效果和过渡_files/ms867186.arrow_px_up(zh-cn,MSDN.10).gif" 
+border=0> </A><A 
+href="http://msdn.microsoft.com/zh-cn/library/ms867186.aspx#mainSection">返回页首</A> 
+</DIV></DIV></DIV></DIV></DIV></DIV></DIV>
+<DIV style="DISPLAY: block; OVERFLOW: hidden; POSITION: relative">
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD class=MTPS_FooterFade id=ctl00_rs1_mtpsFooter_FooterFadeCell>
+      <DIV class=MTPS_FooterLinks id=ctl00_rs1_mtpsFooter_SiteLinks><A 
+      id=ctl00_rs1_mtpsFooter_LocalFooterLink0 title=个人信息中心 
+      href="http://go.microsoft.com/?linkid=8786242&amp;lcid=2052">个人信息中心</A>&nbsp;|&nbsp;<A 
+      id=ctl00_rs1_mtpsFooter_LocalFooterLink1 title=法律信息 
+      href="http://www.microsoft.com/legal/">法律信息</A>&nbsp;|&nbsp;<A 
+      id=ctl00_rs1_mtpsFooter_LocalFooterLink2 title="MSDN Flash 中心" 
+      href="http://www.microsoft.com/china/msdn/newsletter/default.aspx">MSDN 
+      Flash 中心</A>&nbsp;|&nbsp;<A id=ctl00_rs1_mtpsFooter_LocalFooterLink3 
+      title=联系我们 href="mailto:msdnonln@microsoft.com">联系我们</A> </DIV><SPAN 
+      class=MTPS_FooterCopyright id=ctl00_rs1_mtpsFooter_MSFT_copyright 
+      title="© 2008  Microsoft Corporation 版权所有。 ">© 2008 Microsoft Corporation 
+      版权所有。 </SPAN><A class=MTPS_FooterLinks id=ctl00_rs1_mtpsFooter_MSFT_Terms 
+      title=保留所有权利 
+      href="http://msdn.microsoft.com/zh-cn/cc300389.aspx">保留所有权利</A> 
+      &nbsp;|&nbsp; <A class=MTPS_FooterLinks 
+      id=ctl00_rs1_mtpsFooter_MSFT_Trademarks title=商标 
+      href="http://www.microsoft.com/library/toolbar/3.0/trademarks/zh-cn.mspx">商标</A> 
+      &nbsp;|&nbsp; <A class=MTPS_FooterLinks 
+      id=ctl00_rs1_mtpsFooter_MSFT_PrivacyStatement title=隐私权声明 
+      href="http://www.microsoft.com/info/cn/privacy.mspx">隐私权声明</A> </TD>
+    <TD id=ctl00_rs1_mtpsFooter_FooterLogoCell><A 
+      id=ctl00_rs1_mtpsFooter_MSFT_LOGO title="Microsoft Corporation" 
+      href="http://www.microsoft.com/"><IMG class=msdn_TabC_mslogo 
+      id=ctl00_rs1_mtpsFooter_MSFT_imgLogo 
+      style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px" 
+      src="在%20Windows%20Movie%20Maker%20中创建自定义效果和过渡_files/clear.gif"></A> 
+  </TD></TR></TBODY></TABLE></DIV></DIV></DIV></DIV>
+<DIV style="DISPLAY: none"><IMG height=0 alt="Page view tracker" hspace=0 
+src="在%20Windows%20Movie%20Maker%20中创建自定义效果和过渡_files/trans_pixel.gif" width=0 
+border=0></DIV>
+<SCRIPT 
+src="在%20Windows%20Movie%20Maker%20中创建自定义效果和过渡_files/webtrendsscript-bn2036.0.js" 
+type=text/javascript></SCRIPT>
+<NOSCRIPT>
+<DIV><IMG id=Img1 height=1 alt=DCSIMG 
+src="在%20Windows%20Movie%20Maker%20中创建自定义效果和过渡_files/njs.gif" 
+width=1></DIV></NOSCRIPT>
+<SCRIPT src="在%20Windows%20Movie%20Maker%20中创建自定义效果和过渡_files/mtps-bn2036.0.js" 
+type=text/javascript></SCRIPT>
+
+<SCRIPT type=text/javascript>
+//<![CDATA[
+window.setTimeout(function(){EC_Init("ctl00_rs1_ExpandCollapse","全部展开","全部折叠","LibC_c","LibC_o");},0);Sys.WebForms.PageRequestManager.getInstance().add_beginRequest(CCS_BeginRequestHandler);Sys.WebForms.PageRequestManager.getInstance().add_endRequest(CCS_EndRequestHandler);
+WebForm_InitCallback(); RegisterAutoSubmit('ctl00_ib1_Flyout_Rating1','ctl00_ib1_Flyout_btnSubmit','contentRatingms867186MSDN.10zh-cn');
+
+//]]>
+</SCRIPT>
+
+<SCRIPT language=javascript type=text/javascript>
+<!--
+ function GetContentWnd(){ return parent; } function OnInitPage(){var oWnd = GetContentWnd();} function GetServerData(arg, context){} function OnSave(){ var oWnd = GetContentWnd(); window.external.addFavorite('http://msdn.microsoft.com/zh-cn/library/ms867186.aspx', oWnd.document.title ); }
+
+-->
+</SCRIPT>
+
+<SCRIPT type=text/javascript>
+//<![CDATA[
+document.getElementById('ctl00_ib1_Flyout_rtgContainer').title="请单击星形符号并提供反馈";
+
+ document.onkeypress = function(e){ ra_keyPress(e, "ctl00_rs1_raSplitter","ctl00_rs1_raLeft");};
+window.attachEvent('onresize', ra_OnPageResize);
+window.attachEvent('onload', ra_OnPageResize);document.getElementById('ctl00_rs1_ra1').attachEvent('onreadystatechange', function(){alert()});
+window.attachEvent('onload', ra_OnPageResize);Sys.Application.initialize();
+TFly_Init('ctl00$Masthead1$LocaleManagement$ctl00',0,0,1,4,60,'LocaleManagementFlyoutStaticHover','',100,400,'','','','');
+TFly_Init('ctl00$Masthead1$QuickLinks$ctrlFlyout',0,0,1,4,60,'QuickLinksFlyoutStaticHover_msdn','',100,400,'','','','');
+TFly_Init('ctl00$ib1$Flyout',5,2,1,4,60,'','',100,400,'','','','');
+Sys.Application.add_init(function() {
+    $create(Microsoft.Mtps.Web.UI.MtpsRatingBehavior, {"AutoPostBack":false,"CallbackID":"ctl00$ib1$Flyout$Rating1","ClientStateFieldID":"ctl00_ib1_Flyout_Rating1_RatingExtender_ClientState","EmptyStarCssClass":"emptyRatingStar","FilledStarCssClass":"filledRatingStar","Rating":1,"StarCssClass":"ratingStar","Tag":"contentRatingms867186MSDN.10zh-cn","WaitingStarCssClass":"savedRatingStar","id":"ctl00_ib1_Flyout_Rating1_RatingExtender"}, null, null, $get("ctl00_ib1_Flyout_Rating1"));
+});
+var tocVectorObject;var hostbase;var closedImg;var openImg;var emptyImg;var loadingImg;var tocVector;var tocIndex = 0;var holder;var tocLoaded = false;var tocCollapsed = 'False';tocVectorObject = {"nodes": [{"id": "ms310241" ,"url": "/ms310241(n)"},{"id": "bb814937" ,"url": "/bb814937(n)"},{"id": "bb507200" ,"url": "/bb507200(n)"},{"id": "ms867186" ,"url": "/ms867186(n)"}]};hostbase ="http://msdn.microsoft.com/zh-cn/library";tocVector = eval(tocVectorObject);closedImg = "LibC_c";openImg = "LibC_o";emptyImg = "LibC_e";Sys.Application.add_load(LoadToc);TFly_Init('ctl00$rs1$eb1$ctl00',0,-1,-1,10,5,'statHover','',0,0,'EyeBrowMenuBarSetHeight','ExpEye','','');
+TFly_Init('ctl00$rs1$eb1$ctl01',0,-1,-1,10,5,'statHover','',0,0,'EyeBrowMenuBarSetHeight','ExpEye','','');
+TFly_Init('ctl00$rs1$eb1$ctl02',0,-1,-1,10,5,'statHover','',0,0,'EyeBrowMenuBarSetHeight','ExpEye','','');
+TFly_Init('ctl00$rs1$eb1$ctl03',0,-1,-1,10,5,'statHover','',0,0,'EyeBrowMenuBarSetHeight','ExpEye','','');
+//]]>
+</SCRIPT>
+</FORM>
+<SCRIPT language=javascript 
+src="在%20Windows%20Movie%20Maker%20中创建自定义效果和过渡_files/broker.js" 
+type=text/javascript></SCRIPT>
+</BODY></HTML>

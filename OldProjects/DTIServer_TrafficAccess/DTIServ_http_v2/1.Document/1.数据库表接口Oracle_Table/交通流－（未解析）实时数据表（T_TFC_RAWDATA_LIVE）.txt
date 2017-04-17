@@ -1,0 +1,95 @@
+-- Create table
+create table T_TFC_RAWDATA_LIVE
+(
+  GATHERTIME DATE,
+  ROADID     VARCHAR2(15) not null,
+  ROADID_NEW NUMBER(10) not null,
+  ROADNAME   VARCHAR2(50),
+  STARTNAME  VARCHAR2(50),
+  STARTPOSX  NUMBER(10),
+  STARTPOSY  NUMBER(10),
+  ENDNAME    VARCHAR2(50),
+  ENDPOSX    NUMBER(10),
+  ENDPOSY    NUMBER(10),
+  LINKLEVEL  NUMBER(4),
+  SPEED      NUMBER(10,6),
+  JAMREASON  NUMBER(2),
+  CORSTAPX   NUMBER(10),
+  CORSTAPY   NUMBER(10),
+  CORENDPX   NUMBER(10),
+  CORENDPY   NUMBER(10)
+)
+tablespace SPACESAT2006
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+-- Add comments to the table 
+comment on table T_TFC_RAWDATA_LIVE
+  is '交通信息（原始）实时数据表';
+-- Add comments to the columns 
+comment on column T_TFC_RAWDATA_LIVE.GATHERTIME
+  is '采集时间';
+comment on column T_TFC_RAWDATA_LIVE.ROADID
+  is '道路ID（交通信息提供商的道路编号）';
+comment on column T_TFC_RAWDATA_LIVE.ROADID_NEW
+  is '道路ID（我方新的道路ID）';
+comment on column T_TFC_RAWDATA_LIVE.ROADNAME
+  is '道路名称';
+comment on column T_TFC_RAWDATA_LIVE.STARTNAME
+  is '道路起点名称';
+comment on column T_TFC_RAWDATA_LIVE.STARTPOSX
+  is '道路起点经度';
+comment on column T_TFC_RAWDATA_LIVE.STARTPOSY
+  is '道路起点纬度';
+comment on column T_TFC_RAWDATA_LIVE.ENDNAME
+  is '道路终点名称';
+comment on column T_TFC_RAWDATA_LIVE.ENDPOSX
+  is '道路终点经度';
+comment on column T_TFC_RAWDATA_LIVE.ENDPOSY
+  is '道路终点纬度';
+comment on column T_TFC_RAWDATA_LIVE.LINKLEVEL
+  is '道路等级';
+comment on column T_TFC_RAWDATA_LIVE.SPEED
+  is '速度(km/h)';
+comment on column T_TFC_RAWDATA_LIVE.JAMREASON
+  is '拥堵原因';
+comment on column T_TFC_RAWDATA_LIVE.CORSTAPX
+  is '对应到瑞图数据的起点经度';
+comment on column T_TFC_RAWDATA_LIVE.CORSTAPY
+  is '对应到瑞图数据的起点纬度';
+comment on column T_TFC_RAWDATA_LIVE.CORENDPX
+  is '对应到瑞图数据的终点经度';
+comment on column T_TFC_RAWDATA_LIVE.CORENDPY
+  is '对应到瑞图数据的终点纬度';
+-- Create/Recreate primary, unique and foreign key constraints 
+alter table T_TFC_RAWDATA_LIVE
+  add constraint TK_TFC_RDL primary key (ROADID)
+  using index 
+  tablespace SPACESAT2006
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+-- Create/Recreate indexes 
+create unique index TRL_IDX_NEWID on T_TFC_RAWDATA_LIVE (ROADID_NEW)
+  tablespace SPACESAT2006
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );

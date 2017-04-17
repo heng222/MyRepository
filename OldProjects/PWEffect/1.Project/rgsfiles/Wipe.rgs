@@ -1,0 +1,26 @@
+HKCR
+{
+	PWEffect.Wipe.1 = s 'Wipe Class'
+	{
+		CLSID = s '{87A66F87-E9BE-47DF-A5AD-4C7FF1582079}'
+	}
+	PWEffect.Wipe = s 'Wipe Class'
+	{
+		CLSID = s '{87A66F87-E9BE-47DF-A5AD-4C7FF1582079}'
+		CurVer = s 'PWEffect.Wipe.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {87A66F87-E9BE-47DF-A5AD-4C7FF1582079} = s 'Wipe Class'
+		{
+			ProgID = s 'PWEffect.Wipe.1'
+			VersionIndependentProgID = s 'PWEffect.Wipe'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{B1FEB9A2-A676-46da-83C5-B1CBEC33BC07}'
+		}
+	}
+}

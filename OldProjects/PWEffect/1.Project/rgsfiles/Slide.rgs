@@ -1,0 +1,26 @@
+HKCR
+{
+	PWEffect.Slide.1 = s 'Slide Class'
+	{
+		CLSID = s '{86E33B61-4FDF-4514-95D4-8BCDB5C33D1C}'
+	}
+	PWEffect.Slide = s 'Slide Class'
+	{
+		CLSID = s '{86E33B61-4FDF-4514-95D4-8BCDB5C33D1C}'
+		CurVer = s 'PWEffect.Slide.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {86E33B61-4FDF-4514-95D4-8BCDB5C33D1C} = s 'Slide Class'
+		{
+			ProgID = s 'PWEffect.Slide.1'
+			VersionIndependentProgID = s 'PWEffect.Slide'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{B1FEB9A2-A676-46da-83C5-B1CBEC33BC07}'
+		}
+	}
+}

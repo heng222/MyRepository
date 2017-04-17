@@ -1,0 +1,80 @@
+
+create table T_TFC_RAWDATA_HISTORY
+(
+  GATHERTIME DATE not null,
+  ROADID     VARCHAR2(15) not null,
+  ROADNAME   VARCHAR2(50),
+  STARTNAME  VARCHAR2(50),
+  STARTPOSX  NUMBER(10),
+  STARTPOSY  NUMBER(10),
+  ENDNAME    VARCHAR2(50),
+  ENDPOSX    NUMBER(10),
+  ENDPOSY    NUMBER(10),
+  LINKLEVEL  NUMBER(4),
+  SPEED      NUMBER(4),
+  JAMREASON  NUMBER(2),
+  CORSTAPX   NUMBER(10),
+  CORSTAPY   NUMBER(10),
+  CORENDPX   NUMBER(10),
+  CORENDPY   NUMBER(10)
+)
+tablespace SPACESAT2006
+  pctfree 10
+  initrans 1
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );
+
+comment on table T_TFC_RAWDATA_HISTORY
+  is '交通信息（原始）历史数据';
+
+comment on column T_TFC_RAWDATA_HISTORY.GATHERTIME
+  is '采集时间';
+comment on column T_TFC_RAWDATA_HISTORY.ROADID
+  is '道路ID（四通编号）';
+comment on column T_TFC_RAWDATA_HISTORY.ROADNAME
+  is '道路名称';
+comment on column T_TFC_RAWDATA_HISTORY.STARTNAME
+  is '道路起点名称';
+comment on column T_TFC_RAWDATA_HISTORY.STARTPOSX
+  is '道路起点经度';
+comment on column T_TFC_RAWDATA_HISTORY.STARTPOSY
+  is '道路起点纬度';
+comment on column T_TFC_RAWDATA_HISTORY.ENDNAME
+  is '道路终点名称';
+comment on column T_TFC_RAWDATA_HISTORY.ENDPOSX
+  is '道路终点经度';
+comment on column T_TFC_RAWDATA_HISTORY.ENDPOSY
+  is '道路终点纬度';
+comment on column T_TFC_RAWDATA_HISTORY.LINKLEVEL
+  is '道路等级';
+comment on column T_TFC_RAWDATA_HISTORY.SPEED
+  is '速度';
+comment on column T_TFC_RAWDATA_HISTORY.JAMREASON
+  is '拥堵原因';
+comment on column T_TFC_RAWDATA_HISTORY.CORSTAPX
+  is '对应到瑞图数据的起点经度';
+comment on column T_TFC_RAWDATA_HISTORY.CORSTAPY
+  is '对应到瑞图数据的起点纬度';
+comment on column T_TFC_RAWDATA_HISTORY.CORENDPX
+  is '对应到瑞图数据的终点经度';
+comment on column T_TFC_RAWDATA_HISTORY.CORENDPY
+  is '对应到瑞图数据的终点纬度';
+
+alter table T_TFC_RAWDATA_HISTORY
+  add constraint PK_TFC_RAWDATA_HISTORY primary key (ROADID, GATHERTIME)
+  using index 
+  tablespace SPACESAT2006
+  pctfree 10
+  initrans 2
+  maxtrans 255
+  storage
+  (
+    initial 64K
+    minextents 1
+    maxextents unlimited
+  );

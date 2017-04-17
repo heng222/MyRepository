@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="2101659a-7a57-46d9-a734-77c8a3bfed6b"
+  name="Data" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <suppliersInternal>
+    <dependency
+      Id="d867ef87-59f9-4d0a-820a-6121e5405598">
+      <packageMoniker
+        Id="ac2e7e3c-1187-49d8-bfa3-15b91612bf18"
+        LastKnownName="Exceptions"
+        LastKnownLocation="Package1_1545.uml" />
+    </dependency>
+    <dependency
+      Id="7cfd5f82-3ed5-41f6-a8cf-84d833e67f49">
+      <packageMoniker
+        Id="3cc2ad25-8b35-416a-8ee3-fb4376d11ed2"
+        LastKnownName="Events"
+        LastKnownLocation="Package_1545.uml" />
+    </dependency>
+    <dependency
+      Id="810e5604-88f6-4e33-b8be-d4ad7eff9622">
+      <packageMoniker
+        Id="09a0db78-6b81-4b90-9fb0-26e3f6574923"
+        LastKnownName="Serialization"
+        LastKnownLocation="Package_1544.uml" />
+    </dependency>
+  </suppliersInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <class
+        Id="8f05a55b-1d87-4d1a-b967-c510a7394db8"
+        name="Track"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="6447ee18-347d-4376-a432-b7889f6b87bb"
+        name="Signal"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="a3cbcd18-1367-43bd-bbbf-f26422c2c4e6" name="泛化关系" linkedPackageId="a7cc7f2d-e163-4f31-8f6f-02b040bc0381" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+  <profileInstances>
+    <packageHasProfileInstances Id="0a87851e-a599-4328-84df-a6a533de5899">
+      <profileInstance Id="da98067f-a463-477f-b96c-0d845410eba5" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="fbae1a7f-98f0-43e7-bbb0-ba0a504aee44">
+      <profileInstance Id="b1b4cab8-7370-45ee-a45f-db79ecb17c89" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="d4687579-e5bb-460e-8f8e-de0f92035d57" name="CDC" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="357558dd-6848-4588-a4e9-0762aa9d7e89" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="d40a8aaf-adc7-4d93-8ca4-f7232590a8b9" name="CClientDC" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="8865ddba-0b3c-4b8f-a370-3934ccf55911" />
+        <generalsInternal>
+          <generalization Id="be76df4d-397f-4036-a553-ec2565ad666e" isSubstitutable="false">
+            <classMoniker Id="d4687579-e5bb-460e-8f8e-de0f92035d57" LastKnownName="CDC" />
+            <elementDefinition Id="121ed808-e082-4110-8108-82b267d1fa2d" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="ebb8eeab-77fc-47a3-8628-30acb8c7a807" name="CPaintDC" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="e95e319b-900a-4e8f-bdb5-36f9a73335f5" />
+        <generalsInternal>
+          <generalization Id="f343921c-052e-42d7-9570-f9f5367daa12" isSubstitutable="false">
+            <classMoniker Id="d4687579-e5bb-460e-8f8e-de0f92035d57" LastKnownName="CDC" />
+            <elementDefinition Id="73f5e6b0-f3cd-4394-8b3a-533a4561671f" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="91b3e4a9-fb67-4d7f-88f1-f5a781227c03" name="CWindowDC" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="7693faed-28b3-4f9e-8fba-eb384ff33916" />
+        <generalsInternal>
+          <generalization Id="49c826ec-b49c-444f-bcaf-1615bea7fe00" isSubstitutable="false">
+            <classMoniker Id="d4687579-e5bb-460e-8f8e-de0f92035d57" LastKnownName="CDC" />
+            <elementDefinition Id="905b92de-3649-4c14-9a40-cd6beceabb0a" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+  </packagedElements>
+  <package Id="a7cc7f2d-e163-4f31-8f6f-02b040bc0381" name="UMLearning">
+    <elementDefinition Id="baf8f03b-1fe8-4860-9ae1-10efb35b8e0a" />
+  </package>
+</logicalClassDesignerModel>

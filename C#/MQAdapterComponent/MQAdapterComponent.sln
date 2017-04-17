@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomLibraries.MQAdapter", "CustomLibraries.MQAdapter\CustomLibraries.MQAdapter.csproj", "{768D6934-A322-47C7-AECE-B93CBA003F92}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomLibraries.Utilities", "CustomLibraries.Utilities\CustomLibraries.Utilities.csproj", "{60777D64-72D8-4D01-AF36-E4670AC4A756}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomLibraries.IntegrationTest", "CustomLibraries.IntegrationTest\CustomLibraries.IntegrationTest.csproj", "{2EDCB204-FCB9-4D80-90CA-D20977176718}"
+	ProjectSection(ProjectDependencies) = postProject
+		{768D6934-A322-47C7-AECE-B93CBA003F92} = {768D6934-A322-47C7-AECE-B93CBA003F92}
+		{60777D64-72D8-4D01-AF36-E4670AC4A756} = {60777D64-72D8-4D01-AF36-E4670AC4A756}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{768D6934-A322-47C7-AECE-B93CBA003F92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{768D6934-A322-47C7-AECE-B93CBA003F92}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{768D6934-A322-47C7-AECE-B93CBA003F92}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{768D6934-A322-47C7-AECE-B93CBA003F92}.Release|Any CPU.Build.0 = Release|Any CPU
+		{60777D64-72D8-4D01-AF36-E4670AC4A756}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60777D64-72D8-4D01-AF36-E4670AC4A756}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60777D64-72D8-4D01-AF36-E4670AC4A756}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60777D64-72D8-4D01-AF36-E4670AC4A756}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2EDCB204-FCB9-4D80-90CA-D20977176718}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2EDCB204-FCB9-4D80-90CA-D20977176718}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2EDCB204-FCB9-4D80-90CA-D20977176718}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2EDCB204-FCB9-4D80-90CA-D20977176718}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

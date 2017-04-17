@@ -1,0 +1,920 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// 中文(中华人民共和国) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+#ifdef _WIN32
+LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_SIMPLIFIED
+#pragma code_page(936)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 4, 2\r\n"
+    "#pragma code_page(936)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\Maintain.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""l.chs\\afxres.rc""          // Standard components\r\n"
+    "#include ""l.chs\\afxprint.rc""        // printing/print preview resources\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\Maintain.ico"
+IDR_MAINTATYPE          ICON                    "res\\MaintainDoc.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDR_MAINFRAME           BITMAP                  "res\\Toolbar.bmp"
+IDB_STATION             BITMAP                  "res\\station.bmp"
+IDB_WARNTYPEL           BITMAP                  "res\\warntypel.bmp"
+IDB_WARNTYPES           BITMAP                  "res\\warntypes.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Toolbar
+//
+
+IDR_MAINFRAME TOOLBAR  16, 15
+BEGIN
+    BUTTON      ID_FILE_NEW
+    BUTTON      ID_FILE_OPEN
+    BUTTON      ID_FILE_SAVE
+    SEPARATOR
+    BUTTON      ID_EDIT_CUT
+    BUTTON      ID_EDIT_COPY
+    BUTTON      ID_EDIT_PASTE
+    SEPARATOR
+    BUTTON      ID_FILE_PRINT
+    SEPARATOR
+    BUTTON      ID_APP_ABOUT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MAINFRAME MENU 
+BEGIN
+    POPUP "文件(&F)"
+    BEGIN
+        MENUITEM "新建(&N)\tCtrl+N",            ID_FILE_NEW
+        MENUITEM "打开(&O)...\tCtrl+O",         ID_FILE_OPEN
+        MENUITEM SEPARATOR
+        MENUITEM "打印设置(&R)...",             ID_FILE_PRINT_SETUP
+        MENUITEM SEPARATOR
+        MENUITEM "最近文件",                    ID_FILE_MRU_FILE1, GRAYED
+        MENUITEM SEPARATOR
+        MENUITEM "退出(&X)",                    ID_APP_EXIT
+    END
+    POPUP "查看(&V)"
+    BEGIN
+        MENUITEM "工具栏(&T)",                  ID_VIEW_TOOLBAR
+        MENUITEM "状态栏(&S)",                  ID_VIEW_STATUS_BAR
+    END
+    POPUP "帮助(&H)"
+    BEGIN
+        MENUITEM "关于 Maintain(&A)...",        ID_APP_ABOUT
+    END
+END
+
+IDR_MAINTATYPE MENU 
+BEGIN
+    POPUP "系统管理(&S)"
+    BEGIN
+        MENUITEM "登 录...",                    ID_SYSTEM_LOGIN
+        MENUITEM "注 销...",                    ID_SYSTEM_LOGOUT
+        MENUITEM SEPARATOR
+        MENUITEM "退 出(&X)",                   ID_APP_EXIT
+    END
+    POPUP "操作选择(&O)"
+    BEGIN
+        MENUITEM "施工请求...\tCtrl+A",         ID_OPERATOR_CONSTRUCTREQUEST
+        MENUITEM "施工查询...\tCtrl+Q",         ID_OPERATE_CONSTRUCTQUERY
+        MENUITEM SEPARATOR
+        MENUITEM "下达封锁调度命令...\tCtrl+S", ID_OPERATOR_SENDDISPACTHER
+        MENUITEM "下达开通调度命令...\tCtrl+O", ID_OPERATOR_SENDOPENDISPACTHER
+
+        MENUITEM SEPARATOR
+        MENUITEM "单站显示",                    ID_OPERATOR_SINSTASHOW
+        MENUITEM "多站显示",                    ID_OPERATOR_MULSTASHOW
+    END
+    POPUP "查看(&V)"
+    BEGIN
+        MENUITEM "站场选择(&S)",                ID_VIEW_SHOWTREEVIEW
+        MENUITEM SEPARATOR
+        MENUITEM "查看报警信息(&W)...",         ID_VIEW_SHOWWARNLOG
+        MENUITEM "查看新消息(&N)...",           ID_VIEW_NEWMESSAGE
+    END
+    POPUP "工具(&T)"
+    BEGIN
+        MENUITEM "选项(&O)...",                 ID_TOOLS_OPTIONS
+    END
+    POPUP "帮助(&H)"
+    BEGIN
+        MENUITEM "关于 FZJ-CTC型维修工作站(&A)...", ID_APP_ABOUT
+    END
+END
+
+IDR_MENU1 MENU 
+BEGIN
+    POPUP "test", INACTIVE
+    BEGIN
+        MENUITEM "1",                           ID_MENU1_1
+        MENUITEM "2",                           ID_MENUITEM32796
+        MENUITEM "3",                           ID_MENUITEM32797
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_MAINFRAME ACCELERATORS 
+BEGIN
+    "N",            ID_FILE_NEW,            VIRTKEY, CONTROL
+    "O",            ID_FILE_OPEN,           VIRTKEY, CONTROL
+    "S",            ID_FILE_SAVE,           VIRTKEY, CONTROL
+    "P",            ID_FILE_PRINT,          VIRTKEY, CONTROL
+    "Z",            ID_EDIT_UNDO,           VIRTKEY, CONTROL
+    "X",            ID_EDIT_CUT,            VIRTKEY, CONTROL
+    "C",            ID_EDIT_COPY,           VIRTKEY, CONTROL
+    "V",            ID_EDIT_PASTE,          VIRTKEY, CONTROL
+    VK_BACK,        ID_EDIT_UNDO,           VIRTKEY, ALT
+    VK_DELETE,      ID_EDIT_CUT,            VIRTKEY, SHIFT
+    VK_INSERT,      ID_EDIT_COPY,           VIRTKEY, CONTROL
+    VK_INSERT,      ID_EDIT_PASTE,          VIRTKEY, SHIFT
+    VK_F6,          ID_NEXT_PANE,           VIRTKEY 
+    VK_F6,          ID_PREV_PANE,           VIRTKEY, SHIFT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOG  0, 0, 234, 65
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "关于 FZJ-CTC型综合维修工作站"
+FONT 9, "宋体"
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,13,21,21
+    LTEXT           "版权所有 (C) 2004 FZJ-CTC型综合维修工作站\n\n北京交大微联科技有限公司",
+                    IDC_STATIC,38,12,187,26
+    DEFPUSHBUTTON   "确定",IDOK,162,46,50,14,WS_GROUP
+END
+
+IDD_LOGIN_DIALOG DIALOG  0, 0, 131, 90
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "维修机登录"
+FONT 10, "宋体"
+BEGIN
+    COMBOBOX        IDC_LOGIN_NAME,53,18,59,63,CBS_DROPDOWN | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_LOGIN_PASSWORD,53,39,59,14,ES_PASSWORD | 
+                    ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "(&L)确 定",IDOK,15,68,43,14
+    PUSHBUTTON      "(&C)取 消",IDCANCEL,74,68,43,14
+    LTEXT           "用户名称:",IDC_STATIC,16,21,36,10
+    LTEXT           "口   令:",IDC_STATIC,18,42,32,10
+    GROUPBOX        "用户信息",IDC_STATIC,7,3,114,61
+END
+
+IDD_OPERATE_DIALOG DIALOG  0, 0, 479, 334
+STYLE DS_SETFONT | DS_MODALFRAME | DS_CENTER | WS_MINIMIZEBOX | WS_POPUP | 
+    WS_CAPTION | WS_SYSMENU
+CAPTION "调度命令编辑"
+FONT 10, "宋体"
+BEGIN
+    COMBOBOX        IDC_OPERATE_NAME,45,17,206,144,CBS_DROPDOWN | WS_VSCROLL | 
+                    WS_TABSTOP
+    EDITTEXT        IDC_OPERATE_NUMBER,89,43,40,14,ES_CENTER | 
+                    ES_AUTOHSCROLL | ES_READONLY
+    CTEXT           "",IDC_CHECKER,48,67,54,15,SS_CENTERIMAGE | SS_SUNKEN
+    CTEXT           "",IDC_CHECKTIME,158,67,95,15,SS_CENTERIMAGE | SS_SUNKEN
+    COMBOBOX        IDC_COMBO_DDML_SENDBUREAU,48,89,54,101,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    CONTROL         "DateTimePicker1",IDC_DATETIMEPICKER1,"SysDateTimePick32",
+                    DTS_RIGHTALIGN | DTS_UPDOWN | WS_TABSTOP,158,89,95,15
+    COMBOBOX        IDC_COMBO_DDML_SENDSUBBUREAU,48,111,54,102,
+                    CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_SENDUNIT,158,111,95,14,ES_AUTOHSCROLL
+    COMBOBOX        IDC_COMBO_DDML_SNEDDISPATCHID,48,133,54,68,CBS_DROPDOWN | 
+                    CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_SENDNAME,158,133,58,54,CBS_DROPDOWN | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_COMBO_DDML_RECEIVEBUREAU,48,155,54,107,
+                    CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_RECUNIT,158,155,95,14,ES_AUTOHSCROLL
+    COMBOBOX        IDC_COMBO_DDML_RECSUBBUREAU,48,178,54,103,
+                    CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_OPERATE_COPYFOR,158,175,95,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_OPERATE_DESTINATION,48,199,190,14,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    PUSHBUTTON      "...",IDC_OPERATE_EXTEND,239,199,13,14
+    CONTROL         "",IDC_OPERATE_CONTENT,"RICHEDIT",TCS_BUTTONS | 
+                    TCS_MULTISELECT | WS_BORDER | WS_VSCROLL | WS_TABSTOP,22,
+                    219,233,75
+    CONTROL         "List1",IDC_LIST_RESINFO,"SysListView32",LVS_REPORT | 
+                    WS_BORDER | WS_TABSTOP,262,32,210,262
+    PUSHBUTTON      "(&S)请示审核",IDC_SEND,56,308,50,14
+    PUSHBUTTON      "(&D)下达命令",IDC_DSEND,160,308,50,14
+    PUSHBUTTON      "(&X)关 闭",IDCANCEL,373,309,50,14
+    GROUPBOX        "",IDC_STATIC,0,7,259,291
+    LTEXT           "命令标题:",IDC_STATIC,6,19,39,8
+    CTEXT           "第",IDC_STATIC,75,43,13,14,SS_CENTERIMAGE | SS_SUNKEN
+    CTEXT           "号",IDC_STATIC,129,43,13,14,SS_CENTERIMAGE | SS_SUNKEN
+    CTEXT           "发令时间",IDC_STATIC,116,89,41,15,SS_CENTERIMAGE | 
+                    SS_SUNKEN
+    CTEXT           "发 令 者",IDC_STATIC,116,133,41,15,SS_CENTERIMAGE | 
+                    SS_SUNKEN
+    CTEXT           "受令车站",IDC_STATIC,6,199,41,15,SS_CENTERIMAGE | 
+                    SS_SUNKEN
+    CTEXT           "发令机构",IDC_STATIC,116,111,41,15,SS_CENTERIMAGE | 
+                    SS_SUNKEN
+    CTEXT           "抄送目标",IDC_STATIC,116,175,41,15,SS_CENTERIMAGE | 
+                    SS_SUNKEN
+    LTEXT           "         内          容",IDC_STATIC,7,219,15,75,
+                    SS_SUNKEN
+    GROUPBOX        "",IDC_STATIC,0,32,259,266
+    CTEXT           "受令机构",IDC_STATIC,116,155,41,15,SS_CENTERIMAGE | 
+                    SS_SUNKEN
+    CTEXT           "审核时间",IDC_STATIC,116,67,41,15,SS_CENTERIMAGE | 
+                    SS_SUNKEN
+    CTEXT           "审 核 人",IDC_STATIC,6,67,41,15,SS_CENTERIMAGE | 
+                    SS_SUNKEN
+    CTEXT           "已收到下列车站的回执",IDC_STATIC,262,15,210,15,
+                    SS_CENTERIMAGE | SS_SUNKEN
+    GROUPBOX        "",IDC_STATIC,260,7,216,291
+    CTEXT           "发 令 局",IDC_STATIC,6,89,41,15,SS_CENTERIMAGE | 
+                    SS_SUNKEN
+    CTEXT           "发令分局",IDC_STATIC,6,111,41,15,SS_CENTERIMAGE | 
+                    SS_SUNKEN
+    CTEXT           "发令调度台",IDC_STATIC,6,133,41,15,SS_CENTERIMAGE | 
+                    SS_SUNKEN
+    CTEXT           "受 令 局",IDC_STATIC,6,155,41,15,SS_CENTERIMAGE | 
+                    SS_SUNKEN
+    CTEXT           "受令分局",IDC_STATIC,6,177,41,15,SS_CENTERIMAGE | 
+                    SS_SUNKEN
+END
+
+IDD_CONSTRUCT_REQUEST_DIALOG DIALOGEX 0, 0, 287, 367
+STYLE DS_SETFONT | DS_MODALFRAME | DS_CENTER | WS_MINIMIZEBOX | WS_POPUP | 
+    WS_CAPTION | WS_SYSMENU
+CAPTION "施工命令请求"
+FONT 10, "宋体", 0, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_ORDER,40,161,20,12,ES_CENTER | ES_AUTOHSCROLL | 
+                    ES_READONLY | NOT WS_BORDER | NOT WS_TABSTOP,
+                    WS_EX_STATICEDGE
+    CONTROL         "登记",IDC_REGISTER,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,105,163,31,10
+    CONTROL         "消记",IDC_CLOSEREG,"Button",BS_AUTORADIOBUTTON,136,163,
+                    31,10
+    COMBOBOX        IDC_STATION,225,160,46,60,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+    CONTROL         "DateTimePicker1",IDC_DATETIMEPICKER1,"SysDateTimePick32",
+                    DTS_RIGHTALIGN | DTS_UPDOWN | WS_TABSTOP,51,184,119,15
+    COMBOBOX        IDC_MENDKIND,225,187,46,70,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+    EDITTEXT        IDC_ASKER,50,211,39,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_WATCHER,129,211,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_CONSUMETIME,225,211,27,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_CONTENT,8,254,272,80,ES_MULTILINE | ES_WANTRETURN | 
+                    WS_VSCROLL | NOT WS_TABSTOP
+    PUSHBUTTON      "(&A)草拟命令",IDC_REQUEST,13,341,46,14
+    PUSHBUTTON      "(&S)保 存",IDC_NEWREGISTER,83,341,46,14
+    PUSHBUTTON      "(&D) 删 除",IDC_DELETE,153,341,46,14
+    PUSHBUTTON      "(&X)退 出",IDCANCEL,223,341,46,14
+    CONTROL         "List1",IDC_LIST1,"SysListView32",LVS_REPORT | 
+                    LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,7,7,272,140
+    LTEXT           "请求时间:",IDC_STATIC,13,187,35,8
+    EDITTEXT        IDC_EDIT1,17,161,23,12,ES_CENTER | ES_READONLY | NOT 
+                    WS_BORDER,WS_EX_STATICEDGE
+    EDITTEXT        IDC_EDIT3,61,161,25,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER,WS_EX_STATICEDGE
+    GROUPBOX        "",IDC_STATIC,100,155,69,20
+    LTEXT           "请求人:",IDC_STATIC,18,213,27,8
+    LTEXT           "值班员:",IDC_STATIC,98,213,27,8
+    GROUPBOX        "",IDC_STATIC,7,232,274,129
+    GROUPBOX        "",IDC_STATIC,7,145,274,91
+    EDITTEXT        IDC_EDIT2,8,238,272,14,ES_CENTER | ES_AUTOHSCROLL | 
+                    ES_READONLY | NOT WS_BORDER,WS_EX_STATICEDGE
+    LTEXT           "所需时间:",IDC_STATIC,187,214,35,8
+    LTEXT           "施工种类:",IDC_STATIC,187,189,35,8
+    LTEXT           "请求站:",IDC_STATIC,194,162,27,8
+    LTEXT           "分钟",IDC_STATIC,255,214,16,8
+END
+
+IDD_CONSTRUCT_QUERY_DIALOG DIALOGEX 0, 0, 379, 449
+STYLE DS_SETFONT | DS_MODALFRAME | DS_CENTER | WS_MINIMIZEBOX | WS_POPUP | 
+    WS_CAPTION | WS_SYSMENU
+CAPTION "施工命令查询"
+FONT 10, "宋体", 0, 0, 0x0
+BEGIN
+    CONTROL         "DateTimePicker1",IDC_CONDATETIME,"SysDateTimePick32",
+                    DTS_RIGHTALIGN | WS_DISABLED | WS_TABSTOP,13,26,68,12
+    COMBOBOX        IDC_ASKSTATION,111,26,48,68,CBS_DROPDOWN | CBS_SORT | 
+                    WS_DISABLED | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_COMBOASKER,182,26,48,62,CBS_DROPDOWN | CBS_SORT | 
+                    WS_DISABLED | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_COMBORWATER,250,26,48,68,CBS_DROPDOWN | CBS_SORT | 
+                    WS_DISABLED | WS_VSCROLL | WS_TABSTOP
+    DEFPUSHBUTTON   "(&Q)查 询",IDC_QUERY,318,18,41,14
+    PUSHBUTTON      "(&S)保存",IDC_SAVE,318,47,41,14
+    PUSHBUTTON      "(&D)删除",IDC_DELETE,318,76,41,14,WS_DISABLED
+    PUSHBUTTON      "(&C)清 空",IDC_CLEAR,318,105,41,14
+    PUSHBUTTON      "(&X)退 出",IDCANCEL,318,134,41,14
+    CONTROL         "施工登记",IDC_RREG,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,39,176,46,10
+    CONTROL         "施工消记",IDC_RCREG,"Button",BS_AUTORADIOBUTTON,118,177,
+                    46,10
+    EDITTEXT        IDC_REGONTENT,11,210,174,63,ES_MULTILINE | ES_READONLY | 
+                    WS_VSCROLL
+    EDITTEXT        IDC_COMORDER,238,282,40,14,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_DISPATCHER,322,282,40,14,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    EDITTEXT        IDC_SENDTIME,238,301,124,14,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_STATIONS,238,320,124,14,ES_AUTOHSCROLL | ES_READONLY
+    CONTROL         "封锁命令",IDC_RCCOMAND,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,216,176,46,10
+    CONTROL         "开通命令",IDC_ROCOMMAND,"Button",BS_AUTORADIOBUTTON,301,
+                    176,46,10
+    EDITTEXT        IDC_ASKER,142,302,40,14,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_WATCHER,57,302,40,14,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_ASKTIME,57,322,125,14,ES_AUTOHSCROLL | ES_READONLY
+    CONTROL         "List1",IDC_LIST1,"SysListView32",LVS_REPORT | 
+                    LVS_SINGLESEL | WS_BORDER | WS_TABSTOP,7,47,297,109
+    CTEXT           "请求人",IDC_STATIC,101,302,40,14,SS_CENTERIMAGE | 
+                    SS_SUNKEN
+    CTEXT           "值班员",IDC_STATIC,14,302,40,14,SS_CENTERIMAGE | 
+                    SS_SUNKEN
+    CTEXT           "请求时间",IDC_STATIC,14,321,40,14,SS_CENTERIMAGE | 
+                    SS_SUNKEN
+    CTEXT           "命令号",IDC_STATIC,192,282,40,14,SS_CENTERIMAGE | 
+                    SS_SUNKEN
+    CTEXT           "发令时间",IDC_STATIC,192,301,40,14,SS_CENTERIMAGE | 
+                    SS_SUNKEN
+    CTEXT           "调度员",IDC_STATIC,281,282,40,14,SS_CENTERIMAGE | 
+                    SS_SUNKEN
+    GROUPBOX        "查询条件",IDC_STATIC,7,3,298,41
+    CONTROL         "施工日期",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,13,13,46,10
+    CONTROL         "施工请求人",IDC_CHECK2,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,182,13,53,10
+    CONTROL         "值班员",IDC_CHECK3,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,250,13,38,10
+    CTEXT           "受令站",IDC_STATIC,192,320,40,14,SS_CENTERIMAGE | 
+                    SS_SUNKEN
+    CONTROL         "请求站",IDC_CHECK4,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,111,13,38,10
+    GROUPBOX        "",IDC_STATIC,7,161,182,277,BS_CENTER
+    GROUPBOX        "",IDC_STATIC,188,161,181,277,BS_CENTER
+    GROUPBOX        "施工登消记信息",IDC_STATIC,7,161,182,31,BS_CENTER
+    GROUPBOX        "调度命令信息",IDC_STATIC,188,161,181,31,BS_CENTER
+    CTEXT           "RGETITLE",IDC_REGTITLE,11,195,174,13,SS_CENTERIMAGE | 
+                    SS_SUNKEN
+    CTEXT           "COMTITLE",IDC_COMTITLE,191,195,174,13,SS_CENTERIMAGE | 
+                    SS_SUNKEN
+    EDITTEXT        IDC_COMCONTENT,191,210,174,63,ES_MULTILINE | ES_READONLY | 
+                    WS_VSCROLL
+    CTEXT           "所需时间",IDC_STATICCONSUMETIME,14,341,40,14,
+                    SS_CENTERIMAGE | SS_SUNKEN
+    CTEXT           "施工种类",IDC_STATICMENDKIND,101,341,40,14,
+                    SS_CENTERIMAGE | SS_SUNKEN
+    CTEXT           "发令机构",IDC_STATIC,192,339,40,14,SS_CENTERIMAGE | 
+                    SS_SUNKEN
+    CTEXT           "受令机构",IDC_STATIC,192,358,40,14,SS_CENTERIMAGE | 
+                    SS_SUNKEN
+    CTEXT           "审核人",IDC_STATIC,192,377,40,14,SS_CENTERIMAGE | 
+                    SS_SUNKEN
+    CTEXT           "审核时间",IDC_STATIC,192,396,40,14,SS_CENTERIMAGE | 
+                    SS_SUNKEN
+    CTEXT           "抄送目标",IDC_STATIC,192,415,40,14,SS_CENTERIMAGE | 
+                    SS_SUNKEN
+    EDITTEXT        IDC_CONSUMETIME,57,341,40,14,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    EDITTEXT        IDC_MENDKIND,142,341,40,14,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_ORGSEND,238,339,124,14,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_ORGRECEIVE,238,359,124,14,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    EDITTEXT        IDC_CHECKER,238,377,59,14,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_CHECKTIME,238,395,124,14,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    EDITTEXT        IDC_COPYFOR,238,415,124,14,ES_AUTOHSCROLL | ES_READONLY
+    GROUPBOX        "",IDC_STATIC,304,3,65,153
+    EDITTEXT        IDC_STATION,57,281,125,14,ES_AUTOHSCROLL | ES_READONLY
+    CTEXT           "请求站",IDC_STATIC,15,281,40,14,SS_CENTERIMAGE | 
+                    SS_SUNKEN
+END
+
+IDD_SHOWSTATION_DIALOG DIALOG  0, 0, 179, 161
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "受令车站编辑"
+FONT 10, "宋体"
+BEGIN
+    DEFPUSHBUTTON   "确  定",IDOK,34,140,42,14
+    LISTBOX         IDC_LISTALLSTATION,10,15,50,116,LBS_SORT | 
+                    LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    LISTBOX         IDC_LISTCURSTATION,118,15,50,116,LBS_NOINTEGRALHEIGHT | 
+                    WS_VSCROLL | WS_TABSTOP
+    GROUPBOX        "所有车站",IDC_STATIC,6,3,59,132,BS_CENTER
+    PUSHBUTTON      "添加 ->",IDC_SATION_ADD,70,23,38,15
+    PUSHBUTTON      "<- 删除",IDC_STATION_DELETE,70,48,38,15
+    PUSHBUTTON      "全部添加",IDC_STATION_ADDALL,70,73,38,15
+    PUSHBUTTON      "去除全部",IDC_STATION_DELALL,70,100,38,15
+    PUSHBUTTON      "(&X)取消",IDCANCEL,103,140,42,14
+    GROUPBOX        "受令车站",IDC_STATIC,114,3,59,132,BS_CENTER
+END
+
+IDD_WARNLOG_DIALOG DIALOG  0, 0, 399, 279
+STYLE DS_SETFONT | DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "报警日志查询"
+FONT 10, "宋体"
+BEGIN
+    DEFPUSHBUTTON   "退出",IDOK,329,258,50,14
+    CONTROL         "List1",IDC_WARNLOGDLG_LIST,"SysListView32",LVS_REPORT | 
+                    LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_ALIGNLEFT | 
+                    WS_BORDER | WS_TABSTOP,9,27,380,224
+    COMBOBOX        IDC_WARNLOGDLG_DATE,319,11,71,128,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    LTEXT           "查询日期:",IDC_STATIC,277,11,35,11,SS_CENTERIMAGE
+    LTEXT           "场站选择:",IDC_STATIC,12,11,35,11,SS_CENTERIMAGE | NOT 
+                    WS_VISIBLE
+    COMBOBOX        IDC_WARNLOGDLG_STATION,49,11,71,128,CBS_DROPDOWN | NOT 
+                    WS_VISIBLE | WS_VSCROLL | WS_TABSTOP
+    GROUPBOX        "",IDC_STATIC,5,2,388,252
+END
+
+IDD_WARNNOTE_DIALOG DIALOG  64896, 65024, 203, 154
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "报警信息"
+FONT 10, "宋体"
+BEGIN
+    DEFPUSHBUTTON   "退出",IDOK,151,133,33,14
+    LTEXT           "序号:",IDC_STATIC,11,11,19,11,SS_CENTERIMAGE
+    LTEXT           "NUM1",IDC_WARNNOTEDLG_NUM,31,11,51,11,SS_CENTERIMAGE
+    LTEXT           "日期:",IDC_STATIC,11,26,19,11,SS_CENTERIMAGE
+    LTEXT           "2004-11-11",IDC_WARNNOTEDLG_DATE,31,26,51,11,
+                    SS_CENTERIMAGE
+    LTEXT           "时间:",IDC_STATIC,82,26,19,11,SS_CENTERIMAGE
+    LTEXT           "11:11:11",IDC_WARNNOTEDLG_TIME,103,26,45,11,
+                    SS_CENTERIMAGE
+    LTEXT           "站名:",IDC_STATIC,11,41,19,11,SS_CENTERIMAGE
+    LTEXT           "来源:",IDC_STATIC,82,41,19,11,SS_CENTERIMAGE
+    LTEXT           "翠屏山",IDC_WARNNOTEDLG_STATION,31,41,51,11,
+                    SS_CENTERIMAGE
+    LTEXT           "助调工作站",IDC_WARNNOTEDLG_SOURCE,104,41,45,11,
+                    SS_CENTERIMAGE
+    LTEXT           "内容:",IDC_STATIC,11,58,19,11,SS_CENTERIMAGE
+    EDITTEXT        IDC_WARNNOTEDLG_CONTENT,7,72,189,54,ES_MULTILINE | 
+                    ES_AUTOVSCROLL | ES_READONLY
+    LTEXT           "级别:",IDC_STATIC,82,11,19,11,SS_CENTERIMAGE
+    LTEXT           "一级报警",IDC_WARNNOTEDLG_LEVEL,103,11,45,11,
+                    SS_CENTERIMAGE
+    PUSHBUTTON      "上一条",IDC_WARNNOTEDLG_PREV,151,11,33,13
+    PUSHBUTTON      "下一条",IDC_WARNNOTEDLG_NEXT,151,39,33,13
+END
+
+IDD_INFORMATION_PROMPT DIALOGEX 0, 0, 175, 78
+STYLE DS_SETFONT | DS_MODALFRAME | WS_MINIMIZEBOX | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+EXSTYLE WS_EX_TOOLWINDOW
+CAPTION "-=消息提示=-"
+FONT 10, "宋体", 0, 0, 0x1
+BEGIN
+    LTEXT           "没有新消息。",IDC_STATIC_INF,14,12,148,11
+    COMBOBOX        IDC_COMBO_DETAILEDINF,12,33,151,102,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    GROUPBOX        "",IDC_STATIC,7,3,161,54
+    DEFPUSHBUTTON   "(&S)查 看",IDC_BUTTON_SHOWNEWMSG,35,61,43,14
+    PUSHBUTTON      "(&C)取 消",IDCANCEL,112,61,43,14
+END
+
+IDD_PASS_DIALOG DIALOGEX 0, 0, 149, 63
+STYLE DS_SETFONT | DS_MODALFRAME | DS_CENTERMOUSE | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+EXSTYLE WS_EX_TOOLWINDOW
+CAPTION "密码提示框"
+FONT 11, "宋体", 0, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_PASSDLG_EDIT,5,4,99,14,ES_PASSWORD | ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "确定",IDOK,113,27,29,12
+    PUSHBUTTON      "取消",IDCANCEL,113,44,29,12
+    PUSHBUTTON      "<-----",IDC_PASSDLG_BUTTONDEL,113,5,29,12
+    PUSHBUTTON      "0",IDC_PASSDLG_BUTTON0,5,24,16,15,0,WS_EX_CLIENTEDGE | 
+                    WS_EX_STATICEDGE
+    PUSHBUTTON      "1",IDC_PASSDLG_BUTTON1,26,24,16,15,0,WS_EX_CLIENTEDGE | 
+                    WS_EX_STATICEDGE
+    PUSHBUTTON      "2",IDC_PASSDLG_BUTTON2,47,24,16,15,0,WS_EX_CLIENTEDGE | 
+                    WS_EX_STATICEDGE
+    PUSHBUTTON      "3",IDC_PASSDLG_BUTTON3,68,24,16,15,0,WS_EX_CLIENTEDGE | 
+                    WS_EX_STATICEDGE
+    PUSHBUTTON      "4",IDC_PASSDLG_BUTTON4,89,24,16,15,0,WS_EX_CLIENTEDGE | 
+                    WS_EX_STATICEDGE
+    PUSHBUTTON      "5",IDC_PASSDLG_BUTTON5,5,43,16,15,0,WS_EX_CLIENTEDGE | 
+                    WS_EX_STATICEDGE
+    PUSHBUTTON      "6",IDC_PASSDLG_BUTTON6,26,43,16,15,0,WS_EX_CLIENTEDGE | 
+                    WS_EX_STATICEDGE
+    PUSHBUTTON      "7",IDC_PASSDLG_BUTTON7,47,43,16,15,0,WS_EX_CLIENTEDGE | 
+                    WS_EX_STATICEDGE
+    PUSHBUTTON      "8",IDC_PASSDLG_BUTTON8,68,43,16,15,0,WS_EX_CLIENTEDGE | 
+                    WS_EX_STATICEDGE
+    PUSHBUTTON      "9",IDC_PASSDLG_BUTTON9,89,43,16,15,0,WS_EX_CLIENTEDGE | 
+                    WS_EX_STATICEDGE
+END
+
+IDD_DIALOG_LOGPRO DIALOGEX 0, 0, 150, 40
+STYLE DS_SETFONT | DS_MODALFRAME | DS_CENTER | WS_CAPTION
+EXSTYLE WS_EX_TOOLWINDOW
+CAPTION "欢迎使用FZJ－CTC型综合维修工作站"
+FONT 11, "宋体", 0, 0, 0x1
+BEGIN
+    CTEXT           "Static",IDC_STATIC_INFOR,7,10,129,22,SS_CENTERIMAGE
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "080404b0"
+        BEGIN
+            VALUE "CompanyName", "北京交大微联科技有限公司"
+            VALUE "FileDescription", "综合维修工作站 Microsoft 基础类应用程序"
+            VALUE "FileVersion", "1, 0, 0, 1"
+            VALUE "InternalName", "Maintain"
+            VALUE "LegalCopyright", "版权所有 (C) 2004"
+            VALUE "OriginalFilename", "Maintain.EXE"
+            VALUE "ProductName", "综合维修工作站"
+            VALUE "ProductVersion", "1, 0, 0, 1"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x804, 1200
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 227
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 60
+    END
+
+    IDD_LOGIN_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 126
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 88
+    END
+
+    IDD_OPERATE_DIALOG, DIALOG
+    BEGIN
+        RIGHTMARGIN, 476
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 332
+    END
+
+    IDD_CONSTRUCT_REQUEST_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 280
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 360
+    END
+
+    IDD_CONSTRUCT_QUERY_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 372
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 442
+    END
+
+    IDD_SHOWSTATION_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 172
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 154
+    END
+
+    IDD_WARNLOG_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 392
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 272
+    END
+
+    IDD_WARNNOTE_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 196
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 147
+    END
+
+    IDD_INFORMATION_PROMPT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 168
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 75
+    END
+
+    IDD_PASS_DIALOG, DIALOG
+    BEGIN
+        RIGHTMARGIN, 147
+    END
+
+    IDD_DIALOG_LOGPRO, DIALOG
+    BEGIN
+        RIGHTMARGIN, 147
+        TOPMARGIN, 2
+        BOTTOMMARGIN, 39
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog Info
+//
+
+IDD_CONSTRUCT_REQUEST_DIALOG DLGINIT
+BEGIN
+    IDC_MENDKIND, 0x403, 7, 0
+0xeccc, 0xb0b4, 0xded0, "\000" 
+    IDC_MENDKIND, 0x403, 7, 0
+0xf8c7, 0xe4bc, 0xded0, "\000" 
+    0
+END
+
+IDD_OPERATE_DIALOG DLGINIT
+BEGIN
+    IDC_COMBO_DDML_SNEDDISPATCHID, 0x403, 8, 0
+0xf7b5, 0xc8b6, 0xa8cc, 0x0031, 
+    IDC_SENDNAME, 0x403, 5, 0
+0xc5d5, 0xfdc8, "\000" 
+    IDC_SENDNAME, 0x403, 5, 0
+0xeec0, 0xc4cb, "\000" 
+    IDC_SENDNAME, 0x403, 7, 0
+0xf5cd, 0xe9c2, 0xd3d7, "\000" 
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    IDR_MAINFRAME           "Maintain"
+    IDR_MAINTATYPE          "\nMainta\nMainta\n\n\nMaintain.Document\nMainta Document"
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_APP_TITLE       "Maintain"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_INDICATOR_WAN        "网络状态：×"
+    ID_INDICATOR_TIME       "12:55:45  "
+    ID_INDICATOR_UNIT       "北京交大微联科技有限公司    "
+END
+
+STRINGTABLE 
+BEGIN
+    ID_FILE_NEW             "建立新文档\n新建"
+    ID_FILE_OPEN            "打开一个现有文档\n打开"
+    ID_FILE_CLOSE           "关闭活动文档\n关闭"
+    ID_FILE_SAVE            "保存活动文档\n保存"
+    ID_FILE_SAVE_AS         "将活动文档以一个新文件名保存\n另存为"
+    ID_FILE_PAGE_SETUP      "改变打印选项\n页面设置"
+    ID_FILE_PRINT_SETUP     "改变打印机及打印选项\n打印设置"
+    ID_FILE_PRINT           "打印活动文档\n打印"
+    ID_FILE_PRINT_PREVIEW   "显示整页\n打印预览"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_APP_ABOUT            "显示程序信息，版本号和版权\n关于"
+    ID_APP_EXIT             "退出应用程序；提示保存文档\n退出"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_FILE_MRU_FILE1       "打开该文档"
+    ID_FILE_MRU_FILE2       "打开该文档"
+    ID_FILE_MRU_FILE3       "打开该文档"
+    ID_FILE_MRU_FILE4       "打开该文档"
+    ID_FILE_MRU_FILE5       "打开该文档"
+    ID_FILE_MRU_FILE6       "打开该文档"
+    ID_FILE_MRU_FILE7       "打开该文档"
+    ID_FILE_MRU_FILE8       "打开该文档"
+    ID_FILE_MRU_FILE9       "打开该文档"
+    ID_FILE_MRU_FILE10      "打开该文档"
+    ID_FILE_MRU_FILE11      "打开该文档"
+    ID_FILE_MRU_FILE12      "打开该文档"
+    ID_FILE_MRU_FILE13      "打开该文档"
+    ID_FILE_MRU_FILE14      "打开该文档"
+    ID_FILE_MRU_FILE15      "打开该文档"
+    ID_FILE_MRU_FILE16      "打开该文档"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_NEXT_PANE            "切换到下一个窗格\n下一窗格"
+    ID_PREV_PANE            "切换回前一个窗格\n前一窗格"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_WINDOW_NEW           "为活动文档打开另一个窗口\n新建窗口"
+    ID_WINDOW_ARRANGE       "将图标排列在窗口底部\n排列图标"
+    ID_WINDOW_CASCADE       "排列窗口成相互重叠\n层叠窗口"
+    ID_WINDOW_TILE_HORZ     "排列窗口成互不重叠\n平铺窗口"
+    ID_WINDOW_TILE_VERT     "排列窗口成互不重叠\n平铺窗口"
+    ID_WINDOW_SPLIT         "将活动的窗口分隔成窗格\n分隔"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_EDIT_CLEAR           "删除被选对象\n删除"
+    ID_EDIT_CLEAR_ALL       "全部删除\n全部删除"
+    ID_EDIT_COPY            "复制被选对象并将其置于剪贴板上\n复制"
+    ID_EDIT_CUT             "剪切被选对象并将其置于剪贴板上\n剪切"
+    ID_EDIT_FIND            "查找指定的正文\n查找"
+    ID_EDIT_PASTE           "插入剪贴板内容\n粘贴"
+    ID_EDIT_REPEAT          "重复上一步操作\n重复"
+    ID_EDIT_REPLACE         "用不同的正文替换指定的正文\n替换"
+    ID_EDIT_SELECT_ALL      "选择整个文档\n选择全部"
+    ID_EDIT_UNDO            "撤消最后一步操作\n撤消"
+    ID_EDIT_REDO            "重新执行先前已撤消的操作\n重新执行"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_VIEW_TOOLBAR         "显示或隐藏工具栏\n显隐工具栏"
+    ID_VIEW_STATUS_BAR      "显示或隐藏状态栏\n显隐状态栏"
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_SCSIZE          "改变窗口大小"
+    AFX_IDS_SCMOVE          "改变窗口位置"
+    AFX_IDS_SCMINIMIZE      "将窗口缩小成图标"
+    AFX_IDS_SCMAXIMIZE      "把窗口放大到最大尺寸"
+    AFX_IDS_SCNEXTWINDOW    "切换到下一个文档窗口"
+    AFX_IDS_SCPREVWINDOW    "切换到先前的文档窗口"
+    AFX_IDS_SCCLOSE         "关闭活动的窗口并提示保存所有文档"
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_SCRESTORE       "把窗口恢复到正常大小"
+    AFX_IDS_SCTASKLIST      "激活任务表"
+    AFX_IDS_MDICHILD        "激活该窗口"
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_PREVIEW_CLOSE   "关闭打印预览模式\n取消预阅"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_OPERATOR_SENDDISPACTHER "下达调度命令"
+    ID_OPERATOR_SENDOPENDISPACTHER "下达开通调度命令"
+    ID_VIEW_SHOWWARNLOG     "查看报警信息"
+    ID_VIEW_SHOWTREEVIEW    "站场选择"
+    ID_VIEW_NEWMESSAGE      "查看新消息"
+    ID_TOOLS_OPTIONS        "改变设置"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_OPERATOR_SINSTASHOW  "单站显示"
+    ID_OPERATOR_MULSTASHOW  "多站显示"
+    ID_VIEW_SWXHJNAME       "显示信号机名称"
+END
+
+#endif    // 中文(中华人民共和国) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+#ifdef _WIN32
+LANGUAGE 4, 2
+#pragma code_page(936)
+#endif //_WIN32
+#include "res\Maintain.rc2"  // non-Microsoft Visual C++ edited resources
+#include "l.chs\afxres.rc"          // Standard components
+#include "l.chs\afxprint.rc"        // printing/print preview resources
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+
