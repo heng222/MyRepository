@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Configuration xmlns="urn:bundle-manifest-2.0"
+         Bundle-Activator="Products.Plugin2.Brigde.Activator"
+         Bundle-SymbolicName="Plugin2"
+         Bundle-Description="插件2的名称"         
+         Bundle-Name="插件2"
+         Bundle-StartLevel="6"
+         Bundle-Specification="Products.Plugin2.Brigde.BundleSpecification"
+         Bundle-Version="1.0.0"                  
+         >
+  <Runtime>
+    <Assembly Path="Products.Plugin2.dll"  Share="false"/>
+    <Assembly Path="Products.Plugin2.Brigde.dll"  Share="false"/>
+  </Runtime>
+</Configuration>

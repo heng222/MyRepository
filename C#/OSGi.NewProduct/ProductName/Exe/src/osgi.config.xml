@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Configuration xmlns="urn:OSGi.NET-1.0"
+               org.osgi.framework.factory="Framework.OSGi.Impl.FrameworkFactoryImpl"
+               org.osgi.bundle.rootDirectory="Plugins"
+               org.osgi.framework.startlevel.beginning="100"
+               org.osgi.initial.bundle.startlevel="8"
+               org.osgi.auto-sync.preferences="false"
+               framework.extension.AutoExitOnStartBundleError="true"
+               showExceptionStack ="false"
+               autoOpenConsole="false"
+               OptimizeInterval="3600"
+               
+               
+               ExceptionResolver="Acl.Exceptions.UnknowExceptionResolver"
+               ExceptionRender="Platform.Bundles.Bridge.Exceptions.MessageBoxExceptionRender;Platform.Bundles.Bridge.Exceptions.LogExceptionRender;"
+                              
+               MainFormFactory="Products.Shell.DemoFormFactory"
+               >
+
+  <Runtime>
+    <!-- 框架/平台组件 -->
+    <Assembly Path="Acl.Core.dll"/>
+    <Assembly Path="Acl.Log.dll"/>
+    <Assembly Path="Framework.OSGi.Core.dll"/>
+    <Assembly Path="Framework.OSGi.Enterprise.dll"/>
+    <Assembly Path="Framework.OSGi.Impl.dll"/>
+    <Assembly Path="Platform.Presentation.dll"/>
+    <Assembly Path="FrameworkExtensions\Framework.OSGi.Prefs.dll"/><!-- 参数服务服务组件-->
+    <Assembly Path="FrameworkExtensions\Framework.OSGi.ConsoleService.dll"/><!-- 控制台服务组件-->
+    <Assembly Path="FrameworkExtensions\Platform.Bundles.Bridge.dll"/>
+    <Assembly Path="FrameworkExtensions\Platform.SplashScreen.dll"/>
+    <Assembly Path="FrameworkExtensions\Platform.Shell.dll"/>
+
+    <!-- ATS组件 -->
+    <Assembly Path="FrameworkExtensions\Products.Shell.dll"/>
+    <Assembly Path="Products.Infrastructure.dll"/>
+    <Assembly Path="Products.Domain.dll"/>
+    <Assembly Path="Products.Presentation.dll"/>
+    <Assembly Path="Products.Resource.dll"/>
+
+    <!-- Activors(修改Activetor前后位置将影响它们的执行顺序) -->
+    
+    <Bundle-Activator Type="Framework.OSGi.Prefs.Activator"/>
+    <Bundle-Activator Type="Framework.OSGi.ConsoleService.Activator"/>
+    <Bundle-Activator Type="Platform.Bundles.Bridge.Activator"/>
+    <Bundle-Activator Type="Products.Shell.Activator"/>
+
+    <!--<Bundle-Extension IsStatic="true" Type=""  StartMethod=""  StopMethod=""/>-->
+  </Runtime>
+</Configuration>
