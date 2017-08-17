@@ -5,14 +5,15 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using CoolImageDlg;
 
 namespace ImgDlgSample
 {
-    public partial class Form2 : CoolImageDlg.ImageDlgBase
+    public partial class Form2 : PngSupportedForm
     {
         public Form2()
         {
-            base.DlgBgImg = ImgDlgSample.Properties.Resources.DemoDlgBg2;
+            base.BackgroundPng = ImgDlgSample.Properties.Resources.DemoDlgBg2;
             InitializeComponent();
         }
 

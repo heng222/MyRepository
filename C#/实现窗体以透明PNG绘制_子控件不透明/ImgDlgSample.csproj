@@ -67,17 +67,12 @@
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
     <Compile Include="Src\Constant.cs" />
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Form1.cs" />
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Src\GDI32Dll.cs" />
-    <Compile Include="Src\ImageDlgBase.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Src\Kernal32Dll.cs" />
+    <Compile Include="Src\Gdi32.cs" />
+    <Compile Include="Src\Kernel32.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -103,7 +98,10 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="Src\User32Dll.cs" />
+    <Compile Include="Src\PngSupportedForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Src\User32.cs" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">

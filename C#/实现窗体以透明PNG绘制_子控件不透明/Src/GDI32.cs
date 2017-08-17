@@ -7,7 +7,7 @@ namespace CoolImageDlg
     /// <summary>
     /// The wrapper class for GDI32.dll
     /// </summary>
-    public static class GDI32Dll
+    public static class Gdi32
     {
         [DllImport("gdi32.dll", SetLastError = true)]
         public static extern IntPtr CreateCompatibleDC(IntPtr hdc);

@@ -6,7 +6,7 @@ namespace CoolImageDlg
     /// <summary>
     /// The wrapper class for user32.dll
     /// </summary>
-    public static class User32Dll
+    public static class User32
     {
         [DllImport("user32.dll", CharSet = CharSet.Unicode, SetLastError = false)]
         public static extern IntPtr SendMessage(IntPtr hWnd, Int32 nMsg, IntPtr wParam, IntPtr lParam);

@@ -8,11 +8,11 @@ using System.Windows.Forms;
 
 namespace ImgDlgSample
 {
-    public partial class Form1 : CoolImageDlg.ImageDlgBase
+    public partial class Form1 : CoolImageDlg.PngSupportedForm
     {
         public Form1()
         {
-            base.DlgBgImg = ImgDlgSample.Properties.Resources.desktopmasks_bk;
+            base.BackgroundPng = ImgDlgSample.Properties.Resources.desktopmasks_bk;
             InitializeComponent();
         }
 

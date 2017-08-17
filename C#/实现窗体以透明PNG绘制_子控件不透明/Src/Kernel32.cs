@@ -6,7 +6,7 @@ namespace CoolImageDlg
     /// <summary>
     /// The wrapper class for kernal32.dll
     /// </summary>
-    public static class Kernal32Dll
+    public static class Kernel32
     {
         [DllImport("kernel32.dll", CharSet = CharSet.Unicode)]
         public static extern IntPtr LoadLibrary(string lpFileName);
