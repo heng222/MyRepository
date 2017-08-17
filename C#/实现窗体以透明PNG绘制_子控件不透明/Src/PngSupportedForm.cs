@@ -93,7 +93,7 @@ namespace CoolImageDlg
         #region "Private methods"
         private void CreateFakeWnd()
         {
-            WNDCLASSEX wndClsEx = new WNDCLASSEX();
+            var wndClsEx = new WNDCLASSEX();
             wndClsEx.Init();
             wndClsEx.style = WndClassType.CS_VREDRAW | WndClassType.CS_HREDRAW;
             wndClsEx.lpfnWndProc = m_DefWndProcDelegate;
@@ -108,25 +108,26 @@ namespace CoolImageDlg
             wndClsEx.lpszMenuName = null;
 
             bool success = User32.RegisterClassEx(ref wndClsEx) != 0;
+
             Debug.Assert(success, "RegisterWndClass failed.");
-            UInt32 dwExStyle = ExtendedWndStyle.WS_EX_LAYERED |
+
+            var dwExStyle = ExtendedWndStyle.WS_EX_LAYERED |
                 ExtendedWndStyle.WS_EX_TRANSPARENT |
                 ExtendedWndStyle.WS_EX_NOACTIVATE |
                 ExtendedWndStyle.WS_EX_LEFT;
-            UInt32 dwStyle = WndStyle.WS_VISIBLE | WndStyle.WS_OVERLAPPED;
+
+            var dwStyle = WndStyle.WS_VISIBLE | WndStyle.WS_OVERLAPPED;
+            
             m_FakeWndHandle = User32.CreateWindowEx(dwExStyle
                 , m_WndClsName
                 , null
                 , dwStyle
-                , this.Left
-                , this.Top
-                , BackgroundPng.Width
-                , BackgroundPng.Height
+                , this.Left, this.Top
+                , BackgroundPng.Width, BackgroundPng.Height
                 , this.Handle
                 , IntPtr.Zero
                 , Kernel32.GetModuleHandle(null)
-                , IntPtr.Zero
-                );
+                , IntPtr.Zero);
             Debug.Assert(User32.IsWindow(m_FakeWndHandle), "CreateWindowEx failed.");
         }
 
@@ -152,7 +153,6 @@ namespace CoolImageDlg
             m_bIsRefreshing = true;
             POINT ptSrc = new POINT(0, 0);
             POINT ptWinPos = new POINT(this.Left, this.Top);
-            SIZE szWin = new SIZE(BackgroundPng.Width, BackgroundPng.Height);
             byte biAlpha = 0xFF;
             BLENDFUNCTION stBlend = new BLENDFUNCTION(BlendOp.AC_SRC_OVER, 0, biAlpha, BlendOp.AC_SRC_ALPHA);
 
@@ -221,26 +221,12 @@ namespace CoolImageDlg
                         User32.ClientToScreen(stGuiThreadInfo.hwndCaret, ref ptCaret);
                         User32.ScreenToClient(this.Handle, ref ptCaret);
 
-                        graphic.DrawLine(new Pen(new SolidBrush(Color.Black))
-                            , ptCaret.X
-                            , ptCaret.Y
-                            , ptCaret.X
-                            , ptCaret.Y + height
-                            );
+                        graphic.DrawLine(new Pen(new SolidBrush(Color.Black)), ptCaret.X, ptCaret.Y, ptCaret.X, ptCaret.Y + height);
                     }
                 }
 
-
-                User32.UpdateLayeredWindow(m_FakeWndHandle
-                    , hDC
-                    , ref ptWinPos
-                    , ref szWin
-                    , hdcMemory
-                    , ref ptSrc
-                    , 0
-                    , ref stBlend
-                    , UpdateLayerWindowParameter.ULW_ALPHA
-                    );
+                var szWin = new SIZE(BackgroundPng.Width, BackgroundPng.Height);
+                User32.UpdateLayeredWindow(m_FakeWndHandle, hDC, ref ptWinPos, ref szWin, hdcMemory, ref ptSrc, 0, ref stBlend, UpdateLayerWindowParameter.ULW_ALPHA);
 
                 graphic.Dispose();
                 Gdi32.SelectObject(hbmpMem, hbmpOld);
