@@ -27,12 +27,6 @@ namespace CoolImageDlg
 
 
         #region "Properties"
-        /// <summary>
-        /// 设置背景图像
-        /// </summary>
-        [Category("Appearance")]
-        [Description("设置背景图像")]
-        public Image BackgroundPng { get; set; }
         #endregion
 
 
@@ -45,13 +39,13 @@ namespace CoolImageDlg
         {
             base.OnLoad(e);
 
-            if (BackgroundPng == null)  return;
+            if (BackgroundImage == null)  return;
 
             base.AllowTransparency = true;
             base.Opacity = 0.01;//这个函数控制实体窗口的透明度如果设置程0.00的话窗口将不能移动
             base.FormBorderStyle = FormBorderStyle.None;
-            base.Width = BackgroundPng.Width;
-            base.Height = BackgroundPng.Height;
+            base.Width = BackgroundImage.Width;
+            base.Height = BackgroundImage.Height;
 
             this.Move += this.OnDlgMove;
             this.FormClosed += this.OnDlgClosed;
@@ -123,7 +117,7 @@ namespace CoolImageDlg
                 , null
                 , dwStyle
                 , this.Left, this.Top
-                , BackgroundPng.Width, BackgroundPng.Height
+                , BackgroundImage.Width, BackgroundImage.Height
                 , this.Handle
                 , IntPtr.Zero
                 , Kernel32.GetModuleHandle(null)
@@ -166,16 +160,16 @@ namespace CoolImageDlg
 
             IntPtr hdcMemory = Gdi32.CreateCompatibleDC(hDC);
 
-            int nBytesPerLine = ((BackgroundPng.Width * 32 + 31) & (~31)) >> 3;
+            int nBytesPerLine = ((BackgroundImage.Width * 32 + 31) & (~31)) >> 3;
             BITMAPINFOHEADER stBmpInfoHeader = new BITMAPINFOHEADER();
             stBmpInfoHeader.Init();
-            stBmpInfoHeader.biWidth = BackgroundPng.Width;
-            stBmpInfoHeader.biHeight = BackgroundPng.Height;
+            stBmpInfoHeader.biWidth = BackgroundImage.Width;
+            stBmpInfoHeader.biHeight = BackgroundImage.Height;
             stBmpInfoHeader.biPlanes = 1;
             stBmpInfoHeader.biBitCount = 32;
             stBmpInfoHeader.biCompression = CompressionType.BI_RGB;
             stBmpInfoHeader.biClrUsed = 0;
-            stBmpInfoHeader.biSizeImage = (uint)(nBytesPerLine * BackgroundPng.Height);
+            stBmpInfoHeader.biSizeImage = (uint)(nBytesPerLine * BackgroundImage.Height);
 
             IntPtr pvBits = IntPtr.Zero;
             IntPtr hbmpMem = Gdi32.CreateDIBSection(hDC
@@ -193,7 +187,7 @@ namespace CoolImageDlg
 
                 Graphics graphic = Graphics.FromHdcInternal(hdcMemory);
 
-                graphic.DrawImage(BackgroundPng, 0, 0, BackgroundPng.Width, BackgroundPng.Height);
+                graphic.DrawImage(BackgroundImage, 0, 0, BackgroundImage.Width, BackgroundImage.Height);
 
                 foreach (Control ctrl in this.Controls)
                 {
@@ -225,7 +219,7 @@ namespace CoolImageDlg
                     }
                 }
 
-                var szWin = new SIZE(BackgroundPng.Width, BackgroundPng.Height);
+                var szWin = new SIZE(BackgroundImage.Width, BackgroundImage.Height);
                 User32.UpdateLayeredWindow(m_FakeWndHandle, hDC, ref ptWinPos, ref szWin, hdcMemory, ref ptSrc, 0, ref stBlend, UpdateLayerWindowParameter.ULW_ALPHA);
 
                 graphic.Dispose();
@@ -291,8 +285,8 @@ namespace CoolImageDlg
         private void OnDlgClosed(object sender, FormClosedEventArgs e)
         {
             DestroyFakeWnd();
-            BackgroundPng.Dispose();
-            BackgroundPng = null;
+            BackgroundImage.Dispose();
+            BackgroundImage = null;
         }
 
         private void OnDlgMove(object sender, EventArgs e)

@@ -13,7 +13,7 @@ namespace ImgDlgSample
     {
         public Form2()
         {
-            base.BackgroundPng = ImgDlgSample.Properties.Resources.DemoDlgBg2;
+            base.BackgroundImage = ImgDlgSample.Properties.Resources.DemoDlgBg2;
             InitializeComponent();
         }
 

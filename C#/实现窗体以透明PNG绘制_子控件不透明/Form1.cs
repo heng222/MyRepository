@@ -12,7 +12,7 @@ namespace ImgDlgSample
     {
         public Form1()
         {
-            base.BackgroundPng = ImgDlgSample.Properties.Resources.desktopmasks_bk;
+            base.BackgroundImage = ImgDlgSample.Properties.Resources.desktopmasks_bk;
             InitializeComponent();
         }
 
