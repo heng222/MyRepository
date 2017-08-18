@@ -9,17 +9,12 @@ using CoolImageDlg;
 
 namespace ImgDlgSample
 {
-    public partial class Form2 : TransparentForm
+    public partial class Form3 : TransparentForm
     {
-        public Form2()
+        public Form3()
         {
-            base.BackgroundImage = ImgDlgSample.Properties.Resources.DemoDlgBg2;
             InitializeComponent();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            this.Close();
+            base.BackgroundImage = ImgDlgSample.Properties.Resources.DemoDlgBg2;
         }
     }
 }

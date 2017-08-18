@@ -12,17 +12,24 @@ using System.Runtime.InteropServices;
 namespace CoolImageDlg
 {
     /// <summary>
-    /// 支持PNG图片为背景的窗体。
+    /// 支持PNG图片为背景的透明窗体。
     /// </summary>
-    public class PngSupportedForm : Form
+    public class TransparentForm : Form
     {
         #region "Field"
-        private string m_WndClsName = Guid.NewGuid().ToString("N");
-        private IntPtr m_FakeWndHandle;
-        private WndProcDelegate m_DefWndProcDelegate;
-        private WndProcDelegate m_CtrlWndProcDelegate;
-        private bool m_bIsRefreshing = false;
-        private Dictionary<IntPtr, IntPtr> m_WndProcMap = new Dictionary<IntPtr, IntPtr>();
+        private string _wndClassName = Guid.NewGuid().ToString("N");
+
+        private IntPtr _fakeWindowHandle;
+
+        private WndProcDelegate _defWndProcDelegate;
+        private WndProcDelegate _ctrlWndProcDelegate;
+
+        /// <summary>
+        /// 是否正在重绘中。
+        /// </summary>
+        private bool _refreshing = false;
+
+        private Dictionary<IntPtr, IntPtr> _wndProcMap = new Dictionary<IntPtr, IntPtr>();
         #endregion
 
 
@@ -42,16 +49,16 @@ namespace CoolImageDlg
             if (BackgroundImage == null)  return;
 
             base.AllowTransparency = true;
-            base.Opacity = 0.01;//这个函数控制实体窗口的透明度如果设置程0.00的话窗口将不能移动
-            base.FormBorderStyle = FormBorderStyle.None;
-            base.Width = BackgroundImage.Width;
-            base.Height = BackgroundImage.Height;
+            base.Opacity = 0.01; // 透明度如果设置为0的话窗口将不能移动
+            //base.FormBorderStyle = FormBorderStyle.None;
+            base.Width = this.GetWidth();
+            base.Height = this.GetHeight();
 
             this.Move += this.OnDlgMove;
             this.FormClosed += this.OnDlgClosed;
 
-            m_DefWndProcDelegate = User32.DefWindowProc;
-            m_CtrlWndProcDelegate = this.CtrlWndProc;
+            _defWndProcDelegate = User32.DefWindowProc;
+            _ctrlWndProcDelegate = this.CtrlWndProc;
             HookChildControl(this);
 
             CreateFakeWnd();
@@ -79,18 +86,30 @@ namespace CoolImageDlg
         /// <param name="e"></param>
         protected override void OnVisibleChanged(EventArgs e)
         {
-            User32.ShowWindow(m_FakeWndHandle
-                , (int)(this.Visible ? WindowShowStyle.Show : WindowShowStyle.Hide));
+            User32.ShowWindow(_fakeWindowHandle, (int)(this.Visible ? WindowShowStyle.Show : WindowShowStyle.Hide));
         }
         #endregion
 
         #region "Private methods"
+
+        private int GetWidth() 
+        {
+            return this.BackgroundImage.Width;
+            //return base.Width;
+        }
+
+        public int GetHeight()
+        {
+            return this.BackgroundImage.Height;
+            //return base.Height;
+        }
+
         private void CreateFakeWnd()
         {
             var wndClsEx = new WNDCLASSEX();
             wndClsEx.Init();
             wndClsEx.style = WndClassType.CS_VREDRAW | WndClassType.CS_HREDRAW;
-            wndClsEx.lpfnWndProc = m_DefWndProcDelegate;
+            wndClsEx.lpfnWndProc = _defWndProcDelegate;
             wndClsEx.cbClsExtra = 0;
             wndClsEx.cbWndExtra = 0;
             wndClsEx.hInstance = Kernel32.GetModuleHandle(null);
@@ -98,7 +117,7 @@ namespace CoolImageDlg
             wndClsEx.hIconSm = IntPtr.Zero;
             wndClsEx.hCursor = IntPtr.Zero;
             wndClsEx.hbrBackground = IntPtr.Zero;
-            wndClsEx.lpszClassName = m_WndClsName;
+            wndClsEx.lpszClassName = _wndClassName;
             wndClsEx.lpszMenuName = null;
 
             bool success = User32.RegisterClassEx(ref wndClsEx) != 0;
@@ -112,64 +131,63 @@ namespace CoolImageDlg
 
             var dwStyle = WndStyle.WS_VISIBLE | WndStyle.WS_OVERLAPPED;
             
-            m_FakeWndHandle = User32.CreateWindowEx(dwExStyle
-                , m_WndClsName
+            _fakeWindowHandle = User32.CreateWindowEx(dwExStyle
+                , _wndClassName
                 , null
                 , dwStyle
                 , this.Left, this.Top
-                , BackgroundImage.Width, BackgroundImage.Height
+                , this.GetWidth(), this.GetHeight()
                 , this.Handle
                 , IntPtr.Zero
                 , Kernel32.GetModuleHandle(null)
                 , IntPtr.Zero);
-            Debug.Assert(User32.IsWindow(m_FakeWndHandle), "CreateWindowEx failed.");
+            Debug.Assert(User32.IsWindow(_fakeWindowHandle), "CreateWindowEx failed.");
         }
 
         private void DestroyFakeWnd()
         {
-            if (m_FakeWndHandle != IntPtr.Zero)
+            if (_fakeWindowHandle != IntPtr.Zero)
             {
-                User32.DestroyWindow(m_FakeWndHandle);
-                m_FakeWndHandle = IntPtr.Zero;
+                User32.DestroyWindow(_fakeWindowHandle);
+                _fakeWindowHandle = IntPtr.Zero;
 
-                User32.UnregisterClass(m_WndClsName, Kernel32.GetModuleHandle(null));
+                User32.UnregisterClass(_wndClassName, Kernel32.GetModuleHandle(null));
             }
         }
 
         private void RefreshFakeWnd()
         {
-            if (m_bIsRefreshing)
-                return;
+            if (_refreshing) return;
 
-            if (!User32.IsWindow(m_FakeWndHandle))
-                return;
+            if (!User32.IsWindow(_fakeWindowHandle))  return;
 
-            m_bIsRefreshing = true;
+            _refreshing = true;
             POINT ptSrc = new POINT(0, 0);
             POINT ptWinPos = new POINT(this.Left, this.Top);
             byte biAlpha = 0xFF;
             BLENDFUNCTION stBlend = new BLENDFUNCTION(BlendOp.AC_SRC_OVER, 0, biAlpha, BlendOp.AC_SRC_ALPHA);
 
-            IntPtr hDC = User32.GetDC(m_FakeWndHandle);
+            IntPtr hDC = User32.GetDC(_fakeWindowHandle);
             if (hDC == IntPtr.Zero)
             {
-                m_bIsRefreshing = false;
+                _refreshing = false;
                 Debug.Assert(false, "GetDC failed.");
                 return;
             }
 
             IntPtr hdcMemory = Gdi32.CreateCompatibleDC(hDC);
 
-            int nBytesPerLine = ((BackgroundImage.Width * 32 + 31) & (~31)) >> 3;
-            BITMAPINFOHEADER stBmpInfoHeader = new BITMAPINFOHEADER();
+            int nBytesPerLine = ((this.GetWidth() * 32 + 31) & (~31)) >> 3;
+
+            var stBmpInfoHeader = new BITMAPINFOHEADER();
             stBmpInfoHeader.Init();
-            stBmpInfoHeader.biWidth = BackgroundImage.Width;
-            stBmpInfoHeader.biHeight = BackgroundImage.Height;
+            stBmpInfoHeader.biWidth = this.GetWidth();
+            stBmpInfoHeader.biHeight = this.GetHeight();
             stBmpInfoHeader.biPlanes = 1;
             stBmpInfoHeader.biBitCount = 32;
             stBmpInfoHeader.biCompression = CompressionType.BI_RGB;
             stBmpInfoHeader.biClrUsed = 0;
-            stBmpInfoHeader.biSizeImage = (uint)(nBytesPerLine * BackgroundImage.Height);
+            stBmpInfoHeader.biSizeImage = (uint)(nBytesPerLine * base.Height);
 
             IntPtr pvBits = IntPtr.Zero;
             IntPtr hbmpMem = Gdi32.CreateDIBSection(hDC
@@ -187,7 +205,7 @@ namespace CoolImageDlg
 
                 Graphics graphic = Graphics.FromHdcInternal(hdcMemory);
 
-                graphic.DrawImage(BackgroundImage, 0, 0, BackgroundImage.Width, BackgroundImage.Height);
+                graphic.DrawImage(BackgroundImage, 0, 0, GetWidth(), GetHeight());
 
                 foreach (Control ctrl in this.Controls)
                 {
@@ -219,8 +237,8 @@ namespace CoolImageDlg
                     }
                 }
 
-                var szWin = new SIZE(BackgroundImage.Width, BackgroundImage.Height);
-                User32.UpdateLayeredWindow(m_FakeWndHandle, hDC, ref ptWinPos, ref szWin, hdcMemory, ref ptSrc, 0, ref stBlend, UpdateLayerWindowParameter.ULW_ALPHA);
+                var szWin = new SIZE(BackgroundImage.Width, this.GetHeight());
+                User32.UpdateLayeredWindow(_fakeWindowHandle, hDC, ref ptWinPos, ref szWin, hdcMemory, ref ptSrc, 0, ref stBlend, UpdateLayerWindowParameter.ULW_ALPHA);
 
                 graphic.Dispose();
                 Gdi32.SelectObject(hbmpMem, hbmpOld);
@@ -230,16 +248,16 @@ namespace CoolImageDlg
             Gdi32.DeleteDC(hdcMemory);
             Gdi32.DeleteDC(hDC);
 
-            m_bIsRefreshing = false;
+            _refreshing = false;
         }
 
         private void HookChildControl(Control ctrl)
         {
             if (User32.IsWindow(ctrl.Handle))
             {
-                m_WndProcMap[ctrl.Handle] = User32.GetWindowLongPtr(ctrl.Handle, WindowsLong.GWL_WNDPROC);
+                _wndProcMap[ctrl.Handle] = User32.GetWindowLongPtr(ctrl.Handle, WindowsLong.GWL_WNDPROC);
 
-                User32.SetWindowLongPtr(ctrl.Handle, WindowsLong.GWL_WNDPROC, Marshal.GetFunctionPointerForDelegate(m_CtrlWndProcDelegate));
+                User32.SetWindowLongPtr(ctrl.Handle, WindowsLong.GWL_WNDPROC, Marshal.GetFunctionPointerForDelegate(_ctrlWndProcDelegate));
             }
 
             if (!ctrl.HasChildren)  return;
@@ -252,10 +270,10 @@ namespace CoolImageDlg
 
         private IntPtr CtrlWndProc(IntPtr hWnd, uint msg, IntPtr wParam, IntPtr lParam)
         {
-            if (!m_WndProcMap.ContainsKey(hWnd))
-                return m_DefWndProcDelegate(hWnd, msg, wParam, lParam);
+            if (!_wndProcMap.ContainsKey(hWnd))
+                return _defWndProcDelegate(hWnd, msg, wParam, lParam);
 
-            IntPtr nRet = User32.CallWindowProc(m_WndProcMap[hWnd], hWnd, msg, wParam, lParam);
+            IntPtr nRet = User32.CallWindowProc(_wndProcMap[hWnd], hWnd, msg, wParam, lParam);
 
             switch (msg)
             {
@@ -291,9 +309,9 @@ namespace CoolImageDlg
 
         private void OnDlgMove(object sender, EventArgs e)
         {
-            if (!User32.IsWindow(m_FakeWndHandle)) return;
+            if (!User32.IsWindow(_fakeWindowHandle)) return;
 
-            User32.MoveWindow(m_FakeWndHandle, this.Left, this.Top, this.Width, this.Height, false);
+            User32.MoveWindow(_fakeWindowHandle, this.Left, this.Top, this.Width, this.Height, false);
 
             RefreshFakeWnd();
         }

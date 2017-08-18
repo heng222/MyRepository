@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace ImgDlgSample
 {
-    public partial class Form1 : CoolImageDlg.PngSupportedForm
+    public partial class Form1 : CoolImageDlg.TransparentForm
     {
         public Form1()
         {
