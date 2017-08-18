@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Drawing.Imaging;
 
 namespace CoolImageDlg
 {
@@ -34,6 +35,7 @@ namespace CoolImageDlg
 
 
         #region "Properties"
+        //public Image BackgroundImage { get; set; }
         #endregion
 
 
@@ -46,11 +48,11 @@ namespace CoolImageDlg
         {
             base.OnLoad(e);
 
-            if (BackgroundImage == null)  return;
+            if (BackgroundImage == null) return;
 
             base.AllowTransparency = true;
             base.Opacity = 0.01; // 透明度如果设置为0的话窗口将不能移动
-            //base.FormBorderStyle = FormBorderStyle.None;
+            base.FormBorderStyle = FormBorderStyle.None;
             base.Width = this.GetWidth();
             base.Height = this.GetHeight();
 
@@ -94,13 +96,13 @@ namespace CoolImageDlg
 
         private int GetWidth() 
         {
-            //return this.BackgroundImage.Width;
+            //return this.BackgroundImage2.Width;
             return base.Width;
         }
 
         public int GetHeight()
         {
-            //return this.BackgroundImage.Height;
+            //return this.BackgroundImage2.Height;
             return base.Height;
         }
 
@@ -198,10 +200,16 @@ namespace CoolImageDlg
                 {
                     if (!ctrl.Visible)  continue;
 
-                    using (Bitmap bmp = new Bitmap(ctrl.Width, ctrl.Height))
+                    using (var bmp = new Bitmap(ctrl.Width, ctrl.Height)) 
                     {
-                        Rectangle rect = new Rectangle(0, 0, ctrl.Width, ctrl.Height);
+                        var rect = new Rectangle(0, 0, ctrl.Width, ctrl.Height);
                         ctrl.DrawToBitmap(bmp, rect);
+
+//                         var filename = @"C:\1.png";
+//                         if (!File.Exists(filename))
+//                         {
+//                             bmp.Save(filename);
+//                         }
 
                         graphic.DrawImage(bmp, ctrl.Left, ctrl.Top, ctrl.Width, ctrl.Height);
                     }
@@ -290,8 +298,8 @@ namespace CoolImageDlg
         {
             DestroyFakeWnd();
 
-            BackgroundImage.Dispose();
-            BackgroundImage = null;
+            this.BackgroundImage.Dispose();
+            this.BackgroundImage = null;
         }
 
         private void OnDlgMove(object sender, EventArgs e)

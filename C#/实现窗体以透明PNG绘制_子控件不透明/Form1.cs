@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using ImgDlgSample.Properties;
 
 namespace ImgDlgSample
 {
@@ -12,7 +13,7 @@ namespace ImgDlgSample
     {
         public Form1()
         {
-            base.BackgroundImage = ImgDlgSample.Properties.Resources.desktopmasks_bk;
+            base.BackgroundImage = Resources.desktopmasks_bk;
             InitializeComponent();
         }
 
