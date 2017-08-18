@@ -94,14 +94,14 @@ namespace CoolImageDlg
 
         private int GetWidth() 
         {
-            return this.BackgroundImage.Width;
-            //return base.Width;
+            //return this.BackgroundImage.Width;
+            return base.Width;
         }
 
         public int GetHeight()
         {
-            return this.BackgroundImage.Height;
-            //return base.Height;
+            //return this.BackgroundImage.Height;
+            return base.Height;
         }
 
         private void CreateFakeWnd()
@@ -124,23 +124,15 @@ namespace CoolImageDlg
 
             Debug.Assert(success, "RegisterWndClass failed.");
 
-            var dwExStyle = ExtendedWndStyle.WS_EX_LAYERED |
-                ExtendedWndStyle.WS_EX_TRANSPARENT |
-                ExtendedWndStyle.WS_EX_NOACTIVATE |
-                ExtendedWndStyle.WS_EX_LEFT;
+            var dwExStyle = ExtendedWndStyle.WS_EX_LAYERED | ExtendedWndStyle.WS_EX_TRANSPARENT
+                | ExtendedWndStyle.WS_EX_NOACTIVATE | ExtendedWndStyle.WS_EX_LEFT;
 
             var dwStyle = WndStyle.WS_VISIBLE | WndStyle.WS_OVERLAPPED;
-            
-            _fakeWindowHandle = User32.CreateWindowEx(dwExStyle
-                , _wndClassName
-                , null
-                , dwStyle
-                , this.Left, this.Top
-                , this.GetWidth(), this.GetHeight()
-                , this.Handle
-                , IntPtr.Zero
-                , Kernel32.GetModuleHandle(null)
-                , IntPtr.Zero);
+
+            _fakeWindowHandle = User32.CreateWindowEx(dwExStyle, _wndClassName, null, dwStyle,
+                this.Left, this.Top, this.GetWidth(), this.GetHeight()
+                , this.Handle, IntPtr.Zero, Kernel32.GetModuleHandle(null), IntPtr.Zero);
+
             Debug.Assert(User32.IsWindow(_fakeWindowHandle), "CreateWindowEx failed.");
         }
 
@@ -162,10 +154,10 @@ namespace CoolImageDlg
             if (!User32.IsWindow(_fakeWindowHandle))  return;
 
             _refreshing = true;
-            POINT ptSrc = new POINT(0, 0);
-            POINT ptWinPos = new POINT(this.Left, this.Top);
+            var ptSrc = new POINT(0, 0);
+            var ptWinPos = new POINT(this.Left, this.Top);
             byte biAlpha = 0xFF;
-            BLENDFUNCTION stBlend = new BLENDFUNCTION(BlendOp.AC_SRC_OVER, 0, biAlpha, BlendOp.AC_SRC_ALPHA);
+            var stBlend = new BLENDFUNCTION(BlendOp.AC_SRC_OVER, 0, biAlpha, BlendOp.AC_SRC_ALPHA);
 
             IntPtr hDC = User32.GetDC(_fakeWindowHandle);
             if (hDC == IntPtr.Zero)
@@ -190,27 +182,21 @@ namespace CoolImageDlg
             stBmpInfoHeader.biSizeImage = (uint)(nBytesPerLine * base.Height);
 
             IntPtr pvBits = IntPtr.Zero;
-            IntPtr hbmpMem = Gdi32.CreateDIBSection(hDC
-                , ref stBmpInfoHeader
-                , DIBColorTableIdentifier.DIB_RGB_COLORS
-                , out pvBits
-                , IntPtr.Zero
-                , 0
-                );
+            IntPtr hbmpMem = Gdi32.CreateDIBSection(hDC, ref stBmpInfoHeader
+                        , DIBColorTableIdentifier.DIB_RGB_COLORS, out pvBits, IntPtr.Zero, 0);
             Debug.Assert(hbmpMem != IntPtr.Zero, "CreateDIBSection failed.");
 
             if (hbmpMem != null)
             {
-                IntPtr hbmpOld = Gdi32.SelectObject(hdcMemory, hbmpMem);
+                var hbmpOld = Gdi32.SelectObject(hdcMemory, hbmpMem);
 
-                Graphics graphic = Graphics.FromHdcInternal(hdcMemory);
+                var graphic = Graphics.FromHdcInternal(hdcMemory);
 
-                graphic.DrawImage(BackgroundImage, 0, 0, GetWidth(), GetHeight());
+                graphic.DrawImage(this.BackgroundImage, 0, 0, GetWidth(), GetHeight());
 
                 foreach (Control ctrl in this.Controls)
                 {
-                    if (!ctrl.Visible)
-                        continue;
+                    if (!ctrl.Visible)  continue;
 
                     using (Bitmap bmp = new Bitmap(ctrl.Width, ctrl.Height))
                     {
@@ -237,7 +223,7 @@ namespace CoolImageDlg
                     }
                 }
 
-                var szWin = new SIZE(BackgroundImage.Width, this.GetHeight());
+                var szWin = new SIZE(this.GetWidth(), this.GetHeight());
                 User32.UpdateLayeredWindow(_fakeWindowHandle, hDC, ref ptWinPos, ref szWin, hdcMemory, ref ptSrc, 0, ref stBlend, UpdateLayerWindowParameter.ULW_ALPHA);
 
                 graphic.Dispose();
@@ -303,6 +289,7 @@ namespace CoolImageDlg
         private void OnDlgClosed(object sender, FormClosedEventArgs e)
         {
             DestroyFakeWnd();
+
             BackgroundImage.Dispose();
             BackgroundImage = null;
         }
