@@ -69,9 +69,9 @@
             "4",
             "5"}, -1);
             this.listView1 = new System.Windows.Forms.ListView();
-            this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader3 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -81,7 +81,9 @@
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader3});
+            this.listView1.FullRowSelect = true;
             this.listView1.GridLines = true;
+            this.listView1.HideSelection = false;
             this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
             listViewItem1,
             listViewItem2,
@@ -103,14 +105,17 @@
             // 
             // columnHeader1
             // 
+            this.columnHeader1.Text = "第一列";
             this.columnHeader1.Width = 116;
             // 
             // columnHeader2
             // 
+            this.columnHeader2.Text = "第二列";
             this.columnHeader2.Width = 170;
             // 
             // columnHeader3
             // 
+            this.columnHeader3.Text = "第三列";
             this.columnHeader3.Width = 207;
             // 
             // button1

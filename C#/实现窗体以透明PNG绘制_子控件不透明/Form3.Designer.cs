@@ -35,14 +35,13 @@
             // label1
             // 
             this.label1.AutoEllipsis = true;
-            this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.label1.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label1.Location = new System.Drawing.Point(12, 244);
+            this.label1.Location = new System.Drawing.Point(12, 260);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(130, 18);
+            this.label1.Size = new System.Drawing.Size(493, 18);
             this.label1.TabIndex = 0;
             this.label1.Text = "Hello,world!!!!";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -64,7 +63,6 @@
             this.Text = "Form3";
             this.Resize += new System.EventHandler(this.Form3_Resize);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
