@@ -17,17 +17,29 @@ namespace CSharpLearning.Threading
         {
             var lockObj = new object();
 
-            var thread1 = new Thread(() =>
+            var wThread1 = new Thread(() =>
             {
                 lock (lockObj)
                 {
                     var sw = Stopwatch.StartNew();                    
-                    Console.WriteLine(string.Format("{0} Thread1 调用Wait，最多等待10秒。", DateTime.Now));
+                    Console.WriteLine(string.Format("{0} wThread1 调用Wait，最多等待10秒。", DateTime.Now));
                     Monitor.Wait(lockObj); // 释放锁，等待lockObj状态更改。
-                    Console.WriteLine(string.Format("{0} Thread1 结束，实际等待{1}秒。", DateTime.Now, sw.Elapsed.TotalSeconds));
+                    Console.WriteLine(string.Format("{0} wThread1 结束，实际等待{1}秒。", DateTime.Now, sw.Elapsed.TotalSeconds));
                 }
             });
-            thread1.Start();
+            wThread1.Start();
+
+            var wThread2 = new Thread(() =>
+            {
+                lock (lockObj)
+                {
+                    var sw = Stopwatch.StartNew();
+                    Console.WriteLine(string.Format("{0} wThread2 调用Wait，最多等待10秒。", DateTime.Now));
+                    Monitor.Wait(lockObj); // 释放锁，等待lockObj状态更改。
+                    Console.WriteLine(string.Format("{0} wThread2 结束，实际等待{1}秒。", DateTime.Now, sw.Elapsed.TotalSeconds));
+                }
+            });
+            wThread2.Start();
 
             var thread2 = new Thread(() =>
             {
@@ -35,7 +47,7 @@ namespace CSharpLearning.Threading
                 {
                     var sw = Stopwatch.StartNew();      
                     Console.WriteLine(string.Format("{0} Thread2 does something。", DateTime.Now));
-                    Thread.Sleep(500);
+                    Thread.Sleep(5000);
                     Console.WriteLine(string.Format("{0} Thread2 finished doing something, 耗时{1}秒。", DateTime.Now, sw.Elapsed.TotalSeconds));
 
                     Monitor.PulseAll(lockObj); // 通知所有等待线程，lockObj状态更改。
@@ -44,7 +56,8 @@ namespace CSharpLearning.Threading
             thread2.Start();
 
             // 等待结束
-            thread1.Join();
+            wThread1.Join();
+            wThread2.Join();
             thread2.Join();
             Console.WriteLine(string.Format("{0} Wait_Test1执行完毕。", DateTime.Now));
         }
@@ -64,7 +77,7 @@ namespace CSharpLearning.Threading
                     lock (lockObj)
                     {
                         pool.Enqueue(1);
-                        Monitor.PulseAll(lockObj);
+                        Monitor.Pulse(lockObj);
                         Thread.Sleep(50);
                     }
                 }
@@ -77,7 +90,7 @@ namespace CSharpLearning.Threading
                     lock (lockObj)
                     {
                         pool.Enqueue(2);
-                        Monitor.PulseAll(lockObj);
+                        Monitor.Pulse(lockObj);
                         Thread.Sleep(50);
                     }
                 }
@@ -182,7 +195,7 @@ namespace CSharpLearning.Threading
             p1.Join();
             p2.Join();
 
-            p3.Join(500);
+            p3.Join();
 
             Console.WriteLine(string.Format("一共取出{0}个。", totalNum));
         }
