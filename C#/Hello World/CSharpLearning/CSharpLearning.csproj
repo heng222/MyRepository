@@ -75,6 +75,7 @@
     <Compile Include="Systems\StringFormatTest.cs" />
     <Compile Include="Systems\TimerTest.cs" />
     <Compile Include="ThirdParty\SharpZipTest.cs" />
+    <Compile Include="Threading\MonitorTest.cs" />
     <Compile Include="Threading\ParallelTest.cs" />
     <Compile Include="Threading\TaskTest.cs" />
     <Compile Include="Threading\ThreadPoolTest.cs" />
