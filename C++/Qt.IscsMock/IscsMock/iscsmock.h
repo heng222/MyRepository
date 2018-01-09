@@ -3,6 +3,8 @@
 
 #include "iscsmock_global.h"
 
+class MyWidget;
+
 class ISCSMOCK_EXPORT IscsMock
 {
 public:
@@ -11,6 +13,11 @@ public:
 
 private:
 
+public:
+	MyWidget* m_pMywidget;
+
+	long GetWindows();
+	void ShowWindow(long parent);
 };
 
 #endif // ISCSMOCK_H
