@@ -10,6 +10,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "IscsMock.Interop", "IscsMoc
 		{18881E8F-46E5-4C6F-8C6C-352DA0259B11} = {18881E8F-46E5-4C6F-8C6C-352DA0259B11}
 	EndProjectSection
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "qtdll", "I:\WorkBak\1.ThirdPartyLib\qt-solutions.git\trunk\qtwinmigrate\examples\qtdll\qtdll.vcxproj", "{DEC442AC-08C8-36D2-A915-20148E98B417}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Mixed Platforms = Debug|Mixed Platforms
@@ -40,6 +42,7 @@ Global
 		{793BF405-8910-4FC2-8644-6832C58576D2}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
 		{793BF405-8910-4FC2-8644-6832C58576D2}.Debug|Mixed Platforms.Build.0 = Debug|x86
 		{793BF405-8910-4FC2-8644-6832C58576D2}.Debug|Win32.ActiveCfg = Debug|x86
+		{793BF405-8910-4FC2-8644-6832C58576D2}.Debug|Win32.Build.0 = Debug|x86
 		{793BF405-8910-4FC2-8644-6832C58576D2}.Debug|x64.ActiveCfg = Debug|x86
 		{793BF405-8910-4FC2-8644-6832C58576D2}.Debug|x86.ActiveCfg = Debug|x86
 		{793BF405-8910-4FC2-8644-6832C58576D2}.Debug|x86.Build.0 = Debug|x86
@@ -62,6 +65,18 @@ Global
 		{80C4C203-634C-41EF-B2D5-3B58F682F07D}.Release|Win32.Build.0 = Release|Win32
 		{80C4C203-634C-41EF-B2D5-3B58F682F07D}.Release|x64.ActiveCfg = Release|Win32
 		{80C4C203-634C-41EF-B2D5-3B58F682F07D}.Release|x86.ActiveCfg = Release|Win32
+		{DEC442AC-08C8-36D2-A915-20148E98B417}.Debug|Mixed Platforms.ActiveCfg = Debug|Win32
+		{DEC442AC-08C8-36D2-A915-20148E98B417}.Debug|Mixed Platforms.Build.0 = Debug|Win32
+		{DEC442AC-08C8-36D2-A915-20148E98B417}.Debug|Win32.ActiveCfg = Debug|Win32
+		{DEC442AC-08C8-36D2-A915-20148E98B417}.Debug|Win32.Build.0 = Debug|Win32
+		{DEC442AC-08C8-36D2-A915-20148E98B417}.Debug|x64.ActiveCfg = Debug|Win32
+		{DEC442AC-08C8-36D2-A915-20148E98B417}.Debug|x86.ActiveCfg = Debug|Win32
+		{DEC442AC-08C8-36D2-A915-20148E98B417}.Release|Mixed Platforms.ActiveCfg = Release|Win32
+		{DEC442AC-08C8-36D2-A915-20148E98B417}.Release|Mixed Platforms.Build.0 = Release|Win32
+		{DEC442AC-08C8-36D2-A915-20148E98B417}.Release|Win32.ActiveCfg = Release|Win32
+		{DEC442AC-08C8-36D2-A915-20148E98B417}.Release|Win32.Build.0 = Release|Win32
+		{DEC442AC-08C8-36D2-A915-20148E98B417}.Release|x64.ActiveCfg = Release|Win32
+		{DEC442AC-08C8-36D2-A915-20148E98B417}.Release|x86.ActiveCfg = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

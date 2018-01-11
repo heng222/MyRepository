@@ -13,7 +13,6 @@ public:
 	~MyWidget();
 
 protected:
-	bool eventFilter(QObject *target, QEvent *e);
 
 private:
 	Ui::MyWidget ui;

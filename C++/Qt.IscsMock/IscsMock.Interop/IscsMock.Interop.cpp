@@ -2,6 +2,7 @@
 
 #include "stdafx.h"
 
+#include "qwindowdefs_win.h"
 #include "IscsMock.Interop.h"
 
 using namespace IscsMockInterop;
@@ -23,17 +24,19 @@ IscsMockClr::!IscsMockClr()
 	}*/
 }
 
-void IscsMockClr::Initialize()
+void IscsMockClr::Initialize(IntPtr parent)
 {
+	WId id = (WId)parent.ToInt64();
+	m_pIscsMock->Open(id);
 }
 
-long IscsMockClr::GetWindowsId()
+IntPtr IscsMockClr::GetWindowsId()
 {
-	return m_pIscsMock->GetWindows();
+	return IntPtr(m_pIscsMock->GetWindows());
 }
 
 
-void IscsMockClr::ShowQtWindow(long parent)
+void IscsMockClr::ShowWindow()
 {
-	m_pIscsMock->ShowWindow(parent);
+	m_pIscsMock->ShowWindow();
 }

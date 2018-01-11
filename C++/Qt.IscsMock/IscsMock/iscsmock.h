@@ -2,6 +2,7 @@
 #define ISCSMOCK_H
 
 #include "iscsmock_global.h"
+#include "qwindowdefs_win.h"
 
 class MyWidget;
 
@@ -12,12 +13,17 @@ public:
 	~IscsMock();
 
 private:
+	WId m_wndParent;
 
 public:
 	MyWidget* m_pMywidget;
+	void* m_pDateTimeEdit;
 
-	long GetWindows();
-	void ShowWindow(long parent);
+	void Open(WId parentWnd);
+
+	void SetParentWindow(WId parentWnd);
+	WId GetWindows();
+	void ShowWindow();
 };
 
 #endif // ISCSMOCK_H

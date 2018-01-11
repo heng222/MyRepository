@@ -24,9 +24,10 @@ namespace IscsMockInterop {
 
 	public:
 
-		void Initialize();
-		long GetWindowsId();
+		void Initialize(IntPtr parent);
 
-		void ShowQtWindow(long parent);
+		IntPtr GetWindowsId();
+
+		void ShowWindow();
 	};
 }

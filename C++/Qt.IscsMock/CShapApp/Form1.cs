@@ -7,28 +7,46 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using IscsMockInterop;
+using System.Runtime.InteropServices;
 
 namespace CShapApp
 {
     public partial class Form1 : Form
     {
+        [DllImport("user32.dll")]
+        public static extern IntPtr FindWindow(string lpClassName, string lpWindowName);
+        //var ptr = FindWindow(null, "MyWidget");
+
         private IscsMockClr _iscsMockClr = new IscsMockClr();
 
         public Form1()
         {
             InitializeComponent();
+
+            QtDllNative.InitializeQtLib();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        #region "private methods"
+
+        #endregion
+
+        private void ShowPscada_Click(object sender, EventArgs e)
         {
             try
             {
-                //_iscsMockClr.ShowQtWindow(this.Handle.ToInt32());
+                //ShowQtDialog();
 
-                var hwnd = _iscsMockClr.GetWindowsId();
-                var pointer = new IntPtr(hwnd);
-                var iscsCtrl = Control.FromHandle(pointer);
-                this.Controls.Add(iscsCtrl);
+                //_iscsMockClr.Initialize(this.Handle);
+                //_iscsMockClr.ShowWindow();
+                QtDllNative.ShowScadaWindow(this.tabPagePscada.Handle);
+                
+                //var pointer = QtDllNative.GetScadaWindow();
+                //var ctrol = Control.FromChildHandle(pointer);
+
+                //if (ctrol != null)
+                //{
+                //    tabPageBas.Controls.Add(ctrol.Controls[0]);
+                //}
             }
             catch (System.Exception ex)
             {
@@ -36,6 +54,31 @@ namespace CShapApp
             }
         }
 
+        private void btnShowBasView_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                QtDllNative.ShowBasWindow(this.tabPageBas.Handle);
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+    }
 
+
+    public class QtDllNative
+    {
+        [DllImport("qtdialog.dll", EntryPoint = "Initialize", CallingConvention = CallingConvention.Cdecl)]
+        public static extern int InitializeQtLib();
+
+        [DllImport("qtdialog.dll", EntryPoint = "ShowScadaWindow", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void ShowScadaWindow(IntPtr hwnd);
+        [DllImport("qtdialog.dll", EntryPoint = "GetScadaWindow", CallingConvention = CallingConvention.Cdecl)]
+        public static extern IntPtr GetScadaWindow();
+
+        [DllImport("qtdialog.dll", EntryPoint = "ShowBasWindow", CallingConvention = CallingConvention.Cdecl)]
+        public static extern void ShowBasWindow(IntPtr hwnd);
     }
 }
