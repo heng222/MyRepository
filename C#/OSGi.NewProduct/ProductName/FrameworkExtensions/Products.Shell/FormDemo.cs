@@ -18,7 +18,7 @@ namespace Products.Shell
     partial class FormDemo : FrmMain
     {
         private MockWorkspace _mockWorkspace;
-        private List<Tuple<ProductPartAttribute, ATSDockContent>> _dockContents = new List<Tuple<ProductPartAttribute, ATSDockContent>>();
+        private List<Tuple<ProductPartAttribute, DockContentEx>> _dockContents = new List<Tuple<ProductPartAttribute, DockContentEx>>();
         
         private ToolStrip _menuStrip = null; // 菜单
         private ToolStripMenuItem _toolStripItemView = null;
@@ -194,18 +194,18 @@ namespace Products.Shell
             {
                 var controlType = theControl.Item1.ControlType;
 
-                ATSDockContent newDockContent = null;
+                DockContentEx newDockContent = null;
 
                 if (controlType == PresentationControlType.ApplicationLog)
                 {
-                    newDockContent = new ATSDockContent(theControl.Item2, theControl.Item1.Title, Resources.AppLog) 
+                    newDockContent = new DockContentEx(theControl.Item2, theControl.Item1.Title, Resources.AppLog) 
                     { 
                         DefaultDockState = DockState.DockBottomAutoHide,
                     };
                 }
                 else
                 {
-                    newDockContent = new ATSDockContent(theControl.Item2, theControl.Item1.Title)
+                    newDockContent = new DockContentEx(theControl.Item2, theControl.Item1.Title)
                     { 
                         DefaultDockState = DockState.Document,
                     };
@@ -218,7 +218,7 @@ namespace Products.Shell
                 newDockContent.CloseButtonVisible = true;
                 newDockContent.PersistString = controlType.ToString();
 
-                _dockContents.Add(new Tuple<ProductPartAttribute,ATSDockContent>(theControl.Item1, newDockContent));
+                _dockContents.Add(new Tuple<ProductPartAttribute,DockContentEx>(theControl.Item1, newDockContent));
             }
         }
 
@@ -268,7 +268,7 @@ namespace Products.Shell
         }
         private void UpdateDockContents()
         {
-            ATSDockContent firstContentToShow = null;
+            DockContentEx firstContentToShow = null;
 
             foreach (var item in _dockContents)
             {
@@ -321,7 +321,7 @@ namespace Products.Shell
                 var menuItem = sender as ToolStripMenuItem;
                 if (menuItem == null) return;
 
-                var form = menuItem.Tag as ATSDockContent;
+                var form = menuItem.Tag as DockContentEx;
                 if (form != null)
                 {
                     form.Show(_dockPanel);

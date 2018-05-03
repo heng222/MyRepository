@@ -7,7 +7,7 @@ using Products.Presentation;
 
 namespace Products.Shell
 {
-    partial class ATSDockContent : DockContent
+    partial class DockContentEx : DockContent
     {
         #region "Properites"
         public DockState DefaultDockState { get; set; }
@@ -20,16 +20,16 @@ namespace Products.Shell
 
         public ProductPartAttribute PartAttribute { get; set; }
 
-        public Control ATSPart { get; set; }
+        public Control ChildPart { get; set; }
         #endregion
 
         #region "Constructors"
-        public ATSDockContent()
+        public DockContentEx()
         {
             InitializeComponent();
         }
 
-        public ATSDockContent(Control control, string title)
+        public DockContentEx(Control control, string title)
             : this()
         {
             if (control != null)
@@ -47,13 +47,13 @@ namespace Products.Shell
 
                 control.Dock = DockStyle.Fill;
                 this.Controls.Add(control);
-                this.ATSPart = control;
+                this.ChildPart = control;
 
                 control.TextChanged += OnDockContentTextChanged;
             }
         }
 
-        public ATSDockContent(Control control, string title, Icon icon)
+        public DockContentEx(Control control, string title, Icon icon)
             : this(control, title)
         {
             if (icon != null)
@@ -70,7 +70,7 @@ namespace Products.Shell
         {
             try
             {
-                base.Text = this.ATSPart.Text;
+                base.Text = this.ChildPart.Text;
             }
             catch (System.Exception /*ex*/)
             {
@@ -91,8 +91,8 @@ namespace Products.Shell
         #region "Public methods"
         public void RemoveATSPart()
         {
-            this.Controls.Remove(this.ATSPart);
-            this.ATSPart = null;
+            this.Controls.Remove(this.ChildPart);
+            this.ChildPart = null;
         }
         #endregion
 

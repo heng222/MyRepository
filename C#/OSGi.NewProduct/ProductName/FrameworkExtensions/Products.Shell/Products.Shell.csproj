@@ -83,11 +83,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Activator.cs" />
-    <Compile Include="ATSDockContent.cs">
+    <Compile Include="DockContentEx.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ATSDockContent.designer.cs">
-      <DependentUpon>ATSDockContent.cs</DependentUpon>
+    <Compile Include="DockContentEx.designer.cs">
+      <DependentUpon>DockContentEx.cs</DependentUpon>
     </Compile>
     <Compile Include="ConfigView\GeneralConfigPage.cs">
       <SubType>UserControl</SubType>
@@ -137,8 +137,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="ATSDockContent.resx">
-      <DependentUpon>ATSDockContent.cs</DependentUpon>
+    <EmbeddedResource Include="DockContentEx.resx">
+      <DependentUpon>DockContentEx.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ConfigView\GeneralConfigPage.resx">
       <DependentUpon>GeneralConfigPage.cs</DependentUpon>
