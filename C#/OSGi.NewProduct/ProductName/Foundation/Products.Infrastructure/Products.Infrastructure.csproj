@@ -21,6 +21,8 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <CodeAnalysisRuleSet>..\..\Fxcop.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -51,7 +53,7 @@
     <Compile Include="Log\LogLevelManager.cs" />
     <Compile Include="Log\LogSettings.cs" />
     <Compile Include="PresentationControlType.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
+    <None Include="Properties\AssemblyInfo.tpl" />
     <Compile Include="Specification\ISystemAttribute.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -59,6 +61,9 @@
     <Folder Include="Message\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>if "$(ConfigurationName)"=="Release" (SubWcRev "$(ProjectDir)\" "$(ProjectDir)Properties\AssemblyInfo.tpl" "$(ProjectDir)Properties\AssemblyInfo.cs")</PreBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // 有关程序集的常规信息通过下列属性集
 // 控制。更改这些属性值可修改
 // 与程序集关联的信息。
-[assembly: AssemblyTitle("Platform.OSGi-可执行组件")]
+[assembly: AssemblyTitle("ProductName-可执行组件")]
 
 // 公共语言规范 (CLS) 定义了程序集在跨编程语言使用时必须符合的命名限制、数据类型和规则。 
 [assembly: CLSCompliant(false)]
@@ -28,5 +28,6 @@ using System.Runtime.InteropServices;
 //
 // 可以指定所有这些值，也可以使用“修订号”和“内部版本号”的默认值，
 // 方法是按如下所示使用“*”:
-[assembly: AssemblyVersion("1.0.1.1")]
-[assembly: AssemblyFileVersion("1.0.1.1")]
+[assembly: AssemblyVersion("1.0.0.$WCREV$")]
+[assembly: AssemblyFileVersion("1.0.0.$WCREV$")]
+
