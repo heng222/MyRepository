@@ -58,6 +58,7 @@
     <Compile Include="ITopMenuProvider.cs" />
     <Compile Include="MainWorkSpace.cs" />
     <Compile Include="ProductPartAttribute.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
     <None Include="Properties\AssemblyInfo.tpl" />
   </ItemGroup>
   <ItemGroup>

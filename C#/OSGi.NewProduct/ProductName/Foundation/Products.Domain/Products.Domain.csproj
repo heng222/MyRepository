@@ -58,6 +58,7 @@
     <Compile Include="Preferences\SettingsParser.cs" />
     <Compile Include="Preferences\SettingsUtility.cs" />
     <None Include="Properties\AssemblyInfo.tpl" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SystemAttributeImpl.cs" />
     <Compile Include="Utility\COMHelper.cs" />
     <Compile Include="Utility\RedundantDllFileChecker.cs" />

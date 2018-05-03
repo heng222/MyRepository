@@ -68,6 +68,7 @@
   <ItemGroup>
     <Compile Include="Activator.cs" />
     <Compile Include="BundleSpecification.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
     <None Include="Properties\AssemblyInfo.tpl" />
   </ItemGroup>
   <ItemGroup>

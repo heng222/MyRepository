@@ -54,6 +54,7 @@
     <Compile Include="Log\LogSettings.cs" />
     <Compile Include="PresentationControlType.cs" />
     <None Include="Properties\AssemblyInfo.tpl" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Specification\ISystemAttribute.cs" />
   </ItemGroup>
   <ItemGroup>

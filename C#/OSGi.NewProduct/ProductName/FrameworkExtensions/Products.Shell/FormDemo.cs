@@ -27,8 +27,8 @@ namespace Products.Shell
         private ToolStripStatusLabel _toolStripLanuchTime = null; // 状态栏
         private ToolStripStatusLabel _toolStripVersion = null;
         private ToolStripStatusLabel _toolStripProductName = null;
-        private ToolStripStatusLabel _labelDatabase = null;
-        private ToolStripStatusLabel _labelActiveStandby = null;
+        //private ToolStripStatusLabel _labelDatabase = null;
+        //private ToolStripStatusLabel _labelActiveStandby = null;
 
         private MenuCommandHandler _commandHandler = new MenuCommandHandler();
 
@@ -151,8 +151,8 @@ namespace Products.Shell
             _toolStripLanuchTime = Workbench.GetToolStripItem("labelLanuchTime") as ToolStripStatusLabel;
             _toolStripVersion = Workbench.GetToolStripItem("labelVersion") as ToolStripStatusLabel;
             _toolStripProductName = Workbench.GetToolStripItem("labelProductName") as ToolStripStatusLabel;
-            _labelDatabase = Workbench.GetToolStripItem("labelDatabaseStatus") as ToolStripStatusLabel;
-            _labelActiveStandby = Workbench.GetToolStripItem("labelActiveStandbyStatus") as ToolStripStatusLabel;
+            //_labelDatabase = Workbench.GetToolStripItem("labelDatabaseStatus") as ToolStripStatusLabel;
+            //_labelActiveStandby = Workbench.GetToolStripItem("labelActiveStandbyStatus") as ToolStripStatusLabel;
 
             // 启动时间
             _toolStripLanuchTime.Text = String.Format("启动时间 {0} ", DateTime.Now);
@@ -163,7 +163,7 @@ namespace Products.Shell
             _toolStripVersion.Text = String.Format(" v{0} 调试版", ProductResources.ProductStringVersion);
 #else
             // 程序版本号
-            _toolStripVersion.Text = String.Format("版本 v{0} ", ATSResources.ProductStringVersion);
+            _toolStripVersion.Text = String.Format("版本 v{0} ", ProductResources.ProductStringVersion);
 #endif
 
             _toolStripProductName.Text = String.Format(" {0} ", ProductResources.ProjectChsName);

@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // 有关程序集的常规信息通过下列属性集
 // 控制。更改这些属性值可修改
 // 与程序集关联的信息。
-[assembly: AssemblyTitle("ProductName-可执行组件")]
+[assembly: AssemblyTitle("ProductName-可执行组件，代码修改：$WCDATE$, 构建：$WCNOW$")]
 
 // 公共语言规范 (CLS) 定义了程序集在跨编程语言使用时必须符合的命名限制、数据类型和规则。 
 [assembly: CLSCompliant(false)]
