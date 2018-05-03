@@ -7,9 +7,9 @@ using System.Drawing;
 namespace Products.Resource
 {
     /// <summary>
-    /// ATS资源
+    /// 产品资源定义
     /// </summary>
-    public static class ATSResources
+    public static class ProductResources
     {
         #region "字符串"
         /// <summary>

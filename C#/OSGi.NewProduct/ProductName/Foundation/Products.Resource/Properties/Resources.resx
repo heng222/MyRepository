@@ -148,11 +148,11 @@
   </data>
   <data name="ProjectChsName" xml:space="preserve">
     <value>项目中文名称</value>
-    <comment>项目中文名称，例如：ATS安全完整度等级2级认证。</comment>
+    <comment>项目中文名称，例如：Office办公套件</comment>
   </data>
   <data name="ProjectEnName" xml:space="preserve">
     <value>Project English Name</value>
-    <comment>项目英文名称，例如：ATS-SIL2</comment>
+    <comment>项目英文名称，例如：Office 2016</comment>
   </data>
   <data name="ProductEnName" xml:space="preserve">
     <value>Product English Name</value>
@@ -169,7 +169,7 @@
     <value>© 2017，保留所有权利。</value>
   </data>
   <data name="AppDescription" xml:space="preserve">
-    <value>ATS-列车自动监控系统</value>
+    <value>输入程序描述信息</value>
     <comment>软件描述</comment>
   </data>
   <data name="ProductNumericVersion" xml:space="preserve">

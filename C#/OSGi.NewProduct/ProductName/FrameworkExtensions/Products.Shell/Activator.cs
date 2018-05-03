@@ -3,11 +3,11 @@ using Acl.ServiceManagement;
 using Framework.OSGi;
 using Platform.Presentation;
 using Platform.Presentation.Options;
-using Products.Ats.Domain;
-using Products.Shell.ConfigView;
-using Products.Shell.MainView;
+using Products.Domain;
 using Products.Infrastructure.Specification;
 using Products.Presentation;
+using Products.Shell.ConfigView;
+using Products.Shell.MainView;
 using Products.Shell.Properties;
 
 namespace Products.Shell

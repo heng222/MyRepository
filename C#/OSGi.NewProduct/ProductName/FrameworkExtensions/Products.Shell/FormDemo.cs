@@ -43,7 +43,7 @@ namespace Products.Shell
 
             this._dockPanel.Dock = DockStyle.Fill;
 
-            this.Icon = ATSResources.ApplicationIcon;
+            this.Icon = ProductResources.ApplicationIcon;
 
             Initialize();
             
@@ -117,7 +117,7 @@ namespace Products.Shell
             InitStatusBar();
 
             // 添加日志窗体。
-            MainWorkSpace.AddPart(new ATSLogControl(), Resources.AppLog);
+            MainWorkSpace.AddPart(new LogControl(), Resources.AppLog);
         }
 
         private void InitWorkspace()
@@ -160,13 +160,13 @@ namespace Products.Shell
 
 #if DEBUG
             _toolStripVersion.ForeColor = Color.Blue;
-            _toolStripVersion.Text = String.Format(" v{0} 调试版", ATSResources.ProductStringVersion);
+            _toolStripVersion.Text = String.Format(" v{0} 调试版", ProductResources.ProductStringVersion);
 #else
             // 程序版本号
             _toolStripVersion.Text = String.Format("版本 v{0} ", ATSResources.ProductStringVersion);
 #endif
 
-            _toolStripProductName.Text = String.Format(" {0} ", ATSResources.ProjectChsName);
+            _toolStripProductName.Text = String.Format(" {0} ", ProductResources.ProjectChsName);
         }
 
         private void RegisterPluginsMenu()

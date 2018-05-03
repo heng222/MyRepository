@@ -115,11 +115,11 @@
       <DependentUpon>FormDemo.cs</DependentUpon>
     </Compile>
     <Compile Include="LogUtility.cs" />
-    <Compile Include="MainView\ATSLogControl.cs">
+    <Compile Include="MainView\LogControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="MainView\ATSLogControl.designer.cs">
-      <DependentUpon>ATSLogControl.cs</DependentUpon>
+    <Compile Include="MainView\LogControl.designer.cs">
+      <DependentUpon>LogControl.cs</DependentUpon>
     </Compile>
     <Compile Include="MainView\DNetNixieTubeClockControl.cs">
       <SubType>UserControl</SubType>
@@ -152,8 +152,8 @@
     <EmbeddedResource Include="FormDemo.resx">
       <DependentUpon>FormDemo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainView\ATSLogControl.resx">
-      <DependentUpon>ATSLogControl.cs</DependentUpon>
+    <EmbeddedResource Include="MainView\LogControl.resx">
+      <DependentUpon>LogControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainView\DNetNixieTubeClockControl.resx">
       <DependentUpon>DNetNixieTubeClockControl.cs</DependentUpon>

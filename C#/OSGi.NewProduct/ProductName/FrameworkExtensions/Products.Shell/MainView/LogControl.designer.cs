@@ -1,7 +1,7 @@
 ﻿
 namespace Products.Shell.MainView
 {
-    partial class ATSLogControl
+    partial class LogControl
     {
         /// <summary> 
         /// 必需的设计器变量。

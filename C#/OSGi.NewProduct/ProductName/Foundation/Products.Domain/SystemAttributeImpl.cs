@@ -1,7 +1,7 @@
 /*----------------------------------------------------------------
 // 公司名称：公司名称
 // 
-// 项目名称：经SIL2认证的标准版ATS
+// 项目名称：输入项目名称
 //
 // 创 建 人：zhangheng
 // 创建日期：2015-2-2 10:43:04 
@@ -18,7 +18,7 @@ using Products.Resource;
 using System.Drawing;
 using Products.Infrastructure.Specification;
 
-namespace Products.Ats.Domain
+namespace Products.Domain
 {
     /// <summary>
     /// 系统属性类
@@ -47,67 +47,67 @@ namespace Products.Ats.Domain
         /// <inherit/>
         public string CompanyChsAbbrName
         {
-            get { return ATSResources.CompanyChsAbbrName; }
+            get { return ProductResources.CompanyChsAbbrName; }
         }
 
         /// <inherit/>
         public string CompanyChsFullName
         {
-            get { return ATSResources.CompanyChsFullName; }
+            get { return ProductResources.CompanyChsFullName; }
         }
 
         /// <inherit/>
         public string CompanyEnAbbrName
         {
-            get { return ATSResources.CompanyEnAbbrName; }
+            get { return ProductResources.CompanyEnAbbrName; }
         }
 
         /// <inherit/>
         public string CompanyEnFullName
         {
-            get { return ATSResources.CompanyEnFullName; }
+            get { return ProductResources.CompanyEnFullName; }
         }
 
         /// <inherit/>
         public string ProjectChsName
         {
-            get { return ATSResources.ProjectChsName; }
+            get { return ProductResources.ProjectChsName; }
         }
 
         /// <inherit/>
         public string ProjectEnName
         {
-            get { return ATSResources.ProjectEnName; }
+            get { return ProductResources.ProjectEnName; }
         }
 
         /// <inherit/>
         public string ProductEnName
         {
-            get { return ATSResources.ProductEnName; }
+            get { return ProductResources.ProductEnName; }
         }
 
         /// <inherit/>
         public string ProductStringVersion
         {
-            get { return ATSResources.ProductStringVersion; }
+            get { return ProductResources.ProductStringVersion; }
         }
 
         /// <inherit/>
         public byte[] ProductNumericVersion
         {
-            get { return ATSResources.ProductNumericVersion; }
+            get { return ProductResources.ProductNumericVersion; }
         }
 
         /// <inherit/>
         public string Copyright
         {
-            get { return ATSResources.Copyright; }
+            get { return ProductResources.Copyright; }
         }
 
         /// <inherit/>
         public string ApplicationDescription
         {
-            get { return ATSResources.ApplicationDescription; }
+            get { return ProductResources.ApplicationDescription; }
         }
 
         /// <summary>
@@ -115,14 +115,14 @@ namespace Products.Ats.Domain
         /// </summary>
         public Icon ApplicationIcon
         {
-            get { return ATSResources.ApplicationIcon; }
+            get { return ProductResources.ApplicationIcon; }
         }
         /// <summary>
         /// 获取公司LOGO图标
         /// </summary>
         public Icon CompanyLogoIcon
         {
-            get { return ATSResources.CompanyLogoIcon; }
+            get { return ProductResources.CompanyLogoIcon; }
         }
         #endregion
     }

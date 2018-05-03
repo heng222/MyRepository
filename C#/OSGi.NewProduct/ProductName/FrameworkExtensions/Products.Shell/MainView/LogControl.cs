@@ -12,14 +12,14 @@ namespace Products.Shell.MainView
     /// 程序普通日志视图
     /// </summary>
     [ProductPart(ControlType = PresentationControlType.ApplicationLog, ActivateTab= true)]
-    public partial class ATSLogControl : UserControl, IControlOptimizer
+    public partial class LogControl : UserControl, IControlOptimizer
     {
         private LogControlMultiPages _logMonitor = new LogControlMultiPages();
 
         /// <summary>
         /// 构造函数
         /// </summary>
-        public ATSLogControl()
+        public LogControl()
         {
             InitializeComponent();
 
