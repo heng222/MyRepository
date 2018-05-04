@@ -5,6 +5,9 @@ using System.Text;
 
 namespace Products.Plugin2
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class Facade
     {
     }

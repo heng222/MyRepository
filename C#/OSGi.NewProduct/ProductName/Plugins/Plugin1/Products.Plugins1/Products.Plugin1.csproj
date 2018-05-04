@@ -23,14 +23,16 @@
     <WarningLevel>4</WarningLevel>
     <RunCodeAnalysis>true</RunCodeAnalysis>
     <CodeAnalysisRuleSet>..\..\..\Fxcop.ruleset</CodeAnalysisRuleSet>
+    <DocumentationFile>..\..\..\bin\Debug\Plugins\Plugin1\Products.Plugins1.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\..\..\bin\Debug\Plugins\Plugin1\</OutputPath>
+    <OutputPath>..\..\..\bin\Release\Plugins\Plugin1\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>..\..\..\bin\Release\Plugins\Plugin1\Products.Plugins1.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Acl.Controls">

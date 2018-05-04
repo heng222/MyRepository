@@ -21,12 +21,21 @@ namespace Products.Infrastructure.Log
     /// </summary>
     public static class LoggerNames
     {
-        [MemberDes("ƽ̨")]
+        /// <summary>
+        /// ƽ̨
+        /// </summary>
+        [MemberDes("ƽ̨")]        
         public const string Platform = "ƽ̨";
 
+        /// <summary>
+        /// Shell
+        /// </summary>
         [MemberDes("Shell")]
         public const string Shell = "Shell";
 
+        /// <summary>
+        /// Plugin1
+        /// </summary>
         [MemberDes("Plugin1")]
         public const string Plugin1 = "Plugin1";
     }

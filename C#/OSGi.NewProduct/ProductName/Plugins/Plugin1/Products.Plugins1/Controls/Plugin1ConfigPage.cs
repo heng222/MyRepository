@@ -15,7 +15,7 @@ namespace Products.Plugins1.Controls
     /// Plugin1配置页面。
     /// </summary>
     [Option(ConfigNodeNames.Plugins.Plugin1.General, "Plugin1 Config Title")]
-    public partial class Plugin1ConfigPage : UserControl, IOptionControl
+    partial class Plugin1ConfigPage : UserControl, IOptionControl
     {
         public Plugin1ConfigPage()
         {

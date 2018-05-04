@@ -38,8 +38,7 @@
     <OutputPath>..\..\Bin\Debug\</OutputPath>
     <OutputType>WinExe</OutputType>
     <DefineConstants>CODE_ANALYSIS;DEBUG;TRACE</DefineConstants>
-    <DocumentationFile>
-    </DocumentationFile>
+    <DocumentationFile>..\..\Bin\Debug\ProductName.XML</DocumentationFile>
     <DebugType>full</DebugType>
     <PlatformTarget>AnyCPU</PlatformTarget>
     <RunCodeAnalysis>true</RunCodeAnalysis>

@@ -13,7 +13,7 @@ using Products.Plugins1.Properties;
 namespace Products.Plugins1.Controls
 {
     [ProductPart(ControlType = PresentationControlType.Plugin1Control1)]
-    public partial class Plugin1Control1 : UserControl
+    partial class Plugin1Control1 : UserControl
     {
         public Plugin1Control1()
         {
