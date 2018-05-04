@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsApplication1", "WindowsApplication1\WindowsApplication1.csproj", "{97A53E49-9547-4C26-99EC-AA8CB1C46AA3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZlgCanDemo", "WindowsApplication1\ZlgCanDemo.csproj", "{97A53E49-9547-4C26-99EC-AA8CB1C46AA3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
