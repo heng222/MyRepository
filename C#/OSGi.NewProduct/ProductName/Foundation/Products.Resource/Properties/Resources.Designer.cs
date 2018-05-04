@@ -61,7 +61,7 @@ namespace Products.Resource.Properties {
         }
         
         /// <summary>
-        ///   查找类似 ATS-列车自动监控系统 的本地化字符串。
+        ///   查找类似 AppDescription 的本地化字符串。
         /// </summary>
         internal static string AppDescription {
             get {
@@ -155,7 +155,7 @@ namespace Products.Resource.Properties {
         }
         
         /// <summary>
-        ///   查找类似 ATS-SIL2 的本地化字符串。
+        ///   查找类似 ProductEnName 的本地化字符串。
         /// </summary>
         internal static string ProductEnName {
             get {
@@ -182,7 +182,7 @@ namespace Products.Resource.Properties {
         }
         
         /// <summary>
-        ///   查找类似 ATS安全完整度等级2级认证 的本地化字符串。
+        ///   查找类似 ProjectChsName 的本地化字符串。
         /// </summary>
         internal static string ProjectChsName {
             get {
@@ -191,7 +191,7 @@ namespace Products.Resource.Properties {
         }
         
         /// <summary>
-        ///   查找类似 ATS-SIL2 的本地化字符串。
+        ///   查找类似 ProjectEnName 的本地化字符串。
         /// </summary>
         internal static string ProjectEnName {
             get {

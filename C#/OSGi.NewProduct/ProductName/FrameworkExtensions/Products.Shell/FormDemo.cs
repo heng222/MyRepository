@@ -262,7 +262,7 @@ namespace Products.Shell
             _dockContents.Select(p=>p.Item2).ToList().ForEach(p =>
             {
                 p.DockPanel = null;
-                p.RemoveATSPart();
+                p.RemovePart();
                 p.Close();
             });
         }

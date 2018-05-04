@@ -76,7 +76,7 @@ namespace Products.Domain.Utility
             var exeFullPathName = Assembly.GetEntryAssembly().Location;
 
             // 禁止从网络路径启动。
-            if (!this.IsLocalDriver(exeFullPathName)) throw new Exception("禁止从网络路径启动ATS程序！");
+            if (!this.IsLocalDriver(exeFullPathName)) throw new Exception("禁止从网络路径启动程序！");
 
             // 单实例检查
             _singletonChecker = new SingletonProcessChecker(exeFullPathName.Replace('\\', '_'));

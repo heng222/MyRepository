@@ -31,11 +31,11 @@ namespace Products.Shell.MainView
         {
             this.SuspendLayout();
             // 
-            // ATSLogControl
+            // LogControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Name = "ATSLogControl";
+            this.Name = "LogControl";
             this.Size = new System.Drawing.Size(421, 285);
             this.ResumeLayout(false);
 

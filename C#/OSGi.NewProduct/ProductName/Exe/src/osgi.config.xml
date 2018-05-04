@@ -31,7 +31,7 @@
     <Assembly Path="FrameworkExtensions\Platform.SplashScreen.dll"/>
     <Assembly Path="FrameworkExtensions\Platform.Shell.dll"/>
 
-    <!-- ATS组件 -->
+    <!-- Product 组件 -->
     <Assembly Path="FrameworkExtensions\Products.Shell.dll"/>
     <Assembly Path="Products.Infrastructure.dll"/>
     <Assembly Path="Products.Domain.dll"/>

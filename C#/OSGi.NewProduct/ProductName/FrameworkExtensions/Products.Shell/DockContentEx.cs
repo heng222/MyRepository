@@ -89,7 +89,7 @@ namespace Products.Shell
 
 
         #region "Public methods"
-        public void RemoveATSPart()
+        public void RemovePart()
         {
             this.Controls.Remove(this.ChildPart);
             this.ChildPart = null;
