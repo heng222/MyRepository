@@ -205,22 +205,32 @@ namespace ZlgCanDemo
             }
 
             buttonConnect.Text = m_bOpen == 1 ? "断开" : "连接";
-            timer_rec.Enabled = m_bOpen == 1 ? true : false;
+            timer_rec.Enabled = m_bOpen == 1;
+            button_StartCAN.Enabled = m_bOpen==1;
+            button_StopCAN.Enabled = m_bOpen == 1;
         }
 
 
         private void button_StartCAN_Click(object sender, EventArgs e)
         {
-            if (m_bOpen == 0)
-                return;
-            VciNativeMethods.VCI_StartCAN(m_devtype, m_devind, m_canind);
+            try
+            {
+                if (m_bOpen == 0) return;
+                VciNativeMethods.VCI_StartCAN(m_devtype, m_devind, m_canind);
+                button_StartCAN.Enabled = false;
+            }
+            catch (System.Exception ex)
+            {
+                button_StartCAN.Enabled = true;
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void button_StopCAN_Click(object sender, EventArgs e)
         {
-            if (m_bOpen == 0)
-                return;
+            if (m_bOpen == 0)  return;
             VciNativeMethods.VCI_ResetCAN(m_devtype, m_devind, m_canind);
+            button_StartCAN.Enabled = true;
         }
 
         private void button_Send_Click(object sender, EventArgs e)

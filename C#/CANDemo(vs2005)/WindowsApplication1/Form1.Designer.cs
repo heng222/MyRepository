@@ -303,6 +303,7 @@
             // 
             // button_StartCAN
             // 
+            this.button_StartCAN.Enabled = false;
             this.button_StartCAN.Location = new System.Drawing.Point(452, 76);
             this.button_StartCAN.Name = "button_StartCAN";
             this.button_StartCAN.Size = new System.Drawing.Size(75, 23);
@@ -313,6 +314,7 @@
             // 
             // button_StopCAN
             // 
+            this.button_StopCAN.Enabled = false;
             this.button_StopCAN.Location = new System.Drawing.Point(452, 116);
             this.button_StopCAN.Name = "button_StopCAN";
             this.button_StopCAN.Size = new System.Drawing.Size(75, 23);
