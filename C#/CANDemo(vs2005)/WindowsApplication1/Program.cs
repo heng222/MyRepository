@@ -14,6 +14,8 @@ namespace ZlgCanDemo
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+            HelperTools.AppendCustomPrivatePath();
             Application.Run(new Form1());
         }
     }

@@ -98,51 +98,7 @@ public struct CHGDESIPANDPORT
 namespace ZlgCanDemo
 {
     public partial class Form1 : Form
-    {
-        [DllImport("ControlCAN.dll", EntryPoint = "VCI_OpenDevice", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-        public static extern uint VCI_OpenDevice(uint DeviceType, uint DeviceInd, uint Reserved); 
-        [DllImport("ControlCAN.dll", EntryPoint = "VCI_CloseDevice", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-        public static extern uint VCI_CloseDevice(uint DeviceType, uint DeviceInd);
-
-        [DllImport("ControlCAN.dll", EntryPoint = "VCI_InitCAN", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-        public static extern uint VCI_InitCAN(uint DeviceType, uint DeviceInd, uint CANInd, ref VCI_INIT_CONFIG pInitConfig);
-
-        [DllImport("ControlCAN.dll", EntryPoint = "VCI_ReadBoardInfo", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-        public static extern uint VCI_ReadBoardInfo(uint DeviceType, uint DeviceInd, ref VCI_BOARD_INFO pInfo);
-
-        [DllImport("ControlCAN.dll", EntryPoint = "VCI_ReadErrInfo", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-        public static extern uint VCI_ReadErrInfo(uint DeviceType, uint DeviceInd, uint CANInd, ref VCI_ERR_INFO pErrInfo);
-
-
-        [DllImport("ControlCAN.dll", EntryPoint = "VCI_ReadCANStatus", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-        public static extern uint VCI_ReadCANStatus(uint DeviceType, uint DeviceInd, uint CANInd, ref VCI_CAN_STATUS pCANStatus);
-
-        [DllImport("ControlCAN.dll", EntryPoint = "VCI_GetReference", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-        public static extern uint VCI_GetReference(uint DeviceType, uint DeviceInd, uint CANInd, uint RefType, ref object pData);
-
-        [DllImport("ControlCAN.dll", EntryPoint = "VCI_SetReference", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-        public static extern uint VCI_SetReference(uint DeviceType, uint DeviceInd, uint CANInd, uint RefType, ref object pData);
-
-        [DllImport("ControlCAN.dll", EntryPoint = "VCI_GetReceiveNum", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-        public static extern uint VCI_GetReceiveNum(uint DeviceType, uint DeviceInd, uint CANInd);
-
-        [DllImport("ControlCAN.dll", EntryPoint = "VCI_ClearBuffer", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-        public static extern uint VCI_ClearBuffer(uint DeviceType, uint DeviceInd, uint CANInd);
-
-        [DllImport("ControlCAN.dll", EntryPoint = "VCI_StartCAN", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-        public static extern uint VCI_StartCAN(uint DeviceType, uint DeviceInd, uint CANInd);
-
-        [DllImport("ControlCAN.dll", EntryPoint = "VCI_ResetCAN", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-        public static extern uint VCI_ResetCAN(uint DeviceType, uint DeviceInd, uint CANInd);
-
-        [DllImport("ControlCAN.dll", EntryPoint = "VCI_Transmit", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-        public static extern uint VCI_Transmit(uint DeviceType, uint DeviceInd, uint CANInd, ref VCI_CAN_OBJ pSend, uint Len);
-
-        [DllImport("ControlCAN.dll", EntryPoint = "VCI_Receive", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-        public static extern uint VCI_Receive(uint DeviceType, uint DeviceInd, uint CANInd, ref VCI_CAN_OBJ pReceive, uint Len, int WaitTime);  
-
-        
-
+    {       
         UInt32 m_devtype = 4;//USBCAN2
         UInt32 m_bOpen = 0;
         UInt32 m_devind = 0;
@@ -208,7 +164,7 @@ namespace ZlgCanDemo
         {
             if (m_bOpen == 1)
             {
-                VCI_CloseDevice(m_devtype, m_devind);
+                VciNativeMethods.VCI_CloseDevice(m_devtype, m_devind);
             }
         }
 
@@ -216,7 +172,7 @@ namespace ZlgCanDemo
         {
             if (m_bOpen == 1)
             {
-                VCI_CloseDevice(m_devtype, m_devind);
+                VciNativeMethods.VCI_CloseDevice(m_devtype, m_devind);
                 m_bOpen = 0;
             }
             else
@@ -225,7 +181,7 @@ namespace ZlgCanDemo
 
                 m_devind = (UInt32)comboBox_DevIndex.SelectedIndex;
                 m_canind = (UInt32)comboBox_CANIndex.SelectedIndex;
-                if (VCI_OpenDevice(m_devtype, m_devind, 0) == 0)
+                if (VciNativeMethods.VCI_OpenDevice(m_devtype, m_devind, 0) == 0)
                 {
                     MessageBox.Show("打开设备失败,请检查设备类型和设备索引号是否正确", "错误",
                             MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -240,11 +196,11 @@ namespace ZlgCanDemo
                 config.Timing1 = System.Convert.ToByte("0x" + textBox_Time1.Text, 16);
                 config.Filter = (Byte)comboBox_Filter.SelectedIndex;
                 config.Mode = (Byte)comboBox_Mode.SelectedIndex;
-                VCI_InitCAN(m_devtype, m_devind, m_canind, ref config);
+                VciNativeMethods.VCI_InitCAN(m_devtype, m_devind, m_canind, ref config);
 
                 // 读取板卡信息
                 var boardInf = new VCI_BOARD_INFO();
-                VCI_ReadBoardInfo(m_devtype, m_devind, ref boardInf);
+                VciNativeMethods.VCI_ReadBoardInfo(m_devtype, m_devind, ref boardInf);
                 var serialNo = Encoding.ASCII.GetString(boardInf.str_Serial_Num, 0, boardInf.str_Serial_Num.Length);
             }
 
@@ -257,14 +213,14 @@ namespace ZlgCanDemo
         {
             if (m_bOpen == 0)
                 return;
-            VCI_StartCAN(m_devtype, m_devind, m_canind);
+            VciNativeMethods.VCI_StartCAN(m_devtype, m_devind, m_canind);
         }
 
         private void button_StopCAN_Click(object sender, EventArgs e)
         {
             if (m_bOpen == 0)
                 return;
-            VCI_ResetCAN(m_devtype, m_devind, m_canind);
+            VciNativeMethods.VCI_ResetCAN(m_devtype, m_devind, m_canind);
         }
 
         private void button_Send_Click(object sender, EventArgs e)
@@ -293,7 +249,7 @@ namespace ZlgCanDemo
 
                 for (int j = 0; j < sendTimers; j++)
                 {
-                    var res = VCI_Transmit(m_devtype, m_devind, m_canind, ref sendobj, 1);
+                    var res = VciNativeMethods.VCI_Transmit(m_devtype, m_devind, m_canind, ref sendobj, 1);
                     if (res == 0)
                     {
                         MessageBox.Show("发送失败", "错误", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -312,7 +268,7 @@ namespace ZlgCanDemo
         /// </summary>
         private void timer_rec_Tick(object sender, EventArgs e)
         {
-            var res = VCI_GetReceiveNum(m_devtype, m_devind, m_canind);
+            var res = VciNativeMethods.VCI_GetReceiveNum(m_devtype, m_devind, m_canind);
             if (res == 0) return;
 
             var sw = new Stopwatch();
@@ -322,7 +278,7 @@ namespace ZlgCanDemo
             for (int i = 0; i < res; i++)
             {
                 var frame = new VCI_CAN_OBJ();
-                var len = VCI_Receive(m_devtype, m_devind, m_canind, ref frame, 1, 100);
+                var len = VciNativeMethods.VCI_Receive(m_devtype, m_devind, m_canind, ref frame, 1, 100);
                 if (len <= 0)
                 {
                     //注意：如果没有读到数据则必须调用此函数来读取出当前的错误码，  
