@@ -8,8 +8,8 @@
     <ProjectGuid>{97A53E49-9547-4C26-99EC-AA8CB1C46AA3}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>WindowsApplication1</RootNamespace>
-    <AssemblyName>WindowsApplication1</AssemblyName>
+    <RootNamespace>ZlgCanDemo</RootNamespace>
+    <AssemblyName>ZlgCanDemo</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
@@ -41,7 +41,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -91,8 +91,10 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="HelperTools.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ZhiyuanDeviceType.cs" />
     <EmbeddedResource Include="Form1.resx">
       <SubType>Designer</SubType>
       <DependentUpon>Form1.cs</DependentUpon>
@@ -107,6 +109,14 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="..\Libs\x64\kerneldlls\kerneldll.ini">
+      <Link>x64\kerneldlls\kerneldll.ini</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\Libs\x86\kerneldlls\kerneldll.ini">
+      <Link>x86\kerneldlls\kerneldll.ini</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="app.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -129,6 +139,81 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="..\Libs\x64\ControlCAN.dll">
+      <Link>x64\ControlCAN.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Libs\x64\kerneldlls\pci9810b.dll">
+      <Link>x64\kerneldlls\pci9810b.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Libs\x64\kerneldlls\pci9820b.dll">
+      <Link>x64\kerneldlls\pci9820b.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Libs\x64\kerneldlls\pci9820i.dll">
+      <Link>x64\kerneldlls\pci9820i.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Libs\x64\kerneldlls\pci9840b.dll">
+      <Link>x64\kerneldlls\pci9840b.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Libs\x64\kerneldlls\pec9920.dll">
+      <Link>x64\kerneldlls\pec9920.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Libs\x64\kerneldlls\USBCAN.dll">
+      <Link>x64\kerneldlls\USBCAN.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Libs\x86\ControlCAN.dll">
+      <Link>x86\ControlCAN.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Libs\x86\kerneldlls\CAN232.dll">
+      <Link>x86\kerneldlls\CAN232.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Libs\x86\kerneldlls\CANETE.dll">
+      <Link>x86\kerneldlls\CANETE.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Libs\x86\kerneldlls\CANET_TCP.dll">
+      <Link>x86\kerneldlls\CANET_TCP.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Libs\x86\kerneldlls\gisadll.dll">
+      <Link>x86\kerneldlls\gisadll.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Libs\x86\kerneldlls\gpcidll.dll">
+      <Link>x86\kerneldlls\gpcidll.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Libs\x86\kerneldlls\isa5420.dll">
+      <Link>x86\kerneldlls\isa5420.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Libs\x86\kerneldlls\PC104C2.dll">
+      <Link>x86\kerneldlls\PC104C2.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Libs\x86\kerneldlls\PC104CAN.dll">
+      <Link>x86\kerneldlls\PC104CAN.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Libs\x86\kerneldlls\PCI5121.dll">
+      <Link>x86\kerneldlls\PCI5121.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Libs\x86\kerneldlls\usbcan.dll">
+      <Link>x86\kerneldlls\usbcan.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

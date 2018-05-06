@@ -1,4 +1,4 @@
-﻿namespace WindowsApplication1
+﻿namespace ZlgCanDemo
 {
     partial class Form1
     {
@@ -53,6 +53,8 @@
             this.button_StartCAN = new System.Windows.Forms.Button();
             this.button_StopCAN = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.comboBox_FrameFormat = new System.Windows.Forms.ComboBox();
             this.comboBox_FrameType = new System.Windows.Forms.ComboBox();
             this.button_Send = new System.Windows.Forms.Button();
@@ -67,8 +69,6 @@
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.listBox_Info = new System.Windows.Forms.ListBox();
             this.timer_rec = new System.Windows.Forms.Timer(this.components);
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -95,22 +95,6 @@
             // 
             this.comboBox_devtype.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_devtype.FormattingEnabled = true;
-            this.comboBox_devtype.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10",
-            "11",
-            "12",
-            "13",
-            "14",
-            "15"});
             this.comboBox_devtype.Location = new System.Drawing.Point(51, 19);
             this.comboBox_devtype.MaxDropDownItems = 15;
             this.comboBox_devtype.Name = "comboBox_devtype";
@@ -153,6 +137,7 @@
             this.textBox_Time1.Name = "textBox_Time1";
             this.textBox_Time1.Size = new System.Drawing.Size(28, 21);
             this.textBox_Time1.TabIndex = 1;
+            this.textBox_Time1.Text = "1C";
             // 
             // textBox_AccMask
             // 
@@ -160,6 +145,7 @@
             this.textBox_AccMask.Name = "textBox_AccMask";
             this.textBox_AccMask.Size = new System.Drawing.Size(70, 21);
             this.textBox_AccMask.TabIndex = 1;
+            this.textBox_AccMask.Text = "FFFFFFFF";
             // 
             // label6
             // 
@@ -200,6 +186,7 @@
             this.textBox_Time0.Name = "textBox_Time0";
             this.textBox_Time0.Size = new System.Drawing.Size(28, 21);
             this.textBox_Time0.TabIndex = 1;
+            this.textBox_Time0.Text = "00";
             // 
             // label8
             // 
@@ -243,7 +230,7 @@
             this.textBox_AccCode.Name = "textBox_AccCode";
             this.textBox_AccCode.Size = new System.Drawing.Size(70, 21);
             this.textBox_AccCode.TabIndex = 1;
-            this.textBox_AccCode.TextChanged += new System.EventHandler(this.textBox_AccCode_TextChanged);
+            this.textBox_AccCode.Text = "00000000";
             // 
             // label3
             // 
@@ -356,6 +343,23 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "发送数据帧";
             // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(314, 51);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(77, 12);
+            this.label15.TabIndex = 7;
+            this.label15.Text = "一次发送帧数";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(393, 47);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(50, 21);
+            this.textBox1.TabIndex = 6;
+            this.textBox1.Text = "2";
+            // 
             // comboBox_FrameFormat
             // 
             this.comboBox_FrameFormat.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -437,6 +441,7 @@
             this.textBox_Data.Name = "textBox_Data";
             this.textBox_Data.Size = new System.Drawing.Size(251, 21);
             this.textBox_Data.TabIndex = 1;
+            this.textBox_Data.Text = "00 01 02 03 04 05 06 07";
             // 
             // label13
             // 
@@ -453,6 +458,7 @@
             this.textBox_ID.Name = "textBox_ID";
             this.textBox_ID.Size = new System.Drawing.Size(70, 21);
             this.textBox_ID.TabIndex = 1;
+            this.textBox_ID.Text = "0123";
             // 
             // label12
             // 
@@ -465,6 +471,9 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox4.Controls.Add(this.listBox_Info);
             this.groupBox4.Location = new System.Drawing.Point(12, 243);
             this.groupBox4.Name = "groupBox4";
@@ -475,33 +484,19 @@
             // 
             // listBox_Info
             // 
+            this.listBox_Info.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listBox_Info.FormattingEnabled = true;
             this.listBox_Info.ItemHeight = 12;
-            this.listBox_Info.Location = new System.Drawing.Point(10, 20);
+            this.listBox_Info.Location = new System.Drawing.Point(3, 17);
             this.listBox_Info.Name = "listBox_Info";
-            this.listBox_Info.Size = new System.Drawing.Size(510, 172);
+            this.listBox_Info.ScrollAlwaysVisible = true;
+            this.listBox_Info.Size = new System.Drawing.Size(524, 186);
             this.listBox_Info.TabIndex = 0;
             // 
             // timer_rec
             // 
+            this.timer_rec.Interval = 500;
             this.timer_rec.Tick += new System.EventHandler(this.timer_rec_Tick);
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(393, 47);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(50, 21);
-            this.textBox1.TabIndex = 6;
-            this.textBox1.Text = "2";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(314, 51);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(77, 12);
-            this.label15.TabIndex = 7;
-            this.label15.Text = "一次发送帧数";
             // 
             // Form1
             // 

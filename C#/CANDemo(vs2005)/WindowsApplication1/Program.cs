@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 
-namespace WindowsApplication1
+namespace ZlgCanDemo
 {
     static class Program
     {
