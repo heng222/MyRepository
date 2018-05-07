@@ -20,6 +20,155 @@ using System.Text;
 namespace ZlgCanDemo
 {
     /// <summary>
+    /// 滤波方式
+    /// </summary>
+    enum FilterType : byte
+    {
+        /// <summary>
+        /// 双滤波
+        /// </summary>
+        Double = 0,
+
+        /// <summary>
+        /// 单滤波
+        /// </summary>
+        Single = 1,
+    }
+
+    /// <summary>
+    /// 工作模式
+    /// </summary>
+    enum WorkMode : byte
+    {
+        /// <summary>
+        /// 正常模式（相当于正常节点）
+        /// </summary>
+        Normal = 0,
+
+        /// <summary>
+        /// 只听模式（只接收，不影响总线）
+        /// </summary>
+        ListenOnly = 1,
+    }
+
+    /// <summary>
+    /// 发送模式
+    /// </summary>
+    enum SendMode : byte
+    {
+        /// <summary>
+        /// 正常发送（发送失败会自动重发，重发最长时间为1.5-3秒）
+        /// </summary>
+        Normal = 0,
+
+        /// <summary>
+        /// 单次发送（只发送一次，不自动重发）
+        /// </summary>
+        Once = 1,
+
+        /// <summary>
+        /// 自发自收（自测试模式，用于测试CAN卡是否损坏）
+        /// </summary>
+        LoopbackNormal = 2,
+
+        /// <summary>
+        /// 单次自发自收（单次自测试模式，只发送一次）
+        /// </summary>
+        LoopbackOnce =3,
+    }
+
+    //1.ZLGCAN系列接口卡信息的数据类型。
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
+    struct VCI_BOARD_INFO
+    {
+        public UInt16 hw_Version;
+        public UInt16 fw_Version;
+        public UInt16 dr_Version;
+        public UInt16 in_Version;
+        public UInt16 irq_Num;
+        public byte can_Num;
+        //[MarshalAs(UnmanagedType.ByValArray, SizeConst = 20)]
+        //public byte[] str_Serial_Num;
+        [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 20)]
+        public string str_Serial_Num;
+
+        [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 40)]
+        public string str_hw_Type;
+
+        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 8)]
+        public byte[] Reserved;
+    }
+
+
+    /////////////////////////////////////////////////////
+    //2.定义CAN信息帧的数据类型。
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
+    struct VCI_CAN_OBJ
+    {
+        public uint ID;
+        public uint TimeStamp;
+        public byte TimeFlag;
+        public SendMode SendType;
+        public byte RemoteFlag;//是否是远程帧  
+        public byte ExternFlag;//是否是扩展帧  
+        public byte DataLen;
+        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 8, ArraySubType = UnmanagedType.U1)]
+        public byte[] Data;
+        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 3, ArraySubType = UnmanagedType.U1)]
+        public byte[] Reserved;
+    }
+
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
+    struct VCI_CAN_STATUS
+    {
+        public byte ErrInterrupt;
+        public byte regMode;
+        public byte regStatus;
+        public byte regALCapture;
+        public byte regECCapture;
+        public byte regEWLimit;
+        public byte regRECounter;
+        public byte regTECounter;
+        public uint Reserved;
+    }
+
+    //4.定义错误信息的数据类型。
+    struct VCI_ERR_INFO
+    {
+        public UInt32 ErrCode;
+        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 3, ArraySubType = UnmanagedType.I1)]
+        public byte[] Passive_ErrData;
+        public byte ArLost_ErrData;
+    }
+
+    //5.定义初始化CAN的数据类型
+    struct VCI_INIT_CONFIG
+    {
+        public UInt32 AccCode;
+        public UInt32 AccMask;
+        public UInt32 Reserved;
+        public FilterType Filter;
+        public byte Timing0;
+        public byte Timing1;
+        public WorkMode Mode;
+    }
+
+    struct CHGDESIPANDPORT
+    {
+        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 10)]
+        public byte[] szpwd;
+        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 20)]
+        public byte[] szdesip;
+        public Int32 desport;
+
+        public void Init()
+        {
+            szpwd = new byte[10];
+            szdesip = new byte[20];
+        }
+    }
+
+    /// <summary>
     /// 广州致远CAN板块 - 接口库函数定义
     /// </summary>
     static class VciNativeMethods
@@ -50,7 +199,7 @@ namespace ZlgCanDemo
         /// <param name="DeviceType">设备类型号。</param>
         /// <param name="DeviceInd">设备索引号。</param>
         /// <returns>为1表示操作成功，0表示操作失败。</returns>
-        [DllImport("ControlCAN.dll", EntryPoint = "VCI_CloseDevice", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        [DllImport(DllPath, EntryPoint = "VCI_CloseDevice", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
         public static extern uint VCI_CloseDevice(uint DeviceType, uint DeviceInd);        
 
         /// <summary>
@@ -64,7 +213,7 @@ namespace ZlgCanDemo
         /// （特例：当设备类型为PCI-5010-U、PCI-5020-U、USBCAN-E-U、USBCAN-2E-U时，对滤波和波特率的设置应该放到VCI_SetReference里设置，
         /// 这里pInitConfig中的成员只有Mode需要设置，其他的6个成员可以忽略，具体设置见VCI_SetReference说明；）。</param>
         /// <returns>为1表示操作成功，0表示操作失败。（特例：在CANET中无需调用，调用会返回1）</returns>
-        [DllImport("ControlCAN.dll", EntryPoint = "VCI_InitCAN", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        [DllImport(DllPath, EntryPoint = "VCI_InitCAN", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
         public static extern uint VCI_InitCAN(uint DeviceType, uint DeviceInd, uint CANInd, ref VCI_INIT_CONFIG pInitConfig);
 
         /// <summary>
@@ -75,7 +224,7 @@ namespace ZlgCanDemo
         /// <param name="pInfo">用来存储设备信息的VCI_BOARD_INFO结构指针。</param>
         /// <returns>为1表示操作成功，0表示操作失败。
         /// （特例：在CANET中无此函数，调用会返回0，并且错误码填充为ERR_CMDFAILED）</returns>
-        [DllImport("ControlCAN.dll", EntryPoint = "VCI_ReadBoardInfo", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        [DllImport(DllPath, EntryPoint = "VCI_ReadBoardInfo", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
         public static extern uint VCI_ReadBoardInfo(uint DeviceType, uint DeviceInd, ref VCI_BOARD_INFO pInfo);
 
         /// <summary>
@@ -89,7 +238,7 @@ namespace ZlgCanDemo
         /// <param name="pErrInfo">用来存储错误信息的VCI_ERR_INFO结构指针。
         /// pErrInfo->ErrCode可能为下列各个错误码的多种组合之一：(CANET相关错误代码，见2.3错误码定义)</param>
         /// <returns>为1表示操作成功，0表示操作失败。</returns>
-        [DllImport("ControlCAN.dll", EntryPoint = "VCI_ReadErrInfo", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        [DllImport(DllPath, EntryPoint = "VCI_ReadErrInfo", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
         public static extern uint VCI_ReadErrInfo(uint DeviceType, uint DeviceInd, uint CANInd, ref VCI_ERR_INFO pErrInfo);
 
         /// <summary>
@@ -100,7 +249,7 @@ namespace ZlgCanDemo
         /// <param name="CANInd">第几路CAN。即对应卡的CAN通道号，CAN0为0，CAN1为1，以此类推。</param>
         /// <param name="pCANStatus">用来存储CAN状态的VCI_CAN_STATUS结构体指针。</param>
         /// <returns>为1表示操作成功，0表示操作失败。（注：在CANET中无此函数，调用会返回0，获取错误码ERR_CMDFAILED）</returns>
-        [DllImport("ControlCAN.dll", EntryPoint = "VCI_ReadCANStatus", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        [DllImport(DllPath, EntryPoint = "VCI_ReadCANStatus", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
         public static extern uint VCI_ReadCANStatus(uint DeviceType, uint DeviceInd, uint CANInd, ref VCI_CAN_STATUS pCANStatus);
 
         /// <summary>
@@ -112,7 +261,7 @@ namespace ZlgCanDemo
         /// <param name="RefType">参数类型。</param>
         /// <param name="pData">用来存储参数有关数据缓冲区地址首指针。</param>
         /// <returns>为1表示操作成功，0表示操作失败。</returns>
-        [DllImport("ControlCAN.dll", EntryPoint = "VCI_GetReference", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        [DllImport(DllPath, EntryPoint = "VCI_GetReference", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
         public static extern uint VCI_GetReference(uint DeviceType, uint DeviceInd, uint CANInd, uint RefType, ref object pData);
         /// <summary>
         /// 此函数用以设置CANET与PCI-5010-U/PCI-5020-U/USBCAN-E-U/ USBCAN-2E-U等设备的相应参数，主要处理不同设备的特定操作。
@@ -123,7 +272,7 @@ namespace ZlgCanDemo
         /// <param name="RefType">参数类型。</param>
         /// <param name="pData">用来存储参数有关数据缓冲区地址首指针。</param>
         /// <returns>为1表示操作成功，0表示操作失败。</returns>
-        [DllImport("ControlCAN.dll", EntryPoint = "VCI_SetReference", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        [DllImport(DllPath, EntryPoint = "VCI_SetReference", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
         public static extern uint VCI_SetReference(uint DeviceType, uint DeviceInd, uint CANInd, uint RefType, ref object pData);
 
         /// <summary>
@@ -134,7 +283,7 @@ namespace ZlgCanDemo
         /// <param name="DeviceInd">设备索引号。</param>
         /// <param name="CANInd">第几路CAN。即对应卡的CAN通道号，CAN0为0，CAN1为1，以此类推。</param>
         /// <returns>返回尚未被读取的帧数。</returns>
-        [DllImport("ControlCAN.dll", EntryPoint = "VCI_GetReceiveNum", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        [DllImport(DllPath, EntryPoint = "VCI_GetReceiveNum", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
         public static extern uint VCI_GetReceiveNum(uint DeviceType, uint DeviceInd, uint CANInd);
 
         /// <summary>
@@ -145,7 +294,7 @@ namespace ZlgCanDemo
         /// <param name="DeviceInd">设备索引号。</param>
         /// <param name="CANInd">第几路CAN。即对应卡的CAN通道号，CAN0为0，CAN1为1，以此类推。</param>
         /// <returns>为1表示操作成功，0表示操作失败。</returns>
-        [DllImport("ControlCAN.dll", EntryPoint = "VCI_ClearBuffer", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        [DllImport(DllPath, EntryPoint = "VCI_ClearBuffer", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
         public static extern uint VCI_ClearBuffer(uint DeviceType, uint DeviceInd, uint CANInd);
 
         
@@ -156,7 +305,7 @@ namespace ZlgCanDemo
         /// <param name="DeviceInd">设备索引号。</param>
         /// <param name="CANInd">第几路CAN。即对应卡的CAN通道号，CAN0为0，CAN1为1，以此类推。</param>
         /// <returns>为1表示操作成功，0表示操作失败。</returns>
-        [DllImport("ControlCAN.dll", EntryPoint = "VCI_StartCAN", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        [DllImport(DllPath, EntryPoint = "VCI_StartCAN", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
         public static extern uint VCI_StartCAN(uint DeviceType, uint DeviceInd, uint CANInd);
 
         /// <summary>
@@ -167,7 +316,7 @@ namespace ZlgCanDemo
         /// <param name="DeviceInd">设备索引号。</param>
         /// <param name="CANInd">第几路CAN。即对应卡的CAN通道号，CAN0为0，CAN1为1，以此类推。</param>
         /// <returns>为1表示操作成功，0表示操作失败。（注：在CANET-TCP中将会断开网络，需要重新VCI_StartCAN才能使用）</returns>
-        [DllImport("ControlCAN.dll", EntryPoint = "VCI_ResetCAN", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        [DllImport(DllPath, EntryPoint = "VCI_ResetCAN", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
         public static extern uint VCI_ResetCAN(uint DeviceType, uint DeviceInd, uint CANInd);
 
         /// <summary>
@@ -179,7 +328,7 @@ namespace ZlgCanDemo
         /// <param name="pSend">要发送的帧结构体VCI_CAN_OBJ数组的首指针。</param>
         /// <param name="Len">要发送的帧结构体数组的长度（发送的帧数量）。</param>
         /// <returns>返回实际发送成功的帧数。</returns>
-        [DllImport("ControlCAN.dll", EntryPoint = "VCI_Transmit", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        [DllImport(DllPath, EntryPoint = "VCI_Transmit", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
         public static extern uint VCI_Transmit(uint DeviceType, uint DeviceInd, uint CANInd, ref VCI_CAN_OBJ pSend, uint Len);
 
         /// <summary>
@@ -193,7 +342,7 @@ namespace ZlgCanDemo
         /// <param name="WaitTime">缓冲区无数据，函数阻塞等待时间，以毫秒为单位。若为-1则表示无超时，一直等待。</param>
         /// <returns>返回实际读取到的帧数。
         /// 如果返回值为0xFFFFFFFF，则表示读取数据失败，有错误发生，请调用VCI_ReadErrInfo函数来获取错误码。</returns>
-        [DllImport("ControlCAN.dll", EntryPoint = "VCI_Receive", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
+        [DllImport(DllPath, EntryPoint = "VCI_Receive", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
         public static extern uint VCI_Receive(uint DeviceType, uint DeviceInd, uint CANInd, ref VCI_CAN_OBJ pReceive, uint Len, int WaitTime);  
     }
 }

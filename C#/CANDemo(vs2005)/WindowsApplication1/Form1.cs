@@ -3,102 +3,15 @@ using System.Diagnostics;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
-
-//1.ZLGCAN系列接口卡信息的数据类型。
-[StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-public struct VCI_BOARD_INFO
-{
-    public UInt16 hw_Version;
-    public UInt16 fw_Version;
-    public UInt16 dr_Version;
-    public UInt16 in_Version;
-    public UInt16 irq_Num;
-    public byte can_Num;
-    [MarshalAs(UnmanagedType.ByValArray, SizeConst = 20)]
-    public byte[] str_Serial_Num;
-    [MarshalAs(UnmanagedType.ByValArray, SizeConst = 40)]
-    public byte[] str_hw_Type;
-    [MarshalAs(UnmanagedType.ByValArray, SizeConst = 8)]
-    public byte[] Reserved;
-}
-
-
-/////////////////////////////////////////////////////
-//2.定义CAN信息帧的数据类型。
-[StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
-public struct VCI_CAN_OBJ
-{
-    public uint ID;
-    public uint TimeStamp;
-    public byte TimeFlag;
-    public byte SendType;
-    public byte RemoteFlag;//是否是远程帧  
-    public byte ExternFlag;//是否是扩展帧  
-    public byte DataLen;
-    [MarshalAs(UnmanagedType.ByValArray, SizeConst = 8, ArraySubType = UnmanagedType.U1)]
-    public byte[] Data;
-    [MarshalAs(UnmanagedType.ByValArray, SizeConst = 3, ArraySubType = UnmanagedType.U1)]
-    public byte[] Reserved;
-}
-
-[StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)] 
-public struct VCI_CAN_STATUS
-{
-    public byte ErrInterrupt;
-    public byte regMode;
-    public byte regStatus;
-    public byte regALCapture;
-    public byte regECCapture;
-    public byte regEWLimit;
-    public byte regRECounter;
-    public byte regTECounter;
-    public uint Reserved;
-}
-
-//4.定义错误信息的数据类型。
-public struct VCI_ERR_INFO
-{
-    public UInt32 ErrCode;
-    [MarshalAs(UnmanagedType.ByValArray, SizeConst = 3, ArraySubType = UnmanagedType.I1)]
-    public byte[] Passive_ErrData; 
-    public byte ArLost_ErrData;
-}
-
-//5.定义初始化CAN的数据类型
-public struct VCI_INIT_CONFIG
-{
-    public UInt32 AccCode;
-    public UInt32 AccMask;
-    public UInt32 Reserved;
-    public byte Filter;
-    public byte Timing0;
-    public byte Timing1;
-    public byte Mode;
-}
-
-public struct CHGDESIPANDPORT
-{
-    [MarshalAs(UnmanagedType.ByValArray, SizeConst = 10)]
-    public byte[] szpwd;
-    [MarshalAs(UnmanagedType.ByValArray, SizeConst = 20)]
-    public byte[] szdesip;
-    public Int32 desport;
-
-    public void Init()
-    {
-        szpwd = new byte[10];
-        szdesip = new byte[20];
-    }
-}
 
 
 namespace ZlgCanDemo
 {
     public partial class Form1 : Form
-    {       
+    {
         UInt32 m_devtype = 4;//USBCAN2
         UInt32 m_bOpen = 0;
         UInt32 m_devind = 0;
@@ -120,7 +33,7 @@ namespace ZlgCanDemo
             comboBox_SendType.SelectedIndex = 2;
             comboBox_FrameType.SelectedIndex = 0;
             comboBox_FrameFormat.SelectedIndex = 0;
-            
+
             // 初始化设备类型
             Int32 curindex = 0;
             curindex = comboBox_devtype.Items.Add("VCI_PCI5121");
@@ -181,33 +94,38 @@ namespace ZlgCanDemo
 
                 m_devind = (UInt32)comboBox_DevIndex.SelectedIndex;
                 m_canind = (UInt32)comboBox_CANIndex.SelectedIndex;
-                if (VciNativeMethods.VCI_OpenDevice(m_devtype, m_devind, 0) == 0)
+                var rc = VciNativeMethods.VCI_OpenDevice(m_devtype, m_devind, 0);
+                if (rc == 0)
                 {
                     MessageBox.Show("打开设备失败,请检查设备类型和设备索引号是否正确", "错误",
                             MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return;
                 }
+                //rc = VciNativeMethods.VCI_OpenDevice(m_devtype, m_devind, 0);
+                //var error = new VCI_ERR_INFO();
+                //VciNativeMethods.VCI_ReadErrInfo(m_devtype, m_devind, 0, ref error);
 
                 m_bOpen = 1;
-                VCI_INIT_CONFIG config = new VCI_INIT_CONFIG();
-                config.AccCode = System.Convert.ToUInt32("0x" + textBox_AccCode.Text, 16);
-                config.AccMask = System.Convert.ToUInt32("0x" + textBox_AccMask.Text, 16);
-                config.Timing0 = System.Convert.ToByte("0x" + textBox_Time0.Text, 16);
-                config.Timing1 = System.Convert.ToByte("0x" + textBox_Time1.Text, 16);
-                config.Filter = (Byte)comboBox_Filter.SelectedIndex;
-                config.Mode = (Byte)comboBox_Mode.SelectedIndex;
+                var config = new VCI_INIT_CONFIG();
+                config.AccCode = Convert.ToUInt32("0x" + textBox_AccCode.Text, 16);
+                config.AccMask = Convert.ToUInt32("0x" + textBox_AccMask.Text, 16);
+                config.Timing0 = Convert.ToByte("0x" + textBox_Time0.Text, 16);
+                config.Timing1 = Convert.ToByte("0x" + textBox_Time1.Text, 16);
+                config.Filter = (FilterType)comboBox_Filter.SelectedIndex;
+                config.Mode = (WorkMode)comboBox_Mode.SelectedIndex;
                 VciNativeMethods.VCI_InitCAN(m_devtype, m_devind, m_canind, ref config);
 
                 // 读取板卡信息
                 var boardInf = new VCI_BOARD_INFO();
                 VciNativeMethods.VCI_ReadBoardInfo(m_devtype, m_devind, ref boardInf);
-                var serialNo = Encoding.ASCII.GetString(boardInf.str_Serial_Num, 0, boardInf.str_Serial_Num.Length);
+                //var serialNo = Encoding.ASCII.GetString(boardInf.str_Serial_Num, 0, boardInf.str_Serial_Num.Length);
+                //Console.WriteLine(serialNo);
             }
 
             buttonConnect.Text = m_bOpen == 1 ? "断开" : "连接";
             timer_rec.Enabled = m_bOpen == 1;
-            button_StartCAN.Enabled = m_bOpen==1;
-            button_StopCAN.Enabled = m_bOpen == 1;
+            //button_StartCAN.Enabled = m_bOpen == 1;
+            //button_StopCAN.Enabled = m_bOpen == 1;
         }
 
 
@@ -217,35 +135,35 @@ namespace ZlgCanDemo
             {
                 if (m_bOpen == 0) return;
                 VciNativeMethods.VCI_StartCAN(m_devtype, m_devind, m_canind);
-                button_StartCAN.Enabled = false;
+                //button_StartCAN.Enabled = false;
             }
             catch (System.Exception ex)
             {
-                button_StartCAN.Enabled = true;
+                //button_StartCAN.Enabled = true;
                 MessageBox.Show(ex.Message);
             }
         }
 
         private void button_StopCAN_Click(object sender, EventArgs e)
         {
-            if (m_bOpen == 0)  return;
+            if (m_bOpen == 0) return; 
             VciNativeMethods.VCI_ResetCAN(m_devtype, m_devind, m_canind);
-            button_StartCAN.Enabled = true;
+            //button_StartCAN.Enabled = true;
         }
 
         private void button_Send_Click(object sender, EventArgs e)
         {
-            if (m_bOpen == 0)  return;
+            if (m_bOpen == 0) return;
 
             var id = System.Convert.ToUInt32("0x" + textBox_ID.Text, 16);
-            var sendType = comboBox_SendType.SelectedIndex;
+            var sendType = (SendMode)comboBox_SendType.SelectedIndex;
             var remoteFlag = comboBox_FrameFormat.SelectedIndex; // 是否为远程帧？
             var externFlag = comboBox_FrameType.SelectedIndex; // 是否为扩展帧？
             int sendTimers = int.Parse(textBox1.Text);
             var data = HelperTools.SplitHexText(textBox_Data.Text);
 
             var sendobj = new VCI_CAN_OBJ();
-            sendobj.SendType = (byte)sendType;
+            sendobj.SendType = sendType;
             sendobj.RemoteFlag = (byte)remoteFlag;
             sendobj.ExternFlag = (byte)externFlag;
             sendobj.ID = id;
@@ -313,6 +231,17 @@ namespace ZlgCanDemo
             sw.Stop();
             Console.WriteLine("接收耗时 = {0} 秒", sw.Elapsed.TotalSeconds);
 
+        }
+
+        private void comboBox_CANIndex_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                m_canind = (UInt32)comboBox_CANIndex.SelectedIndex;
+            }
+            catch (System.Exception /*ex*/)
+            {            	
+            }
         }
     }
 }

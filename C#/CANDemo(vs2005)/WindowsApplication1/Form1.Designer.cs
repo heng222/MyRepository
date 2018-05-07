@@ -254,6 +254,7 @@
             this.comboBox_CANIndex.Name = "comboBox_CANIndex";
             this.comboBox_CANIndex.Size = new System.Drawing.Size(47, 20);
             this.comboBox_CANIndex.TabIndex = 1;
+            this.comboBox_CANIndex.SelectedIndexChanged += new System.EventHandler(this.comboBox_CANIndex_SelectedIndexChanged);
             // 
             // comboBox_DevIndex
             // 
@@ -303,7 +304,6 @@
             // 
             // button_StartCAN
             // 
-            this.button_StartCAN.Enabled = false;
             this.button_StartCAN.Location = new System.Drawing.Point(452, 76);
             this.button_StartCAN.Name = "button_StartCAN";
             this.button_StartCAN.Size = new System.Drawing.Size(75, 23);
@@ -314,7 +314,6 @@
             // 
             // button_StopCAN
             // 
-            this.button_StopCAN.Enabled = false;
             this.button_StopCAN.Location = new System.Drawing.Point(452, 116);
             this.button_StopCAN.Name = "button_StopCAN";
             this.button_StopCAN.Size = new System.Drawing.Size(75, 23);
