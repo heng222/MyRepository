@@ -320,7 +320,7 @@
             this.button_StopCAN.TabIndex = 5;
             this.button_StopCAN.Text = "复位CAN";
             this.button_StopCAN.UseVisualStyleBackColor = true;
-            this.button_StopCAN.Click += new System.EventHandler(this.button_StopCAN_Click);
+            this.button_StopCAN.Click += new System.EventHandler(this.button_ResetCAN_Click);
             // 
             // groupBox3
             // 

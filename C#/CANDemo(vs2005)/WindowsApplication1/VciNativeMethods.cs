@@ -329,7 +329,7 @@ namespace ZlgCanDemo
         /// <param name="Len">要发送的帧结构体数组的长度（发送的帧数量）。</param>
         /// <returns>返回实际发送成功的帧数。</returns>
         [DllImport(DllPath, EntryPoint = "VCI_Transmit", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.StdCall)]
-        public static extern uint VCI_Transmit(uint DeviceType, uint DeviceInd, uint CANInd, ref VCI_CAN_OBJ pSend, uint Len);
+        public static extern uint VCI_Transmit(uint DeviceType, uint DeviceInd, uint CANInd, VCI_CAN_OBJ[] pSend, uint Len);
 
         /// <summary>
         /// 接收函数

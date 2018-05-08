@@ -105,6 +105,8 @@ namespace ZlgCanDemo
                 //var error = new VCI_ERR_INFO();
                 //VciNativeMethods.VCI_ReadErrInfo(m_devtype, m_devind, 0, ref error);
 
+                rc = VciNativeMethods.VCI_ClearBuffer(m_devtype, m_devind, m_canind);
+
                 m_bOpen = 1;
                 var config = new VCI_INIT_CONFIG();
                 config.AccCode = Convert.ToUInt32("0x" + textBox_AccCode.Text, 16);
@@ -144,7 +146,7 @@ namespace ZlgCanDemo
             }
         }
 
-        private void button_StopCAN_Click(object sender, EventArgs e)
+        private void button_ResetCAN_Click(object sender, EventArgs e)
         {
             if (m_bOpen == 0) return; 
             VciNativeMethods.VCI_ResetCAN(m_devtype, m_devind, m_canind);
@@ -159,36 +161,31 @@ namespace ZlgCanDemo
             var sendType = (SendMode)comboBox_SendType.SelectedIndex;
             var remoteFlag = comboBox_FrameFormat.SelectedIndex; // 是否为远程帧？
             var externFlag = comboBox_FrameType.SelectedIndex; // 是否为扩展帧？
-            int sendTimers = int.Parse(textBox1.Text);
+            var sendTimers = uint.Parse(textBox1.Text);
             var data = HelperTools.SplitHexText(textBox_Data.Text);
 
-            var sendobj = new VCI_CAN_OBJ();
-            sendobj.SendType = sendType;
-            sendobj.RemoteFlag = (byte)remoteFlag;
-            sendobj.ExternFlag = (byte)externFlag;
-            sendobj.ID = id;
-            sendobj.DataLen = System.Convert.ToByte(data.Length % 9);
-            sendobj.Data = data;
-
-            Task.Factory.StartNew(() =>
+            var sendobj = new VCI_CAN_OBJ[sendTimers];
+            for (int j = 0; j < sendTimers; j++)
             {
-                var sw = new Stopwatch();
-                sw.Start();
+                sendobj[j].SendType = sendType;
+                sendobj[j].RemoteFlag = (byte)remoteFlag;
+                sendobj[j].ExternFlag = (byte)externFlag;
+                sendobj[j].ID = id;
+                sendobj[j].DataLen = System.Convert.ToByte(data.Length % 9);
+                sendobj[j].Data = data;
+            }
 
-                for (int j = 0; j < sendTimers; j++)
-                {
-                    var res = VciNativeMethods.VCI_Transmit(m_devtype, m_devind, m_canind, ref sendobj, 1);
-                    if (res == 0)
-                    {
-                        MessageBox.Show("发送失败", "错误", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        return;
-                    }
-                }
+            var sw = new Stopwatch();
+            sw.Start();
+            var res = VciNativeMethods.VCI_Transmit(m_devtype, m_devind, m_canind, sendobj, sendTimers);
+            if (res == 0)
+            {
+                MessageBox.Show("发送失败", "错误", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
 
-                sw.Stop();
-
-                Console.WriteLine("发送耗时 = {0} 秒", sw.Elapsed.TotalSeconds);
-            });
+            sw.Stop();
+            Console.WriteLine("发送耗时 = {0} 秒", sw.Elapsed.TotalSeconds);
         }
 
         /// <summary>
@@ -196,17 +193,19 @@ namespace ZlgCanDemo
         /// </summary>
         private void timer_rec_Tick(object sender, EventArgs e)
         {
-            var res = VciNativeMethods.VCI_GetReceiveNum(m_devtype, m_devind, m_canind);
-            if (res == 0) return;
+            var count = VciNativeMethods.VCI_GetReceiveNum(m_devtype, m_devind, m_canind);
+            if (count == 0) return;
 
             var sw = new Stopwatch();
             sw.Start();
 
             /////////////////////////////////////
-            for (int i = 0; i < res; i++)
+
+            for (int i = 0; i < count; i++)
             {
-                var frame = new VCI_CAN_OBJ();
-                var len = VciNativeMethods.VCI_Receive(m_devtype, m_devind, m_canind, ref frame, 1, 100);
+                var canObj = new VCI_CAN_OBJ();
+                //var ptr = GCHandle.ToIntPtr(GCHandle.Alloc(canObj[0]));
+                var len = VciNativeMethods.VCI_Receive(m_devtype, m_devind, m_canind, ref canObj, 1, 100);
                 if (len <= 0)
                 {
                     //注意：如果没有读到数据则必须调用此函数来读取出当前的错误码，  
@@ -216,17 +215,18 @@ namespace ZlgCanDemo
 
                 ////////////////////////////////////////////////////////
                 var sb = new StringBuilder(128);
-                sb.AppendFormat("接收到数据:  帧ID:0x{0:X2}  帧格式:", frame.ID);
-                sb.AppendFormat("", (frame.RemoteFlag == 0) ? "数据帧 " : "远程帧 ", (frame.ExternFlag == 0) ? "标准帧 " : "扩展帧 ");
+                sb.AppendFormat("接收到数据:  帧ID:0x{0:X2}  帧格式:", canObj.ID);
+                sb.AppendFormat("", (canObj.RemoteFlag == 0) ? "数据帧 " : "远程帧 ", (canObj.ExternFlag == 0) ? "标准帧 " : "扩展帧 ");
 
-                if (frame.RemoteFlag == 0)
+                if (canObj.RemoteFlag == 0)
                 {
-                    sb.AppendFormat("数据: {0}", string.Join(" ", frame.Data.Select(p => string.Format("{0:X2}", p))));
+                    sb.AppendFormat("数据: {0}", string.Join(" ", canObj.Data.Take(canObj.DataLen).Select(p => string.Format("{0:X2}", p))));
 
                     listBox_Info.Items.Add(sb.ToString());
                     listBox_Info.SelectedIndex = listBox_Info.Items.Count - 1;
                 }
             }
+
 
             sw.Stop();
             Console.WriteLine("接收耗时 = {0} 秒", sw.Elapsed.TotalSeconds);
