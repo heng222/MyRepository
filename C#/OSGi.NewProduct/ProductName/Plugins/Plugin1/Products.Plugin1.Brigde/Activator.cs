@@ -98,21 +98,9 @@ namespace Products.Plugin1.Brigde
         //        }
         //    }
 
-        //    // ATS/DSU Index
-        //    byte atsIndex = 1;
+        //    // DSU Index
         //    byte dsuIndex = 1;
-        //    if (NodeContextManager.LocalNodeType == NodeType.TrainTestLineWorkstation)
-        //    {
-        //        atsIndex = (byte)SettingsUtility.GetDecimal(settings, "TestLineAtsIndex", 1, 255, 2);
-        //        dsuIndex = (byte)SettingsUtility.GetDecimal(settings, "TestLineDsuIndex", 1, 255, 2);
-        //    }
-        //    else
-        //    {
-        //        atsIndex = (byte)SettingsUtility.GetDecimal(settings, "MainLineAtsIndex", 1, 255, 1);
         //        dsuIndex = (byte)SettingsUtility.GetDecimal(settings, "MainLineDsuIndex", 1, 255, 1);
-        //    }
-
-        //    var result = new AtpSettings(isMachineA, safetyProtocol, redIP, blueIP, atsIndex, dsuIndex);
 
         //    result.CommLogExpiredDays = commLogExpiredDays;
 

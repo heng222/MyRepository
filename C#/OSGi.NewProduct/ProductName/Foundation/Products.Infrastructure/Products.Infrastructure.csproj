@@ -41,6 +41,10 @@
     <Reference Include="Acl.Log">
       <HintPath>..\..\..\Libs\Acl.Log.dll</HintPath>
     </Reference>
+    <Reference Include="Acl.MessageBus, Version=1.0.0.24, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Libs\Acl.MessageBus.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
@@ -51,17 +55,36 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Events\FrameSentCompleteEventArgs.cs" />
+    <Compile Include="Events\IncomingFrameEventArgs.cs" />
+    <Compile Include="Events\NodeConnectionChangedEventArgs.cs" />
+    <Compile Include="Events\OutgoingFrameEventArgs.cs" />
     <Compile Include="Log\LoggerNames.cs" />
     <Compile Include="Log\LogLevelManager.cs" />
     <Compile Include="Log\LogSettings.cs" />
+    <Compile Include="Message\GlobalMessageBus.cs" />
+    <Compile Include="Message\ISingleTopicMessageBus.cs" />
+    <Compile Include="Message\SingleTopicSyncMessagebus.cs" />
     <Compile Include="PresentationControlType.cs" />
+    <Compile Include="Protocol\Framework\IFrameSentCompleteObserver.cs" />
+    <Compile Include="Protocol\Framework\IIncomingFrameObserver.cs" />
+    <Compile Include="Protocol\Framework\IOutgoingFrameObserver.cs" />
+    <Compile Include="Protocol\Framework\IStreamFrame.cs" />
+    <Compile Include="Protocol\Framework\IStreamFrameParser.cs" />
+    <Compile Include="Protocol\Framework\ProtocolFrame.cs" />
+    <Compile Include="Protocol\Framework\ProtocolKind.cs" />
+    <Compile Include="Protocol\Framework\SafetyCommProtocol.cs" />
+    <Compile Include="Protocol\InternalFrame.cs" />
+    <Compile Include="Protocol\InternalFrameType.cs" />
+    <Compile Include="Protocol\InternalFrameVersion.cs" />
+    <Compile Include="Types\NodeType.cs" />
+    <Compile Include="Types\PluginType.cs" />
     <None Include="Properties\AssemblyInfo.tpl" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Specification\ISystemAttribute.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Events\" />
-    <Folder Include="Message\" />
+    <Folder Include="Entities\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

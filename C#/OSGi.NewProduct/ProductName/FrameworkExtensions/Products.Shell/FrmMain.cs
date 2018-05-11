@@ -25,7 +25,7 @@ namespace Products.Shell
                 if (!DesignMode)
                 {
                     // 设置主窗口标题
-                    //Text = string.Format("ATS-SIL2 - {0}", NodeContextManager.Current.Name);
+                    //Text = string.Format("ProductName - {0}", NodeContextManager.Current.Name);
                     Text = string.Format("ProductName");
                     LogUtility.Info("-={0}已启动，欢迎使用=-", Workbench.MainForm.Text);
                 }

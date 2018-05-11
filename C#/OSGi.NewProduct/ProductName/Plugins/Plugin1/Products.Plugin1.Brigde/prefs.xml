@@ -1,9 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Properties>
-  <!-- 正线ATS Index -->
-  <add key="MainLineAtsIndex" value="1"/>
-  <!-- 试车线ATS Index -->
-  <add key="TestLineAtsIndex" value="2"/>
 
   <!-- 正线DSU Index -->
   <add key="MainLineDsuIndex" value="1"/>

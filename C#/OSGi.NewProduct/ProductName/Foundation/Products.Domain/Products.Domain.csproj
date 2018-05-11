@@ -37,19 +37,24 @@
   <ItemGroup>
     <Reference Include="Acl.CommStreamLog, Version=1.3.0.12, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Libs\Acl.CommStreamLog.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\..\+泰克斯\BaliseSupervision_应答器监测\trunk\Libs\Acl.CommStreamLog.dll</HintPath>
     </Reference>
     <Reference Include="Acl.Core, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Libs\Acl.Core.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\..\+泰克斯\BaliseSupervision_应答器监测\trunk\Libs\Acl.Core.dll</HintPath>
     </Reference>
     <Reference Include="Acl.Log, Version=1.0.0.5, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Libs\Acl.Log.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\..\+泰克斯\BaliseSupervision_应答器监测\trunk\Libs\Acl.Log.dll</HintPath>
+    </Reference>
+    <Reference Include="Acl.MessageBus, Version=1.0.0.24, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\..\+泰克斯\BaliseSupervision_应答器监测\trunk\Libs\Acl.MessageBus.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -57,13 +62,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Persistence\CommLogStorage.cs" />
     <Compile Include="Preferences\SettingsParser.cs" />
     <Compile Include="Preferences\SettingsUtility.cs" />
     <None Include="Properties\AssemblyInfo.tpl" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SystemAttributeImpl.cs" />
     <Compile Include="Utility\COMHelper.cs" />
+    <Compile Include="Utility\LogUtility.cs" />
     <Compile Include="Utility\RedundantDllFileChecker.cs" />
+    <Compile Include="Utility\SeqNoManager.cs" />
     <Compile Include="Utility\SingletonProcessChecker.cs" />
     <Compile Include="Utility\SystemChecker.cs" />
   </ItemGroup>
