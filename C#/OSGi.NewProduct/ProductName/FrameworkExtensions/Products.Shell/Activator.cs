@@ -1,4 +1,5 @@
 using System;
+using System.ComponentModel;
 using Acl.ServiceManagement;
 using Framework.OSGi;
 using Platform.Presentation;
@@ -56,7 +57,7 @@ namespace Products.Shell
         {
         }
 
-        protected override void OnMainFormShowing(IBundleContext context)
+        protected override void OnMainFormShowing(IBundleContext context, CancelEventArgs args)
         {
             //if (NodeContextManager.Current.ControlTypes.Contains(PresentationControlType.Logon))
             //{
