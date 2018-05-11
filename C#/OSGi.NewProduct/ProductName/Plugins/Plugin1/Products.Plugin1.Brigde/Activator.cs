@@ -1,25 +1,17 @@
 
-using System.IO;
-using System.Linq;
-using System.Reflection;
-using Acl.ServiceManagement;
+using Acl;
 using Framework.OSGi;
 using Platform.Bundles.Bridge;
 using Platform.Presentation;
 using Products.Plugins1.Controls;
 using Products.Presentation;
-using Products.Infrastructure;
-using System.Net;
-using Products.Domain.Preferences;
-using Acl.Configuration;
-using Platform.Bundles.Bridge.Utilities;
 
 namespace Products.Plugin1.Brigde
 {
     /// <summary>
-    /// Alarm子系统激活器
+    /// 子系统激活器
     /// </summary>
-    class Activator : BundleActivatorBase
+    class Activator : BundleActivatorBase, IFrameworkListener
     {
         /// <summary>
         /// 
@@ -68,8 +60,49 @@ namespace Products.Plugin1.Brigde
         /// <param name="context"></param>
         protected override void OnStop(IBundleContext context)
         {
-
+            //if (_commLifeCycle != null)
+            //{
+            //    _commLifeCycle.Close();
+            //}
         }
+
+        #region IFrameworkListener 成员
+
+        public void FrameworkEvent(FrameworkEvent e)
+        {
+            try
+            {
+                //if (e.Type == FrameworkEventType.Started)
+                //{
+                //    ThreadPool.QueueUserWorkItem((p) =>
+                //    {
+                //        try
+                //        {
+                //            if (_commLifeCycle != null)
+                //            {
+                //                Thread.Sleep(3000);
+
+                //                Log.Info("正在打开ATS通讯组件...");
+                //                _commLifeCycle.Open();
+                //                Log.Info("ATS通讯组件已打开。");
+                //            }
+
+                //            Thread.Sleep(10000);
+                //            CommStreamLogManager.DeleteExpiredLog();
+                //        }
+                //        catch (System.Exception /*ex*/)
+                //        {
+                //        }
+                //    });
+                //}
+            }
+            catch (System.Exception ex)
+            {
+                base.Log.Error(ex);
+            }
+        }
+
+        #endregion
 
         //private static AtpSettings BuildAtpSettings(IBundleContext context)
         //{

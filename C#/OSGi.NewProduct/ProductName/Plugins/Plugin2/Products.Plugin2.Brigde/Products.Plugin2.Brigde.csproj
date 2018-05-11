@@ -81,6 +81,13 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Foundation\Products.Infrastructure\Products.Infrastructure.csproj">
+      <Project>{a4b16e5b-561d-4739-b35b-6e4d21e78a47}</Project>
+      <Name>Products.Infrastructure</Name>
+      <Private>False</Private>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PreBuildEvent>if "$(ConfigurationName)"=="Release" (SubWcRev "$(ProjectDir)\" "$(ProjectDir)Properties\AssemblyInfo.tpl" "$(ProjectDir)Properties\AssemblyInfo.cs")</PreBuildEvent>

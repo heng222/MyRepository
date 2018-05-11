@@ -38,5 +38,11 @@ namespace Products.Infrastructure.Log
         /// </summary>
         [MemberDes("Plugin1")]
         public const string Plugin1 = "Plugin1";
+
+        /// <summary>
+        /// Plugin2
+        /// </summary>
+        [MemberDes("Plugin2")]
+        public const string Plugin2 = "Plugin2";
     }
 }

@@ -6,19 +6,21 @@ using Acl.ServiceManagement;
 using Framework.OSGi;
 using Platform.Bundles.Bridge;
 using Platform.Presentation;
+using Products.Infrastructure.Log;
 
 namespace Products.Plugin2.Brigde
 {
     /// <summary>
-    /// Alarm子系统激活器
+    /// 子系统激活器
     /// </summary>
     class Activator : BundleActivatorBase
     {
+
         /// <summary>
         /// 
         /// </summary>
         public Activator()
-            : base("Plugin2")
+            : base(LoggerNames.Plugin2)
         {
         }
 
