@@ -11,7 +11,7 @@ namespace Products.Shell
     {
         public Form Create()
         {
-            return new FormDemo();
+            return new FrmMain();
         }
     }
 }

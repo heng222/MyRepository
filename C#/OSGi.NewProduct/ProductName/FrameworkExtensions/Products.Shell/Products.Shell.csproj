@@ -106,17 +106,17 @@
       <DependentUpon>LogConfigPage.cs</DependentUpon>
     </Compile>
     <Compile Include="DemoFormFactory.cs" />
+    <Compile Include="FrmBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBase.designer.cs">
+      <DependentUpon>FrmBase.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmMain.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmMain.designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormDemo.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormDemo.designer.cs">
-      <DependentUpon>FormDemo.cs</DependentUpon>
     </Compile>
     <Compile Include="LogUtility.cs" />
     <Compile Include="MainView\LogControl.cs">
@@ -151,11 +151,11 @@
     <EmbeddedResource Include="ConfigView\LogConfigPage.resx">
       <DependentUpon>LogConfigPage.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmBase.resx">
+      <DependentUpon>FrmBase.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormDemo.resx">
-      <DependentUpon>FormDemo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainView\LogControl.resx">
       <DependentUpon>LogControl.cs</DependentUpon>
