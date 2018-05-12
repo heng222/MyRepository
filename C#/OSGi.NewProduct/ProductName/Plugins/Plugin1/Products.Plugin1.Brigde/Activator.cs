@@ -3,7 +3,7 @@ using Acl;
 using Framework.OSGi;
 using Platform.Bundles.Bridge;
 using Platform.Presentation;
-using Products.Plugins1.Controls;
+using Products.Plugin1.Controls;
 using Products.Presentation;
 
 namespace Products.Plugin1.Brigde

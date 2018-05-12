@@ -8,8 +8,8 @@
     <ProjectGuid>{4B6B20E3-C5D0-4568-9722-825F543599B7}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Products.Plugins1</RootNamespace>
-    <AssemblyName>Products.Plugins1</AssemblyName>
+    <RootNamespace>Products.Plugin1</RootNamespace>
+    <AssemblyName>Products.Plugin1</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -23,7 +23,7 @@
     <WarningLevel>4</WarningLevel>
     <RunCodeAnalysis>true</RunCodeAnalysis>
     <CodeAnalysisRuleSet>..\..\..\Fxcop.ruleset</CodeAnalysisRuleSet>
-    <DocumentationFile>..\..\..\bin\Debug\Plugins\Plugin1\Products.Plugins1.XML</DocumentationFile>
+    <DocumentationFile>..\..\..\bin\Debug\Plugins\Plugin1\Products.Plugin1.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -32,7 +32,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>..\..\..\bin\Release\Plugins\Plugin1\Products.Plugins1.XML</DocumentationFile>
+    <DocumentationFile>..\..\..\bin\Release\Plugins\Plugin1\Products.Plugin1.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Acl.Controls">

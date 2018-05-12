@@ -1,4 +1,4 @@
-﻿namespace Products.Plugins1.Controls
+﻿namespace Products.Plugin1.Controls
 {
     partial class Plugin1Control1
     {

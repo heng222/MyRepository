@@ -18,7 +18,7 @@ namespace Products.Shell
     partial class FormDemo : FrmMain
     {
         private MockWorkspace _mockWorkspace;
-        private List<Tuple<ProductPartAttribute, DockContentEx>> _dockContents = new List<Tuple<ProductPartAttribute, DockContentEx>>();
+        private Dictionary<ProductPartAttribute, DockContentEx> _dockContents = new Dictionary<ProductPartAttribute, DockContentEx>();
         
         private ToolStrip _menuStrip = null; // 菜单
         private ToolStripMenuItem _toolStripItemView = null;
@@ -218,7 +218,7 @@ namespace Products.Shell
                 newDockContent.CloseButtonVisible = true;
                 newDockContent.PersistString = controlType.ToString();
 
-                _dockContents.Add(new Tuple<ProductPartAttribute,DockContentEx>(theControl.Item1, newDockContent));
+                _dockContents[theControl.Item1] = newDockContent;
             }
         }
 
@@ -226,13 +226,13 @@ namespace Products.Shell
         {
             foreach (var item in _dockContents)
             {
-                var subMenuItem = new ToolStripMenuItem() { Text = item.Item1.Title, Tag = item.Item2 };
+                var subMenuItem = new ToolStripMenuItem() { Text = item.Key.Title, Tag = item.Value };
                 subMenuItem.Click += OnViewSubMenuItemClick;
                 _toolStripItemView.DropDownItems.Add(subMenuItem);
 
-                if (item.Item1.DefaultIcon != null)
+                if (item.Key.DefaultIcon != null)
                 {
-                    subMenuItem.Image = item.Item1.DefaultIcon.ToBitmap();
+                    subMenuItem.Image = item.Key.DefaultIcon.ToBitmap();
                 }
             }
 
@@ -259,7 +259,7 @@ namespace Products.Shell
         }
         private void CloseAllDockContents()
         {
-            _dockContents.Select(p=>p.Item2).ToList().ForEach(p =>
+            _dockContents.Select(p=>p.Value).ToList().ForEach(p =>
             {
                 p.DockPanel = null;
                 p.RemovePart();
@@ -272,12 +272,12 @@ namespace Products.Shell
 
             foreach (var item in _dockContents)
             {
-                if (firstContentToShow == null && item.Item2.DefaultDockState == DockState.Document)
+                if (firstContentToShow == null && item.Value.DefaultDockState == DockState.Document)
                 {
-                    firstContentToShow = item.Item2;
+                    firstContentToShow = item.Value;
                 }
 
-                item.Item2.Show(_dockPanel, item.Item2.DefaultDockState);
+                item.Value.Show(_dockPanel, item.Value.DefaultDockState);
             }
 
             if (firstContentToShow != null)
@@ -288,12 +288,12 @@ namespace Products.Shell
 
         private void ShowDockContents()
         {
-            _dockContents.Select(p=>p.Item2).ToList().ForEach(p =>
+            _dockContents.Select(p=>p.Value).ToList().ForEach(p =>
             {
                 p.Show(_dockPanel, p.DefaultDockState);
             });
 
-            _dockContents.Select(p => p.Item2).Where(p => p.DefaultDockState == DockState.Document).First().Show();
+            _dockContents.Select(p => p.Value).Where(p => p.DefaultDockState == DockState.Document).First().Show();
         }
 
         private string GetDockConfigFileName()
@@ -309,7 +309,7 @@ namespace Products.Shell
         }
         private IDockContent GetContentFromPersistString(string persistString)
         {
-            return _dockContents.Where(p => p.Item2.Text == persistString).Select(p=>p.Item2).FirstOrDefault();
+            return _dockContents.Where(p => p.Value.Text == persistString).Select(p=>p.Value).FirstOrDefault();
         }
         #endregion
         

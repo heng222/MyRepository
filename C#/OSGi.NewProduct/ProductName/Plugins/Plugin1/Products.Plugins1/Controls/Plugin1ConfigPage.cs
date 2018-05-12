@@ -9,7 +9,7 @@ using System.Windows.Forms;
 using Platform.Presentation.Options;
 using Products.Presentation;
 
-namespace Products.Plugins1.Controls
+namespace Products.Plugin1.Controls
 {
     /// <summary>
     /// Plugin1配置页面。

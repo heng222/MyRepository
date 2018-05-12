@@ -8,9 +8,9 @@ using System.Text;
 using System.Windows.Forms;
 using Products.Infrastructure;
 using Products.Presentation;
-using Products.Plugins1.Properties;
+using Products.Plugin1.Properties;
 
-namespace Products.Plugins1.Controls
+namespace Products.Plugin1.Controls
 {
     [ProductPart(ControlType = PresentationControlType.Plugin1Control1)]
     partial class Plugin1Control1 : UserControl

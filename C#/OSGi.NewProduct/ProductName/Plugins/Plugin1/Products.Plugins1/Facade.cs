@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Products.Plugins1
+namespace Products.Plugin1
 {
     class Facade
     {
