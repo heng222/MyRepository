@@ -14,6 +14,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Products.Infrastructure.Log;
 
 namespace Products.Infrastructure.Protocol.Framework
 {
@@ -23,31 +24,24 @@ namespace Products.Infrastructure.Protocol.Framework
     public abstract class ProtocolFrame
     {
         #region "Filed"
-        /// <summary>
-        /// 协议的种类
-        /// </summary>
-        private ProtocolKind _kind;
         #endregion
 
         #region "Constructor"
         /// <summary>
         /// 使用指定的参数初始化一个协议报文
         /// </summary>
-        /// <param name="type">协议种类</param>
-        protected ProtocolFrame(ProtocolKind type)
+        /// <param name="parserCode">解码器编号</param>
+        protected ProtocolFrame(CommLogParserCode parserCode)
         {
-            _kind = type;
+            this.ParserCode = parserCode;
         }
         #endregion
 
         #region "Properties"
         /// <summary>
-        /// 获取协议的种类
+        /// 获取本协议帧的解码器编号。
         /// </summary>
-        public ProtocolKind ProtocolKind
-        {
-            get { return _kind; }
-        }
+        public CommLogParserCode ParserCode { get; private set; }
         #endregion
 
         #region "Virtual methods"

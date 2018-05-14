@@ -15,6 +15,7 @@ using System.IO;
 using Acl.Utility;
 using System.Text;
 using Products.Infrastructure.Protocol.Framework;
+using Products.Infrastructure.Log;
 
 namespace Products.Infrastructure.Protocol
 {
@@ -99,7 +100,7 @@ namespace Products.Infrastructure.Protocol
         /// <param name="majorType">主类型</param>
         /// <param name="minorType">次类型</param>
         protected InternalFrame(InternalFrameType majorType, byte minorType)
-            :base(ProtocolKind.Internal)
+            : base(CommLogParserCode.Internal)
         {
             this.MajorType = majorType;
             this.MinorType = minorType;

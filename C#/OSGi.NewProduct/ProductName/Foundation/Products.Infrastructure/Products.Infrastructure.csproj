@@ -59,6 +59,7 @@
     <Compile Include="Events\IncomingFrameEventArgs.cs" />
     <Compile Include="Events\NodeConnectionChangedEventArgs.cs" />
     <Compile Include="Events\OutgoingFrameEventArgs.cs" />
+    <Compile Include="Log\CommLogParserCode.cs" />
     <Compile Include="Log\LoggerNames.cs" />
     <Compile Include="Log\LogLevelManager.cs" />
     <Compile Include="Log\LogSettings.cs" />
@@ -72,7 +73,6 @@
     <Compile Include="Protocol\Framework\IStreamFrame.cs" />
     <Compile Include="Protocol\Framework\IStreamFrameParser.cs" />
     <Compile Include="Protocol\Framework\ProtocolFrame.cs" />
-    <Compile Include="Protocol\Framework\ProtocolKind.cs" />
     <Compile Include="Protocol\Framework\SafetyCommProtocol.cs" />
     <Compile Include="Protocol\InternalFrame.cs" />
     <Compile Include="Protocol\InternalFrameType.cs" />
