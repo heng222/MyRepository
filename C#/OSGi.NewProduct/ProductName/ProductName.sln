@@ -23,9 +23,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Products.Resource", "Founda
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Products.Plugin1", "Plugins\Plugin1\Products.Plugins1\Products.Plugin1.csproj", "{4B6B20E3-C5D0-4568-9722-825F543599B7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Products.Plugin1.Brigde", "Plugins\Plugin1\Products.Plugin1.Brigde\Products.Plugin1.Brigde.csproj", "{2ACD1552-840F-46A5-A3DF-638130E23900}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Products.Plugin1.Bridge", "Plugins\Plugin1\Products.Plugin1.Brigde\Products.Plugin1.Bridge.csproj", "{2ACD1552-840F-46A5-A3DF-638130E23900}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Products.Plugin2.Brigde", "Plugins\Plugin2\Products.Plugin2.Brigde\Products.Plugin2.Brigde.csproj", "{460CFDBF-7298-4371-8BDD-3EFA75F82989}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Products.Plugin2.Bridge", "Plugins\Plugin2\Products.Plugin2.Brigde\Products.Plugin2.Bridge.csproj", "{460CFDBF-7298-4371-8BDD-3EFA75F82989}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Products.Plugin2", "Plugins\Plugin2\Products.Plugin2\Products.Plugin2.csproj", "{C054B2BA-A931-49DD-A80D-F8A98DBA34AF}"
 EndProject

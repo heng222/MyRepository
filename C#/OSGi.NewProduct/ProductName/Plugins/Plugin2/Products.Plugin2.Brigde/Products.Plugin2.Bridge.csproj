@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{2ACD1552-840F-46A5-A3DF-638130E23900}</ProjectGuid>
+    <ProjectGuid>{460CFDBF-7298-4371-8BDD-3EFA75F82989}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Products.Plugin1.Brigde</RootNamespace>
-    <AssemblyName>Products.Plugin1.Brigde</AssemblyName>
+    <RootNamespace>Products.Plugin2.Bridge</RootNamespace>
+    <AssemblyName>Products.Plugin2.Bridge</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -17,22 +17,22 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\..\bin\Debug\Plugins\Plugin1\</OutputPath>
+    <OutputPath>..\..\..\bin\Debug\Plugins\Plugin2\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <RunCodeAnalysis>true</RunCodeAnalysis>
     <CodeAnalysisRuleSet>..\..\..\Fxcop.ruleset</CodeAnalysisRuleSet>
-    <DocumentationFile>..\..\..\bin\Debug\Plugins\Plugin1\Products.Plugin1.Brigde.XML</DocumentationFile>
+    <DocumentationFile>..\..\..\bin\Debug\Plugins\Plugin2\Products.Plugin2.Bridge.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\..\..\bin\Release\Plugins\Plugin1\</OutputPath>
+    <OutputPath>..\..\..\bin\Release\Plugins\Plugin2\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>..\..\..\bin\Release\Plugins\Plugin1\Products.Plugin1.Brigde.XML</DocumentationFile>
+    <DocumentationFile>..\..\..\bin\Release\Plugins\Plugin2\Products.Plugin2.Bridge.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Acl.Core">
@@ -61,8 +61,6 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -76,33 +74,19 @@
     <None Include="Properties\AssemblyInfo.tpl" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Foundation\Products.Domain\Products.Domain.csproj">
-      <Project>{075AE358-82E8-4CE3-9B4E-1E895A11951D}</Project>
-      <Name>Products.Domain</Name>
-      <Private>False</Private>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\Foundation\Products.Infrastructure\Products.Infrastructure.csproj">
-      <Project>{A4B16E5B-561D-4739-B35B-6E4D21E78A47}</Project>
-      <Name>Products.Infrastructure</Name>
-      <Private>False</Private>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\Foundation\Products.Presentation\Products.Presentation.csproj">
-      <Project>{B2432701-87AC-4B50-A680-F6F514401FBC}</Project>
-      <Name>Products.Presentation</Name>
-      <Private>False</Private>
-    </ProjectReference>
-    <ProjectReference Include="..\Products.Plugins1\Products.Plugin1.csproj">
-      <Project>{4B6B20E3-C5D0-4568-9722-825F543599B7}</Project>
-      <Name>Products.Plugin1</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="manifest.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="prefs.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Foundation\Products.Infrastructure\Products.Infrastructure.csproj">
+      <Project>{a4b16e5b-561d-4739-b35b-6e4d21e78a47}</Project>
+      <Name>Products.Infrastructure</Name>
+      <Private>False</Private>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

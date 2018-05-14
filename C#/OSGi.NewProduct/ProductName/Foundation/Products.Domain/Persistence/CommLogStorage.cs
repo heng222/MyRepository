@@ -79,7 +79,7 @@ namespace Products.Domain.Persistence
             this.CreateCommStreamLog(ipc, opc, expiredDays);
 
             // 订阅“滚动通信日志文件”消息
-            _observer = GlobalMessageBus.SubscribeCommLogRollover(OnRolloverCommLog);
+            _observer = GlobalMessageBuses.SubscribeCommLogRollover(OnRolloverCommLog);
         }
 
         /// <summary>

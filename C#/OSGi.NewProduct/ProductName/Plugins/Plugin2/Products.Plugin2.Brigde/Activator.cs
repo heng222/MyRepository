@@ -8,7 +8,7 @@ using Platform.Bundles.Bridge;
 using Platform.Presentation;
 using Products.Infrastructure.Log;
 
-namespace Products.Plugin2.Brigde
+namespace Products.Plugin2.Bridge
 {
     /// <summary>
     /// 子系统激活器

@@ -62,7 +62,7 @@
     <Compile Include="Log\LoggerNames.cs" />
     <Compile Include="Log\LogLevelManager.cs" />
     <Compile Include="Log\LogSettings.cs" />
-    <Compile Include="Message\GlobalMessageBus.cs" />
+    <Compile Include="Message\GlobalMessageBuses.cs" />
     <Compile Include="Message\ISingleTopicMessageBus.cs" />
     <Compile Include="Message\SingleTopicSyncMessagebus.cs" />
     <Compile Include="PresentationControlType.cs" />

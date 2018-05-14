@@ -1,7 +1,7 @@
 ﻿using Framework.OSGi;
 using Platform.Bundles.Bridge;
 
-namespace Products.Plugin2.Brigde
+namespace Products.Plugin2.Bridge
 {
     /// <summary>
     /// Bundle规约实现。

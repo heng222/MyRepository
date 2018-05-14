@@ -6,7 +6,7 @@ using Platform.Presentation;
 using Products.Plugin1.Controls;
 using Products.Presentation;
 
-namespace Products.Plugin1.Brigde
+namespace Products.Plugin1.Bridge
 {
     /// <summary>
     /// 子系统激活器
