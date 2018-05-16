@@ -24,25 +24,21 @@ namespace Products.Infrastructure.Log
         /// <summary>
         /// ƽ̨
         /// </summary>
-        [MemberDes("ƽ̨")]        
         public const string Platform = "ƽ̨";
 
         /// <summary>
         /// Shell
         /// </summary>
-        [MemberDes("Shell")]
         public const string Shell = "Shell";
 
         /// <summary>
         /// Plugin1
         /// </summary>
-        [MemberDes("Plugin1")]
         public const string Plugin1 = "Plugin1";
 
         /// <summary>
         /// Plugin2
         /// </summary>
-        [MemberDes("Plugin2")]
         public const string Plugin2 = "Plugin2";
     }
 }

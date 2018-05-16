@@ -54,11 +54,11 @@ namespace Products.Domain.Persistence
         /// <summary>
         /// 构造函数。
         /// </summary>
-        /// <param name="logKey">通信日志关键字。</param>
+        /// <param name="logKey">通信日志关键字（参考LoggerNames）。</param>
         /// <param name="ipc">输入流解析器编号。</param>
         /// <param name="opc">输出流解析器编号。</param>
         /// <param name="expiredDays">通信日志的过期天数。</param>
-        public CommLogStorage(string logKey, uint ipc, uint opc, int expiredDays)
+        public CommLogStorage(string logKey, CommLogParserCode ipc, CommLogParserCode opc, int expiredDays)
         {
             if (string.IsNullOrWhiteSpace(logKey))
             {
@@ -76,7 +76,7 @@ namespace Products.Domain.Persistence
 
             // 
             _logKey = logKey;
-            this.CreateCommStreamLog(ipc, opc, expiredDays);
+            this.CreateCommStreamLog((uint)ipc, (uint)opc, expiredDays);
 
             // 订阅“滚动通信日志文件”消息
             _observer = GlobalMessageBuses.SubscribeCommLogRollover(OnRolloverCommLog);
@@ -125,7 +125,7 @@ namespace Products.Domain.Persistence
             logSettings.FileNamePrefix = _logKey;
             logSettings.FileNameSuffix = "";
             logSettings.ExpiredDays = expiredDays;
-            logSettings.FileDescription = string.Format("【{0}】本系统与 {1} 通信流日志", ProductResources.ProjectChsName, _logKey);
+            logSettings.FileDescription = string.Format("【{0}】与 {1} 通信流日志", ProductResources.ProjectChsName, _logKey);
 
             _commLogWriter = CommStreamLogManager.CreateLogWriter(logSettings);
         }
