@@ -19,12 +19,6 @@
                 {
                     components.Dispose();
                 }
-
-                if (_commandHandler != null)
-                {
-                    _commandHandler.Dispose();
-                    _commandHandler = null;
-                }
             }
 
             base.Dispose(disposing);
@@ -38,35 +32,26 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this._dockPanel = new WeifenLuo.WinFormsUI.Docking.DockPanel();
             this.SuspendLayout();
             // 
-            // dockPanel1
-            // 
-            this._dockPanel.Location = new System.Drawing.Point(113, 69);
-            this._dockPanel.Name = "dockPanel1";
-            this._dockPanel.Size = new System.Drawing.Size(108, 93);
-            this._dockPanel.TabIndex = 28;
-            // 
-            // FrmServer
+            // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(394, 312);
-            this.Controls.Add(this._dockPanel);
             this.IsMdiContainer = true;
-            this.Name = "FrmServer";
+            this.Name = "FrmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "【项目缩写】-【设备名称】";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.OnFormClosing);
+            this.Load += new System.EventHandler(this.OnFormLoad);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private WeifenLuo.WinFormsUI.Docking.DockPanel _dockPanel;
         
     }
 }

@@ -17,6 +17,7 @@ namespace Products.Shell
     {
         private bool _disposed = false;
         private SystemAttributeImpl _sysAttriImpl = new SystemAttributeImpl();
+        private SplashScreenManager _splashSrceen = null;
 
         ~Activator()
         {
@@ -40,6 +41,9 @@ namespace Products.Shell
             // 创建相关控件
             Workbench.SendMessage(() =>
             {
+                // 添加日志窗体。
+                MainWorkSpace.AddPart(new LogControl(), Resources.AppLog);
+
                 // 创建数码管时钟控件
                 MainWorkSpace.AddPart(new DNetNixieTubeClockControl(), Resources.NixietubeClock);
 

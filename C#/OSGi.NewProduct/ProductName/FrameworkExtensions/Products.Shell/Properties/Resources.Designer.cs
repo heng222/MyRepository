@@ -61,7 +61,7 @@ namespace Products.Shell.Properties {
         }
         
         /// <summary>
-        ///   查找类似于 (Icon) 的 System.Drawing.Icon 类型的本地化资源。
+        ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
         internal static System.Drawing.Icon AppLog {
             get {
@@ -83,10 +83,50 @@ namespace Products.Shell.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap CompanyContacts {
+            get {
+                object obj = ResourceManager.GetObject("CompanyContacts", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap CompanyLogo {
+            get {
+                object obj = ResourceManager.GetObject("CompanyLogo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap Exit {
             get {
                 object obj = ResourceManager.GetObject("Exit", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap Export {
+            get {
+                object obj = ResourceManager.GetObject("Export", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Icon FullScreen {
+            get {
+                object obj = ResourceManager.GetObject("FullScreen", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
             }
         }
         
@@ -101,12 +141,82 @@ namespace Products.Shell.Properties {
         }
         
         /// <summary>
-        ///   查找类似于 (Icon) 的 System.Drawing.Icon 类型的本地化资源。
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap Import {
+            get {
+                object obj = ResourceManager.GetObject("Import", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap LockLayout {
+            get {
+                object obj = ResourceManager.GetObject("LockLayout", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
         internal static System.Drawing.Icon NixietubeClock {
             get {
                 object obj = ResourceManager.GetObject("NixietubeClock", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap Options {
+            get {
+                object obj = ResourceManager.GetObject("Options", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Icon Shortcut {
+            get {
+                object obj = ResourceManager.GetObject("Shortcut", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap SplashScreen1 {
+            get {
+                object obj = ResourceManager.GetObject("SplashScreen1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Icon SwitchScreen {
+            get {
+                object obj = ResourceManager.GetObject("SwitchScreen", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap UnlockLayout {
+            get {
+                object obj = ResourceManager.GetObject("UnlockLayout", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
     }

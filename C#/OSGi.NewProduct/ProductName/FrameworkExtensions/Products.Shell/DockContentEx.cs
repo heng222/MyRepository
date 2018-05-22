@@ -29,8 +29,26 @@ namespace Products.Shell
             InitializeComponent();
         }
 
+        public DockContentEx(string title)
+            :this()
+        {
+            this.Text = title;
+
+            this.DockHandler.GetPersistStringCallback = () =>
+            {
+                if (string.IsNullOrWhiteSpace(this.PersistString))
+                {
+                    return this.Text;
+                }
+                else
+                {
+                    return this.PersistString;
+                }
+            };
+        }
+
         public DockContentEx(Control control, string title)
-            : this()
+            : this(title)
         {
             if (control != null)
             {
@@ -42,8 +60,6 @@ namespace Products.Shell
                 {
                     this.Text = control.Text;
                 }
-
-                SetPersistString();
 
                 control.Dock = DockStyle.Fill;
                 this.Controls.Add(control);
@@ -77,19 +93,11 @@ namespace Products.Shell
 
             }
         }
-
-        private void SetPersistString()
-        {
-            this.DockHandler.GetPersistStringCallback = () =>
-            {
-                 return this.Text;
-            };
-        }
         #endregion
 
 
         #region "Public methods"
-        public void RemovePart()
+        public void RemoveChildPart()
         {
             this.Controls.Remove(this.ChildPart);
             this.ChildPart = null;

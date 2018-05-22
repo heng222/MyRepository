@@ -55,11 +55,8 @@ namespace Products.Plugin1.Bridge
 
 
                 // 创建表示层
-                var control = new Plugin1Control1() { Text = "P1C1_实例1" };
+                var control = new Plugin1Control1();
                 MainWorkSpace.AddPart(control, control.Icon);
-
-                var control2 = new Plugin1Control1() { Text = "P1C1_实例2" };
-                MainWorkSpace.AddPart(control2, control.Icon);
 
                 // 添加配置页面。
                 var optionControl = new Plugin1ConfigPage();
@@ -131,9 +128,9 @@ namespace Products.Plugin1.Bridge
                 //            {
                 //                Thread.Sleep(3000);
 
-                //                Log.Info("正在打开ATS通讯组件...");
+                //                Log.Info("正在打开通讯组件...");
                 //                _commLifeCycle.Open();
-                //                Log.Info("ATS通讯组件已打开。");
+                //                Log.Info("通讯组件已打开。");
                 //            }
 
                 //            Thread.Sleep(10000);

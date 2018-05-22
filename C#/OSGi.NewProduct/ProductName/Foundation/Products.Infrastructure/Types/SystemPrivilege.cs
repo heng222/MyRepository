@@ -44,9 +44,9 @@ namespace Products.Infrastructure
         ShowSkipHold = 7,
 
         /// <summary>
-        /// 显示ATS通信状态。
+        /// 显示内部通信状态。
         /// </summary>
-        [MemberDes("显示ATS通信状态")]
+        [MemberDes("显示内部通信状态")]
         ShowCommState = 9,
 
         /// <summary>

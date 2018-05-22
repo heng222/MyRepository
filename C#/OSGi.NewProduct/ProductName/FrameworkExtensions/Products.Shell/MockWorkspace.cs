@@ -22,10 +22,9 @@ using Products.Presentation;
 
 namespace Products.Shell
 {
-
     class MockWorkspace : IWorkspace
     {
-        internal List<Tuple<ProductPartAttribute, Control>> MainControls = new List<Tuple<ProductPartAttribute, Control>>();
+        internal Dictionary<ProductPartAttribute, Control> MainControls = new Dictionary<ProductPartAttribute, Control>();
 
         public void Activate(object smartPart)
         {
@@ -58,8 +57,6 @@ namespace Products.Shell
 
         public void Show(object smartPart, ISmartPartInfo smartPartInfo)
         {
-            Guard.NotNull(smartPart, "smartPart");
-
             var info = smartPartInfo as ProductPartAttribute;
             var smartPartType = smartPart.GetType();
 
@@ -68,14 +65,19 @@ namespace Products.Shell
                 info = smartPartType.GetCustomAttributes(false).OfType<ProductPartAttribute>().FirstOrDefault();
             }
 
-            Guard.NotNull(info, "info");
-
             var control = smartPart as Control;
             if (control == null)
+            {
                 throw new ArgumentException("无效的SmartPart类型，SmartPart必须是直接或间接继承与Control类!");
+            }
+
+            if (this.MainControls.ContainsKey(info))
+            {
+                throw new Exception(string.Format("类型为 {0} 的控件重复，请尝试移除相同的控件或者重命名。", info.ControlType));
+            }
 
             control.Dock = DockStyle.Fill;
-            MainControls.Add(new Tuple<ProductPartAttribute,Control>(info, control));
+            MainControls[info] = control;
         }
 
 #pragma warning disable 67
@@ -86,7 +88,7 @@ namespace Products.Shell
 
         public System.Collections.ObjectModel.ReadOnlyCollection<object> SmartParts
         {
-            get { return new ReadOnlyCollection<object>(MainControls.Select(p=>p.Item2).ToArray()); }
+            get { return new ReadOnlyCollection<object>(MainControls.Values.ToArray()); }
         }
     }
 }

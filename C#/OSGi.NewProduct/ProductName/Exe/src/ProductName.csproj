@@ -113,9 +113,6 @@
     <None Include="app.config">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Menu.Config">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="..\..\..\Libs\Acl.TimeDisplay.dll">

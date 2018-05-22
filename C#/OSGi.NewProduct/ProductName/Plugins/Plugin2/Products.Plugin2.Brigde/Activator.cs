@@ -133,9 +133,9 @@ namespace Products.Plugin2.Bridge
                 //            {
                 //                Thread.Sleep(3000);
 
-                //                Log.Info("正在打开ATS通讯组件...");
+                //                Log.Info("正在打开通讯组件...");
                 //                _commLifeCycle.Open();
-                //                Log.Info("ATS通讯组件已打开。");
+                //                Log.Info("通讯组件已打开。");
                 //            }
 
                 //            Thread.Sleep(10000);
