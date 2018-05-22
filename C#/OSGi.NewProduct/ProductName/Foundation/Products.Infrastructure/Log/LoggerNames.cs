@@ -32,13 +32,12 @@ namespace Products.Infrastructure.Log
         public const string Shell = "Shell";
 
         /// <summary>
+        /// 用户访问控制
+        /// </summary>
+        public const string UAC = "UAC";
+        /// <summary>
         /// Plugin1
         /// </summary>
         public const string Plugin1 = "Plugin1";
-
-        /// <summary>
-        /// Plugin2
-        /// </summary>
-        public const string Plugin2 = "Plugin2";
     }
 }

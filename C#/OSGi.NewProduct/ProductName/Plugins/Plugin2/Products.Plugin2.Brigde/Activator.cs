@@ -4,7 +4,7 @@ using Framework.OSGi;
 using Platform.Bundles.Bridge;
 using Products.Infrastructure.Log;
 
-namespace Products.Plugin2.Bridge
+namespace Products.UAC.Bridge
 {
     /// <summary>
     /// 子系统激活器
@@ -21,7 +21,7 @@ namespace Products.Plugin2.Bridge
         /// 构造函数
         /// </summary>
         public Activator()
-            : base(LoggerNames.Plugin2)
+            : base(LoggerNames.UAC)
         {
         }
 

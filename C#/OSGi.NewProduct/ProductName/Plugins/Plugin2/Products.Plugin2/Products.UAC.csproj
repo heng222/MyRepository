@@ -8,8 +8,8 @@
     <ProjectGuid>{C054B2BA-A931-49DD-A80D-F8A98DBA34AF}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Products.Plugin2</RootNamespace>
-    <AssemblyName>Products.Plugin2</AssemblyName>
+    <RootNamespace>Products.UAC</RootNamespace>
+    <AssemblyName>Products.UAC</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -17,22 +17,22 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\..\bin\Debug\Plugins\Plugin2\</OutputPath>
+    <OutputPath>..\..\..\bin\Debug\Plugins\UAC\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <CodeAnalysisRuleSet>..\..\..\Fxcop.ruleset</CodeAnalysisRuleSet>
     <RunCodeAnalysis>true</RunCodeAnalysis>
-    <DocumentationFile>..\..\..\bin\Debug\Plugins\Plugin2\Products.Plugin2.XML</DocumentationFile>
+    <DocumentationFile>..\..\..\bin\Debug\Plugins\UAC\Products.UAC.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\..\..\bin\Release\Plugins\Plugin2\</OutputPath>
+    <OutputPath>..\..\..\bin\Release\Plugins\UAC\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>..\..\..\bin\Release\Plugins\Plugin2\Products.Plugin2.XML</DocumentationFile>
+    <DocumentationFile>..\..\..\bin\Release\Plugins\UAC\Products.UAC.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />

@@ -55,6 +55,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DTO\UserInfo.cs" />
     <Compile Include="Events\FrameSentCompleteEventArgs.cs" />
     <Compile Include="Events\IncomingFrameEventArgs.cs" />
     <Compile Include="Events\NodeConnectionChangedEventArgs.cs" />
@@ -77,6 +78,7 @@
     <Compile Include="Protocol\InternalFrame.cs" />
     <Compile Include="Protocol\InternalFrameType.cs" />
     <Compile Include="Protocol\InternalFrameVersion.cs" />
+    <Compile Include="Specification\IUserAccessControl.cs" />
     <Compile Include="Types\NodeType.cs" />
     <Compile Include="Types\PluginType.cs" />
     <Compile Include="Types\SystemPrivilege.cs" />

@@ -9,13 +9,18 @@ namespace Products.Infrastructure
     /// 系统权限定义。
     /// 参见RBAC模式中的权限。
     /// </summary>
-    public enum SystemPrivilege : int
+    public enum SystemPrivilege : uint
     {
         /// <summary>
-        /// 无任何权限
+        /// 无任何权限。
         /// </summary>
         [MemberDes("无任何权限")]
-        None = 0,
+        None = uint.MinValue,
+        /// <summary>
+        /// 所有权限。
+        /// </summary>
+        [MemberDes("所有权限")]
+        All = uint.MaxValue,
 
         // 注：region分类原则为RBAC中的What（权限针对的对象或资源）。
 
@@ -145,64 +150,6 @@ namespace Products.Infrastructure
         [MemberDes("道岔强扳操作")]
         SwitchForcedPull = 65,
         
-        #endregion
-
-
-        #region "列车的相关权限"
-        /// <summary>
-        /// 显示列车列表视图。
-        /// </summary>
-        [MemberDes("显示列车列表视图")]
-        ShowOnlineTrainListView = 201,
-        /// <summary>
-        /// 显示车辆使用管理
-        /// </summary>
-        [MemberDes("显示车辆使用管理")]
-        ShowVUM = 203,
-        /// <summary>
-        /// 编辑车辆使用管理
-        /// </summary>
-        [MemberDes("编辑车辆使用管理")]
-        EditVUM = 205,
-        #endregion
-
-
-        #region "运行图的相关权限"
-        /// <summary>
-        /// 显示运行图。
-        /// </summary>
-        [MemberDes("显示运行图")]
-        ShowSchedule = 255,
-        /// <summary>
-        /// 编辑基本图
-        /// </summary>
-        [MemberDes("编辑基本图")]
-        EditBasicTimetable = 257,
-        /// <summary>
-        /// 编辑计划图
-        /// </summary>
-        [MemberDes("编辑计划图")]
-        EditOnlineTimetable = 259,
-        /// <summary>
-        /// 编辑运营计划
-        /// </summary>
-        [MemberDes("编辑运营计划")]
-        EditOperationPlan = 261,
-        /// <summary>
-        /// 编辑派班计划
-        /// </summary>
-        [MemberDes("编辑派班计划")]
-        EditDispatchPlan = 263,
-        /// <summary>
-        /// 编辑编组计划
-        /// </summary>
-        [MemberDes("编辑编组计划")]
-        EditTrainConsist = 265,
-        /// <summary>
-        /// 操作终端发车计划
-        /// </summary>
-        [MemberDes("终端发车计划操作")]
-        EditTerminalDeparturePlan = 267,
         #endregion
 
 
