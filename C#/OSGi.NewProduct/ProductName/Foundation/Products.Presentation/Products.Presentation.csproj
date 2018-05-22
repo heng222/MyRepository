@@ -37,7 +37,7 @@
   <ItemGroup>
     <Reference Include="Acl.Controls">
       <HintPath>..\..\..\Libs\Acl.Controls.dll</HintPath>
-      <Private>False</Private>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Acl.Core">
       <HintPath>..\..\..\Libs\Acl.Core.dll</HintPath>

@@ -43,6 +43,7 @@
     <Bundle-Activator Type="Framework.OSGi.Prefs.Activator"/>
     <Bundle-Activator Type="Framework.OSGi.ConsoleService.Activator"/>
     <Bundle-Activator Type="Platform.Bundles.Bridge.Activator"/>
+    <Bundle-Activator Type="Products.Shell.SplashScrActivator"/>
     <Bundle-Activator Type="Products.Shell.Activator"/>
 
     <!--<Bundle-Extension IsStatic="true" Type=""  StartMethod=""  StopMethod=""/>-->

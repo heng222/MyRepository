@@ -72,6 +72,11 @@
       <HintPath>..\..\..\Libs\Platform.Shell.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Platform.SplashScreen, Version=1.0.0.25, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Libs\Platform.SplashScreen.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />

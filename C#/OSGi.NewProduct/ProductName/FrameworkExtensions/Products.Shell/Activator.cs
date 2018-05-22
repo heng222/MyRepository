@@ -17,7 +17,6 @@ namespace Products.Shell
     {
         private bool _disposed = false;
         private SystemAttributeImpl _sysAttriImpl = new SystemAttributeImpl();
-        private SplashScreenManager _splashSrceen = null;
 
         ~Activator()
         {
