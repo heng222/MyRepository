@@ -1,8 +1,10 @@
 
 using System;
+using Acl.ServiceManagement;
 using Framework.OSGi;
 using Platform.Bundles.Bridge;
 using Products.Infrastructure.Log;
+using Products.UAC.Presentation;
 
 namespace Products.UAC.Bridge
 {
@@ -42,9 +44,8 @@ namespace Products.UAC.Bridge
             //_lifeCycle = facade;
             //_lifeCycle.Open();
 
-            //// 注册IAlarmEntityQueryable接口
-            //ServiceManager.Current.RegisterInstance(facade.AlarmQueryable);
-
+            // 注册IAlarmEntityQueryable接口
+            ServiceManager.Current.RegisterInstance(new TopMemuItemProvider());
             //// 创建表示层
             //Workbench.SendMessage(() =>
             //{
@@ -80,41 +81,6 @@ namespace Products.UAC.Bridge
 
         #region "private methods"
 
-        //private static AtpSettings BuildAtpSettings(IBundleContext context)
-        //{
-        //    var settings = ServiceUtility.GetSettings(context);
-        //    var safetyProtocol = (SafetyCommProtocol)settings.Get<byte>("SafetyProtocol");
-        //    var commLogExpiredDays = (byte)SettingsUtility.GetDecimal(settings, "CommLogExpiredDays", 1, 255, 7);
-        //    var isMachineA = NodeContextManager.LocalNodeCode < NodeContextManager.SiblingCode;
-
-        //    IPAddress redIP, blueIP;
-        //    if (NodeContextManager.LocalNodeType == NodeType.TrainTestLineWorkstation)
-        //    {
-        //        redIP = IPAddress.Parse(settings.Get<string>("TestLineRedIP"));
-        //        blueIP = IPAddress.Parse(settings.Get<string>("TestLineBlueIP"));
-        //    }
-        //    else
-        //    {
-        //        if (isMachineA)
-        //        {
-        //            redIP = IPAddress.Parse(settings.Get<string>("RedNetIP1"));
-        //            blueIP = IPAddress.Parse(settings.Get<string>("BlueNetIP1"));
-        //        }
-        //        else
-        //        {
-        //            redIP = IPAddress.Parse(settings.Get<string>("RedNetIP2"));
-        //            blueIP = IPAddress.Parse(settings.Get<string>("BlueNetIP2"));
-        //        }
-        //    }
-
-        //    // DSU Index
-        //    byte dsuIndex = 1;
-        //        dsuIndex = (byte)SettingsUtility.GetDecimal(settings, "MainLineDsuIndex", 1, 255, 1);
-
-        //    result.CommLogExpiredDays = commLogExpiredDays;
-
-        //    return result;
-        //}
         #endregion
 
         #region IFrameworkListener 成员

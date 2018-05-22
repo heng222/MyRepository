@@ -1,4 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Properties>
+
+  <!-- 本地登录使用的密码 -->
+  <add key="Password" value="BD90EC20356C8875F4269039B1839E6F"/>
   
 </Properties>

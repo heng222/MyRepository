@@ -47,8 +47,14 @@
       <HintPath>..\..\..\..\Libs\Acl.Log.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Platform.Presentation">
+      <HintPath>..\..\..\..\Libs\Platform.Presentation.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -56,9 +62,77 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Domain\ILoginVerification.cs" />
+    <Compile Include="Domain\LocalLoginVerification.cs" />
+    <Compile Include="Domain\ServerLoginVerification.cs" />
     <Compile Include="Facade.cs" />
+    <Compile Include="Presentation\Forms\FormLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\Forms\FormLogin.Designer.cs">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\TopMemuItemProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <None Include="Properties\AssemblyInfo.tpl" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Presentation\Forms\FormLogin.resx">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ImgFemaleDefault.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ImgMaleDefault.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ImgRoleAdmin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ImgRoleGuest.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ModifyPassword.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UserSwitch.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Foundation\Products.Domain\Products.Domain.csproj">
+      <Project>{075ae358-82e8-4ce3-9b4e-1e895a11951d}</Project>
+      <Name>Products.Domain</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Foundation\Products.Infrastructure\Products.Infrastructure.csproj">
+      <Project>{a4b16e5b-561d-4739-b35b-6e4d21e78a47}</Project>
+      <Name>Products.Infrastructure</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Foundation\Products.Presentation\Products.Presentation.csproj">
+      <Project>{b2432701-87ac-4b50-a680-f6f514401fbc}</Project>
+      <Name>Products.Presentation</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Foundation\Products.Resource\Products.Resource.csproj">
+      <Project>{14ab3329-0b97-463f-b803-41fc57fe133d}</Project>
+      <Name>Products.Resource</Name>
+      <Private>False</Private>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
