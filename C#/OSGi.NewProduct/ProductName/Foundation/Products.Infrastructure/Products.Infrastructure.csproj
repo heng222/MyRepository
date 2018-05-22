@@ -45,6 +45,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\Libs\Acl.MessageBus.dll</HintPath>
     </Reference>
+    <Reference Include="Acl.ServiceManagement, Version=1.0.0.30, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Libs\Acl.ServiceManagement.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
@@ -78,6 +82,7 @@
     <Compile Include="Protocol\InternalFrame.cs" />
     <Compile Include="Protocol\InternalFrameType.cs" />
     <Compile Include="Protocol\InternalFrameVersion.cs" />
+    <Compile Include="Specification\GlobalServices.cs" />
     <Compile Include="Specification\IUserAccessControl.cs" />
     <Compile Include="Types\NodeType.cs" />
     <Compile Include="Types\PluginType.cs" />

@@ -104,7 +104,7 @@ namespace Products.Domain.Preferences
         /// <summary>
         /// 从指定的配置接口中获取字节数组。
         /// </summary>
-        public static byte[] GetByteArray(ISettings settings, string key)
+        public static byte[] GetByteArray(ISettings settings, string key, int fromBase = 10)
         {
             if (string.IsNullOrEmpty(key)) throw new ArgumentException();
 
@@ -118,7 +118,7 @@ namespace Products.Domain.Preferences
             {
                 try
                 {
-                    var value = SettingsParser.ParseDecimal(item);
+                    var value = SettingsParser.ParseDecimal(item, fromBase);
                     result.Add(Convert.ToByte(value));
                 }
                 catch (System.FormatException /*ex*/)

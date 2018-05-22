@@ -1,10 +1,13 @@
 
 using System;
+using System.Linq;
 using Acl.ServiceManagement;
 using Framework.OSGi;
 using Platform.Bundles.Bridge;
+using Platform.Bundles.Bridge.Utilities;
+using Products.Domain.Preferences;
 using Products.Infrastructure.Log;
-using Products.UAC.Presentation;
+using Products.UAC.Domain;
 
 namespace Products.UAC.Bridge
 {
@@ -15,7 +18,7 @@ namespace Products.UAC.Bridge
     {
         #region "Filed"
         private bool _disposed = false;
-
+        private UacFacade _facade;
         #endregion
 
         #region "Constructor"
@@ -40,12 +43,13 @@ namespace Products.UAC.Bridge
         {
             // 添加监听器
             context.AddFrameworkListener(this);
-            //var facade = new AlarmFacade();
-            //_lifeCycle = facade;
-            //_lifeCycle.Open();
+
+            var settings = BuildSettings(context);
+            _facade = new UacFacade(settings);
 
             // 注册IAlarmEntityQueryable接口
-            ServiceManager.Current.RegisterInstance(new TopMemuItemProvider());
+            _facade.ComponentsToRegister.ToList().ForEach(p => ServiceManager.Current.RegisterInstance(p));
+
             //// 创建表示层
             //Workbench.SendMessage(() =>
             //{
@@ -80,7 +84,14 @@ namespace Products.UAC.Bridge
         #endregion
 
         #region "private methods"
+        private static UacSettings BuildSettings(IBundleContext context)
+        {
+            var settings = ServiceUtility.GetSettings(context);
 
+            var adminPwd = SettingsUtility.GetByteArray(settings, "AdminPassword", 16);
+
+            return new UacSettings(adminPwd);
+        }
         #endregion
 
         #region IFrameworkListener 成员

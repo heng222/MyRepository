@@ -42,7 +42,7 @@ namespace Products.Infrastructure.DTO
         /// <summary>
         /// 用户拥有的权限。
         /// </summary>
-        public IEnumerable<SystemPrivilege> Privileges { get; set; }
+        public List<SystemPrivilege> Privileges { get; set; }
         #endregion
 
         #region "Constructor"

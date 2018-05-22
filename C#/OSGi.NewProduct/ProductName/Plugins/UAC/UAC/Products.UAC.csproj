@@ -64,8 +64,8 @@
   <ItemGroup>
     <Compile Include="Domain\ILoginVerification.cs" />
     <Compile Include="Domain\LocalLoginVerification.cs" />
-    <Compile Include="Domain\ServerLoginVerification.cs" />
-    <Compile Include="Facade.cs" />
+    <Compile Include="Domain\UacSettings.cs" />
+    <Compile Include="UacFacade.cs" />
     <Compile Include="Presentation\Forms\FormLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -79,6 +79,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Utilities\HelperTool.cs" />
     <None Include="Properties\AssemblyInfo.tpl" />
   </ItemGroup>
   <ItemGroup />

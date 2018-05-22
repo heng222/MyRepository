@@ -31,18 +31,20 @@ namespace Products.UAC.Presentation
         /// </summary>
         private List<ToolStripMenuItem> _topMenuItems = new List<ToolStripMenuItem>();
 
-        //private ToolStripMenuItem miUserLogoff;
-        //private ToolStripMenuItem miChangePwd;
         #endregion
 
         #region "Constructor"
-        public TopMemuItemProvider()
+        public TopMemuItemProvider(ILoginVerification verify)
         {
+            if (verify == null) throw new ArgumentException("登录验证接口不能为空引用。");
+
+            this.Verify = verify;
             this.InitializeMenu();
         }
         #endregion
 
         #region "Properties"
+        public ILoginVerification Verify { get; private set; }
         #endregion
 
         #region "Override methods"
@@ -52,11 +54,23 @@ namespace Products.UAC.Presentation
         private void OnUserSwitch(object sender, EventArgs e)
         {
             try
-            {
-                var verifObj = new LocalLoginVerification();
-                var frmLogin = new FormLogin(verifObj);
-
+            {                
+                var frmLogin = new FormLogin(this.Verify);
                 frmLogin.ShowDialog();
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show(ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void OnLogoff(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Verify.Logoff();
+
+                MessageBox.Show("注销成功。", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (System.Exception ex)
             {
@@ -76,7 +90,7 @@ namespace Products.UAC.Presentation
 
             var miUserChange = new ToolStripMenuItem();
             //miUserChange.Tag = UserManagementCommands.SwitchUser;
-            miUserChange.Text = "用户切换(&S)";
+            miUserChange.Text = "用户切换(&S)...";
             miUserChange.Image = Resources.UserSwitch;
             miUserChange.Click += new EventHandler(OnUserSwitch);
             userMenuItem.DropDownItems.Add(miUserChange);
@@ -89,14 +103,13 @@ namespace Products.UAC.Presentation
             //miChangePwd.Click += new EventHandler(OnUpdatePassword);
             //userMenuItem.DropDownItems.Add(miChangePwd);
 
-            //miUserLogoff = new ToolStripMenuItem();
-            //miUserLogoff.Enabled = false;
-            //miUserLogoff.Name = "miUserLogoff";
+            var miUserLogoff = new ToolStripMenuItem();
+            miUserLogoff.Name = "miUserLogoff";
             //miUserLogoff.Tag = UserManagementCommands.Logoff;
-            //miUserLogoff.Text = "注销(&X)";
-            //miUserLogoff.Image = Resources.Logout;
-            //miUserLogoff.Click += new EventHandler(OnLogoff);
-            //userMenuItem.DropDownItems.Add(miUserLogoff);
+            miUserLogoff.Text = "注销(&X)";
+            miUserLogoff.Image = Resources.Logout;
+            miUserLogoff.Click += new EventHandler(OnLogoff);
+            userMenuItem.DropDownItems.Add(miUserLogoff);
 
             _topMenuItems.Add(userMenuItem);
         }

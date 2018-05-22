@@ -28,11 +28,22 @@ namespace Products.Domain.Preferences
         /// 将指定的数据形式的字符串转化为等效的数值。
         /// </summary>
         /// <param name="value">可以是10进制或16进制的字符串。16进制的字符串示例：“0X12”“0xDA”,"10H"。</param>
+        /// <param name="fromBase"></param>
         /// <returns></returns>
-        public static Decimal ParseDecimal(string value)
+        public static Decimal ParseDecimal(string value, int fromBase = 10)
         {
-            if (value.Contains("0x") || value.Contains("0X")
-                || value.Contains("H") || value.Contains("h"))
+            if (fromBase == 16)
+            {
+                return Convert.ToUInt64(value.Trim(), 16);
+            }
+            else if (value.Contains("0x") || value.Contains("0X")
+                || value.Contains('H') || value.Contains('h')
+                || value.Contains('a') || value.Contains('A')
+                || value.Contains('b') || value.Contains('B')
+                || value.Contains('c') || value.Contains('C')
+                || value.Contains('d') || value.Contains('D')
+                || value.Contains('e') || value.Contains('E')
+                || value.Contains('f') || value.Contains('F'))
             {
                 return Convert.ToUInt64(value.Trim(), 16);
             }
