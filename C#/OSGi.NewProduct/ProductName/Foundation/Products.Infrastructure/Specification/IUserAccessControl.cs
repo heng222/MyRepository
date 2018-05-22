@@ -11,6 +11,11 @@ namespace Products.Infrastructure.Specification
     public interface IUserAccessControl
     {
         /// <summary>
+        /// 获取当前用户编号。
+        /// </summary>
+        uint CurrentUserCode { get; }
+
+        /// <summary>
         /// 获取当前用户名称。
         /// </summary>
         string CurrentUserName { get; }

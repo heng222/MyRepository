@@ -59,7 +59,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DTO\UserInfo.cs" />
     <Compile Include="Events\FrameSentCompleteEventArgs.cs" />
     <Compile Include="Events\IncomingFrameEventArgs.cs" />
     <Compile Include="Events\NodeConnectionChangedEventArgs.cs" />
@@ -92,6 +91,7 @@
     <Compile Include="Specification\ISystemAttribute.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="DTO\" />
     <Folder Include="Entities\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

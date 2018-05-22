@@ -93,13 +93,12 @@ namespace Products.Shell.Presentation.MainForm
             _statusLabelUserCode.TextAlign = ContentAlignment.MiddleCenter;
             _statusLabelUserCode.Click += OnUserCodeOrNameLableClick;
 
-            //// stslbUserName
-            //_statusLabelUserName.Visible = NodeContextManager.Current.ControlTypes.Contains(PresentationControlType.Logon);
-            //_statusLabelUserName.AutoSize = false;
-            //_statusLabelUserName.Width = 120;
-            //_statusLabelUserName.Text = "用户名：";
-            //_statusLabelUserName.TextAlign = ContentAlignment.MiddleCenter;
-            //_statusLabelUserName.Click += OnUserCodeOrNameLableClick;
+            // stslbUserName
+            _statusLabelUserName.AutoSize = false;
+            _statusLabelUserName.Width = 120;
+            _statusLabelUserName.Text = "用户名：";
+            _statusLabelUserName.TextAlign = ContentAlignment.MiddleCenter;
+            _statusLabelUserName.Click += OnUserCodeOrNameLableClick;
 
             //// stslbUserRole
             //_statusLabelUserRole.Visible = NodeContextManager.Current.ControlTypes.Contains(PresentationControlType.Logon);
@@ -108,11 +107,11 @@ namespace Products.Shell.Presentation.MainForm
             //_statusLabelUserRole.Text = "角色：";
             //_statusLabelUserRole.TextAlign = ContentAlignment.MiddleCenter;
             
-            // stslMachineName
-            _statusLabelNodeName.AutoSize = false;
-            _statusLabelNodeName.Width = 180;
-            _statusLabelNodeName.Text = "设备名称：";
-            _statusLabelNodeName.TextAlign = ContentAlignment.MiddleCenter;
+            //// stslMachineName
+            //_statusLabelNodeName.AutoSize = false;
+            //_statusLabelNodeName.Width = 180;
+            //_statusLabelNodeName.Text = "设备名称：";
+            //_statusLabelNodeName.TextAlign = ContentAlignment.MiddleCenter;
 
             //// stslbUserStation
             //_statusLabelLocation.Visible = NodeContextManager.Current.ControlTypes.Contains(PresentationControlType.Logon);
@@ -121,12 +120,12 @@ namespace Products.Shell.Presentation.MainForm
             //_statusLabelLocation.Text = "登录位置";
             //_statusLabelLocation.TextAlign = ContentAlignment.MiddleCenter;
 
-            // 数据库状态。
-            _statusLabelDbText.Text = "数据库状态";
-            _statusLabelDbText.TextAlign = ContentAlignment.MiddleCenter;
-            _statusLabelDbState.Text = "     ";
-            _statusLabelDbState.AutoToolTip = false;
-            _statusLabelDbState.BackColor = Color.Black;
+            //// 数据库状态。
+            //_statusLabelDbText.Text = "数据库状态";
+            //_statusLabelDbText.TextAlign = ContentAlignment.MiddleCenter;
+            //_statusLabelDbState.Text = "     ";
+            //_statusLabelDbState.AutoToolTip = false;
+            //_statusLabelDbState.BackColor = Color.Black;
 
             //// 主备状态
             //_statusLabelHotstandbyText.Visible = NodeContextManager.HasSibling();
@@ -180,8 +179,8 @@ namespace Products.Shell.Presentation.MainForm
         {
             try
             {
-                //_statusLabelUserCode.Text = string.Format("用户编号：{0}", CurrentUserDetail.Instance.Id);
-                //_statusLabelUserName.Text = string.Format("用户名称：{0}", CurrentUserDetail.Instance.Name);
+                _statusLabelUserCode.Text = string.Format("用户编号：{0}", GlobalServices.UAC.CurrentUserCode);
+                _statusLabelUserName.Text = string.Format("用户名称：{0}", GlobalServices.UAC.CurrentUserName);
                 //_statusLabelUserRole.Text = string.Format("角色：{0}", CurrentUserDetail.Instance.RoleName);
                 ////_statusLabelDepart.Text = string.Format("部门：{0}", CurrentUserDetail.Instance.DepartName);
                 //_statusLabelNodeName.Text = string.Format("节点名称：{0}", NodeContextManager.Current.Name);

@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Products.Infrastructure;
 
-namespace Products.Infrastructure.DTO
+namespace Products.UAC
 {
     /// <summary>
     /// 用户信息。
     /// </summary>
-    public class UserInfo
+    class UserInfo
     {
         #region "系统内置用户"
         /// <summary>

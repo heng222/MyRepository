@@ -12,14 +12,9 @@
 //----------------------------------------------------------------*/
 
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
 using Products.Infrastructure;
-using Products.Infrastructure.DTO;
+using Products.Infrastructure.Messages;
 using Products.Infrastructure.Specification;
-using Products.Infrastructure.Types;
 using Products.UAC.Utilities;
 
 namespace Products.UAC.Domain
@@ -62,24 +57,38 @@ namespace Products.UAC.Domain
             if (!HelperTool.BytesEquals(this.Settings.AdminPassword, pwdMd5))
                 throw new Exception("密码不正确。");
 
+            // 发布用户将要切换事件。
+            GlobalMessageBuses.PublishUserChanging(new EventArgs());
+
+            // 切换用户。
+            _currentUser.Id = UserInfo.Administrator;
             _currentUser.Name = userName;
             _currentUser.Privileges.Clear();
-            _currentUser.Privileges.Add(SystemPrivilege.All);            
+            _currentUser.Privileges.Add(SystemPrivilege.All);
+
+            // 发布用户切换事件。
+            GlobalMessageBuses.PublishUserChanged(new EventArgs());       
         }
 
         public void Logoff()
         {
-            _currentUser.Name = "Guest";
+            // 发布用户将要切换事件。
+            GlobalMessageBuses.PublishUserChanging(new EventArgs());
+
+            // 切换用户。
             _currentUser.Id = UserInfo.Guest;
+            _currentUser.Name = "Guest";
             _currentUser.Privileges.Clear();
+
+            // 发布用户切换事件。
+            GlobalMessageBuses.PublishUserChanged(new EventArgs());       
         }
         #endregion
 
         #region "IUserAccessControl 方法"
-        public string CurrentUserName
-        {
-            get { return _currentUser.Name; }
-        }
+        public uint CurrentUserCode { get { return _currentUser.Id; } }
+
+        public string CurrentUserName { get { return _currentUser.Name; } }
 
         public bool Contains(SystemPrivilege privilege)
         {

@@ -13,6 +13,7 @@ using Products.Resource;
 using Products.Shell.Presentation.MainForm;
 using Products.Shell.Properties;
 using WeifenLuo.WinFormsUI.Docking;
+using Products.Infrastructure.Specification;
 
 namespace Products.Shell
 {
@@ -301,13 +302,12 @@ namespace Products.Shell
         /// </summary>
         public string BuildDockConfigFileName()
         {
-            //var fileName = string.Format("DockPanel_{0}{1}_{2}{3}.config", CurrentUserDetail.Instance.Id, CurrentUserDetail.Instance.Name,
-            //                                                NodeContextManager.Current.Code, NodeContextManager.Current.Name);
+            var fileName = string.Format("DockPanel_{0}{1}.config",
+                GlobalServices.UAC.CurrentUserCode, GlobalServices.UAC.CurrentUserName);
 
-            //var pathFileName = Path.Combine(Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location), fileName);
+            var pathFileName = Path.Combine(Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location), fileName);
 
-            //return pathFileName;
-            return Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "DockPanel.config");
+            return pathFileName;
         }
         public void SaveDockConfigToFile()
         {

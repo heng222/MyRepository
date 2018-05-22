@@ -47,6 +47,10 @@
       <HintPath>..\..\..\..\Libs\Acl.Log.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Acl.MessageBus">
+      <HintPath>..\..\..\..\Libs\Acl.MessageBus.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Platform.Presentation">
       <HintPath>..\..\..\..\Libs\Platform.Presentation.dll</HintPath>
       <Private>False</Private>
@@ -65,6 +69,7 @@
     <Compile Include="Domain\ILoginVerification.cs" />
     <Compile Include="Domain\LocalLoginVerification.cs" />
     <Compile Include="Domain\UacSettings.cs" />
+    <Compile Include="Domain\UserInfo.cs" />
     <Compile Include="UacFacade.cs" />
     <Compile Include="Presentation\Forms\FormLogin.cs">
       <SubType>Form</SubType>
