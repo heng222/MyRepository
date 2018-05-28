@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{336E1EB1-B0B4-4F36-AB49-21A83858BDCB}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Products.SystemEvents.Bridge</RootNamespace>
+    <AssemblyName>Products.SystemEvents.Bridge</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\bin\Debug\Plugins\SystemEvents\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>..\..\..\bin\Debug\Plugins\SystemEvents\Products.SystemEvents.Bridge.XML</DocumentationFile>
+    <CodeAnalysisRuleSet>..\..\..\Fxcop.ruleset</CodeAnalysisRuleSet>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\..\bin\Release\Plugins\SystemEvents\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>..\..\..\bin\Release\Plugins\SystemEvents\Products.SystemEvents.Bridge.XML</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Acl.Controls">
+      <HintPath>..\..\..\..\Libs\Acl.Controls.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Acl.Core">
+      <HintPath>..\..\..\..\Libs\Acl.Core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Acl.Log">
+      <HintPath>..\..\..\..\Libs\Acl.Log.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Acl.ServiceManagement">
+      <HintPath>..\..\..\..\Libs\Acl.ServiceManagement.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Framework.OSGi.Core">
+      <HintPath>..\..\..\..\Libs\Framework.OSGi.Core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Platform.Bundles.Bridge">
+      <HintPath>..\..\..\..\Libs\Platform.Bundles.Bridge.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Platform.Presentation">
+      <HintPath>..\..\..\..\Libs\Platform.Presentation.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\AssemblyInfo.tpl" />
+    <Compile Include="Activator.cs" />
+    <Compile Include="BundleSpecification.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Foundation\Products.Domain\Products.Domain.csproj">
+      <Project>{075ae358-82e8-4ce3-9b4e-1e895a11951d}</Project>
+      <Name>Products.Domain</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Foundation\Products.Infrastructure\Products.Infrastructure.csproj">
+      <Project>{a4b16e5b-561d-4739-b35b-6e4d21e78a47}</Project>
+      <Name>Products.Infrastructure</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Foundation\Products.Presentation\Products.Presentation.csproj">
+      <Project>{b2432701-87ac-4b50-a680-f6f514401fbc}</Project>
+      <Name>Products.Presentation</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Foundation\Products.Resource\Products.Resource.csproj">
+      <Project>{14ab3329-0b97-463f-b803-41fc57fe133d}</Project>
+      <Name>Products.Resource</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\SystemEvents\Products.SystemEvents.csproj">
+      <Project>{e9ff2c44-1d65-4616-b77a-e3eff5ee09a0}</Project>
+      <Name>Products.SystemEvents</Name>
+      <Private>False</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="manifest.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="prefs.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>if "$(ConfigurationName)"=="Release" (SubWcRev "$(ProjectDir)\" "$(ProjectDir)Properties\AssemblyInfo.tpl" "$(ProjectDir)Properties\AssemblyInfo.cs")</PreBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
