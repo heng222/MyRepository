@@ -36,6 +36,10 @@ namespace Products.Infrastructure.Log
         /// </summary>
         public const string UAC = "UAC";
         /// <summary>
+        /// 系统事件管理
+        /// </summary>
+        public const string SEM = "SEM";
+        /// <summary>
         /// Plugin1
         /// </summary>
         public const string Plugin1 = "Plugin1";

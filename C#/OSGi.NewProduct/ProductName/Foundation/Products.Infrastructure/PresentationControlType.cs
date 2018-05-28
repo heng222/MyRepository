@@ -29,6 +29,14 @@ namespace Products.Infrastructure
         NixieTubeClock = 2,
         #endregion
 
+        #region "SEM"
+        /// <summary>
+        /// 系统事件
+        /// </summary>
+        [MemberDesAttribute("系统事件")]
+        SystemEvent = 11,
+        #endregion
+
         #region  "Plugin1"
         /// <summary>
         /// Plugin1Control1

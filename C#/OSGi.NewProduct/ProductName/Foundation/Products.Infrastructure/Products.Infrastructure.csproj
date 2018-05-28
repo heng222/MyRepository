@@ -59,10 +59,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\EventLog.cs" />
     <Compile Include="Events\FrameSentCompleteEventArgs.cs" />
     <Compile Include="Events\IncomingFrameEventArgs.cs" />
     <Compile Include="Events\NodeConnectionChangedEventArgs.cs" />
     <Compile Include="Events\OutgoingFrameEventArgs.cs" />
+    <Compile Include="Events\NewSystemEventArgs.cs" />
     <Compile Include="Log\CommLogParserCode.cs" />
     <Compile Include="Log\LoggerNames.cs" />
     <Compile Include="Log\LogLevelManager.cs" />
@@ -83,6 +85,8 @@
     <Compile Include="Protocol\InternalFrameVersion.cs" />
     <Compile Include="Specification\GlobalServices.cs" />
     <Compile Include="Specification\IUserAccessControl.cs" />
+    <Compile Include="Types\EventLevel.cs" />
+    <Compile Include="Types\EventType.cs" />
     <Compile Include="Types\NodeType.cs" />
     <Compile Include="Types\PluginType.cs" />
     <Compile Include="Types\SystemPrivilege.cs" />
@@ -92,7 +96,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DTO\" />
-    <Folder Include="Entities\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

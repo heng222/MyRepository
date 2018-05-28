@@ -207,6 +207,29 @@ namespace Products.Infrastructure.Messages
         #endregion
 
 
+        #region "系统事件相关消息"
+        /// <summary>
+        /// 系统事件产生消息。
+        /// </summary>
+        private const string SystemEventTopic = "local://SystemEventManagement/NewEvent";
+        /// <summary>
+        /// 订阅 新的系统事件 产生消息。
+        /// </summary>
+        public static IDisposable SubscribeNewSystemEventGenerated(Action<object, NewSystemEventArgs> handler)
+        {
+            return LocalMessageBus.Current.Subscribe<NewSystemEventArgs>(SystemEventTopic, handler, SubscribeMode.Sync);
+        }
+        /// <summary>
+        /// 发布 新的系统事件 产生消息。
+        /// </summary>
+        public static IMessageResponse PublishNewSystemEventGenerated(NewSystemEventArgs args, object sender = null)
+        {
+            return LocalMessageBus.Current.Publish(SystemEventTopic, args, sender, false);
+        }
+
+        #endregion
+
+
         #region "通信日志Rollover消息"
 
         /// <summary>
