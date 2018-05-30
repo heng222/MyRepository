@@ -22,7 +22,7 @@ namespace Products.Infrastructure.Events
     /// 协议帧输出事件参数类。
     /// 用于发件人期望送件人将协议帧发送到目的地。
     /// </summary>
-    public class OutgoingFrameEventArgs<TProtocol> : EventArgs where TProtocol : ProtocolFrame
+    public class FrameOutgoingEventArgs<TProtocol> : EventArgs where TProtocol : ProtocolFrame
     {
         #region "Filed"
         /// <summary>
@@ -36,7 +36,7 @@ namespace Products.Infrastructure.Events
         /// 构造一个协议帧接收消息的事件参数类
         /// </summary>
         /// <param name="frame">协议帧对象的引用，不能为空</param>
-        public OutgoingFrameEventArgs(TProtocol frame)
+        public FrameOutgoingEventArgs(TProtocol frame)
         {
             if (frame == null) throw new ArgumentNullException();
 
@@ -50,7 +50,7 @@ namespace Products.Infrastructure.Events
         /// 构造一个协议帧接收消息的事件参数类
         /// </summary>
         /// <param name="bytesStream">协议帧对应的字节流</param>
-        public OutgoingFrameEventArgs(byte[] bytesStream)
+        public FrameOutgoingEventArgs(byte[] bytesStream)
         {
             if (bytesStream == null) throw new ArgumentNullException();
 

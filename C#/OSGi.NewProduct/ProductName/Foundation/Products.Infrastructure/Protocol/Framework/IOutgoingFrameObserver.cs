@@ -28,6 +28,6 @@ namespace Products.Infrastructure.Protocol.Framework
         /// 处理将要发送的协议帧。
         /// </summary>
         /// <param name="e">OutgoingFrameArgs事件参数对象</param>
-        void HandleFrame(OutgoingFrameEventArgs<TProtocol> e);
+        void HandleFrame(FrameOutgoingEventArgs<TProtocol> e);
     }
 }

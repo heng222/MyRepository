@@ -9,18 +9,18 @@ namespace Products.Infrastructure
     /// 系统权限定义。
     /// 参见RBAC模式中的权限。
     /// </summary>
-    public enum SystemPrivilege : uint
+    public enum SystemPrivilege : byte
     {
         /// <summary>
         /// 无任何权限。
         /// </summary>
         [MemberDes("无任何权限")]
-        None = uint.MinValue,
+        None = byte.MinValue,
         /// <summary>
         /// 所有权限。
         /// </summary>
         [MemberDes("所有权限")]
-        All = uint.MaxValue,
+        All = byte.MaxValue,
 
         // 注：region分类原则为RBAC中的What（权限针对的对象或资源）。
 
@@ -155,25 +155,25 @@ namespace Products.Infrastructure
 
         #region "节点的相关权限"
         /// <summary>
-        /// 编辑节点拓扑图
+        /// 编辑节点
         /// </summary>
-        [MemberDes("编辑节点拓扑图")]
-        EditNodeTopologyModel = 305,
+        [MemberDes("编辑节点")]
+        EditDeviceNode = 100,
         /// <summary>
         /// 显示全线节点状态
         /// </summary>
         [MemberDes("显示全线节点状态")]
-        ShowGlobalNodeState = 307,
+        ShowGlobalNodeState = 101,
         /// <summary>
         /// 显示车站节点状态。
         /// </summary>
         [MemberDes("显示车站节点状态")]
-        ShowStationNodeState = 309,
+        ShowStationNodeState = 102,
         /// <summary>
         /// 显示工具栏式节点状态。
         /// </summary>
         [MemberDes("显示工具栏式节点状态")]
-        ShowToolbarNodeState = 311,
+        ShowToolbarNodeState = 103,
         #endregion
 
 
@@ -182,12 +182,12 @@ namespace Products.Infrastructure
         /// 查看用户信息。
         /// </summary>
         [MemberDes("查看用户信息")]
-        ShowUserInfo = 335,
+        ShowUserInfo = 110,
         /// <summary>
         /// 编辑用户
         /// </summary>
         [MemberDes("编辑用户")]
-        EditUser = 336,
+        EditUser = 111,
         #endregion
 
 
@@ -196,17 +196,17 @@ namespace Products.Infrastructure
         /// 显示报警信息。
         /// </summary>
         [MemberDes("显示报警信息")]
-        ShowAlarm = 441,
+        ShowAlarm = 120,
         /// <summary>
         /// 编辑报警信息
         /// </summary>
         [MemberDes("编辑报警信息")]
-        EditAlarm = 443,
+        EditAlarm = 121,
         /// <summary>
         /// 表示用户可以进行报警确认操作。
         /// </summary>
         [MemberDes("报警确认")]
-        ConfirmAlarm = 445,
+        ConfirmAlarm = 122,
         #endregion
         
     }

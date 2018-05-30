@@ -22,7 +22,7 @@ namespace Products.Infrastructure.Events
     /// 协议帧输入事件参数类。
     /// 表示收件人收到协议帧。
     /// </summary>
-    public class IncomingFrameEventArgs<TProtocol> : EventArgs where TProtocol : ProtocolFrame
+    public class FrameIncomingEventArgs<TProtocol> : EventArgs where TProtocol : ProtocolFrame
     {
         #region "Filed"
         #endregion
@@ -35,7 +35,7 @@ namespace Products.Infrastructure.Events
         /// <param name="bytesStream">协议帧对应的字节流</param>
         /// <param name="remoteDeviceId">协议帧发送方的设备ID</param>
         /// <param name="timeDelay">发送时延</param>
-        public IncomingFrameEventArgs(TProtocol frame,
+        public FrameIncomingEventArgs(TProtocol frame,
             byte[] bytesStream,
             UInt32 remoteDeviceId,
             UInt32 timeDelay = 0)
@@ -51,7 +51,7 @@ namespace Products.Infrastructure.Events
         /// <param name="bytesStream">协议帧对应的字节流</param>
         /// <param name="remoteDeviceId">协议帧发送方的设备ID</param>
         /// <param name="timeDelay">发送时延</param>
-        public IncomingFrameEventArgs(byte[] bytesStream,
+        public FrameIncomingEventArgs(byte[] bytesStream,
             UInt32 remoteDeviceId,
             UInt32 timeDelay = 0)
         {

@@ -61,9 +61,9 @@
   <ItemGroup>
     <Compile Include="Entities\EventLog.cs" />
     <Compile Include="Events\FrameSentCompleteEventArgs.cs" />
-    <Compile Include="Events\IncomingFrameEventArgs.cs" />
-    <Compile Include="Events\NodeConnectionChangedEventArgs.cs" />
-    <Compile Include="Events\OutgoingFrameEventArgs.cs" />
+    <Compile Include="Events\FrameIncomingEventArgs.cs" />
+    <Compile Include="Events\CommStateChangedEventArgs.cs" />
+    <Compile Include="Events\FrameOutgoingEventArgs.cs" />
     <Compile Include="Events\NewSystemEventArgs.cs" />
     <Compile Include="Log\CommLogParserCode.cs" />
     <Compile Include="Log\LoggerNames.cs" />

@@ -19,9 +19,9 @@ using Products.Infrastructure.Types;
 namespace Products.Infrastructure.Events
 {
     /// <summary>
-    /// 节点间连接状态变化事件参数类
+    /// （节点间）通信状态变化事件参数类
     /// </summary>
-    public sealed class NodeConnectionChangedEventArgs : EventArgs
+    public sealed class CommStateChangedEventArgs : EventArgs
     {
         #region "Filed"
         #endregion
@@ -34,7 +34,7 @@ namespace Products.Infrastructure.Events
         /// <param name="localId"></param>
         /// <param name="remoteId"></param>
         /// <param name="remoteType"></param>
-        public NodeConnectionChangedEventArgs(bool connected, uint localId, 
+        public CommStateChangedEventArgs(bool connected, uint localId, 
             uint remoteId, NodeType remoteType)
         {
             this.Connected = connected;

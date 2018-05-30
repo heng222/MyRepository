@@ -70,16 +70,16 @@ namespace Products.Infrastructure.Messages
         /// 订阅系统内部协议帧进入消息
         /// </summary>
         [SuppressMessage("Microsoft.Design", "CA1006:DoNotNestGenericTypesInMemberSignatures")]
-        public static IDisposable SubscribeInternalFrameIncoming(Action<object, IncomingFrameEventArgs<InternalFrame>> handler)
+        public static IDisposable SubscribeInternalFrameIncoming(Action<object, FrameIncomingEventArgs<InternalFrame>> handler)
         {
-            return InternalFrameMessagBus.Subscribe<IncomingFrameEventArgs<InternalFrame>>(
+            return InternalFrameMessagBus.Subscribe<FrameIncomingEventArgs<InternalFrame>>(
                 InnerFrameIncoming,
                 handler, SubscribeMode.Sync);
         }
         /// <summary>
         /// 发布系统内部协议帧进入消息
         /// </summary>
-        public static IMessageResponse PublishInternalFrameIncoming(IncomingFrameEventArgs<InternalFrame> frameIncoming, object sender = null)
+        public static IMessageResponse PublishInternalFrameIncoming(FrameIncomingEventArgs<InternalFrame> frameIncoming, object sender = null)
         {
             return InternalFrameMessagBus.Publish(InnerFrameIncoming,
                 frameIncoming, sender, false);
@@ -89,16 +89,16 @@ namespace Products.Infrastructure.Messages
         /// 订阅系统内部协议帧离去消息
         /// </summary>
         [SuppressMessage("Microsoft.Design", "CA1006:DoNotNestGenericTypesInMemberSignatures")]
-        public static IDisposable SubscribeInternalFrameOutgoing(Action<object, OutgoingFrameEventArgs<InternalFrame>> handler)
+        public static IDisposable SubscribeInternalFrameOutgoing(Action<object, FrameOutgoingEventArgs<InternalFrame>> handler)
         {
-            return InternalFrameMessagBus.Subscribe<OutgoingFrameEventArgs<InternalFrame>>(
+            return InternalFrameMessagBus.Subscribe<FrameOutgoingEventArgs<InternalFrame>>(
                 InnerFrameOutgoing,
                 handler, SubscribeMode.Sync);
         }
         /// <summary>
         /// 发布系统内部协议帧离去消息
         /// </summary>
-        public static IMessageResponse PublishInternalFrameOutgoing(OutgoingFrameEventArgs<InternalFrame> frameOutgoing, object sender = null)
+        public static IMessageResponse PublishInternalFrameOutgoing(FrameOutgoingEventArgs<InternalFrame> frameOutgoing, object sender = null)
         {
             var response = InternalFrameMessagBus.Publish(InnerFrameOutgoing,
                 frameOutgoing, sender, false);
@@ -108,35 +108,30 @@ namespace Products.Infrastructure.Messages
 
         #endregion
 
-        #region "节点连接变化消息"
+        #region "通信状态变化消息"
         /// <summary>
-        /// 节点连接变化消息总线。
+        /// 通信状态变化消息总线。
         /// </summary>
-        private static IMessageBus NodeConnectionMessagBus = LocalMessageBus.NewMessageBus();
+        private static IMessageBus CommStateChangedMessagBus = LocalMessageBus.NewMessageBus();
         /// <summary>
         /// 设备间连接发生变化
         /// </summary>
         private const string NodeConnectionChanged = "local://NDM/ConnectionChanged";
         /// <summary>
-        /// 订阅节点连接变化消息
+        /// 订阅通信状态变化消息
         /// </summary>
-        /// <param name="handler"></param>
-        /// <returns></returns>
-        public static IDisposable SubscribeNodeConnectionChanged(Action<object, NodeConnectionChangedEventArgs> handler)
+        public static IDisposable SubscribeCommStateChanged(Action<object, CommStateChangedEventArgs> handler)
         {
-            return NodeConnectionMessagBus.Subscribe<NodeConnectionChangedEventArgs>(
+            return CommStateChangedMessagBus.Subscribe<CommStateChangedEventArgs>(
                 NodeConnectionChanged,
                handler, SubscribeMode.Sync);
         }
         /// <summary>
-        /// 发布节点连接变化消息
+        /// 发布通信状态变化消息
         /// </summary>
-        /// <param name="args"></param>
-        /// <param name="sender"></param>
-        /// <returns></returns>
-        public static IMessageResponse PublishNodeConnectionChanged(NodeConnectionChangedEventArgs args, object sender = null)
+        public static IMessageResponse PublishCommStateChanged(CommStateChangedEventArgs args, object sender = null)
         {
-            return NodeConnectionMessagBus.Publish(NodeConnectionChanged,
+            return CommStateChangedMessagBus.Publish(NodeConnectionChanged,
                 args, sender, false);
         }
         #endregion
