@@ -13,7 +13,7 @@ namespace Products.Shell.MainView
     [ProductPart(ControlType = PresentationControlType.NixieTubeClock)]
     public partial class NixieTubeClockControl : UserControl
     {
-        private static readonly Brush DefaultBackgroundBrush = Brushes.Gray;
+        //private static readonly Brush DefaultBackgroundBrush = Brushes.Gray;
 
         #region "Field"
         private TimeDisplayControl _timeControl = null;
@@ -31,7 +31,6 @@ namespace Products.Shell.MainView
             this.CreateTimeControl();
 
             InitializeUi();
-
         }
         #endregion
 
@@ -46,16 +45,16 @@ namespace Products.Shell.MainView
         {
             _timeControl = new TimeDisplayControl() { Dock = DockStyle.Fill };
 
-            _timeControl.ProgressBarVisible = false;
-            _timeControl.SpliterColor = Color.WhiteSmoke;
+            _timeControl.ProgressBarVisible = true;
+            //_timeControl.SpliterColor = Color.WhiteSmoke;
 
             _timeControl.DateWeekVisable = true;
-            _timeControl.DateBrush = Brushes.White;
-            _timeControl.WeekBrush = Brushes.White;
-            _timeControl.DateWeekBackgroundBrush = DefaultBackgroundBrush;
+            //_timeControl.DateBrush = Brushes.White;
+            //_timeControl.WeekBrush = Brushes.White;
+            //_timeControl.DateWeekBackgroundBrush = DefaultBackgroundBrush;
 
-            _timeControl.TimeColor = Color.White;
-            _timeControl.TimeBackgroundBrush = DefaultBackgroundBrush;
+            _timeControl.TimeColor = Color.FromArgb(0, 255, 0);
+            //_timeControl.TimeBackgroundBrush = DefaultBackgroundBrush;
 
             this.Controls.Add(_timeControl);
         }
