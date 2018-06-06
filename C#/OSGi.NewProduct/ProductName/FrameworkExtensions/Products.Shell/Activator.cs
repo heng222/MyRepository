@@ -44,7 +44,7 @@ namespace Products.Shell
                 MainWorkSpace.AddPart(new LogControl(), Resources.AppLog);
 
                 // 创建数码管时钟控件
-                MainWorkSpace.AddPart(new DNetNixieTubeClockControl(), Resources.NixietubeClock);
+                MainWorkSpace.AddPart(new NixieTubeClockControl(), Resources.NixietubeClock);
 
                 // 常规配置
                 IOptionControl optionControl = new GeneralConfigPage();

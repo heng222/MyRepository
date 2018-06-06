@@ -132,11 +132,11 @@
     <Compile Include="MainView\LogControl.designer.cs">
       <DependentUpon>LogControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainView\DNetNixieTubeClockControl.cs">
+    <Compile Include="MainView\NixieTubeClockControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="MainView\DNetNixieTubeClockControl.designer.cs">
-      <DependentUpon>DNetNixieTubeClockControl.cs</DependentUpon>
+    <Compile Include="MainView\NixieTubeClockControl.designer.cs">
+      <DependentUpon>NixieTubeClockControl.cs</DependentUpon>
     </Compile>
     <Compile Include="MockWorkspace.cs" />
     <Compile Include="SplashScrActivator.cs" />
@@ -167,8 +167,8 @@
     <EmbeddedResource Include="MainView\LogControl.resx">
       <DependentUpon>LogControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainView\DNetNixieTubeClockControl.resx">
-      <DependentUpon>DNetNixieTubeClockControl.cs</DependentUpon>
+    <EmbeddedResource Include="MainView\NixieTubeClockControl.resx">
+      <DependentUpon>NixieTubeClockControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
