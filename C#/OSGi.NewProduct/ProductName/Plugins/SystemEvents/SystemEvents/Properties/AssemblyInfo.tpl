@@ -28,3 +28,15 @@ using System.Runtime.InteropServices;
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.$WCREV$")]
 [assembly: AssemblyFileVersion("1.0.0.$WCREV$")]
+
+
+// 检查是否存在 混合版本 以及 未提交的修改。
+#if !DEBUG 
+    #if $WCMIXED?true:false$ 
+        #warning Mixed version found, please recompile after svn update!
+    #endif 
+    
+    #if $WCMODS?true:false$ 
+        #warning Modification found, please recompile after svn commit!
+    #endif 
+#endif
