@@ -57,6 +57,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConfigNodeNames.cs" />
+    <Compile Include="Controls\GenericMonitorControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\GenericMonitorControl.designer.cs">
+      <DependentUpon>GenericMonitorControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SerialPortSettingsUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\SerialPortSettingsUserControl.designer.cs">
+      <DependentUpon>SerialPortSettingsUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="ITopMenuProvider.cs" />
     <Compile Include="MainWorkSpace.cs" />
     <Compile Include="ProductPartAttribute.cs" />
@@ -68,6 +80,14 @@
       <Project>{A4B16E5B-561D-4739-B35B-6E4D21E78A47}</Project>
       <Name>Products.Infrastructure</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Controls\GenericMonitorControl.resx">
+      <DependentUpon>GenericMonitorControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\SerialPortSettingsUserControl.resx">
+      <DependentUpon>SerialPortSettingsUserControl.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
