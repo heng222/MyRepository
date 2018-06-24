@@ -13,7 +13,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Plugin1", "Plugin1", "{3D57
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UAC", "UAC", "{055C249D-3E76-4508-BCED-5DF2A909CCCC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductName", "Exe\src\ProductName.csproj", "{55463E02-D065-4EA3-96DD-B5AD825DACC5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exe", "Exe\src\Exe.csproj", "{55463E02-D065-4EA3-96DD-B5AD825DACC5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Products.Infrastructure", "Foundation\Products.Infrastructure\Products.Infrastructure.csproj", "{A4B16E5B-561D-4739-B35B-6E4D21E78A47}"
 EndProject

@@ -302,8 +302,13 @@ namespace Products.Shell
         /// </summary>
         public string BuildDockConfigFileName()
         {
-            var fileName = string.Format("DockPanel_{0}{1}.config",
-                GlobalServices.UAC.CurrentUserCode, GlobalServices.UAC.CurrentUserName);
+            var fileName = string.Format("DockPanel.config");
+
+            if (GlobalServices.UAC != null)
+            {
+                fileName = string.Format("DockPanel_{0}{1}.config",
+                     GlobalServices.UAC.CurrentUserCode, GlobalServices.UAC.CurrentUserName);
+            }
 
             var pathFileName = Path.Combine(Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location), fileName);
 

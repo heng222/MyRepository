@@ -179,8 +179,16 @@ namespace Products.Shell.Presentation.MainForm
         {
             try
             {
-                _statusLabelUserCode.Text = string.Format("用户编号：{0}", GlobalServices.UAC.CurrentUserCode);
-                _statusLabelUserName.Text = string.Format("用户名称：{0}", GlobalServices.UAC.CurrentUserName);
+                if (GlobalServices.UAC != null)
+                {
+                    _statusLabelUserCode.Text = string.Format("用户编号：{0}", GlobalServices.UAC.CurrentUserCode);
+                    _statusLabelUserName.Text = string.Format("用户名称：{0}", GlobalServices.UAC.CurrentUserName);
+                }
+                else
+                {
+                    _statusLabelUserCode.Text = string.Empty;
+                    _statusLabelUserName.Text = string.Empty;
+                }
                 //_statusLabelUserRole.Text = string.Format("角色：{0}", CurrentUserDetail.Instance.RoleName);
                 ////_statusLabelDepart.Text = string.Format("部门：{0}", CurrentUserDetail.Instance.DepartName);
                 //_statusLabelNodeName.Text = string.Format("节点名称：{0}", NodeContextManager.Current.Name);
