@@ -4,7 +4,7 @@ using System.Text;
 
 using Acl.Utility;
 
-namespace Products.Infrastructure
+namespace Products.Infrastructure.Types
 {
     /// <summary>
     /// 表示层控件类型定义

@@ -3,7 +3,7 @@ using System.Windows.Forms;
 using Acl.Log;
 using Acl.Log.Presentation;
 using Platform.Presentation;
-using Products.Infrastructure;
+using Products.Infrastructure.Types;
 using Products.Presentation;
 
 namespace Products.Shell.MainView

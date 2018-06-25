@@ -14,6 +14,7 @@ using Products.Shell.Presentation.MainForm;
 using Products.Shell.Properties;
 using WeifenLuo.WinFormsUI.Docking;
 using Products.Infrastructure.Specification;
+using Products.Infrastructure.Types;
 
 namespace Products.Shell
 {
@@ -147,7 +148,7 @@ namespace Products.Shell
             {
                 // 设置主窗口标题
                 Text = ProductResources.ProjectChsName;
-                LogUtility.Info("-={0}已启动，欢迎使用=-", Workbench.MainForm.Text);
+                //LogUtility.Info("-={0}已启动，欢迎使用=-", Workbench.MainForm.Text);
             }
 
             // 构建需要优化的控件集

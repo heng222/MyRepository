@@ -3,7 +3,7 @@ using System.Linq;
 using System.Windows.Forms;
 using Acl;
 using Platform.Presentation;
-using Products.Infrastructure;
+using Products.Infrastructure.Types;
 
 namespace Products.Presentation
 {

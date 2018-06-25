@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using Products.Infrastructure;
 using Products.Presentation;
 using Products.Plugin1.Properties;
+using Products.Infrastructure.Types;
 
 namespace Products.Plugin1.Controls
 {

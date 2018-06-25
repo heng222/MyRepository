@@ -22,37 +22,37 @@ namespace Products.SystemEvents.Utilities
     /// </summary>
     internal static class LogUtility
     {
-        private static readonly ILog _log = LogManager.GetLogger(LoggerNames.SEM);
+        public static readonly ILog Log = LogManager.GetLogger(LoggerNames.SEM);
 
 
         public static void Debug(string format, params object[] args)
         {
-            _log.DebugFormat(format, args);
+            Log.DebugFormat(format, args);
         }
 
         public static void Info(string format, params object[] args)
         {
-            _log.InfoFormat(format, args);
+            Log.InfoFormat(format, args);
         }
 
         public static void Warning(object info)
         {
-            _log.Warn(info);
+            Log.Warn(info);
         }
 
         public static void Warning(object info, Exception ex)
         {
-            _log.Warn(info, ex);
+            Log.Warn(info, ex);
         }
 
         public static void Error(object info)
         {
-            _log.Error(info);
+            Log.Error(info);
         }
 
         public static void Error(object info, Exception ex)
         {
-            _log.Error(info, ex);
+            Log.Error(info, ex);
         }
     }
 }

@@ -74,7 +74,8 @@
     <Compile Include="Messages\SingleTopicSyncMessagebus.cs" />
     <Compile Include="Preference\SerialPortSettingNames.cs" />
     <Compile Include="Preference\SerialPortSettings.cs" />
-    <Compile Include="PresentationControlType.cs" />
+    <Compile Include="Types\AtcSubsystemType.cs" />
+    <Compile Include="Types\PresentationControlType.cs" />
     <Compile Include="Protocol\Framework\IFrameSentCompleteObserver.cs" />
     <Compile Include="Protocol\Framework\IIncomingFrameObserver.cs" />
     <Compile Include="Protocol\Framework\IOutgoingFrameObserver.cs" />

@@ -152,9 +152,11 @@ namespace Products.Infrastructure.Protocol
             return sb.ToString();
         }
         #endregion
-
-        #region "override methods"
         
+        #region "Public methods"
+        #endregion
+
+        #region IStreamFrame 成员
         /// <summary>
         /// 得到内部数据帧对应的字节流
         /// </summary>
@@ -209,7 +211,7 @@ namespace Products.Infrastructure.Protocol
                 //}
 
                 return stream.ToArray();
-            }            
+            }
         }
 
         /// <summary>
@@ -231,15 +233,15 @@ namespace Products.Infrastructure.Protocol
             }
             startIndex++;
 
-            //// message type
-            //this.MajorType = (AtsFrameType)(stream[startIndex++]);
+            // message type
+            this.MajorType = (InternalFrameType)(stream[startIndex++]);
 
-            //// sub type
-            //this.MinorType = stream[startIndex++];
+            // sub type
+            this.MinorType = stream[startIndex++];
 
-            //// version
-            //this.Version = (AtsFrameVersion)(stream[startIndex++]);
-            //if (this.Version > NewestVersion)
+            // version
+            this.Version = (InternalFrameVersion)(stream[startIndex++]);
+            //if (this.Version > InternalFrameVersion.First)
             //{
             //    throw new InvalidOperationException(string.Format("无法解析的高版本协议,当前版本号{0},接收数据帧版本号{1}",
             //        NewestVersion, this.Version));
@@ -267,12 +269,7 @@ namespace Products.Infrastructure.Protocol
             // Data field
             ParseDataField(stream, startIndex);
         }
-        #endregion
 
-        #region "Public methods"
-        #endregion
-
-        #region IStreamFrame 成员
         /// <summary>
         /// 获取消息对应的数据流。
         /// </summary>
