@@ -128,19 +128,19 @@
     <value>..\Resources\backcolor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="CompanyChsAbbrName" xml:space="preserve">
-    <value>公司名称</value>
+    <value>泰可斯科技</value>
     <comment>公司中文简称</comment>
   </data>
   <data name="CompanyChsFullName" xml:space="preserve">
-    <value>公司名称</value>
+    <value>北京泰可斯科技有限公司</value>
     <comment>公司中文全称</comment>
   </data>
   <data name="CompanyEnAbbrName" xml:space="preserve">
-    <value>Acl</value>
+    <value>TACS</value>
     <comment>公司英文简称</comment>
   </data>
   <data name="CompanyEnFullName" xml:space="preserve">
-    <value>Company Name.</value>
+    <value>Beijing Taics Technology Co., Ltd.</value>
     <comment>公司英文全称</comment>
   </data>
   <data name="companyLogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -166,7 +166,7 @@
     <value>..\Resources\splashscreenBkg.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="CopyRight" xml:space="preserve">
-    <value>© 2017，保留所有权利。</value>
+    <value>© 泰可斯科技有限公司，保留所有权利。</value>
   </data>
   <data name="AppDescription" xml:space="preserve">
     <value>输入程序描述信息</value>
