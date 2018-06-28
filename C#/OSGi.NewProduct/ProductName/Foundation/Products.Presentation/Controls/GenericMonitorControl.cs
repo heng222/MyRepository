@@ -492,7 +492,16 @@ namespace Products.Presentation
             // 解析流
             if (tag.Parser != null)
             {
-                var msg = tag.Parser.Parse(stream, 0);
+                string msg;
+                try
+                {
+                    msg = tag.Parser.Parse(stream, 0).ToString();
+                }
+                catch (System.Exception ex)
+                {
+                    msg = ex.ToString();
+                }
+
                 streamContent.AppendFormat("\r\n\r\n解析后：\r\n{0}", msg);
             }
 
