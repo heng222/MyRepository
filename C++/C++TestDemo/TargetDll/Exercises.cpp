@@ -77,3 +77,14 @@ TARGETDLL_API int CalcCharacterCount(const char* string)
 
 	return letterNum;
 }
+
+
+extern int FixValue(int value1, int value2);
+
+TARGETDLL_API int DoSomething(int value1, int value2)
+{
+	int sum = value1 + value2;
+	int diff = value1 - value2;
+
+	return FixValue(sum, diff);
+}

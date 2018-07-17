@@ -10,6 +10,8 @@ class ExercisesTestSuite : public CppTest_TestSuite
         CPPTEST_TEST(test_CalcGreatestCommonDivisor_1);
         CPPTEST_TEST(test_CalcGreatestCommonDivisor_2);
         CPPTEST_TEST(test_CalcCharacterCount_1);
+        CPPTEST_TEST(test_DoSomething_1);
+        CPPTEST_TEST(test_DoSomething_2);
         CPPTEST_TEST_SUITE_END();
         
         void setUp();
@@ -18,6 +20,8 @@ class ExercisesTestSuite : public CppTest_TestSuite
         void test_CalcGreatestCommonDivisor_1();
         void test_CalcGreatestCommonDivisor_2();
         void test_CalcCharacterCount_1();
+        void test_DoSomething_1();
+        void test_DoSomething_2();
 };
 
 CPPTEST_TEST_SUITE_REGISTRATION(ExercisesTestSuite);
@@ -78,4 +82,37 @@ void ExercisesTestSuite::test_CalcCharacterCount_1()
     /* Post-condition check */
     CPPTEST_POST_CONDITION_INTEGER(" _return", ( _return ));
 }
+
 /* CPPTEST_TEST_CASE_END test_CalcCharacterCount_1 */
+
+/* CPPTEST_TEST_CASE_BEGIN test_DoSomething_1 */
+/* CPPTEST_TEST_CASE_CONTEXT int DoSomething(int, int) */
+void ExercisesTestSuite::test_DoSomething_1()
+{
+    /* Pre-condition initialization */
+    /* Initializing argument 1 (value1) */ 
+    int _value1  = -1;
+    /* Initializing argument 2 (value2) */ 
+    int _value2  = -2;
+    /* Tested function call */
+    int _return  = ::DoSomething(_value1, _value2);
+    /* Post-condition check */
+    CPPTEST_POST_CONDITION_INTEGER(" _return", ( _return ));
+}
+/* CPPTEST_TEST_CASE_END test_DoSomething_1 */
+
+/* CPPTEST_TEST_CASE_BEGIN test_DoSomething_2 */
+/* CPPTEST_TEST_CASE_CONTEXT int DoSomething(int, int) */
+void ExercisesTestSuite::test_DoSomething_2()
+{
+    /* Pre-condition initialization */
+    /* Initializing argument 1 (value1) */ 
+    int _value1  = -1;
+    /* Initializing argument 2 (value2) */ 
+    int _value2  = 2;
+    /* Tested function call */
+    int _return  = ::DoSomething(_value1, _value2);
+    /* Post-condition check */
+    CPPTEST_POST_CONDITION_INTEGER(" _return", ( _return ));
+}
+/* CPPTEST_TEST_CASE_END test_DoSomething_2 */

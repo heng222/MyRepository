@@ -17,5 +17,7 @@ TARGETDLL_API int CalcGreatestCommonDivisor(int number1, int number2);
 /* 计算字符个数 */
 TARGETDLL_API int CalcCharacterCount(const char* string);
 
+/* 自定义测试函数 */
+TARGETDLL_API int DoSomething(int value1, int value2);
 //////////////////////////////////////////////////////////////////////////
 #endif
