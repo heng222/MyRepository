@@ -1,0 +1,663 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{466F3D63-93E3-461E-8218-03C9150BDF1B}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>TACSZC</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;TACSZC_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;TACSZC_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="App\DmuZc\DataHandle\DmuZcDataHandle.h" />
+    <ClInclude Include="App\DmuZc\Data\ZcCommConfigData.h" />
+    <ClInclude Include="App\DmuZc\Data\ZcSignInfoData.h" />
+    <ClInclude Include="App\DmuZc\Data\ZcSystemConfigData.h" />
+    <ClInclude Include="App\DmuZc\Data\ZcTimeConfigData.h" />
+    <ClInclude Include="App\DmuZc\Load\LoadZcCommConfig.h" />
+    <ClInclude Include="App\DmuZc\Load\LoadZcManage.h" />
+    <ClInclude Include="App\DmuZc\Load\LoadZcSignInfo.h" />
+    <ClInclude Include="App\DmuZc\Load\LoadZcSystemConfig.h" />
+    <ClInclude Include="App\DmuZc\Load\LoadZcTimeConfig.h" />
+    <ClInclude Include="App\InitManager\InitManager.h" />
+    <ClInclude Include="App\IOManager\CommTarget\CommTargetConfigData.h" />
+    <ClInclude Include="App\IOManager\CommTarget\CommTargetDefine.h" />
+    <ClInclude Include="App\IOManager\CommTarget\CommTargetInitManager.h" />
+    <ClInclude Include="App\IOManager\CommTarget\CommTargetLogicManager.h" />
+    <ClInclude Include="App\IOManager\CommTarget\CommTargetStatusData.h" />
+    <ClInclude Include="App\IOManager\IODataProcess\InputDataProcess.h" />
+    <ClInclude Include="App\IOManager\IODataProcess\OutputDataProcess.h" />
+    <ClInclude Include="App\IOManager\IOInterfaceProcess\IOInterfaceProcess.h" />
+    <ClInclude Include="App\IOManager\ParseIOData\ParsePackAtsData.h" />
+    <ClInclude Include="App\IOManager\ParseIOData\ParsePackCiData.h" />
+    <ClInclude Include="App\IOManager\ParseIOData\ParsePackIODefine.h" />
+    <ClInclude Include="App\IOManager\ParseIOData\ParsePackNtpData.h" />
+    <ClInclude Include="App\IOManager\ParseIOData\ParsePackProcessManager.h" />
+    <ClInclude Include="App\IOManager\ParseIOData\ParsePackTrainData.h" />
+    <ClInclude Include="App\IOManager\ParseIOData\ParsePackZcData.h" />
+    <ClInclude Include="App\LineDataManager\AC\ACConfigData.h" />
+    <ClInclude Include="App\LineDataManager\AC\ACDefine.h" />
+    <ClInclude Include="App\LineDataManager\AC\ACInitManager.h" />
+    <ClInclude Include="App\LineDataManager\AC\ACLogicManager.h" />
+    <ClInclude Include="App\LineDataManager\AC\ACStatusData.h" />
+    <ClInclude Include="App\LineDataManager\Change\ChangeConfigData.h" />
+    <ClInclude Include="App\LineDataManager\Change\ChangeDefine.h" />
+    <ClInclude Include="App\LineDataManager\Change\ChangeInitManager.h" />
+    <ClInclude Include="App\LineDataManager\Change\ChangeLogicManager.h" />
+    <ClInclude Include="App\LineDataManager\Change\ChangeStatusData.h" />
+    <ClInclude Include="App\LineDataManager\DataVersion\DataVersionConfigData.h" />
+    <ClInclude Include="App\LineDataManager\DataVersion\DataVersionDefine.h" />
+    <ClInclude Include="App\LineDataManager\DataVersion\DataVersionInitManage.h" />
+    <ClInclude Include="App\LineDataManager\DataVersion\DataVersionStatusData.h" />
+    <ClInclude Include="App\LineDataManager\DR\DRConfigData.h" />
+    <ClInclude Include="App\LineDataManager\DR\DRDefine.h" />
+    <ClInclude Include="App\LineDataManager\DR\DRInitManager.h" />
+    <ClInclude Include="App\LineDataManager\DR\DRLogicManager.h" />
+    <ClInclude Include="App\LineDataManager\DR\DRStatusData.h" />
+    <ClInclude Include="App\LineDataManager\ESB\ESBConfigData.h" />
+    <ClInclude Include="App\LineDataManager\ESB\ESBDefine.h" />
+    <ClInclude Include="App\LineDataManager\ESB\ESBInitManager.h" />
+    <ClInclude Include="App\LineDataManager\ESB\ESBLogicManager.h" />
+    <ClInclude Include="App\LineDataManager\ESB\ESBStatusData.h" />
+    <ClInclude Include="App\LineDataManager\LogicSection\LogicSectionConfigData.h" />
+    <ClInclude Include="App\LineDataManager\LogicSection\LogicSectionDefine.h" />
+    <ClInclude Include="App\LineDataManager\LogicSection\LogicSectionInitManager.h" />
+    <ClInclude Include="App\LineDataManager\LogicSection\LogicSectionLogicManager.h" />
+    <ClInclude Include="App\LineDataManager\LogicSection\LogicSectionStatusData.h" />
+    <ClInclude Include="App\LineDataManager\Mask\MaskConfigData.h" />
+    <ClInclude Include="App\LineDataManager\Mask\MaskDefine.h" />
+    <ClInclude Include="App\LineDataManager\Mask\MaskInitManager.h" />
+    <ClInclude Include="App\LineDataManager\Overlap\OverlapConfigData.h" />
+    <ClInclude Include="App\LineDataManager\Overlap\OverlapDefine.h" />
+    <ClInclude Include="App\LineDataManager\Overlap\OverlapInitManager.h" />
+    <ClInclude Include="App\LineDataManager\Overlap\OverlapLogicManager.h" />
+    <ClInclude Include="App\LineDataManager\Overlap\OverlapStatusData.h" />
+    <ClInclude Include="App\LineDataManager\PSD\PSDConfigData.h" />
+    <ClInclude Include="App\LineDataManager\PSD\PSDDefine.h" />
+    <ClInclude Include="App\LineDataManager\PSD\PSDInitManager.h" />
+    <ClInclude Include="App\LineDataManager\PSD\PSDLogicManager.h" />
+    <ClInclude Include="App\LineDataManager\PSD\PSDStatusData.h" />
+    <ClInclude Include="App\LineDataManager\Route\RouteConfigData.h" />
+    <ClInclude Include="App\LineDataManager\Route\RouteDefine.h" />
+    <ClInclude Include="App\LineDataManager\Route\RouteInitManager.h" />
+    <ClInclude Include="App\LineDataManager\Route\RouteLogicManager.h" />
+    <ClInclude Include="App\LineDataManager\Route\RouteStatusData.h" />
+    <ClInclude Include="App\LineDataManager\Signal\SignalConfigData.h" />
+    <ClInclude Include="App\LineDataManager\Signal\SignalDefine.h" />
+    <ClInclude Include="App\LineDataManager\Signal\SignalInitManager.h" />
+    <ClInclude Include="App\LineDataManager\Signal\SignalLogicManager.h" />
+    <ClInclude Include="App\LineDataManager\Signal\SignalStatusData.h" />
+    <ClInclude Include="App\LineDataManager\Switch\SwitchConfigData.h" />
+    <ClInclude Include="App\LineDataManager\Switch\SwitchDefine.h" />
+    <ClInclude Include="App\LineDataManager\Switch\SwitchInitManager.h" />
+    <ClInclude Include="App\LineDataManager\Switch\SwitchLogicManager.h" />
+    <ClInclude Include="App\LineDataManager\Switch\SwitchStatusData.h" />
+    <ClInclude Include="App\LineDataManager\Tsr\TsrConfigData.h" />
+    <ClInclude Include="App\LineDataManager\Tsr\TsrDefine.h" />
+    <ClInclude Include="App\LineDataManager\Tsr\TsrInitManager.h" />
+    <ClInclude Include="App\LineDataManager\Tsr\TsrLogicManager.h" />
+    <ClInclude Include="App\LineDataManager\Tsr\TsrStatusData.h" />
+    <ClInclude Include="App\MainManager\MainLogicManager.h" />
+    <ClInclude Include="App\MaintainManager\MaintainManager.h" />
+    <ClInclude Include="App\MaintainManager\ZcMaintainManager.h" />
+    <ClInclude Include="App\SynDataManager\SynDataDefine.h" />
+    <ClInclude Include="App\SynDataManager\SynDataPackAndParse.h" />
+    <ClInclude Include="App\SysDataManager\SysConfigData.h" />
+    <ClInclude Include="App\SysDataManager\SysConfigInitManager.h" />
+    <ClInclude Include="App\SysDataManager\SysDefine.h" />
+    <ClInclude Include="App\SysDataManager\SysStatusData.h" />
+    <ClInclude Include="App\SysDataManager\SysTimeData.h" />
+    <ClInclude Include="App\TrainManager\MA\MADefine.h" />
+    <ClInclude Include="App\TrainManager\MA\MAInitManager.h" />
+    <ClInclude Include="App\TrainManager\MA\MALogicManager.h" />
+    <ClInclude Include="App\TrainManager\MA\MAStatusData.h" />
+    <ClInclude Include="App\TrainManager\Train\TrainDefine.h" />
+    <ClInclude Include="App\TrainManager\Train\TrainInitManager.h" />
+    <ClInclude Include="App\TrainManager\Train\TrainLogicManager.h" />
+    <ClInclude Include="App\TrainManager\Train\TrainStatusData.h" />
+    <ClInclude Include="App\TsrManager\TsrAdministrator\TsrDataAdmin.h" />
+    <ClInclude Include="App\TsrManager\TsrDmu\DataHandle\DmuDataHandle.h" />
+    <ClInclude Include="App\TsrManager\TsrDmu\DataHandle\DmuStruct.h" />
+    <ClInclude Include="App\TsrManager\TsrInitialization\InitialProcess.h" />
+    <ClInclude Include="App\TsrManager\TsrInterface.h" />
+    <ClInclude Include="App\TsrManager\TsrIO\TsrInputDataProcess.h" />
+    <ClInclude Include="App\TsrManager\TsrIO\TsrOutputDataProcess.h" />
+    <ClInclude Include="App\TsrManager\TsrParserPacker\ParsePackInterfaceDefine.h" />
+    <ClInclude Include="App\TsrManager\TsrParserPacker\TsrParsePackAtsData.h" />
+    <ClInclude Include="App\TsrManager\TsrParserPacker\TsrParsePackInterface.h" />
+    <ClInclude Include="App\TsrManager\TsrQuery\QueryManage.h" />
+    <ClInclude Include="App\TsrManager\TsrSystem\TsrSysConfigData.h" />
+    <ClInclude Include="App\TsrManager\TsrSystem\TsrSysStatusData.h" />
+    <ClInclude Include="App\TsrManager\TsrSystem\TsrSystemDefine.h" />
+    <ClInclude Include="App\TsrManager\TsrTransmitFlagAdmin\TsrTransmitStateDataManage.h" />
+    <ClInclude Include="Common\AbsFun.h" />
+    <ClInclude Include="Common\CircQueueStruct.h" />
+    <ClInclude Include="Common\CommonQueue.h" />
+    <ClInclude Include="Common\CommonTypes.h" />
+    <ClInclude Include="Common\Convert.h" />
+    <ClInclude Include="Common\Copy.h" />
+    <ClInclude Include="Common\CRC16.h" />
+    <ClInclude Include="Common\CRC32.h" />
+    <ClInclude Include="Common\CRC48.h" />
+    <ClInclude Include="Common\FFFE.h" />
+    <ClInclude Include="Common\Malloc.h" />
+    <ClInclude Include="Common\MemCmp.h" />
+    <ClInclude Include="Common\MemSet.h" />
+    <ClInclude Include="Common\TMCommCRC32.h" />
+    <ClInclude Include="Common\UnitConver.h" />
+    <ClInclude Include="cspadpt\datanZC1.h" />
+    <ClInclude Include="cspadpt\fscCsDrv.h" />
+    <ClInclude Include="cspadpt\fscLib.h" />
+    <ClInclude Include="cspadpt\fscRtd.h" />
+    <ClInclude Include="cspadpt\fscVpd.h" />
+    <ClInclude Include="cspadpt\GL_Basic_Type_Definition.h" />
+    <ClInclude Include="cspadpt\GL_Compile_Switch_Definition.h" />
+    <ClInclude Include="cspadpt\Vcp_Device_Definition_Inf.h" />
+    <ClInclude Include="cspadpt\Vcp_File_Interface.h" />
+    <ClInclude Include="cspadpt\VCP_Public_Definition.h" />
+    <ClInclude Include="cspadpt\Vcp_Service_Interface.h" />
+    <ClInclude Include="cspadpt\Vcp_Service_TestInterface.h" />
+    <ClInclude Include="cspadpt\Vcp_Track_Interface.h" />
+    <ClInclude Include="Dmu\DmuComm\DataHandle\DmuCommDataHandle.h" />
+    <ClInclude Include="Dmu\DmuComm\DataHandle\DmuCommDataTypeDefine.h" />
+    <ClInclude Include="Dmu\DmuComm\DataHandle\DmuCommStructDefine.h" />
+    <ClInclude Include="Dmu\DmuComm\Data\ArData.h" />
+    <ClInclude Include="Dmu\DmuComm\Data\AxleData.h" />
+    <ClInclude Include="Dmu\DmuComm\Data\AxleSectionData.h" />
+    <ClInclude Include="Dmu\DmuComm\Data\BaliseData.h" />
+    <ClInclude Include="Dmu\DmuComm\Data\BlocApptchSectionData.h" />
+    <ClInclude Include="Dmu\DmuComm\Data\BlocTrgZoneData.h" />
+    <ClInclude Include="Dmu\DmuComm\Data\CbtcApptchSectionData.h" />
+    <ClInclude Include="Dmu\DmuComm\Data\CbtcTrgZoneData.h" />
+    <ClInclude Include="Dmu\DmuComm\Data\CommFailTimeData.h" />
+    <ClInclude Include="Dmu\DmuComm\Data\ConGradeData.h" />
+    <ClInclude Include="Dmu\DmuComm\Data\ConResSpeedData.h" />
+    <ClInclude Include="Dmu\DmuComm\Data\DataCommondefine.h" />
+    <ClInclude Include="Dmu\DmuComm\Data\DefaultRouteData.h" />
+    <ClInclude Include="Dmu\DmuComm\Data\EmergStopButtonData.h" />
+    <ClInclude Include="Dmu\DmuComm\Data\ExitCbtcSectionData.h" />
+    <ClInclude Include="Dmu\DmuComm\Data\GradeData.h" />
+    <ClInclude Include="Dmu\DmuComm\Data\LineSwitchInfoData.h" />
+    <ClInclude Include="Dmu\DmuComm\Data\LogicSectionData.h" />
+    <ClInclude Include="Dmu\DmuComm\Data\PhysicalSectionData.h" />
+    <ClInclude Include="Dmu\DmuComm\Data\PlatFormData.h" />
+    <ClInclude Include="Dmu\DmuComm\Data\PointData.h" />
+    <ClInclude Include="Dmu\DmuComm\Data\ProtectZoneData.h" />
+    <ClInclude Include="Dmu\DmuComm\Data\RouteData.h" />
+    <ClInclude Include="Dmu\DmuComm\Data\SectionTypeData.h" />
+    <ClInclude Include="Dmu\DmuComm\Data\SegData.h" />
+    <ClInclude Include="Dmu\DmuComm\Data\ShieldDoorData.h" />
+    <ClInclude Include="Dmu\DmuComm\Data\SignData.h" />
+    <ClInclude Include="Dmu\DmuComm\Data\StaRunLevelData.h" />
+    <ClInclude Include="Dmu\DmuComm\Data\StaticResSpeedData.h" />
+    <ClInclude Include="Dmu\DmuComm\Data\StopPointData.h" />
+    <ClInclude Include="Dmu\DmuComm\Data\StopSectionData.h" />
+    <ClInclude Include="Dmu\DmuComm\Data\SwitchData.h" />
+    <ClInclude Include="Dmu\DmuComm\Data\SystemAccTableData.h" />
+    <ClInclude Include="Dmu\DmuComm\Data\SystemConfigData.h" />
+    <ClInclude Include="Dmu\DmuComm\Data\SystemDevCommData.h" />
+    <ClInclude Include="Dmu\DmuComm\Data\SystemRailInfoData.h" />
+    <ClInclude Include="Dmu\DmuComm\Data\TempLimitSpeedData.h" />
+    <ClInclude Include="Dmu\DmuComm\Data\TrainControlLevelData.h" />
+    <ClInclude Include="Dmu\DmuComm\Data\TrainInfoData.h" />
+    <ClInclude Include="Dmu\DmuComm\Data\TrainStationData.h" />
+    <ClInclude Include="Dmu\DmuComm\Data\TrainTypeConfigData.h" />
+    <ClInclude Include="Dmu\DmuComm\Load\LoadAr.h" />
+    <ClInclude Include="Dmu\DmuComm\Load\LoadAxle.h" />
+    <ClInclude Include="Dmu\DmuComm\Load\LoadAxleSection.h" />
+    <ClInclude Include="Dmu\DmuComm\Load\LoadBalise.h" />
+    <ClInclude Include="Dmu\DmuComm\Load\LoadBlocApptchSection.h" />
+    <ClInclude Include="Dmu\DmuComm\Load\LoadBlocTrgZone.h" />
+    <ClInclude Include="Dmu\DmuComm\Load\LoadCbtcApptchSection.h" />
+    <ClInclude Include="Dmu\DmuComm\Load\LoadCbtcTrgZone.h" />
+    <ClInclude Include="Dmu\DmuComm\Load\LoadCommFailTime.h" />
+    <ClInclude Include="Dmu\DmuComm\Load\LoadConGrade.h" />
+    <ClInclude Include="Dmu\DmuComm\Load\LoadConResSpeed.h" />
+    <ClInclude Include="Dmu\DmuComm\Load\LoadDefaultRoute.h" />
+    <ClInclude Include="Dmu\DmuComm\Load\LoadEmergStopButton.h" />
+    <ClInclude Include="Dmu\DmuComm\Load\LoadExitCbtcSection.h" />
+    <ClInclude Include="Dmu\DmuComm\Load\LoadGrade.h" />
+    <ClInclude Include="Dmu\DmuComm\Load\LoadLineSwitchInfo.h" />
+    <ClInclude Include="Dmu\DmuComm\Load\LoadLogicSection.h" />
+    <ClInclude Include="Dmu\DmuComm\Load\LoadManage.h" />
+    <ClInclude Include="Dmu\DmuComm\Load\LoadPhysicalSection.h" />
+    <ClInclude Include="Dmu\DmuComm\Load\LoadPlatForm.h" />
+    <ClInclude Include="Dmu\DmuComm\Load\LoadPoint.h" />
+    <ClInclude Include="Dmu\DmuComm\Load\LoadProtectZone.h" />
+    <ClInclude Include="Dmu\DmuComm\Load\LoadRoute.h" />
+    <ClInclude Include="Dmu\DmuComm\Load\LoadSectionType.h" />
+    <ClInclude Include="Dmu\DmuComm\Load\LoadSeg.h" />
+    <ClInclude Include="Dmu\DmuComm\Load\LoadShieldDoor.h" />
+    <ClInclude Include="Dmu\DmuComm\Load\LoadSign.h" />
+    <ClInclude Include="Dmu\DmuComm\Load\LoadStaRunLevel.h" />
+    <ClInclude Include="Dmu\DmuComm\Load\LoadStaticResSpeed.h" />
+    <ClInclude Include="Dmu\DmuComm\Load\LoadStopPoint.h" />
+    <ClInclude Include="Dmu\DmuComm\Load\LoadStopSection.h" />
+    <ClInclude Include="Dmu\DmuComm\Load\LoadSwitch.h" />
+    <ClInclude Include="Dmu\DmuComm\Load\LoadSystemAccTable.h" />
+    <ClInclude Include="Dmu\DmuComm\Load\LoadSystemConfig.h" />
+    <ClInclude Include="Dmu\DmuComm\Load\LoadSystemDevComm.h" />
+    <ClInclude Include="Dmu\DmuComm\Load\LoadSystemRailInfo.h" />
+    <ClInclude Include="Dmu\DmuComm\Load\LoadTempLimitSpeed.h" />
+    <ClInclude Include="Dmu\DmuComm\Load\LoadTrainControlLevel.h" />
+    <ClInclude Include="Dmu\DmuComm\Load\LoadTrainInfo.h" />
+    <ClInclude Include="Dmu\DmuComm\Load\LoadTrainStation.h" />
+    <ClInclude Include="Dmu\DmuComm\Load\LoadTrainTypeConfig.h" />
+    <ClInclude Include="Dmu\Read\ReadBnfData.h" />
+    <ClInclude Include="Dmu\Read\ReadBnfDataTypeDefine.h" />
+    <ClInclude Include="Dmu\Read\ReadDataTypeDefine.h" />
+    <ClInclude Include="Dmu\Read\ReadManage.h" />
+    <ClInclude Include="FSFB\CFM\GM_RSSP1_CFM.h" />
+    <ClInclude Include="FSFB\CFM\GM_RSSP1_CFM_Init.h" />
+    <ClInclude Include="FSFB\CFM\GM_RSSP1_CFM_Interface.h" />
+    <ClInclude Include="FSFB\GM_RSSP1_APP_Interface.h" />
+    <ClInclude Include="FSFB\GM_RSSP1_Lib_Def.h" />
+    <ClInclude Include="FSFB\GM_RSSP1_MQ_Interface.h" />
+    <ClInclude Include="FSFB\GM_RSSP1_Msg_Define.h" />
+    <ClInclude Include="FSFB\GM_RSSP1_Msg_Queue.h" />
+    <ClInclude Include="FSFB\GM_RSSP1_Syn.h" />
+    <ClInclude Include="FSFB\GM_RSSP1_Utils.h" />
+    <ClInclude Include="FSFB\SFM\GM_RSSP1_PROC_Int.h" />
+    <ClInclude Include="FSFB\SFM\GM_RSSP1_SFM.h" />
+    <ClInclude Include="FSFB\SFM\GM_RSSP1_SFM_Init.h" />
+    <ClInclude Include="FSFB\SFM\GM_RSSP1_SFM_Interface.h" />
+    <ClInclude Include="FSFB\SFM\GM_RSSP1_Time.h" />
+    <ClInclude Include="GM_Define.h" />
+    <ClInclude Include="GM_Utils\GM_Code_Convert.h" />
+    <ClInclude Include="GM_Utils\GM_CRC16.h" />
+    <ClInclude Include="GM_Utils\GM_CRC16_Standard.h" />
+    <ClInclude Include="GM_Utils\GM_CRC32.h" />
+    <ClInclude Include="GM_Utils\GM_CRC32_Standard.h" />
+    <ClInclude Include="GM_Utils\GM_CRC_Reflect.h" />
+    <ClInclude Include="GM_Utils\GM_CRC_Table16.h" />
+    <ClInclude Include="GM_Utils\GM_CRC_Table32.h" />
+    <ClInclude Include="GM_Utils\GM_Free.h" />
+    <ClInclude Include="GM_Utils\GM_Ini_File.h" />
+    <ClInclude Include="GM_Utils\GM_LFSR.h" />
+    <ClInclude Include="GM_Utils\GM_LFSR_Table.h" />
+    <ClInclude Include="GM_Utils\GM_Malloc.h" />
+    <ClInclude Include="GM_Utils\GM_Memcpy.h" />
+    <ClInclude Include="GM_Utils\GM_Memncomp.h" />
+    <ClInclude Include="GM_Utils\GM_Memset.h" />
+    <ClInclude Include="GM_Utils\GM_MQ_Fixed.h" />
+    <ClInclude Include="GM_Utils\GM_MultiThread.h" />
+    <ClInclude Include="GM_Utils\GM_MultiThread_Priority.h" />
+    <ClInclude Include="GM_Utils\GM_Mutex.h" />
+    <ClInclude Include="GM_Utils\GM_PD.h" />
+    <ClInclude Include="GM_Utils\GM_PD_Table.h" />
+    <ClInclude Include="GM_Utils\GM_Utils_Base.h" />
+    <ClInclude Include="GM_Utils\GM_Utils_Other.h" />
+    <ClInclude Include="GM_Utils\GM_VSN.h" />
+    <ClInclude Include="IntegrationConfig\IntegrationVersion.h" />
+    <ClInclude Include="INTERCOMM\GM_CFG_INTERCOMM.h" />
+    <ClInclude Include="INTERCOMM\GM_CFG_INTERCOMM_Manage.h" />
+    <ClInclude Include="INTERCOMM\GM_CFG_INTERCOMM_TCP_Object.h" />
+    <ClInclude Include="INTERCOMM\GM_LOG_INTERCOMM.h" />
+    <ClInclude Include="INTERCOMM\GM_RSSP1_INTERCOMM.h" />
+    <ClInclude Include="INTERCOMM\GM_RSSP1_INTERCOMM_Def.h" />
+    <ClInclude Include="INTERCOMM\GM_RSSP1_INTERCOMM_Init.h" />
+    <ClInclude Include="INTERCOMM\GM_RSSP1_INTERCOMM_Socket.h" />
+    <ClInclude Include="INTERCOMM\SYNC_INTERCOMM.h" />
+    <ClInclude Include="INTERCOMM\SYNC_INTERCOMM_Def.h" />
+    <ClInclude Include="INTERCOMM\SYNC_INTERCOMM_Init.h" />
+    <ClInclude Include="PlatformAdapter\AdptHandle\AdapterCommonDef.h" />
+    <ClInclude Include="PlatformAdapter\AdptHandle\AdapterExtDevInOutManage.h" />
+    <ClInclude Include="PlatformAdapter\AdptHandle\AdapterFileHandle.h" />
+    <ClInclude Include="PlatformAdapter\AppItf\AdptAppCommonDef.h" />
+    <ClInclude Include="PlatformAdapter\AppItf\AdptAppExtDevDataInterface.h" />
+    <ClInclude Include="PlatformAdapter\AppItf\AdptAppFileInterface.h" />
+    <ClInclude Include="PlatformAdapter\AppItf\AdptAppServiceInterface.h" />
+    <ClInclude Include="PlatformAdapter\PlatformLog\AdapterLog.h" />
+    <ClInclude Include="PlatformAdapter\PlatItf\AdptPlatBasicTypeDefinition.h" />
+    <ClInclude Include="PlatformAdapter\PlatItf\AdptPlatFileInterface.h" />
+    <ClInclude Include="PlatformAdapter\PlatItf\AdptPlatServiceInterface.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="App\DmuZc\DataHandle\DmuZcDataHandle.c" />
+    <ClCompile Include="App\DmuZc\Data\ZcCommConfigData.c" />
+    <ClCompile Include="App\DmuZc\Data\ZcSignInfoData.c" />
+    <ClCompile Include="App\DmuZc\Data\ZcSystemConfigData.c" />
+    <ClCompile Include="App\DmuZc\Data\ZcTimeConfigData.c" />
+    <ClCompile Include="App\DmuZc\Load\LoadZcCommConfig.c" />
+    <ClCompile Include="App\DmuZc\Load\LoadZcManage.c" />
+    <ClCompile Include="App\DmuZc\Load\LoadZcSignInfo.c" />
+    <ClCompile Include="App\DmuZc\Load\LoadZcSystemConfig.c" />
+    <ClCompile Include="App\DmuZc\Load\LoadZcTimeConfig.c" />
+    <ClCompile Include="App\InitManager\InitManager.c" />
+    <ClCompile Include="App\IOManager\CommTarget\CommTargetConfigData.c" />
+    <ClCompile Include="App\IOManager\CommTarget\CommTargetInitManager.c" />
+    <ClCompile Include="App\IOManager\CommTarget\CommTargetLogicManager.c" />
+    <ClCompile Include="App\IOManager\CommTarget\CommTargetStatusData.c" />
+    <ClCompile Include="App\IOManager\IODataProcess\InputDataProcess.c" />
+    <ClCompile Include="App\IOManager\IODataProcess\OutputDataProcess.c" />
+    <ClCompile Include="App\IOManager\IOInterfaceProcess\IOInterfaceProcess.c" />
+    <ClCompile Include="App\IOManager\ParseIOData\ParsePackAtsData.c" />
+    <ClCompile Include="App\IOManager\ParseIOData\ParsePackCiData.c" />
+    <ClCompile Include="App\IOManager\ParseIOData\ParsePackNtpData.c" />
+    <ClCompile Include="App\IOManager\ParseIOData\ParsePackProcessManager.c" />
+    <ClCompile Include="App\IOManager\ParseIOData\ParsePackTrainData.c" />
+    <ClCompile Include="App\IOManager\ParseIOData\ParsePackZcData.c" />
+    <ClCompile Include="App\LineDataManager\AC\ACConfigData.c" />
+    <ClCompile Include="App\LineDataManager\AC\ACInitManager.c" />
+    <ClCompile Include="App\LineDataManager\AC\ACLogicManager.c" />
+    <ClCompile Include="App\LineDataManager\AC\ACStatusData.c" />
+    <ClCompile Include="App\LineDataManager\Change\ChangeConfigData.c" />
+    <ClCompile Include="App\LineDataManager\Change\ChangeInitManager.c" />
+    <ClCompile Include="App\LineDataManager\Change\ChangeLogicManager.c" />
+    <ClCompile Include="App\LineDataManager\Change\ChangeStatusData.c" />
+    <ClCompile Include="App\LineDataManager\DataVersion\DataVersionConfigData.c" />
+    <ClCompile Include="App\LineDataManager\DataVersion\DataVersionInitManage.c" />
+    <ClCompile Include="App\LineDataManager\DataVersion\DataVersionStatusData.c" />
+    <ClCompile Include="App\LineDataManager\DR\DRConfigData.c" />
+    <ClCompile Include="App\LineDataManager\DR\DRInitManager.c" />
+    <ClCompile Include="App\LineDataManager\DR\DRLogicManager.c" />
+    <ClCompile Include="App\LineDataManager\DR\DRStatusData.c" />
+    <ClCompile Include="App\LineDataManager\ESB\ESBConfigData.c" />
+    <ClCompile Include="App\LineDataManager\ESB\ESBInitManager.c" />
+    <ClCompile Include="App\LineDataManager\ESB\ESBLogicManager.c" />
+    <ClCompile Include="App\LineDataManager\ESB\ESBStatusData.c" />
+    <ClCompile Include="App\LineDataManager\LogicSection\LogicSectionConfigData.c" />
+    <ClCompile Include="App\LineDataManager\LogicSection\LogicSectionInitManager.c" />
+    <ClCompile Include="App\LineDataManager\LogicSection\LogicSectionLogicManager.c" />
+    <ClCompile Include="App\LineDataManager\LogicSection\LogicSectionStatusData.c" />
+    <ClCompile Include="App\LineDataManager\Mask\MaskConfigData.c" />
+    <ClCompile Include="App\LineDataManager\Mask\MaskInitManager.c" />
+    <ClCompile Include="App\LineDataManager\Overlap\OverlapConfigData.c" />
+    <ClCompile Include="App\LineDataManager\Overlap\OverlapInitManager.c" />
+    <ClCompile Include="App\LineDataManager\Overlap\OverlapLogicManager.c" />
+    <ClCompile Include="App\LineDataManager\Overlap\OverlapStatusData.c" />
+    <ClCompile Include="App\LineDataManager\PSD\PSDConfigData.c" />
+    <ClCompile Include="App\LineDataManager\PSD\PSDInitManager.c" />
+    <ClCompile Include="App\LineDataManager\PSD\PSDLogicManager.c" />
+    <ClCompile Include="App\LineDataManager\PSD\PSDStatusData.c" />
+    <ClCompile Include="App\LineDataManager\Route\RouteConfigData.c" />
+    <ClCompile Include="App\LineDataManager\Route\RouteInitManager.c" />
+    <ClCompile Include="App\LineDataManager\Route\RouteLogicManager.c" />
+    <ClCompile Include="App\LineDataManager\Route\RouteStatusData.c" />
+    <ClCompile Include="App\LineDataManager\Signal\SignalConfigData.c" />
+    <ClCompile Include="App\LineDataManager\Signal\SignalInitManager.c" />
+    <ClCompile Include="App\LineDataManager\Signal\SignalLogicManager.c" />
+    <ClCompile Include="App\LineDataManager\Signal\SignalStatusData.c" />
+    <ClCompile Include="App\LineDataManager\Switch\SwitchConfigData.c" />
+    <ClCompile Include="App\LineDataManager\Switch\SwitchInitManager.c" />
+    <ClCompile Include="App\LineDataManager\Switch\SwitchLogicManager.c" />
+    <ClCompile Include="App\LineDataManager\Switch\SwitchStatusData.c" />
+    <ClCompile Include="App\LineDataManager\Tsr\TsrConfigData.c" />
+    <ClCompile Include="App\LineDataManager\Tsr\TsrInitManager.c" />
+    <ClCompile Include="App\LineDataManager\Tsr\TsrLogicManager.c" />
+    <ClCompile Include="App\LineDataManager\Tsr\TsrStatusData.c" />
+    <ClCompile Include="App\MainManager\MainLogicManager.c" />
+    <ClCompile Include="App\MaintainManager\MaintainManager.c" />
+    <ClCompile Include="App\MaintainManager\ZcMaintainManager.c" />
+    <ClCompile Include="App\SynDataManager\SynDataPackAndParse.c" />
+    <ClCompile Include="App\SysDataManager\SysConfigData.c" />
+    <ClCompile Include="App\SysDataManager\SysConfigInitManager.c" />
+    <ClCompile Include="App\SysDataManager\SysStatusData.c" />
+    <ClCompile Include="App\SysDataManager\SysTimeData.c" />
+    <ClCompile Include="App\TrainManager\MA\MAInitManager.c" />
+    <ClCompile Include="App\TrainManager\MA\MALogicManager.c" />
+    <ClCompile Include="App\TrainManager\MA\MAStatusData.c" />
+    <ClCompile Include="App\TrainManager\Train\TrainInitManager.c" />
+    <ClCompile Include="App\TrainManager\Train\TrainLogicManager.c" />
+    <ClCompile Include="App\TrainManager\Train\TrainStatusData.c" />
+    <ClCompile Include="App\TsrManager\TsrAdministrator\TsrDataAdmin.c" />
+    <ClCompile Include="App\TsrManager\TsrDmu\DataHandle\DmuDataHandle.c" />
+    <ClCompile Include="App\TsrManager\TsrInitialization\InitialProcess.c" />
+    <ClCompile Include="App\TsrManager\TsrInterface.c" />
+    <ClCompile Include="App\TsrManager\TsrIO\TsrInputDataProcess.c" />
+    <ClCompile Include="App\TsrManager\TsrIO\TsrOutputDataProcess.c" />
+    <ClCompile Include="App\TsrManager\TsrParserPacker\TsrParsePackAtsData.c" />
+    <ClCompile Include="App\TsrManager\TsrParserPacker\TsrParsePackInterface.c" />
+    <ClCompile Include="App\TsrManager\TsrQuery\QueryManage.c" />
+    <ClCompile Include="App\TsrManager\TsrSystem\TsrSysConfigData.c" />
+    <ClCompile Include="App\TsrManager\TsrSystem\TsrSysStatusData.c" />
+    <ClCompile Include="App\TsrManager\TsrTransmitFlagAdmin\TsrTransmitStateDataManage.c" />
+    <ClCompile Include="Common\AbsFun.c" />
+    <ClCompile Include="Common\CircQueueStruct.c" />
+    <ClCompile Include="Common\CommonQueue.c" />
+    <ClCompile Include="Common\Convert.c" />
+    <ClCompile Include="Common\Copy.c" />
+    <ClCompile Include="Common\CRC16.c" />
+    <ClCompile Include="Common\CRC32.c" />
+    <ClCompile Include="Common\CRC48.c" />
+    <ClCompile Include="Common\FFFE.c" />
+    <ClCompile Include="Common\Malloc.c" />
+    <ClCompile Include="Common\MemCmp.c" />
+    <ClCompile Include="Common\MemSet.c" />
+    <ClCompile Include="Common\UnitConver.c" />
+    <ClCompile Include="cspadpt\datanZC1.c" />
+    <ClCompile Include="cspadpt\Vcp_Device_Definition_Inf.c" />
+    <ClCompile Include="cspadpt\Vcp_File_Interface.c" />
+    <ClCompile Include="cspadpt\Vcp_Service_Interface.c" />
+    <ClCompile Include="cspadpt\Vcp_Service_TestInterface.c" />
+    <ClCompile Include="cspadpt\Vcp_Track_Interface.c" />
+    <ClCompile Include="dllmain.cpp">
+      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</CompileAsManaged>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </PrecompiledHeader>
+      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</CompileAsManaged>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Dmu\DmuComm\DataHandle\DmuCommDataHandle.c" />
+    <ClCompile Include="Dmu\DmuComm\Data\ArData.c" />
+    <ClCompile Include="Dmu\DmuComm\Data\AxleData.c" />
+    <ClCompile Include="Dmu\DmuComm\Data\AxleSectionData.c" />
+    <ClCompile Include="Dmu\DmuComm\Data\BaliseData.c" />
+    <ClCompile Include="Dmu\DmuComm\Data\BlocApptchSectionData.c" />
+    <ClCompile Include="Dmu\DmuComm\Data\BlocTrgZoneData.c" />
+    <ClCompile Include="Dmu\DmuComm\Data\CbtcApptchSectionData.c" />
+    <ClCompile Include="Dmu\DmuComm\Data\CbtcTrgZoneData.c" />
+    <ClCompile Include="Dmu\DmuComm\Data\CommFailTimeData.c" />
+    <ClCompile Include="Dmu\DmuComm\Data\ConGradeData.c" />
+    <ClCompile Include="Dmu\DmuComm\Data\ConResSpeedData.c" />
+    <ClCompile Include="Dmu\DmuComm\Data\DefaultRouteData.c" />
+    <ClCompile Include="Dmu\DmuComm\Data\EmergStopButtonData.c" />
+    <ClCompile Include="Dmu\DmuComm\Data\ExitCbtcSectionData.c" />
+    <ClCompile Include="Dmu\DmuComm\Data\GradeData.c" />
+    <ClCompile Include="Dmu\DmuComm\Data\LineSwitchInfoData.c" />
+    <ClCompile Include="Dmu\DmuComm\Data\LogicSectionData.c" />
+    <ClCompile Include="Dmu\DmuComm\Data\PhysicalSectionData.c" />
+    <ClCompile Include="Dmu\DmuComm\Data\PlatFormData.c" />
+    <ClCompile Include="Dmu\DmuComm\Data\PointData.c" />
+    <ClCompile Include="Dmu\DmuComm\Data\ProtectZoneData.c" />
+    <ClCompile Include="Dmu\DmuComm\Data\RouteData.c" />
+    <ClCompile Include="Dmu\DmuComm\Data\SectionTypeData.c" />
+    <ClCompile Include="Dmu\DmuComm\Data\SegData.c" />
+    <ClCompile Include="Dmu\DmuComm\Data\ShieldDoorData.c" />
+    <ClCompile Include="Dmu\DmuComm\Data\SignData.c" />
+    <ClCompile Include="Dmu\DmuComm\Data\StaRunLevelData.c" />
+    <ClCompile Include="Dmu\DmuComm\Data\StaticResSpeedData.c" />
+    <ClCompile Include="Dmu\DmuComm\Data\StopPointData.c" />
+    <ClCompile Include="Dmu\DmuComm\Data\StopSectionData.c" />
+    <ClCompile Include="Dmu\DmuComm\Data\SwitchData.c" />
+    <ClCompile Include="Dmu\DmuComm\Data\SystemAccTableData.c" />
+    <ClCompile Include="Dmu\DmuComm\Data\SystemConfigData.c" />
+    <ClCompile Include="Dmu\DmuComm\Data\SystemDevCommData.c" />
+    <ClCompile Include="Dmu\DmuComm\Data\SystemRailInfoData.c" />
+    <ClCompile Include="Dmu\DmuComm\Data\TempLimitSpeedData.c" />
+    <ClCompile Include="Dmu\DmuComm\Data\TrainControlLevelData.c" />
+    <ClCompile Include="Dmu\DmuComm\Data\TrainInfoData.c" />
+    <ClCompile Include="Dmu\DmuComm\Data\TrainStationData.c" />
+    <ClCompile Include="Dmu\DmuComm\Data\TrainTypeConfigData.c" />
+    <ClCompile Include="Dmu\DmuComm\Load\LoadAr.c" />
+    <ClCompile Include="Dmu\DmuComm\Load\LoadAxle.c" />
+    <ClCompile Include="Dmu\DmuComm\Load\LoadAxleSection.c" />
+    <ClCompile Include="Dmu\DmuComm\Load\LoadBalise.c" />
+    <ClCompile Include="Dmu\DmuComm\Load\LoadBlocApptchSection.c" />
+    <ClCompile Include="Dmu\DmuComm\Load\LoadBlocTrgZone.c" />
+    <ClCompile Include="Dmu\DmuComm\Load\LoadCbtcApptchSection.c" />
+    <ClCompile Include="Dmu\DmuComm\Load\LoadCbtcTrgZone.c" />
+    <ClCompile Include="Dmu\DmuComm\Load\LoadCommFailTime.c" />
+    <ClCompile Include="Dmu\DmuComm\Load\LoadConGrade.c" />
+    <ClCompile Include="Dmu\DmuComm\Load\LoadConResSpeed.c" />
+    <ClCompile Include="Dmu\DmuComm\Load\LoadDefaultRoute.c" />
+    <ClCompile Include="Dmu\DmuComm\Load\LoadEmergStopButton.c" />
+    <ClCompile Include="Dmu\DmuComm\Load\LoadExitCbtcSection.c" />
+    <ClCompile Include="Dmu\DmuComm\Load\LoadGrade.c" />
+    <ClCompile Include="Dmu\DmuComm\Load\LoadLineSwitchInfo.c" />
+    <ClCompile Include="Dmu\DmuComm\Load\LoadLogicSection.c" />
+    <ClCompile Include="Dmu\DmuComm\Load\LoadManage.c" />
+    <ClCompile Include="Dmu\DmuComm\Load\LoadPhysicalSection.c" />
+    <ClCompile Include="Dmu\DmuComm\Load\LoadPlatForm.c" />
+    <ClCompile Include="Dmu\DmuComm\Load\LoadPoint.c" />
+    <ClCompile Include="Dmu\DmuComm\Load\LoadProtectZone.c" />
+    <ClCompile Include="Dmu\DmuComm\Load\LoadRoute.c" />
+    <ClCompile Include="Dmu\DmuComm\Load\LoadSectionType.c" />
+    <ClCompile Include="Dmu\DmuComm\Load\LoadSeg.c" />
+    <ClCompile Include="Dmu\DmuComm\Load\LoadShieldDoor.c" />
+    <ClCompile Include="Dmu\DmuComm\Load\LoadSign.c" />
+    <ClCompile Include="Dmu\DmuComm\Load\LoadStaRunLevel.c" />
+    <ClCompile Include="Dmu\DmuComm\Load\LoadStaticResSpeed.c" />
+    <ClCompile Include="Dmu\DmuComm\Load\LoadStopPoint.c" />
+    <ClCompile Include="Dmu\DmuComm\Load\LoadStopSection.c" />
+    <ClCompile Include="Dmu\DmuComm\Load\LoadSwitch.c" />
+    <ClCompile Include="Dmu\DmuComm\Load\LoadSystemAccTable.c" />
+    <ClCompile Include="Dmu\DmuComm\Load\LoadSystemConfig.c" />
+    <ClCompile Include="Dmu\DmuComm\Load\LoadSystemDevComm.c" />
+    <ClCompile Include="Dmu\DmuComm\Load\LoadSystemRailInfo.c" />
+    <ClCompile Include="Dmu\DmuComm\Load\LoadTempLimitSpeed.c" />
+    <ClCompile Include="Dmu\DmuComm\Load\LoadTrainControlLevel.c" />
+    <ClCompile Include="Dmu\DmuComm\Load\LoadTrainInfo.c" />
+    <ClCompile Include="Dmu\DmuComm\Load\LoadTrainStation.c" />
+    <ClCompile Include="Dmu\DmuComm\Load\LoadTrainTypeConfig.c" />
+    <ClCompile Include="Dmu\Read\ReadBnfData.c" />
+    <ClCompile Include="Dmu\Read\ReadManage.c" />
+    <ClCompile Include="Dmu\test_ReadBnfData\stubs\auto.c" />
+    <ClCompile Include="Dmu\test_ReadBnfData\stubs\autogenerated\auto_c8e292f1.c" />
+    <ClCompile Include="Dmu\test_ReadBnfData\tests\autogenerated\TestSuite_ReadBnfData_c.c" />
+    <ClCompile Include="FSFB\CFM\GM_RSSP1_CFM.c" />
+    <ClCompile Include="FSFB\CFM\GM_RSSP1_CFM_Init.c" />
+    <ClCompile Include="FSFB\CFM\GM_RSSP1_CFM_Init_Addr.c" />
+    <ClCompile Include="FSFB\CFM\GM_RSSP1_CFM_Interface.c" />
+    <ClCompile Include="FSFB\GM_RSSP1_APP_Interface.c" />
+    <ClCompile Include="FSFB\GM_RSSP1_MQ_Interface.c" />
+    <ClCompile Include="FSFB\GM_RSSP1_Msg_Queue.c" />
+    <ClCompile Include="FSFB\GM_RSSP1_Syn.c" />
+    <ClCompile Include="FSFB\SFM\GM_RSSP1_PROC_Int.c" />
+    <ClCompile Include="FSFB\SFM\GM_RSSP1_SFM.c" />
+    <ClCompile Include="FSFB\SFM\GM_RSSP1_SFM_Init.c" />
+    <ClCompile Include="FSFB\SFM\GM_RSSP1_SFM_Init_Addr.c" />
+    <ClCompile Include="FSFB\SFM\GM_RSSP1_SFM_Interface.c" />
+    <ClCompile Include="FSFB\SFM\GM_RSSP1_Time.c" />
+    <ClCompile Include="GM_Utils\GM_Code_Convert.c" />
+    <ClCompile Include="GM_Utils\GM_CRC16.c" />
+    <ClCompile Include="GM_Utils\GM_CRC16_Standard.c" />
+    <ClCompile Include="GM_Utils\GM_CRC32.c" />
+    <ClCompile Include="GM_Utils\GM_CRC32_Standard.c" />
+    <ClCompile Include="GM_Utils\GM_CRC_Reflect.c" />
+    <ClCompile Include="GM_Utils\GM_CRC_Table16.c" />
+    <ClCompile Include="GM_Utils\GM_CRC_Table32.c" />
+    <ClCompile Include="GM_Utils\GM_Free.c" />
+    <ClCompile Include="GM_Utils\GM_Ini_File.c" />
+    <ClCompile Include="GM_Utils\GM_LFSR.c" />
+    <ClCompile Include="GM_Utils\GM_LFSR_Table.c" />
+    <ClCompile Include="GM_Utils\GM_Malloc.c" />
+    <ClCompile Include="GM_Utils\GM_Memcpy.c" />
+    <ClCompile Include="GM_Utils\GM_Memncomp.c" />
+    <ClCompile Include="GM_Utils\GM_Memset.c" />
+    <ClCompile Include="GM_Utils\GM_MQ_Fixed.c" />
+    <ClCompile Include="GM_Utils\GM_MultiThread.c" />
+    <ClCompile Include="GM_Utils\GM_Mutex.c" />
+    <ClCompile Include="GM_Utils\GM_PD.c" />
+    <ClCompile Include="GM_Utils\GM_PD_Table.c" />
+    <ClCompile Include="GM_Utils\GM_Utils_Other.c" />
+    <ClCompile Include="GM_Utils\GM_VSN.c" />
+    <ClCompile Include="INTERCOMM\GM_CFG_INTERCOMM.c" />
+    <ClCompile Include="INTERCOMM\GM_CFG_INTERCOMM_Manage.c" />
+    <ClCompile Include="INTERCOMM\GM_LOG_INTERCOMM.c" />
+    <ClCompile Include="INTERCOMM\GM_RSSP1_INTERCOMM.c" />
+    <ClCompile Include="INTERCOMM\GM_RSSP1_INTERCOMM_Def.c" />
+    <ClCompile Include="INTERCOMM\GM_RSSP1_INTERCOMM_Init.c" />
+    <ClCompile Include="INTERCOMM\GM_RSSP1_INTERCOMM_Socket.c" />
+    <ClCompile Include="INTERCOMM\SYNC_INTERCOMM.c" />
+    <ClCompile Include="INTERCOMM\SYNC_INTERCOMM_Def.c" />
+    <ClCompile Include="INTERCOMM\SYNC_INTERCOMM_Init.c" />
+    <ClCompile Include="PlatformAdapter\AdptHandle\AdapterExtDevInOutManage.c" />
+    <ClCompile Include="PlatformAdapter\AdptHandle\AdapterFileHandle.c" />
+    <ClCompile Include="PlatformAdapter\AppItf\AdptAppExtDevDataInterface.c" />
+    <ClCompile Include="PlatformAdapter\AppItf\AdptAppFileInterface.c" />
+    <ClCompile Include="PlatformAdapter\AppItf\AdptAppServiceInterface.c" />
+    <ClCompile Include="PlatformAdapter\PlatformLog\AdapterLog.c" />
+    <ClCompile Include="PlatformAdapter\PlatItf\AdptPlatFileInterface.c" />
+    <ClCompile Include="PlatformAdapter\PlatItf\AdptPlatServiceInterface.c" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="TACS.ZC.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
