@@ -124,11 +124,13 @@ namespace Products.Shell.Presentation.MainForm
             mnuOpenExeFolder.Click += OnMenuToolOpenExeFolder;
             var mnuRolloverAllCommLog = new ToolStripMenuItem() { Text = "滚动所有日志文件..." };
             mnuRolloverAllCommLog.Click += OnMenuToolRolloverLog;
+            var mnuScreenshot = new ToolStripMenuItem() { Text = "截屏...", ShortcutKeys = Keys.Alt | Keys.S };
+            mnuScreenshot.Click += OnMenuToolScreenshot;
             var mnuRunCommand = new ToolStripMenuItem() { Text = "运行(&R)..." };
             mnuRunCommand.Click += OnMenuToolRunCommand;
 
             _menuTool.DropDownItems.AddRange(new ToolStripItem[] { mnuToolOption, 
-                new ToolStripSeparator(), mnuOpenExeFolder, mnuRolloverAllCommLog, mnuRunCommand});
+                new ToolStripSeparator(), mnuOpenExeFolder, mnuRolloverAllCommLog, mnuScreenshot, mnuRunCommand});
             #endregion
 
             //#region "一级菜单：调试"
@@ -660,6 +662,20 @@ namespace Products.Shell.Presentation.MainForm
             try
             {
                 GlobalMessageBuses.PublishCommLogRollover(e, sender);
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show(ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        /// <summary>
+        /// 工具 - 截屏
+        /// </summary>
+        private void OnMenuToolScreenshot(object sender, EventArgs e)
+        {
+            try
+            {
+                System.Diagnostics.Process.Start("SnagIt.exe");
             }
             catch (System.Exception ex)
             {

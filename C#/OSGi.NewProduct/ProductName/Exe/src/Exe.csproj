@@ -143,6 +143,10 @@
       <Link>FrameworkExtensions\Platform.SplashScreen.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="..\..\..\Libs\SnagIt.exe">
+      <Link>SnagIt.exe</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="exe.ico" />
     <Content Include="log4net.config.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
