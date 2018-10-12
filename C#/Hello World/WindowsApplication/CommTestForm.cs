@@ -73,30 +73,50 @@ namespace WindowsApplication
         /// 无法操作主界面。
         /// </summary>
         private void DemoCannotOperaterUi()
-        {
+        {            
             MessageBox.Show(string.Format("Main thread ID = {0}", Thread.CurrentThread.ManagedThreadId));
 
+            // 
             Task.Factory.StartNew(() =>
             {
-                // 以下代码显示Form后，主界面不可以操作，Form也看不到。
-                // 将BeginInvoke改为Invoke试试效果。
-                this.BeginInvoke(new Action(() =>
+                try
                 {
-                    var form2 = new Form();
-                    form2.Text = string.Format("Using Invoke/BeginInvoke, TID = {0}", Thread.CurrentThread.ManagedThreadId);
-                    form2.ShowInTaskbar = false;
-                    form2.ShowDialog();
-                }));
+                    // 以下代码显示Form后，主界面不可以操作，Form也看不到。
+                    // 将BeginInvoke改为Invoke试试效果。
+                    this.BeginInvoke(new Action(() =>
+                    {
+                        var form2 = new Form();
+                        form2.Text = string.Format("Using Invoke/BeginInvoke, TID = {0}", Thread.CurrentThread.ManagedThreadId);
+                        form2.ShowInTaskbar = false;
+                        form2.ShowDialog();
+                    }));
 
-                // 以下代码显示Form后，主界面可以操作，但Form看不到。
-                var form1 = new Form();
-                form1.Text = string.Format("Sync call, TID = {0}", Thread.CurrentThread.ManagedThreadId); ;
-                form1.ShowInTaskbar = false;
-                form1.ShowDialog();
+                    // 以下代码显示Form后，主界面可以操作，但Form看不到。
+                    var form1 = new Form();
+                    form1.Text = string.Format("Sync call, TID = {0}", Thread.CurrentThread.ManagedThreadId); ;
+                    form1.ShowInTaskbar = false;
+                    form1.Load += form1_Load;
+                    form1.ShowDialog();
+                }
+                catch (System.Exception ex)
+                {
+                    // 这里无法捕获 form1_Load中的异常。
+                    Console.WriteLine(ex);
+                }
             });
 
             this.TopMost = true;
+
+            // 总结：
+            // 1、BeginInvoke类似MFC中的PostMessage，Invoke类似SendMessage。
+            // 2、Control.BeginInvoke与Invoke 都是在Control所属的线程上执行。
         }
+
+        void form1_Load(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
         /// <summary>
         /// 退出
         /// </summary>
