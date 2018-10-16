@@ -2,7 +2,7 @@
 using System;
 using System.Linq;
 using Acl.ServiceManagement;
-using Framework.OSGi;
+using OSGi;
 using Platform.Bundles.Bridge;
 using Platform.Bundles.Bridge.Utilities;
 using Products.Domain.Preferences;

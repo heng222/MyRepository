@@ -1,6 +1,6 @@
 
 using System;
-using Framework.OSGi;
+using OSGi;
 using Platform.Bundles.Bridge;
 using Platform.Presentation;
 using Products.Infrastructure.Log;

@@ -1,0 +1,171 @@
+﻿<xs:schema targetNamespace="urn:OSGi.NET-1.0"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+           xmlns="urn:OSGi.NET-1.0" 
+           elementFormDefault="qualified" 
+           attributeFormDefault="unqualified">
+  <xs:element name="Configuration">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Bundle-Activator" maxOccurs="unbounded" minOccurs="0" />
+        <xs:element ref="Runtime" maxOccurs="1" minOccurs="0"/>
+        <xs:element ref="Settings" maxOccurs="1" minOccurs="0"/>
+        <xs:element ref="ExtensionPoint" maxOccurs="unbounded" minOccurs="0"/>
+        <xs:element ref="Extension" maxOccurs="unbounded" minOccurs="0"/>
+        <!--<xs:any  namespace="##any" minOccurs="0" maxOccurs="unbounded" processContents="skip" />-->
+      </xs:sequence>
+      
+      <xs:attribute name="framework.factory" type="xs:string" use="optional" >
+        <xs:annotation>
+          <xs:documentation>标识FramewrokFactory 的类型</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="supports.framework.extension" type="xs:boolean" use="optional" default="false" >
+        <xs:annotation>
+          <xs:documentation>是否支持扩展bundle. 缺省值为false。</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="framework.share.classPath" type="xs:string" use="optional" >
+        <xs:annotation>
+          <xs:documentation>表示全局共享dll路径</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="bundle.rootDirectory" type="xs:string" use="optional" >
+        <xs:annotation>
+          <xs:documentation>标识Bundle的根目录</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="framework.extension.classPath" type="xs:string" use="optional" >
+        <xs:annotation>
+          <xs:documentation>表示框架扩展的Dll路径</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="framework.startlevel.beginning" type="xs:unsignedInt" use="optional" >
+        <xs:annotation>
+          <xs:documentation>设置Framework缺省启动级别，只有低于或等于此级别的Bundle才能启动</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="initial.bundle.startlevel" type="xs:unsignedInt" use="optional" >
+        <xs:annotation>
+          <xs:documentation>设置Bundle默认启动级别</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="auto-sync.prefs" type="xs:boolean" use="optional" >
+        <xs:annotation>
+          <xs:documentation>设置自动同步prefs</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="log.level" type="LogLevel" use="optional" >
+        <xs:annotation>
+          <xs:documentation>设置osgi 日志级别</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="log.event.Thread" type="xs:boolean" use="optional" >
+        <xs:annotation>
+          <xs:documentation>是否记录事件管理器线程日志，默认不记录</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="log.startlevel-Thread" type="xs:boolean" use="optional" >
+        <xs:annotation>
+          <xs:documentation>是否记录启动级别线程日志，默认不记录</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:anyAttribute processContents="skip"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:simpleType name="LogLevel">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Debug"></xs:enumeration>
+      <xs:enumeration value="Info"></xs:enumeration>
+      <xs:enumeration value="Warn"></xs:enumeration>
+      <xs:enumeration value="Error"></xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:element name="Settings">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="add" maxOccurs="unbounded" minOccurs="0">
+          <xs:complexType>
+            <xs:attribute name="key" type="xs:string" use="required" >
+            </xs:attribute>
+            <xs:attribute name="value" type ="xs:string" >
+            </xs:attribute>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+
+  </xs:element>
+
+  <xs:element name="ExtensionPoint">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:any namespace="##any" minOccurs="0" maxOccurs="unbounded" processContents="skip"/>
+      </xs:sequence>
+      <xs:attribute name="Point" type="xs:string" use="required"    >
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Extension">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:any namespace="##any" minOccurs="0" maxOccurs="unbounded" processContents="skip"/>
+      </xs:sequence>
+      <xs:attribute name="Point" type="xs:string" use="required"    >
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+ 
+  <xs:element name="Runtime">
+    <xs:annotation>
+      <xs:documentation>该节点定义了模块的类型空间。模块类型空间是指模块可访问的类型的集合，它 决定了一个模块向外提供的功能。每一个模块都具有其独立的类型空间和 类加载器，类加载器用于从其类型空间中加载类型。模块类型空间由本地程序集和依赖 的其它模块的程序集构成。</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Assembly"  maxOccurs="unbounded" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation>Assembly节点用于定义模块一个本地程序集，本地程序集分为私有程序集和 共享程序集，后者表示该程序集的类型可以被其它模块共享使用。私有程序集的 Share属性为false，相反，共享程序集为true。该节点由Path和Share属性构成</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+ 
+  <xs:element name="Assembly">
+    <xs:complexType>
+      <xs:attribute name="Path" type="xs:string" use="required" >
+        <xs:annotation>
+          <xs:documentation>程序集的路径，可以是相对于插件根目录的路径，也可以是绝对路径，必选属性</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+    
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Bundle-Activator">
+    <xs:complexType>
+      <xs:attribute name="Type" type="xs:string" use="required" >
+        <xs:annotation>
+          <xs:documentation>系统Bundle激活器，用来扩展系统Bundle的</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="IsStatic"
+                    type="xs:boolean" >
+        <xs:annotation>
+          <xs:documentation>是否是静态类型，缺省实例类型</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="StartMethod"
+                    type="xs:string" >
+        <xs:annotation>
+          <xs:documentation>启动方法</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="StopMethod"
+                    type="xs:string" >
+        <xs:annotation>
+          <xs:documentation>停止方法</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

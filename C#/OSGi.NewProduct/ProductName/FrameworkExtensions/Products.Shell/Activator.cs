@@ -1,7 +1,7 @@
 using System;
 using System.ComponentModel;
 using Acl.ServiceManagement;
-using Framework.OSGi;
+using OSGi;
 using Platform.Presentation;
 using Platform.Presentation.Options;
 using Products.Domain;

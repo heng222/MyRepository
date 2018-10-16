@@ -74,28 +74,33 @@
   <ItemGroup>
     <Reference Include="Acl.CommStreamLog">
       <HintPath>..\..\..\Libs\Acl.CommStreamLog.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Acl.Core">
       <HintPath>..\..\..\Libs\Acl.Core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Acl.Data">
+      <HintPath>..\..\..\..\..\..\..\..\HW.ATS.SIL2\trunk\SourceCode\Libs\Acl.Data.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Acl.Log">
       <HintPath>..\..\..\Libs\Acl.Log.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Acl.MessageBus, Version=1.0.0.24, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\Libs\Acl.MessageBus.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Acl.ServiceManagement">
       <HintPath>..\..\..\Libs\Acl.ServiceManagement.dll</HintPath>
+      <Private>False</Private>
     </Reference>
-    <Reference Include="Framework.OSGi.Core">
-      <HintPath>..\..\..\Libs\Framework.OSGi.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Framework.OSGi.Enterprise">
-      <HintPath>..\..\..\Libs\Framework.OSGi.Enterprise.dll</HintPath>
-    </Reference>
-    <Reference Include="Framework.OSGi.Impl">
-      <HintPath>..\..\..\Libs\Framework.OSGi.Impl.dll</HintPath>
+    <Reference Include="OSGi, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Libs\OSGi.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
@@ -115,32 +120,56 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="..\..\..\Libs\Acl.CommStreamLog.dll">
+      <Link>Libs\Acl.CommStreamLog.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\..\Libs\Acl.Controls.dll">
+      <Link>Libs\Acl.Controls.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\..\Libs\Acl.Core.dll">
+      <Link>Libs\Acl.Core.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\..\Libs\Acl.Log.dll">
+      <Link>Libs\Acl.Log.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\..\Libs\Acl.MessageBus.dll">
+      <Link>Libs\Acl.MessageBus.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\..\Libs\Acl.ServiceManagement.dll">
+      <Link>Libs\Acl.ServiceManagement.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="..\..\..\Libs\Acl.TimeDisplay.dll">
-      <Link>Acl.TimeDisplay.dll</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\..\Libs\Framework.OSGi.ConsoleService.dll">
-      <Link>FrameworkExtensions\Framework.OSGi.ConsoleService.dll</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\..\Libs\Framework.OSGi.Prefs.dll">
-      <Link>FrameworkExtensions\Framework.OSGi.Prefs.dll</Link>
+      <Link>Libs\Acl.TimeDisplay.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\..\..\Libs\log4net.dll">
-      <Link>log4net.dll</Link>
+      <Link>Libs\log4net.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\..\Libs\OSGi.dll">
+      <Link>OSGi.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\..\..\Libs\Platform.Bundles.Bridge.dll">
-      <Link>FrameworkExtensions\Platform.Bundles.Bridge.dll</Link>
+      <Link>Libs\Platform.Bundles.Bridge.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\..\Libs\Platform.Presentation.dll">
+      <Link>Libs\Platform.Presentation.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\..\..\Libs\Platform.Shell.dll">
-      <Link>FrameworkExtensions\Platform.Shell.dll</Link>
+      <Link>Libs\Platform.Shell.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\..\..\Libs\Platform.SplashScreen.dll">
-      <Link>FrameworkExtensions\Platform.SplashScreen.dll</Link>
+      <Link>Libs\Platform.SplashScreen.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\..\..\Libs\SnagIt.exe">
@@ -151,10 +180,6 @@
     <Content Include="log4net.config.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <None Include="..\..\..\Libs\ICSharpCode.SharpZipLib.dll">
-      <Link>FrameworkExtensions\ICSharpCode.SharpZipLib.dll</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
     <None Include="osgi.config.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>
@@ -186,11 +211,17 @@
     <ProjectReference Include="..\..\Foundation\Products.Domain\Products.Domain.csproj">
       <Project>{075AE358-82E8-4CE3-9B4E-1E895A11951D}</Project>
       <Name>Products.Domain</Name>
+      <Private>False</Private>
     </ProjectReference>
     <ProjectReference Include="..\..\Foundation\Products.Infrastructure\Products.Infrastructure.csproj">
       <Project>{A4B16E5B-561D-4739-B35B-6E4D21E78A47}</Project>
       <Name>Products.Infrastructure</Name>
+      <Private>False</Private>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Libs\x64\" />
+    <Folder Include="Libs\x86\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

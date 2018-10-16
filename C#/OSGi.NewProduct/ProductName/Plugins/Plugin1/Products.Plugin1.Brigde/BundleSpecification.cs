@@ -1,4 +1,4 @@
-﻿using Framework.OSGi;
+﻿using OSGi;
 using Platform.Bundles.Bridge;
 
 namespace Products.Plugin1.Bridge

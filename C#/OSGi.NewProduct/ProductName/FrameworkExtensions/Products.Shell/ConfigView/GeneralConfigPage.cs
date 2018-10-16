@@ -41,7 +41,7 @@ namespace Products.Shell.ConfigView
         /// </summary>
         public void ApplyChanges()
         {
-            Workbench.OptimizeInterval = (int)nudOptInterval.Value * 60;
+            Workbench.OptimizeInterval = (ushort)(nudOptInterval.Value * 60);
         }
         #endregion
     }

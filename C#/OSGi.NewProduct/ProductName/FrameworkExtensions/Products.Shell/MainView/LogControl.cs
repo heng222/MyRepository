@@ -51,7 +51,7 @@ namespace Products.Shell.MainView
         {
             try
             {
-                _logMonitor.DebugLogAlived = false;
+                _logMonitor.DebugLogAlive = false;
             }
             catch (System.Exception /*ex*/)
             {

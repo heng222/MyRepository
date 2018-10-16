@@ -47,8 +47,8 @@
       <HintPath>..\..\..\..\Libs\Acl.ServiceManagement.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Framework.OSGi.Core">
-      <HintPath>..\..\..\..\Libs\Framework.OSGi.Core.dll</HintPath>
+    <Reference Include="OSGi">
+      <HintPath>..\..\..\..\Libs\OSGi.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Platform.Bundles.Bridge">

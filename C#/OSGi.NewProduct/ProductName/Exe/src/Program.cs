@@ -1,5 +1,5 @@
 ﻿/*----------------------------------------------------------------
-// 公司名称：请输入公司名称
+// 公司名称：北京泰克斯科技有限公司
 // 
 // 产品名称：ProductsName
 //
@@ -20,14 +20,23 @@ using System.Windows.Forms;
 using Acl.CommStreamLog;
 using Acl.Log;
 using Acl.MessageBus;
+using Acl.Threading;
+using Microsoft.Win32;
+using OSGi;
 using Products.Domain.Utility;
 using Products.Infrastructure.Log;
 
-namespace ProductName
+namespace Exe
 {
-    static class Program
+    class Program
     {
-        private static SystemChecker _systemCheker = new SystemChecker();
+        private IFramework _framework;
+
+        public Program()
+        {
+            _framework = FrameworkFactory.NewFramework();
+        }
+
 
         /// <summary>
         /// 应用程序的主入口点。
@@ -43,20 +52,10 @@ namespace ProductName
                 Application.ApplicationExit += OnApplicationExit;
                 AppDomain.CurrentDomain.UnhandledException += OnDomainUnhandledExceptionOccurs;
 
-                // 系统预检查
-                PreCheck();
-
-                // 注册COM控件。
-                RegisterCOM();
-
-                // 添加探测路径到本NET进程中。
-                AppendCustomPrivatePath();
-
-                // 添加VC运行时库路径到进程Path变量。
-                AppendCommLibPathToPathVirable();
+                var instance = new Program();
 
                 // 运行
-                Run();
+                instance.Run();
             }
             catch (System.Exception ex)
             {
@@ -67,9 +66,9 @@ namespace ProductName
         /// <summary>
         /// 预检查
         /// </summary>
-        private static void PreCheck()
+        private void PreCheck()
         {
-            _systemCheker.Check();
+            new SystemChecker().Check();
         }
 
         /// <summary>
@@ -109,13 +108,23 @@ namespace ProductName
         /// <summary>
         /// 运行
         /// </summary>
-        private static void Run()
+        private void Run()
         {
             try
             {
+                SubscribeSystemEvents();
+
+                // 系统预检查
+                PreCheck();
+
+                // 注册COM控件。
+                RegisterCOM();
+
                 InitializeLogSystem();
 
-                Framework.OSGi.Launch.Launcher.Run();
+                _framework.Init();
+                _framework.Start();
+                _framework.WaitForStop();
             }
             catch (System.Reflection.TargetInvocationException ex)
             {
@@ -131,10 +140,34 @@ namespace ProductName
             {
                 LocalMessageBus.Current.RemoveAll();
                 ShutdownLogSystem();
+                ThreadProxy.Shutdown();
                 System.Diagnostics.Process.GetCurrentProcess().Kill();
             }
         }
 
+        /// <summary>
+        /// 订阅OS事件。
+        /// </summary>
+        private static void SubscribeSystemEvents()
+        {
+            SystemEvents.PowerModeChanged += (sender, e) =>
+            {
+                LogManager.GetLogger(LoggerNames.Platform)
+                    .Warn(string.Format("收到用户挂起或继续系统事件，电源事件模式类型={0}", e.Mode));
+            };
+
+            SystemEvents.SessionSwitch += (sender, e) =>
+            {
+                LogManager.GetLogger(LoggerNames.Platform)
+                    .Warn(string.Format("更改当前登录的Windows用户，事件类型={0}", e.Reason));
+            };
+
+            SystemEvents.SessionEnded += (sender, e) =>
+            {
+                LogManager.GetLogger(LoggerNames.Platform)
+                    .Warn(string.Format("用户注销或关闭操作系统，事件类型={0}", e.Reason));
+            };
+        }
         /// <summary>
         /// 初始化日志系统
         /// </summary>
@@ -224,7 +257,7 @@ namespace ProductName
             var funsion = typeof(AppDomain).GetMethod("GetFusionContext", BindingFlags.NonPublic | BindingFlags.Instance);
             m.Invoke(null, new object[] { funsion.Invoke(AppDomain.CurrentDomain, null), "PRIVATE_BINPATH", privatePath });
         }
-        
+
         /// <summary>
         /// OnApplicationExit
         /// </summary>

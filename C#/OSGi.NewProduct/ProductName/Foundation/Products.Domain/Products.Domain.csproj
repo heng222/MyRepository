@@ -17,27 +17,28 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\Bin\Debug\</OutputPath>
+    <OutputPath>..\..\Bin\Debug\Libs\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <RunCodeAnalysis>true</RunCodeAnalysis>
     <CodeAnalysisRuleSet>..\..\Fxcop.ruleset</CodeAnalysisRuleSet>
-    <DocumentationFile>..\..\Bin\Debug\Products.Domain.XML</DocumentationFile>
+    <DocumentationFile>..\..\Bin\Debug\Libs\Products.Domain.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\..\Bin\Release\</OutputPath>
+    <OutputPath>..\..\Bin\Release\Libs\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>..\..\Bin\Release\Products.Domain.XML</DocumentationFile>
+    <DocumentationFile>..\..\Bin\Release\Libs\Products.Domain.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Acl.CommStreamLog, Version=1.3.0.12, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\..\+泰克斯\BaliseSupervision_应答器监测\trunk\Libs\Acl.CommStreamLog.dll</HintPath>
+      <HintPath>..\..\..\Libs\Acl.CommStreamLog.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Acl.Core, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>

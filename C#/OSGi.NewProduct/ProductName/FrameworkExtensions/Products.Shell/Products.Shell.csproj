@@ -17,22 +17,22 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\bin\Debug\FrameworkExtensions\</OutputPath>
+    <OutputPath>..\..\bin\Debug\Libs\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <RunCodeAnalysis>true</RunCodeAnalysis>
     <CodeAnalysisRuleSet>..\..\Fxcop.ruleset</CodeAnalysisRuleSet>
-    <DocumentationFile>..\..\bin\Debug\FrameworkExtensions\Products.Shell.XML</DocumentationFile>
+    <DocumentationFile>..\..\bin\Debug\Libs\Products.Shell.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\..\bin\Release\FrameworkExtensions\</OutputPath>
+    <OutputPath>..\..\bin\Release\Libs\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>..\..\bin\Release\FrameworkExtensions\Products.Shell.XML</DocumentationFile>
+    <DocumentationFile>..\..\bin\Release\Libs\Products.Shell.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Acl.Controls">
@@ -59,8 +59,8 @@
       <HintPath>..\..\..\Libs\Acl.TimeDisplay.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Framework.OSGi.Core">
-      <HintPath>..\..\..\Libs\Framework.OSGi.Core.dll</HintPath>
+    <Reference Include="OSGi">
+      <HintPath>..\..\..\Libs\OSGi.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Platform.Presentation">
