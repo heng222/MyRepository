@@ -7,6 +7,7 @@ using Products.Domain.Preferences;
 using Products.Infrastructure.Log;
 using Products.Infrastructure.Types;
 using Products.UAC.Domain;
+using Products.Domain.Utility;
 
 namespace Products.UAC.Bridge
 {
@@ -61,9 +62,9 @@ namespace Products.UAC.Bridge
         #endregion
 
         #region "private methods"
-        private static UacSettings BuildSettings(IDictionary<string, string> context)
+        private static UacSettings BuildSettings(IDictionary<string, string> settings)
         {
-            var adminPwd = SettingsUtility.GetByteArray(context, "AdminPassword");
+            var adminPwd = GlobalHelper.SplitHexText(settings["AdminPassword"]);
 
             return new UacSettings(adminPwd);
         }

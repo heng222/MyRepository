@@ -61,19 +61,19 @@ namespace Products.Domain
         public IEnumerable<PresentationControlType> ControlTypes { get { return _controlTypes; } }
         #endregion
 
-        #region "Public methods"
-
+        #region "Constructor"
         /// <summary>
-        /// 初始化本地节点相关信息。
-        /// 默认方式下将根据本地IP从数据库中查找对应的节点信息。
+        /// 构造函数。
         /// </summary>
-        public void Initialize()
+        public DefaultNodeContextImpl()
         {
             this.Name = string.Empty;
             this.Type = NodeType.Default;
             this.Plugins = PluginType.All;
         }
+        #endregion
 
+        #region "Public methods"
         #endregion
 
 

@@ -57,7 +57,7 @@ namespace Products.Shell
 
                 this.OpenSplashScreen(); 
                 
-                NodeContextManager.Initialize();
+                //NodeContextManager.Initialize();
 
                 var dto = context.Framework.Adapt<OSGi.Dto.Framework.FrameworkDto>();
                 foreach (var key in dto.Properties.Keys)

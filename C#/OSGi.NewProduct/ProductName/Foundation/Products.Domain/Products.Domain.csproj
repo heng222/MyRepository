@@ -84,6 +84,7 @@
     <Compile Include="SystemAttributeImpl.cs" />
     <Compile Include="Utility\COMHelper.cs" />
     <Compile Include="Utility\GdiNativeMethods.cs" />
+    <Compile Include="Utility\GlobalHelper.cs" />
     <Compile Include="Utility\LogUtility.cs" />
     <Compile Include="Utility\RedundantDllFileChecker.cs" />
     <Compile Include="Utility\SeqNoManager.cs" />
