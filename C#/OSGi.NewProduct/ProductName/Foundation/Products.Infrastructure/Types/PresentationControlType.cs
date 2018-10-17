@@ -9,7 +9,7 @@ namespace Products.Infrastructure.Types
     /// <summary>
     /// 表示层控件类型定义
     /// </summary>
-    public enum PresentationControlType
+    public enum PresentationControlType : uint
     {
         /// <summary>
         /// 无类型或类型无效

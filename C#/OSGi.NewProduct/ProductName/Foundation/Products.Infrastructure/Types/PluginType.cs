@@ -27,6 +27,11 @@ namespace Products.Infrastructure.Types
         /// </summary>
         [MemberDesAttribute("无")]
         None = 0,
+        /// <summary>
+        /// 所有插件
+        /// </summary>
+        [MemberDesAttribute("所有插件")]
+        All = UInt64.MaxValue,
 
 
         #region "第1、2字节（最低位字节），存放与业务无关的插件。"
@@ -49,15 +54,15 @@ namespace Products.Infrastructure.Types
         // 3 ~ 7位预留。
 
         /// <summary>
-        /// 报警插件
+        /// 系统事件管理
         /// </summary>
-        [MemberDesAttribute("报警插件")]
-        Alarm = (1L << 8),
+        [MemberDesAttribute("系统事件管理")]
+        SEM = (1L << 8),
         /// <summary>
         /// 用户管理插件
         /// </summary>
         [MemberDesAttribute("用户管理插件")]
-        Usermanagement = (1L << 9),
+        UAC = (1L << 9),
         /// <summary>
         /// 节点管理插件
         /// </summary>
@@ -70,10 +75,10 @@ namespace Products.Infrastructure.Types
 
         #region "第3、4字节，存放业务插件。"
         /// <summary>
-        /// 站场设备管理插件
+        /// Plugin1
         /// </summary>
-        [MemberDesAttribute("站场设备管理插件")]
-        SDM = (1L << 16),
+        [MemberDesAttribute("Plugin1")]
+        Plugin1 = (1L << 16),
         /// <summary>
         /// 运行图插件
         /// </summary>

@@ -7,19 +7,5 @@
                bundle.rootDirectory="Plugins"
                framework.extension.AutoExitOnStartBundleError="true"
                log.level="Info"
-               log.event.Thread="true"
-               OptimizeInterval="3600"
-               ExceptionResolver="Acl.Exceptions.UnknowExceptionResolver,Acl.Core"
-               ExceptionRender="Platform.Bundles.Bridge.Exceptions.MessageBoxExceptionRender,Platform.Bundles.Bridge;Platform.Bundles.Bridge.Exceptions.LogExceptionRender,Platform.Bundles.Bridge;"
-               MainFormFactory="Products.Shell.DemoFormFactory"
-               >
-
-  <Bundle-Activator Type="Platform.Bundles.Bridge.Activator,Platform.Bundles.Bridge"/>
-  <Bundle-Activator Type="Products.Shell.SplashScrActivator,Products.Shell"/>
-  <Bundle-Activator Type="Products.Shell.Activator,Products.Shell"/>
-
-  <Runtime>
-    <Assembly Path="\libs\Platform.Bundles.Bridge.dll" />
-    <Assembly Path="\libs\Products.Shell.dll" />
-  </Runtime>
+               log.event.Thread="true">
 </Configuration>

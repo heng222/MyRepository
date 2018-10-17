@@ -7,7 +7,7 @@ using Platform.Presentation;
 
 namespace Products.Shell
 {
-    class DemoFormFactory : IMainFormFactory
+    class MainFormFactory : IMainFormFactory
     {
         public Form Create()
         {

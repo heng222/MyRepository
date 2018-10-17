@@ -35,15 +35,15 @@ namespace Products.Infrastructure.Messages
         /// <summary>
         /// 订阅程序即将关闭事件。
         /// </summary>
-        public static IDisposable SubscribeApplicationExiting(Action<object, EventArgs> handler)
+        public static IDisposable SubscribeApplicationExiting(Action<object, ProcessExitingEventArgs> handler)
         {
-            return ApplicationExitingMessageBus.Subscribe<EventArgs>(
+            return ApplicationExitingMessageBus.Subscribe<ProcessExitingEventArgs>(
                 ApplicationExitingMessage, handler, SubscribeMode.Async);
         }
         /// <summary>
         /// 发布程序即将关闭事件。
         /// </summary>
-        public static IMessageResponse PublishApplicationExiting(EventArgs args, object sender = null)
+        public static IMessageResponse PublishApplicationExiting(ProcessExitingEventArgs args, object sender = null)
         {
             return ApplicationExitingMessageBus.Publish(ApplicationExitingMessage, args, sender, false);
         }

@@ -65,6 +65,8 @@
     <Compile Include="Events\CommStateChangedEventArgs.cs" />
     <Compile Include="Events\FrameOutgoingEventArgs.cs" />
     <Compile Include="Events\NewSystemEventArgs.cs" />
+    <Compile Include="Events\ProcessExitingEventArgs.cs" />
+    <Compile Include="Specification\ILifeCycleManagement.cs" />
     <Compile Include="Log\CommLogParserCode.cs" />
     <Compile Include="Log\LoggerNames.cs" />
     <Compile Include="Log\LogLevelManager.cs" />
@@ -74,6 +76,8 @@
     <Compile Include="Messages\SingleTopicSyncMessagebus.cs" />
     <Compile Include="Preference\SerialPortSettingNames.cs" />
     <Compile Include="Preference\SerialPortSettings.cs" />
+    <Compile Include="Specification\INodeAttri.cs" />
+    <Compile Include="Specification\INodeContext.cs" />
     <Compile Include="Types\AtcSubsystemType.cs" />
     <Compile Include="Types\PresentationControlType.cs" />
     <Compile Include="Protocol\Framework\IFrameSentCompleteObserver.cs" />
@@ -99,6 +103,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DTO\" />
+    <Folder Include="Framework\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

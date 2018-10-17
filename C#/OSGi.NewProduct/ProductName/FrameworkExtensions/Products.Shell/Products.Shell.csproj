@@ -17,22 +17,22 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\bin\Debug\Libs\</OutputPath>
+    <OutputPath>..\..\bin\Debug\Plugins\Shell\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <RunCodeAnalysis>true</RunCodeAnalysis>
     <CodeAnalysisRuleSet>..\..\Fxcop.ruleset</CodeAnalysisRuleSet>
-    <DocumentationFile>..\..\bin\Debug\Libs\Products.Shell.XML</DocumentationFile>
+    <DocumentationFile>..\..\bin\Debug\Plugins\Shell\Products.Shell.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\..\bin\Release\Libs\</OutputPath>
+    <OutputPath>..\..\bin\Release\Plugins\Shell\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>..\..\bin\Release\Libs\Products.Shell.XML</DocumentationFile>
+    <DocumentationFile>..\..\bin\Release\Plugins\Shell\Products.Shell.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Acl.Controls">
@@ -65,16 +65,6 @@
     </Reference>
     <Reference Include="Platform.Presentation">
       <HintPath>..\..\..\Libs\Platform.Presentation.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Platform.Shell, Version=1.0.0.7, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Libs\Platform.Shell.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Platform.SplashScreen, Version=1.0.0.25, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Libs\Platform.SplashScreen.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System" />
@@ -116,7 +106,8 @@
     <Compile Include="ConfigView\LogConfigPage.designer.cs">
       <DependentUpon>LogConfigPage.cs</DependentUpon>
     </Compile>
-    <Compile Include="DemoFormFactory.cs" />
+    <Compile Include="MainFormFactory.cs" />
+    <Compile Include="MainFormCloseMonitor.cs" />
     <Compile Include="MainForm\FrmMainMenuPresenter.cs" />
     <Compile Include="MainForm\FrmMainStatusBarPresenter.cs" />
     <Compile Include="MainForm\FrmMain.cs">
@@ -139,7 +130,8 @@
       <DependentUpon>NixieTubeClockControl.cs</DependentUpon>
     </Compile>
     <Compile Include="MockWorkspace.cs" />
-    <Compile Include="SplashScrActivator.cs" />
+    <Compile Include="ProcessMonitor.cs" />
+    <Compile Include="SplashScreenManager.cs" />
     <None Include="Properties\AssemblyInfo.tpl" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -244,6 +236,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\SplashScreen1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Manifest.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

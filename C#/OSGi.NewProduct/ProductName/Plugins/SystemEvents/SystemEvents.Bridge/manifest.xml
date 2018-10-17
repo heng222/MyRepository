@@ -5,11 +5,16 @@
          Bundle-Description="系统事件插件"         
          Bundle-Name="系统事件"
          Bundle-StartLevel="5"
-         Bundle-Specification="Products.SystemEvents.Bridge.BundleSpecification"
-         Bundle-Version="1.0.0"                  
-         >
+         Bundle-Version="1.0.0">
+  
   <Runtime>
     <Assembly Path="Products.SystemEvents.dll"  Share="false"/>
     <Assembly Path="Products.SystemEvents.Bridge.dll"  Share="false"/>
   </Runtime>
+
+  <Settings>
+    <!-- Value1 -->
+    <add key="Key1" value="value1"/>
+  </Settings>
+
 </Configuration>

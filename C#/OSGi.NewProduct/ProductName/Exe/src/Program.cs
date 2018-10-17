@@ -25,6 +25,8 @@ using Microsoft.Win32;
 using OSGi;
 using Products.Domain.Utility;
 using Products.Infrastructure.Log;
+using Products.Infrastructure.Messages;
+using Products.Infrastructure.Events;
 
 namespace Exe
 {
@@ -121,6 +123,8 @@ namespace Exe
                 RegisterCOM();
 
                 InitializeLogSystem();
+
+                GlobalMessageBuses.SubscribeApplicationExiting(OnProcessKillingForcedly);
 
                 _framework.Init();
                 _framework.Start();
@@ -256,6 +260,21 @@ namespace Exe
             var m = typeof(AppDomainSetup).GetMethod("UpdateContextProperty", BindingFlags.NonPublic | BindingFlags.Static);
             var funsion = typeof(AppDomain).GetMethod("GetFusionContext", BindingFlags.NonPublic | BindingFlags.Instance);
             m.Invoke(null, new object[] { funsion.Invoke(AppDomain.CurrentDomain, null), "PRIVATE_BINPATH", privatePath });
+        }
+
+        /// <summary>
+        /// 当进程异常终止时的处理入口函数。
+        /// </summary>
+        private static void OnProcessKillingForcedly(object sender, ProcessExitingEventArgs e)
+        {
+            try
+            {
+                LocalMessageBus.Current.RemoveAll();
+                ShutdownLogSystem();
+            }
+            catch (System.Exception /*ex*/)
+            {
+            }
         }
 
         /// <summary>

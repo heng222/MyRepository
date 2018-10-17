@@ -1,5 +1,5 @@
 /*----------------------------------------------------------------
-// 公司名称：请输入公司名称
+// 公司名称：公司名称
 // 
 // 项目名称：Acl Platform Library
 //
@@ -28,15 +28,10 @@ namespace Products.Domain.Preferences
         /// 将指定的数据形式的字符串转化为等效的数值。
         /// </summary>
         /// <param name="value">可以是10进制或16进制的字符串。16进制的字符串示例：“0X12”“0xDA”,"10H"。</param>
-        /// <param name="fromBase"></param>
         /// <returns></returns>
-        public static Decimal ParseDecimal(string value, int fromBase = 10)
+        public static Decimal ParseDecimal(string value)
         {
-            if (fromBase == 16)
-            {
-                return Convert.ToUInt64(value.Trim(), 16);
-            }
-            else if (value.Contains("0x") || value.Contains("0X")
+            if (value.Contains("0x") || value.Contains("0X")
                 || value.Contains('H') || value.Contains('h')
                 || value.Contains('a') || value.Contains('A')
                 || value.Contains('b') || value.Contains('B')
@@ -68,6 +63,53 @@ namespace Products.Domain.Preferences
             stringSplited.ForEach(p =>
             {
                 result.Add(ParseDecimal(p));
+            });
+
+            return result;
+        }
+
+        /// <summary>
+        /// 将指定的数据形式的字符串转化为等效的Boolean值。
+        /// </summary>
+        /// <param name="value">Boolean的字符串示例，不区分大小写。
+        /// 例如“true”、“T”表示true，其它值表示false。</param>
+        /// <returns></returns>
+        public static Boolean ParseBoolean(string value)
+        {
+            if (string.Compare(value, "T", true) == 0
+                || string.Compare(value, "true", true) == 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// 将指定的数据形式的字符串转化为等效的字典对象。
+        /// </summary>
+        /// <param name="value">例如："1=>2; 2=>4"、"1,2; 2,4"</param>
+        /// <param name="itemSeparaters">项的分隔符列表</param>
+        /// <param name="keyValueSeparaters">键值的分隔符列表</param>
+        /// <returns></returns>
+        public static Dictionary<Decimal, Decimal> ParseDictionary(string value, string[] itemSeparaters, string[] keyValueSeparaters)
+        {
+            var result = new Dictionary<Decimal, Decimal>();
+
+            var itemsSplitedString = value.Split(itemSeparaters, StringSplitOptions.RemoveEmptyEntries).ToList();
+            itemsSplitedString.ForEach(p =>
+            {
+                var keyValueSplited = p.Split(keyValueSeparaters, StringSplitOptions.RemoveEmptyEntries).ToList();
+                if (keyValueSplited.Count() != 2)
+                {
+                    throw new Exception(string.Format("{0}不是有效的键值对。", p));
+                }
+
+                var keyValue = ParseDecimals(p, keyValueSeparaters);
+
+                result.Add(keyValue[0], keyValue[1]);
             });
 
             return result;

@@ -84,7 +84,7 @@ namespace Products.Shell.ConfigView
                 item.LogLevelChanged += LogSaveLevelItemChanged;
 
                 // DrawItem event
-                //cbxNew.DrawMode = DrawMode.Normal;
+                //cbxNew.DrawMode = DrawMode.IsNormal;
                 cbxNew.DrawItem += OnLogSaveLevelComboBox_DrawItem;
                 #endregion
 
