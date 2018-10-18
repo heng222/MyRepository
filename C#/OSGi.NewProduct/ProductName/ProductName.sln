@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2. Plugins", "2. Plugins", "{755EB76D-F5C1-4E53-BC8B-9576D61145BE}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2. Bundles", "2. Bundles", "{755EB76D-F5C1-4E53-BC8B-9576D61145BE}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1. Foundation", "1. Foundation", "{2B98E99F-E87B-453E-A5BC-F0EA381504D9}"
 EndProject

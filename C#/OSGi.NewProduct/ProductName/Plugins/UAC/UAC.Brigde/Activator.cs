@@ -38,7 +38,7 @@ namespace Products.UAC.Bridge
             get { return PluginType.UAC; }
         }
 
-        protected override void OnPluginStart(IDictionary<string, string> context)
+        protected override void OnBundleStart(IDictionary<string, string> context)
         {
             var settings = BuildSettings(context);
             _facade = new UacFacade(settings);
@@ -47,7 +47,7 @@ namespace Products.UAC.Bridge
             _facade.ComponentsToRegister.ToList().ForEach(p => ServiceManager.Current.RegisterInstance(p));
         }
 
-        protected override void OnPluginStop(IDictionary<string, string> context)
+        protected override void OnBundleStop(IDictionary<string, string> context)
         {
             //if (_commLifeCycle != null)
             //{

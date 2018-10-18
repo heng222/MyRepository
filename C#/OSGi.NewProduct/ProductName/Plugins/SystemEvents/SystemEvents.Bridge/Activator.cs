@@ -34,7 +34,7 @@ namespace Products.SystemEvents.Bridge
             get { return PluginType.SEM; }
         }
 
-        protected override void OnPluginStart(IDictionary<string, string> context)
+        protected override void OnBundleStart(IDictionary<string, string> context)
         {
             //var facade = new AlarmFacade();
             //_lifeCycle = facade;
@@ -60,7 +60,7 @@ namespace Products.SystemEvents.Bridge
             });
         }
 
-        protected override void OnPluginStop(IDictionary<string, string> context)
+        protected override void OnBundleStop(IDictionary<string, string> context)
         {
             //if (_commLifeCycle != null)
             //{

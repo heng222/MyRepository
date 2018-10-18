@@ -330,7 +330,7 @@ namespace Products.Shell
                 {
                     //// 引发OnMainFormShowing事件。
                     //var args = new CancelEventArgs();
-                    //OnMainFormShowing(context, args);
+                    //OnMainFormShowing(settings, args);
 
                     //if (!args.Cancel)
                     //{

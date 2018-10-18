@@ -47,14 +47,14 @@ namespace Products.Domain
         /// <summary>
         /// 模板方法，当启动时调用。
         /// </summary>
-        /// <param name="context"></param>
-        protected abstract void OnPluginStart(IDictionary<string, string> context);
+        /// <param name="settings"></param>
+        protected abstract void OnBundleStart(IDictionary<string, string> settings);
 
         /// <summary>
         /// 当关闭时调用。
         /// </summary>
-        /// <param name="context"></param>
-        protected virtual void OnPluginStop(IDictionary<string, string> context) { }
+        /// <param name="settings"></param>
+        protected virtual void OnBundleStop(IDictionary<string, string> settings) { }
         #endregion
 
 
@@ -62,8 +62,8 @@ namespace Products.Domain
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="context"></param>
-        public void Start(IDictionary<string, string> context)
+        /// <param name="settings"></param>
+        public void Start(IDictionary<string, string> settings)
         {
             try
             {
@@ -73,11 +73,11 @@ namespace Products.Domain
                 this.Log = LogManager.GetLogger(_logName);
 
                 // 记录日志。
-                var bundleName = context["Bundle-Name"];
+                var bundleName = settings["Bundle-Name"];
                 this.Log.InfoFormat("{0}子系统正在启动...", bundleName);
 
                 // 调用模板方法
-                this.OnPluginStart(context);
+                this.OnBundleStart(settings);
 
                 // 
                 this.Log.InfoFormat("{0}子系统启动完毕。", bundleName);
@@ -91,16 +91,16 @@ namespace Products.Domain
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="context"></param>
-        public void Stop(IDictionary<string, string> context)
+        /// <param name="settings"></param>
+        public void Stop(IDictionary<string, string> settings)
         {
             try
             {
-                var bundleName = context["Bundle-Name"];
+                var bundleName = settings["Bundle-Name"];
 
                 this.Log.InfoFormat("{0}子系统正在结束...", bundleName);
 
-                this.OnPluginStop(context);
+                this.OnBundleStop(settings);
 
                 if (_lifeCycleManagements != null)
                 {
@@ -130,7 +130,7 @@ namespace Products.Domain
         /// <summary>
         /// Bundle规约验证
         /// </summary>
-        /// <param name="context"></param>
+        /// <param name="settings"></param>
         /// <returns></returns>
         public bool Match(IDictionary<string, string> context)
         {
@@ -138,6 +138,10 @@ namespace Products.Domain
 
             return NodeContextManager.Current.ContainsPlugin(Type);
         }
+        #endregion
+
+
+        #region "Protected methods"
 
         /// <summary>
         /// 注册服务
@@ -273,7 +277,6 @@ namespace Products.Domain
 
             if (rc == DialogResult.Yes) throw ex;
         }
-        #endregion
-      
+        #endregion      
     }
 }

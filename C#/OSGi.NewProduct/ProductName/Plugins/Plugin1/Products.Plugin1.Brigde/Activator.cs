@@ -36,7 +36,7 @@ namespace Products.Plugin1.Bridge
             get { return PluginType.Plugin1; }
         }
 
-        protected override void OnPluginStart(IDictionary<string, string> context)
+        protected override void OnBundleStart(IDictionary<string, string> context)
         {
             // 创建表示层
             Workbench.SendMessage(() =>
@@ -51,7 +51,7 @@ namespace Products.Plugin1.Bridge
             });
         }
         
-        protected override void OnPluginStop(IDictionary<string, string> context)
+        protected override void OnBundleStop(IDictionary<string, string> context)
         {
             //if (_commLifeCycle != null)
             //{
