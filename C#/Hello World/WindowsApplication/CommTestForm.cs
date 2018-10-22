@@ -61,7 +61,8 @@ namespace WindowsApplication
         {
             try
             {
-                DemoCannotOperaterUi();
+                GdiNativeMethods.PrintScreenToFile(this, @"C:\aaa.png");
+                //DemoCannotOperaterUi();
             }
             catch (Exception ex)
             {

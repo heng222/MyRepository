@@ -85,6 +85,7 @@
     <Compile Include="CommTestForm.Designer.cs">
       <DependentUpon>CommTestForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="GdiNativeMethods.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="CommTestForm.resx">
