@@ -549,7 +549,7 @@ namespace Products.Shell.Presentation.MainForm
             {
                 var dlg = new OpenFileDialog()
                 {
-                    Filter = "界面布局文件(*ui.Layout)|*.uiLayout",
+                    Filter = string.Format("界面布局文件(*.{0})|*.{0}", FrmMain.UiLayoutSuffix),
                     RestoreDirectory = true,
                     Title = "指定想要导入的界面布局文件"
                 };
@@ -595,7 +595,7 @@ namespace Products.Shell.Presentation.MainForm
                 {
                     FileName = string.Format("{0}.atsLayout", fileName),
                     RestoreDirectory = true,
-                    Filter = "界面布局文件(*.atsLayout)|*.atsLayout",
+                    Filter = string.Format("界面布局文件(*.{0})|*.{0}", FrmMain.UiLayoutSuffix),
                     Title = "指定将要导出的界面布局文件"
                 };
                 var dlgResult = dlg.ShowDialog();

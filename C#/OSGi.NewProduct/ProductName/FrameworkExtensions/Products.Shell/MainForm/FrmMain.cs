@@ -20,6 +20,11 @@ namespace Products.Shell
 {
     partial class FrmMain : Form, IControlOptimizer
     {
+        /// <summary>
+        /// UI布局配置文件的后缀名。
+        /// </summary>
+        public const string UiLayoutSuffix = "UiLayout";
+
         #region "Filed"
         protected List<IControlOptimizer> _controlOptimizers = new List<IControlOptimizer>();
         private MockWorkspace _mockWorkspace = new MockWorkspace();
@@ -303,12 +308,12 @@ namespace Products.Shell
         /// </summary>
         public string BuildDockConfigFileName()
         {
-            var fileName = string.Format("DockPanel.config");
+            var fileName = string.Format("DockPanel.{0}", FrmMain.UiLayoutSuffix);
 
             if (GlobalServices.UAC != null)
             {
-                fileName = string.Format("DockPanel_{0}{1}.config",
-                     GlobalServices.UAC.CurrentUserCode, GlobalServices.UAC.CurrentUserName);
+                fileName = string.Format("DockPanel_{0}{1}.{2}",
+                     GlobalServices.UAC.CurrentUserCode, GlobalServices.UAC.CurrentUserName, FrmMain.UiLayoutSuffix);
             }
 
             var pathFileName = Path.Combine(Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location), fileName);
