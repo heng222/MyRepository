@@ -23,7 +23,7 @@ namespace CSharpLearning.Threading
                 {
                     var sw = Stopwatch.StartNew();                    
                     Console.WriteLine(string.Format("{0} wThread1 调用Wait，最多等待10秒。", DateTime.Now));
-                    Monitor.Wait(lockObj); // 释放锁，等待lockObj状态更改。
+                    Monitor.Wait(lockObj, 10000); // 释放锁，等待lockObj状态更改。
                     Console.WriteLine(string.Format("{0} wThread1 结束，实际等待{1}秒。", DateTime.Now, sw.Elapsed.TotalSeconds));
                 }
             });
@@ -35,44 +35,51 @@ namespace CSharpLearning.Threading
                 {
                     var sw = Stopwatch.StartNew();
                     Console.WriteLine(string.Format("{0} wThread2 调用Wait，最多等待10秒。", DateTime.Now));
-                    Monitor.Wait(lockObj); // 释放锁，等待lockObj状态更改。
+                    Monitor.Wait(lockObj, 10000); // 释放锁，等待lockObj状态更改。
                     Console.WriteLine(string.Format("{0} wThread2 结束，实际等待{1}秒。", DateTime.Now, sw.Elapsed.TotalSeconds));
                 }
             });
             wThread2.Start();
 
-            var thread2 = new Thread(() =>
+            var eventThread = new Thread(() =>
             {
                 lock (lockObj)
                 {
-                    var sw = Stopwatch.StartNew();      
-                    Console.WriteLine(string.Format("{0} Thread2 does something。", DateTime.Now));
+                    var sw = Stopwatch.StartNew();
+                    Console.WriteLine(string.Format("{0} EventThread does something。", DateTime.Now));
                     Thread.Sleep(5000);
-                    Console.WriteLine(string.Format("{0} Thread2 finished doing something, 耗时{1}秒。", DateTime.Now, sw.Elapsed.TotalSeconds));
+                    Console.WriteLine(string.Format("{0} EventThread finished doing something, 耗时{1}秒。", DateTime.Now, sw.Elapsed.TotalSeconds));
 
-                    Monitor.PulseAll(lockObj); // 通知所有等待线程，lockObj状态更改。
+                    //Monitor.PulseAll(lockObj); // 通知所有等待线程，所有线程都从Wait返回。
+                    Monitor.Pulse(lockObj); // 通知所有等待线程，但只有一个线程从Wait返回。
                 }
             });
-            thread2.Start();
+            eventThread.Start();
 
             // 等待结束
             wThread1.Join();
             wThread2.Join();
-            thread2.Join();
+            eventThread.Join();
             Console.WriteLine(string.Format("{0} Wait_Test1执行完毕。", DateTime.Now));
         }
 
+        /// <summary>
+        /// 与Event不同的是，Pulse时如果没有线程在等待，则此Pulse不会像Event那样保持激活态，这样之后的线程如果调用 Wait 函数则会处于等待状态。
+        /// </summary>
         [TestCase(Description = "测试Pulse方法，模拟生产者-消费者问题（实时取出）。")]
         public void Plulse_Test2()
         {
+            int productCount = 1;
             object lockObj = new object();
+            int delayTime = 3000;
             // 线程p1、p2放入产品，线程c1取出产品。
 
-            var pool = new ConcurrentQueue<int>(); 
+            var pool = new ConcurrentQueue<int>();
 
+            // P1放入 productCount 个产品
             var p1 = new Thread(() =>
             {
-                for (int i = 0; i < 100; i++)
+                for (int i = 0; i < productCount; i++)
                 {
                     lock (lockObj)
                     {
@@ -81,11 +88,14 @@ namespace CSharpLearning.Threading
                         Thread.Sleep(50);
                     }
                 }
+
+                Console.WriteLine("线程1放入了{0}个产品", productCount);
             });
 
+            // P2放入 productCount 个产品
             var p2 = new Thread(() =>
             {
-                for (int i = 0; i < 100; i++)
+                for (int i = 0; i < productCount; i++)
                 {
                     lock (lockObj)
                     {
@@ -94,11 +104,15 @@ namespace CSharpLearning.Threading
                         Thread.Sleep(50);
                     }
                 }
+                Console.WriteLine("线程2放入了{0}个产品", productCount);
             });
 
+            // P3线程3秒后启动，从缓存中开始取数据。
             int totalNum = 0;
             var p3 = new Thread(() =>
             {
+                Thread.Sleep(delayTime);
+
                 while (true)
                 {
                     lock (lockObj)
@@ -127,7 +141,7 @@ namespace CSharpLearning.Threading
             p1.Join();
             p2.Join();
 
-            p3.Join(2000);
+            p3.Join((int)(delayTime * 1.5));
 
             Console.WriteLine(string.Format("一共取出{0}个。", totalNum));
         }
