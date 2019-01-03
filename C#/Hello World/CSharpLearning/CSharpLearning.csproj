@@ -77,6 +77,7 @@
     <Compile Include="ThirdParty\SharpZipTest.cs" />
     <Compile Include="Threading\MonitorTest.cs" />
     <Compile Include="Threading\ParallelTest.cs" />
+    <Compile Include="Threading\TaskCompletionSourceTest.cs" />
     <Compile Include="Threading\TaskTest.cs" />
     <Compile Include="Threading\ThreadPoolTest.cs" />
     <Compile Include="Threading\ThreadTest.cs" />
