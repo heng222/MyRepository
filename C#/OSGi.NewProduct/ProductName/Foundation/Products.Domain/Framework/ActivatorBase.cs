@@ -130,8 +130,6 @@ namespace Products.Domain
         /// <summary>
         /// Bundle规约验证
         /// </summary>
-        /// <param name="settings"></param>
-        /// <returns></returns>
         public bool Match(IDictionary<string, string> context)
         {
             if (this.Type == PluginType.None) return false;

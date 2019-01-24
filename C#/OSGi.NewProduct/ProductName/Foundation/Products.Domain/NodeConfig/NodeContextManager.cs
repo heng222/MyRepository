@@ -1,24 +1,24 @@
 /*----------------------------------------------------------------
-// 公司名称：公司名称
+// 公司名称：请输入公司名称
 // 
-// 项目名称：经SIL2认证的标准版ATS
+// 项目名称：输入项目名称
 //
 // 创 建 人：zhangheng
-// 创建日期：2018-8-1 13:33:34 
+// 创建日期：2015-2-2 10:43:04 
 // 邮    箱：heng222_z@163.com
 //
-// Copyright (C) 公司名称，保留所有权利。
+// Copyright (C) 公司名称 2009，保留所有权利
 //
 //----------------------------------------------------------------*/
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
-using Products.Infrastructure.Entities;
-using Products.Infrastructure.Types;
-using Products.Infrastructure.Log;
 using Acl.Log;
+using Products.Infrastructure.Entities;
+using Products.Infrastructure.Log;
 using Products.Infrastructure.Specification;
+using Products.Infrastructure.Types;
 
 namespace Products.Domain
 {
