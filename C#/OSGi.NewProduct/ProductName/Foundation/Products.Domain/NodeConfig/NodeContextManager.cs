@@ -23,7 +23,7 @@ using Products.Infrastructure.Types;
 namespace Products.Domain
 {
     /// <summary>
-    /// ATS节点配置工具类。
+    /// 节点上下文管理器。
     /// 此静态工具类包括本地节点的属性，同级节点的属性以及所有父级及子级的属性。
     /// 并且提供一些常用的静态方法。
     /// </summary>
@@ -52,24 +52,17 @@ namespace Products.Domain
         /// <summary>
         /// 获取本地节点ID
         /// </summary>
-        public static uint LocalNodeCode
-        {
-            get { return Current.Code; }
-        }
+        public static uint LocalNodeCode { get { return Current.Code; } }
+
         /// <summary>
         /// 获取本地节点名称
         /// </summary>
-        public static string LocalNodeName
-        {
-            get { return Current.Name; }
-        }
+        public static string LocalNodeName { get { return Current.Name; } }
+
         /// <summary>
         /// 获取本地节点类型
         /// </summary>
-        public static NodeType LocalNodeType
-        {
-            get { return Current.Type; }
-        }
+        public static NodeType LocalNodeType { get { return Current.Type; } }
 
         #endregion
 
