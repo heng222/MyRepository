@@ -93,9 +93,13 @@ namespace CSharpLearning
             return !(a == b);
         }
 
-        public static implicit operator MyPoint(System.Drawing.Point point)
+        public static implicit operator MyPoint(Point point)
         {
             return new MyPoint(point.X, point.Y);
+        }
+        public static implicit operator Point(MyPoint point)
+        {
+            return new Point(point.X, point.Y);
         }
 
         public static explicit operator MyPoint(System.Drawing.PointF pointF)
@@ -140,9 +144,15 @@ namespace CSharpLearning
         [Test]
         public void TestImplicit()
         {
+            // 调用 public static implicit operator MyPoint(System.Drawing.Point point)
             MyPoint myPoint = new Point(100, 100);
             Assert.AreEqual(100, myPoint.X);
             Assert.AreEqual(100, myPoint.Y);
+
+            // 调用 public static implicit operator Point(MyPoint point)
+            Point otherPoint = myPoint;
+            Assert.AreEqual(100, otherPoint.X);
+            Assert.AreEqual(100, otherPoint.Y);
         }
 
         [Test]
