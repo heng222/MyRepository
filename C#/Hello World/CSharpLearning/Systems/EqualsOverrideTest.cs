@@ -20,18 +20,15 @@ using NUnit.Framework;
 
 namespace CSharpLearning
 {
-
-    /// <summary>
-    /// 
-    /// </summary>
-    class TwoDPoint
+    class MyPoint
     {
-        public readonly int x, y;
+        public int X { get; private set; }
+        public int Y { get; private set; }
 
-        public TwoDPoint(int x, int y)  //constructor
+        public MyPoint(int x, int y)  //constructor
         {
-            this.x = x;
-            this.y = y;
+            this.X = x;
+            this.Y = y;
         }
 
         public override bool Equals(System.Object obj)
@@ -43,17 +40,17 @@ namespace CSharpLearning
             }
 
             // If parameter cannot be cast to Point return false.
-            TwoDPoint p = obj as TwoDPoint;
+            MyPoint p = obj as MyPoint;
             if ((System.Object)p == null)
             {
                 return false;
             }
 
             // Return true if the fields match:
-            return (x == p.x) && (y == p.y);
+            return (X == p.X) && (Y == p.Y);
         }
 
-        public bool Equals(TwoDPoint p)
+        public bool Equals(MyPoint p)
         {
             // If parameter is null return false:
             //if ((object)p == null)
@@ -68,11 +65,11 @@ namespace CSharpLearning
 
         public override int GetHashCode()
         {
-            return x ^ y;
+            return X ^ Y;
         }
 
         //add this code to class ThreeDPoint as defined previously
-        public static bool operator ==(TwoDPoint a, TwoDPoint b)
+        public static bool operator ==(MyPoint a, MyPoint b)
         {
             // If both are null, or both are same instance, return true.
             if (System.Object.ReferenceEquals(a, b))
@@ -91,9 +88,19 @@ namespace CSharpLearning
             return a.Equals(b);
         }
 
-        public static bool operator !=(TwoDPoint a, TwoDPoint b)
+        public static bool operator !=(MyPoint a, MyPoint b)
         {
             return !(a == b);
+        }
+
+        public static implicit operator MyPoint(System.Drawing.Point point)
+        {
+            return new MyPoint(point.X, point.Y);
+        }
+
+        public static explicit operator MyPoint(System.Drawing.PointF pointF)
+        {
+            return new MyPoint((int)pointF.X, (int)pointF.Y);
         }
     }
 
@@ -101,10 +108,10 @@ namespace CSharpLearning
     class EqualsOverrideTest
     {
         [Test, Description("测试自定义类的==操作符")]
-        public void Test1()
+        public void TestEqualsSign()
         {
-            var p1 = new TwoDPoint(1, 1);
-            var p2 = new TwoDPoint(1, 2);
+            var p1 = new MyPoint(1, 1);
+            var p2 = new MyPoint(1, 2);
 
             if (p1 == p2)
             {
@@ -114,6 +121,36 @@ namespace CSharpLearning
             {
                 Console.WriteLine("p1 != p2");
             }
+        }
+
+        [Test, Description("测试自定义类的 Equals 重载")]
+        public void TestObjectEquals()
+        {
+            var p1 = new MyPoint(1, 1);
+            var p2 = new MyPoint(1, 1);
+
+            // 调用 TwoDPoint.Equals。
+            Assert.AreEqual(true, object.Equals(p1, p2));
+            Assert.AreEqual(true, p1.Equals(p2));
+
+            // 不调用调用 TwoDPoint.Equals。
+            Assert.AreEqual(false, object.ReferenceEquals(p1, p2));
+        }
+
+        [Test]
+        public void TestImplicit()
+        {
+            MyPoint myPoint = new Point(100, 100);
+            Assert.AreEqual(100, myPoint.X);
+            Assert.AreEqual(100, myPoint.Y);
+        }
+
+        [Test]
+        public void TestExplicit()
+        {
+            var myPoint = (MyPoint)new PointF(100.1F, 100.2F);
+            Assert.AreEqual(100, myPoint.X);
+            Assert.AreEqual(100, myPoint.Y);
         }
 
         [Test, Description("测试系统Point操作符操作符重载")]
