@@ -14,6 +14,7 @@
 //----------------------------------------------------------------*/
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Text;
 using NUnit.Framework;
 
@@ -99,11 +100,11 @@ namespace CSharpLearning
     [TestFixture, Description("等于号重载测试。")]
     class EqualsOverrideTest
     {
-        [Test, Description("测试一下")]
+        [Test, Description("测试自定义类的==操作符")]
         public void Test1()
         {
-            TwoDPoint p1 = new TwoDPoint(1, 1);
-            TwoDPoint p2 = new TwoDPoint(1, 2);
+            var p1 = new TwoDPoint(1, 1);
+            var p2 = new TwoDPoint(1, 2);
 
             if (p1 == p2)
             {
@@ -114,6 +115,20 @@ namespace CSharpLearning
                 Console.WriteLine("p1 != p2");
             }
         }
-    }
 
+        [Test, Description("测试系统Point操作符操作符重载")]
+        public void Test2()
+        {
+            var point1 = new Point(10, 10);
+            var point2 = new Point(10, 10);
+
+            var rc = point1.Equals(point2); // true
+
+            rc = point2 == point1; // true
+
+            rc = object.Equals(point2, point1); // true
+
+            rc = object.ReferenceEquals(point2, point1); // false.
+        }
+    }
 }
