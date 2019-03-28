@@ -227,9 +227,6 @@ namespace WindowsApplication
 
         private void InitialzeDataGridView()
         {
-            this.dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllHeaders;
-            this.dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
-
             // Columns
             this.dataGridView1.ColumnCount = 2;
             this.dataGridView1.Columns[0].Name = "╣з1ап";
