@@ -44,6 +44,7 @@
     <Reference Include="System.Management" />
     <Reference Include="System.Messaging" />
     <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.Speech" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -56,6 +57,7 @@
     <Compile Include="Collections\Concurrent\ConcurrentDictionaryTest.cs" />
     <Compile Include="Collections\ObjectModel\ObservableCollectionTest.cs" />
     <Compile Include="Media\SoundPlayerTest.cs" />
+    <Compile Include="Speech\SpeechSynthesizerTest.cs" />
     <Compile Include="Systems\AppDomainTest.cs" />
     <Compile Include="Systems\ArrayTest.cs" />
     <Compile Include="Systems\EqualsOverrideTest.cs" />
