@@ -33,6 +33,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>WpfApplication.App</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Acl.Core">
       <HintPath>..\Libs\Acl.Core.dll</HintPath>
@@ -56,7 +59,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="EventDemoWindow.xaml.cs">
+      <DependentUpon>EventDemoWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="TrainInfo.cs" />
+    <Compile Include="ManulCodeXmalWindow.cs" />
+    <Page Include="EventDemoWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

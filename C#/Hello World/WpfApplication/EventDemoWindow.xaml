@@ -1,0 +1,18 @@
+﻿<Window x:Class="WpfApplication.EventDemoWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="EventDemoWindow" Height="300" Width="300">
+    
+        <StackPanel x:Name="root">
+            <StackPanel.Resources>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Height" Value="20"></Setter>
+                    <Setter Property="Width" Value="250"></Setter>
+                </Style>            
+            </StackPanel.Resources>
+
+        <TextBox Name="text1">点击下面的按钮</TextBox>
+            <Button Name="b1" Click="MakeButton">Create new button</Button>
+        </StackPanel>
+
+</Window>

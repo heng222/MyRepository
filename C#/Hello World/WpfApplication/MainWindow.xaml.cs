@@ -24,38 +24,10 @@ namespace WpfApplication
             InitializeComponent();
         }
 
-        private void dataGrid1_ContextMenuOpening(object sender, ContextMenuEventArgs e)
+        private void btnHello_Click(object sender, RoutedEventArgs e)
         {
-            var grid = (DataGrid)sender;
-            if (grid.ContextMenu != null) return;
-
-            grid.ContextMenu = new ContextMenu();
-            foreach (var column in grid.Columns)
-            {
-                var menuItem = new MenuItem() { Header = column.Header, IsChecked = column.Visibility == Visibility.Visible };
-                menuItem.Click += new RoutedEventHandler(menuItem_Click);
-                menuItem.Tag = column;
-                grid.ContextMenu.Items.Add(menuItem);
-            }
+            this.Close();
         }
 
-        private void menuItem_Click(object sender, RoutedEventArgs e)
-        {
-            var menuItem = (MenuItem)sender;
-            var column = menuItem.Tag as DataGridColumn;
-            if (column != null)
-            {
-                if (menuItem.IsChecked)
-                {
-                    column.Visibility = Visibility.Hidden;
-                    menuItem.IsChecked = false;
-                }
-                else
-                {
-                    column.Visibility = Visibility.Visible;
-                    menuItem.IsChecked = true;
-                }
-            }
-        }
     }
 }
