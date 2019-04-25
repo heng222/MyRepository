@@ -1,14 +1,15 @@
 ﻿<Window x:Class="WpfApplication.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="WPF 应用示例" Height="200" Width="500" xml:space="preserve">
+        Title="WPF 应用示例" Height="249" Width="583" xml:space="preserve">
 
     <Grid Background="Beige">
         
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="100"/>
-            <ColumnDefinition />
-            <ColumnDefinition />
+            <ColumnDefinition Width="49"/>
+            <ColumnDefinition Width="151*" />
+            <ColumnDefinition Width="187*" />
+            <ColumnDefinition Width="159*" />
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
@@ -17,23 +18,25 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <TextBlock Grid.Column="0" Grid.Row="0" HorizontalAlignment="Right">书 名：</TextBlock>
-        <TextBlock Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left" Height="56" VerticalAlignment="Top">学习WPF</TextBlock>
-        <TextBlock Grid.Column="0" Grid.Row="1" HorizontalAlignment="Right">类  型：</TextBlock>
-        <TextBlock Grid.Column="1" Grid.Row="1" Margin="0" Background="{DynamicResource {x:Static SystemColors.ActiveCaptionBrushKey}}" FontFamily="STCaiyun" RenderTransformOrigin="0.5,0.5" Cursor="No" HorizontalAlignment="Left">
+        <TextBlock Grid.Column="0" Grid.Row="0" HorizontalAlignment="Right" Width="40">书 名：</TextBlock>
+        <TextBlock Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left" Height="56" VerticalAlignment="Top" Width="50">学习WPF</TextBlock>
+        <TextBlock Grid.Column="0" Grid.Row="1" HorizontalAlignment="Right" Width="40">类  型：</TextBlock>
+        <TextBlock Grid.Row="1" Margin="0,14,0,4" RenderTransformOrigin="0.39,0.532" HorizontalAlignment="Left" Width="110" Grid.Column="1" AllowDrop="True">
             <TextBlock.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
                     <SkewTransform/>
-                    <RotateTransform Angle="28.175"/>
-                    <TranslateTransform/>
+                    <RotateTransform Angle="-7.913"/>
+                    <TranslateTransform X="12.128" Y="-7.236"/>
                 </TransformGroup>
             </TextBlock.RenderTransform>原创书籍</TextBlock>
-        <TextBlock Grid.Column="0" Grid.Row="2" HorizontalAlignment="Right">内  容：</TextBlock>
-        <TextBlock Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" FontFamily="Century Gothic" FontStretch="UltraExpanded" FontStyle="Italic" FontWeight="ExtraBold">从基础到应用，全面覆盖WPF应用</TextBlock>
+        <TextBlock Grid.Column="0" Grid.Row="2" HorizontalAlignment="Right" Width="40">内  容：</TextBlock>
+        <TextBlock Grid.Column="1" Grid.Row="2" FontFamily="Century Gothic" FontStretch="UltraExpanded" FontWeight="ExtraBold" Width="179" HorizontalAlignment="Left" VerticalAlignment="Top" Height="15" Grid.ColumnSpan="2">从基础到应用，全面覆盖。</TextBlock>
 
-
-        <Button Name="btnHello" Content="确定(C)" Grid.Column="2" Grid.Row="2" Width="60" Height="20" Click="btnHello_Click"></Button>
+        <Button Content="NoXmalFile" Grid.Column="2" Grid.Row="0" Click="OnNoXamlDemoClick" Margin="24,10,0,0" HorizontalAlignment="Left" Width="95" Height="36" VerticalAlignment="Top" />
+        <Button Content="EventDemo" Grid.Column="3" Grid.Row="0" Click="OnEventDemoClick"  Margin="10,10,0,0" Height="36" VerticalAlignment="Top" HorizontalAlignment="Left" Width="99"/>
+        <Button Content="XamlReader" Grid.Column="2" Grid.Row="1" Click="OnBtnXamlReaderClick" Margin="24,10,0,0" Height="35" VerticalAlignment="Top" HorizontalAlignment="Left" Width="95" />
+        <Button Name="btnHello" Content="确 定(C)" Grid.Column="3" Grid.Row="2" Click="OnBtnCloseClick" Margin="0,0,10,10" Height="27" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="78"/>
     </Grid>
 
 </Window>

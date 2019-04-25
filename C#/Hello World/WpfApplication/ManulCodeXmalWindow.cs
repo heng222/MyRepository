@@ -11,13 +11,6 @@ namespace WpfApplication
 {
     class ManulCodeXmalWindow : Window
     {
-        [STAThread]
-        static void Main()
-        {
-            var app = new Application();
-            app.Run(new ManulCodeXmalWindow());
-        }
-
         public ManulCodeXmalWindow()
         {
             Console.WriteLine("Xmal Window");

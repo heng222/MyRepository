@@ -1,0 +1,29 @@
+﻿<StackPanel
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+    Name="root">
+
+    <StackPanel.Resources>
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="Height" Value="20"></Setter>
+            <Setter Property="Width" Value="250"></Setter>
+            <Setter Property="HorizontalAlignment" Value="Left"></Setter>
+        </Style>
+    </StackPanel.Resources>
+
+    <TextBox Name="text1">点击下面的按钮将会产生行为</TextBox>
+    <Button Name="b1">Click me</Button>
+
+    <ListBox>
+        <ListBoxItem>
+            <sys:DateTime>10/13/2012 4:30 PM</sys:DateTime>
+        </ListBoxItem>
+        <ListBoxItem>
+            <sys:DateTime>2012-12-25 14:13:12</sys:DateTime>
+        </ListBoxItem>
+        <ListBoxItem>
+            <sys:DateTime>10/13/2012 2:30 AM</sys:DateTime>
+        </ListBoxItem>
+    </ListBox>
+</StackPanel>
