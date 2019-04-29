@@ -24,7 +24,10 @@ namespace WindowsApplication
             {
                 InitalizeNotifyIcon();
                 InitializePropertyGrade();
-                InitialzeDataGridView();
+
+                var newTabPage = new TabPage("DataGridView Demo");
+                newTabPage.Controls.Add(new CtrlDataGridViewDemo());
+                this.tabControl1.TabPages.Add(newTabPage);
             }
             catch (System.Exception ex)
             {
@@ -52,24 +55,7 @@ namespace WindowsApplication
                 MessageBox.Show(ex.Message);
             }
         }
-        /// <summary>
-        /// button1 click event
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void button1_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                GdiNativeMethods.PrintScreenToFile(this, @"C:\aaa.png");
-                //DemoCannotOperaterUi();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
+        
         /// <summary>
         /// 无法操作主界面。
         /// </summary>
@@ -225,25 +211,8 @@ namespace WindowsApplication
             this.propertyGrid1.SelectedObject = (new PropertyElement());
         }
 
-        private void InitialzeDataGridView()
-        {
-            // Columns
-            this.dataGridView1.ColumnCount = 2;
-            this.dataGridView1.Columns[0].Name = "第1列";
-            this.dataGridView1.Columns[0].Tag = new List<string>() {"text1","text2" };
-            this.dataGridView1.Columns[1].Name = "第2列";
-
-            // Rows
-            this.dataGridView1.RowCount = 3;
-            this.dataGridView1.Rows[0].HeaderCell.Value = "第1行";
-            this.dataGridView1.Rows[1].HeaderCell.Value = "第2行";
-            this.dataGridView1.Rows[2].HeaderCell.Value = "第3行";
-        }
         #endregion
         
-
-
-
         #region "Notify菜单"
 
         private void InitalizeNotifyIcon()

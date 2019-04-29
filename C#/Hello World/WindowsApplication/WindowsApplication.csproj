@@ -85,6 +85,12 @@
     <Compile Include="CommTestForm.Designer.cs">
       <DependentUpon>CommTestForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="CtrlDataGridViewDemo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtrlDataGridViewDemo.Designer.cs">
+      <DependentUpon>CtrlDataGridViewDemo.cs</DependentUpon>
+    </Compile>
     <Compile Include="GdiNativeMethods.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -95,6 +101,9 @@
     <EmbeddedResource Include="CommTestForm.zh-CN.resx">
       <SubType>Designer</SubType>
       <DependentUpon>CommTestForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CtrlDataGridViewDemo.resx">
+      <DependentUpon>CtrlDataGridViewDemo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
