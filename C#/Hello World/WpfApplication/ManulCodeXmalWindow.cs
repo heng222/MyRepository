@@ -20,7 +20,7 @@ namespace WpfApplication
 
             var grid = new Grid()
             {
-                Background = Brushes.Beige
+                Background = Brushes.Gray
             };
             this.Content = grid;
 

@@ -62,7 +62,7 @@ namespace WpfApplication
             this.Title = "没有XAML文件的WPF实例";
 
             var wnd = new ManulCodeXmalWindow();
-            wnd.ShowDialog();
+            wnd.Show();
         }
 
         private void OnEventDemoClick(object sender, RoutedEventArgs e)
@@ -70,7 +70,7 @@ namespace WpfApplication
             this.Title = "WPF事件演示";
 
             var window = new EventDemoWindow();
-            window.ShowDialog();
+            window.Show();
         }
 
     }
