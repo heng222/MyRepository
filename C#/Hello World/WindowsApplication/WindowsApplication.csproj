@@ -91,6 +91,12 @@
     <Compile Include="CtrlDataGridViewDemo.Designer.cs">
       <DependentUpon>CtrlDataGridViewDemo.cs</DependentUpon>
     </Compile>
+    <Compile Include="CtrlPropertyGridDemo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtrlPropertyGridDemo.Designer.cs">
+      <DependentUpon>CtrlPropertyGridDemo.cs</DependentUpon>
+    </Compile>
     <Compile Include="GdiNativeMethods.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -104,6 +110,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CtrlDataGridViewDemo.resx">
       <DependentUpon>CtrlDataGridViewDemo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CtrlPropertyGridDemo.resx">
+      <DependentUpon>CtrlPropertyGridDemo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

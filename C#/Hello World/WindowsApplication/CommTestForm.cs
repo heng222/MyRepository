@@ -11,8 +11,6 @@ namespace WindowsApplication
 {
     public partial class CommTestForm : Form
     {
-        private List<ToolStripMenuItem> _topMenuItems = new List<ToolStripMenuItem>();
-
         /// <summary>
         /// Constructor
         /// </summary>
@@ -20,31 +18,33 @@ namespace WindowsApplication
         {
             InitializeComponent();
 
-            try
-            {
-                InitalizeNotifyIcon();
-                InitializePropertyGrade();
+            InitalizeNotifyIcon();
 
-                var newTabPage = new TabPage("DataGridView Demo");
-                newTabPage.Controls.Add(new CtrlDataGridViewDemo());
-                this.tabControl1.TabPages.Add(newTabPage);
-            }
-            catch (System.Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            CreateCustomTabpages();
         }
 
-        private IEnumerable<ToolStripItem> GetSrcMenuItem()
+        #region "private methods"
+        private void CreateCustomTabpages()
         {
-            return this.menuStrip1.Items.OfType<ToolStripItem>();
+            var newTabPage = new TabPage("DataGridView Demo");
+            newTabPage.Controls.Add(new CtrlDataGridViewDemo());
+            this.tabControl1.TabPages.Add(newTabPage);
+
+            // 
+            newTabPage = new TabPage("PropertyGrid Demo");
+            newTabPage.Controls.Add(new CtrlPropertyGridDemo() { Dock = DockStyle.Fill });
+            this.tabControl1.TabPages.Add(newTabPage);
+
         }
+
+        #endregion
+
 
         #region "控件事件"
         /// <summary>
         /// Test button click event
         /// </summary>
-        private void btnTest_Click(object sender, EventArgs args)
+        private void OnBtnHelpClick(object sender, EventArgs args)
         {
             try
             {
@@ -55,35 +55,54 @@ namespace WindowsApplication
                 MessageBox.Show(ex.Message);
             }
         }
-        
-        /// <summary>
-        /// 无法操作主界面。
-        /// </summary>
-        private void DemoCannotOperaterUi()
-        {            
-            MessageBox.Show(string.Format("Main thread ID = {0}", Thread.CurrentThread.ManagedThreadId));
 
-            // 
+        private void OnBtnCannotOperateUI(object sender, EventArgs e)
+        {
+            // 总结：
+            // 1、BeginInvoke类似MFC中的PostMessage，Invoke类似SendMessage。
+            // 2、Control.BeginInvoke与Invoke 都是在Control所属的线程上执行。
+            // 3、Show/ShowDialog指定参数Owner后，将在Owner上方显示，否则将显示在后方。
+            // 4、Show与ShowDiaglog 的区别是能否与父窗体进行交互。
+            // 5、无论在哪个线程调用主窗体的BeginInvoke，效果都一样（参见 form1 与 form2）。
+
+            this.BeginInvoke(new Action(() =>
+            {
+                var form1 = new Form();
+                form1.Text = string.Format("form1, TID = {0}", Thread.CurrentThread.ManagedThreadId);
+                form1.ShowDialog();   //     在主窗体上方显示模式对话框。
+                form1.ShowDialog(this); // 在主窗体上方显示模式对话框。
+            }));
+
+            // 在线程中
             Task.Factory.StartNew(() =>
             {
                 try
                 {
-                    // 以下代码显示Form后，主界面不可以操作，Form也看不到。
-                    // 将BeginInvoke改为Invoke试试效果。
+                    // 注：主窗体最大化后，可以使用Alt+F4关闭后台窗体。
+
+                    // 注：注意 BeginInvoke 与 Invoke 区别。
                     this.BeginInvoke(new Action(() =>
                     {
                         var form2 = new Form();
-                        form2.Text = string.Format("Using Invoke/BeginInvoke, TID = {0}", Thread.CurrentThread.ManagedThreadId);
+                        form2.Text = string.Format("form2, TID = {0}", Thread.CurrentThread.ManagedThreadId);
                         form2.ShowInTaskbar = false;
-                        form2.ShowDialog();
-                    }));
 
-                    // 以下代码显示Form后，主界面可以操作，但Form看不到。
-                    var form1 = new Form();
-                    form1.Text = string.Format("Sync call, TID = {0}", Thread.CurrentThread.ManagedThreadId); ;
-                    form1.ShowInTaskbar = false;
-                    form1.Load += form1_Load;
-                    form1.ShowDialog();
+                        // 注：Show、ShowDialog方法的区别；Show与Show(Owner)区别。
+                        //form2.TopMost = true; // 指定TopMost为true后，则form2显示在主窗体的前方；否则form2显示在主窗体的后方。
+
+                        form2.Show(this); // 在主窗体上方显示非模式对话框。
+                        //form2.Show(); // 在主窗体下方显示非模式对话框。
+
+                        //form2.ShowDialog();   // 在主窗体下方显示模式对话框。
+                        //form2.ShowDialog(this); // 在主窗体上方显示模式对话框。
+                    }));
+                    
+                    // 注：
+                    var formAsyn = new Form();
+                    formAsyn.Text = string.Format("Sync call, TID = {0}", Thread.CurrentThread.ManagedThreadId); ;
+                    formAsyn.ShowInTaskbar = false;
+                    formAsyn.TopMost = true; // 此处设置TopMost没有任何效果。
+                    formAsyn.ShowDialog();
                 }
                 catch (System.Exception ex)
                 {
@@ -91,18 +110,7 @@ namespace WindowsApplication
                     Console.WriteLine(ex);
                 }
             });
-
-            this.TopMost = true;
-
-            // 总结：
-            // 1、BeginInvoke类似MFC中的PostMessage，Invoke类似SendMessage。
-            // 2、Control.BeginInvoke与Invoke 都是在Control所属的线程上执行。
-        }
-
-        void form1_Load(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
+        }        
 
         /// <summary>
         /// 退出
@@ -185,32 +193,6 @@ namespace WindowsApplication
         private void OnCommTestForm_Load(object sender, EventArgs e)
         {
         }
-        #endregion
-
-
-        #region "private methods"
-               
-
-        class PropertyElement
-        {
-            public List<PlatformID> PID { get; set; }
-            public Color BackColor { get; set; }
-            public string Name { get; set; }
-
-            public PropertyElement()
-            {
-                this.PID = new List<PlatformID> { PlatformID.Win32NT, PlatformID.Unix};
-                this.BackColor = Color.AliceBlue;
-                this.Name = "user";
-            }
-        }
-        private void InitializePropertyGrade()
-        {
-            this.propertyGrid1.Dock = DockStyle.Fill;
-
-            this.propertyGrid1.SelectedObject = (new PropertyElement());
-        }
-
         #endregion
         
         #region "Notify菜单"
