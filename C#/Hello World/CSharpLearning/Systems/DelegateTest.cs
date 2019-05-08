@@ -46,14 +46,14 @@ namespace CSharpLearning.Systems
         }
 
 
-        [Test]
+        [Test(Description="使用Action或者Func也可以实现BeginInvoke。")]
         public void Test2()
         {
             Console.WriteLine(string.Format("Step1: {0}, Test1 thread ID = {1}",
                 DateTime.Now,
                 Thread.CurrentThread.ManagedThreadId));
 
-            TakesAwhileDelegate d1 = TakesAWhile;
+            Func<int, int,int> d1 = TakesAWhile;
 
             // 使用Lambda表达式
             var ar = d1.BeginInvoke(1, 3000,
@@ -79,11 +79,11 @@ namespace CSharpLearning.Systems
         /// <summary>
         /// 可以用APM来执行任何方法，我们只需要定义一个与方法签名一致的delegate，
         /// delegate编译后会生成一个BeginInvoke和EndInvoke方法来支持APM操作。
+        /// 异步编程模型（APM）
         /// </summary>
         [Test]
         public void Test3()
         {
-
             Action d1 = MethodWithException;
 
             var ar = d1.BeginInvoke(p =>
