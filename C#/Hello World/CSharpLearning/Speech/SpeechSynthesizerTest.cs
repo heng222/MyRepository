@@ -19,25 +19,26 @@ namespace CSharpLearning.Speech
         [TestCase("自动加载运行图失败")]
         public void SpeakTest1(string text)
         {
-            var speak = new SpeechSynthesizer();
+            using (var speak = new SpeechSynthesizer())
+            {
+                speak.Rate = -1; // 设置语速,[-10,10]
+                speak.Volume = 100; // 设置音量,[0,100]
+                //speak.SelectVoice("Microsoft David Desktop");  
+                //speak.SelectVoice("Microsoft Kangkang Desktop");
+                speak.SelectVoiceByHints(VoiceGender.Male);
+                //speak.SelectVoiceByHints(VoiceGender.Male, VoiceAge.Child, 2, CultureInfo.CurrentCulture);
+                speak.Speak(text);
 
-            speak.Rate = -1; // 设置语速,[-10,10]
-            speak.Volume = 100; // 设置音量,[0,100]
-            //speak.SelectVoice("Microsoft David Desktop");  
-            //speak.SelectVoice("Microsoft Kangkang Desktop");
-            speak.SelectVoiceByHints(VoiceGender.Male);
-            //speak.SelectVoiceByHints(VoiceGender.Male, VoiceAge.Child, 2, CultureInfo.CurrentCulture);
-            speak.Speak(text);
+                //speak.SetOutputToWaveFile(string.Format("c:\\{0}.wav", text)); // 输出到文件
+                //speak.Speak(text);
 
-            //speak.SetOutputToWaveFile(string.Format("c:\\{0}.wav", text)); // 输出到文件
-            //speak.Speak(text);
+                //下面的代码为一些SpeechSynthesizer的属性，看实际情况是否需要使用
 
-            //下面的代码为一些SpeechSynthesizer的属性，看实际情况是否需要使用
-            speak.Dispose();  //释放所有语音资源
-            //voice.SpeakAsyncCancelAll();  //取消朗读
-            //voice.Speak("Hellow Word");  //同步朗读
-            //voice.Pause();  //暂停朗读
-            //voice.Resume(); //继续朗读
+                //voice.SpeakAsyncCancelAll();  //取消朗读
+                //voice.Speak("Hellow Word");  //同步朗读
+                //voice.Pause();  //暂停朗读
+                //voice.Resume(); //继续朗读
+            }
         }
 
         [Test]
