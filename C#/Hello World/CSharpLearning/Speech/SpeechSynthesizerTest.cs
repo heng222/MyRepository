@@ -5,6 +5,7 @@ using System.Linq;
 using System.Speech.AudioFormat;
 using System.Speech.Synthesis;
 using System.Text;
+using System.Threading;
 using NUnit.Framework;
 
 namespace CSharpLearning.Speech
@@ -16,7 +17,7 @@ namespace CSharpLearning.Speech
         [TestCase("CBTC列车位置丢失")]
         [TestCase("编码处理器故障")]
         [TestCase("自动加载运行图失败")]
-        public void SpeakAsyncTest1(string text)
+        public void SpeakTest1(string text)
         {
             var speak = new SpeechSynthesizer();
 
@@ -37,6 +38,34 @@ namespace CSharpLearning.Speech
             //voice.Speak("Hellow Word");  //同步朗读
             //voice.Pause();  //暂停朗读
             //voice.Resume(); //继续朗读
+        }
+
+        [Test]
+        public void SpeakAsyncTest1()
+        {
+            var text = new List<string>()
+            { 
+                "这是第一段文字：最近，习近平总书记在纪念五四运动100周年大会上的重要讲话，在广大青年中引起强烈共鸣。总书记了解青年、理解青年，他的话朴实亲切，又催人奋进。一名青年的感想，道出了亿万年轻人的共同心声。", 
+                "这是第二段文字：人生全靠演技。" 
+            };
+
+            int textCount = text.Count();
+            var syncLock = new object();
+
+            using(var speak = new SpeechSynthesizer())
+            {
+                speak.Rate = -1; // 设置语速,[-10,10]
+                speak.Volume = 100; // 设置音量,[0,100]
+
+                speak.SpeakCompleted += (object sender, SpeakCompletedEventArgs e) =>
+                {
+                    lock (syncLock) { if (--textCount == 0) Monitor.PulseAll(syncLock); }
+                };
+
+                text.ToList().ForEach(p => speak.SpeakAsync(p));
+
+                lock(syncLock) Monitor.Wait(syncLock);
+            }
         }
 
         [Test]
