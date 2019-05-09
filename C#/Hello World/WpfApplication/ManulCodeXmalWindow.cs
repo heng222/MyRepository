@@ -6,6 +6,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Media;
+using System.ComponentModel;
 
 namespace WpfApplication
 {
@@ -13,6 +14,8 @@ namespace WpfApplication
     {
         public ManulCodeXmalWindow()
         {
+            var theBrush = TypeDescriptor.GetConverter(typeof(Brush)).ConvertFromInvariantString("red") as Brush;
+
             Console.WriteLine("Xmal Window");
 
             Height = 200;

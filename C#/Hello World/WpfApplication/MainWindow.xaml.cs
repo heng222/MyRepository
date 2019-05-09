@@ -57,7 +57,7 @@ namespace WpfApplication
             MessageBox.Show("此按钮来自一个单独的XAML文件");
         }
 
-        private void OnNoXamlDemoClick(object sender, RoutedEventArgs e)
+        private void OnManualCodeDemoClick(object sender, RoutedEventArgs e)
         {
             this.Title = "没有XAML文件的WPF实例";
 
