@@ -18,7 +18,6 @@ namespace CSharpLearning.Threading
             Console.WriteLine("Main thread ID ="+Thread.CurrentThread.ManagedThreadId);
 
             var tcs1 = new TaskCompletionSource<object>();
-            var task1 = tcs1.Task;
 
             // Start a background task that will complete tcs1.Task
             var task2 = Task.Factory.StartNew(() =>
@@ -31,7 +30,7 @@ namespace CSharpLearning.Threading
             // The attempt to get the result of t1 BLOCKS the current thread until the completion source gets signaled.
             // It should be a wait of ~2000 ms.
             var sw = Stopwatch.StartNew();
-            var result = task1.Result;
+            var result = tcs1.Task.Result;
             sw.Stop();
 
             Console.WriteLine("(ElapsedTime={0}): t1.Result={1} (expected 15) ", sw.ElapsedMilliseconds, result);
