@@ -7,13 +7,14 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Windows.Forms;
+using Products.Infrastructure;
 using Products.Resource;
 using Products.UAC.Domain;
 using Products.UAC.Utilities;
 
 namespace Products.UAC.Presentation.Forms
 {
-    partial class FormLogin : Form
+    partial class FormLogin : Form, IUserLogOn
     {
         #region "Filed"
         public ILoginVerification Verification { get; private set; }
@@ -48,9 +49,12 @@ namespace Products.UAC.Presentation.Forms
                 this.Verification.LogOn(txtUserName.Text, actualPwd);
 
                 this.Close();
+
+                this.DialogResult = DialogResult.OK;
             }
             catch (System.Exception ex)
             {
+                this.DialogResult = DialogResult.No;
                 MessageBox.Show(ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -59,5 +63,27 @@ namespace Products.UAC.Presentation.Forms
         {
             this.Close();
         }
+
+        #region IUserLogOn 成员
+
+        public UserLogOnResult ShowLogOnDialog()
+        {
+            var rc = this.ShowDialog();
+
+            if (rc == DialogResult.OK)
+            {
+                return UserLogOnResult.Successful;
+            }
+            else if (rc == DialogResult.Cancel)
+            {
+                return UserLogOnResult.Canceled;
+            }
+            else 
+            {
+                return UserLogOnResult.Failure;
+            }
+        }
+
+        #endregion
     }
 }

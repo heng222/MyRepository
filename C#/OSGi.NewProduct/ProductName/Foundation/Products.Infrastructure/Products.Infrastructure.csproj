@@ -78,6 +78,7 @@
     <Compile Include="Preference\SerialPortSettings.cs" />
     <Compile Include="Specification\INodeAttri.cs" />
     <Compile Include="Specification\INodeContext.cs" />
+    <Compile Include="Specification\IUserLogin.cs" />
     <Compile Include="Types\AtcSubsystemType.cs" />
     <Compile Include="Types\PresentationControlType.cs" />
     <Compile Include="Protocol\Framework\IFrameSentCompleteObserver.cs" />

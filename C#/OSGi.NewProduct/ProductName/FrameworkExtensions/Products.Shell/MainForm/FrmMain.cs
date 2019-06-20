@@ -27,7 +27,6 @@ namespace Products.Shell
 
         #region "Filed"
         protected List<IControlOptimizer> _controlOptimizers = new List<IControlOptimizer>();
-        private MockWorkspace _mockWorkspace = new MockWorkspace();
 
         private Dictionary<ProductPartAttribute, DockContentEx> _dockContents = new Dictionary<ProductPartAttribute, DockContentEx>();
 
@@ -116,8 +115,6 @@ namespace Products.Shell
 
         private void Initialize()
         {
-            Workbench.MainWorkspace = _mockWorkspace;
-
             _menuPresenter = new FrmMainMenuPresenter(this);
             _statusBarPresenter = new FrmMainStatusBarPresenter(this);
 
@@ -197,7 +194,8 @@ namespace Products.Shell
         
         private void CreateDockContents()
         {
-            foreach (var theControl in _mockWorkspace.MainControls)
+            var theWorkspace = Workbench.MainWorkspace as MockWorkspace;
+            foreach (var theControl in theWorkspace.MainControls)
             {
                 var controlType = theControl.Key.ControlType;
 

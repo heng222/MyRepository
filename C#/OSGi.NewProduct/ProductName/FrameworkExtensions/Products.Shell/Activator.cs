@@ -1,15 +1,19 @@
 
 using System;
+using System.ComponentModel;
 using System.Linq;
 using System.Windows.Forms;
 using Acl.Log;
 using Acl.ServiceManagement;
 using Acl.Threading;
 using OSGi;
+using OSGi.Dto.Framework;
 using Platform.Presentation;
 using Platform.Presentation.Options;
 using Products.Domain;
+using Products.Infrastructure;
 using Products.Infrastructure.Events;
+using Products.Infrastructure.Log;
 using Products.Infrastructure.Messages;
 using Products.Infrastructure.Specification;
 using Products.Presentation;
@@ -22,10 +26,11 @@ namespace Products.Shell
     class Activator : IBundleActivator, IBundleListener, IFrameworkListener, IDisposable
     {
         #region "Field"
-        private bool _disposed = false;
-        private SystemAttributeImpl _sysAttriImpl = new SystemAttributeImpl();
+        private bool _disposed = false;        
+		private ILog _log;
         private SplashScreenManager _splashSrceen = null;
-        private ILog _log;
+        private SystemAttributeImpl _sysAttriImpl = new SystemAttributeImpl();
+
         private MainFormCloseMonitor _mainFormMonitor;
         private ProcessMonitor _processMonitor = null;
         #endregion
@@ -33,8 +38,9 @@ namespace Products.Shell
         #region "Constructor && Desctructor"
         public Activator()
         {
-            _log = LogManager.GetLogger("Shell");
+            _log = LogManager.GetLogger(LoggerNames.Shell);
 
+            Workbench.MainWorkspace = new MockWorkspace();
             Workbench.SubscribeDispatcherExceptionEvent(ex => _log.Error(ex.Message, ex));
             Workbench.SubscribeTaskExceptionEvent(ex => _log.Error(ex.Message, ex));
 
@@ -56,10 +62,8 @@ namespace Products.Shell
                 context.AddBundleListener(this);
 
                 this.OpenSplashScreen(); 
-                
-                //NodeContextManager.Initialize();
 
-                var dto = context.Framework.Adapt<OSGi.Dto.Framework.FrameworkDto>();
+                var dto = context.Framework.Adapt<FrameworkDto>();
                 foreach (var key in dto.Properties.Keys)
                 {
                     Workbench.Context.Add(key, dto.Properties[key]);
@@ -71,11 +75,6 @@ namespace Products.Shell
 
                 this.UpdateOptimizeInterval(context);
 
-                // 设置ShellFactory
-                Workbench.SetMainFormFactory(new MainFormFactory());
-
-                // 初始化 Shell 窗体及控件
-                InitializeShellFormAndControls();
 
                 // 更新产品属性
                 UpdateProductProperty();
@@ -88,7 +87,6 @@ namespace Products.Shell
 
         public void Stop(IBundleContext context)
         {
-            context.RemoveFrameworkListener(this);
             context.RemoveBundleListener(this);
 
             CloseSplashScreen();
@@ -127,10 +125,16 @@ namespace Products.Shell
         {
             if (e.Type == FrameworkEventType.Started)
             {
-                ShowMainForm(e.Bundle.Context);
+                // 设置 MainFormFactory
+                Workbench.SetMainFormFactory(new MainFormFactory());
 
-                //关闭闪屏
+                // 创建主窗体。
+                CreateControls();
+                CreateMainForm();
+
                 CloseSplashScreen();
+
+                ShowMainForm(e.Bundle.Context);
             }
             else if (e.Type == FrameworkEventType.Stopped)
             {
@@ -163,6 +167,41 @@ namespace Products.Shell
         #endregion
 
         #region "private methods"
+
+
+        private void OpenSplashScreen()
+        {
+            _splashSrceen = new SplashScreenManager();
+            ThreadProxy.QueueUserWorkItem(() =>
+            {
+                try
+                {
+                    if (_splashSrceen == null) return;
+                    _splashSrceen.OpenSplashScreen();
+                }
+                catch (Exception ex)
+                {
+                    _log.Error(ex.Message, ex);
+                }
+            });
+        }
+
+        private void CloseSplashScreen()
+        {
+            ThreadProxy.QueueUserWorkItem(() =>
+            {
+                try
+                {
+                    if (_splashSrceen == null) return;
+                    _splashSrceen.CloseSplashScreen();
+                    _splashSrceen = null;
+                }
+                catch (System.Exception ex)
+                {
+                    _log.Error("关闭闪屏时出现问题，" + ex.Message, ex);
+                }
+            });
+        }
 
         private void HandleAppStartError(Exception ex)
         {
@@ -197,40 +236,6 @@ namespace Products.Shell
             {
                 throw ex;
             }
-        }
-
-        private void OpenSplashScreen()
-        {
-            _splashSrceen = new SplashScreenManager();
-            ThreadProxy.QueueUserWorkItem(() =>
-            {
-                try
-                {
-                    if (_splashSrceen == null) return;
-                    _splashSrceen.OpenSplashScreen();
-                }
-                catch (Exception ex)
-                {
-                    _log.Error(ex.Message, ex);
-                }
-            });
-        }
-
-        private void CloseSplashScreen()
-        {
-            ThreadProxy.QueueUserWorkItem(() =>
-            {
-                try
-                {
-                    if (_splashSrceen == null) return;
-                    _splashSrceen.CloseSplashScreen();
-                    _splashSrceen = null;
-                }
-                catch (System.Exception ex)
-                {
-                    _log.Error("关闭闪屏时出现问题，" + ex.Message, ex);
-                }
-            });
         }
 
         private void InitProductProperty(IBundleContext context)
@@ -280,20 +285,13 @@ namespace Products.Shell
             }
         }
 
-        private void InitializeShellFormAndControls()
+        private void CreateControls()
         {
             Workbench.SendMessage(() =>
             {
-                _log.Info("正在创建主窗体");
 
-                Workbench.CreateMainForm();
-
-                //创建主窗口监视器，每隔10秒检查窗口句柄是否存在，不存在则关闭进程
-                _mainFormMonitor = new MainFormCloseMonitor(Workbench.MainForm, _log.Warn, OnProcessKilling);
-                
                 // 添加日志窗体。
                 MainWorkSpace.AddPart(new LogControl(), Resources.AppLog);
-
                 // 创建数码管时钟控件
                 MainWorkSpace.AddPart(new NixieTubeClockControl(), Resources.NixietubeClock);
 
@@ -306,11 +304,34 @@ namespace Products.Shell
                 Workbench.AddOption(logCfgPage, logCfgPage);
             });
         }
-        
+
+        private void CreateMainForm()
+        {
+            Workbench.SendMessage(() =>
+            {
+                _log.Info("正在创建主窗体");
+
+                Workbench.CreateMainForm();
+
+                // 创建主窗口监视器，每隔10秒检查窗口句柄是否存在，不存在则关闭进程
+                _mainFormMonitor = new MainFormCloseMonitor(Workbench.MainForm, _log.Warn, OnProcessKilling);
+            });
+        }
+
+        private void OnMainFormShowing(IBundleContext context, CancelEventArgs args)
+        {
+            // 获取登录接口
+            var login = ServiceManager.Current.Get<IUserLogOn>();
+            if (login != null)
+            {
+                var loginresult = login.ShowLogOnDialog();
+                args.Cancel = (loginresult != UserLogOnResult.Successful);
+            }
+        }
+
         private void OnProcessKilling()
         {
             GlobalMessageBuses.PublishApplicationExiting(new ProcessExitingEventArgs(), null);
-            //LocalMessageBus.Current.Publish(topic: AtsMessageTopics.OnProcessKilling);
         }
 
         private void ClosProcessMonitor()
@@ -328,16 +349,15 @@ namespace Products.Shell
             {
                 try
                 {
-                    //// 引发OnMainFormShowing事件。
-                    //var args = new CancelEventArgs();
-                    //OnMainFormShowing(settings, args);
+                    // 引发OnMainFormShowing事件。
+                    var args = new CancelEventArgs();
+                    OnMainFormShowing(context, args);
 
-                    //if (!args.Cancel)
-                    //{
-                    //    // Show main form
-                    //    Workbench.ShowMainForm();
-                    //}
-                    Workbench.ShowMainForm();
+                    if (!args.Cancel)
+                    {
+                        // Show main form
+                        Workbench.ShowMainForm();
+                    }
                 }
                 catch (System.Exception ex)
                 {
@@ -359,7 +379,5 @@ namespace Products.Shell
             }
         }
         #endregion
-
-
     }
 }
