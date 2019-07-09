@@ -4,7 +4,7 @@
          Bundle-SymbolicName="SystemEvents"
          Bundle-Description="系统事件插件"         
          Bundle-Name="系统事件"
-         Bundle-StartLevel="5"
+         Bundle-StartLevel="15"
          Bundle-Version="1.0.0">
   
   <Runtime>

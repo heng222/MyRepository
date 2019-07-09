@@ -134,7 +134,9 @@ namespace Products.Domain
         {
             if (this.Type == PluginType.None) return false;
 
-            return NodeContextManager.Current.ContainsPlugin(Type);
+            if (this.Type.HasFlag(PluginType.Persistence)) return true;
+
+            return GlobalServices.NodeContext.ContainsPlugin(Type);
         }
         #endregion
 

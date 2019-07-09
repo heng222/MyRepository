@@ -24,24 +24,34 @@ namespace Products.Infrastructure.Log
         /// <summary>
         /// 平台
         /// </summary>
+        [MemberDes("平台")]
         public const string Platform = "平台";
+        /// <summary>
+        /// 持久化模块
+        /// </summary>
+        [MemberDes("持久化")]
+        public const string Persistence = "持久化";
 
         /// <summary>
         /// Shell
         /// </summary>
+        [MemberDes("Shell")]
         public const string Shell = "Shell";
 
         /// <summary>
         /// 用户访问控制
         /// </summary>
+        [MemberDes("UAC")]
         public const string UAC = "UAC";
         /// <summary>
         /// 系统事件管理
         /// </summary>
+        [MemberDes("SEM")]
         public const string SEM = "SEM";
         /// <summary>
         /// Plugin1
         /// </summary>
+        [MemberDes("Plugin1")]
         public const string Plugin1 = "Plugin1";
     }
 }

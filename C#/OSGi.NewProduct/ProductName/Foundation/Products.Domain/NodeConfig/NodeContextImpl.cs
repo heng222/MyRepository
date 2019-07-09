@@ -27,9 +27,9 @@ using Products.Infrastructure.Types;
 namespace Products.Domain
 {
     /// <summary>
-    /// 节点上下文信息
+    /// 节点上下文信息。
     /// </summary>
-    class DefaultNodeContextImpl : INodeContext
+    public class NodeContextImpl : INodeContext
     {
         #region "Filed"
         private List<PresentationControlType> _controlTypes = new List<PresentationControlType>();
@@ -49,7 +49,7 @@ namespace Products.Domain
         /// </summary>
         public NodeType Type { get; private set; }
 
-        
+
         /// <summary>
         /// 获取当前节点需要加载的插件。
         /// </summary>
@@ -65,7 +65,7 @@ namespace Products.Domain
         /// <summary>
         /// 构造函数。
         /// </summary>
-        public DefaultNodeContextImpl()
+        public NodeContextImpl()
         {
             this.Name = string.Empty;
             this.Type = NodeType.Default;
@@ -74,6 +74,23 @@ namespace Products.Domain
         #endregion
 
         #region "Public methods"
+        /// <summary>
+        /// 初始化本地节点相关信息。
+        /// 默认方式下将根据本地IP从数据库中查找对应的节点信息。
+        /// </summary>
+        public void Initialize()
+        {
+
+        }
+
+        /// <summary>
+        /// 初始化节点上下文。
+        /// </summary>
+        /// <param name="nodeCode"></param>
+        public void Initialize(uint nodeCode)
+        {
+
+        }
         #endregion
 
 
@@ -85,7 +102,7 @@ namespace Products.Domain
         /// <returns>true表示需要加载指定的插件，false表示不需要加载。</returns>
         public bool ContainsPlugin(PluginType pluginType)
         {
-            return (pluginType & this.Plugins) == pluginType;
+            return this.Plugins.HasFlag(pluginType);
         }
 
         #endregion

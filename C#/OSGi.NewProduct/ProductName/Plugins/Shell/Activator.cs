@@ -1,3 +1,15 @@
+/*----------------------------------------------------------------
+// 公司名称：请输入公司名称
+// 
+// 项目名称：输入项目名称
+//
+// 创 建 人：zhangheng
+// 创建日期：2015-2-3 21:20:58 
+// 邮    箱：zhangheng@163.com
+//
+// Copyright (C) 公司名称 2009，保留所有权利
+//
+//----------------------------------------------------------------*/
 
 using System;
 using System.ComponentModel;
@@ -26,8 +38,9 @@ namespace Products.Shell
     class Activator : IBundleActivator, IBundleListener, IFrameworkListener, IDisposable
     {
         #region "Field"
-        private bool _disposed = false;        
-		private ILog _log;
+        private bool _disposed = false;
+        private ILog _log;
+        private LogControl _logControl;
         private SplashScreenManager _splashSrceen = null;
         private SystemAttributeImpl _sysAttriImpl = new SystemAttributeImpl();
 
@@ -39,6 +52,10 @@ namespace Products.Shell
         public Activator()
         {
             _log = LogManager.GetLogger(LoggerNames.Shell);
+            Workbench.SendMessage(() =>
+            {
+                _logControl = new LogControl();
+            });
 
             Workbench.MainWorkspace = new MockWorkspace();
             Workbench.SubscribeDispatcherExceptionEvent(ex => _log.Error(ex.Message, ex));
@@ -61,7 +78,7 @@ namespace Products.Shell
                 context.AddFrameworkListener(this);
                 context.AddBundleListener(this);
 
-                this.OpenSplashScreen(); 
+                this.OpenSplashScreen();
 
                 var dto = context.Framework.Adapt<FrameworkDto>();
                 foreach (var key in dto.Properties.Keys)
@@ -289,9 +306,9 @@ namespace Products.Shell
         {
             Workbench.SendMessage(() =>
             {
-
                 // 添加日志窗体。
-                MainWorkSpace.AddPart(new LogControl(), Resources.AppLog);
+                MainWorkSpace.AddPart(_logControl, Resources.AppLog);
+
                 // 创建数码管时钟控件
                 MainWorkSpace.AddPart(new NixieTubeClockControl(), Resources.NixietubeClock);
 

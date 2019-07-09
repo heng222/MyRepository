@@ -4,7 +4,7 @@
          Bundle-SymbolicName="Plugin1"
          Bundle-Description="插件1的名称" 
          Bundle-Name="插件1"
-         Bundle-StartLevel="9"
+         Bundle-StartLevel="19"
          Bundle-Version="1.0.0">
   
   <Runtime>

@@ -1,0 +1,198 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{03EE9AE4-D4BE-456D-B263-688BB3D17349}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Products.Persistence</RootNamespace>
+    <AssemblyName>Products.Persistence</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\bin\Debug\Plugins\Persistence\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>..\..\..\bin\Debug\Plugins\Persistence\Products.Persistence.XML</DocumentationFile>
+    <Prefer32Bit>false</Prefer32Bit>
+    <CodeAnalysisRuleSet>..\..\..\Fxcop.ruleset</CodeAnalysisRuleSet>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\..\bin\Release\Plugins\Persistence\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>..\..\..\bin\Release\Plugins\Persistence\Products.Persistence.XML</DocumentationFile>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Acl.CommStreamLog">
+      <HintPath>..\..\..\..\Libs\Acl.CommStreamLog.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Acl.Controls">
+      <HintPath>..\..\..\..\Libs\Acl.Controls.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Acl.Core">
+      <HintPath>..\..\..\..\Libs\Acl.Core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Acl.Data">
+      <HintPath>..\..\..\..\Libs\Acl.Data.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Acl.Log">
+      <HintPath>..\..\..\..\Libs\Acl.Log.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Acl.MessageBus">
+      <HintPath>..\..\..\..\Libs\Acl.MessageBus.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Acl.ServiceManagement">
+      <HintPath>..\..\..\..\Libs\Acl.ServiceManagement.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="OSGi">
+      <HintPath>..\..\..\..\Libs\OSGi.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Activator.cs" />
+    <Compile Include="Config\DataSource.cs" />
+    <Compile Include="Config\PersistenceConfig.cs" />
+    <Compile Include="Config\TableDescriptor.cs" />
+    <Compile Include="Config\TableType.cs" />
+    <Compile Include="Forms\NodeSelectionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\NodeSelectionForm.Designer.cs">
+      <DependentUpon>NodeSelectionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PersistenceFacade.cs" />
+    <Compile Include="PersistenceManager.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Services\DataCache.cs" />
+    <Compile Include="Domain\RepositoryDecorator.cs" />
+    <Compile Include="Services\SqliteConnectionManager.cs" />
+    <Compile Include="Services\SqliteOperationScheduler.cs" />
+    <Compile Include="Services\SqliteRepository.cs" />
+    <Compile Include="Services\SeqNoGenerator.cs" />
+    <Compile Include="Services\TextFileDataStorage.cs" />
+    <Compile Include="Utilities\HelperTools.cs" />
+    <Compile Include="Utilities\LogUtility.cs" />
+    <None Include="..\..\..\..\Libs\Data\local.config.dynamic.db">
+      <Link>Data\local.config.dynamic.db</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\..\..\Libs\Data\local.config.static.db">
+      <Link>Data\local.config.static.db</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\..\..\Libs\Data\local.log.operations.db">
+      <Link>Data\local.log.operations.db</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\..\..\Libs\Data\local.log.sysevents.db">
+      <Link>Data\local.log.sysevents.db</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Config\Persistence.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Data\IoPoints\CollectionPoints.ini">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Data\IoPoints\DriverPoints.ini">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Properties\AssemblyInfo.tpl" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Forms\NodeSelectionForm.resx">
+      <DependentUpon>NodeSelectionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="..\..\..\..\Libs\Oracle.ManagedDataAccess.dll">
+      <Link>Oracle.ManagedDataAccess.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\..\..\Libs\System.Data.SQLite.dll">
+      <Link>System.Data.SQLite.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\..\..\Libs\x64\SQLite.Interop.dll">
+      <Link>x64\SQLite.Interop.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\..\..\Libs\x86\SQLite.Interop.dll">
+      <Link>x86\SQLite.Interop.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Manifest.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Foundation\Products.Domain\Products.Domain.csproj">
+      <Project>{075ae358-82e8-4ce3-9b4e-1e895a11951d}</Project>
+      <Name>Products.Domain</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Foundation\Products.Infrastructure\Products.Infrastructure.csproj">
+      <Project>{a4b16e5b-561d-4739-b35b-6e4d21e78a47}</Project>
+      <Name>Products.Infrastructure</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Foundation\Products.Presentation\Products.Presentation.csproj">
+      <Project>{b2432701-87ac-4b50-a680-f6f514401fbc}</Project>
+      <Name>Products.Presentation</Name>
+      <Private>False</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>if "$(ConfigurationName)"=="Release" (SubWcRev "$(ProjectDir)\" "$(ProjectDir)Properties\AssemblyInfo.tpl" "$(ProjectDir)Properties\AssemblyInfo.cs")</PreBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -38,6 +38,9 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Acl.CommStreamLog">
+      <HintPath>..\..\..\Libs\Acl.CommStreamLog.dll</HintPath>
+    </Reference>
     <Reference Include="Acl.Core">
       <HintPath>..\..\..\Libs\Acl.Core.dll</HintPath>
     </Reference>
@@ -66,13 +69,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\Entity.cs" />
-    <Compile Include="Entities\EventLog.cs" />
+    <Compile Include="Entities\IoCollectionPoint.cs" />
+    <Compile Include="Entities\IoDriverPoint.cs" />
+    <Compile Include="Entities\IoPoint.cs" />
+    <Compile Include="Entities\Logs\OperationLog.cs" />
+    <Compile Include="Entities\Logs\SysEventLog.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Events\FrameSentCompleteEventArgs.cs" />
     <Compile Include="Events\FrameIncomingEventArgs.cs" />
     <Compile Include="Events\CommStateChangedEventArgs.cs" />
     <Compile Include="Events\FrameOutgoingEventArgs.cs" />
     <Compile Include="Events\NewSystemEventArgs.cs" />
     <Compile Include="Events\ProcessExitingEventArgs.cs" />
+    <Compile Include="Exceptions\LanuchCancelledException.cs" />
     <Compile Include="Specification\ILifeCycleManagement.cs" />
     <Compile Include="Log\CommLogParserCode.cs" />
     <Compile Include="Log\LoggerNames.cs" />
@@ -88,6 +98,8 @@
     <Compile Include="Specification\IRepository.cs" />
     <Compile Include="Specification\IUserLogin.cs" />
     <Compile Include="Types\AtcSubsystemType.cs" />
+    <Compile Include="Types\OperationResult.cs" />
+    <Compile Include="Types\OperationType.cs" />
     <Compile Include="Types\PresentationControlType.cs" />
     <Compile Include="Protocol\Framework\IFrameSentCompleteObserver.cs" />
     <Compile Include="Protocol\Framework\IIncomingFrameObserver.cs" />

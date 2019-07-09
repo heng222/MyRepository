@@ -1,13 +1,13 @@
 /*----------------------------------------------------------------
-// 公司名称：公司名称
+// 公司名称：请输入公司名称
 // 
-// 产品名称：ATS
+// 项目名称：输入项目名称
 //
-// 创 建 人：heng222_z
-// 创建日期：2018/5/28 14:29:10 
-// 邮    箱：heng222_z@163.com
+// 创 建 人：zhangheng
+// 创建日期：2015-2-3 21:20:58 
+// 邮    箱：zhangheng@163.com
 //
-// Copyright (C) 2018 ATS，保留所有权利。
+// Copyright (C) 公司名称 2009，保留所有权利
 //
 //----------------------------------------------------------------*/
 
@@ -32,7 +32,7 @@ namespace Products.Infrastructure.Events
         /// 构造函数。
         /// </summary>
         /// <param name="value">表示系统事件对象。</param>
-        public NewSystemEventArgs(EventLog value)
+        public NewSystemEventArgs(SysEventLog value)
         {
             this.Value = value;
         }
@@ -42,7 +42,7 @@ namespace Products.Infrastructure.Events
         /// <summary>
         /// 获取/设置系统事件对象。
         /// </summary>
-        public EventLog Value { get; set; }
+        public SysEventLog Value { get; set; }
         #endregion
 
         #region "Override methods"

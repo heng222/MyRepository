@@ -50,6 +50,11 @@ namespace Products.Infrastructure.Types
         /// </summary>
         [MemberDesAttribute("时钟同步插件")]
         NTP = (1L << 2),
+        /// <summary>
+        /// 持久化插件
+        /// </summary>
+        [MemberDesAttribute("持久化插件")]
+        Persistence = (1L << 3),
 
         // 3 ~ 7位预留。
 

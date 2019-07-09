@@ -1,16 +1,15 @@
-/*----------------------------------------------------------------
-// ¹«Ë¾Ãû³Æ£º¹«Ë¾Ãû³Æ
+ï»¿/*----------------------------------------------------------------
+// å…¬å¸åç§°ï¼šè¯·è¾“å…¥å…¬å¸åç§°
 // 
-// ²úÆ·Ãû³Æ£ºATS
+// é¡¹ç›®åç§°ï¼šè¯·è¾“å…¥ä½ çš„å…¬å¸åç§°
 //
-// ´´ ½¨ ÈË£ºheng222_z
-// ´´½¨ÈÕÆÚ£º2018/5/28 13:57:44 
-// ÓÊ    Ïä£ºheng222_z@163.com
+// åˆ› å»º äººï¼šzhangheng
+// åˆ›å»ºæ—¥æœŸï¼š2016-5-11 13:13:43 
+// é‚®    ç®±ï¼šzhangheng@163.com
 //
-// Copyright (C) 2018 ATS£¬±£ÁôËùÓĞÈ¨Àû¡£
+// Copyright (C) å…¬å¸åç§° 2009ï¼Œä¿ç•™æ‰€æœ‰æƒåˆ©
 //
 //----------------------------------------------------------------*/
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,43 +19,53 @@ using Products.Infrastructure.Types;
 namespace Products.Infrastructure.Entities
 {
     /// <summary>
-    /// ÏµÍ³ÊÂ¼ş
+    /// ç³»ç»Ÿäº‹ä»¶æ—¥å¿—å®ä½“å®šä¹‰ã€‚
     /// </summary>
-    public class EventLog
+    public class SysEventLog : Entity
     {
         /// <summary>
-        /// ÊÂ¼ş·¢ÉúµÄÊ±¼ä
+        /// äº‹ä»¶å‘ç”Ÿçš„æ—¶é—´
         /// </summary>
         public DateTime Timestamp { get; set; }
 
         /// <summary>
-        /// ÊÂ¼şÀàĞÍ
+        /// äº‹ä»¶ç±»å‹
         /// </summary>
         public EventType TypeCode { get; set; }
 
         /// <summary>
-        /// ÊÂ¼ş¼¶±ğ
+        /// äº‹ä»¶çº§åˆ«
         /// </summary>
         public EventLevel Level { get; set; }
 
         /// <summary>
-        /// ÃèÊö
+        /// äº‹ä»¶æè¿°
         /// </summary>
         public string Description { get; set; }
 
         /// <summary>
-        /// ¹¹Ôìº¯Êı¡£
+        /// ç¡®è®¤æ—¶é—´
         /// </summary>
-        public EventLog()
+        public DateTime ConfirmTime { get; set; }
+
+        /// <summary>
+        /// è·å–ä¸€ä¸ªå€¼ï¼Œç”¨äºè¡¨ç¤ºæœ¬äº‹ä»¶æ˜¯å¦å·²ç»ç¡®è®¤ï¼Ÿ
+        /// </summary>
+        public bool IsConfirmed { get { return this.ConfirmTime != DateTime.MinValue; } }
+        
+        /// <summary>
+        /// æ„é€ å‡½æ•°ã€‚
+        /// </summary>
+        public SysEventLog()
         {
             this.Timestamp = DateTime.Now;
             this.Description = string.Empty;
         }
 
         /// <summary>
-        /// ¹¹Ôìº¯Êı¡£
+        /// æ„é€ å‡½æ•°ã€‚
         /// </summary>
-        public EventLog(EventType type, EventLevel level, string description)
+        public SysEventLog(EventType type, EventLevel level, string description)
         {
             this.Timestamp = DateTime.Now;
             this.TypeCode = type;

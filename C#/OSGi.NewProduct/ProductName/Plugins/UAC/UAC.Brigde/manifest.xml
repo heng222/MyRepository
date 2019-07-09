@@ -4,7 +4,7 @@
          Bundle-SymbolicName="UAC"
          Bundle-Description="用户访问控制"
          Bundle-Name="UAC"
-         Bundle-StartLevel="6"
+         Bundle-StartLevel="16"
          Bundle-Specification="Products.UAC.Bridge.BundleSpecification"
          Bundle-Version="1.0.0"                  
          >
@@ -14,7 +14,7 @@
   </Runtime>
   
   <Settings>
-    <!-- 管理员密码 -->
+    <!-- 管理员密码，默认值 20 2C B9 62 AC 59 07 5B 96 4B 07 15 2D 23 4B 70，表示“123”。-->
     <add key="AdminPassword" value="20 2C B9 62 AC 59 07 5B 96 4B 07 15 2D 23 4B 70"/>
   </Settings>
   

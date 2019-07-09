@@ -46,7 +46,7 @@ namespace Products.Shell
 
                 if (_log != null)
                 {
-                    _log("ATS 系统超过10秒没有正常结束，系统将强制结束!");
+                    _log("系统超过10秒没有正常结束，系统将强制结束!");
                 }
 
                 if (_processKillingHandler != null)

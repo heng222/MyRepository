@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Configuration xmlns="urn:bundle-manifest-1.0"
+         Bundle-SymbolicName="Persistence"
+         Bundle-Description="持久化插件"   
+         Bundle-Name="Persistence"
+         Bundle-StartLevel="5"
+         Bundle-Version="1.0.1"
+         >
+  <Bundle-Activator Type="Products.Persistence.Activator"/>
+  <Runtime>
+    <Assembly Path="Products.Persistence.dll" Share="true"/>
+  </Runtime>
+  
+</Configuration>

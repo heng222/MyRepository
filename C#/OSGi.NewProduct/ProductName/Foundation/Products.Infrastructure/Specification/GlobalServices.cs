@@ -1,13 +1,13 @@
 /*----------------------------------------------------------------
-// 公司名称：公司名称
+// 公司名称：请输入公司名称
 // 
-// 产品名称：ATS
+// 项目名称：输入项目名称
 //
-// 创 建 人：heng222_z
-// 创建日期：2018/5/22 14:49:57 
-// 邮    箱：heng222_z@163.com
+// 创 建 人：zhangheng
+// 创建日期：2015-2-3 21:20:58 
+// 邮    箱：zhangheng@163.com
 //
-// Copyright (C) 2018 ATS，保留所有权利。
+// Copyright (C) 公司名称 2009，保留所有权利
 //
 //----------------------------------------------------------------*/
 
@@ -31,6 +31,11 @@ namespace Products.Infrastructure.Specification
         {
             get { return ServiceManager.Current.GetAll<ISystemAttribute>().FirstOrDefault(); }
         }
+
+        /// <summary>
+        /// 获取/设置节点上下文接口。
+        /// </summary>
+        public static INodeContext NodeContext { get; set; }
 
         /// <summary>
         /// 获取 UAC 接口。

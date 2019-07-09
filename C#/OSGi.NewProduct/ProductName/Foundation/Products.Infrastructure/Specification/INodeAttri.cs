@@ -7,7 +7,7 @@ using System.Text;
 namespace Products.Infrastructure.Specification
 {
     /// <summary>
-    /// 一个接口，用于描述ATS节点的属性。
+    /// 一个接口，用于描述节点的属性。
     /// </summary>
     public interface INodeAttri
     {

@@ -53,7 +53,7 @@ namespace Products.SystemEvents.Presentation.Controls
             }
         }
 
-        private void ShowSystemEvent(EventLog eventLog)
+        private void ShowSystemEvent(SysEventLog eventLog)
         {
             try
             {
@@ -108,7 +108,7 @@ namespace Products.SystemEvents.Presentation.Controls
                 }
 
                 // 
-                var eventLog = new EventLog()
+                var eventLog = new SysEventLog()
                 {
                     Level = EventLevel.Second,
                     Description = "删除当前行"
@@ -128,7 +128,7 @@ namespace Products.SystemEvents.Presentation.Controls
                 dataGridView.Rows.Clear();
 
                 // 
-                var eventLog = new EventLog()
+                var eventLog = new SysEventLog()
                 {
                     Level = EventLevel.Third,
                     Description = "删除所有行"
@@ -148,7 +148,7 @@ namespace Products.SystemEvents.Presentation.Controls
                 dataGridView.SelectAll();
 
                 // 
-                var eventLog = new EventLog() 
+                var eventLog = new SysEventLog() 
                 {
                     Level = EventLevel.First,
                     Description = "选择所有"

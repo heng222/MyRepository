@@ -80,8 +80,7 @@
   <ItemGroup>
     <Compile Include="Framework\ActivatorBase.cs" />
     <Compile Include="Framework\FrameworkActivatorBase.cs" />
-    <Compile Include="NodeConfig\DefaultNodeContextImpl.cs" />
-    <Compile Include="NodeConfig\NodeContextManager.cs" />
+    <Compile Include="NodeConfig\NodeContextImpl.cs" />
     <Compile Include="Persistence\CommLogStorage.cs" />
     <Compile Include="Preferences\SettingsParser.cs" />
     <Compile Include="Preferences\SettingsUtility.cs" />
