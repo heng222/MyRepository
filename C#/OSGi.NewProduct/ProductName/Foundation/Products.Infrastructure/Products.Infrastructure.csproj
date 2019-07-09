@@ -38,6 +38,9 @@
     <Reference Include="Acl.Core">
       <HintPath>..\..\..\Libs\Acl.Core.dll</HintPath>
     </Reference>
+    <Reference Include="Acl.Data">
+      <HintPath>..\..\..\Libs\Acl.Data.dll</HintPath>
+    </Reference>
     <Reference Include="Acl.Log">
       <HintPath>..\..\..\Libs\Acl.Log.dll</HintPath>
     </Reference>
@@ -59,6 +62,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\Entity.cs" />
     <Compile Include="Entities\EventLog.cs" />
     <Compile Include="Events\FrameSentCompleteEventArgs.cs" />
     <Compile Include="Events\FrameIncomingEventArgs.cs" />
@@ -78,6 +82,7 @@
     <Compile Include="Preference\SerialPortSettings.cs" />
     <Compile Include="Specification\INodeAttri.cs" />
     <Compile Include="Specification\INodeContext.cs" />
+    <Compile Include="Specification\IRepository.cs" />
     <Compile Include="Specification\IUserLogin.cs" />
     <Compile Include="Types\AtcSubsystemType.cs" />
     <Compile Include="Types\PresentationControlType.cs" />

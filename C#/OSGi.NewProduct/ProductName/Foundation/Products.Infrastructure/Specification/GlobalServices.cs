@@ -40,5 +40,12 @@ namespace Products.Infrastructure.Specification
             get { return ServiceManager.Current.GetAll<IUserAccessControl>().FirstOrDefault(); }
         }
 
+        /// <summary>
+        /// 获取 IRepository 接口。
+        /// </summary>
+        public static IRepository Repository
+        {
+            get { return ServiceManager.Current.GetAll<IRepository>().FirstOrDefault(); }
+        }
     }
 }
