@@ -88,7 +88,7 @@
     <Compile Include="Log\LoggerNames.cs" />
     <Compile Include="Log\LogLevelManager.cs" />
     <Compile Include="Log\LogSettings.cs" />
-    <Compile Include="Messages\GlobalMessageBuses.cs" />
+    <Compile Include="Messages\GlobalMessageBus.cs" />
     <Compile Include="Messages\ISingleTopicMessageBus.cs" />
     <Compile Include="Messages\SingleTopicSyncMessagebus.cs" />
     <Compile Include="Preference\SerialPortSettingNames.cs" />
