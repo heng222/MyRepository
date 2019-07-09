@@ -5,7 +5,7 @@ using Products.Domain;
 using Products.Infrastructure.Log;
 using Products.Infrastructure.Types;
 using Products.Presentation;
-using Products.SystemEvents.Presentation.Controls;
+using Products.SystemEvents.Controls;
 
 namespace Products.SystemEvents.Bridge
 {

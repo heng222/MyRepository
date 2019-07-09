@@ -72,10 +72,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Presentation\Controls\EventsMonitorControl.cs">
+    <Compile Include="Controls\EventsMonitorControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Presentation\Controls\EventsMonitorControl.Designer.cs">
+    <Compile Include="Controls\EventsMonitorControl.Designer.cs">
       <DependentUpon>EventsMonitorControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
@@ -113,7 +113,7 @@
     <Folder Include="Domain\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Presentation\Controls\EventsMonitorControl.resx">
+    <EmbeddedResource Include="Controls\EventsMonitorControl.resx">
       <DependentUpon>EventsMonitorControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -125,10 +125,10 @@
     <None Include="Resources\Confirm.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Error_worning.png" />
+    <None Include="Resources\Error.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Info_warning.png" />
+    <None Include="Resources\Info.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Remove.png" />
@@ -143,7 +143,7 @@
     <None Include="Resources\StopVoice.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Warning_warning.png" />
+    <None Include="Resources\Warning.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Alarm.ico" />
