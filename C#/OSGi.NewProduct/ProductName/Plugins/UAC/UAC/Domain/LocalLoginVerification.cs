@@ -58,7 +58,7 @@ namespace Products.UAC.Domain
                 throw new Exception("密码不正确。");
 
             // 发布用户将要切换事件。
-            GlobalMessageBuses.PublishUserChanging(new EventArgs());
+            GlobalMessageBus.PublishUserChanging(new EventArgs());
 
             // 切换用户。
             _currentUser.Id = UserInfo.Administrator;
@@ -67,13 +67,13 @@ namespace Products.UAC.Domain
             _currentUser.Privileges.Add(SystemPrivilege.All);
 
             // 发布用户切换事件。
-            GlobalMessageBuses.PublishUserChanged(new EventArgs());       
+            GlobalMessageBus.PublishUserChanged(new EventArgs());       
         }
 
         public void Logoff()
         {
             // 发布用户将要切换事件。
-            GlobalMessageBuses.PublishUserChanging(new EventArgs());
+            GlobalMessageBus.PublishUserChanging(new EventArgs());
 
             // 切换用户。
             _currentUser.Id = UserInfo.Guest;
@@ -81,7 +81,7 @@ namespace Products.UAC.Domain
             _currentUser.Privileges.Clear();
 
             // 发布用户切换事件。
-            GlobalMessageBuses.PublishUserChanged(new EventArgs());       
+            GlobalMessageBus.PublishUserChanged(new EventArgs());       
         }
         #endregion
 

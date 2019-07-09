@@ -277,7 +277,7 @@ namespace Products.Shell.Presentation.MainForm
             try
             {
                 // 订阅用户切换事件。
-                GlobalMessageBuses.SubscribeUserChanged(OnUserChanged);
+                GlobalMessageBus.SubscribeUserChanged(OnUserChanged);
 
                 // 更新状态栏。
                 this.UpdateStatusBar();

@@ -160,8 +160,8 @@ namespace Products.Shell
             this.CreateDockContents();
 
             // 订阅用户切换事件。
-            GlobalMessageBuses.SubscribeUserChanging(OnUserChanging);
-            GlobalMessageBuses.SubscribeUserChanged(OnUserChanged);
+            GlobalMessageBus.SubscribeUserChanging(OnUserChanging);
+            GlobalMessageBus.SubscribeUserChanged(OnUserChanged);
 
             // 显示DockContents。
             var configFile = BuildDockConfigFileName();

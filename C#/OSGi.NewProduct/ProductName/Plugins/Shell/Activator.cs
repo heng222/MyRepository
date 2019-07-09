@@ -348,7 +348,7 @@ namespace Products.Shell
 
         private void OnProcessKilling()
         {
-            GlobalMessageBuses.PublishApplicationExiting(new ProcessExitingEventArgs(), null);
+            GlobalMessageBus.PublishApplicationExiting(new ProcessExitingEventArgs(), null);
         }
 
         private void ClosProcessMonitor()

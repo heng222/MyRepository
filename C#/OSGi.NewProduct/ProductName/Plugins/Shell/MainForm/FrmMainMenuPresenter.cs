@@ -339,7 +339,7 @@ namespace Products.Shell.Presentation.MainForm
             try
             {
                 // 订阅用户切换事件。
-                GlobalMessageBuses.SubscribeUserChanged(OnUserChanged);
+                GlobalMessageBus.SubscribeUserChanged(OnUserChanged);
 
                 // 加载插件菜单。
                 LoadPluginsMenu();
@@ -661,7 +661,7 @@ namespace Products.Shell.Presentation.MainForm
         {
             try
             {
-                GlobalMessageBuses.PublishCommLogRollover(e, sender);
+                GlobalMessageBus.PublishCommLogRollover(e, sender);
             }
             catch (System.Exception ex)
             {
