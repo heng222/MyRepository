@@ -22,7 +22,7 @@ namespace Products.Infrastructure.Messages
     /// <summary>
     /// 全局消息总线
     /// </summary>
-    public static class GlobalMessageBuses
+    public static class GlobalMessageBus
     {
         ///// <summary>
         ///// 默认消息总线。

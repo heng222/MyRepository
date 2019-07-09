@@ -124,7 +124,7 @@ namespace Exe
 
                 InitializeLogSystem();
 
-                GlobalMessageBuses.SubscribeApplicationExiting(OnProcessKillingForcedly);
+                GlobalMessageBus.SubscribeApplicationExiting(OnProcessKillingForcedly);
 
                 _framework.Init();
                 _framework.Start();
