@@ -39,7 +39,7 @@ namespace Products.Domain
         void IBundleActivator.Stop(IBundleContext context)
         {
             // 注销Framework监听器
-            context.RemoveFrameworkListener(this);
+            //context.RemoveFrameworkListener(this);
 
             base.Stop(context.Bundle.Headers);
         }
