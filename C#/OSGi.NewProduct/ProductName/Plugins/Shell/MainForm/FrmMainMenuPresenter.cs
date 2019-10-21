@@ -183,7 +183,7 @@ namespace Products.Shell.Presentation.MainForm
             #endregion
 
             // 主菜单
-            _mainMenuStrip.Items.AddRange(new ToolStripItem[] { _menuView, _menuTool, _menuDebug, _menuHelp, _menuExitRight/*, _menuCompanyLogo*/});
+            _mainMenuStrip.Items.AddRange(new ToolStripItem[] { _menuView, _menuTool, _menuDebug, _menuHelp, _menuExitRight, _menuCompanyLogo});
             this.View.Controls.Add(_mainMenuStrip);
             //_mainMenuStrip.BackColor = Color.DarkGray;
         }

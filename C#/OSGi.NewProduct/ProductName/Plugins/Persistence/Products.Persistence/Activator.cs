@@ -50,7 +50,10 @@ namespace Products.Persistence
         
         protected override void OnBundleStop(IDictionary<string, string> context)
         {
-            _facade.Close();
+            if (_facade != null)
+            {
+                _facade.Close();
+            }
         }
 
         protected override void OnFrameworkStarted()

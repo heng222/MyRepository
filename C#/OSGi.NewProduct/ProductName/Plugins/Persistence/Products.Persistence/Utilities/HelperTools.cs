@@ -36,7 +36,7 @@ namespace Products.Persistence
         /// </summary>
         /// <param name="orginalValue">数据库配置URL，例如：Data Source=staticConfig.db;Journal Mode=WAL;</param>
         /// <returns>例如：Data Source=.\data\staticConfig.db;Journal Mode=WAL;</returns>
-        public static string FixUrl(string orginalValue)
+        public static string FixSQLiteDbUrl(string orginalValue)
         {
             var key = "Data Source";
             var items = orginalValue.Split(new string[] { ";", "；" }, StringSplitOptions.RemoveEmptyEntries);

@@ -75,7 +75,7 @@ namespace Products.Persistence.Services
                 if (dataSrc == null) throw new Exception(string.Format("没有找到 DataSource={0} 的配置 。", dbSourceName));
 
                 // 
-                var urlFixed = HelperTools.FixUrl(dataSrc.Url);
+                var urlFixed = HelperTools.FixSQLiteDbUrl(dataSrc.Url);
                 cfg = Acl.Data.Configuration.DbConfiguration.Configure(urlFixed, dataSrc.Driver, dbSourceName);
 
                 // 设置表名复数策略

@@ -117,7 +117,11 @@ namespace Products.Persistence
                 var dataSrc = PersistenceConfig.Settings.Get<List<DataSource>>("DataSources").Where(p => p.Name == dbName).FirstOrDefault();
                 if (dataSrc == null) throw new Exception(string.Format("没有找到 DataSource={0} 的配置 。", dbName));
 
-                var urlFixed = HelperTools.FixUrl(dataSrc.Url);
+                var urlFixed = dataSrc.Url;
+                if (dataSrc.Driver.Contains("SQLite"))
+                {
+                    urlFixed = HelperTools.FixSQLiteDbUrl(dataSrc.Url);
+                }
                 cfg = DbConfiguration.Configure(urlFixed, dataSrc.Driver, dbName);
             }
 
