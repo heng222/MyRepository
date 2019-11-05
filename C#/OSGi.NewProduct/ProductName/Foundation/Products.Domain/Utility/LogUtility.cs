@@ -21,24 +21,11 @@ namespace Products.Domain.Utility
     /// <summary>
     /// 日志实用工具类
     /// </summary>
-    internal static class LogUtility
+    static class LogUtility
     {
         private static readonly ILog _log = LogManager.GetLogger(LoggerNames.Platform);
 
         public static ILog Log { get { return _log; } }
-
-        public static void Initialize()
-        {
-            Acl.Log.LogManager.FileHeader = string.Format("--- 日志页眉：【{0}】-【{1}】 ---{2}",
-                ProductResources.ProjectChsName,
-                "当前节点名称",
-                Environment.NewLine);
-
-            Acl.Log.LogManager.FileFooter = string.Format("--- 日志页脚：【{0}】-【{1}】 ---{2}",
-                ProductResources.ProjectChsName,
-                "当前节点名称",
-                Environment.NewLine);
-        }
 
         /// <summary>
         /// 

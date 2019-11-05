@@ -14,13 +14,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Management;
-using System.Net;
-using System.Security.Cryptography;
 using System.Text;
-using Acl.Log;
 using Acl.Utility;
-using Products.Infrastructure.Log;
+using Products.Domain.Utility;
+using Products.Infrastructure.Entities;
 using Products.Infrastructure.Specification;
 using Products.Infrastructure.Types;
 
@@ -32,7 +29,6 @@ namespace Products.Domain
     public class NodeContextImpl : INodeContext
     {
         #region "Filed"
-        private List<PresentationControlType> _controlTypes = new List<PresentationControlType>();
         #endregion
 
         #region "Property"
@@ -58,7 +54,7 @@ namespace Products.Domain
         /// <summary>
         /// 获取当前节点需要加载的控件类型。
         /// </summary>
-        public IEnumerable<PresentationControlType> ControlTypes { get { return _controlTypes; } }
+        public IEnumerable<PresentationControlType> ControlTypes { get; private set; }
         #endregion
 
         #region "Constructor"
@@ -67,6 +63,7 @@ namespace Products.Domain
         /// </summary>
         public NodeContextImpl()
         {
+            //this.Name = "节点名称";
             this.Name = string.Empty;
             this.Type = NodeType.Default;
             this.Plugins = PluginType.All;
@@ -89,7 +86,76 @@ namespace Products.Domain
         /// <param name="nodeCode"></param>
         public void Initialize(uint nodeCode)
         {
+            BuildPluginsConfig();
+            LogLocalDeviceInfo();
+        }
 
+        private void BuildPluginsConfig()
+        {
+            this.Plugins = PluginType.None;
+
+            // 
+            var allRecords = GlobalServices.Repository.Where<PluginLoadingConfig>().ToList();
+            var localPluginCfg = allRecords.Where(p => p.NodeCode == this.Code).FirstOrDefault();
+
+            if (localPluginCfg == null)
+            {
+                localPluginCfg = allRecords.Where(p => p.NodeType == this.Type).
+                    FirstOrDefault();
+            }
+
+            if (localPluginCfg == null)
+            {
+                throw new Exception("没有找到合适的插件配置数据。");
+            }
+
+            if (localPluginCfg.MessageDigest == null)
+            {
+                throw new Exception("插件配置数据错误，签名为空。");
+            }
+
+            // 检查数字签名。
+            //using (var md5 = MD5.Create())
+            //{
+            //    var expectedMd5 = AuthenticationHelper.CalculatePluginConfigMD5(localPluginCfg);
+
+            //    var isEqual = expectedMd5.SequenceEqual(localPluginCfg.MessageDigest);
+            //    if (!isEqual)
+            //    {
+            //        throw new Exception("插件配置数据错误，签名不匹配。");
+            //    }
+            //}
+
+            // 
+            this.Plugins = localPluginCfg.GetPlugins();
+            this.ControlTypes = localPluginCfg.GetControlTypes();
+        }
+
+        /// <summary>
+        /// 记录相关日志。
+        /// </summary>
+        private void LogLocalDeviceInfo()
+        {
+            try
+            {
+                // 记录本节点的信息
+                var strBuilder = new StringBuilder(128);
+                strBuilder.AppendFormat("\r\n本节点信息：ID= {0}, Name= {1}",
+                    this.Code, this.Name);
+
+                // 本节点需要加载的插件。
+                strBuilder.AppendFormat("\r\n本节点需要加载的插件= {0}。",
+                    EnumUtility.GetDescription<PluginType>(this.Plugins));
+
+                // 本节点需要显示的控件。
+                strBuilder.AppendFormat("\r\n本节点需要显示的控件= {0}。",
+                    string.Join(",", this.ControlTypes.Select(p => string.Format("{0}", p))));
+                
+                LogUtility.Info(strBuilder.ToString());
+            }
+            catch (System.Exception /*ex*/)
+            {
+            }
         }
         #endregion
 

@@ -21,7 +21,7 @@ namespace Products.Infrastructure.Types
     /// <summary>
     /// 系统节点类型定义
     /// </summary>
-    public enum NodeType : byte
+    public enum NodeType : ushort
     {
         /// <summary>
         /// 未知
@@ -38,17 +38,17 @@ namespace Products.Infrastructure.Types
         /// 节点类型1
         /// </summary>
         [MemberDes("节点类型1")]
-        Node1 = 0x10,
+        Node1 = 0x0010,
         /// <summary>
         /// 节点类型2
         /// </summary>
         [MemberDes("节点类型2")]
-        Node2 = 0x12,
+        Node2 = 0x0012,
 
         /// <summary>
         /// 内部设备定义的最大值
         /// </summary>
-        InternalMaxValue = 0x6F, // 111
+        InternalMaxValue = 0x00FF,
         #endregion
     }
 

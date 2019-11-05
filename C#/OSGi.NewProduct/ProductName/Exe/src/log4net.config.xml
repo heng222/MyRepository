@@ -1,46 +1,73 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <log4net debug="false">
 
-  <!--所有日志-->
-  <appender name="InfoAppender" type="log4net.Appender.RollingFileAppender">
-    <param name="File" value="Log\\Info\\" />
-    <param name="AppendToFile" value="true" />
-    <param name="ImmediateFlush" value="false"/>
-    <param name="StaticLogFileName" value="false" />
-    <param name="DatePattern" value="yyyy-MM-dd&quot;.log&quot;" />
-    <param name="RollingStyle" value="Composite" />
-    <param name="MaximumFileSize" value="10MB" />
-    <param name="MaxSizeRollBackups" value="100" />
-    <param name="PreserveLogFileNameExtension" value="true" />
-    <layout type="log4net.Layout.PatternLayout">
-      <param name="ConversionPattern" value="[%date] [%level] [%thread] [%logger] %message%newline" />
-    </layout>
-  </appender>
+    <!-- 所有日志（不包含数据库日志） -->
+    <appender name="InfoAppender" type="Acl.Log.Impl.AclRollingFileAppender">
+        <param name="File" value="Log\\Info\\" />
+        <param name="AppendToFile" value="true" />
+        <param name="ImmediateFlush" value="true"/>
+        <param name="StaticLogFileName" value="false" />
+        <param name="DatePattern" value="yyyy-MM-dd&quot;.log&quot;" />
+        <param name="RollingStyle" value="Date" />
+        <param name="MaxSizeRollBackups" value="100" />
+        <param name="PreserveLogFileNameExtension" value="true" />
+        <layout type="log4net.Layout.PatternLayout">
+            <param name="ConversionPattern" value="[%date] [%level] [%thread] [%logger] %message%newline" />
+        </layout>
+        <filter type="log4net.Filter.LoggerMatchFilter">
+            <param name="LoggerToMatch" value="数据库" />
+            <param name="AcceptOnMatch" value="false"/>
+        </filter>
+    </appender>
 
-  <!--异常日志-->
-  <appender name="ErrorAppender" type="log4net.Appender.RollingFileAppender">
-    <param name="File" value="Log\\Error\\" />
-    <param name="AppendToFile" value="true" />
-    <param name="ImmediateFlush" value="true"/>
-    <param name="StaticLogFileName" value="false" />
-    <param name="DatePattern" value="yyyy-MM-dd&quot;.log&quot;" />
-    <param name="RollingStyle" value="Date" />
-    <layout type="log4net.Layout.PatternLayout">
-      <param name="ConversionPattern" value="[%date] [%level] [%thread] [%logger] (文件名:[%file] 行号:[%line]) (类名:[%class] 方法:[%method]) %message %exception%newline" />
-    </layout>
-    <filter type="log4net.Filter.LevelRangeFilter">
-      <param name="LevelMin" value="WARN" />
-      <param name="LevelMax" value="FATAL" />
-    </filter>
-  </appender>
+    <!-- 异常日志 -->
+    <appender name="ErrorAppender" type="Acl.Log.Impl.AclRollingFileAppender">
+        <param name="File" value="Log\\Error\\" />
+        <param name="AppendToFile" value="true" />
+        <param name="ImmediateFlush" value="true"/>
+        <param name="StaticLogFileName" value="false" />
+        <param name="DatePattern" value="yyyy-MM-dd&quot;.log&quot;" />
+        <param name="RollingStyle" value="Date" />
+        <layout type="log4net.Layout.PatternLayout">
+            <param name="ConversionPattern" value="[%date] [%level] [%thread] [%logger] (文件名:[%file] 行号:[%line]) (类名:[%class] 方法:[%method]) %message %exception%newline" />
+        </layout>
+        <filter type="log4net.Filter.LevelRangeFilter">
+            <param name="LevelMin" value="WARN" />
+            <param name="LevelMax" value="FATAL" />
+        </filter>
+        <filter type="log4net.Filter.LoggerMatchFilter">
+            <param name="LoggerToMatch" value="数据库" />
+            <param name="AcceptOnMatch" value="false"/>
+        </filter>
+    </appender>
 
-  <root>
-    <level value="INFO" />
-    <appender-ref ref="InfoAppender" />
-    <appender-ref ref="ErrorAppender" />
-    <!--<appender-ref ref="ConsoleAppender" />
+    <!-- 数据库日志 -->
+    <appender name="DatabaseAppender" type="Acl.Log.Impl.AclRollingFileAppender">
+        <param name="File" value="Log\\Database\\" />
+        <param name="AppendToFile" value="true" />
+        <param name="ImmediateFlush" value="true"/>
+        <param name="StaticLogFileName" value="false" />
+        <param name="DatePattern" value="yyyy-MM-dd&quot;.log&quot;" />
+        <param name="RollingStyle" value="Date" />
+        <layout type="log4net.Layout.PatternLayout">
+            <param name="ConversionPattern" value="[%date] [%level] [%thread] [%logger] (文件名:[%file] 行号:[%line]) (类名:[%class] 方法:[%method]) %message %exception%newline" />
+        </layout>
+        <filter type="log4net.Filter.LoggerMatchFilter">
+            <param name="LoggerToMatch" value="数据库" />
+            <param name="AcceptOnMatch" value="true"/>
+        </filter>
+        <filter type="log4net.Filter.DenyAllFilter" />
+    </appender>
+
+    <root>
+        <level value="INFO" />
+        <appender-ref ref="InfoAppender" />
+        <appender-ref ref="ErrorAppender" />
+        <appender-ref ref="DatabaseAppender" />
+        <!--<appender-ref ref="ConsoleAppender" />
     <appender-ref ref="ConsoleErrorAppender" />-->
-  </root>
+    </root>
+
 </log4net>
 
 

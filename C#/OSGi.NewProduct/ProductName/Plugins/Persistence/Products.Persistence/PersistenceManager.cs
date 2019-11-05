@@ -39,6 +39,15 @@ namespace Products.Persistence
         private TextFileDataStorage _txtFileDataStorage = new TextFileDataStorage();
         #endregion
 
+        #region "Constructor"
+        /// <summary>
+        /// 构造函数。
+        /// </summary>
+        public PersistenceManager()
+        {
+        }
+        #endregion
+
         #region "Properties"
         #endregion
 
@@ -231,6 +240,8 @@ namespace Products.Persistence
         private void InitializeLogHeadersFooters()
         {
             if (GlobalServices.SysAttribute == null || GlobalServices.NodeContext == null) return;
+
+            if (string.IsNullOrWhiteSpace(GlobalServices.NodeContext.Name)) return;
 
             Acl.Log.LogManager.FileHeader = string.Format("--- 日志页眉：【{0}】-【{1}】 ---{2}",
                 GlobalServices.SysAttribute.ProjectChsName,

@@ -76,6 +76,8 @@
     <Compile Include="Entities\Logs\SysEventLog.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Entities\NDM\SystemNode.cs" />
+    <Compile Include="Entities\PluginLoadingConfig.cs" />
     <Compile Include="Events\FrameSentCompleteEventArgs.cs" />
     <Compile Include="Events\FrameIncomingEventArgs.cs" />
     <Compile Include="Events\CommStateChangedEventArgs.cs" />
@@ -124,6 +126,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DTO\" />
+    <Folder Include="Entities\UAC\" />
     <Folder Include="Framework\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
