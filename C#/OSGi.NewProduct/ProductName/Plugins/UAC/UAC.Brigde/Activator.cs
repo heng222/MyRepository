@@ -75,9 +75,11 @@ namespace Products.UAC.Bridge
         #region "private methods"
         private static UacSettings BuildSettings(IDictionary<string, string> settings)
         {
-            var adminPwd = GlobalHelper.SplitHexText(settings["AdminPassword"]);
+            //var settings = ServiceUtility.GetSettings(context);
 
-            return new UacSettings(adminPwd);
+            //var adminPwd = SettingsUtility.GetByteArray(settings, "AdminPassword", 16);
+
+            return new UacSettings();
         }
         #endregion
 

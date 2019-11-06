@@ -20,42 +20,82 @@ using Products.Presentation;
 using Products.UAC.Properties;
 using Products.UAC.Presentation.Forms;
 using Products.UAC.Domain;
+using Products.Infrastructure.Specification;
 
 namespace Products.UAC.Presentation
 {
     class TopMemuItemProvider : ITopMenuItemProvider
     {
-        #region "Filed"
+        #region "Field"
         /// <summary>
         /// 控件顶级菜单列表
         /// </summary>
         private List<ToolStripMenuItem> _topMenuItems = new List<ToolStripMenuItem>();
+        private IUserManagement _userManager;
 
         #endregion
 
         #region "Constructor"
-        public TopMemuItemProvider(ILoginVerification verify)
+        public TopMemuItemProvider(ILoginVerification loginVerify, IUserManagement userManagement)
         {
-            if (verify == null) throw new ArgumentException("登录验证接口不能为空引用。");
+            if (loginVerify == null) throw new ArgumentException("登录验证接口不能为空引用。");
 
-            this.Verify = verify;
+            _userManager = userManagement;
+            this.LoginVerify = loginVerify;
+
             this.InitializeMenu();
         }
         #endregion
 
         #region "Properties"
-        public ILoginVerification Verify { get; private set; }
+        public ILoginVerification LoginVerify { get; private set; }
         #endregion
 
         #region "Override methods"
         #endregion
 
         #region "Private methods"
+        /// <summary>
+        /// 初始化菜单项
+        /// </summary>
+        private void InitializeMenu()
+        {
+            //初始化菜单列表项
+            var userMenuItem = new ToolStripMenuItem("用户(&U)");
+            _topMenuItems.Add(userMenuItem);
+
+            var newMenuItem = new ToolStripMenuItem() { Text = "用户切换(&S)...", Image = Resources.UserSwitch };
+            //miUserChange.Tag = UserManagementCommands.SwitchUser;
+            newMenuItem.Click += OnUserSwitch;
+            userMenuItem.DropDownItems.Add(newMenuItem);
+
+            newMenuItem = new ToolStripMenuItem() { Text = "修改密码(&M)...", Image = Resources.ModifyPassword };
+            newMenuItem.Click += OnModifyPassword;
+            userMenuItem.DropDownItems.Add(newMenuItem);
+
+            newMenuItem = new ToolStripMenuItem() { Text = "注销(&X)", Image = Resources.Logout };
+            newMenuItem.Click += OnLogoff;
+            userMenuItem.DropDownItems.Add(newMenuItem);
+        }
+
         private void OnUserSwitch(object sender, EventArgs e)
         {
             try
-            {                
-                var frmLogin = new FormLogin(this.Verify);
+            {
+                var frmLogin = new FormLogin(this.LoginVerify) { Text = "用户切换" };
+                frmLogin.ShowDialog();
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show(ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void OnModifyPassword(object sender, EventArgs e)
+        {
+            try
+            {
+                var frmLogin = new FormModifyPassword(GlobalServices.UAC.CurrentUserName, _userManager);
                 frmLogin.ShowDialog();
             }
             catch (System.Exception ex)
@@ -68,7 +108,7 @@ namespace Products.UAC.Presentation
         {
             try
             {
-                this.Verify.Logoff();
+                this.LoginVerify.Logoff();
 
                 MessageBox.Show("注销成功。", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -77,44 +117,8 @@ namespace Products.UAC.Presentation
                 MessageBox.Show(ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
         #endregion
-
-        #region "private methods"
-        /// <summary>
-        /// 初始化菜单项
-        /// </summary>
-        private void InitializeMenu()
-        {
-            //初始化菜单列表项
-            var userMenuItem = new ToolStripMenuItem("用户(&U)");
-
-            var miUserChange = new ToolStripMenuItem();
-            //miUserChange.Tag = UserManagementCommands.SwitchUser;
-            miUserChange.Text = "用户切换(&S)...";
-            miUserChange.Image = Resources.UserSwitch;
-            miUserChange.Click += new EventHandler(OnUserSwitch);
-            userMenuItem.DropDownItems.Add(miUserChange);
-
-            //miChangePwd = new ToolStripMenuItem();
-            //miChangePwd.Enabled = false;
-            //miChangePwd.Tag = UserManagementCommands.UpdatePassword;
-            //miChangePwd.Text = "修改密码(&M)";
-            //miChangePwd.Image = Resources.ModifyPassword;
-            //miChangePwd.Click += new EventHandler(OnUpdatePassword);
-            //userMenuItem.DropDownItems.Add(miChangePwd);
-
-            var miUserLogoff = new ToolStripMenuItem();
-            miUserLogoff.Name = "miUserLogoff";
-            //miUserLogoff.Tag = UserManagementCommands.Logoff;
-            miUserLogoff.Text = "注销(&X)";
-            miUserLogoff.Image = Resources.Logout;
-            miUserLogoff.Click += new EventHandler(OnLogoff);
-            userMenuItem.DropDownItems.Add(miUserLogoff);
-
-            _topMenuItems.Add(userMenuItem);
-        }
-        #endregion
-
 
         #region ITopMenuItemProvider 成员
         /// <summary>

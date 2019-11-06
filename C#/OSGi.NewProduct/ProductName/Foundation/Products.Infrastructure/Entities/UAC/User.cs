@@ -15,32 +15,32 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Acl.Utility;
 
-namespace Products.Infrastructure.Types
+namespace Products.Infrastructure.Entities
 {
     /// <summary>
-    /// 操作类型
+    /// 用户实体定义
     /// </summary>
-    public enum OperationType : byte
+    public class User : Entity
     {
         /// <summary>
-        /// 无效操作。
+        /// 编号。
         /// </summary>
-        [MemberDes("无效操作")]
-        None = 0,
+        public uint Code { get; set; }
 
-        #region "节点管理相关操作"
         /// <summary>
-        /// 新增节点
+        /// 名称
         /// </summary>
-        [MemberDes("新增节点")]
-        AddNewNode = 0x11,
+        public string Name { get; set; }
+
         /// <summary>
-        /// 移除节点
+        /// 密码
         /// </summary>
-        [MemberDes("移除节点")]
-        RemoveNode = 0x12,
-        #endregion
+        public byte[] Password { get; set; }
+
+        /// <summary>
+        /// 权限。
+        /// </summary>
+        public byte[] Privileges { get; set; }
     }
 }

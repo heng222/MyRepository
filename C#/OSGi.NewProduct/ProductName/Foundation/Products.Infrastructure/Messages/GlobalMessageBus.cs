@@ -24,10 +24,10 @@ namespace Products.Infrastructure.Messages
     /// </summary>
     public static class GlobalMessageBus
     {
-        ///// <summary>
-        ///// 默认消息总线。
-        ///// </summary>
-        //private static IMessageBus DefaultMessageBus = LocalMessageBus.NewMessageBus();
+        /// <summary>
+        /// 默认消息总线。
+        /// </summary>
+        private static IMessageBus DefaultMessageBus = LocalMessageBus.NewMessageBus();
 
         #region "程序即将关闭消息"
         private static IMessageBus ApplicationExitingMessageBus = LocalMessageBus.NewMessageBus();
@@ -200,31 +200,49 @@ namespace Products.Infrastructure.Messages
             return AuthorityManagementMessageBus.Subscribe<string>(UserAutoLogonFailedMessageTopic, handler, SubscribeMode.Async);
         }
         #endregion
-
-
+        
         #region "系统事件相关消息"
         /// <summary>
-        /// 系统事件产生消息。
+        /// 系统事件产生或更新消息。
         /// </summary>
         private const string SystemEventTopic = "local://SystemEventManagement/NewEvent";
         /// <summary>
-        /// 订阅 新的系统事件 产生消息。
+        /// 订阅 系统事件产生或更新 消息。
         /// </summary>
         public static IDisposable SubscribeNewSystemEventGenerated(Action<object, NewSystemEventArgs> handler)
         {
-            return LocalMessageBus.Current.Subscribe<NewSystemEventArgs>(SystemEventTopic, handler, SubscribeMode.Sync);
+            return DefaultMessageBus.Subscribe<NewSystemEventArgs>(SystemEventTopic, handler, SubscribeMode.Sync);
         }
         /// <summary>
-        /// 发布 新的系统事件 产生消息。
+        /// 发布 系统事件产生或更新 消息。
         /// </summary>
         public static IMessageResponse PublishNewSystemEventGenerated(NewSystemEventArgs args, object sender = null)
         {
-            return LocalMessageBus.Current.Publish(SystemEventTopic, args, sender, false);
+            return DefaultMessageBus.Publish(SystemEventTopic, args, sender, false);
         }
-
         #endregion
 
-
+        #region "操作记录相关消息"
+        /// <summary>
+        /// 操作记录产生或更新消息。
+        /// </summary>
+        private const string OperationRecordTopic = "local://OperationRecords/NewLog";
+        /// <summary>
+        /// 订阅 操作记录产生或更新 消息。
+        /// </summary>
+        public static IDisposable SubscribeOperationLogChanged(Action<object, OpeationLogCreateOrUpdateEventArgs> handler)
+        {
+            return DefaultMessageBus.Subscribe<OpeationLogCreateOrUpdateEventArgs>(OperationRecordTopic, handler, SubscribeMode.Sync);
+        }
+        /// <summary>
+        /// 发布 操作记录产生或更新 消息。
+        /// </summary>
+        public static IMessageResponse PublishOperationLogChanged(OpeationLogCreateOrUpdateEventArgs args, object sender = null)
+        {
+            return DefaultMessageBus.Publish(OperationRecordTopic, args, sender, false);
+        }
+        #endregion
+        
         #region "通信日志Rollover消息"
 
         /// <summary>

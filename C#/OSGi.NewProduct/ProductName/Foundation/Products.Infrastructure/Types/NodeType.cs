@@ -38,17 +38,12 @@ namespace Products.Infrastructure.Types
         /// 节点类型1
         /// </summary>
         [MemberDes("节点类型1")]
-        Node1 = 0x0010,
+        Node1 = 16,
         /// <summary>
         /// 节点类型2
         /// </summary>
         [MemberDes("节点类型2")]
-        Node2 = 0x0012,
-
-        /// <summary>
-        /// 内部设备定义的最大值
-        /// </summary>
-        InternalMaxValue = 0x00FF,
+        Node2 = 18,
         #endregion
     }
 

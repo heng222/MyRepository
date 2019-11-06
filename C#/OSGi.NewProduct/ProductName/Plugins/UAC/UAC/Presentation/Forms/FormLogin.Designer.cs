@@ -144,6 +144,7 @@
             this.Controls.Add(this.btnOK);
             this.MaximizeBox = false;
             this.Name = "FormLogin";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "系统登录";
             this.groupBox1.ResumeLayout(false);

@@ -12,6 +12,7 @@
 //----------------------------------------------------------------*/
 
 using System;
+using System.Linq;
 using Products.Infrastructure;
 using Products.Infrastructure.Messages;
 using Products.Infrastructure.Specification;
@@ -24,14 +25,16 @@ namespace Products.UAC.Domain
     /// </summary>
     class LocalLoginVerification : ILoginVerification, IUserAccessControl
     {
-        #region "Filed"
+        #region "Field"
+        private IUserManagement _userMgr;
         private UserInfo _currentUser = new UserInfo();
         #endregion
 
         #region "Constructor"
-        public LocalLoginVerification(UacSettings settings)
+        public LocalLoginVerification(UacSettings settings, IUserManagement usrMgr)
         {
             this.Settings = settings;
+            _userMgr = usrMgr;
         }
         #endregion
 
@@ -43,41 +46,56 @@ namespace Products.UAC.Domain
         #endregion
 
         #region "Private methods"
+
         #endregion
 
         #region "Public methods"
         #endregion
 
         #region "ILoginVerification 方法"
-        public void LogOn(string userName, byte[] pwdMd5)
+        public void LogOn(string userName, byte[] pwdActual)
         {
-            if (!userName.Equals("admin", StringComparison.OrdinalIgnoreCase))
-                throw new Exception("指定的用户不存在。");
+            if (string.Equals(userName, _currentUser.Name, StringComparison.OrdinalIgnoreCase))
+            {
+                throw new Exception("用户名相同，无需切换。");
+            }
 
-            if (!HelperTool.BytesEquals(this.Settings.AdminPassword, pwdMd5))
+            // 
+            var theUser = _userMgr.GetUser(userName);
+            if (theUser == null) throw new Exception("指定的用户不存在。");
+            
+            if (!HelperTool.BytesEquals(theUser.Password, pwdActual))
                 throw new Exception("密码不正确。");
 
             // 发布用户将要切换事件。
             GlobalMessageBus.PublishUserChanging(new EventArgs());
 
-            // 切换用户。
-            _currentUser.Id = UserInfo.Administrator;
-            _currentUser.Name = userName;
-            _currentUser.Privileges.Clear();
-            _currentUser.Privileges.Add(SystemPrivilege.All);
+            // 更新用户。
+            _currentUser.Id = (uint)theUser.Code;
+            _currentUser.Name = theUser.Name;
+            if (theUser.Privileges != null)
+            {
+                _currentUser.Privileges = theUser.Privileges.Select(p => (SystemPrivilege)p).ToList();
+            }
+            else
+            {
+                _currentUser.Privileges.Clear();
+            }
 
             // 发布用户切换事件。
-            GlobalMessageBus.PublishUserChanged(new EventArgs());       
+            GlobalMessageBus.PublishUserChanged(new EventArgs());     
         }
 
         public void Logoff()
         {
+            if (_currentUser.Id == UserInfo.Guest) throw new Exception("无法注销Guest用户。");
+
             // 发布用户将要切换事件。
             GlobalMessageBus.PublishUserChanging(new EventArgs());
 
             // 切换用户。
-            _currentUser.Id = UserInfo.Guest;
             _currentUser.Name = "Guest";
+            _currentUser.Id = UserInfo.Guest;
             _currentUser.Privileges.Clear();
 
             // 发布用户切换事件。

@@ -78,11 +78,14 @@
     </Compile>
     <Compile Include="Entities\NDM\SystemNode.cs" />
     <Compile Include="Entities\PluginLoadingConfig.cs" />
+    <Compile Include="Entities\SEM\SysEvent.cs" />
+    <Compile Include="Entities\UAC\User.cs" />
     <Compile Include="Events\FrameSentCompleteEventArgs.cs" />
     <Compile Include="Events\FrameIncomingEventArgs.cs" />
     <Compile Include="Events\CommStateChangedEventArgs.cs" />
     <Compile Include="Events\FrameOutgoingEventArgs.cs" />
     <Compile Include="Events\NewSystemEventArgs.cs" />
+    <Compile Include="Events\OpeationLogCreateOrUpdateEventArgs.cs" />
     <Compile Include="Events\ProcessExitingEventArgs.cs" />
     <Compile Include="Exceptions\LanuchCancelledException.cs" />
     <Compile Include="Specification\ILifeCycleManagement.cs" />
@@ -126,7 +129,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DTO\" />
-    <Folder Include="Entities\UAC\" />
     <Folder Include="Framework\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

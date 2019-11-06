@@ -15,36 +15,23 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Products.Infrastructure.Entities;
 
 namespace Products.UAC.Domain
 {
     /// <summary>
-    /// UAC模块配置类。
+    /// 用户管理接口。
     /// </summary>
-    public class UacSettings
+    interface IUserManagement
     {
-        #region "Field"
-        #endregion
-
-        #region "Constructor"
         /// <summary>
-        /// 构造函数。
+        /// 根据用户名查询用户记录。
         /// </summary>
-        public UacSettings()
-        {
+        User GetUser(string name);
 
-        }
-        #endregion
-
-        #region "Properties"
-
-        #endregion
-
-        #region "Private methods"
-        #endregion
-
-        #region "Public methods"
-        #endregion
-
+        /// <summary>
+        /// 修改密码。
+        /// </summary>
+        void ModifyPassword(string userName, string oldPassword, string newPassword);
     }
 }

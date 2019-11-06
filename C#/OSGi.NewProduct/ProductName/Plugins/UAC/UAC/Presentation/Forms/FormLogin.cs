@@ -16,7 +16,7 @@ namespace Products.UAC.Presentation.Forms
 {
     partial class FormLogin : Form, IUserLogOn
     {
-        #region "Filed"
+        #region "Field"
         public ILoginVerification Verification { get; private set; }
         #endregion
 

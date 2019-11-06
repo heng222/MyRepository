@@ -56,7 +56,7 @@ namespace Products.Infrastructure.Entities
         {
             var sb = new StringBuilder(64);
 
-            sb.AppendFormat("编号={0}，名称={1}，", this.Code, this.Name);
+            sb.AppendFormat("编号={0}，名称={1}，类型= {2}", this.Code, this.Name, this.Type);
 
             return sb.ToString();
         }

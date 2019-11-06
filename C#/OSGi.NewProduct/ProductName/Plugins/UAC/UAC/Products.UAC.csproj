@@ -70,9 +70,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Domain\ILoginVerification.cs" />
+    <Compile Include="Domain\IUserManagement.cs" />
     <Compile Include="Domain\LocalLoginVerification.cs" />
     <Compile Include="Domain\UacSettings.cs" />
     <Compile Include="Domain\UserInfo.cs" />
+    <Compile Include="Domain\UserManagementImpl.cs" />
+    <Compile Include="Presentation\Forms\FormModifyPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\Forms\FormModifyPassword.Designer.cs">
+      <DependentUpon>FormModifyPassword.cs</DependentUpon>
+    </Compile>
     <Compile Include="UacFacade.cs" />
     <Compile Include="Presentation\Forms\FormLogin.cs">
       <SubType>Form</SubType>
@@ -88,12 +96,18 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Utilities\HelperTool.cs" />
+    <Compile Include="Utilities\LogUtility.cs" />
     <None Include="Properties\AssemblyInfo.tpl" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\Password.ico" />
+  </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Presentation\Forms\FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\Forms\FormModifyPassword.resx">
+      <DependentUpon>FormModifyPassword.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

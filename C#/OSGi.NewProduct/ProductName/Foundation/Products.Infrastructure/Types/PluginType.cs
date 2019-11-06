@@ -83,47 +83,27 @@ namespace Products.Infrastructure.Types
         /// Plugin1
         /// </summary>
         [MemberDesAttribute("Plugin1")]
-        Plugin1 = (1L << 16),
+        Plugin1 = (1L << 16), // 65536
         /// <summary>
-        /// 运行图插件
+        /// Plugin2
         /// </summary>
-        [MemberDesAttribute("运行图插件")]
-        Schedule = (1L << 17),
+        [MemberDesAttribute("Plugin2")]
+        Plugin2 = (1L << 17), // 131072
         /// <summary>
-        /// 自动排路插件
+        /// Plugin3
         /// </summary>
-        [MemberDesAttribute("自动排路插件")]
-        ARS = (1L << 18),
+        [MemberDesAttribute("Plugin3")]
+        Plugin3 = (1L << 18), // 262144
         /// <summary>
-        /// 列车监视与追踪插件
+        /// Plugin4
         /// </summary>
-        [MemberDesAttribute("列车监视与追踪插件")]
-        TMT = (1L << 19),
+        [MemberDesAttribute("Plugin4")]
+        Plugin4 = (1L << 19), // 524288
         /// <summary>
-        /// 回放插件
+        /// Plugin5
         /// </summary>
-        [MemberDesAttribute("回放插件")]
-        Replay = (1L << 20),
-        /// <summary>
-        /// 车辆使用管理插件
-        /// </summary>
-        [MemberDesAttribute("车辆使用管理插件")]
-        VUM = (1L << 21),
-        /// <summary>
-        /// 安全操作插件（TSR、计轴复位、强扳道岔等）。
-        /// </summary>
-        [MemberDesAttribute("安全操作插件")]
-        SafetyOperation = (1L << 22),
-        /// <summary>
-        /// 日志/报表插件。
-        /// </summary>
-        [MemberDesAttribute("日志/报表插件")]
-        StatisticReport = (1L << 23),
-        ///// <summary>
-        ///// 计轴复位插件。
-        ///// </summary>
-        //[MemberDesAttribute("计轴复位插件")]
-        //AxleReset = (1L << 24),
+        [MemberDesAttribute("Plugin5")]
+        Plugin5 = (1L << 20), // 1048576
 
         // 25 ~ 31位预留。
         #endregion
@@ -141,72 +121,6 @@ namespace Products.Infrastructure.Types
         /// </summary>
         [MemberDesAttribute("ATP接口管理插件")]
         ATP = (1L << 33),
-        /// <summary>
-        /// 时钟校时接口管理插件。
-        /// </summary>
-        [MemberDesAttribute("CLK接口管理插件")]
-        CLK = (1L << 34),
-        /// <summary>
-        /// 旅客信息系统接口管理插件。
-        /// </summary>
-        [MemberDesAttribute("PIS接口管理插件")]
-        PIS = (1L << 35),
-        /// <summary>
-        /// 综合监控系统接口管理插件。
-        /// </summary>
-        [MemberDesAttribute("ISCS接口管理插件")]
-        ISCS = (1L << 36),
-        /// <summary>
-        /// 轨道交通指挥中心接口管理插件。
-        /// </summary>
-        [MemberDesAttribute("TCC接口管理插件")]
-        TCC = (1L << 37),
-        /// <summary>
-        /// 火警系统接口管理插件。
-        /// </summary>
-        [MemberDesAttribute("FAS接口管理插件")]
-        FAS = (1L << 38),
-        /// <summary>
-        /// 无线通信接口管理插件。
-        /// </summary>
-        [MemberDesAttribute("RAD接口管理插件")]
-        RAD = (1L << 39),
-        /// <summary>
-        /// 微机监测接口管理插件。
-        /// </summary>
-        [MemberDesAttribute("CSM接口管理插件")]
-        CSM = (1L << 40),
-        /// <summary>
-        /// 维护与支持系统接口管理插件。
-        /// </summary>
-        [MemberDes("MSS接口管理插件")]
-        MSS = (1L << 41),
-        /// <summary>
-        /// 发车指示器接口管理插件。
-        /// </summary>
-        [MemberDes("DTI接口管理插件")]
-        DTI = (1L << 42),
-        /// <summary>
-        /// CCTV接口管理插件。
-        /// </summary>
-        [MemberDes("CCTV接口管理插件。")]
-        CCTV = (1L << 43),
-        /// <summary>
-        /// 公共广播接口管理插件。
-        /// </summary>
-        [MemberDes("PAS接口管理插件")]
-        PAS = (1L << 44),
-        /// <summary>
-        /// 大屏接口管理插件。
-        /// </summary>
-        [MemberDes("OPS接口管理插件")]
-        OPS = (1L << 45),
-        /// <summary>
-        /// DAP接口管理插件。
-        /// </summary>
-        [MemberDes("DAP接口管理插件")]
-        DAP = (1L << 46),
-
         // 46 ~ 55，预留。
         #endregion
 

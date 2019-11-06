@@ -29,7 +29,12 @@ namespace Products.UAC
         /// </summary>
         public const int CustomUserCodeMinValue = 100;
         #endregion
-        
+
+        /// <summary>
+        /// 当前用户。
+        /// </summary>
+        public static UserInfo Current = new UserInfo();
+
         #region "Properties"
         /// <summary>
         /// 用户编号。
@@ -54,7 +59,7 @@ namespace Products.UAC
         {
             this.Id = UserInfo.Guest;
             this.Name = "Guest";
-            this.Privileges = new List<SystemPrivilege>() { SystemPrivilege.None };
+            this.Privileges = new List<SystemPrivilege>();
         }
         #endregion
     }
