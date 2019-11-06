@@ -113,13 +113,13 @@
       <Link>osgi.configuration.xsd</Link>
       <SubType>Designer</SubType>
     </None>
+    <None Include="app.config.tpl">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\AssemblyInfo.tpl" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\GlobalSuppressions.cs" />
     <Compile Include="Program.cs" />
-    <None Include="app.config">
-      <SubType>Designer</SubType>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="..\..\..\Libs\log4net.dll">
@@ -184,7 +184,7 @@
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PreBuildEvent>if "$(ConfigurationName)"=="Release" (SubWcRev "$(ProjectDir)\" "$(ProjectDir)Properties\AssemblyInfo.tpl" "$(ProjectDir)Properties\AssemblyInfo.cs")
-</PreBuildEvent>
+if "$(ConfigurationName)"=="Release" (copy "$(ProjectDir)app.config.tpl" "$(ProjectDir)app.config" /y)</PreBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

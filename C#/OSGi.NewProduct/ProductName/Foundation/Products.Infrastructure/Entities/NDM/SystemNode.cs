@@ -28,7 +28,7 @@ namespace Products.Infrastructure.Entities
         /// <summary>
         /// ±àºÅ¡£
         /// </summary>
-        public ushort Code { get; set; }
+        public uint Code { get; set; }
         /// <summary>
         /// Ãû³Æ¡£
         /// </summary>

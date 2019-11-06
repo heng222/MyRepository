@@ -13,6 +13,7 @@
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
 using System.Windows.Forms;
@@ -224,13 +225,11 @@ namespace Products.Persistence
 
         private Dictionary<uint, string> BuildNodeSelectable()
         {
-            return new Dictionary<uint, string>();
-            //// 初始化节点列表。
-            //var atsNodes = GlobalServices.Repository.Where<Machine>().Where(p => NodeContextManager.Contains(p.TypeCode))
-            //    .OrderBy(p => p.Code).ToList();
+            var theNodes = GlobalServices.Repository.Where<SystemNode>()
+                .OrderBy(p => p.Code).ToList();
 
-            //return atsNodes.ToDictionary(p => p.Code, q => string.Format("{0}_{1}（{2}_{3}）",
-            //    q.Code, q.Name, q.StationCode, q.Station == null ? "中心" : q.Station.Name));
+            return theNodes.ToDictionary(p => p.Code, q => string.Format("{0}_{1}",
+                q.Code, q.Name));
         }
         
 

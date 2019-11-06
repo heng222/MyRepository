@@ -306,7 +306,9 @@ namespace Products.Shell
         /// </summary>
         public string BuildDockConfigFileName()
         {
-            var fileName = string.Format("DockPanel.{0}", FrmMain.UiLayoutSuffix);
+            var fileName = string.Format("DockPanel_{0}{1}.{2}",
+                GlobalServices.NodeContext.Code, GlobalServices.NodeContext.Name, 
+                FrmMain.UiLayoutSuffix);
 
             if (GlobalServices.UAC != null)
             {
