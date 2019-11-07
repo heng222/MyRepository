@@ -42,11 +42,11 @@ namespace Products.Plugin1
             Workbench.SendMessage(() =>
             {
                 // 创建表示层
-                var control = new Plugin1Control1();
+                var control = new CtrlMain();
                 MainWorkSpace.AddPart(control, control.Icon);
 
                 // 添加配置页面。
-                var optionControl = new Plugin1ConfigPage();
+                var optionControl = new CtrlConfigPage();
                 Workbench.AddOption(optionControl);
             });
         }

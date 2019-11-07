@@ -70,17 +70,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Activator.cs" />
-    <Compile Include="Controls\Plugin1ConfigPage.cs">
+    <Compile Include="Controls\CtrlConfigPage.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\Plugin1ConfigPage.Designer.cs">
-      <DependentUpon>Plugin1ConfigPage.cs</DependentUpon>
+    <Compile Include="Controls\CtrlConfigPage.Designer.cs">
+      <DependentUpon>CtrlConfigPage.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Plugin1Control1.cs">
+    <Compile Include="Controls\CtrlMain.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\Plugin1Control1.Designer.cs">
-      <DependentUpon>Plugin1Control1.cs</DependentUpon>
+    <Compile Include="Controls\CtrlMain.Designer.cs">
+      <DependentUpon>CtrlMain.cs</DependentUpon>
     </Compile>
     <Compile Include="Facade.cs" />
     <None Include="Properties\AssemblyInfo.tpl" />
@@ -93,11 +93,11 @@
     <Compile Include="Utilities\LogUtility.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Controls\Plugin1ConfigPage.resx">
-      <DependentUpon>Plugin1ConfigPage.cs</DependentUpon>
+    <EmbeddedResource Include="Controls\CtrlConfigPage.resx">
+      <DependentUpon>CtrlConfigPage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\Plugin1Control1.resx">
-      <DependentUpon>Plugin1Control1.cs</DependentUpon>
+    <EmbeddedResource Include="Controls\CtrlMain.resx">
+      <DependentUpon>CtrlMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

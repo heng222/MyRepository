@@ -13,10 +13,10 @@ using Products.Infrastructure.Types;
 
 namespace Products.Plugin1.Controls
 {
-    [ProductPart(ControlType = PresentationControlType.Plugin1Control1)]
-    partial class Plugin1Control1 : UserControl
+    [ProductPart(ControlType = PresentationControlType.Plugin1Main)]
+    partial class CtrlMain : UserControl
     {
-        public Plugin1Control1()
+        public CtrlMain()
         {
             InitializeComponent();
 

@@ -15,9 +15,9 @@ namespace Products.Plugin1.Controls
     /// Plugin1配置页面。
     /// </summary>
     [Option(ConfigNodeNames.Plugins.Plugin1.General, "Plugin1 Config Title")]
-    partial class Plugin1ConfigPage : UserControl, IOptionControl
+    partial class CtrlConfigPage : UserControl, IOptionControl
     {
-        public Plugin1ConfigPage()
+        public CtrlConfigPage()
         {
             InitializeComponent();
         }

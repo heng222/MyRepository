@@ -39,15 +39,10 @@ namespace Products.Infrastructure.Types
 
         #region  "Plugin1"
         /// <summary>
-        /// Plugin1Control1
+        /// 插件1主控件
         /// </summary>
-        [MemberDesAttribute("Plugin1Control1")]
-        Plugin1Control1 = 27,
-        /// <summary>
-        /// Plugin1Control2
-        /// </summary>
-        [MemberDesAttribute("Plugin1Control2")]
-        Plugin1Control2 = 28,
+        [MemberDesAttribute("插件1主控件")]
+        Plugin1Main = 27,
         #endregion
     }
 }
