@@ -63,8 +63,7 @@ namespace Products.Domain
         /// </summary>
         public NodeContextImpl()
         {
-            //this.Name = "节点名称";
-            this.Name = string.Empty;
+            this.Name = "节点名称";
             this.Type = NodeType.Default;
             this.Plugins = PluginType.All;
         }
@@ -86,6 +85,16 @@ namespace Products.Domain
         /// <param name="nodeCode"></param>
         public void Initialize(uint nodeCode)
         {
+            var theNode = GlobalServices.Repository.Where<SystemNode>(p => p.Code == nodeCode).FirstOrDefault();
+            if (theNode == null)
+            {
+                throw new Exception(string.Format("指定的节点编号（{0}）无效。", nodeCode));
+            }
+
+            this.Code = theNode.Code;
+            this.Type = theNode.Type;
+            this.Name = theNode.Name;
+
             BuildPluginsConfig();
             LogLocalDeviceInfo();
         }

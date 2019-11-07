@@ -149,8 +149,7 @@ namespace Products.Shell
             if (!DesignMode)
             {
                 // 设置主窗口标题
-                Text = ProductResources.ProjectChsName;
-                //LogUtility.Info("-={0}已启动，欢迎使用=-", Workbench.MainForm.Text);
+                Text = string.Format("{0} - {1}", GlobalServices.NodeContext.Name, ProductResources.ProjectChsName);
             }
 
             // 构建需要优化的控件集

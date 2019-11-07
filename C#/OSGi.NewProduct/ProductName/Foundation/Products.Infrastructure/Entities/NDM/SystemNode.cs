@@ -38,6 +38,10 @@ namespace Products.Infrastructure.Entities
         /// </summary>
         public NodeType Type { get; set; }
 
+        /// <summary>
+        /// 描述信息。
+        /// </summary>
+        public string Description { get; set; }
 
         #endregion
 
@@ -56,7 +60,7 @@ namespace Products.Infrastructure.Entities
         {
             var sb = new StringBuilder(64);
 
-            sb.AppendFormat("编号={0}，名称={1}，类型= {2}", this.Code, this.Name, this.Type);
+            sb.AppendFormat("编号={0}，名称={1}，类型= {2}, 描述 = {3}", this.Code, this.Name, this.Type, this.Description);
 
             return sb.ToString();
         }

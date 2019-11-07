@@ -54,6 +54,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\Libs\Acl.MessageBus.dll</HintPath>
     </Reference>
+    <Reference Include="Acl.RsspI4net">
+      <HintPath>..\..\..\Libs\Acl.RsspI4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Acl.ServiceManagement, Version=1.0.0.30, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\Libs\Acl.ServiceManagement.dll</HintPath>
@@ -88,6 +92,8 @@
     <Compile Include="Events\OpeationLogCreateOrUpdateEventArgs.cs" />
     <Compile Include="Events\ProcessExitingEventArgs.cs" />
     <Compile Include="Exceptions\LanuchCancelledException.cs" />
+    <Compile Include="Specification\Communication\IRawUdpParamProvider.cs" />
+    <Compile Include="Specification\Communication\IRssp1ParamProvider.cs" />
     <Compile Include="Specification\ILifeCycleManagement.cs" />
     <Compile Include="Log\CommLogParserCode.cs" />
     <Compile Include="Log\LoggerNames.cs" />
@@ -98,10 +104,9 @@
     <Compile Include="Messages\SingleTopicSyncMessagebus.cs" />
     <Compile Include="Preference\SerialPortSettingNames.cs" />
     <Compile Include="Preference\SerialPortSettings.cs" />
-    <Compile Include="Specification\INodeAttri.cs" />
-    <Compile Include="Specification\INodeContext.cs" />
-    <Compile Include="Specification\IRepository.cs" />
-    <Compile Include="Specification\IUserLogin.cs" />
+    <Compile Include="Specification\NDM\INodeContext.cs" />
+    <Compile Include="Specification\Persistence\IRepository.cs" />
+    <Compile Include="Specification\UAC\IUserLogin.cs" />
     <Compile Include="Types\AtcSubsystemType.cs" />
     <Compile Include="Types\OperationResult.cs" />
     <Compile Include="Types\OperationType.cs" />
@@ -117,7 +122,7 @@
     <Compile Include="Protocol\InternalFrameType.cs" />
     <Compile Include="Protocol\InternalFrameVersion.cs" />
     <Compile Include="Specification\GlobalServices.cs" />
-    <Compile Include="Specification\IUserAccessControl.cs" />
+    <Compile Include="Specification\UAC\IUserAccessControl.cs" />
     <Compile Include="Types\EventLevel.cs" />
     <Compile Include="Types\EventType.cs" />
     <Compile Include="Types\NodeType.cs" />
