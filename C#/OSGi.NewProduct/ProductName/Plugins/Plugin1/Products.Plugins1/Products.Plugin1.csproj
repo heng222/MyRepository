@@ -129,6 +129,13 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Config\" />
+    <Folder Include="Events\" />
+    <Folder Include="Forms\" />
+    <Folder Include="Services\" />
+    <Folder Include="Specification\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PreBuildEvent>if "$(ConfigurationName)"=="Release" (SubWcRev "$(ProjectDir)\" "$(ProjectDir)Properties\AssemblyInfo.tpl" "$(ProjectDir)Properties\AssemblyInfo.cs")</PreBuildEvent>

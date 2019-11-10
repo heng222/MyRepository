@@ -116,6 +116,29 @@ namespace Products.Domain.Preferences
         }
 
         /// <summary>
+        /// 将指定格式的IPAddress解析为IPAddress对象。
+        /// 示例：将“10.0.0.1，10.0.0.2”解析为两个IPAddress对象。
+        /// </summary>
+        /// <param name="text">待解析的字符串格式的IP地址列表。</param>
+        /// <param name="separaters">分隔此字符串中子字符串的字符串数组、不包含分隔符的空数组或 null。</param>
+        /// <returns>IPAddress对象列表。</returns>
+        public static List<IPAddress> ParseIPAddress(string text, string[] separaters)
+        {
+            if (string.IsNullOrWhiteSpace(text)) return new List<IPAddress>();
+
+            var result = new List<IPAddress>();
+
+            var splitedText = text.Trim().Split(separaters, StringSplitOptions.RemoveEmptyEntries).ToList();
+
+            splitedText.ForEach(p =>
+            {
+                result.Add(IPAddress.Parse(p.Trim()));
+            });
+
+            return result;
+        }
+
+        /// <summary>
         /// 将指定格式的IPEndPoint解析为IPEndPoint对象。
         /// 示例：10.0.0.1:3003、10.0.0.1。
         /// </summary>
