@@ -108,20 +108,20 @@
     <Compile Include="Services\TextFileDataStorage.cs" />
     <Compile Include="Utilities\HelperTools.cs" />
     <Compile Include="Utilities\LogUtility.cs" />
-    <None Include="..\..\..\..\Libs\Data\local.config.dynamic.db">
-      <Link>Data\local.config.dynamic.db</Link>
+    <None Include="..\..\..\..\Libs\Data\config.dynamic.db">
+      <Link>Data\config.dynamic.db</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="..\..\..\..\Libs\Data\local.config.static.db">
-      <Link>Data\local.config.static.db</Link>
+    <None Include="..\..\..\..\Libs\Data\config.static.db">
+      <Link>Data\config.static.db</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="..\..\..\..\Libs\Data\local.log.operations.db">
-      <Link>Data\local.log.operations.db</Link>
+    <None Include="..\..\..\..\Libs\Data\log.operations.db">
+      <Link>Data\log.operations.db</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="..\..\..\..\Libs\Data\local.log.sysevents.db">
-      <Link>Data\local.log.sysevents.db</Link>
+    <None Include="..\..\..\..\Libs\Data\log.sysevents.db">
+      <Link>Data\log.sysevents.db</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Config\Persistence.config">
