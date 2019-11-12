@@ -15,6 +15,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Products.Infrastructure.Protocol.Framework;
+using Products.Infrastructure.Types;
 
 namespace Products.Infrastructure.Events
 {
@@ -63,7 +64,10 @@ namespace Products.Infrastructure.Events
         #endregion
 
         #region "Properties"
-                
+        /// <summary>
+        /// 获取/设置目标设备类型。
+        /// </summary>
+        public NodeType DestDeviceType { get; set; }   
         /// <summary>
         /// 获取目的设备ID列表
         /// </summary>

@@ -15,6 +15,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Products.Infrastructure.Protocol.Framework;
+using Products.Infrastructure.Types;
 
 namespace Products.Infrastructure.Events
 {
@@ -33,15 +34,17 @@ namespace Products.Infrastructure.Events
         /// </summary>
         /// <param name="frame">协议帧对象的引用，不能为空</param>
         /// <param name="bytesStream">协议帧对应的字节流</param>
+        /// <param name="remoteType">远程设备类型。</param>
         /// <param name="remoteDeviceId">协议帧发送方的设备ID</param>
         /// <param name="timeDelay">发送时延</param>
         public FrameIncomingEventArgs(TProtocol frame,
             byte[] bytesStream,
-            UInt32 remoteDeviceId,
+            NodeType remoteType, UInt32 remoteDeviceId,
             UInt32 timeDelay = 0)
         {
             this.Frame = frame;
             this.BytesStream = bytesStream;
+            this.RemoteDeviceType = remoteType;
             this.RemoteDeviceID = remoteDeviceId;
             this.TimeDelay = timeDelay;
         }
@@ -49,22 +52,27 @@ namespace Products.Infrastructure.Events
         /// 构造一个协议帧接收消息的事件参数类
         /// </summary>
         /// <param name="bytesStream">协议帧对应的字节流</param>
+        /// <param name="remoteType">远程设备类型。</param>
         /// <param name="remoteDeviceId">协议帧发送方的设备ID</param>
         /// <param name="timeDelay">发送时延</param>
         public FrameIncomingEventArgs(byte[] bytesStream,
-            UInt32 remoteDeviceId,
+            NodeType remoteType, UInt32 remoteDeviceId,
             UInt32 timeDelay = 0)
         {
             this.BytesStream = bytesStream;
+            this.RemoteDeviceType = remoteType;
             this.RemoteDeviceID = remoteDeviceId;
             this.TimeDelay = timeDelay;
         }
         #endregion
 
         #region "Properties"
-        
         /// <summary>
-        /// 对方设备ID，即协议帧发送方的ID。
+        /// 获取远程设备类型。
+        /// </summary>
+        public NodeType RemoteDeviceType { get; set; }        
+        /// <summary>
+        /// 获取远程设备ID，即协议帧发送方的ID。
         /// </summary>
         public UInt32 RemoteDeviceID { get; set; }
 
@@ -79,7 +87,7 @@ namespace Products.Infrastructure.Events
         public TProtocol Frame { get; set; }
 
         /// <summary>
-        /// 设置/获取协议帧关联的字节流。为空引用时表示不对外公开协议帧内容。
+        /// 设置/获取协议帧关联的字节流，可以为null。
         /// </summary>
         public byte[] BytesStream { get; set; }
 

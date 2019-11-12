@@ -125,7 +125,7 @@ namespace Products.Persistence
         private void InitializeRepository()
         {
             // 创建Remote DB连接监视器
-            CreateRemoteDbConnectionMonitor();
+            //CreateRemoteDbConnectionMonitor();
 
             // 创建本地 Sqlite 仓储。
             _localSqliteRepository = new SqliteRepository();

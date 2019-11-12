@@ -100,7 +100,6 @@ namespace Products.Infrastructure.Protocol
         /// <param name="majorType">主类型</param>
         /// <param name="minorType">次类型</param>
         protected InternalFrame(InternalFrameType majorType, byte minorType)
-            : base(CommLogParserCode.Internal)
         {
             this.MajorType = majorType;
             this.MinorType = minorType;

@@ -14,16 +14,13 @@
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Text;
 using Acl.Configuration;
-using Acl.Data;
 using Acl.Data.Configuration;
 using Acl.Data.Mapping;
-using Products.Domain;
 using Products.Infrastructure.Entities;
-using Products.Infrastructure.Types;
 
 namespace Products.Persistence
 {
@@ -32,9 +29,6 @@ namespace Products.Persistence
         #region "Data source names"
         public const string DataSourceRemoteDbName = "RemoteDatabase";
         public const string DataSourceSqliteDb4StaticConfig = "SqliteDb4StaticConfigTables";
-        public const string DataSourceSqliteDb4DyncmicConfig = "SqliteDb4DynamicConfigTables";
-        public const string DataSourceSqliteDb4EventLog = "SqliteDb.EventLogs";
-        public const string DataSourceSqliteDb4OperationLog = "SqliteDb.OperationLogs";
         #endregion
 
         #region "Table type names"
@@ -57,7 +51,7 @@ namespace Products.Persistence
         private static Dictionary<string, List<Type>> _sqliteDbEntityMapping = new Dictionary<string, List<Type>>();
 
         /// <summary>
-        /// 得到或设置Entity type 格式，例如"Products.Infrastructure.Entities.{0},Products.Infrastructure"
+        /// 获取或设置Entity type 格式，例如"Products.Infrastructure.Entities.{0},Products.Infrastructure"
         /// </summary>
         private static readonly string EntityTypeFormat = HelperTools.BuildEntityFormat();
         #endregion
@@ -70,7 +64,8 @@ namespace Products.Persistence
         {
             TableDescriptors = new Dictionary<Type, TableDescriptor>();
 
-            var cfgPath = string.Format(@"{0}\Config\Persistence.config", System.IO.Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location));
+            // Initialize Settings.
+            var cfgPath = string.Format(@"{0}\Config\Persistence.config", Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location));
             Settings = SettingsManager.GetXmlSettings(cfgPath);
             
             InitializeDbEntityMapping();
@@ -84,6 +79,13 @@ namespace Products.Persistence
         public static ISettings Settings { get; private set; }
 
         /// <summary>
+        /// 获取SQLite数据库与实体的映射。
+        /// Key：Data Source Name。
+        /// Value：type of Entity.
+        /// </summary>
+        public static Dictionary<string, List<Type>> SqliteDbEntityMapping { get { return _sqliteDbEntityMapping; } }
+
+        /// <summary>
         /// 获取 Table 的描述符。
         /// </summary>
         public static Dictionary<Type, TableDescriptor> TableDescriptors { get; private set; }
@@ -92,14 +94,27 @@ namespace Products.Persistence
         /// 获取远程DB配置。
         /// </summary>
         public static DbConfiguration RemoteConfiguration { get; private set; }
-
-        /// <summary>
-        /// 获取SQLite数据库与实体的映射。
-        /// </summary>
-        public static Dictionary<string, List<Type>> SqliteDbEntityMapping { get { return _sqliteDbEntityMapping; } }
         #endregion
 
         #region "Private methods"
+
+        private static void InitializeDbEntityMapping()
+        {
+            var dataSrcList = PersistenceConfig.Settings.Get<List<DataSource>>("DataSources").ToList();
+            dataSrcList.ForEach(p =>
+            {
+                if (p.Driver.IndexOf("SQLite", StringComparison.OrdinalIgnoreCase) != -1)
+                {
+                    var tableTypes = new List<Type>();
+
+                    var tableNames = p.Tables.Split(new char[] { ',', '，', ';', '；' }, StringSplitOptions.RemoveEmptyEntries);
+                    tableNames.ToList().ForEach(q => tableTypes.Add(ConvertToEntityType(q)));
+
+                    _sqliteDbEntityMapping[p.Name] = tableTypes;
+                }
+            });
+        }
+
         private static DbConfiguration CreateDbConfiguration(string dbName)
         {
             // 获取 exe.config 中的连接字符串。
@@ -129,15 +144,6 @@ namespace Products.Persistence
             cfg.SetMappingConversion(MappingConversion.Plural);
 
             return cfg;
-        }
-
-        private static void InitializeDbEntityMapping()
-        {
-            _sqliteDbEntityMapping[DataSourceSqliteDb4StaticConfig] = new List<Type>() { };
-            _sqliteDbEntityMapping[DataSourceSqliteDb4DyncmicConfig] = new List<Type>() { };
-
-            _sqliteDbEntityMapping[DataSourceSqliteDb4EventLog] = new List<Type>() { typeof(SysEventLog) };
-            _sqliteDbEntityMapping[DataSourceSqliteDb4OperationLog] = new List<Type>() { typeof(OperationLog) };
         }
 
         private static void CreateTableDescriptor(Dictionary<Type, TableDescriptor> descriptors, IEnumerable<string> tableNames, TableType type)

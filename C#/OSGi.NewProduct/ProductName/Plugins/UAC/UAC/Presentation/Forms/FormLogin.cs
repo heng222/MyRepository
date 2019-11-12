@@ -17,6 +17,13 @@ namespace Products.UAC.Presentation.Forms
     partial class FormLogin : Form, IUserLogOn
     {
         #region "Field"
+        /// <summary>
+        /// 已经尝试的次数。
+        /// </summary>
+        private int _retryTimes = 0;
+        #endregion
+
+        #region "Properties"
         public ILoginVerification Verification { get; private set; }
         #endregion
 
@@ -50,11 +57,16 @@ namespace Products.UAC.Presentation.Forms
 
                 this.Close();
 
+                _retryTimes = 0;
+
                 this.DialogResult = DialogResult.OK;
             }
             catch (System.Exception ex)
             {
-                this.DialogResult = DialogResult.No;
+                if (++_retryTimes > 2)
+                {
+                    this.DialogResult = DialogResult.No;
+                }
                 MessageBox.Show(ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }

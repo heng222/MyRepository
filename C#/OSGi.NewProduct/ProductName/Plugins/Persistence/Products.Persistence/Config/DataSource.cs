@@ -35,5 +35,9 @@ namespace Products.Persistence
         /// Url
         /// </summary>
         public string Url { get; set; }
+        /// <summary>
+        /// Tables include.
+        /// </summary>
+        public string Tables { get; set; }
     }
 }

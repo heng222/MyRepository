@@ -30,18 +30,12 @@ namespace Products.Infrastructure.Protocol.Framework
         /// <summary>
         /// 使用指定的参数初始化一个协议报文
         /// </summary>
-        /// <param name="parserCode">解码器编号</param>
-        protected ProtocolFrame(CommLogParserCode parserCode)
+        protected ProtocolFrame()
         {
-            this.ParserCode = parserCode;
         }
         #endregion
 
         #region "Properties"
-        /// <summary>
-        /// 获取本协议帧的解码器编号。
-        /// </summary>
-        public CommLogParserCode ParserCode { get; private set; }
         #endregion
 
         #region "Virtual methods"

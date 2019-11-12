@@ -238,7 +238,11 @@ namespace Products.Persistence.Services
         /// </summary>
         public void Update<T>(object instance, Expression<Func<T, bool>> condition) where T : Entity
         {
-            Action action = () => _dbConnectionManager.GetConnection<T>().Update<T>(instance, condition);
+            Action action = () => 
+            { 
+                _dbConnectionManager.GetConnection<T>().Update<T>(instance, condition); 
+            };
+
             GetAsyncPersistenceScheduler<T>().Async(action);
         }
 
