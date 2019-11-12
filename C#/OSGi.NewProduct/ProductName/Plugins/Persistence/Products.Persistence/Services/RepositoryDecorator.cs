@@ -16,7 +16,7 @@ using System.Linq.Expressions;
 using Products.Infrastructure.Entities;
 using Products.Infrastructure.Specification;
 
-namespace Products.Persistence.Domain
+namespace Products.Persistence.Services
 {
     abstract class RepositoryDecorator : Acl.CompositeDisposable, IRepository
     {

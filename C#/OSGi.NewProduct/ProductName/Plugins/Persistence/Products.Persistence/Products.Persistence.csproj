@@ -100,12 +100,13 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Services\DataCache.cs" />
-    <Compile Include="Domain\RepositoryDecorator.cs" />
+    <Compile Include="Services\RepositoryDecorator.cs" />
     <Compile Include="Services\SqliteConnectionManager.cs" />
     <Compile Include="Services\SqliteOperationScheduler.cs" />
     <Compile Include="Services\SqliteRepository.cs" />
     <Compile Include="Services\SeqNoGenerator.cs" />
     <Compile Include="Services\TextFileDataStorage.cs" />
+    <Compile Include="Specification\IDataCache.cs" />
     <Compile Include="Utilities\HelperTools.cs" />
     <Compile Include="Utilities\LogUtility.cs" />
     <None Include="..\..\..\..\Libs\Data\config.dynamic.db">

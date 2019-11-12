@@ -116,6 +116,7 @@ namespace Products.Persistence.Services
 
                 // TODO：删除过期的日志。
                 this.Delete<SysEventLog>(p => p.Timestamp < expiredDate);
+                this.Delete<OperationLog>(p => p.Timestamp < expiredDate);
             }
             catch (System.Exception ex)
             {
@@ -161,9 +162,13 @@ namespace Products.Persistence.Services
 
             CreateAndOpenPersistenceScheduler();
 
-            var db = _dbConnectionManager.GetConnection(PersistenceConfig.DataSourceSqliteDb4StaticConfig);
-            var staticEntitiesType = PersistenceConfig.GetStaticTableTypes().Select(p => p.EntityType);
-            _dataCache.Initialize(db, staticEntitiesType);
+            // 初始化数据缓存。
+            var staticTables = PersistenceConfig.GetStaticTableTypes();
+            foreach (var item in staticTables)
+            {
+                var db = _dbConnectionManager.GetConnection(item.Key);
+                _dataCache.Cache(db, item.Value);
+            }
 
             RemoveExpiredLogs();
 

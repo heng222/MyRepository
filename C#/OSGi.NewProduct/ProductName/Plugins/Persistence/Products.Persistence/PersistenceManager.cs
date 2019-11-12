@@ -283,6 +283,11 @@ namespace Products.Persistence
         {
             if (PersistenceConfig.IsTextData(typeof(T))) throw new InvalidOperationException();
 
+            if (PersistenceConfig.IsStaticConfigTable<T>())
+            {
+                throw new InvalidOperationException(string.Format("无法在静态表 {0} 上执行 Insert 操作。", typeof(T).Name));
+            }
+
             _localSqliteRepository.Insert(entities);
         }
 
@@ -292,6 +297,11 @@ namespace Products.Persistence
         public void AsyncInsert<T>(T[] entities, Action<Exception> exceptionHandler) where T : Entity
         {
             if (PersistenceConfig.IsTextData(typeof(T))) throw new InvalidOperationException();
+
+            if (PersistenceConfig.IsStaticConfigTable<T>())
+            {
+                throw new InvalidOperationException(string.Format("无法在静态表 {0} 上执行 AsyncInsert 操作。", typeof(T).Name));
+            }
 
             _localSqliteRepository.AsyncInsert(entities, exceptionHandler);
         }
@@ -303,6 +313,11 @@ namespace Products.Persistence
         {
             if (PersistenceConfig.IsTextData(typeof(T))) throw new InvalidOperationException();
 
+            if (PersistenceConfig.IsStaticConfigTable<T>())
+            {
+                throw new InvalidOperationException(string.Format("无法在静态表 {0} 上执行 Delete 操作。", typeof(T).Name));
+            }
+
             _localSqliteRepository.Delete(predicate);
         }
 
@@ -312,6 +327,11 @@ namespace Products.Persistence
         public void Update<T>(object instance, Expression<Func<T, bool>> predicate) where T : Entity
         {
             if (PersistenceConfig.IsTextData(typeof(T))) throw new InvalidOperationException();
+
+            if (PersistenceConfig.IsStaticConfigTable<T>())
+            {
+                throw new InvalidOperationException(string.Format("无法在静态表 {0} 上执行 Update 操作。", typeof(T).Name));
+            }
 
             _localSqliteRepository.Update(instance, predicate);
         }

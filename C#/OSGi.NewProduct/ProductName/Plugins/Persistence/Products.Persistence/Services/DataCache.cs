@@ -17,26 +17,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
-using System.Text;
 using Acl;
 using Acl.Data;
+using Products.Persistence.Specification;
 
 namespace Products.Persistence.Services
 {
-    /// <summary>
-    /// 数据缓存接口。
-    /// </summary>
-    interface IDataCache
-    {
-        /// <summary>
-        /// 获取实体对象。
-        /// </summary>
-        /// <param name="condition">指定的条件。</param>
-        /// <param name="entityType">实体类型。</param>
-        /// <returns></returns>
-        object GetValue(Dictionary<string, object> condition, Type entityType);
-    }
-
     class DataCache : IDataCache
     {
         #region "Field"
@@ -100,7 +86,7 @@ namespace Products.Persistence.Services
         #endregion
 
         #region "Public methods"
-        public void Initialize(IDatabase db, IEnumerable<Type> entityTypes)
+        public void Cache(IDatabase db, IEnumerable<Type> entityTypes)
         {
             foreach (var entityType in entityTypes)
             {

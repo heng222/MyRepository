@@ -29,14 +29,12 @@ namespace Products.UAC.Presentation.Forms
 
         private void btnOk_Click(object sender, EventArgs e)
         {
-
             try
             {
                 _userManager.ModifyPassword(_oldUserName, txtOldPwd.Text, txtNewPwd.Text);
 
-                MessageBox.Show("修改成功。", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
                 this.Close();
+                this.DialogResult = DialogResult.OK;
             }
             catch (System.Exception ex)
             {

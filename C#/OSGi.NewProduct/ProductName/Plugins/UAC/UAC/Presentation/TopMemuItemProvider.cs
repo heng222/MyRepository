@@ -96,7 +96,11 @@ namespace Products.UAC.Presentation
             try
             {
                 var frmLogin = new FormModifyPassword(GlobalServices.UAC.CurrentUserName, _userManager);
-                frmLogin.ShowDialog();
+
+                if (frmLogin.ShowDialog() == DialogResult.OK)
+                {
+                    MessageBox.Show("修改成功。", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
             catch (System.Exception ex)
             {

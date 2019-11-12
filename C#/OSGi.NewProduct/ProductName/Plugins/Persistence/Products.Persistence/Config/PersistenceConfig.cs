@@ -108,7 +108,7 @@ namespace Products.Persistence
                     var tableTypes = new List<Type>();
 
                     var tableNames = p.Tables.Split(new char[] { ',', '，', ';', '；' }, StringSplitOptions.RemoveEmptyEntries);
-                    tableNames.ToList().ForEach(q => tableTypes.Add(ConvertToEntityType(q)));
+                    tableNames.ToList().ForEach(q => tableTypes.Add(ConvertToEntityType(q.Trim())));
 
                     _sqliteDbEntityMapping[p.Name] = tableTypes;
                 }
@@ -257,14 +257,27 @@ namespace Products.Persistence
         {
             return _textRepositoryEntityMapping.Contains(entityType);
         }
-
+        
         /// <summary>
-        /// 获取所有静态表。
+        /// 获取所有静态表信息。
         /// </summary>
-        /// <returns></returns>
-        public static IEnumerable<TableDescriptor> GetStaticTableTypes()
+        /// <returns>一个字典对象，Key表示静态表对应的DataSource，Value表示静态表集合。</returns>
+        public static Dictionary<string, List<Type>> GetStaticTableTypes()
         {
-            return TableDescriptors.Values.Where(p => p.Type == TableType.StaticConfig);
+            var result = new Dictionary<string, List<Type>>();
+
+            var allStaticTables = TableDescriptors.Values.Where(p => p.Type == TableType.StaticConfig);
+
+            foreach (var item in _sqliteDbEntityMapping)
+            {
+                var value = item.Value.Intersect(allStaticTables.Select(p => p.EntityType)).ToList();
+                if (value.Count > 0)
+                {
+                    result[item.Key] = value;
+                }
+            }
+
+            return result;
         }
 
         /// <summary>
