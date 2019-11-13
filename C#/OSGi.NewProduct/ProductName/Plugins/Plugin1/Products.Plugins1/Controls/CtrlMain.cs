@@ -57,11 +57,11 @@ namespace Products.Plugin1.Controls
         {
             try
             {
-                // 模拟产生一个系统日志；界面显示但不进行持久化。
+                // 模拟产生一个系统日志；系统将显示此日志并进行持久化。
                 var log = new SysEventLog(EventType.CommRecovery, EventLevel.Third, "节点 A 与节点 B 通信中断。");
                 GlobalMessageBus.PublishNewSystemEventGenerated(new NewSystemEventArgs(log));
 
-                // 模拟产生一个通信中断消息；系统将显示此消息并进行持久化操作。
+                // 模拟产生一个通信中断消息；系统将显示此消息并自动产生一个系统日志；然后持久化。
                 var args = new CommStateChangedEventArgs(false, 16, 18, NodeType.Node2);
                 GlobalMessageBus.PublishCommStateChanged(args);
             }
@@ -80,15 +80,14 @@ namespace Products.Plugin1.Controls
                     var log = new OperationLog();
                     // 编号必须为零。
                     log.IsManual = true;
-                    log.OperationDescription = "操作记录描述";
-                    log.OperationType = OperationType.AddNewNode;
+                    log.OperationDescription = "Operation X";
+                    log.OperationType = OperationType.OperationX;
                     log.TargetDeviceCode = 18;
                     log.ResultDescription = "已发送";
 
                     // 发布消息。
                     var args = new OpeationLogCreateOrUpdateEventArgs(log);
                     GlobalMessageBus.PublishOperationLogChanged(args);
-
 
                     // 延时2秒，产生一个确认。
                     Thread.Sleep(2000);

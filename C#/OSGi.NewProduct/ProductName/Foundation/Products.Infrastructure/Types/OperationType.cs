@@ -30,17 +30,12 @@ namespace Products.Infrastructure.Types
         [MemberDes("无效操作")]
         None = 0,
 
-        #region "节点管理相关操作"
+        #region "操作分类1"
         /// <summary>
-        /// 新增节点
+        /// X操作
         /// </summary>
-        [MemberDes("新增节点")]
-        AddNewNode = 0x11,
-        /// <summary>
-        /// 移除节点
-        /// </summary>
-        [MemberDes("移除节点")]
-        RemoveNode = 0x12,
+        [MemberDes("X操作")]
+        OperationX = 0x11,
         #endregion
     }
 }
