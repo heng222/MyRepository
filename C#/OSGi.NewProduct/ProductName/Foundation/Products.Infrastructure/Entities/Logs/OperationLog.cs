@@ -21,13 +21,8 @@ namespace Products.Infrastructure.Entities
     /// <summary>
     /// 操作记录实体定义。
     /// </summary>
-    public class OperationLog : Entity
+    public class OperationLog : LogEntity
     {
-        /// <summary>
-        /// 操作时间
-        /// </summary>
-        public DateTime Timestamp { get; set; }
-
         /// <summary>
         /// 操作类型
         /// </summary>

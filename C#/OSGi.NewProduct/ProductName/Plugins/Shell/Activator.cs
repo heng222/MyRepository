@@ -170,7 +170,7 @@ namespace Products.Shell
             {
                 if (disposing)
                 {
-                    // TODO: 释放托管资源.
+                    // 在这里释放托管资源.
                 }
                 _disposed = true;
             }

@@ -14,6 +14,12 @@ namespace Products.Infrastructure.Specification
     {
         #region "Query"
         /// <summary>
+        /// 获取指定实体的下一个可用编号。
+        /// </summary>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1004:GenericMethodsShouldProvideTypeParameter")]
+        uint NextSequence<T>() where T : Entity;
+
+        /// <summary>
         /// 查询数据。
         /// </summary>
         /// <param name="predicate"></param>

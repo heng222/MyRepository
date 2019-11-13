@@ -33,6 +33,14 @@ namespace Products.Infrastructure.Specification
         }
 
         /// <summary>
+        /// 获取 IRepository 接口。
+        /// </summary>
+        public static IRepository Repository
+        {
+            get { return ServiceManager.Current.GetAll<IRepository>().FirstOrDefault(); }
+        }
+
+        /// <summary>
         /// 获取/设置节点上下文接口。
         /// </summary>
         public static INodeContext NodeContext { get; set; }
@@ -46,11 +54,11 @@ namespace Products.Infrastructure.Specification
         }
 
         /// <summary>
-        /// 获取 IRepository 接口。
+        /// 获取 系统事件管理 接口
         /// </summary>
-        public static IRepository Repository
+        public static ISystemEventManage SEM
         {
-            get { return ServiceManager.Current.GetAll<IRepository>().FirstOrDefault(); }
+            get { return ServiceManager.Current.GetAll<ISystemEventManage>().FirstOrDefault(); }
         }
     }
 }

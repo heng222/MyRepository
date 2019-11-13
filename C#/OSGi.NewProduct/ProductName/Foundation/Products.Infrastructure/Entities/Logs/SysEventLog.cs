@@ -21,13 +21,8 @@ namespace Products.Infrastructure.Entities
     /// <summary>
     /// 系统事件日志实体定义。
     /// </summary>
-    public class SysEventLog : Entity
+    public class SysEventLog : LogEntity
     {
-        /// <summary>
-        /// 事件发生的时间
-        /// </summary>
-        public DateTime Timestamp { get; set; }
-
         /// <summary>
         /// 事件类型
         /// </summary>

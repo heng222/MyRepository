@@ -29,12 +29,17 @@ namespace Products.Infrastructure.Types
         NixieTubeClock = 2,
         #endregion
 
-        #region "SEM"
+        #region "SEM / 系统事件管理"
         /// <summary>
         /// 系统事件
         /// </summary>
         [MemberDesAttribute("系统事件")]
         SystemEvent = 11,
+        /// <summary>
+        /// 操作记录
+        /// </summary>
+        [MemberDesAttribute("操作记录")]
+        OperationLog = 12,
         #endregion
 
         #region  "Plugin1"

@@ -1,11 +1,15 @@
 
 using System.Collections.Generic;
+using System.Threading.Tasks;
+using Acl.ServiceManagement;
 using Platform.Presentation;
 using Products.Domain;
 using Products.Infrastructure.Log;
 using Products.Infrastructure.Types;
 using Products.Presentation;
+using Products.SystemEvents.Bridge.Properties;
 using Products.SystemEvents.Controls;
+using Products.SystemEvents.Domain;
 
 namespace Products.SystemEvents.Bridge
 {
@@ -15,6 +19,7 @@ namespace Products.SystemEvents.Bridge
     class Activator : FrameworkActivatorBase
     {
         #region "Filed"
+        private EventFacade _facade;
         #endregion
 
         #region "Constructor"
@@ -36,23 +41,17 @@ namespace Products.SystemEvents.Bridge
 
         protected override void OnBundleStart(IDictionary<string, string> context)
         {
-            //var facade = new AlarmFacade();
-            //_lifeCycle = facade;
-            //_lifeCycle.Open();
+            _facade = new EventFacade();
 
-            //// 注册IAlarmEntityQueryable接口
-            //ServiceManager.Current.RegisterInstance(facade.AlarmQueryable);
+            // 注册 ISystemEventManage 接口
+            ServiceManager.Current.RegisterInstance(_facade.SEM);
 
             // 创建表示层
             Workbench.SendMessage(() =>
             {
-                // 获取所需要的服务
-                //var alarmEntity = ServiceManager.Current.Get<IAlarmEntityQueryable>();
-
-
                 // 创建表示层
-                var control = new EventsMonitorControl();
-                MainWorkSpace.AddPart(control, control.Icon);
+                MainWorkSpace.AddPart(new EventsMonitorControl(), Resources.SystemEvent);
+                MainWorkSpace.AddPart(new OperationLogControl(), Resources.OperationLog);
 
                 //// 添加配置页面。
                 //var optionControl = new Plugin1ConfigPage();
@@ -62,15 +61,33 @@ namespace Products.SystemEvents.Bridge
 
         protected override void OnBundleStop(IDictionary<string, string> context)
         {
-            //if (_commLifeCycle != null)
-            //{
-            //    _commLifeCycle.Close();
-            //}
+            if (_facade != null)
+            {
+                _facade.Dispose();
+                _facade = null;
+            }
         }
 
         protected override void OnFrameworkStarted()
         {
-
+            try
+            {
+                Task.Factory.StartNew(() =>
+                {
+                    try
+                    {
+                        _facade.Open();
+                    }
+                    catch (System.Exception ex)
+                    {
+                        this.Log.Error(ex);
+                    }
+                });
+            }
+            catch (System.Exception ex)
+            {
+                base.Log.Error(ex);
+            }
         }
         #endregion
 

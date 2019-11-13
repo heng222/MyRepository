@@ -26,10 +26,6 @@ namespace Products.Infrastructure.Entities
     {
         #region "DB ×Ö¶Î"
         /// <summary>
-        /// ±àºÅ¡£
-        /// </summary>
-        public uint Code { get; set; }
-        /// <summary>
         /// Ãû³Æ¡£
         /// </summary>
         public string Name { get; set; }

@@ -24,6 +24,16 @@ namespace Products.Infrastructure.Entities
     public abstract class Entity
     {
         /// <summary>
+        /// 无效编号。
+        /// </summary>
+        public const uint InvalidCode = uint.MinValue;
+
+        /// <summary>
+        /// 编号，从1开始，0表示无效编号。
+        /// </summary>
+        public uint Code { get; set; }
+
+        /// <summary>
         /// 默认构造函数。
         /// </summary>
         protected Entity()

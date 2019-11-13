@@ -114,9 +114,23 @@ namespace Products.Persistence.Services
             {
                 var expiredDate = DateTime.Now.AddYears(-1);
 
-                // TODO：删除过期的日志。
-                this.Delete<SysEventLog>(p => p.Timestamp < expiredDate);
-                this.Delete<OperationLog>(p => p.Timestamp < expiredDate);
+                PersistenceConfig.TableDescriptors.Where(p => p.Value.Type == TableType.Log).ToList().ForEach(p =>
+                {
+                    try
+                    {
+                        this.Execute(p.Value.EntityType, db =>
+                        {
+                            var sqlText = string.Format(@"delete from {0} where {1} < @expiredDate",
+                                db.Dialect.Quote( p.Value.Name), db.Dialect.Quote("TimeStamp"));
+
+                            db.ExecuteNonQuery(sqlText, new { expiredDate = expiredDate });
+                        });
+                    }
+                    catch (System.Exception ex)
+                    {
+                        LogUtility.Error(string.Format("删除表 {0} 过期日志时发生异常。\r\n{1}", p.Value.Name, ex));
+                    }
+                });
             }
             catch (System.Exception ex)
             {
@@ -145,10 +159,16 @@ namespace Products.Persistence.Services
 
         private SqliteOperationScheduler GetAsyncPersistenceScheduler<TEntity>()
         {
-            var connectionString = PersistenceConfig.GetSqliteDataSourceName(typeof(TEntity));
+            return this.GetAsyncPersistenceScheduler(typeof(TEntity));
+        }
+
+        private SqliteOperationScheduler GetAsyncPersistenceScheduler(Type type)
+        {
+            var connectionString = PersistenceConfig.GetSqliteDataSourceName(type);
 
             return _dbSchedulers[connectionString];
         }
+
         #endregion
 
         #region "public methods"
@@ -191,7 +211,7 @@ namespace Products.Persistence.Services
         #region IRepository 成员
 
         /// <summary>
-        /// 返回指定实体的下个序列值
+        /// 查询指定实体的下个序列值。
         /// </summary>
         public uint NextSequence<T>() where T : Entity
         {
@@ -267,8 +287,13 @@ namespace Products.Persistence.Services
         
         public void Execute<T>(Action<IDatabase> handler) where T : Entity
         {
-            var scheduler = this.GetAsyncPersistenceScheduler<T>();
-            var db = _dbConnectionManager.GetConnection<T>();
+            this.Execute(typeof(T), handler);
+        }
+
+        public void Execute(Type entityType, Action<IDatabase> handler)
+        {
+            var scheduler = this.GetAsyncPersistenceScheduler(entityType);
+            var db = _dbConnectionManager.GetConnection(entityType);
             scheduler.Sync(() => handler(db));
         }
 

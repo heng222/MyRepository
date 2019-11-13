@@ -76,6 +76,7 @@
     <Compile Include="Entities\IoCollectionPoint.cs" />
     <Compile Include="Entities\IoDriverPoint.cs" />
     <Compile Include="Entities\IoPoint.cs" />
+    <Compile Include="Entities\LogEntity.cs" />
     <Compile Include="Entities\Logs\OperationLog.cs" />
     <Compile Include="Entities\Logs\SysEventLog.cs">
       <SubType>Code</SubType>
@@ -106,6 +107,7 @@
     <Compile Include="Preference\SerialPortSettings.cs" />
     <Compile Include="Specification\NDM\INodeContext.cs" />
     <Compile Include="Specification\Persistence\IRepository.cs" />
+    <Compile Include="Specification\SEM\ISystemEventManage.cs" />
     <Compile Include="Specification\UAC\IUserLogin.cs" />
     <Compile Include="Types\AtcSubsystemType.cs" />
     <Compile Include="Types\OperationResult.cs" />

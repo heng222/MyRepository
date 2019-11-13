@@ -33,12 +33,12 @@ namespace Products.Infrastructure.Types
         /// 节点间通信建立
         /// </summary>
         [MemberDesAttribute("通信恢复")]
-        NodeCommRecovery = 21,
+        CommRecovery = 21,
         /// <summary>
         /// 节点间通信断开
         /// </summary>
         [MemberDesAttribute("通信中断")]
-        NodeCommInteruption = 22,
+        CommInterruption = 22,
         #endregion
 
 

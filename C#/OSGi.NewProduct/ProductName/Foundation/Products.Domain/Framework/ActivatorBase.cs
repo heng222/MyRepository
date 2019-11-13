@@ -5,6 +5,7 @@ using System.Windows.Forms;
 using Acl;
 using Acl.Log;
 using Acl.ServiceManagement;
+using Products.Infrastructure.Exceptions;
 using Products.Infrastructure.Specification;
 using Products.Infrastructure.Types;
 
@@ -84,7 +85,8 @@ namespace Products.Domain
             }
             catch (System.Exception ex)
             {
-                HandleStartingException(ex);
+                if (ex is LanuchCanceledException) throw;
+                else HandleStartingException(ex);
             }
         }
 

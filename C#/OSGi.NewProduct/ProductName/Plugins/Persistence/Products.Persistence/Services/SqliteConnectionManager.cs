@@ -109,13 +109,18 @@ namespace Products.Persistence.Services
         
         public IDatabase GetConnection<TEntity>()
         {
+            return this.GetConnection(typeof(TEntity));
+        }
+
+        public IDatabase GetConnection(Type entityType)
+        {
             if (_dbConnections.Count == 1)
             {
                 return this.DataBase;
             }
             else
             {
-                var theItem = _entityMapping.Where(p => p.Value.Contains(typeof(TEntity)));
+                var theItem = _entityMapping.Where(p => p.Value.Contains(entityType));
                 var connectionString = theItem.Count() > 0 ? theItem.First().Key : string.Empty;
                 return string.IsNullOrEmpty(connectionString) ? null : _dbConnections[connectionString];
             }

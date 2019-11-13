@@ -10,9 +10,11 @@
 // Copyright (C) 公司名称 2009，保留所有权利
 //
 //----------------------------------------------------------------*/
+
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
+using Acl.Data;
 using Products.Infrastructure.Entities;
 using Products.Infrastructure.Specification;
 
@@ -29,37 +31,42 @@ namespace Products.Persistence.Services
 
         #region IRepository 成员
 
-        public virtual IList<T> Where<T>(System.Linq.Expressions.Expression<Func<T, bool>> predicate = null) where T : Infrastructure.Entities.Entity
+        public uint NextSequence<T>() where T : Entity
+        {
+            return this.Repository.NextSequence<T>();
+        }
+
+        public virtual IList<T> Where<T>(Expression<Func<T, bool>> predicate = null) where T : Entity
         {
             return this.Repository.Where<T>(predicate);
         }
 
-        public virtual void Insert<T>(params T[] entities) where T : Infrastructure.Entities.Entity
+        public virtual void Insert<T>(params T[] entities) where T : Entity
         {
             this.Repository.Insert<T>(entities);
         }
 
-        public virtual void Delete<T>(Expression<Func<T, bool>> condition = null) where T : Infrastructure.Entities.Entity
+        public virtual void Delete<T>(Expression<Func<T, bool>> condition = null) where T : Entity
         {
             this.Repository.Delete<T>(condition);
         }
 
-        public virtual void Update<T>(object instance, System.Linq.Expressions.Expression<Func<T, bool>> condition) where T : Infrastructure.Entities.Entity
+        public virtual void Update<T>(object instance, Expression<Func<T, bool>> condition) where T : Entity
         {
             this.Repository.Update<T>(instance, condition);
         }
         
-        public virtual void Execute<T>(Action<Acl.Data.IDatabase> handler) where T : Entity
+        public virtual void Execute<T>(Action<IDatabase> handler) where T : Entity
         {
             this.Repository.Execute<T>(handler);
         }
 
-        public virtual void AsyncExecute<T>(Action<Acl.Data.IDatabase> handler, Action<Exception> errorHandler)  where T : Entity
+        public virtual void AsyncExecute<T>(Action<IDatabase> handler, Action<Exception> errorHandler)  where T : Entity
         {
             this.Repository.AsyncExecute<T>(handler, errorHandler);
         }
 
-        public virtual void AsyncInsert<T>(T[] data, Action<Exception> exceptionHandler) where T : Infrastructure.Entities.Entity
+        public virtual void AsyncInsert<T>(T[] data, Action<Exception> exceptionHandler) where T : Entity
         {
             this.Repository.AsyncInsert<T>(data, exceptionHandler);
         }

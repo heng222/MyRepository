@@ -24,11 +24,6 @@ namespace Products.Infrastructure.Entities
     public class User : Entity
     {
         /// <summary>
-        /// ±àºÅ¡£
-        /// </summary>
-        public uint Code { get; set; }
-
-        /// <summary>
         /// Ãû³Æ
         /// </summary>
         public string Name { get; set; }

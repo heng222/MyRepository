@@ -182,7 +182,7 @@ namespace Products.Persistence
             // 创建日志表的描述符。
             tablesNames = Settings.Get<string>(PersistenceConfig.LogTables);
             var logTables = HelperTools.SplitTableNames(tablesNames);
-            CreateTableDescriptor(TableDescriptors, logTables, TableType.NormalLog);
+            CreateTableDescriptor(TableDescriptors, logTables, TableType.Log);
         }
 
         public static void Close()
@@ -219,7 +219,7 @@ namespace Products.Persistence
             TableDescriptor value;
             if (TableDescriptors.TryGetValue(typeof(T), out value))
             {
-                return value.Type == TableType.NormalLog;
+                return value.Type == TableType.Log;
             }
             else
             {

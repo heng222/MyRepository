@@ -1,29 +1,44 @@
-﻿using System;
-using System.Collections.Generic;
+﻿/*----------------------------------------------------------------
+// 公司名称：请输入公司名称
+// 
+// 项目名称：输入项目名称
+//
+// 创 建 人：heng222_z
+// 创建日期：2018/5/28 15:46:41 
+// 邮    箱：heng222_z@163.com
+//
+// Copyright (C) 公司名称，保留所有权利。
+//
+//----------------------------------------------------------------*/
+
+using System;
 using System.ComponentModel;
 using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
-using Products.Presentation;
+using Acl.Utility;
 using Products.Infrastructure;
-using Products.SystemEvents.Properties;
-using Products.Infrastructure.Messages;
-using Products.Infrastructure.Events;
-using Products.SystemEvents.Utilities;
 using Products.Infrastructure.Entities;
+using Products.Infrastructure.Events;
+using Products.Infrastructure.Messages;
+using Products.Infrastructure.Specification;
 using Products.Infrastructure.Types;
+using Products.Presentation;
+using Products.SystemEvents.Properties;
+using Products.SystemEvents.Utilities;
 
 namespace Products.SystemEvents.Controls
 {
+    /// <summary>
+    /// 系统事件监视控件。
+    /// </summary>
     [ProductPart(ControlType = PresentationControlType.SystemEvent)]
     partial class EventsMonitorControl : UserControl
     {
-        private readonly UInt32 MaxAlarmCount = 200;
+        private readonly UInt32 MaxCount = 100;
+
+        private const byte ConfirmTimeIndex = 4;
 
         #region "Field && Constructor"
-        public Icon Icon { get { return Resources.Alarm; } }
 
         /// <summary>
         /// 构造函数。
@@ -31,6 +46,7 @@ namespace Products.SystemEvents.Controls
         public EventsMonitorControl()
         {
             InitializeComponent();
+            this.CreateHandle();
 
             GlobalMessageBus.SubscribeNewSystemEventGenerated(OnNewSystemEventGenerated);
         }
@@ -42,10 +58,10 @@ namespace Products.SystemEvents.Controls
         {
             try
             {
-                this.BeginInvoke(new Action(() => 
+                this.Invoke(new Action(() =>
                 {
-                    this.ShowSystemEvent(args.Value);
-                }));                
+                    this.ShowSysEventLog(args.Value);
+                }));
             }
             catch (System.Exception ex)
             {
@@ -53,49 +69,140 @@ namespace Products.SystemEvents.Controls
             }
         }
 
-        private void ShowSystemEvent(SysEventLog eventLog)
+        private void ShowSysEventLog(SysEventLog log)
         {
             try
             {
-                // 清除无效记录。
-                var lastIndex = dataGridView.Rows.Count - 1;
-                if (dataGridView.Rows.Count > MaxAlarmCount)
+                // 清除无效记录
+                if (dataGridView.Rows.Count > MaxCount) { dataGridView.Rows.RemoveAt(dataGridView.Rows.Count - 1); }
+
+                // 查找对应的行。
+                var theRow = this.FindGridRow(log.Code);
+                if (theRow == null)
                 {
-                    dataGridView.Rows.RemoveAt(lastIndex);
+                    // 创建新行。
+                    theRow = new DataGridViewRow() { Tag = log };
+                    theRow.CreateCells(this.dataGridView, new object[] { "" });
+
+                    // 插入到第一行
+                    dataGridView.Rows.Insert(0, theRow);
                 }
 
-                // 创建新行。
-                var newRow = new DataGridViewRow();
-                newRow.CreateCells(this.dataGridView);
-                if (eventLog.Level == EventLevel.First)
+                // 更新内容。
+                int index = 0;
+                if (log.Level == EventLevel.First)
                 {
-                    newRow.Cells[0].Value = Resources.Info_warning;
+                    theRow.Cells[index++].Value = Resources.Info;
                     //newRow.DefaultCellStyle.ForeColor = Color.Green;
                 }
-                else if (eventLog.Level == EventLevel.Second)
+                else if (log.Level == EventLevel.Second)
                 {
-                    newRow.Cells[0].Value = Resources.Warning_warning;
-                    //newRow.DefaultCellStyle.ForeColor = Color.Blue;
+                    theRow.Cells[index++].Value = Resources.Warning;
                 }
                 else
                 {
-                    newRow.Cells[0].Value = Resources.Error_worning;
-                    //newRow.DefaultCellStyle.ForeColor = Color.Red;
+                    theRow.Cells[index++].Value = Resources.Error;
                 }
-                newRow.Cells[1].Value = eventLog.Timestamp;
-                newRow.Cells[2].Value = eventLog.Description;
+                theRow.Cells[index++].Value = log.Timestamp.ToString("yyyy-MM-dd HH:mm:ss.fff");
+                theRow.Cells[index++].Value = EnumUtility.GetDescription(log.TypeCode);
+                theRow.Cells[index++].Value = log.Description;
 
-                // 插入到第一行
-                this.dataGridView.Rows.Insert(0, newRow);
+                var confirmEnabled = GlobalServices.SEM.GetConfirmEnabled(log.TypeCode);
+                if (confirmEnabled)
+                {
+                    theRow.Cells[index++].Value = log.ConfirmTime != DateTime.MinValue ? log.ConfirmTime.ToString("yyyy-MM-dd HH:mm:ss.fff") : "";
+                }
+                else
+                {
+                    theRow.Cells[index++].Value = "无需确认";
+                }
+                theRow.Cells[ConfirmTimeIndex].Tag = confirmEnabled;
             }
             catch (System.Exception ex)
             {
                 LogUtility.Error(ex);
             }
         }
+
+        private DataGridViewRow FindGridRow(uint code)
+        {
+            var rawCout = this.dataGridView.Rows.Count;
+            for (int i = 0; i < rawCout; i++)
+            {
+                var theRow = this.dataGridView.Rows[i];
+                if (theRow.Tag != null && (theRow.Tag as SysEventLog).Code == code)
+                {
+                    return theRow;
+                }
+            }
+
+            return null;
+        }
+
         #endregion
 
-        #region "控件事件"
+        #region "菜单事件"
+
+        private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
+        {
+            try
+            {
+                configToolStripMenuItem.Enabled = GlobalServices.UAC.Contains(SystemPrivilege.EditSysParam);
+            }
+            catch (System.Exception ex)
+            {
+                LogUtility.Error(ex.Message);
+            }
+        }
+
+        private void confirmThisToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var timeNow = DateTime.Now;
+                var rows = dataGridView.SelectedRows;
+
+                for (var i = 0; i < rows.Count; i++)
+                {
+                    var theLog = rows[i].Tag as SysEventLog;
+                    var confirmEnabled = GlobalServices.SEM.GetConfirmEnabled(theLog.TypeCode);
+                    if (confirmEnabled && !theLog.IsConfirmed)
+                    {
+                        theLog.ConfirmTime = timeNow;
+                        GlobalMessageBus.PublishNewSystemEventGenerated(new NewSystemEventArgs(theLog));
+                    }
+                }
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void confirmAllToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var timeNow = DateTime.Now;
+                var rows = dataGridView.Rows;
+
+                for (var i = 0; i < rows.Count; i++)
+                {
+                    var theLog = rows[i].Tag as SysEventLog;
+                    var confirmEnabled = GlobalServices.SEM.GetConfirmEnabled(theLog.TypeCode);
+                    if (confirmEnabled && !theLog.IsConfirmed)
+                    {
+                        theLog.ConfirmTime = timeNow;
+                        GlobalMessageBus.PublishNewSystemEventGenerated(new NewSystemEventArgs(theLog));
+                    }
+                }
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
         private void removeThisToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
@@ -106,14 +213,6 @@ namespace Products.SystemEvents.Controls
                     var theRow = dataGridView.SelectedRows[i];
                     dataGridView.Rows.Remove(theRow);
                 }
-
-                // 
-                var eventLog = new SysEventLog()
-                {
-                    Level = EventLevel.Second,
-                    Description = "删除当前行"
-                };
-                GlobalMessageBus.PublishNewSystemEventGenerated(new NewSystemEventArgs(eventLog));
             }
             catch (System.Exception ex)
             {
@@ -126,14 +225,6 @@ namespace Products.SystemEvents.Controls
             try
             {
                 dataGridView.Rows.Clear();
-
-                // 
-                var eventLog = new SysEventLog()
-                {
-                    Level = EventLevel.Third,
-                    Description = "删除所有行"
-                };
-                GlobalMessageBus.PublishNewSystemEventGenerated(new NewSystemEventArgs(eventLog));
             }
             catch (System.Exception ex)
             {
@@ -141,19 +232,12 @@ namespace Products.SystemEvents.Controls
             }
         }
 
-        private void mnSelectAll_Click(object sender, EventArgs e)
+
+        private void configToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
             {
-                dataGridView.SelectAll();
 
-                // 
-                var eventLog = new SysEventLog() 
-                {
-                    Level = EventLevel.First,
-                    Description = "选择所有"
-                };
-                GlobalMessageBus.PublishNewSystemEventGenerated(new NewSystemEventArgs(eventLog));
             }
             catch (System.Exception ex)
             {
@@ -162,5 +246,41 @@ namespace Products.SystemEvents.Controls
         }
         #endregion
 
+        #region "控件事件"
+        private void dataGridView_RowPrePaint(object sender, DataGridViewRowPrePaintEventArgs e)
+        {
+            try
+            {
+                // 确认时间
+                var cellConfirmTime = dataGridView.Rows[e.RowIndex].Cells[ConfirmTimeIndex];
+
+                if (cellConfirmTime.Tag != null)
+                {
+                    var needConfirm = (bool)cellConfirmTime.Tag;
+                    var text = cellConfirmTime.Value.ToString();
+
+                    if (needConfirm)
+                    {
+                        if (!string.IsNullOrWhiteSpace(text))
+                        {
+                            cellConfirmTime.Style.ForeColor = Color.DarkGreen;
+                        }
+                        else
+                        {
+                            cellConfirmTime.Style.BackColor = Color.LightYellow;
+                        }
+                    }
+                    else
+                    {
+                        cellConfirmTime.Style.ForeColor = Color.LightGray;
+                    }
+                }
+            }
+            catch (System.Exception ex)
+            {
+                LogUtility.Error(ex);
+            }
+        }
+        #endregion
     }
 }

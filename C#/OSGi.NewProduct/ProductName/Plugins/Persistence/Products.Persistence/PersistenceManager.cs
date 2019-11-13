@@ -262,6 +262,21 @@ namespace Products.Persistence
 
         #region IRepository 成员
         /// <summary>
+        /// 返回指定实体的下个序列值。
+        /// </summary>
+        public uint NextSequence<T>() where T : Entity
+        {
+            if (PersistenceConfig.IsTextData(typeof(T)))
+            {
+                throw new NotImplementedException();
+            }
+            else
+            {
+                return _localSqliteRepository.NextSequence<T>();
+            }
+        }
+
+        /// <summary>
         /// 
         /// </summary>
         public IList<T> Where<T>(Expression<Func<T, bool>> predicate = null) where T : Entity

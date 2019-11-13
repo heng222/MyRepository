@@ -24,9 +24,14 @@ namespace Products.Infrastructure.Entities
     public class SysEvent : Entity
     {
         /// <summary>
-        /// 编号。
+        /// 事件类型。
         /// </summary>
-        public EventType Code { get; set; }
+        public EventType Type 
+        {
+            get { return (EventType)base.Code; }
+
+            set { base.Code = Convert.ToUInt32(value); }
+        }
 
         /// <summary>
         /// 事件名称
@@ -47,5 +52,10 @@ namespace Products.Infrastructure.Entities
         /// 是否弹出确认对话框？
         /// </summary>
         public bool ConfirmDialogEnabled { get; set; }
+
+        /// <summary>
+        /// 是否启用语音报警？
+        /// </summary>
+        public bool VoiceEnabled { get; set; }
     }
 }

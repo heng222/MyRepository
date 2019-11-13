@@ -112,15 +112,11 @@ namespace Products.Infrastructure.Types
 
         #region "第5、6、7字节（存放系统接口管理插件）"
         /// <summary>
-        /// CI接口管理插件。
+        /// 接口管理插件1。
         /// </summary>
-        [MemberDesAttribute("CI接口管理插件")]
-        CI = (1L << 32),
-        /// <summary>
-        /// ATP接口管理插件。
-        /// </summary>
-        [MemberDesAttribute("ATP接口管理插件")]
-        ATP = (1L << 33),
+        [MemberDesAttribute("接口管理插件1")]
+        Interface1 = (1L << 32),
+
         // 46 ~ 55，预留。
         #endregion
 

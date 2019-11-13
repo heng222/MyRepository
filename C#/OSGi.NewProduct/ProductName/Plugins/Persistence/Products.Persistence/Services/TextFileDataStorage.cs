@@ -82,7 +82,7 @@ namespace Products.Persistence.Implementation
                                 record.CardIndex = (ushort)(SettingsParser.ParseDecimal(items[index++]));
                                 record.PointIndex = (ushort)(SettingsParser.ParseDecimal(items[index++]));
 
-                                // TODO: DeviceType 为 道岔，需要转换为 整型。
+                                // DeviceType 为 道岔，需要转换为 整型。
                                 //record.DeviceType = (ushort)(SettingsParser.ParseDecimal(items[index++]));
                                 index++;
 
@@ -129,7 +129,7 @@ namespace Products.Persistence.Implementation
                                 record.CardIndex = (ushort)(SettingsParser.ParseDecimal(items[index++]));
                                 record.PointIndex = (ushort)(SettingsParser.ParseDecimal(items[index++]));
 
-                                // TODO: DeviceType 为 道岔，需要转换为 整型。
+                                // DeviceType 为 道岔，需要转换为 整型。
                                 //record.DeviceType = (ushort)(SettingsParser.ParseDecimal(items[index++]));
                                 index++;
 

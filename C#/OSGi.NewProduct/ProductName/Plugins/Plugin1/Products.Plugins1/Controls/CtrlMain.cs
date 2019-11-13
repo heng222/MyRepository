@@ -1,48 +1,109 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿/*----------------------------------------------------------------
+// 公司名称：请输入公司名称
+// 
+// 项目名称：输入项目名称
+//
+// 创 建 人：heng222_z
+// 创建日期：2018/5/28 15:46:41 
+// 邮    箱：heng222_z@163.com
+//
+// Copyright (C) 公司名称，保留所有权利。
+//
+//----------------------------------------------------------------*/
+
+using System;
 using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
-using Products.Infrastructure;
-using Products.Presentation;
-using Products.Plugin1.Properties;
+using Products.Infrastructure.Entities;
+using Products.Infrastructure.Events;
+using Products.Infrastructure.Messages;
 using Products.Infrastructure.Types;
+using Products.Plugin1.Properties;
+using Products.Presentation;
 
 namespace Products.Plugin1.Controls
 {
     [ProductPart(ControlType = PresentationControlType.Plugin1Main)]
     partial class CtrlMain : UserControl
     {
-        public CtrlMain()
-        {
-            InitializeComponent();
+        #region "Field"
+        #endregion
 
-            this.TextChanged += new EventHandler(control_TextChanged);
-        }
 
-        private void control_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                Console.WriteLine(this.Text);
-            }
-            catch (System.Exception /*ex*/)
-            {
-
-            }
-        }
-
+        #region "Properties"
         public Icon Icon
         {
             get { return Resources.MyIcon1; }
         }
+        #endregion
 
-        private void button1_Click(object sender, EventArgs e)
+        #region "Constructor"
+        public CtrlMain()
         {
-            MessageBox.Show("Hello, world!");
+            InitializeComponent();
         }
+        #endregion
+
+
+        #region "Private methods"
+        #endregion
+
+
+        #region "控件事件处理函数"
+
+        private void btnGenerateSysEvent_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // 模拟产生一个系统日志；界面显示但不进行持久化。
+                var log = new SysEventLog(EventType.CommRecovery, EventLevel.Third, "节点 A 与节点 B 通信中断。");
+                GlobalMessageBus.PublishNewSystemEventGenerated(new NewSystemEventArgs(log));
+
+                // 模拟产生一个通信中断消息；系统将显示此消息并进行持久化操作。
+                var args = new CommStateChangedEventArgs(false, 16, 18, NodeType.Node2);
+                GlobalMessageBus.PublishCommStateChanged(args);
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show(ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnGenerateOperationLog_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Task.Factory.StartNew(() =>
+                {
+                    var log = new OperationLog();
+                    // 编号必须为零。
+                    log.IsManual = true;
+                    log.OperationDescription = "操作记录描述";
+                    log.OperationType = OperationType.AddNewNode;
+                    log.TargetDeviceCode = 18;
+                    log.ResultDescription = "已发送";
+
+                    // 发布消息。
+                    var args = new OpeationLogCreateOrUpdateEventArgs(log);
+                    GlobalMessageBus.PublishOperationLogChanged(args);
+
+
+                    // 延时2秒，产生一个确认。
+                    Thread.Sleep(2000);
+                    log.ResultDescription = "已执行";
+                    log.ResultTimestamp = log.Timestamp + TimeSpan.FromSeconds(10);
+                    log.ResultType = OperationResult.Success;
+                    GlobalMessageBus.PublishOperationLogChanged(args);
+                });
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show(ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        #endregion
+
     }
 }

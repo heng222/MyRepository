@@ -36,6 +36,6 @@ namespace Products.Persistence
         /// <summary>
         /// 日志表。
         /// </summary>
-        NormalLog,
+        Log,
     }
 }
