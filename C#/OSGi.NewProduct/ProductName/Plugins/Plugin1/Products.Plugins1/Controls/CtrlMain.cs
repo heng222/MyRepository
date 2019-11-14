@@ -45,11 +45,12 @@ namespace Products.Plugin1.Controls
             InitializeComponent();
         }
         #endregion
-
-
+        
         #region "Private methods"
         #endregion
-
+        
+        #region "Public methods"
+        #endregion
 
         #region "控件事件处理函数"
 

@@ -30,19 +30,33 @@ namespace Products.Plugin1.Controls
     [Option(ConfigNodeNames.Plugins.Plugin1.General, "Plugin1 Config Title")]
     partial class CtrlConfigPage : UserControl, IOptionControl
     {
+        #region "Field"
+        #endregion
+
+        #region "Properties"
+        public Control View { get { return this; } }
+        #endregion
+
+        #region "Constructor"
         public CtrlConfigPage()
         {
             InitializeComponent();
         }
+        #endregion
 
+        #region "Private methods"
+        #endregion
+
+        #region "Public methods"
         public void ApplyChanges()
         {
 
         }
+        #endregion
 
-        public Control View
-        {
-            get { return this; }
-        }
+        #region "控件事件处理函数"
+        #endregion
+
+
     }
 }
