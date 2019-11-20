@@ -76,6 +76,10 @@ namespace Products.Persistence
             InitializeRepository();
 
             // 
+            LogUtility.Info("正在初始化实体导航属性...");
+            this.InitializeEntityNavigationProperty();
+
+            // 
             LogUtility.Info("正在初始化节点上下文...");
             if (deviceID == uint.MaxValue)
             {
@@ -157,6 +161,14 @@ namespace Products.Persistence
 
             // 打开连接监视器
             DbConnectionMonitor.Current.Open();
+        }
+
+        /// <summary>
+        /// 初始化实体导航属性。
+        /// </summary>
+        private void InitializeEntityNavigationProperty()
+        {
+
         }
 
         /// <summary>
