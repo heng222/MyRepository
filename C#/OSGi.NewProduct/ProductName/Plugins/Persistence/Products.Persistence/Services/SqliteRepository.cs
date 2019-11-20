@@ -235,7 +235,7 @@ namespace Products.Persistence.Services
                 Func<IList<T>> action = () =>
                 {
                     var db = _dbConnectionManager.GetConnection<T>();
-                    return db.Query<T>(condition);
+                    return db != null ? db.Query<T>(condition) : new List<T>();
                 };
 
                 return scheduler.Sync<IList<T>>(action);
