@@ -110,32 +110,32 @@
     <Compile Include="Utilities\HelperTools.cs" />
     <Compile Include="Utilities\LogUtility.cs" />
     <None Include="..\..\..\..\Libs\Data\config.dynamic.db">
-      <Link>Data\config.dynamic.db</Link>
+      <Link>Data\Sqlite\config.dynamic.db</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="..\..\..\..\Libs\Data\config.static.db">
-      <Link>Data\config.static.db</Link>
+      <Link>Data\Sqlite\config.static.db</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="..\..\..\..\Libs\Data\log.operations.db">
-      <Link>Data\log.operations.db</Link>
+      <Link>Data\Sqlite\log.operations.db</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="..\..\..\..\Libs\Data\log.sysevents.db">
-      <Link>Data\log.sysevents.db</Link>
+      <Link>Data\Sqlite\log.sysevents.db</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="..\..\..\..\Libs\Data\uac.db">
-      <Link>Data\uac.db</Link>
+      <Link>Data\Sqlite\uac.db</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Config\Persistence.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Data\IoPoints\CollectionPoints.ini">
+    <None Include="Data\Text\CollectionPoints.ini">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Data\IoPoints\DriverPoints.ini">
+    <None Include="Data\Text\DriverPoints.ini">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Properties\AssemblyInfo.tpl" />
@@ -150,7 +150,10 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Data\Access\" />
+    <Folder Include="Data\Excel\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="..\..\..\..\Libs\Oracle.ManagedDataAccess.dll">
       <Link>Oracle.ManagedDataAccess.dll</Link>

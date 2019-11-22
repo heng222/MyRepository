@@ -41,9 +41,9 @@ namespace Products.Persistence
             var key = "Data Source";
             var items = orginalValue.Split(new string[] { ";", "£»" }, StringSplitOptions.RemoveEmptyEntries);
 
-            var dbFileName = items.Where(p => p.Contains(key)).First()
-                .Split(new string[] { "=" }, StringSplitOptions.RemoveEmptyEntries)[1];
-
+            var dbFileName = Path.GetFileName(items.Where(p => p.Contains(key)).First()
+                .Split(new string[] { "=" }, StringSplitOptions.RemoveEmptyEntries)[1]);
+            
             var exePath = Thread.GetDomain().BaseDirectory;
 
             var allDbFiles = System.IO.Directory.GetFiles(exePath, dbFileName, System.IO.SearchOption.AllDirectories);

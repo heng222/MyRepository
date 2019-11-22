@@ -12,6 +12,7 @@
 //----------------------------------------------------------------*/
 
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -31,12 +32,16 @@ namespace Products.Persistence.Implementation
         #region "Field"
         private List<IoDriverPoint> _ioDriverPoints = new List<IoDriverPoint>();
         private List<IoCollectionPoint> _ioCollectionPoints = new List<IoCollectionPoint>();
+
+        private Dictionary<string, IQueryable> _mapping = new Dictionary<string, IQueryable>();
         #endregion
 
         #region "Constructor"
         public TextFileDataStorage()
         {
-            this.Initialize();
+            this.ReadTextFiles();
+
+            this.InitMapping();
         }
         #endregion
 
@@ -47,9 +52,15 @@ namespace Products.Persistence.Implementation
         #endregion
 
         #region "Private methods"
-        private void Initialize()
+        private void InitMapping()
         {
-            var filePath = string.Format(@"{0}\Data\IoPoints", System.IO.Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location));
+            _mapping[typeof(IoDriverPoint).FullName] = _ioDriverPoints.AsQueryable();
+            _mapping[typeof(IoCollectionPoint).FullName] = _ioDriverPoints.AsQueryable();
+        }
+
+        private void ReadTextFiles()
+        {
+            var filePath = string.Format(@"{0}\Data\Text", System.IO.Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location));
 
             var fileName = string.Format(@"{0}\DriverPoints.ini", filePath);
             this.ReadIoDriverPoints(fileName);
@@ -168,22 +179,20 @@ namespace Products.Persistence.Implementation
         public IList<T> Where<T>(Expression<Func<T, bool>> predicate = null) where T : Entity
         {
             var typeT = typeof(T);
+            IQueryable theList = null;
 
-            if (typeof(IoDriverPoint) == typeT)
+            var flag = _mapping.TryGetValue(typeT.FullName, out theList);
+            if (!flag) return new List<T>();
+
+            // 
+            if (predicate == null)
             {
-                if (predicate == null) return _ioDriverPoints as IList<T>;
-
-                return (_ioDriverPoints as IList<T>).AsQueryable<T>().Where(predicate).ToList();
-            }
-            else if (typeof(IoCollectionPoint) == typeT)
-            {
-                if (predicate == null) return _ioCollectionPoints as IList<T>;
-
-                return (_ioCollectionPoints as IList<T>).AsQueryable<T>().Where(predicate).ToList();
+                return (theList as IQueryable<T>).Where(p => p != null).ToList();
             }
             else
             {
-                throw new InvalidOperationException();
+                return (theList as IQueryable<T>).Where(predicate).ToList();
+                //return theList.OfType<T>().AsQueryable<T>().Where(predicate).ToList();
             }
         }
         #endregion
