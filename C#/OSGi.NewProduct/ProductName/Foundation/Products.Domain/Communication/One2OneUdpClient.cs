@@ -12,14 +12,12 @@
 //----------------------------------------------------------------*/
 
 using System;
-using System.Collections.Concurrent;
-using System.Linq;
 using System.Net;
 using System.Net.Sockets;
 using System.Timers;
 using Acl.Log;
-using Products.Domain.Utility;
 using Products.Infrastructure.Events;
+using Products.Infrastructure.Messages;
 using Products.Infrastructure.Types;
 
 namespace Products.Domain.Communication
@@ -48,6 +46,13 @@ namespace Products.Domain.Communication
         #endregion
 
         #region "Constructor"
+        /// <summary>
+        /// 构造一个One2OneUdpClient对象。
+        /// </summary>
+        protected One2OneUdpClient()
+        {
+        }
+
         /// <summary>
         /// 构造一个One2OneUdpClient对象。
         /// </summary>
@@ -328,6 +333,8 @@ namespace Products.Domain.Communication
         {
             try
             {
+                GlobalMessageBus.PublishCommStateChanged(args);
+
                 if (this.CommStateChanged != null) this.CommStateChanged(this, args);
             }
             catch (System.Exception /*ex*/)
