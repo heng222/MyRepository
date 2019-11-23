@@ -13,6 +13,7 @@
 
 using System;
 using System.Collections.Concurrent;
+using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
@@ -52,9 +53,11 @@ namespace Products.Domain.Communication
         /// <summary>
         /// 构造一个One2MultiplyUdpClient对象。
         /// </summary>
+        /// <param name="localCode">本地节点编号。</param>
         /// <param name="localEndPoint">本地终结点。</param>
-        protected One2MultiplyUdpClient(IPEndPoint localEndPoint)
+        protected One2MultiplyUdpClient(uint localCode, IPEndPoint localEndPoint)
         {
+            this.LocalCode = localCode;
             this.LocalEndPoint = localEndPoint;
         }
         #endregion
@@ -65,6 +68,14 @@ namespace Products.Domain.Communication
         /// </summary>
         protected abstract ILog Log { get; }
 
+        /// <summary>
+        /// 获取本地节点类型。
+        /// </summary>
+        public abstract NodeType LocalType { get; }
+        /// <summary>
+        /// 获取本地节点的编号。
+        /// </summary>
+        public uint LocalCode { get; private set; }
         /// <summary>
         /// 获取远程节点类型。
         /// </summary>
@@ -249,7 +260,7 @@ namespace Products.Domain.Communication
                     _dataTimestamp.TryRemove(p.Key, out value);
 
                     // 通知连接中断。
-                    var args = new CommStateChangedEventArgs(false, 0, p.Key, this.RemoteType);
+                    var args = new CommStateChangedEventArgs(false, this.LocalType, this.LocalCode, this.RemoteType, p.Key);
                     this.NotifyCommStateChanged(args);
                 }
             });
@@ -300,7 +311,7 @@ namespace Products.Domain.Communication
                     // 通知连接状态
                     if (!existed)
                     {
-                        var args = new CommStateChangedEventArgs(true, 0, remoteCode, this.RemoteType);
+                        var args = new CommStateChangedEventArgs(true, this.LocalType, this.LocalCode, this.RemoteType, remoteCode);
                         this.NotifyCommStateChanged(args);
                     }
 

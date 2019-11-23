@@ -51,11 +51,13 @@ namespace Products.Domain.Communication
         /// <summary>
         /// 构造一个One2OneUdpClient对象。
         /// </summary>
+        /// <param name="localCode">本地节点编号。</param>
         /// <param name="remoteCode">远程节点编号。</param>
         /// <param name="localEndPoint">本地终结点。</param>
         /// <param name="remoteEndPoint">远程终结点。</param>
-        protected One2OneUdpClient(uint remoteCode, IPEndPoint localEndPoint, IPEndPoint remoteEndPoint)
+        protected One2OneUdpClient(uint localCode, uint remoteCode, IPEndPoint localEndPoint, IPEndPoint remoteEndPoint)
         {
+            this.LocalCode = localCode;
             this.RemoteCode = remoteCode;            
             this.LocalEndPoint = localEndPoint;
             this.RemoteEndPoint = remoteEndPoint;
@@ -68,6 +70,14 @@ namespace Products.Domain.Communication
         /// </summary>
         protected abstract ILog Log { get; }
 
+        /// <summary>
+        /// 获取本地节点类型。
+        /// </summary>
+        public abstract NodeType LocalType { get; }
+        /// <summary>
+        /// 获取本地节点的编号。
+        /// </summary>
+        public uint LocalCode { get; private set; }
         /// <summary>
         /// 获取远程节点类型。
         /// </summary>
@@ -246,7 +256,7 @@ namespace Products.Domain.Communication
                 _lastDataReceiveTime = DateTime.MinValue;
 
                 // 通知连接中断。
-                var args = new CommStateChangedEventArgs(false, 0, this.RemoteCode, this.RemoteType);
+                var args = new CommStateChangedEventArgs(false, this.LocalType, this.LocalCode, this.RemoteType, this.RemoteCode);
                 this.NotifyCommStateChanged(args);
             }
         }
@@ -296,7 +306,7 @@ namespace Products.Domain.Communication
                     // 通知连接状态
                     if (!preConnected)
                     {
-                        var args = new CommStateChangedEventArgs(true, 0, this.RemoteCode, this.RemoteType);
+                        var args = new CommStateChangedEventArgs(true, this.LocalType, this.LocalCode, this.RemoteType, this.RemoteCode);
                         this.NotifyCommStateChanged(args);
                     }
 

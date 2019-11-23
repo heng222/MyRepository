@@ -23,24 +23,28 @@ namespace Products.Infrastructure.Events
     /// </summary>
     public sealed class CommStateChangedEventArgs : EventArgs
     {
-        #region "Filed"
+        #region "Field"
         #endregion
 
         #region "Constructor"
         /// <summary>
         /// 构造一个连接变化事件参数类
         /// </summary>
-        /// <param name="connected"></param>
-        /// <param name="localId"></param>
-        /// <param name="remoteId"></param>
-        /// <param name="remoteType"></param>
-        public CommStateChangedEventArgs(bool connected, uint localId, 
-            uint remoteId, NodeType remoteType)
+        /// <param name="connected">是否连接？</param>
+        /// <param name="localType">本地节点类型。</param>
+        /// <param name="localId">本地节点编号。</param>
+        /// <param name="remoteType">远程节点类型。</param>
+        /// <param name="remoteId">远程节点编号。</param>
+        public CommStateChangedEventArgs(bool connected, 
+            NodeType localType, uint localId, 
+            NodeType remoteType, uint remoteId)
         {
             this.Connected = connected;
+
+            this.LocalDeviceType = localType;
             this.LocalDeviceID = localId;
-            this.RemoteDeviceID = remoteId;
             this.RemoteDeviceType = remoteType;
+            this.RemoteDeviceID = remoteId;
         }
         #endregion
 
@@ -50,6 +54,10 @@ namespace Products.Infrastructure.Events
         /// </summary>
         public bool Connected { get; set; }
 
+        /// <summary>
+        /// 获取本地节点类型。
+        /// </summary>
+        public NodeType LocalDeviceType { get; set; }
         /// <summary>
         /// 此事件对应的本地设备ID(此ID为设备在 本系统 中的编号，并非与接口通信时使用的编号)
         /// </summary>

@@ -63,7 +63,7 @@ namespace Products.Plugin1.Controls
                 GlobalMessageBus.PublishNewSystemEventGenerated(new NewSystemEventArgs(log));
 
                 // 模拟产生一个通信中断消息；系统将显示此消息并自动产生一个系统日志；然后持久化。
-                var args = new CommStateChangedEventArgs(false, 16, 18, NodeType.Node2);
+                var args = new CommStateChangedEventArgs(false, NodeType.Node1, 16, NodeType.Node2, 18);
                 GlobalMessageBus.PublishCommStateChanged(args);
             }
             catch (System.Exception ex)
