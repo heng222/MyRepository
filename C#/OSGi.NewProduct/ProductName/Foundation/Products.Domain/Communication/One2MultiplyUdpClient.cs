@@ -109,6 +109,12 @@ namespace Products.Domain.Communication
         /// <param name="remoteEndPoint">远程节点使用的IP终结点。</param>
         /// <returns>远程节点的编号。</returns>
         protected abstract uint GetRemoteCode(IPEndPoint remoteEndPoint);
+        /// <summary>
+        /// 在派生类中重写时，用于获取远程节点的IP终结点。
+        /// </summary>
+        /// <param name="remtoeCode">远程节点编号。</param>
+        /// <returns>远程节点的IP终结点。</returns>
+        protected abstract List<IPEndPoint> GetRemoteEndPoints(uint remtoeCode);
 
         /// <summary>
         /// 在派生类中重写时，用于处理收到的数据。
@@ -347,6 +353,20 @@ namespace Products.Domain.Communication
             if (this.LocalClient == null) return;
 
             this.LocalClient.Send(data, data.Length, remoteEndPoint);
+        }
+
+        /// <summary>
+        /// 将指定的数据发送到远程节点。
+        /// </summary>
+        /// <param name="data">将要发送的数据。</param>
+        /// <param name="remoteCode">远程节点编号。</param>
+        public void Send(byte[] data, uint remoteCode)
+        {
+            if (this.LocalClient == null) return;
+
+            var remoteEndPoints = this.GetRemoteEndPoints(remoteCode);
+
+            remoteEndPoints.ForEach(p => this.Send(data, p));
         }
         #endregion
     }
