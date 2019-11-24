@@ -305,7 +305,7 @@ namespace Products.Domain.Communication
                     if(this.RemoteEndPoint == null) this.RemoteEndPoint = remoteEP;
 
                     // 更新连接时间。
-                    var preConnected = _lastDataReceiveTime == DateTime.MinValue;
+                    var preConnected = _lastDataReceiveTime != DateTime.MinValue;
                     _lastDataReceiveTime = DateTime.Now;
 
                     // 通知连接状态
