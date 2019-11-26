@@ -84,6 +84,7 @@
   <ItemGroup>
     <Compile Include="Communication\One2MultipleUdpClient.cs" />
     <Compile Include="Communication\One2OneUdpClient.cs" />
+    <Compile Include="Communication\OneToNUdpClient.cs" />
     <Compile Include="Framework\ActivatorBase.cs" />
     <Compile Include="Framework\FrameworkActivatorBase.cs" />
     <Compile Include="NodeConfig\NodeContextImpl.cs" />
