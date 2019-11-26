@@ -60,10 +60,12 @@ namespace Products.Domain.Communication
         /// <param name="remoteCode">远程节点编号。</param>
         /// <param name="localEndPoint">本地终结点。</param>
         /// <param name="remoteEndPoint">远程终结点。</param>
-        protected One2OneUdpClient(uint localCode, uint remoteCode, IPEndPoint localEndPoint, IPEndPoint remoteEndPoint)
+        protected One2OneUdpClient(uint localCode, uint remoteCode,
+            IPEndPoint localEndPoint, IPEndPoint remoteEndPoint)
+            : this()
         {
             this.LocalCode = localCode;
-            this.RemoteCode = remoteCode;            
+            this.RemoteCode = remoteCode;
             this.LocalEndPoint = localEndPoint;
             this.RemoteEndPoint = remoteEndPoint;
         }
@@ -123,18 +125,36 @@ namespace Products.Domain.Communication
         public event EventHandler<CommStateChangedEventArgs> CommStateChanged;
         #endregion
 
-        #region "Abstract methods"
+        #region "Abstract/Virtual methods"
         /// <summary>
         /// 在派生类中重写时，用于处理初始化事件。
         /// </summary>
         protected virtual void OnOpen() { }
 
         /// <summary>
+        /// 在派生类中重写时，用于验证数据是否有效。
+        /// </summary>
+        /// <param name="data">收到的数据。</param>
+        /// <param name="remoteEndPoint">远程终结点。</param>
+        /// <returns>true表示数据是有效的，false 表示数据是无效的。</returns>
+        protected virtual bool VerifyData(byte[] data, IPEndPoint remoteEndPoint) { return true; }
+        /// <summary>
         /// 在派生类中重写时，用于处理收到的数据。
         /// </summary>
         /// <param name="data">收到的数据。</param>
         /// <param name="remoteEndPoint">远程终结点。</param>
         protected abstract void HandleDataReceived(byte[] data, IPEndPoint remoteEndPoint);
+
+        /// <summary>
+        /// 一个模板方法，用于发送数据。
+        /// </summary>
+        /// <param name="data">将要发送的数据。</param>
+        public virtual void Send(byte[] data)
+        {
+            if (this.LocalClient == null || this.RemoteEndPoint == null) return;
+
+            this.LocalClient.Send(data, data.Length, this.RemoteEndPoint);
+        }
         #endregion
 
         #region "Override methods"
@@ -203,7 +223,7 @@ namespace Products.Domain.Communication
             {
                 return 60000; // 60 秒
             }
-            else if(timeSpan.TotalSeconds >= 30)
+            else if (timeSpan.TotalSeconds >= 30)
             {
                 return 5000; // 5秒
             }
@@ -296,28 +316,31 @@ namespace Products.Domain.Communication
         {
             try
             {
-                if (LocalClient != null)
+                if (this.LocalClient == null) return;
+
+                // End Receive.
+                IPEndPoint remoteEP = null;
+                var data = LocalClient.EndReceive(ar, ref remoteEP);
+
+                // 验证数据是否有效。
+                if (!this.VerifyData(data, remoteEP)) return;
+
+                // 更新RemoteEndPoint
+                if (this.RemoteEndPoint == null) this.RemoteEndPoint = remoteEP;
+
+                // 更新连接时间。
+                var preConnected = _lastDataReceiveTime != DateTime.MinValue;
+                _lastDataReceiveTime = DateTime.Now;
+
+                // 通知连接状态
+                if (!preConnected)
                 {
-                    IPEndPoint remoteEP = null;
-                    var stream = LocalClient.EndReceive(ar, ref remoteEP);
-
-                    // 更新RemoteEndPoint
-                    if(this.RemoteEndPoint == null) this.RemoteEndPoint = remoteEP;
-
-                    // 更新连接时间。
-                    var preConnected = _lastDataReceiveTime != DateTime.MinValue;
-                    _lastDataReceiveTime = DateTime.Now;
-
-                    // 通知连接状态
-                    if (!preConnected)
-                    {
-                        var args = new CommStateChangedEventArgs(true, this.LocalType, this.LocalCode, this.RemoteType, this.RemoteCode);
-                        this.NotifyCommStateChanged(args);
-                    }
-
-                    // 在派生类中处理数据。
-                    this.HandleDataReceived(stream, remoteEP);
+                    var args = new CommStateChangedEventArgs(true, this.LocalType, this.LocalCode, this.RemoteType, this.RemoteCode);
+                    this.NotifyCommStateChanged(args);
                 }
+
+                // 在派生类中处理数据。
+                this.HandleDataReceived(data, remoteEP);
             }
             catch (System.Exception ex)
             {
@@ -343,7 +366,7 @@ namespace Products.Domain.Communication
         }
         #endregion
 
-        #region "Public methods"      
+        #region "Public methods"
         /// <summary>
         /// 打开。
         /// </summary>
@@ -354,17 +377,6 @@ namespace Products.Domain.Communication
             this.StartCheckTimer();
 
             this.OnOpen();
-        }
-
-        /// <summary>
-        /// 发送数据。
-        /// </summary>
-        /// <param name="data">将要发送的数据。</param>
-        public void Send(byte[] data)
-        {
-            if (this.LocalClient == null || this.RemoteEndPoint == null) return;
-
-            this.LocalClient.Send(data, data.Length, this.RemoteEndPoint);
         }
         #endregion
     }
