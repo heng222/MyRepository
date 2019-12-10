@@ -63,7 +63,7 @@ namespace Products.Domain.Communication
         /// <summary>
         /// 获取远程节点的编号。
         /// </summary>
-        public uint RemoteCode { get; private set; }
+        public uint RemoteCode { get; protected set; }
         /// <summary>
         /// 获取远程通信终结点。
         /// </summary>
@@ -81,6 +81,14 @@ namespace Products.Domain.Communication
         {
             if (this.LocalClient == null || this.RemoteEndPoint == null) return;
 
+            // 消息通知。
+            if (this.PublishDataOutgoing)
+            {
+                var args = new DataOutgoingEventArgs(data, this.LocalType, this.LocalCode, this.RemoteType, this.RemoteCode);
+                GlobalMessageBus.PublishDataOutgoing(args, this);
+            }
+
+            // 发送
             this.LocalClient.Send(data, data.Length, this.RemoteEndPoint);
         }
         #endregion

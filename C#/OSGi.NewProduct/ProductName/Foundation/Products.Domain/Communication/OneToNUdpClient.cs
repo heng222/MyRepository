@@ -88,10 +88,23 @@ namespace Products.Domain.Communication
         protected abstract bool ReuseAddress { get; }
 
         /// <summary>
-        /// 获取远程数据的有效期N（秒），当N秒没有收到远程数据时，通知连接中断。
+        /// 获取远程数据的有效期N（秒），当N秒没有收到远程数据时，通信中断。
         /// 小于等于0时表示不检查。
         /// </summary>
         protected virtual int RemoteDataExpiredTime { get { return -1; } }
+
+        /// <summary>
+        /// 是否在全局总线上发布CommStateChanged消息？
+        /// </summary>
+        protected virtual bool PublishCommStateChanged { get { return true; } }
+        /// <summary>
+        /// 是否在全局总线上发布DataIncoming消息？
+        /// </summary>
+        protected virtual bool PublishDataIncoming { get { return true; } }
+        /// <summary>
+        /// 是否在全局总线上发布DataOutgoing消息？
+        /// </summary>
+        protected virtual bool PublishDataOutgoing { get { return true; } }
 
         /// <summary>
         /// 一个事件，当与远程节点通信状态改变时引发。
@@ -208,12 +221,11 @@ namespace Products.Domain.Communication
         {
             try
             {
-                if (this.LocalType != NodeType.None && this.GetRemoteType(e.Data) != NodeType.None)
+                if (this.PublishCommStateChanged)
                 {
                     var remoteType = this.GetRemoteType(e.Data);
 
                     var args = new CommStateChangedEventArgs(e.Avaliable, this.LocalType, this.LocalCode, remoteType, e.Data);
-
                     GlobalMessageBus.PublishCommStateChanged(args);
 
                     if (this.CommStateChanged != null) this.CommStateChanged(this, args);
@@ -249,20 +261,26 @@ namespace Products.Domain.Communication
                 IPEndPoint remoteEP = null;
                 var data = LocalClient.EndReceive(ar, ref remoteEP);
 
+                // 消息通知。
+                var remoteCode = this.GetRemoteCode(remoteEP);
+                if (this.PublishDataIncoming)
+                {
+                    var remoteType = this.GetRemoteType(remoteCode);
+                    var args = new DataIncomingEventArgs(data, this.LocalType, this.LocalCode, remoteType, remoteCode);
+                    GlobalMessageBus.PublishDataIncoming(args, this);
+                }
+
                 // 验证数据是否有效。
                 if (!this.VerifyData(data, remoteEP)) return;
 
-                // 获取远程编号。
-                var remoteCode = this.GetRemoteCode(remoteEP);
+                // 在派生类中处理数据。
+                this.HandleDataReceived(data, remoteEP);
 
                 // 更新连接时间。
                 if (_commStateChecker != null)
                 {
                     _commStateChecker.Refresh(remoteCode);
                 }
-
-                // 在派生类中处理数据。
-                this.HandleDataReceived(data, remoteEP);
             }
             catch (System.Exception ex)
             {

@@ -16,7 +16,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Products.Domain.Utility
+namespace Products.Domain
 {
     /// <summary>
     /// 全局帮助类。
@@ -49,5 +49,49 @@ namespace Products.Domain.Utility
             return result.ToArray();
         }
 
+        /// <summary>
+        /// IEnumerable.ForEach 扩展方法。
+        /// </summary>
+        public static void ForEach<T>(this IEnumerable<T> items, Action<T> action)
+        {
+            var it = items.GetEnumerator();
+            while (it.MoveNext())
+            {
+                action(it.Current);
+            }
+        }
+
+        /// <summary>
+        /// 异或运算。
+        /// </summary>
+        public static byte Xor(byte[] bytes, int startIndex, int count)
+        {
+            var result = 0;
+            for (int i = startIndex; i < startIndex + count; i++)
+            {
+                result ^= bytes[i];
+            }
+
+            return Convert.ToByte(result);
+        }
+
+        /// <summary>
+        /// 将列车ID与端点ID转换为编号。
+        /// </summary>
+        public static uint BuildCode(ushort trainID, ushort terminalID)
+        {
+            return Convert.ToUInt32((trainID << 16) + terminalID);
+        }
+
+        /// <summary>
+        /// 将编号分割为列车ID与端点ID。
+        /// </summary>
+        public static Tuple<ushort, ushort> SplitCode(uint code)
+        {
+            var trainID = Convert.ToUInt16((code >> 16) & 0xFFFF);
+            var terminalID = Convert.ToUInt16(code & 0xFFFF);
+
+            return new Tuple<ushort, ushort>(trainID, terminalID);
+        }
     }
 }

@@ -62,7 +62,7 @@ namespace Products.Domain.Communication
         /// </summary>
         /// <param name="remtoeCode">远程节点编号。</param>
         /// <returns>远程节点的IP终结点。</returns>
-        protected abstract List<IPEndPoint> GetRemoteEndPoints(uint remtoeCode);
+        protected abstract IEnumerable<IPEndPoint> GetRemoteEndPoints(uint remtoeCode);
 
         /// <summary>
         /// 一个模板方法，用于发送数据。
@@ -73,6 +73,16 @@ namespace Products.Domain.Communication
         {
             if (this.LocalClient == null) return;
 
+            // 消息通知。
+            if (this.PublishDataOutgoing)
+            {
+                var remoteID = this.GetRemoteCode(remoteEndPoint);
+                var remoteType = this.GetRemoteType(remoteID);
+                var args = new DataOutgoingEventArgs(data, this.LocalType, this.LocalCode, remoteType, remoteID);
+                GlobalMessageBus.PublishDataOutgoing(args, this);
+            }
+
+            // 发送
             this.LocalClient.Send(data, data.Length, remoteEndPoint);
         }
         #endregion

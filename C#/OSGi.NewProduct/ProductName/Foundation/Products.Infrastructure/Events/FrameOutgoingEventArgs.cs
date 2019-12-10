@@ -20,14 +20,13 @@ using Products.Infrastructure.Types;
 namespace Products.Infrastructure.Events
 {
     /// <summary>
-    /// 协议帧输出事件参数类。
-    /// 用于发件人期望送件人将协议帧发送到目的地。
+    /// 数据输出事件参数类。
     /// </summary>
-    public class FrameOutgoingEventArgs<TProtocol> : EventArgs where TProtocol : ProtocolFrame
+    public class DataOutgoingEventArgs : EventArgs
     {
-        #region "Filed"
+        #region "Field"
         /// <summary>
-        /// 如果指定了目的地，则不再根据路由规则进行转发。
+        /// 目的地。
         /// </summary>
         private List<uint> _destDevices = new List<uint>();
         #endregion
@@ -36,79 +35,67 @@ namespace Products.Infrastructure.Events
         /// <summary>
         /// 构造一个协议帧接收消息的事件参数类
         /// </summary>
-        /// <param name="frame">协议帧对象的引用，不能为空</param>
-        public FrameOutgoingEventArgs(TProtocol frame)
+        public DataOutgoingEventArgs(byte[] data,
+            NodeType localType, uint localID,
+            NodeType remoteType)
         {
-            if (frame == null) throw new ArgumentNullException();
+            if (data == null) throw new ArgumentNullException();
 
-            this.Frame = frame;
-
-            this.BytesStream = new byte[0];
             this.ExtraDelay = 0;
-            this.ForcedSend = false;
+
+            this.Data = data;
+            this.LocalType = localType;
+            this.LocalCode = localID;
+            this.RemoteType = remoteType;
         }
+
         /// <summary>
         /// 构造一个协议帧接收消息的事件参数类
         /// </summary>
-        /// <param name="bytesStream">协议帧对应的字节流</param>
-        public FrameOutgoingEventArgs(byte[] bytesStream)
+        public DataOutgoingEventArgs(byte[] data,
+            NodeType localType, uint localID,
+            NodeType remoteType, UInt32 remoteCode)
+            : this(data, localType, localID, remoteType)
         {
-            if (bytesStream == null) throw new ArgumentNullException();
-
-            this.BytesStream = bytesStream;
-
-            this.Frame = null;
-            this.ExtraDelay = 0;
-            this.ForcedSend = false;
+            _destDevices.Add(remoteCode);
         }
         #endregion
 
         #region "Properties"
         /// <summary>
+        /// 获取本地节点类型。
+        /// </summary>
+        public NodeType LocalType { get; set; }
+        /// <summary>
+        /// 本地设备ID。
+        /// </summary>
+        public uint LocalCode { get; set; }
+
+        /// <summary>
         /// 获取/设置目标设备类型。
         /// </summary>
-        public NodeType DestDeviceType { get; set; }   
+        public NodeType RemoteType { get; set; }
         /// <summary>
         /// 获取目的设备ID列表
         /// </summary>
-        public uint[] DestDeviceIDs
-        {
-            get { return _destDevices.ToArray(); }
-        }
+        public IEnumerable<uint> RemoteCodes { get { return _destDevices; } }
 
         /// <summary>
         /// 获取一个值，用于表示目的地是否为空。
         /// 如果指定了目的地，则不再根据路由规则进行转发。
         /// </summary>
-        public bool IsDestEmpty
-        {
-            get { return _destDevices.Count == 0; }
-        }
-        
-        /// <summary>
-        /// 表示将要发送的协议帧，可以为空。
-        /// </summary>
-        public TProtocol Frame { get; set; }
+        public bool IsDestEmpty { get { return _destDevices.Count == 0; } }
 
         /// <summary>
-        /// 设置/获取协议帧关联的字节流。为空引用时表示不对外公开协议帧内容。
+        /// 设置/获取协议帧关联的字节流。
         /// </summary>
-        public byte[] BytesStream { get; set; }
+        public byte[] Data { get; set; }
 
         /// <summary>
-        /// 获取/设置一个值，用于表示协议帧的附加时延。
-        /// 一般用于协议帧转发时。
+        /// 获取/设置一个值，用于表示协议帧的附加时延（单位：毫秒）。
         /// </summary>
         public uint ExtraDelay { get; set; }
 
-        /// <summary>
-        /// 是否强制发送。
-        /// 默认值为false，表示仅当本节点为主机时才发送协议帧。为true时，表示忽略主备状态，强制发送。
-        /// </summary>
-        public bool ForcedSend { get; set; }
-        #endregion
-
-        #region "Override methods"
         #endregion
 
         #region "Private methods"
@@ -146,5 +133,85 @@ namespace Products.Infrastructure.Events
         }
         #endregion
 
+    }
+
+    /// <summary>
+    /// 协议帧输出事件参数类。
+    /// </summary>
+    public class FrameOutgoingEventArgs : DataOutgoingEventArgs
+    {
+        #region "Field"
+        #endregion
+
+        #region "Constructor"
+        /// <summary>
+        /// 构造函数。
+        /// </summary>
+        public FrameOutgoingEventArgs(byte[] data,
+            NodeType localType, uint localID,
+            NodeType remoteType, UInt32 remoteCode)
+            : base(data, localType, localID, remoteType, remoteCode)
+        {
+
+        }
+
+        /// <summary>
+        /// 构造函数。
+        /// </summary>
+        public FrameOutgoingEventArgs(ProtocolFrame frame, byte[] data,
+            NodeType localType, uint localID,
+            NodeType remoteType, UInt32 remoteCode)
+            : base(data, localType, localID, remoteType, remoteCode)
+        {
+            this.Frame = frame;
+        }
+        #endregion
+
+        #region "Properties"
+        /// <summary>
+        /// 获取将要发送的协议帧，可以为空。
+        /// </summary>
+        public ProtocolFrame Frame { get; set; }
+        #endregion
+    }
+
+    /// <summary>
+    /// 协议帧输出事件参数类。
+    /// </summary>
+    public class FrameOutgoingEventArgs<TProtocol> : FrameOutgoingEventArgs where TProtocol : ProtocolFrame
+    {
+        #region "Field"
+        #endregion
+
+        #region "Constructor"
+        /// <summary>
+        /// 构造函数。
+        /// </summary>
+        public FrameOutgoingEventArgs(byte[] data,
+            NodeType localType, uint localID,
+            NodeType remoteType, UInt32 remoteCode)
+            : base(data, localType, localID, remoteType, remoteCode)
+        {
+
+        }
+
+        /// <summary>
+        /// 构造函数。
+        /// </summary>
+        public FrameOutgoingEventArgs(TProtocol frame, byte[] data,
+            NodeType localType, uint localID,
+            NodeType remoteType, UInt32 remoteCode)
+            : base(data, localType, localID, remoteType, remoteCode)
+        {
+            this.Frame = frame;
+        }
+        #endregion
+
+        #region "Properties"
+        /// <summary>
+        /// 获取将要发送的协议帧，可以为空。
+        /// </summary>
+        public new TProtocol Frame { get; set; }
+        #endregion
     }
 }

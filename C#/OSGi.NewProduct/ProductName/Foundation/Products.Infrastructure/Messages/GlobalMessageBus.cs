@@ -49,6 +49,53 @@ namespace Products.Infrastructure.Messages
         }
 
         #endregion
+        
+        #region "数据收发消息"
+        /// <summary>
+        /// 数据收发消息总线。
+        /// </summary>
+        static IMessageBus DataIoMessagBus = LocalMessageBus.NewMessageBus();
+        /// <summary>
+        /// 消息：接收到数据
+        /// </summary>
+        const string FrameIncoming = "local://Communication/DataFrameIncoming";
+        /// <summary>
+        /// 消息：发送数据
+        /// </summary>
+        const string FrameOutgoing = "local://Communication/DataFrameOutgoing";
+
+        /// <summary>
+        /// 订阅数据进入消息
+        /// </summary>
+        public static IDisposable SubscribeDataIncoming(Action<object, DataIncomingEventArgs> handler)
+        {
+            return DataIoMessagBus.Subscribe<DataIncomingEventArgs>(FrameIncoming, handler, SubscribeMode.Sync);
+        }
+        /// <summary>
+        /// 发布数据进入消息
+        /// </summary>
+        public static IMessageResponse PublishDataIncoming(DataIncomingEventArgs args, object sender = null)
+        {
+            return DataIoMessagBus.Publish(FrameIncoming, args, sender, false);
+        }
+
+        /// <summary>
+        /// 订阅数据离去消息
+        /// </summary>
+        public static IDisposable SubscribeDataOutgoing(Action<object, DataOutgoingEventArgs> handler)
+        {
+            return DataIoMessagBus.Subscribe<DataOutgoingEventArgs>(FrameOutgoing,
+                handler, SubscribeMode.Sync);
+        }
+        /// <summary>
+        /// 发布数据离去消息
+        /// </summary>
+        public static IMessageResponse PublishDataOutgoing(DataOutgoingEventArgs args, object sender = null)
+        {
+            return DataIoMessagBus.Publish(FrameOutgoing, args, sender, false);
+        }
+
+        #endregion
 
         #region "系统内部协议帧相关消息"
         /// <summary>
