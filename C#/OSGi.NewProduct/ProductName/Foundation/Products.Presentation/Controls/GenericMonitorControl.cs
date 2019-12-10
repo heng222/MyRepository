@@ -22,6 +22,10 @@ namespace Products.Presentation
         private class TreeNodeTag
         {
             /// <summary>
+            /// The frame object. Can be null.
+            /// </summary>
+            public object Frame { get; set; }
+            /// <summary>
             /// The stream.
             /// </summary>
             public byte[] Stream { get; set; }
@@ -30,19 +34,15 @@ namespace Products.Presentation
             /// </summary>
             public IStreamFrameParser<byte> Parser { get; set; }
             /// <summary>
-            /// Data descriptor.
+            /// Record description.
             /// </summary>
-            public object DataDescriptor { get; set; }
+            public string RecordDescription { get; set; }
 
-            /// <summary>
-            /// 
-            /// </summary>
-            /// <param name="stream"></param>
-            /// <param name="parser"></param>
-            public TreeNodeTag(byte[] stream, IStreamFrameParser<byte> parser = null)
+            public TreeNodeTag(object frame, byte[] stream, IStreamFrameParser<byte> parser = null)
             {
                 if (stream == null) throw new ArgumentNullException();
 
+                this.Frame = frame;
                 this.Stream = stream;
                 this.Parser = parser;
             }
@@ -54,17 +54,18 @@ namespace Products.Presentation
         private class IncomingData
         {
             public string RemoteDeviceID { get; set; }
+            public object Frame { get; set; }
             public byte[] Stream { get; set; }
             public IStreamFrameParser<byte> Parser { get; set; }
             public DateTime CreationTime { get; private set; }
-            public object DataDescriptor { get; set; }
 
-            public IncomingData(string remoteDeviceID, byte[] stream, IStreamFrameParser<byte> parser)
+            public IncomingData(string remoteDeviceID, byte[] stream, object frame, IStreamFrameParser<byte> parser)
             {
                 this.CreationTime = DateTime.Now;
 
                 this.RemoteDeviceID = remoteDeviceID;
                 this.Stream = stream;
+                this.Frame = frame;
                 this.Parser = parser;
             }
         }
@@ -75,18 +76,20 @@ namespace Products.Presentation
         private class OutgoingData
         {
             public string RemoteDeviceID { get; set; }
+            public object Frame { get; set; }
             public byte[] Stream { get; set; }
             public IStreamFrameParser<byte> Parser { get; set; }
             public string ToolTipText { get; set; }
             public DateTime CreationTime { get; private set; }
-            public object DataDescriptor { get; set; }
 
-            public OutgoingData(string remoteDeviceID, byte[] stream, IStreamFrameParser<byte> parser, string toolTipText)
+            public OutgoingData(string remoteDeviceID, byte[] stream, object frame, IStreamFrameParser<byte> parser,
+                string toolTipText)
             {
                 this.CreationTime = DateTime.Now;
 
                 this.RemoteDeviceID = remoteDeviceID;
                 this.Stream = stream;
+                this.Frame = frame;
                 this.Parser = parser;
                 this.ToolTipText = toolTipText;
             }
@@ -136,7 +139,7 @@ namespace Products.Presentation
             InitializeComponent();
 
             this.CreateHandle();
-            
+
             _inputStreamDefaultParser = defaultInputStreamParser;
             _outputStreamDefaultParser = defaultOutputStreamParser;
 
@@ -157,18 +160,24 @@ namespace Products.Presentation
         #endregion
 
         #region "properites"
-        ///// <summary>
-        ///// 获取/设置一个值，用于表明是否实时显示协议帧。
-        ///// </summary>
-        //public bool AliveFrameEnabled
-        //{
-        //    get { return _aliveFrameEnabled; }
-        //    set
-        //    {
-        //        _aliveFrameEnabled = value;
-        //        this.enableAliveDataToolStripMenuItem.Checked = value;
-        //    }
-        //}
+        /// <summary>
+        /// 获取/设置一个值，用于表明是否同步刷新详细数据。
+        /// </summary>
+        public bool SyncDetailed
+        {
+            get { return chkSyncRefresh.Checked; }
+            set { chkSyncRefresh.Checked = value; }
+        }
+
+        /// <summary>
+        /// 是否显示通信状态？
+        /// </summary>
+        public bool CommStateVisible 
+        {
+            get { return pictureBox1.Visible; }
+            set { pictureBox1.Visible = value; }
+        }
+
         /// <summary>
         /// 是否显示输入流。
         /// </summary>
@@ -234,6 +243,11 @@ namespace Products.Presentation
                         _remoteDeviceState.Add(remoteDeviceID, connected);
 
                         cbxRemoteIDs.Items.Add(remoteDeviceID);
+
+                        if (cbxRemoteIDs.Items.Count == 1)
+                        {
+                            cbxRemoteIDs.SelectedIndex = 0;
+                        }
                     }
                     else
                     {
@@ -245,15 +259,10 @@ namespace Products.Presentation
                             this.UpdateConnectionImage(remoteDeviceID);
                         }
                     }
-
-                    if (cbxRemoteIDs.Items.Count == 1)
-                    {
-                        cbxRemoteIDs.SelectedIndex = 0;
-                    }
                 });
             }
             catch (System.Exception /*ex*/)
-            {            	
+            {
             }
         }
 
@@ -262,11 +271,11 @@ namespace Products.Presentation
         /// </summary>
         /// <param name="remoteDeviceID">远程设备编号</param>
         /// <param name="stream">数据流</param>
+        /// <param name="frame">数据流对应的协议帧对象。</param>
         /// <param name="parser">数据流对应的解析器</param>
-        /// <param name="dataDescriptor">数据描述器</param>
-        public void AddIncomingStream(string remoteDeviceID, byte[] stream, IStreamFrameParser<byte> parser = null, object dataDescriptor = null)
+        public void AddIncomingStream(string remoteDeviceID, byte[] stream, object frame = null, IStreamFrameParser<byte> parser = null)
         {
-            _inputProductCache.AddProduct(new IncomingData(remoteDeviceID, stream, parser) { DataDescriptor = dataDescriptor });
+            _inputProductCache.AddProduct(new IncomingData(remoteDeviceID, stream, frame, parser));
         }
 
         /// <summary>
@@ -274,13 +283,13 @@ namespace Products.Presentation
         /// </summary>
         /// <param name="remoteDeviceID">远程设备编号</param>
         /// <param name="stream">数据流</param>
+        /// <param name="frame">数据流对应的协议帧对象。</param>
         /// <param name="parser">数据流对应的解析器</param>
         /// <param name="toolTipText">当鼠标悬停在TreeNode之上时显示的文字。</param>
-        /// <param name="dataDescriptor">数据描述器</param>
-        public void AddOutgoingStream(string remoteDeviceID, byte[] stream, IStreamFrameParser<byte> parser = null,
-            string toolTipText = null, object dataDescriptor = null)
+        public void AddOutgoingStream(string remoteDeviceID, byte[] stream, object frame = null, IStreamFrameParser<byte> parser = null,
+            string toolTipText = null)
         {
-            _outputProductCache.AddProduct(new OutgoingData(remoteDeviceID, stream, parser, toolTipText) { DataDescriptor = dataDescriptor });
+            _outputProductCache.AddProduct(new OutgoingData(remoteDeviceID, stream, frame, parser, toolTipText));
         }
 
         /// <summary>
@@ -295,7 +304,7 @@ namespace Products.Presentation
                 this.txtDetail.Clear();
             }
             catch (System.Exception /*ex*/)
-            {            	
+            {
             }
         }
         #endregion
@@ -315,11 +324,11 @@ namespace Products.Presentation
             this.cbxConfidtion3.SelectedIndex = 0;
             this.cmbCondition1Operator.SelectedIndex = 0;
             this.cmbCondition2Operator.SelectedIndex = 0;
-            this.cmbCondition3Operator.SelectedIndex = 0; 
+            this.cmbCondition3Operator.SelectedIndex = 0;
 
             this.RefresshFilterPanel();
         }
-                
+
         private void UpdateConnectionImage(string deviceID)
         {
             try
@@ -458,54 +467,37 @@ namespace Products.Presentation
             }
         }
 
-        /// <summary>
-        /// 显示当前选中节点的信息。
-        /// </summary>
-        private void ShowSelectedInfo(TreeNodeTag tag)
+        private string GetOrUpdateNodeDetailedInfo(TreeNodeTag tag)
         {
-            if (tag == null)
+            if (!string.IsNullOrEmpty(tag.RecordDescription)) return tag.RecordDescription;
+
+            // 构建流的原始内容。
+            var sb = new StringBuilder(256);
+            sb.AppendFormat("原始字节流（{0}）：\r\n{1}", tag.Stream.Length,
+                string.Join(" ", tag.Stream.Select(p => string.Format("{0:X2}", p))));
+
+            // 构建解析后的内容。
+            if (tag.Frame != null)
             {
-                throw new ArgumentNullException();
+                sb.AppendFormat("\r\n\r\n解析后：\r\n{0}", tag.Frame);
             }
-
-            // 清空原内容
-            txtDetail.Text = "";
-
-            // 取出上下文
-            var stream = tag.Stream;
-
-            // 构建流的原始内容
-            var streamContent = new StringBuilder(256);
-            if (tag.DataDescriptor != null)
-            {
-                streamContent.AppendFormat("{0} \r\n", tag.DataDescriptor);
-            }
-            else
-            {
-                streamContent.Append("原始字节流：\r\n");
-                foreach (var item in stream)
-                {
-                    streamContent.AppendFormat("{0:X2} ", item);
-                }
-            }
-
-            // 解析流
-            if (tag.Parser != null)
+            else if (tag.Parser != null)
             {
                 string msg;
                 try
                 {
-                    msg = tag.Parser.Parse(stream, 0).ToString();
+                    msg = tag.Parser.Parse(tag.Stream, 0).ToString(); // 解析流
                 }
                 catch (System.Exception ex)
                 {
                     msg = ex.ToString();
                 }
 
-                streamContent.AppendFormat("\r\n\r\n解析后：\r\n{0}", msg);
+                sb.AppendFormat("\r\n\r\n解析后：\r\n{0}", msg);
             }
 
-            txtDetail.Text = streamContent.ToString();
+            tag.RecordDescription = sb.ToString();
+            return tag.RecordDescription;
         }
 
         private void CreateProductCache(uint timeout)
@@ -529,18 +521,13 @@ namespace Products.Presentation
             {
                 flag = this.IncomingStreamVisable && this.IsHandleCreated;
 
-                //if (flag)
-                //{
-                //    this.Invoke(new Action(() => this.tvMessageSummary.BeginUpdate()));
-                //}
-
                 foreach (var data in e.Products)
                 {
                     // 如果RemoteDevice中没有包含此ID，则添加。
                     if (!_remoteDeviceState.ContainsKey(data.RemoteDeviceID))
                     {
                         _remoteDeviceState.Add(data.RemoteDeviceID, false);
-                        this.Invoke(() =>cbxRemoteIDs.Items.Add(data.RemoteDeviceID));
+                        this.Invoke(() => cbxRemoteIDs.Items.Add(data.RemoteDeviceID));
                     }
 
                     if (flag)
@@ -552,19 +539,6 @@ namespace Products.Presentation
             catch (System.Exception /*ex*/)
             {
             }
-            //finally
-            //{
-            //    try
-            //    {
-            //        if (flag)
-            //        {
-            //            this.Invoke(new Action(() =>this.tvMessageSummary.EndUpdate()));
-            //        }
-            //    }
-            //    catch (System.Exception /*ex*/)
-            //    {                	
-            //    }
-            //}
         }
 
         private void OnOutgoingCacheProductCreated(object sender, ProductCreatedEventArgs<OutgoingData> e)
@@ -617,27 +591,34 @@ namespace Products.Presentation
         {
             try
             {
-                string remoteDeviceID = theData.RemoteDeviceID;
-                byte[] stream = theData.Stream;
-                IStreamFrameParser<byte> parser = theData.Parser;
+                if (cbxRemoteIDs.Items.Count > 0 && cbxRemoteIDs.SelectedIndex == -1) cbxRemoteIDs.SelectedIndex = 0;
 
                 if (this.IncomingStreamVisable
-                    && this.cbxRemoteIDs.Text == remoteDeviceID
-                    && this.FilterStream(stream))
+                    && this.cbxRemoteIDs.Text == theData.RemoteDeviceID
+                    && this.FilterStream(theData.Stream))
                 {
-                    // clear 
-                    if (tvMessageSummary.Nodes.Count > this.MaxSummaryCount)
+                    // 防止频繁刷新。
+                    if (tvMessageSummary.Nodes.Count >= this.MaxSummaryCount
+                        && tvMessageSummary.SelectedNode != null
+                        && tvMessageSummary.SelectedNode.Index == 0)
+                    {
+                        this.chkSyncRefresh.Checked = false;
+                    }
+
+                    // 清除过期数据。 
+                    if (tvMessageSummary.Nodes.Count >= this.MaxSummaryCount)
                     {
                         tvMessageSummary.Nodes.RemoveAt(0);
                     }
 
                     // 如果没有指定解析器，则使用默认的解析器。
+                    var parser = theData.Parser;
                     if (parser == null) parser = _inputStreamDefaultParser;
 
                     // Create a node
-                    TreeNode node = new TreeNode();
-                    node.Tag = new TreeNodeTag(stream, parser) { DataDescriptor = theData.DataDescriptor };                    
-                    node.Text = string.Format("{0}, {1}", remoteDeviceID, theData.CreationTime.ToString("yyyy-MM-dd HH:mm:ss.fff"));
+                    var node = new TreeNode();
+                    node.Tag = new TreeNodeTag(theData.Frame, theData.Stream, parser);
+                    node.Text = string.Format("{0}, {1}", theData.RemoteDeviceID, theData.CreationTime.ToString("yyyy-MM-dd HH:mm:ss.fff"));
                     node.ImageKey = "InputStream";
                     node.SelectedImageKey = "InputStream_Selected";
 
@@ -650,36 +631,42 @@ namespace Products.Presentation
                 this.txtDetail.Text = ex.ToString();
             }
         }
-        
+
         private void ShowOutgoingStream(OutgoingData theData)
         {
             try
             {
-                string remoteDeviceID = theData.RemoteDeviceID;
-                byte[] stream = theData.Stream;
-                IStreamFrameParser<byte> parser = theData.Parser;
-                string toolTipText = theData.ToolTipText;
+                if (cbxRemoteIDs.Items.Count > 0 && cbxRemoteIDs.SelectedIndex == -1) cbxRemoteIDs.SelectedIndex = 0;
 
                 if (this.OutgoingStreamVisable
-                    && this.cbxRemoteIDs.Text == remoteDeviceID
-                    && this.FilterStream(stream))
+                    && this.cbxRemoteIDs.Text == theData.RemoteDeviceID
+                    && this.FilterStream(theData.Stream))
                 {
-                    // clear 
-                    if (tvMessageSummary.Nodes.Count > this.MaxSummaryCount)
+                    // 防止频繁刷新。
+                    if (tvMessageSummary.Nodes.Count >= this.MaxSummaryCount
+                        && tvMessageSummary.SelectedNode != null
+                        && tvMessageSummary.SelectedNode.Index == 0)
+                    {
+                        this.chkSyncRefresh.Checked = false;
+                    }
+
+                    // 清除过期数据。 
+                    if (tvMessageSummary.Nodes.Count >= this.MaxSummaryCount)
                     {
                         tvMessageSummary.Nodes.RemoveAt(0);
                     }
 
                     // 如果没有指定解析器，则使用默认的解析器。
+                    var parser = theData.Parser;
                     if (parser == null) parser = _outputStreamDefaultParser;
 
                     // Create a node
-                    TreeNode node = new TreeNode();
-                    node.Tag = new TreeNodeTag(stream, parser) { DataDescriptor = theData.DataDescriptor };   
-                    node.Text = string.Format("{0}, {1}", remoteDeviceID, theData.CreationTime.ToString("yyyy-MM-dd HH:mm:ss.fff"));
+                    var node = new TreeNode();
+                    node.Tag = new TreeNodeTag(theData.Frame, theData.Stream, parser);
+                    node.Text = string.Format("{0}, {1}", theData.RemoteDeviceID, theData.CreationTime.ToString("yyyy-MM-dd HH:mm:ss.fff"));
                     node.ImageKey = "OutputStream";
                     node.SelectedImageKey = "outputStream_Selected";
-                    node.ToolTipText = toolTipText;
+                    node.ToolTipText = theData.ToolTipText;
                     node.ForeColor = Color.Blue;
 
                     // Add Node
@@ -730,21 +717,65 @@ namespace Products.Presentation
             }
         }
 
+        private void txtDetail_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (txtDetail.SelectionLength == 0)
+            {
+                _selectionLen = 0;
+            }
+        }
+
+        int _firstVisableCharPos, _selectionStart, _selectionLen;
+
         /// <summary>
         /// tvSummay树形控件的选择事件
         /// </summary>
         private void tvMessageSummary_AfterSelect(object sender, TreeViewEventArgs e)
         {
+            if (!this.chkSyncRefresh.Checked) return;
+
+            var showLastSelectedText = false; // 能否显示上一次选择的文本？
+
             try
             {
-                if (this.chkSyncRefresh.Checked)
+                var txtToDisplay = this.GetOrUpdateNodeDetailedInfo(e.Node.Tag as TreeNodeTag);
+                if (string.IsNullOrEmpty(txtToDisplay)) return;
+
+                if (txtDetail.SelectionLength > 0)
                 {
-                    this.ShowSelectedInfo(e.Node.Tag as TreeNodeTag);
+                    _selectionStart = txtDetail.SelectionStart;
+                    _selectionLen = txtDetail.SelectionLength;
                 }
+
+                showLastSelectedText = txtToDisplay.Length >= (_selectionStart + _selectionLen);
+                if (showLastSelectedText)
+                {
+                    var pt = new Point(txtDetail.Font.Height, txtDetail.Font.Height);
+                    _firstVisableCharPos = txtDetail.GetCharIndexFromPosition(pt); // 可视范围内第一个字符的位置。
+
+                    txtDetail.Hide();
+                }
+
+                txtDetail.Text = txtToDisplay;
             }
             catch (System.Exception ex)
             {
-                txtDetail.Text += ex.ToString();
+                txtDetail.Text = ex.ToString();
+            }
+            finally
+            {
+                if (showLastSelectedText)
+                {
+                    // 滚动到之前的位置
+                    txtDetail.Select(_firstVisableCharPos, 0);
+                    txtDetail.ScrollToCaret();
+
+                    // 选中之前的范围。
+                    if (_selectionLen > 0) txtDetail.Select(_selectionStart, _selectionLen);
+                }
+
+                // 恢复显示。
+                txtDetail.Show();
             }
         }
 
@@ -814,7 +845,7 @@ namespace Products.Presentation
             {
                 if (this.chkSyncRefresh.Checked && this.tvMessageSummary.SelectedNode != null)
                 {
-                    this.ShowSelectedInfo(this.tvMessageSummary.SelectedNode.Tag as TreeNodeTag);
+                    this.GetOrUpdateNodeDetailedInfo(this.tvMessageSummary.SelectedNode.Tag as TreeNodeTag);
                 }
             }
             catch (System.Exception ex)
@@ -832,11 +863,11 @@ namespace Products.Presentation
             {
                 if (!string.IsNullOrEmpty(this.CommLogPath))
                 {
-                    System.Diagnostics.Process.Start("explorer", this.CommLogPath);
+                    Process.Start("explorer", this.CommLogPath);
                 }
                 else
                 {
-                    MessageBox.Show("日志路径不可用。", "提示", 
+                    MessageBox.Show("日志路径不可用。", "提示",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
@@ -853,7 +884,7 @@ namespace Products.Presentation
                 this.txtDetail.Clear();
             }
             catch (System.Exception /*ex*/)
-            {            	
+            {
             }
         }
         #endregion

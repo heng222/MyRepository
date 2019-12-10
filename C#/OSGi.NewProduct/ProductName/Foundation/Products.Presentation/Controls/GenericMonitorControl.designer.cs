@@ -14,10 +14,14 @@ namespace Products.Presentation
         /// <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
         protected override void Dispose(bool disposing)
         {
-            if (disposing && (components != null))
+            if (disposing)
             {
-                components.Dispose();
+                if (components != null) components.Dispose();
+
+                if (_inputProductCache != null) _inputProductCache.Close();
+                if (_outputProductCache != null) _outputProductCache.Close();
             }
+
             base.Dispose(disposing);
         }
 
@@ -549,11 +553,13 @@ namespace Products.Presentation
             // 
             this.txtDetail.ContextMenuStrip = this.contextMenuDetail;
             this.txtDetail.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDetail.HideSelection = false;
             this.txtDetail.Location = new System.Drawing.Point(14, 16);
             this.txtDetail.Name = "txtDetail";
             this.txtDetail.Size = new System.Drawing.Size(100, 96);
             this.txtDetail.TabIndex = 0;
             this.txtDetail.Text = "";
+            this.txtDetail.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtDetail_MouseClick);
             // 
             // contextMenuDetail
             // 
