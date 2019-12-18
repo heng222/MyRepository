@@ -86,6 +86,8 @@
     <Compile Include="Communication\One2OneSerialPort.cs" />
     <Compile Include="Communication\One2OneUdpClient.cs" />
     <Compile Include="Communication\OneToNUdpClient.cs" />
+    <Compile Include="Extensions\ControlExtension.cs" />
+    <Compile Include="Extensions\IEnumerableExtension.cs" />
     <Compile Include="Framework\ActivatorBase.cs" />
     <Compile Include="Framework\FrameworkActivatorBase.cs" />
     <Compile Include="NodeConfig\NodeContextImpl.cs" />

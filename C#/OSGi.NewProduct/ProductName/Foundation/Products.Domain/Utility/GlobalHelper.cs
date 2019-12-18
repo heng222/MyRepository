@@ -50,18 +50,6 @@ namespace Products.Domain
         }
 
         /// <summary>
-        /// IEnumerable.ForEach 扩展方法。
-        /// </summary>
-        public static void ForEach<T>(this IEnumerable<T> items, Action<T> action)
-        {
-            var it = items.GetEnumerator();
-            while (it.MoveNext())
-            {
-                action(it.Current);
-            }
-        }
-
-        /// <summary>
         /// 异或运算。
         /// </summary>
         public static byte Xor(byte[] bytes, int startIndex, int count)

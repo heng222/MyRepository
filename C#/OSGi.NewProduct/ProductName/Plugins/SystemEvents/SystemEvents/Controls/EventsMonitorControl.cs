@@ -58,10 +58,10 @@ namespace Products.SystemEvents.Controls
         {
             try
             {
-                this.Invoke(new Action(() =>
+                this.Invoke(() =>
                 {
                     this.ShowSysEventLog(args.Value);
-                }));
+                }, LogUtility.Log);
             }
             catch (System.Exception ex)
             {

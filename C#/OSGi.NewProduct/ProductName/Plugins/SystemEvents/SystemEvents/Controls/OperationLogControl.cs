@@ -67,10 +67,10 @@ namespace Products.SystemEvents.Controls
         {
             try
             {
-                this.Invoke(new Action(() =>
+                this.Invoke(() =>
                 {
                     this.ShowOperationLog(args.Value);
-                }));
+                }, LogUtility.Log);
             }
             catch (System.Exception ex)
             {
