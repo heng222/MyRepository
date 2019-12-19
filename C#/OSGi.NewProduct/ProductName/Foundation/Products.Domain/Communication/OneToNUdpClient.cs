@@ -132,6 +132,12 @@ namespace Products.Domain.Communication
         protected abstract NodeType GetRemoteType(uint remoteCode);
 
         /// <summary>
+        /// 在派生类中重写时，用于处理远程终结点。
+        /// </summary>
+        /// <param name="remoteEndPoint">远程终结点。</param>
+        protected virtual void HandleRemoteEndPoint(IPEndPoint remoteEndPoint) { }
+
+        /// <summary>
         /// 在派生类中重写时，用于验证数据是否有效。
         /// </summary>
         /// <param name="data">收到的数据。</param>
@@ -260,6 +266,9 @@ namespace Products.Domain.Communication
                 // End Receive.
                 IPEndPoint remoteEP = null;
                 var data = LocalClient.EndReceive(ar, ref remoteEP);
+
+                // 处理远程终结点。
+                this.HandleRemoteEndPoint(remoteEP);
 
                 // 消息通知。
                 var remoteCode = this.GetRemoteCode(remoteEP);

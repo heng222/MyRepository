@@ -112,7 +112,7 @@ namespace Products.Domain.Communication
         /// </summary>
         /// <param name="remoteEndPoint">远程节点使用的IP终结点。</param>
         /// <returns>远程节点的编号。</returns>
-        protected override uint GetRemoteCode(IPEndPoint remoteEndPoint)
+        protected sealed override uint GetRemoteCode(IPEndPoint remoteEndPoint)
         {
             return this.RemoteCode;
         }
@@ -122,17 +122,16 @@ namespace Products.Domain.Communication
         /// </summary>
         /// <param name="remoteCode">远程节点编号。</param>
         /// <returns>远程节点的编号。</returns>
-        protected override NodeType GetRemoteType(uint remoteCode)
+        protected sealed override NodeType GetRemoteType(uint remoteCode)
         {
             return this.RemoteType;
         }
 
         /// <summary>
-        /// 在派生类中重写时，用于处理收到的数据。
+        /// 在派生类中重写时，用于处理远程终结点。
         /// </summary>
-        /// <param name="data">收到的数据。</param>
         /// <param name="remoteEndPoint">远程终结点。</param>
-        protected override void HandleDataReceived(byte[] data, IPEndPoint remoteEndPoint)
+        protected sealed override void HandleRemoteEndPoint(IPEndPoint remoteEndPoint)
         {
             if (this.RemoteEndPoint == null)
             {
