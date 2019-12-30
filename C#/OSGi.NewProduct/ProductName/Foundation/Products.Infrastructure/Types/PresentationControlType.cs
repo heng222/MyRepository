@@ -29,6 +29,12 @@ namespace Products.Infrastructure.Types
         NixieTubeClock = 2,
         #endregion
 
+        /// <summary>
+        /// 日志报告
+        /// </summary>
+        [MemberDesAttribute("日志报告")]
+        LogReport = 5,
+
         #region "SEM / 系统事件管理"
         /// <summary>
         /// 系统事件

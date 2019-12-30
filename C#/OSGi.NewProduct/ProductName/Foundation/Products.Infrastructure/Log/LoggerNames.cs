@@ -31,6 +31,11 @@ namespace Products.Infrastructure.Log
         /// </summary>
         [MemberDes("持久化")]
         public const string Persistence = "持久化";
+        /// <summary>
+        /// Shell
+        /// </summary>
+        [MemberDes("日志报告")]
+        public const string LogReport = "LogReport";
 
         /// <summary>
         /// Shell

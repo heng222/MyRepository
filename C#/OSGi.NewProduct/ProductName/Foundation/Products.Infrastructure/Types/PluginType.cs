@@ -38,25 +38,30 @@ namespace Products.Infrastructure.Types
         /// <summary>
         /// 内部通信插件
         /// </summary>
-        [MemberDesAttribute("内部通信插件")]
+        [MemberDesAttribute("内部通信")]
         Communication = (1L << 0),
         /// <summary>
         /// 主备决策插件
         /// </summary>
-        [MemberDesAttribute("主备决策插件")]
+        [MemberDesAttribute("主备决策")]
         HotStandby = (1L << 1),
         /// <summary>
         /// 时钟同步插件
         /// </summary>
-        [MemberDesAttribute("时钟同步插件")]
+        [MemberDesAttribute("时钟同步")]
         NTP = (1L << 2),
         /// <summary>
         /// 持久化插件
         /// </summary>
-        [MemberDesAttribute("持久化插件")]
+        [MemberDesAttribute("持久化")]
         Persistence = (1L << 3),
+        /// <summary>
+        /// 日至报告插件
+        /// </summary>
+        [MemberDesAttribute("日志报告")]
+        LogReport = (1L << 3),
 
-        // 3 ~ 7位预留。
+        // 
 
         /// <summary>
         /// 系统事件管理
@@ -66,12 +71,12 @@ namespace Products.Infrastructure.Types
         /// <summary>
         /// 用户管理插件
         /// </summary>
-        [MemberDesAttribute("用户管理插件")]
+        [MemberDesAttribute("用户管理")]
         UAC = (1L << 9),
         /// <summary>
         /// 节点管理插件
         /// </summary>
-        [MemberDesAttribute("节点管理插件")]
+        [MemberDesAttribute("节点管理")]
         NDM = (1L << 10),
 
         // 11 ~ 15位预留。

@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Configuration xmlns="urn:bundle-manifest-1.0"
+         Bundle-SymbolicName="LogReport"
+         Bundle-Description="日志报告"   
+         Bundle-Name="LogReport"
+         Bundle-StartLevel="50"
+         Bundle-Version="1.0.1"
+         >
+  <Bundle-Activator Type="Products.LogReport.Activator"/>
+  <Runtime>
+    <Assembly Path="Products.LogReport.dll" Share="true"/>
+  </Runtime>
+  
+</Configuration>

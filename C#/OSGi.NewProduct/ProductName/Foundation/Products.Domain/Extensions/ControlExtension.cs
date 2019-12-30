@@ -28,7 +28,7 @@ namespace Products
         /// <summary>
         /// 在拥有此控件的基础窗口句柄的线程上执行指定的方法。
         /// </summary>
-        public static object Invoke(this Control control, Action action, ILog log)
+        public static object Invoke(this Control control, Action action, ILog log, bool popupErrDialog = false)
         {
             return control.Invoke(new Action(() => 
             {
@@ -38,7 +38,8 @@ namespace Products
                 }
                 catch (System.Exception ex)
                 {
-                    log.Error(ex);
+                    if(log != null) log.Error(ex);
+                    if (popupErrDialog) MessageBox.Show(ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }));
         }
@@ -46,7 +47,7 @@ namespace Products
         /// <summary>
         /// 在拥有控件的基础窗口句柄的线程上，用指定的参数列表执行指定的方法。
         /// </summary>
-        public static object Invoke(this Control control, Action action, ILog log, params object[] args)
+        public static object Invoke(this Control control, Action action, ILog log, bool popupErrDialog = false, params object[] args)
         {
             return control.Invoke(new Action(() =>
             {
@@ -56,7 +57,8 @@ namespace Products
                 }
                 catch (System.Exception ex)
                 {
-                    log.Error(ex);
+                    if (log != null) log.Error(ex);
+                    if (popupErrDialog) MessageBox.Show(ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }), args);
         }
@@ -64,7 +66,7 @@ namespace Products
         /// <summary>
         /// 在创建控件的基础句柄所在线程上异步执行指定的方法。
         /// </summary>
-        public static IAsyncResult BeginInvoke(this Control control, Action action, ILog log)
+        public static IAsyncResult BeginInvoke(this Control control, Action action, ILog log, bool popupErrDialog = false)
         {
             return control.BeginInvoke(new Action(() =>
             {
@@ -74,7 +76,8 @@ namespace Products
                 }
                 catch (System.Exception ex)
                 {
-                    log.Error(ex);
+                    if (log != null) log.Error(ex);
+                    if (popupErrDialog) MessageBox.Show(ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }));
         }
@@ -83,7 +86,7 @@ namespace Products
         /// <summary>
         /// 在创建控件的基础句柄所在线程上，用指定的参数异步执行指定方法。
         /// </summary>
-        public static IAsyncResult BeginInvoke(this Control control, Action action, ILog log, params object[] args)
+        public static IAsyncResult BeginInvoke(this Control control, Action action, ILog log, bool popupErrDialog = false, params object[] args)
         {
             return control.BeginInvoke(new Action(() =>
             {
@@ -93,7 +96,8 @@ namespace Products
                 }
                 catch (System.Exception ex)
                 {
-                    log.Error(ex);
+                    if (log != null) log.Error(ex);
+                    if(popupErrDialog) MessageBox.Show(ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }), args);
         }

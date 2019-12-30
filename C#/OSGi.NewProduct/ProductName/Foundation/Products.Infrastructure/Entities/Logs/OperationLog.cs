@@ -45,17 +45,15 @@ namespace Products.Infrastructure.Entities
         public string OperationDescription { get; set; }
 
         /// <summary>
-        /// 操作结果
-        /// </summary>
-        public OperationResult ResultType { get; set; }
-
-        /// <summary>
-        /// 结果响应时间
+        /// 结果响应时间。
         /// </summary>
         public DateTime ResultTimestamp { get; set; }
-
         /// <summary>
-        /// 结果描述
+        /// 操作结果。
+        /// </summary>
+        public OperationResult ResultType { get; set; }
+        /// <summary>
+        /// 结果描述。
         /// </summary>
         public string ResultDescription { get; set; }
 

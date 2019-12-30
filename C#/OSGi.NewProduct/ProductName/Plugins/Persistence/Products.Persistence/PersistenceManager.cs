@@ -304,6 +304,21 @@ namespace Products.Persistence
         }
 
         /// <summary>
+        /// 查询数据。
+        /// </summary>
+        public IList<T> Where<T>(string sql, object namedParameters = null)
+        {
+            if (PersistenceConfig.IsTextData(typeof(T)))
+            {
+                throw new InvalidOperationException();
+            }
+            else
+            {
+                return _localSqliteRepository.Where<T>(sql, namedParameters);
+            }
+        }
+
+        /// <summary>
         /// 
         /// </summary>
         public void Insert<T>(params T[] entities) where T : Entity

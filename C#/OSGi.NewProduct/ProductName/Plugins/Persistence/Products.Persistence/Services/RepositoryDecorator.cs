@@ -41,6 +41,11 @@ namespace Products.Persistence.Services
             return this.Repository.Where<T>(predicate);
         }
 
+        public IList<T> Where<T>(string sql, object namedParameters = null)
+        {
+            return this.Repository.Where<T>(sql, namedParameters);
+        }
+
         public virtual void Insert<T>(params T[] entities) where T : Entity
         {
             this.Repository.Insert<T>(entities);

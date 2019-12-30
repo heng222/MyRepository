@@ -26,6 +26,10 @@ namespace Products.Infrastructure.Specification
         /// <returns></returns>
         IList<T> Where<T>(Expression<Func<T, bool>> predicate = null) where T : Entity;
 
+        /// <summary>
+        /// 查询数据。
+        /// </summary>
+        IList<T> Where<T>(string sql, object namedParameters = null);
         #endregion
 
 

@@ -241,6 +241,24 @@ namespace Products.Persistence.Services
                 return scheduler.Sync<IList<T>>(action);
             }
         }
+
+        /// <summary>
+        /// 查询数据。
+        /// </summary>
+        public IList<T> Where<T>(string sql, object namedParameters = null)
+        {
+            if (_dataCache.Contains<T>()) throw new InvalidOperationException("静态数据不支持SQL脚本查询");
+
+            var scheduler = this.GetAsyncPersistenceScheduler<T>();
+
+            Func<IList<T>> action = () =>
+            {
+                var db = _dbConnectionManager.GetConnection<T>();
+                return db.Query<T>(sql, namedParameters);
+            };
+
+            return scheduler.Sync<IList<T>>(action);
+        }
                 
 
         public void Insert<T>(params T[] entities) where T : Entity
