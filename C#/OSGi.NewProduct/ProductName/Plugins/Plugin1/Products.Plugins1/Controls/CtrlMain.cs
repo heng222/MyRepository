@@ -83,7 +83,7 @@ namespace Products.Plugin1.Controls
                 Task.Factory.StartNew(() =>
                 {
                     var log = new OperationLog();
-                    // 编号必须为零。
+                    // 新的操作记录，编号必须为零。
                     log.IsManual = DateTime.Now.Second % 2 == 0;
                     log.OperationDescription = "Operation X";
                     log.OperationType = OperationType.OperationX;

@@ -126,8 +126,8 @@ namespace Products.SystemEvents.Controls
 
         private DataGridViewRow FindGridRow(uint code)
         {
-            var rawCout = this.dataGridView.Rows.Count;
-            for (int i = 0; i < rawCout; i++)
+            var rowCount = this.dataGridView.Rows.Count;
+            for (int i = 0; i < rowCount; i++)
             {
                 var theRow = this.dataGridView.Rows[i];
                 if (theRow.Tag != null && (theRow.Tag as SysEventLog).Code == code)
