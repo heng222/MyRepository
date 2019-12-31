@@ -29,7 +29,7 @@ namespace Products.SystemEvents.Controls
     /// 操作记录显示控件。
     /// </summary>
     [ProductPart(ControlType = PresentationControlType.OperationLog)]
-    partial class OperationLogControl : UserControl
+    partial class CtrlOperationRecord : UserControl
     {
         #region "Constants"
         private readonly UInt32 MaxCount = 100;
@@ -49,7 +49,7 @@ namespace Products.SystemEvents.Controls
         /// <summary>
         /// 构造函数。
         /// </summary>
-        public OperationLogControl()
+        public CtrlOperationRecord()
         {
             InitializeComponent();
             this.CreateHandle();
@@ -67,7 +67,7 @@ namespace Products.SystemEvents.Controls
         {
             try
             {
-                this.Invoke(() =>
+                this.InvokeWithCatch(() =>
                 {
                     this.ShowOperationLog(args.Value);
                 }, LogUtility.Log);

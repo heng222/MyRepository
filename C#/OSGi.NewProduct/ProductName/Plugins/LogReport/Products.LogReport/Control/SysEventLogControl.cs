@@ -4,6 +4,7 @@ using Acl.Utility;
 using Acl.Controls;
 using Products.LogReport.Data;
 using Products.Infrastructure.Types;
+using System.Collections;
 
 namespace Products.LogReport.Control
 {
@@ -17,46 +18,51 @@ namespace Products.LogReport.Control
             InitialUpdate();
         }
 
+        #region "Properties"
+        public EventLevel EventLevel { get; private set; }
+        public EventType EventType { get; private set; }
+        #endregion
+
+        #region "Private methods"
+
         private void InitialUpdate()
         {
             // 初始化事件类型、事件级别
             var customDescriptors = new List<EnumUtility.IEnumFieldDescriptor>();
             customDescriptors.Add(EnumUtility.CreateDescriptor("choose", 0xFF, "--请选择--"));
-            cmbEventLevel.BindEnum(customDescriptors, false, new List<EventLevel>() { EventLevel.None });
-            cmbEventType.BindEnum(customDescriptors, false, new List<EventType>() { EventType.None });
+            cmbEventLevel.BindEnum(customDescriptors, false, new EventLevel[] { EventLevel.None });
+            cmbEventType.BindEnum(customDescriptors, false, new EventType[] { EventType.None });
         }
+        #endregion
 
-        protected override object DoQuery()
+        #region "Protected methods"
+        protected override ICollection DoQuery()
         {
-            DateTime currentDate = DateTime.Now;
-            DateTime? tempStart = null, tempStop = null;
-            string eventLevel = "";
-            string eventType = "";
-
-            this.Invoke(() =>
-            {
-                var Date1 = DateTime.Parse(this.BeginTime.ToShortDateString());
-                var Date2 = DateTime.Parse(this.EndTime.ToShortDateString());
-
-                CheckingStartStopTime(Date1, Date2);
-
-                currentDate = this.BeginTime;
-
-                tempStart = this.BeginTime;
-                tempStop = this.EndTime;
-
-                if (cmbEventLevel.SelectedIndex > 0) eventLevel = cmbEventLevel.Text;
-                if (cmbEventType.SelectedIndex > 0) eventType = cmbEventType.Text; ;
-            }, LogUtility.Log, true);
-
-            if (tempStart == null)
-            {
-                return new List<SysEventLogInfo>();
-            }
-
-            var result = SysEventLogInfoQueryable.Query(tempStart.Value, tempStop.Value, eventLevel, eventType);
-
-            return result;
+            return SysEventLogInfoQueryable.Query(this.BeginTime, this.EndTime, this.EventLevel, this.EventType);
         }
+        #endregion
+
+        #region "控件事件处理函数"
+        #endregion
+
+
+        #region "控件事件"
+
+        private void cmbEventLevel_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbEventLevel.SelectedIndex > 0)
+                this.EventLevel = cmbEventLevel.GetEnumValue<EventLevel>().Value;
+            else
+                this.EventLevel = EventLevel.None;
+        }
+
+        private void cmbEventType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbEventType.SelectedIndex > 0)
+                this.EventType = cmbEventType.GetEnumValue<EventType>().Value;
+            else
+                this.EventType = EventType.None;
+        }
+        #endregion
     }
 }

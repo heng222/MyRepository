@@ -59,7 +59,11 @@ namespace Products.Plugin1.Controls
             try
             {
                 // 模拟产生一个系统日志；系统将显示此日志并进行持久化。
-                var log = new SysEventLog(EventType.CommRecovery, EventLevel.Third, "节点 A 与节点 B 通信中断。");
+                var log = new SysEventLog(EventType.CommRecovery, EventLevel.First, "节点 A 与节点 B 通信恢复。");
+                GlobalMessageBus.PublishNewSystemEventGenerated(new NewSystemEventArgs(log));
+
+                // 模拟产生一个系统日志；系统将显示此日志并进行持久化。
+                log = new SysEventLog(EventType.CommInterruption, EventLevel.Third, "节点 A 与节点 B 通信中断。");
                 GlobalMessageBus.PublishNewSystemEventGenerated(new NewSystemEventArgs(log));
 
                 // 模拟产生一个通信中断消息；系统将显示此消息并自动产生一个系统日志；然后持久化。
@@ -80,10 +84,10 @@ namespace Products.Plugin1.Controls
                 {
                     var log = new OperationLog();
                     // 编号必须为零。
-                    log.IsManual = true;
+                    log.IsManual = DateTime.Now.Second % 2 == 0;
                     log.OperationDescription = "Operation X";
                     log.OperationType = OperationType.OperationX;
-                    log.TargetDeviceCode = 18;
+                    log.TargetDeviceCode = (uint)DateTime.Now.Second;
                     log.ResultDescription = "已发送";
 
                     // 发布消息。
@@ -94,7 +98,7 @@ namespace Products.Plugin1.Controls
                     Thread.Sleep(2000);
                     log.ResultDescription = "已执行";
                     log.ResultTimestamp = log.Timestamp + TimeSpan.FromSeconds(10);
-                    log.ResultType = OperationResult.Success;
+                    log.ResultType = DateTime.Now.Second % 2 == 0 ? OperationResult.Success : OperationResult.Failure;
                     GlobalMessageBus.PublishOperationLogChanged(args);
                 });
             }

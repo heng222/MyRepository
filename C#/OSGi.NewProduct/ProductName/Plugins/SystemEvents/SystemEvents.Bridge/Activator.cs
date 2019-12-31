@@ -50,8 +50,8 @@ namespace Products.SystemEvents.Bridge
             Workbench.SendMessage(() =>
             {
                 // 创建表示层
-                MainWorkSpace.AddPart(new EventsMonitorControl(), Resources.SystemEvent);
-                MainWorkSpace.AddPart(new OperationLogControl(), Resources.OperationLog);
+                MainWorkSpace.AddPart(new CtrlSysEvents(), Resources.SystemEvent);
+                MainWorkSpace.AddPart(new CtrlOperationRecord(), Resources.OperationLog);
 
                 //// 添加配置页面。
                 //var optionControl = new Plugin1ConfigPage();

@@ -15,9 +15,9 @@ namespace Products.LogReport.Data
     class SysEventLogInfo
     {
         /// <summary>
-        /// 应答器编号
+        /// 事件发生时间
         /// </summary>
-        public int EventCode { get; set; }
+        public DateTime Timestamp { get; set; }
 
         /// <summary>
         /// 事件类型名称。
@@ -25,29 +25,19 @@ namespace Products.LogReport.Data
         public string EventTypeName { get; set; }
 
         /// <summary>
-        /// 事件类型编号
+        /// 级别
         /// </summary>
-        public string EventTypeCode { get; set; }
+        public string Level { get; set; }
 
         /// <summary>
-        /// 事件发生时间
+        /// 描述信息
         /// </summary>
-        public DateTime Timestamp { get; set; }
+        public string Description { get; set; }
 
         /// <summary>
         /// 报文产生时间
         /// </summary>
-        public DateTime ConfirmTime { get; set; }
-
-        /// <summary>
-        /// 级别
-        /// </summary>
-        public int Level { get; set; }
-
-        /// <summary>
-        /// 时间描述信息
-        /// </summary>
-        public string Description { get; set; }
+        public string ConfirmTime { get; set; }
 
     }
 }

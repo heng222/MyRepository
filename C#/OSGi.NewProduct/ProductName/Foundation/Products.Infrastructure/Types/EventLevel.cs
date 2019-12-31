@@ -29,21 +29,21 @@ namespace Products.Infrastructure.Types
         None = 0,
 
         /// <summary>
-        /// 一级事件
+        /// 一级
         /// </summary>
-        [MemberDes("一级事件")]
+        [MemberDes("一级")]
         First = 1,
   
         /// <summary>
-        /// 二级事件
+        /// 二级
         /// </summary>
-        [MemberDes("二级事件")]
+        [MemberDes("二级")]
         Second = 2,
 
         /// <summary>
-        /// 三级事件
+        /// 三级
         /// </summary>
-        [MemberDes("三级事件")]
+        [MemberDes("三级")]
         Third = 3,
     }
 }

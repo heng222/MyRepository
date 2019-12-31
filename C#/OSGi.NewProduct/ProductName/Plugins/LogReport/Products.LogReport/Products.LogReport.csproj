@@ -163,7 +163,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="ReportForm\OperationRecord.rdlc" />
+    <EmbeddedResource Include="ReportForm\OperationLog.rdlc" />
     <EmbeddedResource Include="ReportForm\SysEventLog.rdlc" />
   </ItemGroup>
   <ItemGroup />

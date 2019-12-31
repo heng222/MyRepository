@@ -1,6 +1,6 @@
 ﻿namespace Products.SystemEvents.Controls
 {
-    partial class EventsMonitorControl
+    partial class CtrlSysEvents
     {
         /// <summary> 
         /// 必需的设计器变量。
@@ -29,7 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView = new System.Windows.Forms.DataGridView();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.confirmThisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -53,6 +54,14 @@
             this.dataGridView.AllowUserToDeleteRows = false;
             this.dataGridView.AllowUserToResizeRows = false;
             this.dataGridView.BackgroundColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.level,
             this.timestamp,
@@ -82,34 +91,34 @@
             this.removeAllToolStripMenuItem,
             this.configToolStripMenuItem});
             this.contextMenuStrip1.Name = "MenuCollocateAlarm";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 142);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(125, 120);
             this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
             // 
             // confirmThisToolStripMenuItem
             // 
             this.confirmThisToolStripMenuItem.Image = global::Products.SystemEvents.Properties.Resources.Confirm;
             this.confirmThisToolStripMenuItem.Name = "confirmThisToolStripMenuItem";
-            this.confirmThisToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.confirmThisToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.confirmThisToolStripMenuItem.Text = "确认(&C)";
             this.confirmThisToolStripMenuItem.Click += new System.EventHandler(this.confirmThisToolStripMenuItem_Click);
             // 
             // confirmAllToolStripMenuItem
             // 
             this.confirmAllToolStripMenuItem.Name = "confirmAllToolStripMenuItem";
-            this.confirmAllToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.confirmAllToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.confirmAllToolStripMenuItem.Text = "全部确认";
             this.confirmAllToolStripMenuItem.Click += new System.EventHandler(this.confirmAllToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(166, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(121, 6);
             // 
             // removeThisToolStripMenuItem
             // 
             this.removeThisToolStripMenuItem.Image = global::Products.SystemEvents.Properties.Resources.Remove;
             this.removeThisToolStripMenuItem.Name = "removeThisToolStripMenuItem";
-            this.removeThisToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.removeThisToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.removeThisToolStripMenuItem.Text = "删除(D)";
             this.removeThisToolStripMenuItem.Click += new System.EventHandler(this.removeThisToolStripMenuItem_Click);
             // 
@@ -117,14 +126,14 @@
             // 
             this.removeAllToolStripMenuItem.Image = global::Products.SystemEvents.Properties.Resources.RemoveAll;
             this.removeAllToolStripMenuItem.Name = "removeAllToolStripMenuItem";
-            this.removeAllToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.removeAllToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.removeAllToolStripMenuItem.Text = "全部删除";
             this.removeAllToolStripMenuItem.Click += new System.EventHandler(this.removeAllToolStripMenuItem_Click);
             // 
             // configToolStripMenuItem
             // 
             this.configToolStripMenuItem.Name = "configToolStripMenuItem";
-            this.configToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.configToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.configToolStripMenuItem.Text = "配置...";
             this.configToolStripMenuItem.Click += new System.EventHandler(this.configToolStripMenuItem_Click);
             // 
@@ -142,46 +151,46 @@
             // 
             // timestamp
             // 
-            this.timestamp.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.timestamp.DefaultCellStyle = dataGridViewCellStyle5;
-            this.timestamp.HeaderText = "时间";
+            this.timestamp.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.timestamp.DefaultCellStyle = dataGridViewCellStyle2;
+            this.timestamp.HeaderText = "日期与时间";
             this.timestamp.MinimumWidth = 20;
             this.timestamp.Name = "timestamp";
             this.timestamp.ReadOnly = true;
-            this.timestamp.Width = 54;
+            this.timestamp.Width = 160;
             // 
             // eventType
             // 
-            this.eventType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.eventType.HeaderText = "类型";
+            this.eventType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.eventType.HeaderText = "类别";
             this.eventType.Name = "eventType";
             this.eventType.ReadOnly = true;
-            this.eventType.ToolTipText = "事件类型";
-            this.eventType.Width = 54;
+            this.eventType.ToolTipText = "事件类别";
+            this.eventType.Width = 60;
             // 
             // description
             // 
             this.description.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.description.HeaderText = "描 述";
-            this.description.MinimumWidth = 60;
+            this.description.MinimumWidth = 20;
             this.description.Name = "description";
             this.description.ReadOnly = true;
             // 
             // ConfirmTime
             // 
-            this.ConfirmTime.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.ConfirmTime.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.ConfirmTime.HeaderText = "确认时间";
             this.ConfirmTime.Name = "ConfirmTime";
             this.ConfirmTime.ReadOnly = true;
-            this.ConfirmTime.Width = 78;
+            this.ConfirmTime.Width = 160;
             // 
-            // EventsMonitorControl
+            // CtrlSysEvents
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.dataGridView);
-            this.Name = "EventsMonitorControl";
+            this.Name = "CtrlSysEvents";
             this.Size = new System.Drawing.Size(538, 90);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);

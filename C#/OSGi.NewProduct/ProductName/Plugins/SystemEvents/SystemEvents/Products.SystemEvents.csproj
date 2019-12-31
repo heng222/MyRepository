@@ -72,17 +72,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controls\EventsMonitorControl.cs">
+    <Compile Include="Controls\CtrlSysEvents.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\EventsMonitorControl.Designer.cs">
-      <DependentUpon>EventsMonitorControl.cs</DependentUpon>
+    <Compile Include="Controls\CtrlSysEvents.Designer.cs">
+      <DependentUpon>CtrlSysEvents.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\OperationLogControl.cs">
+    <Compile Include="Controls\CtrlOperationRecord.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\OperationLogControl.Designer.cs">
-      <DependentUpon>OperationLogControl.cs</DependentUpon>
+    <Compile Include="Controls\CtrlOperationRecord.Designer.cs">
+      <DependentUpon>CtrlOperationRecord.cs</DependentUpon>
     </Compile>
     <Compile Include="Domain\EventFacade.cs" />
     <Compile Include="Domain\NodeCommEventGenerator.cs" />
@@ -121,11 +121,11 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <EmbeddedResource Include="Controls\EventsMonitorControl.resx">
-      <DependentUpon>EventsMonitorControl.cs</DependentUpon>
+    <EmbeddedResource Include="Controls\CtrlSysEvents.resx">
+      <DependentUpon>CtrlSysEvents.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\OperationLogControl.resx">
-      <DependentUpon>OperationLogControl.cs</DependentUpon>
+    <EmbeddedResource Include="Controls\CtrlOperationRecord.resx">
+      <DependentUpon>CtrlOperationRecord.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

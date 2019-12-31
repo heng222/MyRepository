@@ -1,23 +1,32 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using Acl.Utility;
 using Acl.Controls;
-using Products.LogReport.Data;
+using Acl.Utility;
 using Products.Infrastructure.Types;
 
 namespace Products.LogReport.Control
 {
-    [Report("操作记录", "操作记录", "Products.LogReport.ReportForm.OperationRecord.rdlc", Order = 5)]
+    [Report("操作记录", "操作记录", "Products.LogReport.ReportForm.OperationLog.rdlc", Order = 5)]
     partial class OperationRecordControl : QueryControl
     {
+        #region "Constructor"
         public OperationRecordControl()
         {
             InitializeComponent();
 
             InitialUpate();
         }
+        #endregion
 
+        #region "Properties"
+        public OperationType OperationType { get; private set; }
+
+        public bool? IsManual { get; private set; }
+        #endregion
+
+
+        #region "private methods"
         private void InitialUpate()
         {
             var customDescriptors = new List<EnumUtility.IEnumFieldDescriptor>();
@@ -25,35 +34,35 @@ namespace Products.LogReport.Control
 
             // 初始化执行类型
             cbxExecuteMode.SelectedIndex = 0;
-            
+
             // 初始化操作类型
             cmbOperateType.BindEnum(customDescriptors, false, new List<OperationType>() { OperationType.None });
         }
+        #endregion
 
-        protected override object DoQuery()
+        #region "Protected methods"
+        protected override ICollection DoQuery()
         {
-            var operationType = OperationType.None;
-            bool? isManual = null;
-
-            this.Invoke(() =>
-            {
-                var Date1 = DateTime.Parse(this.BeginTime.ToShortDateString());
-                var Date2 = DateTime.Parse(this.EndTime.ToShortDateString());
-
-                CheckingStartStopTime(Date1, Date2);
-                
-                if (cmbOperateType.SelectedIndex > 0) operationType = cmbOperateType.GetEnumValue<OperationType>().Value;
-                if (cbxExecuteMode.SelectedIndex > 0) isManual = cbxExecuteMode.SelectedIndex == 2;
-            }, LogUtility.Log, true);
-
-            if (isManual == null)
-            {
-                return new List<OperationRecordInfo>();
-            }
-            else
-            {
-                return OperationRecordQueryable.Query(this.BeginTime, this.EndTime, operationType, isManual).ToList();
-            }
+            return OperationRecordQueryable.Query(this.BeginTime, this.EndTime, this.OperationType, this.IsManual);
         }
+        #endregion
+
+        #region "控件事件"
+        private void cmbOperateType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbOperateType.SelectedIndex > 0)
+                this.OperationType = cmbOperateType.GetEnumValue<OperationType>().Value;
+            else
+                this.OperationType = OperationType.None;
+        }
+
+        private void cbxExecuteMode_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbxExecuteMode.SelectedIndex > 0)
+                this.IsManual = cbxExecuteMode.SelectedIndex == 2;
+            else
+                this.IsManual = null;
+        }
+        #endregion
     }
 }

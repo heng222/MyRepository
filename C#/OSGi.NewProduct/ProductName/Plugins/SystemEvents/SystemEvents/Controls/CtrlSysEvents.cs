@@ -32,7 +32,7 @@ namespace Products.SystemEvents.Controls
     /// 系统事件监视控件。
     /// </summary>
     [ProductPart(ControlType = PresentationControlType.SystemEvent)]
-    partial class EventsMonitorControl : UserControl
+    partial class CtrlSysEvents : UserControl
     {
         private readonly UInt32 MaxCount = 100;
 
@@ -43,7 +43,7 @@ namespace Products.SystemEvents.Controls
         /// <summary>
         /// 构造函数。
         /// </summary>
-        public EventsMonitorControl()
+        public CtrlSysEvents()
         {
             InitializeComponent();
             this.CreateHandle();
@@ -58,7 +58,7 @@ namespace Products.SystemEvents.Controls
         {
             try
             {
-                this.Invoke(() =>
+                this.InvokeWithCatch(() =>
                 {
                     this.ShowSysEventLog(args.Value);
                 }, LogUtility.Log);

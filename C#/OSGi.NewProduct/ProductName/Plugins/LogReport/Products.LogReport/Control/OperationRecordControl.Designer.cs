@@ -46,6 +46,7 @@
             this.cbxExecuteMode.Name = "cbxExecuteMode";
             this.cbxExecuteMode.Size = new System.Drawing.Size(121, 20);
             this.cbxExecuteMode.TabIndex = 31;
+            this.cbxExecuteMode.SelectedIndexChanged += new System.EventHandler(this.cbxExecuteMode_SelectedIndexChanged);
             // 
             // label6
             // 
@@ -64,6 +65,7 @@
             this.cmbOperateType.Name = "cmbOperateType";
             this.cmbOperateType.Size = new System.Drawing.Size(121, 20);
             this.cmbOperateType.TabIndex = 29;
+            this.cmbOperateType.SelectedIndexChanged += new System.EventHandler(this.cmbOperateType_SelectedIndexChanged);
             // 
             // label5
             // 
