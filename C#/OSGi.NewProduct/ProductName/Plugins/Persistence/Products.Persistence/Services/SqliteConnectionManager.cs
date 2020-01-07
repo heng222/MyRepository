@@ -67,20 +67,7 @@ namespace Products.Persistence.Services
         #region "Private methods"
         private IDatabase OpenDatabase(string dbSourceName)
         {
-            Acl.Data.Configuration.DbConfiguration cfg;
-
-            if (!Acl.Data.Configuration.DbConfiguration.Items.TryGetValue(dbSourceName, out cfg))
-            {
-                var dataSrc = PersistenceConfig.Settings.Get<List<DataSource>>("DataSources").Where(p => p.Name == dbSourceName).FirstOrDefault();
-                if (dataSrc == null) throw new Exception(string.Format("没有找到 DataSource={0} 的配置 。", dbSourceName));
-
-                // 
-                var urlFixed = HelperTools.FixSQLiteDbUrl(dataSrc.Url);
-                cfg = Acl.Data.Configuration.DbConfiguration.Configure(urlFixed, dataSrc.Driver, dbSourceName);
-
-                // 设置表名复数策略
-                cfg.SetMappingConversion(MappingConversion.Plural);
-            }
+            Acl.Data.Configuration.DbConfiguration cfg = PersistenceConfig.GetOrCreateDbConfiguration(dbSourceName);
 
             return cfg.Open();
         }

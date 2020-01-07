@@ -57,14 +57,6 @@
       <HintPath>..\..\..\..\Libs\Acl.Log.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Acl.MessageBus">
-      <HintPath>..\..\..\..\Libs\Acl.MessageBus.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Acl.ServiceManagement">
-      <HintPath>..\..\..\..\Libs\Acl.ServiceManagement.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="OSGi">
       <HintPath>..\..\..\..\Libs\OSGi.dll</HintPath>
       <Private>False</Private>
@@ -85,6 +77,7 @@
     <Compile Include="Config\DataSource.cs" />
     <Compile Include="Config\PersistenceConfig.cs" />
     <Compile Include="Config\TableDescriptor.cs" />
+    <Compile Include="Config\DataBaseType.cs" />
     <Compile Include="Config\TableType.cs" />
     <Compile Include="Forms\NodeSelectionForm.cs">
       <SubType>Form</SubType>

@@ -53,18 +53,8 @@
       <HintPath>..\..\..\Libs\Acl.Log.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Acl.MessageBus, Version=1.0.0.24, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\..\+泰克斯\BaliseSupervision_应答器监测\trunk\Libs\Acl.MessageBus.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="Acl.RsspI4net">
       <HintPath>..\..\..\Libs\Acl.RsspI4net.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Acl.ServiceManagement, Version=1.0.0.30, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Libs\Acl.ServiceManagement.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="OSGi">

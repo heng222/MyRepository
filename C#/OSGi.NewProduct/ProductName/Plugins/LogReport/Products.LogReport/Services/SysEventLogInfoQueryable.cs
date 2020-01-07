@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Acl.Data.Configuration;
 using Acl.Utility;
 using Products.Infrastructure.Entities;
 using Products.Infrastructure.Specification;
@@ -14,10 +15,26 @@ namespace Products.LogReport
     {
         public static List<SysEventLogInfo> Query(DateTime beginTime, DateTime endTime, EventLevel eventLevel, EventType eventType)
         {
-            var sql = BuildSql(eventLevel, eventType);
-            
-            return GlobalServices.Repository.Where<SysEventLog>(sql, new { beginTime = beginTime, endTime = endTime })
-                .Select(log => new SysEventLogInfo
+            var cfg = DbConfiguration.Configure("SqliteDb.EventLogs");
+
+            using (var dbContext = cfg.CreateDbContext())
+            {
+                IQueryable<SysEventLog> repository = dbContext.Set<SysEventLog>()
+                    .Where(p => p.Timestamp >= beginTime && p.Timestamp <= endTime);
+                
+                // 事件级别
+                if (eventLevel != EventLevel.None)
+                {
+                    repository = repository.Where(p => p.Level == eventLevel);
+                }
+
+                // 事件类型
+                if (eventType != EventType.None)
+                {
+                    repository = repository.Where(p => p.TypeCode == eventType);
+                }
+
+                var items = repository.OrderBy(p => p.Timestamp).Select(log => new SysEventLogInfo
                 {
                     Timestamp = log.Timestamp,
                     Description = log.Description,
@@ -25,28 +42,9 @@ namespace Products.LogReport
                     Level = EnumUtility.GetDescription(log.Level),
                     ConfirmTime = log.ConfirmTime == DateTime.MinValue ? string.Empty : log.ConfirmTime.ToString(),
                 }).ToList();
-        }
 
-        private static string BuildSql(EventLevel eventLevel, EventType eventType)
-        {
-            var sql = new StringBuilder(@"select * from SysEventLogs t where t.Timestamp >=@beginTime and t.Timestamp<=@endTime");
-
-            // 事件级别
-            if (eventLevel != EventLevel.None)
-            {
-                sql.AppendFormat(" and t.Level={0}", (int)eventLevel);
+                return items.ToList();
             }
-
-            // 事件类型
-            if (eventType != EventType.None)
-            {
-                sql.AppendFormat(" and t.TypeCode={0}", (int)eventType);
-            }
-
-            sql.AppendFormat(" order by t.Timestamp");
-
-            return sql.ToString();
-        }
-
+        }        
     }
 }

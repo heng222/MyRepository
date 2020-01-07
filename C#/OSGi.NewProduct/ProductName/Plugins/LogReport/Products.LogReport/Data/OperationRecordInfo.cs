@@ -17,7 +17,7 @@ namespace Products.LogReport.Data
         /// <summary>
         /// 操作时间
         /// </summary>
-        public DateTime Timestamp { get; set; }
+        public string Timestamp { get; set; }
         /// <summary>
         /// 操作类型
         /// </summary>

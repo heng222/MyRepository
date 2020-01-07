@@ -28,7 +28,6 @@ namespace Products.Persistence
     {
         #region "Data source names"
         public const string DataSourceRemoteDbName = "RemoteDatabase";
-        public const string DataSourceSqliteDb4StaticConfig = "SqliteDb4StaticConfigTables";
         #endregion
 
         #region "Table type names"
@@ -39,16 +38,21 @@ namespace Products.Persistence
 
         #region "Field"
         /// <summary>
+        /// DataSource 集合。
+        /// </summary>
+        private static List<DataSource> _dataSources;
+
+        /// <summary>
         /// TextRepository 包含的表。
         /// </summary>
         private static readonly List<Type> _textRepositoryEntityMapping = new List<Type>() { typeof(IoDriverPoint), typeof(IoCollectionPoint) };
 
         /// <summary>
-        /// SQLite数据库 DataSourceName 与 Entity 映射。
+        /// DataSourceName 与 Entity 的映射。
         /// Key = Data source name.
         /// Value = DataSource包含的表。
         /// </summary>
-        private static Dictionary<string, List<Type>> _sqliteDbEntityMapping = new Dictionary<string, List<Type>>();
+        private static Dictionary<string, List<Type>> _srcNameEntityMapping = new Dictionary<string, List<Type>>();
 
         /// <summary>
         /// 获取或设置Entity type 格式，例如"Products.Infrastructure.Entities.{0},Products.Infrastructure"
@@ -67,8 +71,8 @@ namespace Products.Persistence
             // Initialize Settings.
             var cfgPath = string.Format(@"{0}\Config\Persistence.config", Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location));
             Settings = SettingsManager.GetXmlSettings(cfgPath);
-            
-            InitializeDbEntityMapping();
+
+            InitializeSrcNameEntityMapping();
         }
         #endregion
 
@@ -77,13 +81,6 @@ namespace Products.Persistence
         /// 获取Persistence Settings。
         /// </summary>
         public static ISettings Settings { get; private set; }
-
-        /// <summary>
-        /// 获取SQLite数据库与实体的映射。
-        /// Key：Data Source Name。
-        /// Value：type of Entity.
-        /// </summary>
-        public static Dictionary<string, List<Type>> SqliteDbEntityMapping { get { return _sqliteDbEntityMapping; } }
 
         /// <summary>
         /// 获取 Table 的描述符。
@@ -98,56 +95,22 @@ namespace Products.Persistence
 
         #region "Private methods"
 
-        private static void InitializeDbEntityMapping()
+        private static void InitializeSrcNameEntityMapping()
         {
-            var dataSrcList = PersistenceConfig.Settings.Get<List<DataSource>>("DataSources").ToList();
-            dataSrcList.ForEach(p =>
+            _dataSources = PersistenceConfig.Settings.Get<List<DataSource>>("DataSources").ToList();
+            _dataSources.ForEach(p =>
             {
-                if (p.Driver.IndexOf("SQLite", StringComparison.OrdinalIgnoreCase) != -1)
-                {
-                    var tableTypes = new List<Type>();
+                var tableTypes = new List<Type>();
 
-                    var tableNames = p.Tables.Split(new char[] { ',', '，', ';', '；' }, StringSplitOptions.RemoveEmptyEntries);
-                    tableNames.ToList().ForEach(q => tableTypes.Add(ConvertToEntityType(q.Trim())));
+                var tableNames = p.Tables.Split(new char[] { ',', '，', ';', '；' }, StringSplitOptions.RemoveEmptyEntries);
+                tableNames.ToList().ForEach(q => tableTypes.Add(ConvertToEntityType(q.Trim())));
 
-                    _sqliteDbEntityMapping[p.Name] = tableTypes;
-                }
+                _srcNameEntityMapping[p.Name] = tableTypes;                
             });
         }
 
-        private static DbConfiguration CreateDbConfiguration(string dbName)
-        {
-            // 获取 exe.config 中的连接字符串。
-            var connectSettings = ConfigurationManager.ConnectionStrings.OfType<ConnectionStringSettings>()
-                .Where(p => p.Name == dbName).FirstOrDefault();
-
-            DbConfiguration cfg = null;
-
-            if (connectSettings != null)
-            {
-                cfg = DbConfiguration.Configure(dbName);
-            }
-            else
-            {
-                var dataSrc = PersistenceConfig.Settings.Get<List<DataSource>>("DataSources").Where(p => p.Name == dbName).FirstOrDefault();
-                if (dataSrc == null) throw new Exception(string.Format("没有找到 DataSource={0} 的配置 。", dbName));
-
-                var urlFixed = dataSrc.Url;
-                if (dataSrc.Driver.Contains("SQLite"))
-                {
-                    urlFixed = HelperTools.FixSQLiteDbUrl(dataSrc.Url);
-                }
-                cfg = DbConfiguration.Configure(urlFixed, dataSrc.Driver, dbName);
-            }
-
-            // 设置表名复数策略
-            cfg.SetMappingConversion(MappingConversion.Plural);
-
-            return cfg;
-        }
-
         private static void CreateTableDescriptor(Dictionary<Type, TableDescriptor> descriptors, IEnumerable<string> tableNames, TableType type)
-        {            
+        {
             foreach (var name in tableNames)
             {
                 var entityType = ConvertToEntityType(name);
@@ -166,9 +129,6 @@ namespace Products.Persistence
 
         public static void Initialize()
         {
-            // 创建远程数据库配置
-            RemoteConfiguration = CreateDbConfiguration(PersistenceConfig.DataSourceRemoteDbName);
-
             // 创建静态配置表的描述符。
             var tablesNames = Settings.Get<string>(PersistenceConfig.StaticConfigTables);
             var staticTables = HelperTools.SplitTableNames(tablesNames);
@@ -183,11 +143,54 @@ namespace Products.Persistence
             tablesNames = Settings.Get<string>(PersistenceConfig.LogTables);
             var logTables = HelperTools.SplitTableNames(tablesNames);
             CreateTableDescriptor(TableDescriptors, logTables, TableType.Log);
+
+            // 创建远程数据库配置
+            RemoteConfiguration = GetOrCreateDbConfiguration(PersistenceConfig.DataSourceRemoteDbName);
         }
 
         public static void Close()
         {
             DbConfiguration.Items.ToList().ForEach(p => p.Value.ClearPools());
+        }
+
+        public static DbConfiguration GetOrCreateDbConfiguration(string dbSourceName)
+        {
+            DbConfiguration cfg = null;
+
+            if (!Acl.Data.Configuration.DbConfiguration.Items.TryGetValue(dbSourceName, out cfg))
+            {
+                // 获取 exe.config 中的连接字符串。
+                var connectSettings = ConfigurationManager.ConnectionStrings.OfType<ConnectionStringSettings>()
+                    .Where(p => p.Name == dbSourceName).FirstOrDefault();
+
+                if (connectSettings != null)
+                {
+                    cfg = DbConfiguration.Configure(dbSourceName);
+                }
+                else
+                {
+                    var dataSrc = PersistenceConfig.Settings.Get<List<DataSource>>("DataSources").Where(p => p.Name == dbSourceName).FirstOrDefault();
+                    if (dataSrc == null) throw new Exception(string.Format("没有找到 DataSource={0} 的配置 。", dbSourceName));
+
+                    var urlFixed = dataSrc.Url;
+                    if (dataSrc.Driver.Contains("SQLite"))
+                    {
+                        urlFixed = HelperTools.FixSQLiteDbUrl(dataSrc.Url);
+                    }
+                    cfg = DbConfiguration.Configure(urlFixed, dataSrc.Driver, dbSourceName);
+                }
+
+                // 设置表名复数策略
+                cfg.SetMappingConversion(MappingConversion.Plural);
+
+                // 添加DB表映射。
+                if (_srcNameEntityMapping.ContainsKey(dbSourceName))
+                {
+                    _srcNameEntityMapping[dbSourceName].ToList().ForEach(p => cfg.ModelBuilder.AddClass(p));
+                }
+            }
+
+            return cfg;
         }
 
         public static bool IsStaticConfigTable<T>()
@@ -226,7 +229,7 @@ namespace Products.Persistence
                 return false;
             }
         }
-        
+
         public static Type ConvertToEntityType(string tableName)
         {
             var typeShortName = Acl.Inflector.Singular(tableName);
@@ -257,18 +260,24 @@ namespace Products.Persistence
         {
             return _textRepositoryEntityMapping.Contains(entityType);
         }
-        
+
         /// <summary>
-        /// 获取所有静态表信息。
+        /// 获取指定数据库类型的DataSourceName与静态表的映射关系。
         /// </summary>
-        /// <returns>一个字典对象，Key表示静态表对应的DataSource，Value表示静态表集合。</returns>
-        public static Dictionary<string, List<Type>> GetStaticTableTypes()
+        /// <returns>一个字典对象，Key表示静态表对应的DataSourceName，Value表示静态表类型集合。</returns>
+        public static Dictionary<string, List<Type>> GetStaticTableTypes(DataBaseType dbType)
         {
             var result = new Dictionary<string, List<Type>>();
 
+            // 获取所有静态表描述符。
             var allStaticTables = TableDescriptors.Values.Where(p => p.Type == TableType.StaticConfig);
 
-            foreach (var item in _sqliteDbEntityMapping)
+            // 获取指定数据类类型的映射。
+            var sqliteDbSrc = _dataSources.Where(p => (DataBaseType)p.DbType == dbType).Select(p => p.Name);
+            var theMapping = _srcNameEntityMapping.Where(p => sqliteDbSrc.Contains(p.Key)).ToDictionary(p => p.Key, q => q.Value);
+
+            // 构建DataSourceName与 Entity 的映射。
+            foreach (var item in theMapping)
             {
                 var value = item.Value.Intersect(allStaticTables.Select(p => p.EntityType)).ToList();
                 if (value.Count > 0)
@@ -280,12 +289,27 @@ namespace Products.Persistence
             return result;
         }
 
+
+        /// <summary>
+        /// 获取SQLite数据库与实体的映射。
+        /// Key：Data Source Name。
+        /// Value：SQLite数据库中包含的实体类型集合。
+        /// </summary>
+        public static Dictionary<string, List<Type>> GetSqliteDataSourceEntityMapping()
+        {
+            var sqliteDbSrc = _dataSources.Where(p => (DataBaseType)p.DbType == DataBaseType.Sqlite).Select(p => p.Name);
+
+            return _srcNameEntityMapping.Where(p => sqliteDbSrc.Contains(p.Key)).ToDictionary(p => p.Key, q => q.Value);
+        }
+
         /// <summary>
         /// 获取所有Sqlite数据库的DataSourceName。
         /// </summary>
         public static List<string> GetSqliteDataSourceNames()
         {
-            return _sqliteDbEntityMapping.Keys.ToList();
+            var sqliteSrcNameEntityMapping = GetSqliteDataSourceEntityMapping();
+
+            return sqliteSrcNameEntityMapping.Keys.ToList();
         }
 
         /// <summary>
@@ -293,9 +317,9 @@ namespace Products.Persistence
         /// </summary>
         public static string GetSqliteDataSourceName(Type entityType)
         {
-            var theItem = _sqliteDbEntityMapping.Where(p => p.Value.Contains(entityType));
+            var sqliteSrcNameEntityMapping = GetSqliteDataSourceEntityMapping();
 
-            return theItem.Count() > 0 ? theItem.First().Key : PersistenceConfig.DataSourceSqliteDb4StaticConfig;            
+            return sqliteSrcNameEntityMapping.Where(p => p.Value.Contains(entityType)).FirstOrDefault().Key;
         }
 
         #endregion

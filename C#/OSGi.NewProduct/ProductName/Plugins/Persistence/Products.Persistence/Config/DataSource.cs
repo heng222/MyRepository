@@ -27,14 +27,22 @@ namespace Products.Persistence
         /// Name
         /// </summary>
         public string Name { get; set; }
+
         /// <summary>
         /// Driver
         /// </summary>
         public string Driver { get; set; }
+
+        /// <summary>
+        /// DatabaseType.
+        /// </summary>
+        public int DbType { get; set; }
+
         /// <summary>
         /// Url
         /// </summary>
         public string Url { get; set; }
+
         /// <summary>
         /// Tables include.
         /// </summary>

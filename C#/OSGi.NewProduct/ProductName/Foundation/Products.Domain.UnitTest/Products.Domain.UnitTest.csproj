@@ -42,12 +42,6 @@
     <Reference Include="Acl.Log">
       <HintPath>..\..\..\Libs\Acl.Log.dll</HintPath>
     </Reference>
-    <Reference Include="Acl.MessageBus">
-      <HintPath>..\..\..\Libs\Acl.MessageBus.dll</HintPath>
-    </Reference>
-    <Reference Include="Acl.ServiceManagement">
-      <HintPath>..\..\..\Libs\Acl.ServiceManagement.dll</HintPath>
-    </Reference>
     <Reference Include="nunit.framework">
       <HintPath>..\..\..\Libs\nunit.framework.dll</HintPath>
     </Reference>

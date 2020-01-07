@@ -46,7 +46,8 @@ namespace Products.Persistence.Services
         {
             var dataSrcNames = PersistenceConfig.GetSqliteDataSourceNames();
 
-            _dbConnectionManager = new SqliteConnectionManager(dataSrcNames, PersistenceConfig.SqliteDbEntityMapping);
+            var sqliteDbSrcEntityMapping = PersistenceConfig.GetSqliteDataSourceEntityMapping();
+            _dbConnectionManager = new SqliteConnectionManager(dataSrcNames, sqliteDbSrcEntityMapping);
 
             this.AddDisposable(_dbConnectionManager);
         }
@@ -183,7 +184,7 @@ namespace Products.Persistence.Services
             CreateAndOpenPersistenceScheduler();
 
             // 初始化数据缓存。
-            var staticTables = PersistenceConfig.GetStaticTableTypes();
+            var staticTables = PersistenceConfig.GetStaticTableTypes(DataBaseType.Sqlite);
             foreach (var item in staticTables)
             {
                 var db = _dbConnectionManager.GetConnection(item.Key);

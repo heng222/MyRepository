@@ -49,14 +49,6 @@
       <HintPath>..\..\..\..\Libs\Acl.Log.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Acl.MessageBus">
-      <HintPath>..\..\..\..\Libs\Acl.MessageBus.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Acl.ServiceManagement">
-      <HintPath>..\..\..\..\Libs\Acl.ServiceManagement.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="Platform.Presentation">
       <HintPath>..\..\..\..\Libs\Platform.Presentation.dll</HintPath>
       <Private>False</Private>

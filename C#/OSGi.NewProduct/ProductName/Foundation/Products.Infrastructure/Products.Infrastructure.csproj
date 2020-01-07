@@ -50,17 +50,9 @@
     <Reference Include="Acl.Log">
       <HintPath>..\..\..\Libs\Acl.Log.dll</HintPath>
     </Reference>
-    <Reference Include="Acl.MessageBus, Version=1.0.0.24, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Libs\Acl.MessageBus.dll</HintPath>
-    </Reference>
     <Reference Include="Acl.RsspI4net">
       <HintPath>..\..\..\Libs\Acl.RsspI4net.dll</HintPath>
       <Private>True</Private>
-    </Reference>
-    <Reference Include="Acl.ServiceManagement, Version=1.0.0.30, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Libs\Acl.ServiceManagement.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

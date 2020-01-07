@@ -50,14 +50,6 @@
       <HintPath>..\..\..\Libs\Acl.Log.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Acl.MessageBus">
-      <HintPath>..\..\..\Libs\Acl.MessageBus.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Acl.ServiceManagement">
-      <HintPath>..\..\..\Libs\Acl.ServiceManagement.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="Acl.TimeDisplay">
       <HintPath>..\..\..\Libs\Acl.TimeDisplay.dll</HintPath>
       <Private>True</Private>
