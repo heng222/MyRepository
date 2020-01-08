@@ -28,7 +28,7 @@ namespace Products.Plugin1
     /// </summary>
     class Activator : FrameworkActivatorBase
     {
-        #region "Filed"
+        #region "Field"
         #endregion
 
         #region "Constructor"
@@ -43,10 +43,7 @@ namespace Products.Plugin1
 
         #region "Override methods"
 
-        public override PluginType Type
-        {
-            get { return PluginType.Plugin1; }
-        }
+        public override PluginType Type { get { return PluginType.Plugin1; } }
 
         protected override void OnBundleStart(IDictionary<string, string> context)
         {

@@ -23,7 +23,7 @@ namespace Products.Infrastructure.Events
     /// </summary>
     public class ProcessExitingEventArgs : EventArgs
     {
-        #region "Filed"
+        #region "Field"
         #endregion
 
         #region "Constructor"

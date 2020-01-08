@@ -59,7 +59,7 @@ namespace Products.Infrastructure.Types
         /// 日至报告插件
         /// </summary>
         [MemberDesAttribute("日志报告")]
-        LogReport = (1L << 3),
+        LogReport = (1L << 4),
 
         // 
 

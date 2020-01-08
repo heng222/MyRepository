@@ -22,7 +22,7 @@ namespace Products.Domain.Utility
     /// </summary>
     public sealed class SeqNoManager
     {
-        #region "Filed"
+        #region "Field"
 
         #endregion
 

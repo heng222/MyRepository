@@ -25,7 +25,7 @@ namespace Products.Shell
         /// </summary>
         public const string UiLayoutSuffix = "UiLayout";
 
-        #region "Filed"
+        #region "Field"
         protected List<IControlOptimizer> _controlOptimizers = new List<IControlOptimizer>();
 
         private Dictionary<ProductPartAttribute, DockContentEx> _dockContents = new Dictionary<ProductPartAttribute, DockContentEx>();

@@ -43,7 +43,7 @@ namespace Products.Infrastructure.Events
     /// </summary>
     public class FrameSentCompleteEventArgs<TProtocol> : EventArgs where TProtocol : ProtocolFrame
     {
-        #region "Filed"
+        #region "Field"
         /// <summary>
         /// 事件关联的目的地。
         /// </summary>

@@ -44,7 +44,7 @@ namespace Products.Infrastructure.Protocol
         /// </summary>
         public const uint CommandFrameValidTime = 500;
 
-        #region "Filed"
+        #region "Field"
 
         /// <summary>
         /// ֡ͷ

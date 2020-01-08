@@ -23,7 +23,7 @@ namespace Products.Infrastructure.Protocol.Framework
     /// </summary>
     public abstract class ProtocolFrame
     {
-        #region "Filed"
+        #region "Field"
         #endregion
 
         #region "Constructor"

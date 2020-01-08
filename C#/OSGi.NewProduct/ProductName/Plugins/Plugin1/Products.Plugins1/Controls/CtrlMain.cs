@@ -16,12 +16,15 @@ using System.Drawing;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Linq;
 using Products.Infrastructure.Entities;
 using Products.Infrastructure.Events;
 using Products.Infrastructure.Messages;
 using Products.Infrastructure.Types;
 using Products.Plugin1.Properties;
 using Products.Presentation;
+using Products.Infrastructure.Specification;
+using Products.Plugin1.Utilities;
 
 namespace Products.Plugin1.Controls
 {
@@ -69,6 +72,10 @@ namespace Products.Plugin1.Controls
                 // 模拟产生一个通信中断消息；系统将显示此消息并自动产生一个系统日志；然后持久化。
                 var args = new CommStateChangedEventArgs(false, NodeType.Node1, 16, NodeType.Node2, 18);
                 GlobalMessageBus.PublishCommStateChanged(args);
+
+                // 查询
+                log = GlobalServices.Repository.Where<SysEventLog>(p => p.Code == log.Code).FirstOrDefault();
+                LogUtility.Info("{0}", log);
             }
             catch (System.Exception ex)
             {
@@ -100,6 +107,10 @@ namespace Products.Plugin1.Controls
                     log.ResultTimestamp = log.Timestamp + TimeSpan.FromSeconds(10);
                     log.ResultType = DateTime.Now.Second % 2 == 0 ? OperationResult.Success : OperationResult.Failure;
                     GlobalMessageBus.PublishOperationLogChanged(args);
+
+                    // 查询
+                    log = GlobalServices.Repository.Where<OperationLog>(p => p.Code == log.Code).FirstOrDefault();
+                    LogUtility.Info("{0}", log);
                 });
             }
             catch (System.Exception ex)

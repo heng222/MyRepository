@@ -16,7 +16,7 @@ namespace Products.Domain
     /// </summary>
     public abstract class ActivatorBase : CompositeDisposable
     {
-        #region "Filed"
+        #region "Field"
         private string _logName = "";
         private List<ILifeCycleManagement> _lifeCycleManagements;
         #endregion

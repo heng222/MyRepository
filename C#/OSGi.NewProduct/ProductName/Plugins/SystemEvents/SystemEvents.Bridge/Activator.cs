@@ -18,7 +18,7 @@ namespace Products.SystemEvents.Bridge
     /// </summary>
     class Activator : FrameworkActivatorBase
     {
-        #region "Filed"
+        #region "Field"
         private EventFacade _facade;
         #endregion
 

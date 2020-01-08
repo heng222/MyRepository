@@ -74,7 +74,7 @@ namespace Products.Domain.Utility
             }
         }
 
-        #region "Filed"
+        #region "Field"
         #endregion
 
         #region "Constructor"

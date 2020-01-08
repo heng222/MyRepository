@@ -186,7 +186,7 @@ namespace Products.Persistence
                 // Ìí¼ÓDB±íÓ³Éä¡£
                 if (_srcNameEntityMapping.ContainsKey(dbSourceName))
                 {
-                    _srcNameEntityMapping[dbSourceName].ToList().ForEach(p => cfg.ModelBuilder.AddClass(p));
+                    _srcNameEntityMapping[dbSourceName].ForEach(p => cfg.ModelBuilder.AddClass(p));
                 }
             }
 

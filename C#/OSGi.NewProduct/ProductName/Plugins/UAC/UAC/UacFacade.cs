@@ -36,7 +36,7 @@ namespace Products.UAC
         {
             get 
             {
-                return new List<object>() { _verification, _topMenuProvider, new FormLogin(_verification) }; 
+                return new List<object>() { _verification, _topMenuProvider/*, new FormLogin(_verification)*/ }; 
             }
         }
     }

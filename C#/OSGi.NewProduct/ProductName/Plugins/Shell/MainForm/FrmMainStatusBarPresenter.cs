@@ -25,7 +25,7 @@ namespace Products.Shell.Presentation.MainForm
 {
     partial class FrmMainStatusBarPresenter : CompositeDisposable
     {
-        #region "Filed"
+        #region "Field"
         /// <summary>
         /// 用于显示当前时间。
         /// </summary>

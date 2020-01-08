@@ -25,7 +25,7 @@ namespace Products.Domain
     /// </summary>
     public sealed class SystemAttributeImpl : ISystemAttribute
     {
-        #region "Filed"
+        #region "Field"
         #endregion
 
         #region "Constructor"

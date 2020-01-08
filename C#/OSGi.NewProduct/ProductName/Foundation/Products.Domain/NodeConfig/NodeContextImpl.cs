@@ -28,7 +28,7 @@ namespace Products.Domain
     /// </summary>
     public class NodeContextImpl : INodeContext
     {
-        #region "Filed"
+        #region "Field"
         #endregion
 
         #region "Property"

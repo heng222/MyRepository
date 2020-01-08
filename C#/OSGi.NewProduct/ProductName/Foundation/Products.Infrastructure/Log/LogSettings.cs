@@ -23,7 +23,7 @@ namespace Products.Infrastructure.Log
     /// </summary>
     public static class LogSettings
     {
-        #region "Filed"
+        #region "Field"
         private static LogLevel _level = LogLevel.Information;
         private static ushort _expiredDays = 30;
         #endregion

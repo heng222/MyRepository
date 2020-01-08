@@ -22,7 +22,7 @@ namespace Products.Infrastructure.Log
     /// </summary>
     public static class LogLevelManager
     {
-        #region "Filed"
+        #region "Field"
         private static readonly string[] _logLevelNames = { "调试", "提示", "警告", "错误", "致命" };
         #endregion
 

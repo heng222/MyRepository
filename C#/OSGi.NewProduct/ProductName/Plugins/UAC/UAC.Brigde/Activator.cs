@@ -27,7 +27,7 @@ namespace Products.UAC.Bridge
     /// </summary>
     class Activator : FrameworkActivatorBase
     {
-        #region "Filed"
+        #region "Field"
         private UacFacade _facade;
         #endregion
 
@@ -60,10 +60,11 @@ namespace Products.UAC.Bridge
 
         protected override void OnBundleStop(IDictionary<string, string> context)
         {
-            //if (_commLifeCycle != null)
-            //{
-            //    _commLifeCycle.Close();
-            //}
+            if (_facade != null)
+            {
+                _facade.Dispose();
+                _facade = null;
+            }
         }
 
         protected override void OnFrameworkStarted()

@@ -28,7 +28,7 @@ namespace Products.Domain.Persistence
     /// </summary>
     public class CommLogStorage : IDisposable
     {
-        #region "Filed"
+        #region "Field"
 
         private bool _disposed = false;
 

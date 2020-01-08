@@ -23,7 +23,7 @@ namespace Products.Infrastructure.Messages
     public class SingleTopicSyncMessagebus<TEventArgs> : IDisposable, ISingleTopicMessageBus<TEventArgs> 
         where TEventArgs : EventArgs
     {
-        #region "Filed"
+        #region "Field"
         
         private bool _disposed = false;
         

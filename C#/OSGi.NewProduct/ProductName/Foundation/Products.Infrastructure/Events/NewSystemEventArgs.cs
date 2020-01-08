@@ -24,7 +24,7 @@ namespace Products.Infrastructure.Events
     /// </summary>
     public class NewSystemEventArgs : EventArgs
     {
-        #region "Filed"
+        #region "Field"
         #endregion
 
         #region "Constructor"
