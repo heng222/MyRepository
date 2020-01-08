@@ -65,16 +65,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\Entity.cs" />
-    <Compile Include="Entities\IoCollectionPoint.cs" />
-    <Compile Include="Entities\IoDriverPoint.cs" />
-    <Compile Include="Entities\IoPoint.cs" />
-    <Compile Include="Entities\LogEntity.cs" />
+    <Compile Include="Entities\SDM\IoCollectionPoint.cs" />
+    <Compile Include="Entities\SDM\IoDriverPoint.cs" />
+    <Compile Include="Entities\SDM\IoPoint.cs" />
+    <Compile Include="Entities\Logs\LogEntity.cs" />
     <Compile Include="Entities\Logs\OperationLog.cs" />
     <Compile Include="Entities\Logs\SysEventLog.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Entities\NDM\SystemNode.cs" />
-    <Compile Include="Entities\PluginLoadingConfig.cs" />
+    <Compile Include="Entities\System\PluginLoadingConfig.cs" />
     <Compile Include="Entities\SEM\SysEvent.cs" />
     <Compile Include="Entities\UAC\User.cs" />
     <Compile Include="Events\FrameSentCompleteEventArgs.cs" />
