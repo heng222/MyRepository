@@ -15,27 +15,43 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Acl.ComponentModel.Annotions;
+using Acl.Data.Annotions;
 
 namespace Products.Infrastructure.Entities
 {
     /// <summary>
     /// 用户实体定义
     /// </summary>
+    [Table]
     public class User : Entity
     {
         /// <summary>
         /// 名称
         /// </summary>
+        [Column]
         public string Name { get; set; }
 
         /// <summary>
         /// 密码
         /// </summary>
+        [Column]
         public byte[] Password { get; set; }
 
         /// <summary>
         /// 权限。
         /// </summary>
-        public byte[] Privileges { get; set; }
+        [Column(Name = "Privileges")]
+        private byte[] _privilegesInner;
+        /// <summary>
+        /// 获取用户权限。
+        /// </summary>
+        [Ignore]
+        //[Column(Name = "Privileges", Storage = "_privilegesInner")]
+        public SystemPrivilege[] Privileges
+        {
+            get { return _privilegesInner.Select(p => (SystemPrivilege)p).ToArray(); }
+            set { _privilegesInner = value.Select(p => (byte)p).ToArray(); }
+        }
     }
 }

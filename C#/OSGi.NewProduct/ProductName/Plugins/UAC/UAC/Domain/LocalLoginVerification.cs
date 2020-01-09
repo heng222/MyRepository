@@ -73,14 +73,7 @@ namespace Products.UAC.Domain
             // 更新用户。
             _currentUser.Id = (uint)theUser.Code;
             _currentUser.Name = theUser.Name;
-            if (theUser.Privileges != null)
-            {
-                _currentUser.Privileges = theUser.Privileges.Select(p => (SystemPrivilege)p).ToList();
-            }
-            else
-            {
-                _currentUser.Privileges.Clear();
-            }
+            _currentUser.Privileges = theUser.Privileges.ToList();
 
             // 发布用户切换事件。
             GlobalMessageBus.PublishUserChanged(new EventArgs());     

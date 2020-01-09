@@ -204,6 +204,8 @@ namespace Products.Persistence
                 {
                     _srcNameEntityMapping[dbSourceName].ForEach(p => cfg.ModelBuilder.AddClass(p));
                 }
+
+                cfg.ModelBuilder.ValidateSchema();
             }
 
             return cfg;

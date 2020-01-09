@@ -33,10 +33,6 @@ namespace Products.Infrastructure.Entities
 
             set { base.Code = Convert.ToUInt32(value); }
         }
-        /// <summary>
-        /// 
-        /// </summary>
-        public int aaa;
 
         /// <summary>
         /// 事件名称
