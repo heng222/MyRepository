@@ -18,7 +18,7 @@
               <Width>10.62539cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.5cm</Width>
+              <Width>5.43688cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -411,7 +411,7 @@
         <DataSetName>DataSet1</DataSetName>
         <Left>2.56677cm</Left>
         <Height>1.20003cm</Height>
-        <Width>27.10238cm</Width>
+        <Width>30.03926cm</Width>
         <Style>
           <Border>
             <Style>None</Style>

@@ -92,9 +92,11 @@ namespace Products.Persistence.Services
             {
                 try
                 {
-                    if (_cache.ContainsKey(entityType.Name)) continue;
+                    if (_cache.ContainsKey(entityType.Name)) continue;                                       
 
-                    using (var reader = db.ExecuteReader("select * from " + Acl.Inflector.Plural(entityType.Name)))
+                    var tableName = PersistenceConfig.ConvertToTableName(entityType);
+
+                    using (var reader = db.ExecuteReader("select * from " + db.Dialect.Quote(tableName)))
                     {
                         var enumerable = Acl.Mapper.Map(reader, typeof(IList<>).MakeGenericType(entityType));
 

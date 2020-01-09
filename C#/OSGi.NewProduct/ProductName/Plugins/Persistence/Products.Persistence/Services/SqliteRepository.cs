@@ -115,14 +115,16 @@ namespace Products.Persistence.Services
             {
                 var expiredDate = DateTime.Now.AddYears(-1);
 
-                PersistenceConfig.TableDescriptors.Where(p => p.Value.Type == TableType.Log).ToList().ForEach(p =>
+                PersistenceConfig.TableDescriptors.Where(p => p.Value.TableType == TableType.Log).ForEach(p =>
                 {
                     try
                     {
                         this.Execute(p.Value.EntityType, db =>
                         {
+                            var tableName = PersistenceConfig.ConvertToTableName(p.Value.EntityType);
+
                             var sqlText = string.Format(@"delete from {0} where {1} < @expiredDate",
-                                db.Dialect.Quote( p.Value.Name), db.Dialect.Quote("TimeStamp"));
+                                db.Dialect.Quote(tableName), db.Dialect.Quote("TimeStamp"));
 
                             db.ExecuteNonQuery(sqlText, new { expiredDate = expiredDate });
                         });
@@ -158,14 +160,19 @@ namespace Products.Persistence.Services
             _dbSchedulers.Clear();
         }
 
-        private SqliteOperationScheduler GetAsyncPersistenceScheduler<TEntity>()
+        private SqliteOperationScheduler GetOperationScheduler<TEntity>()
         {
-            return this.GetAsyncPersistenceScheduler(typeof(TEntity));
+            return this.GetOperationScheduler(typeof(TEntity));
         }
 
-        private SqliteOperationScheduler GetAsyncPersistenceScheduler(Type type)
+        private SqliteOperationScheduler GetOperationScheduler(Type type)
         {
             var connectionString = PersistenceConfig.GetSqliteDataSourceName(type);
+
+            if (string.IsNullOrWhiteSpace(connectionString))
+            {
+                throw new Exception(string.Format("没有找到类型 {0} 对应的 ConnectionString.", type));
+            }
 
             return _dbSchedulers[connectionString];
         }
@@ -225,7 +232,7 @@ namespace Products.Persistence.Services
         /// </summary>
         public IList<T> Where<T>(Expression<Func<T, bool>> condition = null) where T : Entity
         {
-            var scheduler = this.GetAsyncPersistenceScheduler<T>();
+            var scheduler = this.GetOperationScheduler<T>();
 
             if (_dataCache.Contains<T>())
             {
@@ -250,7 +257,7 @@ namespace Products.Persistence.Services
         {
             if (_dataCache.Contains<T>()) throw new InvalidOperationException("静态数据不支持SQL脚本查询");
 
-            var scheduler = this.GetAsyncPersistenceScheduler<T>();
+            var scheduler = this.GetOperationScheduler<T>();
 
             Func<IList<T>> action = () =>
             {
@@ -266,7 +273,7 @@ namespace Products.Persistence.Services
         {
             var db = _dbConnectionManager.GetConnection<T>();
 
-            GetAsyncPersistenceScheduler<T>().Async(() => db.Insert(entities));
+            GetOperationScheduler<T>().Async(() => db.Insert(entities));
         }
 
 
@@ -274,7 +281,7 @@ namespace Products.Persistence.Services
         {
             var db = _dbConnectionManager.GetConnection<T>();
 
-            GetAsyncPersistenceScheduler<T>().Async(() => db.Insert(entity));
+            GetOperationScheduler<T>().Async(() => db.Insert(entity));
         }
 
         /// <summary>
@@ -287,7 +294,7 @@ namespace Products.Persistence.Services
                 _dbConnectionManager.GetConnection<T>().Update<T>(instance, condition); 
             };
 
-            GetAsyncPersistenceScheduler<T>().Async(action);
+            GetOperationScheduler<T>().Async(action);
         }
 
         /// <summary>
@@ -301,7 +308,7 @@ namespace Products.Persistence.Services
                 db.Delete<T>(condition);
             };
 
-            GetAsyncPersistenceScheduler<T>().Async(action);
+            GetOperationScheduler<T>().Async(action);
         }
         
         public void Execute<T>(Action<IDatabase> handler) where T : Entity
@@ -311,7 +318,7 @@ namespace Products.Persistence.Services
 
         public void Execute(Type entityType, Action<IDatabase> handler)
         {
-            var scheduler = this.GetAsyncPersistenceScheduler(entityType);
+            var scheduler = this.GetOperationScheduler(entityType);
             var db = _dbConnectionManager.GetConnection(entityType);
             scheduler.Sync(() => handler(db));
         }
@@ -342,7 +349,7 @@ namespace Products.Persistence.Services
                 }
             };
 
-            var scheduler = this.GetAsyncPersistenceScheduler<T>();
+            var scheduler = this.GetOperationScheduler<T>();
             scheduler.Async(action);            
         }
         #endregion

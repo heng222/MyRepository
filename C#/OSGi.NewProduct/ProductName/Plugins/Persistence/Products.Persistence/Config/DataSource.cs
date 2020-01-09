@@ -44,8 +44,8 @@ namespace Products.Persistence
         public string Url { get; set; }
 
         /// <summary>
-        /// Tables include.
+        /// Entities includes¡£
         /// </summary>
-        public string Tables { get; set; }
+        public string Entities { get; set; }
     }
 }

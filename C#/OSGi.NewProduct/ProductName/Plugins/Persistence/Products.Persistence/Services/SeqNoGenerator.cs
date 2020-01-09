@@ -78,10 +78,13 @@ namespace Products.Persistence.Services
             return value.Next();
         }
 
-        private uint GetMaxCode<T>(IDatabase conn) where T : Entity
+        private uint GetMaxCode<T>(IDatabase db) where T : Entity
         {
-            var sql = string.Format(@"select Max(code) from {0}", Acl.Inflector.Plural(typeof(T).Name));
-            return conn.ExecuteScalar<uint>(sql);
+            var tableName = PersistenceConfig.ConvertToTableName<T>();
+
+            var sql = string.Format(@"select Max(code) from {0}", db.Dialect.Quote(tableName));
+
+            return db.ExecuteScalar<uint>(sql);
         }
     }
 }

@@ -20,20 +20,21 @@ using System.Reflection;
 using Acl.Configuration;
 using Acl.Data.Configuration;
 using Acl.Data.Mapping;
+using Acl.Reflection;
 using Products.Infrastructure.Entities;
 
 namespace Products.Persistence
 {
     static class PersistenceConfig
     {
-        #region "Data source names"
+        #region "数据库连接字符串"
         public const string DataSourceRemoteDbName = "RemoteDatabase";
         #endregion
 
-        #region "Table type names"
-        public const string StaticConfigTables = "StaticConfigTableNames";
-        public const string DynamicConfigTables = "DynamicConfigTableNames";
-        public const string LogTables = "LogTableNames";
+        #region "实体类型分组"
+        public const string StaticConfigEntities = "StaticConfigEntityNames";
+        public const string DynamicConfigEntities = "DynamicConfigEntityNames";
+        public const string LogEntities = "LogTableEntityNames";
         #endregion
 
         #region "Field"
@@ -43,14 +44,14 @@ namespace Products.Persistence
         private static List<DataSource> _dataSources;
 
         /// <summary>
-        /// TextRepository 包含的表。
+        /// TextRepository 包含的实体。
         /// </summary>
         private static readonly List<Type> _textRepositoryEntityMapping = new List<Type>() { typeof(IoDriverPoint), typeof(IoCollectionPoint) };
 
         /// <summary>
         /// DataSourceName 与 Entity 的映射。
         /// Key = Data source name.
-        /// Value = DataSource包含的表。
+        /// Value = DataSource包含的实体。
         /// </summary>
         private static Dictionary<string, List<Type>> _srcNameEntityMapping = new Dictionary<string, List<Type>>();
 
@@ -102,19 +103,21 @@ namespace Products.Persistence
             {
                 var tableTypes = new List<Type>();
 
-                var tableNames = p.Tables.Split(new char[] { ',', '，', ';', '；' }, StringSplitOptions.RemoveEmptyEntries);
+                var tableNames = p.Entities.Split(new char[] { ',', '，', ';', '；' }, StringSplitOptions.RemoveEmptyEntries);
                 tableNames.ToList().ForEach(q => tableTypes.Add(ConvertToEntityType(q.Trim())));
 
-                _srcNameEntityMapping[p.Name] = tableTypes;                
+                _srcNameEntityMapping[p.Name] = tableTypes;
             });
         }
 
-        private static void CreateTableDescriptor(Dictionary<Type, TableDescriptor> descriptors, IEnumerable<string> tableNames, TableType type)
+        private static void CreateTableDescriptor(Dictionary<Type, TableDescriptor> descriptors, IEnumerable<string> entityNames, TableType tableType)
         {
-            foreach (var name in tableNames)
+            foreach (var entityName in entityNames)
             {
-                var entityType = ConvertToEntityType(name);
-                var newValue = new TableDescriptor { EntityType = entityType, Name = name, Type = type };
+                var entityType = ConvertToEntityType(entityName);
+                var tableName = GetEntityTableName(entityType);
+
+                var newValue = new TableDescriptor { EntityType = entityType, Name = tableName, TableType = tableType };
 
                 if (descriptors.ContainsKey(newValue.EntityType))
                     throw new ArgumentException(string.Format("{0} 重复配置。", newValue.EntityType.Name));
@@ -123,6 +126,19 @@ namespace Products.Persistence
             }
         }
 
+        private static string GetEntityTableName(Type entityType)
+        {
+            var att = entityType.GetAttribute<Acl.Data.Annotions.TableAttribute>(false);
+
+            if (att != null && !string.IsNullOrWhiteSpace(att.Name))
+            {
+                return att.Name;
+            }
+            else
+            {
+                return Acl.Inflector.Plural(entityType.Name);
+            }
+        }
         #endregion
 
         #region "Public methods"
@@ -130,17 +146,17 @@ namespace Products.Persistence
         public static void Initialize()
         {
             // 创建静态配置表的描述符。
-            var tablesNames = Settings.Get<string>(PersistenceConfig.StaticConfigTables);
+            var tablesNames = Settings.Get<string>(PersistenceConfig.StaticConfigEntities);
             var staticTables = HelperTools.SplitTableNames(tablesNames);
             CreateTableDescriptor(TableDescriptors, staticTables, TableType.StaticConfig);
 
             // 创建动态配置表的描述符。
-            tablesNames = Settings.Get<string>(PersistenceConfig.DynamicConfigTables);
+            tablesNames = Settings.Get<string>(PersistenceConfig.DynamicConfigEntities);
             var dynamicCfgTables = HelperTools.SplitTableNames(tablesNames);
             CreateTableDescriptor(TableDescriptors, dynamicCfgTables, TableType.DynamicConfig);
 
             // 创建日志表的描述符。
-            tablesNames = Settings.Get<string>(PersistenceConfig.LogTables);
+            tablesNames = Settings.Get<string>(PersistenceConfig.LogEntities);
             var logTables = HelperTools.SplitTableNames(tablesNames);
             CreateTableDescriptor(TableDescriptors, logTables, TableType.Log);
 
@@ -198,7 +214,7 @@ namespace Products.Persistence
             TableDescriptor value;
             if (TableDescriptors.TryGetValue(typeof(T), out value))
             {
-                return value.Type == TableType.StaticConfig;
+                return value.TableType == TableType.StaticConfig;
             }
             else
             {
@@ -210,7 +226,7 @@ namespace Products.Persistence
             TableDescriptor value;
             if (TableDescriptors.TryGetValue(typeof(T), out value))
             {
-                return value.Type == TableType.DynamicConfig;
+                return value.TableType == TableType.DynamicConfig;
             }
             else
             {
@@ -222,7 +238,7 @@ namespace Products.Persistence
             TableDescriptor value;
             if (TableDescriptors.TryGetValue(typeof(T), out value))
             {
-                return value.Type == TableType.Log;
+                return value.TableType == TableType.Log;
             }
             else
             {
@@ -230,10 +246,9 @@ namespace Products.Persistence
             }
         }
 
-        public static Type ConvertToEntityType(string tableName)
+        public static Type ConvertToEntityType(string entityName)
         {
-            var typeShortName = Acl.Inflector.Singular(tableName);
-            var typeName = string.Format(EntityTypeFormat, typeShortName);
+            var typeName = string.Format(EntityTypeFormat, entityName);
 
             var type = System.Type.GetType(typeName);
 
@@ -243,9 +258,13 @@ namespace Products.Persistence
         }
         public static string ConvertToTableName<T>()
         {
+            return ConvertToTableName(typeof(T));
+        }
+        public static string ConvertToTableName(Type entityType)
+        {
             TableDescriptor value;
 
-            if (TableDescriptors.TryGetValue(typeof(T), out value))
+            if (TableDescriptors.TryGetValue(entityType, out value))
             {
                 return value.Name;
             }
@@ -270,7 +289,7 @@ namespace Products.Persistence
             var result = new Dictionary<string, List<Type>>();
 
             // 获取所有静态表描述符。
-            var allStaticTables = TableDescriptors.Values.Where(p => p.Type == TableType.StaticConfig);
+            var allStaticTables = TableDescriptors.Values.Where(p => p.TableType == TableType.StaticConfig);
 
             // 获取指定数据类类型的映射。
             var sqliteDbSrc = _dataSources.Where(p => (DataBaseType)p.DbType == dbType).Select(p => p.Name);

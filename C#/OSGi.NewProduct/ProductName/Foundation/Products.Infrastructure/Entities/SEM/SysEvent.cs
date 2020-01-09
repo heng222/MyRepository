@@ -26,12 +26,17 @@ namespace Products.Infrastructure.Entities
         /// <summary>
         /// 事件类型。
         /// </summary>
+        [Acl.ComponentModel.Annotions.Ignore]
         public EventType Type 
         {
             get { return (EventType)base.Code; }
 
             set { base.Code = Convert.ToUInt32(value); }
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        public int aaa;
 
         /// <summary>
         /// 事件名称

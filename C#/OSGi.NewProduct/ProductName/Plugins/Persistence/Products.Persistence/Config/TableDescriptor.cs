@@ -18,23 +18,23 @@ using System.Linq;
 namespace Products.Persistence
 {
     /// <summary>
-    /// 数据库表描述类
+    /// 表描述类。
     /// </summary>
     class TableDescriptor
     {
         /// <summary>
-        /// 表的名称，例如 “AlarmLogs”。
+        /// 表在数据库中的名称。
         /// </summary>
         public string Name { get; set; }
 
         /// <summary>
-        /// 表的类型，例如 TableType.StaticConfig。
-        /// </summary>
-        public TableType Type { get; set; }
-
-        /// <summary>
-        /// 表关联的实体类类型，例如“Products.Entities.AlarmLog”。
+        /// 表关联的实体类型，例如“Products.Entities.AlarmLog”。
         /// </summary>
         public Type EntityType { get; set; }
+
+        /// <summary>
+        /// 表类型（配置表/日志表），例如 TableType.StaticConfig。
+        /// </summary>
+        public TableType TableType { get; set; }
     }
 }
