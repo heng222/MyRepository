@@ -22,6 +22,7 @@ namespace Products.Infrastructure.Entities
     /// <summary>
     /// 系统节点实体定义。
     /// </summary>
+    [Acl.Data.Annotions.Table(Name = "ndm_SystemNodes")]
     public class SystemNode : Entity
     {
         #region "DB 字段"

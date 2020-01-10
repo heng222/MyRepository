@@ -23,7 +23,6 @@ namespace Products.Infrastructure.Entities
     /// <summary>
     /// 用户实体定义
     /// </summary>
-    [Table]
     public class User : Entity
     {
         /// <summary>
@@ -43,6 +42,7 @@ namespace Products.Infrastructure.Entities
         /// </summary>
         [Column(Name = "Privileges")]
         private byte[] _privilegesInner;
+        private SystemPrivilege[] _privileges;
         /// <summary>
         /// 获取用户权限。
         /// </summary>
@@ -50,8 +50,17 @@ namespace Products.Infrastructure.Entities
         //[Column(Name = "Privileges", Storage = "_privilegesInner")]
         public SystemPrivilege[] Privileges
         {
-            get { return _privilegesInner.Select(p => (SystemPrivilege)p).ToArray(); }
-            set { _privilegesInner = value.Select(p => (byte)p).ToArray(); }
+            get 
+            { 
+                if(_privileges == null) _privileges = _privilegesInner.Select(p => (SystemPrivilege)p).ToArray();
+                return _privileges;
+            }
+            
+            set 
+            {
+                _privileges = value;
+                _privilegesInner = value.Select(p => (byte)p).ToArray(); 
+            }
         }
     }
 }

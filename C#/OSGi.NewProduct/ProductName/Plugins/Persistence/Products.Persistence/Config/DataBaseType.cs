@@ -24,9 +24,14 @@ namespace Products.Persistence
     public enum DataBaseType
     {
         /// <summary>
+        /// 未知类型
+        /// </summary>
+        None = 0,
+
+        /// <summary>
         /// Oracle
         /// </summary>
-        Oracle = 0,
+        Oracle = 1,
         /// <summary>
         /// SqlServer
         /// </summary>

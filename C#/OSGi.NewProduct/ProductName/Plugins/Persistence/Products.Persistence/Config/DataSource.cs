@@ -44,8 +44,22 @@ namespace Products.Persistence
         public string Url { get; set; }
 
         /// <summary>
-        /// Entities includes。
+        /// DataSource 包含的实体。逗号分隔。
         /// </summary>
         public string Entities { get; set; }
+
+        /// <summary>
+        /// DataSource 包含的 TableDescriptors。
+        /// </summary>
+        [System.Xml.Serialization.XmlIgnore]
+        internal Dictionary<Type, TableDescriptor> TableDescriptors { get; set; }
+
+        /// <summary>
+        /// 构造函数。
+        /// </summary>
+        public DataSource()
+        {
+            this.TableDescriptors = new Dictionary<Type, TableDescriptor>();
+        }
     }
 }
