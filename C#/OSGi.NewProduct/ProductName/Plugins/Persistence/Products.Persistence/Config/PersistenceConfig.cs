@@ -48,7 +48,10 @@ namespace Products.Persistence
         /// <summary>
         /// TextRepository 包含的实体。
         /// </summary>
-        private static readonly List<Type> _textRepositoryEntityMapping = new List<Type>() { typeof(IoDriverPoint), typeof(IoCollectionPoint) };
+        private static readonly List<Type> _textRepositoryEntityMapping = new List<Type>() 
+		{ 
+		    typeof(IoDriverPoint), typeof(IoCollectionPoint) 
+		};
 
         /// <summary>
         /// 获取或设置Entity type 格式，例如"Products.Infrastructure.Entities.{0},Products.Infrastructure"
@@ -92,7 +95,7 @@ namespace Products.Persistence
             InitializeDataSource();
 
             // 创建远程数据库配置
-            //RemoteConfiguration = GetOrCreateDbConfiguration(PersistenceConfig.DataSourceRemoteDbName);
+            RemoteConfiguration = GetOrCreateDbConfiguration(PersistenceConfig.DataSourceRemoteDbName);
 
             DbConnectionMonitor.Current.SubscribeConnectionStateChanged(OnDbConnectionChanged);
         }
