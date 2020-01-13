@@ -34,7 +34,7 @@
             // 
             // btnGenerateSysEvent
             // 
-            this.btnGenerateSysEvent.Location = new System.Drawing.Point(19, 21);
+            this.btnGenerateSysEvent.Location = new System.Drawing.Point(179, 28);
             this.btnGenerateSysEvent.Name = "btnGenerateSysEvent";
             this.btnGenerateSysEvent.Size = new System.Drawing.Size(136, 23);
             this.btnGenerateSysEvent.TabIndex = 1;
@@ -44,7 +44,7 @@
             // 
             // btnGenerateOperationLog
             // 
-            this.btnGenerateOperationLog.Location = new System.Drawing.Point(19, 62);
+            this.btnGenerateOperationLog.Location = new System.Drawing.Point(27, 28);
             this.btnGenerateOperationLog.Name = "btnGenerateOperationLog";
             this.btnGenerateOperationLog.Size = new System.Drawing.Size(136, 23);
             this.btnGenerateOperationLog.TabIndex = 2;
@@ -59,7 +59,7 @@
             this.Controls.Add(this.btnGenerateOperationLog);
             this.Controls.Add(this.btnGenerateSysEvent);
             this.Name = "CtrlMain";
-            this.Size = new System.Drawing.Size(347, 220);
+            this.Size = new System.Drawing.Size(347, 128);
             this.ResumeLayout(false);
 
         }

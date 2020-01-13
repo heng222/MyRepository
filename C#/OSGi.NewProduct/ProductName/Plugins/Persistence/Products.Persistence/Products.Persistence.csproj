@@ -93,6 +93,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Services\DataCache.cs" />
+    <Compile Include="Services\DbConfigurationProvider.cs" />
     <Compile Include="Services\RepositoryDecorator.cs" />
     <Compile Include="Services\SqliteConnectionManager.cs" />
     <Compile Include="Services\SqliteOperationScheduler.cs" />

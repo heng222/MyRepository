@@ -98,6 +98,7 @@
     <Compile Include="Preference\SerialPortSettingNames.cs" />
     <Compile Include="Preference\SerialPortSettings.cs" />
     <Compile Include="Specification\NDM\INodeContext.cs" />
+    <Compile Include="Specification\Persistence\IDbConfigurationProvider.cs" />
     <Compile Include="Specification\Persistence\IRepository.cs" />
     <Compile Include="Specification\SEM\ISystemEventManage.cs" />
     <Compile Include="Specification\UAC\IUserLogin.cs" />

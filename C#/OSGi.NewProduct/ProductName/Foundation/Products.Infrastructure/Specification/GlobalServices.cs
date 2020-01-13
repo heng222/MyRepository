@@ -29,7 +29,15 @@ namespace Products.Infrastructure.Specification
         /// </summary>
         public static ISystemAttribute SysAttribute
         {
-            get { return ServiceManager.Current.GetAll<ISystemAttribute>().FirstOrDefault(); }
+            get { return ServiceManager.Current.Get<ISystemAttribute>(); }
+        }
+
+        /// <summary>
+        /// 获取/设置DBConfig提供器接口。
+        /// </summary>
+        public static IDbConfigurationProvider DbConfigProvider
+        {
+            get { return ServiceManager.Current.Get<IDbConfigurationProvider>(); }
         }
 
         /// <summary>
@@ -37,7 +45,7 @@ namespace Products.Infrastructure.Specification
         /// </summary>
         public static IRepository Repository
         {
-            get { return ServiceManager.Current.GetAll<IRepository>().FirstOrDefault(); }
+            get { return ServiceManager.Current.Get<IRepository>(); }
         }
 
         /// <summary>
@@ -50,7 +58,7 @@ namespace Products.Infrastructure.Specification
         /// </summary>
         public static IUserAccessControl UAC 
         {
-            get { return ServiceManager.Current.GetAll<IUserAccessControl>().FirstOrDefault(); }
+            get { return ServiceManager.Current.Get<IUserAccessControl>(); }
         }
 
         /// <summary>
@@ -58,7 +66,7 @@ namespace Products.Infrastructure.Specification
         /// </summary>
         public static ISystemEventManage SEM
         {
-            get { return ServiceManager.Current.GetAll<ISystemEventManage>().FirstOrDefault(); }
+            get { return ServiceManager.Current.Get<ISystemEventManage>(); }
         }
     }
 }

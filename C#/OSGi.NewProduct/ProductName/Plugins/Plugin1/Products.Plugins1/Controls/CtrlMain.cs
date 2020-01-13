@@ -57,32 +57,6 @@ namespace Products.Plugin1.Controls
 
         #region "控件事件处理函数"
 
-        private void btnGenerateSysEvent_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                // 模拟产生一个系统日志；系统将显示此日志并进行持久化。
-                var log = new SysEventLog(EventType.CommRecovery, EventLevel.First, "节点 A 与节点 B 通信恢复。");
-                GlobalMessageBus.PublishNewSystemEventGenerated(new NewSystemEventArgs(log));
-
-                // 模拟产生一个系统日志；系统将显示此日志并进行持久化。
-                log = new SysEventLog(EventType.CommInterruption, EventLevel.Third, "节点 A 与节点 B 通信中断。");
-                GlobalMessageBus.PublishNewSystemEventGenerated(new NewSystemEventArgs(log));
-
-                // 模拟产生一个通信中断消息；系统将显示此消息并自动产生一个系统日志；然后持久化。
-                var args = new CommStateChangedEventArgs(false, NodeType.Node1, 16, NodeType.Node2, 18);
-                GlobalMessageBus.PublishCommStateChanged(args);
-
-                // 查询
-                log = GlobalServices.Repository.Where<SysEventLog>(p => p.Code == log.Code).FirstOrDefault();
-                LogUtility.Info("{0}", log);
-            }
-            catch (System.Exception ex)
-            {
-                MessageBox.Show(ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
         private void btnGenerateOperationLog_Click(object sender, EventArgs e)
         {
             try
@@ -107,11 +81,33 @@ namespace Products.Plugin1.Controls
                     log.ResultTimestamp = log.Timestamp + TimeSpan.FromSeconds(10);
                     log.ResultType = DateTime.Now.Second % 2 == 0 ? OperationResult.Success : OperationResult.Failure;
                     GlobalMessageBus.PublishOperationLogChanged(args);
-
-                    // 查询
-                    log = GlobalServices.Repository.Where<OperationLog>(p => p.Code == log.Code).FirstOrDefault();
-                    LogUtility.Info("{0}", log);
                 });
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show(ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnGenerateSysEvent_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // 模拟产生一个系统日志；系统将显示此日志并进行持久化。
+                var log = new SysEventLog(EventType.CommRecovery, EventLevel.First, "节点 A 与节点 B 通信恢复。");
+                GlobalMessageBus.PublishNewSystemEventGenerated(new NewSystemEventArgs(log));
+
+                // 模拟产生一个系统日志；系统将显示此日志并进行持久化。
+                log = new SysEventLog(EventType.CommInterruption, EventLevel.Third, "节点 A 与节点 B 通信中断。");
+                GlobalMessageBus.PublishNewSystemEventGenerated(new NewSystemEventArgs(log));
+
+                // 模拟产生一个通信中断消息；系统将显示此消息并自动产生一个系统日志；然后持久化。
+                var args = new CommStateChangedEventArgs(false, NodeType.Node1, 16, NodeType.Node2, 18);
+                GlobalMessageBus.PublishCommStateChanged(args);
+
+                // 查询
+                log = GlobalServices.Repository.Where<SysEventLog>(p => p.Code == log.Code).FirstOrDefault();
+                LogUtility.Info("{0}", log);
             }
             catch (System.Exception ex)
             {

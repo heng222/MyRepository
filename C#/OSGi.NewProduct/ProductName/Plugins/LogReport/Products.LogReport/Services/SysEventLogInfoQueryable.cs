@@ -15,36 +15,41 @@ namespace Products.LogReport
     {
         public static List<SysEventLogInfo> Query(DateTime beginTime, DateTime endTime, EventLevel eventLevel, EventType eventType)
         {
-            var cfg = DbConfiguration.Configure("SqliteDb.EventLogs");
+            var values = new List<SysEventLogInfo>();
 
-            using (var dbContext = cfg.CreateDbContext())
+            GlobalServices.Repository.Execute<SysEventLog>(db =>
             {
-                IQueryable<SysEventLog> repository = dbContext.Set<SysEventLog>()
-                    .Where(p => p.Timestamp >= beginTime && p.Timestamp <= endTime);
-                
-                // 事件级别
-                if (eventLevel != EventLevel.None)
+                using (var dbContext = db.Cfg.CreateDbContext())
                 {
-                    repository = repository.Where(p => p.Level == eventLevel);
+                    IQueryable<SysEventLog> repository = dbContext.Set<SysEventLog>()
+                        .Where(p => p.Timestamp >= beginTime && p.Timestamp <= endTime);
+
+                    // 事件级别
+                    if (eventLevel != EventLevel.None)
+                    {
+                        repository = repository.Where(p => p.Level == eventLevel);
+                    }
+
+                    // 事件类型
+                    if (eventType != EventType.None)
+                    {
+                        repository = repository.Where(p => p.TypeCode == eventType);
+                    }
+
+                    var items = repository.OrderBy(p => p.Timestamp).Select(log => new SysEventLogInfo
+                    {
+                        Timestamp = log.Timestamp,
+                        Description = log.Description,
+                        EventTypeName = EnumUtility.GetDescription(log.TypeCode),
+                        Level = EnumUtility.GetDescription(log.Level),
+                        ConfirmTime = log.ConfirmTime == DateTime.MinValue ? string.Empty : log.ConfirmTime.ToString(),
+                    }).ToList();
+
+                    values = items.ToList();
                 }
+            });
 
-                // 事件类型
-                if (eventType != EventType.None)
-                {
-                    repository = repository.Where(p => p.TypeCode == eventType);
-                }
-
-                var items = repository.OrderBy(p => p.Timestamp).Select(log => new SysEventLogInfo
-                {
-                    Timestamp = log.Timestamp,
-                    Description = log.Description,
-                    EventTypeName = EnumUtility.GetDescription(log.TypeCode),
-                    Level = EnumUtility.GetDescription(log.Level),
-                    ConfirmTime = log.ConfirmTime == DateTime.MinValue ? string.Empty : log.ConfirmTime.ToString(),
-                }).ToList();
-
-                return items.ToList();
-            }
+            return values;
         }        
     }
 }

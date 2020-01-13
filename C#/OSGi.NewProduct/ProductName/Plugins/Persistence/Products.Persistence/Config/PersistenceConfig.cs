@@ -70,10 +70,10 @@ namespace Products.Persistence
         /// </summary>
         public static Dictionary<Type, TableDescriptor> TableDescriptors
         {
-            get 
+            get
             {
-                return _dataSources.Values.SelectMany(p => p.TableDescriptors.Values).ToDictionary(p => p.EntityType, q => q); 
-            } 
+                return _dataSources.Values.SelectMany(p => p.TableDescriptors.Values).ToDictionary(p => p.EntityType, q => q);
+            }
         }
 
         /// <summary>
@@ -333,11 +333,11 @@ namespace Products.Persistence
             var result = new Dictionary<string, List<Type>>();
 
             // 获取所有静态表描述符。
-            var staticTableDescriptors = _dataSources.Values.SelectMany(p => p.TableDescriptors.Values).Where(p=>p.TableType == TableType.StaticConfig);
+            var staticTableDescriptors = _dataSources.Values.SelectMany(p => p.TableDescriptors.Values).Where(p => p.TableType == TableType.StaticConfig);
 
             // 获取指定数据类类型的映射。
             var sqliteSrcNames = _dataSources.Where(p => (DataBaseType)p.Value.DbType == dbType).Select(p => p.Value.Name);
-            var theMapping = _dataSources.Where(p => sqliteSrcNames.Contains(p.Key)).ToDictionary(p => p.Key, q => q.Value.TableDescriptors.Select(k=>k.Value.EntityType));
+            var theMapping = _dataSources.Where(p => sqliteSrcNames.Contains(p.Key)).ToDictionary(p => p.Key, q => q.Value.TableDescriptors.Select(k => k.Value.EntityType));
 
             // 构建 DataSourceName 与 Entity 的映射。
             foreach (var item in theMapping)
@@ -362,6 +362,16 @@ namespace Products.Persistence
         {
             return _dataSources.Values.Where(p => (DataBaseType)p.DbType == DataBaseType.Sqlite)
                 .ToDictionary(p => p.Name, q => q.TableDescriptors.Values.Select(k => k.EntityType).ToList());
+        }
+
+        /// <summary>
+        /// 获取指定实体类型对应的 DataSourceName。
+        /// </summary>
+        public static String GetDataSourceName(Type entityType)
+        {
+            var theValue = _dataSources.Values.Where(p => p.TableDescriptors.Values.Select(k => k.EntityType).Contains(entityType)).FirstOrDefault();
+
+            return theValue != null ? theValue.Name : String.Empty;
         }
 
         /// <summary>

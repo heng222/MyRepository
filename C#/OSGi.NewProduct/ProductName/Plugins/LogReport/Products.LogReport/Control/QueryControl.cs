@@ -109,6 +109,12 @@ namespace Products.LogReport
         #endregion
 
         #region "控件事件处理函数"
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+            dtEnd.Value = DateTime.Now;
+        }
+
         private void btnQuery_Click(object sender, EventArgs e)
         {
             try

@@ -15,8 +15,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Acl.ServiceManagement;
 using Products.Infrastructure.Entities;
 using Products.Infrastructure.Specification;
+using Products.Persistence.Services;
 
 namespace Products.Persistence
 {
@@ -26,6 +28,7 @@ namespace Products.Persistence
     public class PersistenceFacade : Acl.CompositeDisposable
     {
         #region "Field"
+        private DbConfigurationProvider _dbCfgProvider = new DbConfigurationProvider();
         private PersistenceManager _persistenceMgr = new PersistenceManager();
         #endregion
 
@@ -36,6 +39,8 @@ namespace Products.Persistence
         public PersistenceFacade()
         {
             this.AddDisposable(_persistenceMgr);
+
+            ServiceManager.Current.RegisterInstance(_dbCfgProvider);
         }
         #endregion
         
