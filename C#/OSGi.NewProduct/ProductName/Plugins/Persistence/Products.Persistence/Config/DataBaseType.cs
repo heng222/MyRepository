@@ -51,11 +51,16 @@ namespace Products.Persistence
         Access = 22,
 
         /// <summary>
-        /// 
+        /// Excel
         /// </summary>
         Excel = 30,
+
         /// <summary>
-        /// 
+        /// CSV
+        /// </summary>
+        CSV = 31,
+        /// <summary>
+        /// Text
         /// </summary>
         Text = 32,
     }

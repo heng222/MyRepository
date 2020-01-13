@@ -23,7 +23,7 @@ namespace Products.Persistence
     class TableDescriptor
     {
         /// <summary>
-        /// 表在数据库中的名称。
+        /// 表在数据库中的名称，例如 “AlarmLogs”。
         /// </summary>
         public string Name { get; set; }
 

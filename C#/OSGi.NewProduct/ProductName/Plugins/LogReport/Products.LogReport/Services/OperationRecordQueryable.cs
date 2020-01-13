@@ -15,7 +15,7 @@ namespace Products.LogReport
     {
         public static List<OperationRecordInfo> Query(DateTime beginTime, DateTime endTime, OperationType operationType, bool? isManual)
         {
-            var values = new List<OperationRecordInfo>();
+            List<OperationRecordInfo> values = null;
 
             GlobalServices.Repository.Execute<OperationLog>(db => 
             {
@@ -47,6 +47,7 @@ namespace Products.LogReport
                         ResultDescription = p.ResultDescription,
                     });
 
+                    // 
                     values = items.ToList();
                 }
             });

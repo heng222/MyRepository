@@ -15,28 +15,28 @@ namespace Products.LogReport
     {
         public static List<SysEventLogInfo> Query(DateTime beginTime, DateTime endTime, EventLevel eventLevel, EventType eventType)
         {
-            var values = new List<SysEventLogInfo>();
+            List<SysEventLogInfo> values = null;
 
             GlobalServices.Repository.Execute<SysEventLog>(db =>
             {
                 using (var dbContext = db.Cfg.CreateDbContext())
                 {
-                    IQueryable<SysEventLog> repository = dbContext.Set<SysEventLog>()
+                    IQueryable<SysEventLog> dbSet = dbContext.Set<SysEventLog>()
                         .Where(p => p.Timestamp >= beginTime && p.Timestamp <= endTime);
 
                     // 事件级别
                     if (eventLevel != EventLevel.None)
                     {
-                        repository = repository.Where(p => p.Level == eventLevel);
+                        dbSet = dbSet.Where(p => p.Level == eventLevel);
                     }
 
                     // 事件类型
                     if (eventType != EventType.None)
                     {
-                        repository = repository.Where(p => p.TypeCode == eventType);
+                        dbSet = dbSet.Where(p => p.TypeCode == eventType);
                     }
 
-                    var items = repository.OrderBy(p => p.Timestamp).Select(log => new SysEventLogInfo
+                    var items = dbSet.OrderBy(p => p.Timestamp).Select(log => new SysEventLogInfo
                     {
                         Timestamp = log.Timestamp,
                         Description = log.Description,
@@ -45,6 +45,7 @@ namespace Products.LogReport
                         ConfirmTime = log.ConfirmTime == DateTime.MinValue ? string.Empty : log.ConfirmTime.ToString(),
                     }).ToList();
 
+                    // 
                     values = items.ToList();
                 }
             });

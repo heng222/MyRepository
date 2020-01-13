@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Windows.Forms;
 using Acl;
 using Acl.Log;
@@ -260,21 +261,24 @@ namespace Products.Domain
             // 写日志
             if (this.Log != null) { this.Log.Error(ex); }
 
-            var strText = "程序启动时发生严重错误，是否立即停止？" + "\r\n信息：" + ex.Message;
-            var strCaption = "启动错误";
-            var btns = MessageBoxButtons.YesNo;
-            var icons = MessageBoxIcon.Error;
+            var sb = new StringBuilder(string.Format("程序启动时发生严重错误，是否立即停止？\r\n信息：{0}", ex.Message));
+
+            if (ex.InnerException != null)
+            {
+                sb.AppendLine(ex.InnerException.Message);
+            }
+
             var rc = DialogResult.Cancel;
 
             var ownerForm = Application.OpenForms.Cast<Form>().FirstOrDefault();
 
             if (ownerForm == null)
             {
-                rc = MessageBox.Show(ownerForm, strText, strCaption, btns, icons);
+                rc = MessageBox.Show(ownerForm, sb.ToString(), "启动错误", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
             }
             else
             {
-                ownerForm.Invoke(new Action(() => rc = MessageBox.Show(ownerForm, strText, strCaption, btns, icons)));
+                ownerForm.Invoke(new Action(() => rc = MessageBox.Show(ownerForm, sb.ToString(), "启动错误", MessageBoxButtons.YesNo, MessageBoxIcon.Error)));
             }
 
             if (rc == DialogResult.Yes) throw ex;

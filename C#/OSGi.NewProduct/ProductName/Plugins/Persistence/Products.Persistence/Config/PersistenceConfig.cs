@@ -49,9 +49,9 @@ namespace Products.Persistence
         /// TextRepository 包含的实体。
         /// </summary>
         private static readonly List<Type> _textRepositoryEntityMapping = new List<Type>() 
-		{ 
-		    typeof(IoDriverPoint), typeof(IoCollectionPoint) 
-		};
+        { 
+            typeof(IoDriverPoint), typeof(IoCollectionPoint) 
+        };
 
         /// <summary>
         /// 获取或设置Entity type 格式，例如"Products.Infrastructure.Entities.{0},Products.Infrastructure"
@@ -68,13 +68,7 @@ namespace Products.Persistence
         /// <summary>
         /// 获取 TableDescriptors。
         /// </summary>
-        public static Dictionary<Type, TableDescriptor> TableDescriptors
-        {
-            get
-            {
-                return _dataSources.Values.SelectMany(p => p.TableDescriptors.Values).ToDictionary(p => p.EntityType, q => q);
-            }
-        }
+        public static Dictionary<Type, TableDescriptor> TableDescriptors { get; private set; }
 
         /// <summary>
         /// 获取远程DB配置。
@@ -89,9 +83,9 @@ namespace Products.Persistence
         static PersistenceConfig()
         {
             // Initialize Settings.
-            var cfgPath = string.Format(@"{0}\Config\Persistence.config", Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location));
+            var cfgPath = string.Format(@"{0}\Config\Persistence.config", System.IO.Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location));
             Settings = SettingsManager.GetXmlSettings(cfgPath);
-
+            
             InitializeDataSource();
 
             // 创建远程数据库配置
@@ -103,8 +97,26 @@ namespace Products.Persistence
 
         #region "Private methods"
 
+        private static void OnDbConnectionChanged(ConnectionState connectionState)
+        {
+            try
+            {
+                if (connectionState == ConnectionState.Open)
+                {
+                    RemoteConfiguration.ModelBuilder.ValidateSchema();
+                }
+            }
+            catch (System.Exception ex)
+            {
+                LogUtility.Error(ex);
+            }
+        }
+
         private static void InitializeDataSource()
         {
+            CreateTableDescriptors();
+
+            // 
             _dataSources = PersistenceConfig.Settings.Get<List<DataSource>>("DataSources").ToDictionary(p => p.Name, q => q);
             _dataSources.ForEach(p =>
             {
@@ -112,42 +124,29 @@ namespace Products.Persistence
                 entityNames.ForEach(q =>
                 {
                     var entityType = ConvertToEntityType(q.Trim());
-                    p.Value.TableDescriptors[entityType] = null;
+                    p.Value.TableDescriptors[entityType] = TableDescriptors[entityType];
                 });
             });
-
-            UpdateTableDescriptors();
         }
 
-        private static void UpdateTableDescriptors()
+        private static void CreateTableDescriptors()
         {
-            var tableDescriptors = new Dictionary<Type, TableDescriptor>();
+            TableDescriptors = new Dictionary<Type, TableDescriptor>();
 
             // 创建静态配置表的描述符。
             var entityNames = Settings.Get<string>(PersistenceConfig.StaticConfigEntities);
             var staticCfgEntityNames = HelperTools.SplitTableNames(entityNames);
-            CreateTableDescriptor(tableDescriptors, staticCfgEntityNames, TableType.StaticConfig);
+            CreateTableDescriptor(TableDescriptors, staticCfgEntityNames, TableType.StaticConfig);
 
             // 创建动态配置表的描述符。
             entityNames = Settings.Get<string>(PersistenceConfig.DynamicConfigEntities);
             var dynamicCfgEntityNames = HelperTools.SplitTableNames(entityNames);
-            CreateTableDescriptor(tableDescriptors, dynamicCfgEntityNames, TableType.DynamicConfig);
+            CreateTableDescriptor(TableDescriptors, dynamicCfgEntityNames, TableType.DynamicConfig);
 
             // 创建日志表的描述符。
             entityNames = Settings.Get<string>(PersistenceConfig.LogEntities);
             var logEntityNames = HelperTools.SplitTableNames(entityNames);
-            CreateTableDescriptor(tableDescriptors, logEntityNames, TableType.Log);
-
-            // 更新DataSource关联的 TableDescriptors
-            tableDescriptors.ForEach(p =>
-            {
-                var theDataSource = _dataSources.Where(q => q.Value.TableDescriptors.ContainsKey(p.Key)).Select(q => q.Value).FirstOrDefault();
-
-                if (theDataSource != null)
-                {
-                    theDataSource.TableDescriptors[p.Key] = p.Value;
-                }
-            });
+            CreateTableDescriptor(TableDescriptors, logEntityNames, TableType.Log);
         }
 
         private static void CreateTableDescriptor(Dictionary<Type, TableDescriptor> descriptors, IEnumerable<string> entityNames, TableType tableType)
@@ -233,26 +232,10 @@ namespace Products.Persistence
             return cfg;
         }
 
-        private static void OnDbConnectionChanged(ConnectionState connectionState)
-        {
-            try
-            {
-                if (connectionState == ConnectionState.Open)
-                {
-                    RemoteConfiguration.ModelBuilder.ValidateSchema();
-                }
-            }
-            catch (System.Exception ex)
-            {
-                LogUtility.Error(ex);
-            }
-        }
-
         public static bool IsStaticConfigTable<T>()
         {
-            var value = _dataSources.Values.SelectMany(p => p.TableDescriptors.Values).Where(p => p.EntityType == typeof(T)).FirstOrDefault();
-
-            if (value != null)
+            TableDescriptor value = null;
+            if (TableDescriptors.TryGetValue(typeof(T), out value))
             {
                 return value.TableType == TableType.StaticConfig;
             }
@@ -263,9 +246,8 @@ namespace Products.Persistence
         }
         public static bool IsDynamicConfigTable<T>()
         {
-            var value = _dataSources.Values.SelectMany(p => p.TableDescriptors.Values).Where(p => p.EntityType == typeof(T)).FirstOrDefault();
-
-            if (value != null)
+            TableDescriptor value = null;
+            if (TableDescriptors.TryGetValue(typeof(T), out value))
             {
                 return value.TableType == TableType.DynamicConfig;
             }
@@ -276,9 +258,8 @@ namespace Products.Persistence
         }
         public static bool IsNormalLogTable<T>()
         {
-            var value = _dataSources.Values.SelectMany(p => p.TableDescriptors.Values).Where(p => p.EntityType == typeof(T)).FirstOrDefault();
-
-            if (value != null)
+            TableDescriptor value = null;
+            if (TableDescriptors.TryGetValue(typeof(T), out value))
             {
                 return value.TableType == TableType.Log;
             }
@@ -304,9 +285,9 @@ namespace Products.Persistence
         }
         public static string ConvertToTableName(Type entityType)
         {
-            var value = _dataSources.Values.SelectMany(p => p.TableDescriptors.Values).Where(p => p.EntityType == entityType).FirstOrDefault();
+            TableDescriptor value = null;
 
-            if (value != null)
+            if (TableDescriptors.TryGetValue(entityType, out value))
             {
                 return value.Name;
             }
@@ -333,7 +314,7 @@ namespace Products.Persistence
             var result = new Dictionary<string, List<Type>>();
 
             // 获取所有静态表描述符。
-            var staticTableDescriptors = _dataSources.Values.SelectMany(p => p.TableDescriptors.Values).Where(p => p.TableType == TableType.StaticConfig);
+            var staticTableDescriptors = TableDescriptors.Values.Where(p=>p.TableType == TableType.StaticConfig);
 
             // 获取指定数据类类型的映射。
             var sqliteSrcNames = _dataSources.Where(p => (DataBaseType)p.Value.DbType == dbType).Select(p => p.Value.Name);
