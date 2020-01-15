@@ -33,8 +33,8 @@ namespace Products.Persistence
         public Type EntityType { get; set; }
 
         /// <summary>
-        /// 表类型（配置表/日志表），例如 TableType.StaticConfig。
+        /// 表的种类（配置表/日志表），例如 TableType.StaticConfig。
         /// </summary>
-        public TableType TableType { get; set; }
+        public TableKind TableKind { get; set; }
     }
 }

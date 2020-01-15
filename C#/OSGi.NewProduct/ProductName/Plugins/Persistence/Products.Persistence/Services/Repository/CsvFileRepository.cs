@@ -21,13 +21,14 @@ using System.Reflection;
 using System.Text;
 using Products.Domain.Preferences;
 using Products.Infrastructure.Entities;
+using Products.Persistence.Services.Repository;
 
 namespace Products.Persistence.Implementation
 {
     /// <summary>
-    /// 基于文本文件的数据存储。
+    /// 基于CSV文件的数据存储。
     /// </summary>
-    class TextFileDataStorage
+    class CsvFileRepository : RepositoryImpl
     {
         #region "Field"
         private List<IoDriverPoint> _ioDriverPoints = new List<IoDriverPoint>();
@@ -37,7 +38,7 @@ namespace Products.Persistence.Implementation
         #endregion
 
         #region "Constructor"
-        public TextFileDataStorage()
+        public CsvFileRepository()
         {
             this.ReadTextFiles();
 
@@ -49,6 +50,11 @@ namespace Products.Persistence.Implementation
         #endregion
 
         #region "Override methods"
+
+        protected override void OnOpen()
+        {
+
+        }
         #endregion
 
         #region "Private methods"
@@ -174,9 +180,14 @@ namespace Products.Persistence.Implementation
         }
         #endregion
 
-        #region IRepository 成员
+        #region "Public methods"
 
-        public IList<T> Where<T>(Expression<Func<T, bool>> predicate = null) where T : Entity
+        public override uint NextSequence<T>()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override IList<T> Where<T>(Expression<Func<T, bool>> predicate = null)
         {
             var typeT = typeof(T);
             IQueryable theList = null;
@@ -195,6 +206,42 @@ namespace Products.Persistence.Implementation
                 //return theList.OfType<T>().AsQueryable<T>().Where(predicate).ToList();
             }
         }
+
+        public override IList<T> Where<T>(string sql, object namedParameters = null)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void Insert<T>(params T[] entities)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void AsyncInsert<T>(T[] entities, Action<Exception> exceptionHandler = null)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void Update<T>(object instance, Expression<Func<T, bool>> predicate)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void Delete<T>(Expression<Func<T, bool>> predicate = null)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void Execute<T>(Action<Acl.Data.IDatabase> handler)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void AsyncExecute<T>(Action<Acl.Data.IDatabase> handler, Action<Exception> errorHandler)
+        {
+            throw new NotImplementedException();
+        }
+
         #endregion
     }
 }

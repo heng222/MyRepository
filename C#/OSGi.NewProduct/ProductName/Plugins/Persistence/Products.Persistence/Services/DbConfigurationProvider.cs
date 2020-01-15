@@ -33,9 +33,9 @@ namespace Products.Persistence.Services
 
         public DbConfiguration GetConfig<T>() where T : Entity
         {
-            var dbSrcName = PersistenceConfig.GetDataSourceName(typeof(T));
+            var dataSource = PersistenceConfig.GetDataSource(typeof(T));
 
-            return PersistenceConfig.GetOrCreateDbConfiguration(dbSrcName);
+            return PersistenceConfig.GetOrCreateDbConfiguration(dataSource.Name);
         }
 
         #endregion

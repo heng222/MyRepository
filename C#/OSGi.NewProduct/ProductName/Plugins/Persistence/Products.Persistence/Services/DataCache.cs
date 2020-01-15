@@ -94,9 +94,9 @@ namespace Products.Persistence.Services
                 {
                     if (_cache.ContainsKey(entityType.Name)) continue;                                       
 
-                    var tableName = PersistenceConfig.ConvertToTableName(entityType);
+                    var descriptor = PersistenceConfig.GetTableDescriptor(entityType);
 
-                    using (var reader = db.ExecuteReader("select * from " + db.Dialect.Quote(tableName)))
+                    using (var reader = db.ExecuteReader("select * from " + db.Dialect.Quote(descriptor.Name)))
                     {
                         var enumerable = Acl.Mapper.Map(reader, typeof(IList<>).MakeGenericType(entityType));
 

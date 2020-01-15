@@ -17,13 +17,14 @@ using System.Linq.Expressions;
 using Acl.Data;
 using Products.Infrastructure.Entities;
 using Products.Infrastructure.Specification;
+using Products.Persistence.Services.Repository;
 
 namespace Products.Persistence.Services
 {
     /// <summary>
     /// 本地Sqlite数据库仓储。
     /// </summary>
-    class SqliteRepository : Acl.CompositeDisposable, IRepository
+    class SqliteRepository : RepositoryImpl
     {
         #region "Field"
         private SqliteConnectionManager _dbConnectionManager;
@@ -44,9 +45,9 @@ namespace Products.Persistence.Services
         /// </summary>
         public SqliteRepository()
         {
-            var dataSrcNames = PersistenceConfig.GetSqliteDataSourceNames();
+            var dataSrcNames = PersistenceConfig.GetDataSourceNames(DataBaseType.Sqlite);
 
-            var sqliteDbSrcEntityMapping = PersistenceConfig.GetSqliteDataSourceEntityMapping();
+            var sqliteDbSrcEntityMapping = PersistenceConfig.GetDataSrcNameEntityMapping(DataBaseType.Sqlite);
             _dbConnectionManager = new SqliteConnectionManager(dataSrcNames, sqliteDbSrcEntityMapping);
 
             this.AddDisposable(_dbConnectionManager);
@@ -66,6 +67,28 @@ namespace Products.Persistence.Services
             _sequenceGenerator = null;
 
             base.Dispose(disposing);
+        }
+
+        /// <summary>
+        /// 打开数据仓储
+        /// </summary>
+        protected override void OnOpen()
+        {
+            _dbConnectionManager.Open();
+
+            CreateAndOpenPersistenceScheduler();
+
+            // 初始化数据缓存。
+            var staticTables = PersistenceConfig.GetDataSrcNameEntityMapping(DataBaseType.Sqlite, TableKind.StaticConfig);
+            foreach (var item in staticTables)
+            {
+                var db = _dbConnectionManager.GetConnection(item.Key);
+                _dataCache.Cache(db, item.Value);
+            }
+
+            RemoveExpiredLogs();
+
+            CreateTimer(30000);
         }
         #endregion
 
@@ -115,23 +138,23 @@ namespace Products.Persistence.Services
             {
                 var expiredDate = DateTime.Now.AddYears(-1);
 
-                PersistenceConfig.TableDescriptors.Where(p => p.Value.TableType == TableType.Log).ForEach(p =>
+                PersistenceConfig.GetTableDescriptors(TableKind.Log).ForEach(p =>
                 {
                     try
                     {
-                        this.Execute(p.Value.EntityType, db =>
+                        this.Execute(p.EntityType, db =>
                         {
-                            var tableName = PersistenceConfig.ConvertToTableName(p.Value.EntityType);
+                            var descriptor = PersistenceConfig.GetTableDescriptor(p.EntityType);
 
                             var sqlText = string.Format(@"delete from {0} where {1} < @expiredDate",
-                                db.Dialect.Quote(tableName), db.Dialect.Quote("TimeStamp"));
+                                db.Dialect.Quote(descriptor.Name), db.Dialect.Quote("TimeStamp"));
 
                             db.ExecuteNonQuery(sqlText, new { expiredDate = expiredDate });
                         });
                     }
                     catch (System.Exception ex)
                     {
-                        LogUtility.Error(string.Format("删除表 {0} 过期日志时发生异常。\r\n{1}", p.Value.Name, ex));
+                        LogUtility.Error(string.Format("删除表 {0} 过期日志时发生异常。\r\n{1}", p.Name, ex));
                     }
                 });
             }
@@ -144,9 +167,9 @@ namespace Products.Persistence.Services
 
         private void CreateAndOpenPersistenceScheduler()
         {
-            var connectionStrings = PersistenceConfig.GetSqliteDataSourceNames();
+            var dataSrcNames = PersistenceConfig.GetDataSourceNames(DataBaseType.Sqlite);
 
-            connectionStrings.ForEach(p =>
+            dataSrcNames.ForEach(p =>
             {
                 var db = _dbConnectionManager.GetConnection(p);
                 _dbSchedulers[p] = new SqliteOperationScheduler(db);
@@ -167,41 +190,19 @@ namespace Products.Persistence.Services
 
         private SqliteOperationScheduler GetOperationScheduler(Type type)
         {
-            var connectionString = PersistenceConfig.GetSqliteDataSourceName(type);
+            var dataSrcName = PersistenceConfig.GetDataSourceName(type, DataBaseType.Sqlite);
 
-            if (string.IsNullOrWhiteSpace(connectionString))
+            if (string.IsNullOrWhiteSpace(dataSrcName))
             {
                 throw new Exception(string.Format("没有找到类型 {0} 对应的 ConnectionString.", type));
             }
 
-            return _dbSchedulers[connectionString];
+            return _dbSchedulers[dataSrcName];
         }
 
         #endregion
 
         #region "public methods"
-        /// <summary>
-        /// 打开数据仓储
-        /// </summary>
-        /// <param name="flushInterval">flush缓存间隔</param>
-        public void Open(int flushInterval = 30000)
-        {
-            _dbConnectionManager.Open();
-
-            CreateAndOpenPersistenceScheduler();
-
-            // 初始化数据缓存。
-            var staticTables = PersistenceConfig.GetStaticTableTypes(DataBaseType.Sqlite);
-            foreach (var item in staticTables)
-            {
-                var db = _dbConnectionManager.GetConnection(item.Key);
-                _dataCache.Cache(db, item.Value);
-            }
-
-            RemoveExpiredLogs();
-
-            CreateTimer(flushInterval);
-        }
 
         /// <summary>
         /// Flush 缓存操作
@@ -214,14 +215,11 @@ namespace Products.Persistence.Services
 
             if (_timerFlush != null) _timerFlush.Start();
         }
-        #endregion
-
-        #region IRepository 成员
 
         /// <summary>
         /// 查询指定实体的下个序列值。
         /// </summary>
-        public uint NextSequence<T>() where T : Entity
+        public override uint NextSequence<T>() 
         {
             var connection = _dbConnectionManager.GetConnection<T>();
             return _sequenceGenerator.Next<T>(connection);
@@ -230,7 +228,7 @@ namespace Products.Persistence.Services
         /// <summary>
         /// 查询数据。
         /// </summary>
-        public IList<T> Where<T>(Expression<Func<T, bool>> condition = null) where T : Entity
+        public override IList<T> Where<T>(Expression<Func<T, bool>> condition = null)
         {
             var scheduler = this.GetOperationScheduler<T>();
 
@@ -253,7 +251,7 @@ namespace Products.Persistence.Services
         /// <summary>
         /// 查询数据。
         /// </summary>
-        public IList<T> Where<T>(string sql, object namedParameters = null)
+        public override IList<T> Where<T>(string sql, object namedParameters = null)
         {
             if (_dataCache.Contains<T>()) throw new InvalidOperationException("静态数据不支持SQL脚本查询");
 
@@ -267,9 +265,9 @@ namespace Products.Persistence.Services
 
             return scheduler.Sync<IList<T>>(action);
         }
-                
 
-        public void Insert<T>(params T[] entities) where T : Entity
+
+        public override void Insert<T>(params T[] entities) 
         {
             var db = _dbConnectionManager.GetConnection<T>();
 
@@ -277,7 +275,7 @@ namespace Products.Persistence.Services
         }
 
 
-        public void AsyncInsert<T>(T[] entity, Action<Exception> exceptionHandler) where T : Entity
+        public override void AsyncInsert<T>(T[] entity, Action<Exception> exceptionHandler) 
         {
             var db = _dbConnectionManager.GetConnection<T>();
 
@@ -287,11 +285,11 @@ namespace Products.Persistence.Services
         /// <summary>
         /// 更新数据。
         /// </summary>
-        public void Update<T>(object instance, Expression<Func<T, bool>> condition) where T : Entity
+        public override void Update<T>(object instance, Expression<Func<T, bool>> condition) 
         {
-            Action action = () => 
-            { 
-                _dbConnectionManager.GetConnection<T>().Update<T>(instance, condition); 
+            Action action = () =>
+            {
+                _dbConnectionManager.GetConnection<T>().Update<T>(instance, condition);
             };
 
             GetOperationScheduler<T>().Async(action);
@@ -300,7 +298,7 @@ namespace Products.Persistence.Services
         /// <summary>
         /// 删除数据。
         /// </summary>
-        public void Delete<T>(Expression<Func<T, bool>> condition = null) where T : Entity
+        public override void Delete<T>(Expression<Func<T, bool>> condition = null) 
         {
             Action action = () =>
             {
@@ -310,8 +308,8 @@ namespace Products.Persistence.Services
 
             GetOperationScheduler<T>().Async(action);
         }
-        
-        public void Execute<T>(Action<IDatabase> handler) where T : Entity
+
+        public override void Execute<T>(Action<IDatabase> handler) 
         {
             this.Execute(typeof(T), handler);
         }
@@ -323,14 +321,14 @@ namespace Products.Persistence.Services
             scheduler.Sync(() => handler(db));
         }
 
-        public void AsyncExecute<T>(Action<IDatabase> handler, Action<Exception> errorHandler) where T : Entity
+        public override void AsyncExecute<T>(Action<IDatabase> handler, Action<Exception> errorHandler) 
         {
             Action action = () =>
             {
                 try
                 {
                     var db = _dbConnectionManager.GetConnection<T>();
-                    handler(db);                    
+                    handler(db);
                 }
                 catch (Exception ex)
                 {
@@ -350,7 +348,7 @@ namespace Products.Persistence.Services
             };
 
             var scheduler = this.GetOperationScheduler<T>();
-            scheduler.Async(action);            
+            scheduler.Async(action);
         }
         #endregion
     }

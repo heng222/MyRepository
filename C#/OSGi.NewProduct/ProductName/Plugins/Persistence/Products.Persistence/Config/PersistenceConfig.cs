@@ -15,7 +15,6 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
-using System.IO;
 using System.Linq;
 using System.Reflection;
 using Acl.Configuration;
@@ -23,7 +22,6 @@ using Acl.Data;
 using Acl.Data.Configuration;
 using Acl.Data.Mapping;
 using Acl.Reflection;
-using Products.Infrastructure.Entities;
 
 namespace Products.Persistence
 {
@@ -44,14 +42,6 @@ namespace Products.Persistence
         /// DataSource 集合。
         /// </summary>
         private static Dictionary<string, DataSource> _dataSources = new Dictionary<string, DataSource>();
-
-        /// <summary>
-        /// TextRepository 包含的实体。
-        /// </summary>
-        private static readonly List<Type> _textRepositoryEntityMapping = new List<Type>() 
-        { 
-            typeof(IoDriverPoint), typeof(IoCollectionPoint) 
-        };
 
         /// <summary>
         /// 获取或设置Entity type 格式，例如"Products.Infrastructure.Entities.{0},Products.Infrastructure"
@@ -124,6 +114,8 @@ namespace Products.Persistence
                 entityNames.ForEach(q =>
                 {
                     var entityType = ConvertToEntityType(q.Trim());
+
+                    if (!TableDescriptors.ContainsKey(entityType)) throw new Exception(string.Format("没有找到 {0} 的 TableDescriptor。", entityType.Name));
                     p.Value.TableDescriptors[entityType] = TableDescriptors[entityType];
                 });
             });
@@ -136,27 +128,27 @@ namespace Products.Persistence
             // 创建静态配置表的描述符。
             var entityNames = Settings.Get<string>(PersistenceConfig.StaticConfigEntities);
             var staticCfgEntityNames = HelperTools.SplitTableNames(entityNames);
-            CreateTableDescriptor(TableDescriptors, staticCfgEntityNames, TableType.StaticConfig);
+            CreateTableDescriptor(TableDescriptors, staticCfgEntityNames, TableKind.StaticConfig);
 
             // 创建动态配置表的描述符。
             entityNames = Settings.Get<string>(PersistenceConfig.DynamicConfigEntities);
             var dynamicCfgEntityNames = HelperTools.SplitTableNames(entityNames);
-            CreateTableDescriptor(TableDescriptors, dynamicCfgEntityNames, TableType.DynamicConfig);
+            CreateTableDescriptor(TableDescriptors, dynamicCfgEntityNames, TableKind.DynamicConfig);
 
             // 创建日志表的描述符。
             entityNames = Settings.Get<string>(PersistenceConfig.LogEntities);
             var logEntityNames = HelperTools.SplitTableNames(entityNames);
-            CreateTableDescriptor(TableDescriptors, logEntityNames, TableType.Log);
+            CreateTableDescriptor(TableDescriptors, logEntityNames, TableKind.Log);
         }
 
-        private static void CreateTableDescriptor(Dictionary<Type, TableDescriptor> descriptors, IEnumerable<string> entityNames, TableType tableType)
+        private static void CreateTableDescriptor(Dictionary<Type, TableDescriptor> descriptors, IEnumerable<string> entityNames, TableKind tableType)
         {
             foreach (var entityName in entityNames)
             {
                 var entityType = ConvertToEntityType(entityName);
-                var tableName = GetEntityTableName(entityType);
+                var tableName = ConvertToTableName(entityType);
 
-                var newValue = new TableDescriptor { EntityType = entityType, Name = tableName, TableType = tableType };
+                var newValue = new TableDescriptor { EntityType = entityType, Name = tableName, TableKind = tableType };
 
                 if (descriptors.ContainsKey(newValue.EntityType))
                     throw new ArgumentException(string.Format("{0} 重复配置。", newValue.EntityType.Name));
@@ -165,7 +157,17 @@ namespace Products.Persistence
             }
         }
 
-        private static string GetEntityTableName(Type entityType)
+        private static Type ConvertToEntityType(string entityName)
+        {
+            var typeName = string.Format(EntityTypeFormat, entityName);
+            var type = System.Type.GetType(typeName);
+
+            if (type == null) throw new TypeLoadException(string.Format("不能解析的类型名称 {0}。", typeName));
+
+            return type;
+        }
+
+        private static string ConvertToTableName(Type entityType)
         {
             var att = entityType.GetAttribute<Acl.Data.Annotions.TableAttribute>(false);
 
@@ -237,7 +239,7 @@ namespace Products.Persistence
             TableDescriptor value = null;
             if (TableDescriptors.TryGetValue(typeof(T), out value))
             {
-                return value.TableType == TableType.StaticConfig;
+                return value.TableKind == TableKind.StaticConfig;
             }
             else
             {
@@ -249,7 +251,7 @@ namespace Products.Persistence
             TableDescriptor value = null;
             if (TableDescriptors.TryGetValue(typeof(T), out value))
             {
-                return value.TableType == TableType.DynamicConfig;
+                return value.TableKind == TableKind.DynamicConfig;
             }
             else
             {
@@ -261,7 +263,7 @@ namespace Products.Persistence
             TableDescriptor value = null;
             if (TableDescriptors.TryGetValue(typeof(T), out value))
             {
-                return value.TableType == TableType.Log;
+                return value.TableKind == TableKind.Log;
             }
             else
             {
@@ -269,52 +271,84 @@ namespace Products.Persistence
             }
         }
 
-        public static Type ConvertToEntityType(string entityName)
+        /// <summary>
+        /// 获取指定实体所在的数据库类型。
+        /// </summary>
+        public static DataBaseType GetDatabaseType(Type entityType)
         {
-            var typeName = string.Format(EntityTypeFormat, entityName);
+            var theDataSource = GetDataSource(entityType);
 
-            var type = System.Type.GetType(typeName);
-
-            if (type == null) throw new TypeLoadException(string.Format("不能解析的类型名称 {0}。", typeName));
-
-            return type;
-        }
-        public static string ConvertToTableName<T>()
-        {
-            return ConvertToTableName(typeof(T));
-        }
-        public static string ConvertToTableName(Type entityType)
-        {
-            TableDescriptor value = null;
-
-            if (TableDescriptors.TryGetValue(entityType, out value))
-            {
-                return value.Name;
-            }
-            else
-            {
-                return null;
-            }
+            return theDataSource != null ? (DataBaseType)theDataSource.DbType : DataBaseType.None;
         }
 
         /// <summary>
-        /// 指定的类型是否存储在文本文件中？
+        /// 根据实体类型，获取 DataSource。
         /// </summary>
-        public static bool IsTextData(Type entityType)
+        public static DataSource GetDataSource(Type entityType)
         {
-            return _textRepositoryEntityMapping.Contains(entityType);
+            return _dataSources.Values.Where(p => p.TableDescriptors.Values.Select(k => k.EntityType).Contains(entityType)).FirstOrDefault();
+        }
+        
+        /// <summary>
+        /// 根据实体类型与数据库类型获取DataSourceName。
+        /// </summary>
+        public static string GetDataSourceName(Type entityType, DataBaseType dbType)
+        {
+            var sqliteSrcNameEntityMapping = GetDataSrcNameEntityMapping(dbType);
+
+            return sqliteSrcNameEntityMapping.Where(p => p.Value.Contains(entityType)).FirstOrDefault().Key;
+        }
+        /// <summary>
+        /// 根据数据库类型，获取DataSourceName。
+        /// </summary>
+        public static IEnumerable<string> GetDataSourceNames(DataBaseType dbType)
+        {
+            var sqliteSrcNameEntityMapping = GetDataSrcNameEntityMapping(dbType);
+
+            return sqliteSrcNameEntityMapping.Keys.ToList();
+        }
+
+        public static TableDescriptor GetTableDescriptor<T>()
+        {
+            return GetTableDescriptor(typeof(T));
+        }
+        public static TableDescriptor GetTableDescriptor(Type entityType)
+        {
+            return GetTableDescriptor(entityType.Name);
+        }
+        public static TableDescriptor GetTableDescriptor(string entityName)
+        {
+            return TableDescriptors.Values.Where(p => p.EntityType.Name == entityName).FirstOrDefault();
+        }
+        /// <summary>
+        /// 获取指定种类的表描述符。
+        /// </summary>
+        public static IEnumerable<TableDescriptor> GetTableDescriptors(TableKind tableKind)
+        {
+            return TableDescriptors.Values.Where(p => p.TableKind == tableKind);
         }
 
         /// <summary>
-        /// 获取指定数据库类型的DataSourceName与静态表的映射关系。
+        /// 获取数据库与实体的映射。
+        /// Key：Data Source Name。
+        /// Value：数据库中包含的实体类型集合。
         /// </summary>
-        /// <returns>一个字典对象，Key表示静态表对应的DataSourceName，Value表示静态实体类型集合。</returns>
-        public static Dictionary<string, List<Type>> GetStaticTableTypes(DataBaseType dbType)
+        public static Dictionary<string, List<Type>> GetDataSrcNameEntityMapping(DataBaseType dbType)
+        {
+            return _dataSources.Values.Where(p => (DataBaseType)p.DbType == dbType)
+                .ToDictionary(p => p.Name, q => q.TableDescriptors.Values.Select(k => k.EntityType).ToList());
+        }
+
+        /// <summary>
+        /// 根据数据库类型与表的种类获取DataSourceName与实体类型的映射关系。
+        /// </summary>
+        /// <returns>一个字典对象，Key表示DataSourceName，Value表示实体类型集合。</returns>
+        public static Dictionary<string, List<Type>> GetDataSrcNameEntityMapping(DataBaseType dbType, TableKind tableKind)
         {
             var result = new Dictionary<string, List<Type>>();
 
-            // 获取所有静态表描述符。
-            var staticTableDescriptors = TableDescriptors.Values.Where(p=>p.TableType == TableType.StaticConfig);
+            // 获取指定种类的表的描述符。
+            var staticTableDescriptors = TableDescriptors.Values.Where(p => p.TableKind == tableKind);
 
             // 获取指定数据类类型的映射。
             var sqliteSrcNames = _dataSources.Where(p => (DataBaseType)p.Value.DbType == dbType).Select(p => p.Value.Name);
@@ -331,65 +365,6 @@ namespace Products.Persistence
             }
 
             return result;
-        }
-
-
-        /// <summary>
-        /// 获取SQLite数据库与实体的映射。
-        /// Key：Data Source Name。
-        /// Value：SQLite数据库中包含的实体类型集合。
-        /// </summary>
-        public static Dictionary<string, List<Type>> GetSqliteDataSourceEntityMapping()
-        {
-            return _dataSources.Values.Where(p => (DataBaseType)p.DbType == DataBaseType.Sqlite)
-                .ToDictionary(p => p.Name, q => q.TableDescriptors.Values.Select(k => k.EntityType).ToList());
-        }
-
-        /// <summary>
-        /// 获取指定实体类型对应的 DataSourceName。
-        /// </summary>
-        public static String GetDataSourceName(Type entityType)
-        {
-            var theValue = _dataSources.Values.Where(p => p.TableDescriptors.Values.Select(k => k.EntityType).Contains(entityType)).FirstOrDefault();
-
-            return theValue != null ? theValue.Name : String.Empty;
-        }
-
-        /// <summary>
-        /// 获取所有Sqlite数据库的DataSourceName。
-        /// </summary>
-        public static List<string> GetSqliteDataSourceNames()
-        {
-            var sqliteSrcNameEntityMapping = GetSqliteDataSourceEntityMapping();
-
-            return sqliteSrcNameEntityMapping.Keys.ToList();
-        }
-
-        /// <summary>
-        /// 获取指定实体类型所在的SQLite数据库DataSourceName。
-        /// </summary>
-        public static string GetSqliteDataSourceName(Type entityType)
-        {
-            var sqliteSrcNameEntityMapping = GetSqliteDataSourceEntityMapping();
-
-            return sqliteSrcNameEntityMapping.Where(p => p.Value.Contains(entityType)).FirstOrDefault().Key;
-        }
-
-        /// <summary>
-        /// 获取指定实体类型所在的数据库类型。
-        /// </summary>
-        public static DataBaseType GetDatabaseType(Type entityType)
-        {
-            var theValue = _dataSources.Values.Where(p => p.TableDescriptors.Values.Select(k => k.EntityType).Contains(entityType)).FirstOrDefault();
-
-            if (theValue != null)
-            {
-                return (DataBaseType)theValue.DbType;
-            }
-            else
-            {
-                return DataBaseType.None;
-            }
         }
         #endregion
 

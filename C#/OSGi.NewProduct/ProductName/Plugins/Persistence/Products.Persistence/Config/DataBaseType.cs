@@ -21,7 +21,7 @@ namespace Products.Persistence
     /// <summary>
     /// 数据库类型定义。
     /// </summary>
-    public enum DataBaseType
+    enum DataBaseType
     {
         /// <summary>
         /// 未知类型
@@ -35,20 +35,20 @@ namespace Products.Persistence
         /// <summary>
         /// SqlServer
         /// </summary>
-        SqlServer = 2,
+        SqlServer = 4,
         /// <summary>
         /// MySql
         /// </summary>
-        MySql = 4,
+        MySql = 6,
         
         /// <summary>
-        /// 
+        /// Sqlite
         /// </summary>
         Sqlite = 20,
         /// <summary>
-        /// 
+        /// Access
         /// </summary>
-        Access = 22,
+        Access = 24,
 
         /// <summary>
         /// Excel
@@ -58,10 +58,6 @@ namespace Products.Persistence
         /// <summary>
         /// CSV
         /// </summary>
-        CSV = 31,
-        /// <summary>
-        /// Text
-        /// </summary>
-        Text = 32,
+        CSV = 32,
     }
 }

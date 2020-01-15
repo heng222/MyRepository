@@ -26,6 +26,7 @@ using Products.Infrastructure.Exceptions;
 using Products.Infrastructure.Specification;
 using Products.Persistence.Implementation;
 using Products.Persistence.Services;
+using Products.Persistence.Services.Repository;
 
 namespace Products.Persistence
 {
@@ -35,9 +36,7 @@ namespace Products.Persistence
     public class PersistenceManager : Acl.CompositeDisposable, IRepository
     {
         #region "Field"
-        private SqliteRepository _localSqliteRepository;
-
-        private TextFileDataStorage _txtFileDataStorage = new TextFileDataStorage();
+        private Dictionary<DataBaseType, RepositoryImpl> _repositories = new Dictionary<DataBaseType, RepositoryImpl>();
         #endregion
 
         #region "Constructor"
@@ -100,10 +99,8 @@ namespace Products.Persistence
         public void Close()
         {
             // 
-            if (_localSqliteRepository != null)
-            {
-                _localSqliteRepository.Dispose();
-            }
+            _repositories.Values.ForEach(p => p.Dispose());
+            _repositories.Clear();
 
             // 
             DbConnectionMonitor.Current.Close();
@@ -132,8 +129,9 @@ namespace Products.Persistence
             //CreateRemoteDbConnectionMonitor();
 
             // 创建本地 Sqlite 仓储。
-            _localSqliteRepository = new SqliteRepository();
-            _localSqliteRepository.Open();
+            _repositories[DataBaseType.CSV] = new CsvFileRepository();
+            _repositories[DataBaseType.Sqlite] = new SqliteRepository();
+            _repositories.Values.ForEach(p => p.Open());
             
             // 更新全局服务。
             ServiceManager.Current.RegisterInstance(this);
@@ -278,13 +276,16 @@ namespace Products.Persistence
         /// </summary>
         public uint NextSequence<T>() where T : Entity
         {
-            if (PersistenceConfig.IsTextData(typeof(T)))
+            var dbType = PersistenceConfig.GetDatabaseType(typeof(T));
+            RepositoryImpl theRepository;
+
+            if (!_repositories.TryGetValue(dbType, out theRepository))
             {
-                throw new NotImplementedException();
+                throw new InvalidOperationException();
             }
             else
             {
-                return _localSqliteRepository.NextSequence<T>();
+                return theRepository.NextSequence<T>();
             }
         }
 
@@ -293,13 +294,16 @@ namespace Products.Persistence
         /// </summary>
         public IList<T> Where<T>(Expression<Func<T, bool>> predicate = null) where T : Entity
         {
-            if (PersistenceConfig.IsTextData(typeof(T)))
+            var dbType = PersistenceConfig.GetDatabaseType(typeof(T));
+            RepositoryImpl theRepository;
+
+            if (!_repositories.TryGetValue(dbType, out theRepository))
             {
-                return _txtFileDataStorage.Where(predicate);
+                throw new InvalidOperationException();
             }
             else
             {
-                return _localSqliteRepository.Where(predicate);
+                return theRepository.Where(predicate);
             }
         }
 
@@ -308,13 +312,16 @@ namespace Products.Persistence
         /// </summary>
         public IList<T> Where<T>(string sql, object namedParameters = null)
         {
-            if (PersistenceConfig.IsTextData(typeof(T)))
+            var dbType = PersistenceConfig.GetDatabaseType(typeof(T));
+            RepositoryImpl theRepository;
+
+            if (!_repositories.TryGetValue(dbType, out theRepository))
             {
                 throw new InvalidOperationException();
             }
             else
             {
-                return _localSqliteRepository.Where<T>(sql, namedParameters);
+                return theRepository.Where<T>(sql, namedParameters);
             }
         }
 
@@ -323,14 +330,22 @@ namespace Products.Persistence
         /// </summary>
         public void Insert<T>(params T[] entities) where T : Entity
         {
-            if (PersistenceConfig.IsTextData(typeof(T))) throw new InvalidOperationException();
-
             if (PersistenceConfig.IsStaticConfigTable<T>())
             {
                 throw new InvalidOperationException(string.Format("无法在静态表 {0} 上执行 Insert 操作。", typeof(T).Name));
             }
 
-            _localSqliteRepository.Insert(entities);
+            var dbType = PersistenceConfig.GetDatabaseType(typeof(T));
+            RepositoryImpl theRepository;
+
+            if (!_repositories.TryGetValue(dbType, out theRepository))
+            {
+                throw new InvalidOperationException();
+            }
+            else
+            {
+                theRepository.Insert<T>(entities);
+            }
         }
 
         /// <summary>
@@ -338,14 +353,22 @@ namespace Products.Persistence
         /// </summary>
         public void AsyncInsert<T>(T[] entities, Action<Exception> exceptionHandler) where T : Entity
         {
-            if (PersistenceConfig.IsTextData(typeof(T))) throw new InvalidOperationException();
-
             if (PersistenceConfig.IsStaticConfigTable<T>())
             {
                 throw new InvalidOperationException(string.Format("无法在静态表 {0} 上执行 AsyncInsert 操作。", typeof(T).Name));
             }
 
-            _localSqliteRepository.AsyncInsert(entities, exceptionHandler);
+            var dbType = PersistenceConfig.GetDatabaseType(typeof(T));
+            RepositoryImpl theRepository;
+
+            if (!_repositories.TryGetValue(dbType, out theRepository))
+            {
+                throw new InvalidOperationException();
+            }
+            else
+            {
+                theRepository.AsyncInsert(entities, exceptionHandler);
+            }
         }
 
         /// <summary>
@@ -353,14 +376,22 @@ namespace Products.Persistence
         /// </summary>
         public void Delete<T>(Expression<Func<T, bool>> predicate) where T : Entity
         {
-            if (PersistenceConfig.IsTextData(typeof(T))) throw new InvalidOperationException();
-
             if (PersistenceConfig.IsStaticConfigTable<T>())
             {
                 throw new InvalidOperationException(string.Format("无法在静态表 {0} 上执行 Delete 操作。", typeof(T).Name));
             }
 
-            _localSqliteRepository.Delete(predicate);
+            var dbType = PersistenceConfig.GetDatabaseType(typeof(T));
+            RepositoryImpl theRepository;
+
+            if (!_repositories.TryGetValue(dbType, out theRepository))
+            {
+                throw new InvalidOperationException();
+            }
+            else
+            {
+                theRepository.Delete(predicate);
+            }
         }
 
         /// <summary>
@@ -368,14 +399,22 @@ namespace Products.Persistence
         /// </summary>
         public void Update<T>(object instance, Expression<Func<T, bool>> predicate) where T : Entity
         {
-            if (PersistenceConfig.IsTextData(typeof(T))) throw new InvalidOperationException();
-
             if (PersistenceConfig.IsStaticConfigTable<T>())
             {
                 throw new InvalidOperationException(string.Format("无法在静态表 {0} 上执行 Update 操作。", typeof(T).Name));
             }
 
-            _localSqliteRepository.Update(instance, predicate);
+            var dbType = PersistenceConfig.GetDatabaseType(typeof(T));
+            RepositoryImpl theRepository;
+
+            if (!_repositories.TryGetValue(dbType, out theRepository))
+            {
+                throw new InvalidOperationException();
+            }
+            else
+            {
+                theRepository.Update(instance, predicate);
+            }
         }
 
         /// <summary>
@@ -383,7 +422,17 @@ namespace Products.Persistence
         /// </summary>
         public void Execute<T>(Action<IDatabase> handler) where T : Entity
         {
-            _localSqliteRepository.Execute<T>(handler);
+            var dbType = PersistenceConfig.GetDatabaseType(typeof(T));
+            RepositoryImpl theRepository;
+
+            if (!_repositories.TryGetValue(dbType, out theRepository))
+            {
+                throw new InvalidOperationException();
+            }
+            else
+            {
+                theRepository.Execute<T>(handler);
+            }
         }
 
         /// <summary>
@@ -391,7 +440,17 @@ namespace Products.Persistence
         /// </summary>
         public void AsyncExecute<T>(Action<IDatabase> handler, Action<Exception> errorHandler) where T : Entity
         {
-            _localSqliteRepository.AsyncExecute<T>(handler, errorHandler);
+            var dbType = PersistenceConfig.GetDatabaseType(typeof(T));
+            RepositoryImpl theRepository;
+
+            if (!_repositories.TryGetValue(dbType, out theRepository))
+            {
+                throw new InvalidOperationException();
+            }
+            else
+            {
+                theRepository.AsyncExecute<T>(handler, errorHandler);
+            }
         }
 
         #endregion

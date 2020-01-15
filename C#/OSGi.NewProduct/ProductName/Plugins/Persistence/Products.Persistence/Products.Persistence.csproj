@@ -78,7 +78,7 @@
     <Compile Include="Config\PersistenceConfig.cs" />
     <Compile Include="Config\TableDescriptor.cs" />
     <Compile Include="Config\DataBaseType.cs" />
-    <Compile Include="Config\TableType.cs" />
+    <Compile Include="Config\TableKind.cs" />
     <Compile Include="Forms\NodeSelectionForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -94,12 +94,13 @@
     </Compile>
     <Compile Include="Services\DataCache.cs" />
     <Compile Include="Services\DbConfigurationProvider.cs" />
-    <Compile Include="Services\RepositoryDecorator.cs" />
-    <Compile Include="Services\SqliteConnectionManager.cs" />
-    <Compile Include="Services\SqliteOperationScheduler.cs" />
-    <Compile Include="Services\SqliteRepository.cs" />
+    <Compile Include="Services\Repository\RepositoryDecorator.cs" />
+    <Compile Include="Services\Repository\RepositoryImpl.cs" />
+    <Compile Include="Services\Repository\Sqlite\SqliteConnectionManager.cs" />
+    <Compile Include="Services\Repository\Sqlite\SqliteOperationScheduler.cs" />
+    <Compile Include="Services\Repository\Sqlite\SqliteRepository.cs" />
     <Compile Include="Services\SeqNoGenerator.cs" />
-    <Compile Include="Services\TextFileDataStorage.cs" />
+    <Compile Include="Services\Repository\CsvFileRepository.cs" />
     <Compile Include="Specification\IDataCache.cs" />
     <Compile Include="Utilities\HelperTools.cs" />
     <Compile Include="Utilities\LogUtility.cs" />

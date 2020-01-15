@@ -80,9 +80,9 @@ namespace Products.Persistence.Services
 
         private uint GetMaxCode<T>(IDatabase db) where T : Entity
         {
-            var tableName = PersistenceConfig.ConvertToTableName<T>();
+            var descriptor = PersistenceConfig.GetTableDescriptor<T>();
 
-            var sql = string.Format(@"select Max(code) from {0}", db.Dialect.Quote(tableName));
+            var sql = string.Format(@"select Max(code) from {0}", db.Dialect.Quote(descriptor.Name));
 
             return db.ExecuteScalar<uint>(sql);
         }

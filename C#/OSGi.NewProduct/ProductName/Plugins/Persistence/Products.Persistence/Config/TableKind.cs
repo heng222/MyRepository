@@ -19,23 +19,28 @@ using System.Threading.Tasks;
 namespace Products.Persistence
 {
     /// <summary>
-    /// 表类型
+    /// 表的种类。
     /// </summary>
-    enum TableType
+    enum TableKind
     {
+        /// <summary>
+        /// 未知
+        /// </summary>
+        None = 0,
+
         /// <summary>
         /// 静态配置表。
         /// </summary>
-        StaticConfig,
+        StaticConfig = 1,
 
         /// <summary>
         /// 动态配置表。
         /// </summary>
-        DynamicConfig,
+        DynamicConfig = 2,
 
         /// <summary>
         /// 日志表。
         /// </summary>
-        Log,
+        Log = 3,
     }
 }
