@@ -13,9 +13,10 @@
 
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.IO;
+using System.Linq;
+using System.Reflection;
+using System.Text;
 using System.Threading;
 using Products.Infrastructure.Entities;
 
@@ -23,6 +24,13 @@ namespace Products.Persistence
 {
     static class HelperTools
     {
+        public static readonly string CurrentDllPath;
+
+        static HelperTools()
+        {
+            CurrentDllPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+        }
+
         /// <summary>
         /// 将逗号分割的表名转换为可枚举类型。
         /// </summary>
@@ -75,6 +83,33 @@ namespace Products.Persistence
             sb.Append(assemblyName);
 
             return sb.ToString();
+        }
+
+        /// <summary>
+        /// 构建CSV数据路径。
+        /// </summary>
+        public static Dictionary<Type, string> BuildCsvDbPath()
+        {
+            var csvFiles = new Dictionary<Type, string>();
+
+            PersistenceConfig.GetDataSources(DataBaseType.CSV).ForEach(p =>
+            {
+                var paths = p.Url.Split(new string[] { ";", "；" }, StringSplitOptions.RemoveEmptyEntries);
+                var count = p.TableDescriptors.Keys.Count;
+
+                if (count != paths.Length)
+                {
+                    throw new Exception(string.Format("CSV配置有误，实体类型与文件个数不一致。"));
+                }
+
+                for (int i = 0; i < count; i++)
+                {
+                    var type = p.TableDescriptors.Keys.ElementAt(i);
+                    csvFiles[type] = string.Format(@"{0}\{1}", CurrentDllPath, paths[i]);
+                }
+            });
+
+            return csvFiles;
         }
     }
 }

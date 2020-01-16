@@ -127,10 +127,7 @@
     <None Include="Config\Persistence.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Data\Text\CollectionPoints.ini">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Data\Text\DriverPoints.ini">
+    <None Include="Data\CSV\CollectionPoints.ini">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Properties\AssemblyInfo.tpl" />

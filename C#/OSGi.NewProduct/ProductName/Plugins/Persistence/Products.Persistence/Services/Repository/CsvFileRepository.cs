@@ -19,6 +19,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
 using System.Text;
+using Acl.Data.Csv;
 using Products.Domain.Preferences;
 using Products.Infrastructure.Entities;
 using Products.Persistence.Services.Repository;
@@ -31,18 +32,27 @@ namespace Products.Persistence.Implementation
     class CsvFileRepository : RepositoryImpl
     {
         #region "Field"
-        private List<IoDriverPoint> _ioDriverPoints = new List<IoDriverPoint>();
-        private List<IoCollectionPoint> _ioCollectionPoints = new List<IoCollectionPoint>();
+        //private List<IoCollectionPoint> _ioCollectionPoints = new List<IoCollectionPoint>();
 
-        private Dictionary<string, IQueryable> _mapping = new Dictionary<string, IQueryable>();
+        /// <summary>
+        /// Key = 实体类型。
+        /// </summary>
+        private Dictionary<Type, IQueryable> _mapping = new Dictionary<Type, IQueryable>();
+
+        /// <summary>
+        /// KEY=实体类型，Value=数据文件路径。
+        /// </summary>
+        private Dictionary<Type, string> _csvFiles;
         #endregion
 
         #region "Constructor"
-        public CsvFileRepository()
+        /// <summary>
+        /// 构造函数。
+        /// </summary>
+        /// <param name="csvFiles">KEY=实体类型，Value=数据文件路径。</param>
+        public CsvFileRepository(IDictionary<Type, string> csvFiles)
         {
-            this.ReadTextFiles();
-
-            this.InitMapping();
+            _csvFiles = new Dictionary<Type, string>(csvFiles);
         }
         #endregion
 
@@ -53,130 +63,21 @@ namespace Products.Persistence.Implementation
 
         protected override void OnOpen()
         {
-
+            this.ReadCsvFiles(_csvFiles);
         }
         #endregion
 
         #region "Private methods"
-        private void InitMapping()
+
+        private void ReadCsvFiles(IDictionary<Type, string> csvFiles)
         {
-            _mapping[typeof(IoDriverPoint).FullName] = _ioDriverPoints.AsQueryable();
-            _mapping[typeof(IoCollectionPoint).FullName] = _ioDriverPoints.AsQueryable();
-        }
+            //var csvSettings = new CsvSettings { Delimiter = "\t", HasHeader = true };
 
-        private void ReadTextFiles()
-        {
-            var filePath = string.Format(@"{0}\Data\Text", System.IO.Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location));
-
-            var fileName = string.Format(@"{0}\DriverPoints.ini", filePath);
-            this.ReadIoDriverPoints(fileName);
-
-            fileName = string.Format(@"{0}\CollectionPoints.ini", filePath);
-            this.ReadIoCollectionPoints(fileName);
-        }
-
-        private void ReadIoDriverPoints(string fileName)
-        {
-            using (var sr = new StreamReader(fileName, Encoding.Unicode))
+            csvFiles.ForEach(p =>
             {
-                try
-                {
-                    while (!sr.EndOfStream)
-                    {
-                        string textLine = sr.ReadLine().Trim();
-                        if (textLine.Length > 1 && !IsComment(textLine))
-                        {
-                            var items = textLine.Split(new char[] { ',', '，', ' ', '\t', ';', '#' }, StringSplitOptions.RemoveEmptyEntries);
-
-                            if (items.Length >= 7)
-                            {
-                                var index = 0;
-
-                                var record = new IoDriverPoint();
-
-                                record.Code = (ushort)(SettingsParser.ParseDecimal(items[index++]));
-                                record.Name = items[index++];
-                                record.CardIndex = (ushort)(SettingsParser.ParseDecimal(items[index++]));
-                                record.PointIndex = (ushort)(SettingsParser.ParseDecimal(items[index++]));
-
-                                // DeviceType 为 道岔，需要转换为 整型。
-                                //record.DeviceType = (ushort)(SettingsParser.ParseDecimal(items[index++]));
-                                index++;
-
-                                record.CiStationCode = (ushort)(SettingsParser.ParseDecimal(items[index++]));
-                                record.DeviceCode = (ushort)(SettingsParser.ParseDecimal(items[index++]));
-
-                                _ioDriverPoints.Add(record);
-                            }
-                            else
-                            {
-                                throw new Exception(string.Format("元素个数小于规定的值。"));
-                            }
-                        }
-                    }
-                }
-                catch (System.Exception ex)
-                {
-                    throw new Exception(String.Format("读取文件{0}时发生异常， {1}", fileName, ex.Message), ex);
-                }
-            }
-        }
-
-        private void ReadIoCollectionPoints(string fileName)
-        {
-            using (var sr = new StreamReader(fileName, Encoding.Unicode))
-            {
-                try
-                {
-                    while (!sr.EndOfStream)
-                    {
-                        string textLine = sr.ReadLine().Trim();
-                        if (textLine.Length > 1 && !IsComment(textLine))
-                        {
-                            var items = textLine.Split(new char[] { ',', '，', ' ', '\t', ';', '#' }, StringSplitOptions.RemoveEmptyEntries);
-
-                            if (items.Length >= 7)
-                            {
-                                var index = 0;
-
-                                var record = new IoCollectionPoint();
-
-                                record.Code = (ushort)(SettingsParser.ParseDecimal(items[index++]));
-                                record.Name = items[index++];
-                                record.CardIndex = (ushort)(SettingsParser.ParseDecimal(items[index++]));
-                                record.PointIndex = (ushort)(SettingsParser.ParseDecimal(items[index++]));
-
-                                // DeviceType 为 道岔，需要转换为 整型。
-                                //record.DeviceType = (ushort)(SettingsParser.ParseDecimal(items[index++]));
-                                index++;
-
-                                record.CiStationCode = (ushort)(SettingsParser.ParseDecimal(items[index++]));
-                                record.DeviceCode = (ushort)(SettingsParser.ParseDecimal(items[index++]));
-
-                                _ioCollectionPoints.Add(record);
-                            }
-                            else
-                            {
-                                throw new Exception(string.Format("元素个数小于规定的值。"));
-                            }
-                        }
-                    }
-                }
-                catch (System.Exception ex)
-                {
-                    throw new Exception(String.Format("读取文件{0}时发生异常， {1}", fileName, ex.Message), ex);
-                }
-            }
-        }
-
-        private bool IsComment(string textLine)
-        {
-            if (string.IsNullOrWhiteSpace(textLine))
-            {
-                return true;
-            }
-
-            return (textLine[0] == '#') || (textLine[0] == ';') || (textLine[0] == '/');
+                //_ioCollectionPoints = CsvFile.Query<IoCollectionPoint>(p.Value, null, csvSettings).ToList();
+                //_mapping[p.Key] = _ioCollectionPoints.AsQueryable(); // TODO
+            });
         }
         #endregion
 
@@ -190,19 +91,19 @@ namespace Products.Persistence.Implementation
         public override IList<T> Where<T>(Expression<Func<T, bool>> predicate = null)
         {
             var typeT = typeof(T);
-            IQueryable theList = null;
+            IQueryable theValue = null;
 
-            var flag = _mapping.TryGetValue(typeT.FullName, out theList);
+            var flag = _mapping.TryGetValue(typeT, out theValue);
             if (!flag) return new List<T>();
 
             // 
             if (predicate == null)
             {
-                return (theList as IQueryable<T>).Where(p => p != null).ToList();
+                return (theValue as IQueryable<T>).ToList();
             }
             else
             {
-                return (theList as IQueryable<T>).Where(predicate).ToList();
+                return (theValue as IQueryable<T>).Where(predicate).ToList();
                 //return theList.OfType<T>().AsQueryable<T>().Where(predicate).ToList();
             }
         }

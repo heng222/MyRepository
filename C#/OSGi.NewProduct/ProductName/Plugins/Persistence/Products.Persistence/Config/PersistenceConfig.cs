@@ -73,13 +73,13 @@ namespace Products.Persistence
         static PersistenceConfig()
         {
             // Initialize Settings.
-            var cfgPath = string.Format(@"{0}\Config\Persistence.config", System.IO.Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location));
+            var cfgPath = string.Format(@"{0}\Config\Persistence.config", HelperTools.CurrentDllPath);
             Settings = SettingsManager.GetXmlSettings(cfgPath);
             
             InitializeDataSource();
 
             // 创建远程数据库配置
-            RemoteConfiguration = GetOrCreateDbConfiguration(PersistenceConfig.DataSourceRemoteDbName);
+            RemoteConfiguration = GetOrCreateDbConfiguration(PersistenceConfig.DataSourceRemoteDbName, false);
 
             DbConnectionMonitor.Current.SubscribeConnectionStateChanged(OnDbConnectionChanged);
         }
@@ -194,7 +194,7 @@ namespace Products.Persistence
             DbConfiguration.Items.ToList().ForEach(p => p.Value.ClearPools());
         }
 
-        public static DbConfiguration GetOrCreateDbConfiguration(string dbSourceName)
+        public static DbConfiguration GetOrCreateDbConfiguration(string dbSourceName, bool validateSchema)
         {
             DbConfiguration cfg = null;
 
@@ -229,6 +229,9 @@ namespace Products.Persistence
                 {
                     _dataSources[dbSourceName].TableDescriptors.ForEach(p => cfg.ModelBuilder.AddClass(p.Value.EntityType));
                 }
+
+                // 验证Schema
+                if (validateSchema) cfg.ModelBuilder.ValidateSchema();
             }
 
             return cfg;
@@ -287,6 +290,11 @@ namespace Products.Persistence
         public static DataSource GetDataSource(Type entityType)
         {
             return _dataSources.Values.Where(p => p.TableDescriptors.Values.Select(k => k.EntityType).Contains(entityType)).FirstOrDefault();
+        }
+
+        public static IEnumerable<DataSource> GetDataSources(DataBaseType dbType)
+        {
+            return _dataSources.Values.Where(p => (DataBaseType)p.DbType == dbType);
         }
         
         /// <summary>

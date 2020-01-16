@@ -67,10 +67,7 @@ namespace Products.Persistence.Services
         #region "Private methods"
         private IDatabase OpenDatabase(string dbSourceName)
         {
-            var cfg = PersistenceConfig.GetOrCreateDbConfiguration(dbSourceName);
-
-            cfg.ModelBuilder.ValidateSchema();
-
+            var cfg = PersistenceConfig.GetOrCreateDbConfiguration(dbSourceName, true);
             return cfg.Open();
         }
 

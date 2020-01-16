@@ -35,7 +35,7 @@ namespace Products.Persistence.Services
         {
             var dataSource = PersistenceConfig.GetDataSource(typeof(T));
 
-            return PersistenceConfig.GetOrCreateDbConfiguration(dataSource.Name);
+            return PersistenceConfig.GetOrCreateDbConfiguration(dataSource.Name, false);
         }
 
         #endregion

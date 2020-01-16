@@ -116,8 +116,7 @@ namespace Products.Persistence
             Database.Logger = (fmt, args, level, ex) => LogUtility.Trace(fmt, args, (LogLevel)level, ex);
 
             // 配置SQLite 底层的dll 对应的环境变量（主要是为了加载该底层的dll）
-            string configurationFieldirectory = System.IO.Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-            Environment.SetEnvironmentVariable("PreLoadSQLite_BaseDirectory", configurationFieldirectory);
+            Environment.SetEnvironmentVariable("PreLoadSQLite_BaseDirectory", HelperTools.CurrentDllPath);
 
             // 初始化配置。
             PersistenceConfig.Initialize();
@@ -128,8 +127,9 @@ namespace Products.Persistence
             // 创建Remote DB连接监视器
             //CreateRemoteDbConnectionMonitor();
 
-            // 创建本地 Sqlite 仓储。
-            _repositories[DataBaseType.CSV] = new CsvFileRepository();
+            // 创建 Repository。
+            var csvFiles = HelperTools.BuildCsvDbPath();
+            _repositories[DataBaseType.CSV] = new CsvFileRepository(csvFiles);
             _repositories[DataBaseType.Sqlite] = new SqliteRepository();
             _repositories.Values.ForEach(p => p.Open());
             
