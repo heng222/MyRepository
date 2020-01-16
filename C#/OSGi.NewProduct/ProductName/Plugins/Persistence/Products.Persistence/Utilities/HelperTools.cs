@@ -94,10 +94,10 @@ namespace Products.Persistence
 
             PersistenceConfig.GetDataSources(DataBaseType.CSV).ForEach(p =>
             {
-                var paths = p.Url.Split(new string[] { ";", "；" }, StringSplitOptions.RemoveEmptyEntries);
+                var paths = p.Url.Split(new string[] { ";", "；" }, StringSplitOptions.RemoveEmptyEntries).Where(q => !string.IsNullOrWhiteSpace(q));
                 var count = p.TableDescriptors.Keys.Count;
 
-                if (count != paths.Length)
+                if (count != paths.Count())
                 {
                     throw new Exception(string.Format("CSV配置有误，实体类型与文件个数不一致。"));
                 }
@@ -105,7 +105,7 @@ namespace Products.Persistence
                 for (int i = 0; i < count; i++)
                 {
                     var type = p.TableDescriptors.Keys.ElementAt(i);
-                    csvFiles[type] = string.Format(@"{0}\{1}", CurrentDllPath, paths[i]);
+                    csvFiles[type] = string.Format(@"{0}\{1}", CurrentDllPath, paths.ElementAt(i).Trim());
                 }
             });
 

@@ -23,6 +23,9 @@ using Products.Persistence.Specification;
 
 namespace Products.Persistence.Services
 {
+    /// <summary>
+    /// Ô¶³ÌÊý¾Ý»º´æ¡£
+    /// </summary>
     class DataCache : IDataCache
     {
         #region "Field"
