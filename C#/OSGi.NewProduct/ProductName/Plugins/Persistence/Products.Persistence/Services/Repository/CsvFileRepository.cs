@@ -20,6 +20,7 @@ using System.Linq.Expressions;
 using System.Reflection;
 using System.Text;
 using Acl.Data.Csv;
+using Acl.Data.Mappings;
 using Products.Domain.Preferences;
 using Products.Infrastructure.Entities;
 using Products.Persistence.Services.Repository;
@@ -32,7 +33,10 @@ namespace Products.Persistence.Implementation
     class CsvFileRepository : RepositoryImpl
     {
         #region "Field"
-        //private List<IoCollectionPoint> _ioCollectionPoints = new List<IoCollectionPoint>();
+
+        private static MethodInfo _asQueryableMethodInfo = typeof(Queryable).GetMethods().FirstOrDefault(p => p.Name == "AsQueryable" && p.IsGenericMethod);
+
+        private static MethodInfo _csvQueryMethodInfo = typeof(CsvFile).GetMethod("Query", new Type[] { typeof(string), typeof(ColumnMappingBuilder), typeof(CsvSettings) });
 
         /// <summary>
         /// Key = 实体类型。
@@ -71,12 +75,15 @@ namespace Products.Persistence.Implementation
 
         private void ReadCsvFiles(IDictionary<Type, string> csvFiles)
         {
-            //var csvSettings = new CsvSettings { Delimiter = "\t", HasHeader = true };
+            var csvSettings = new CsvSettings { Delimiter = "\t", HasHeader = true };
 
             csvFiles.ForEach(p =>
             {
-                //_ioCollectionPoints = CsvFile.Query<IoCollectionPoint>(p.Value, null, csvSettings).ToList();
-                //_mapping[p.Key] = _ioCollectionPoints.AsQueryable(); // TODO
+                if (!File.Exists(p.Value)) throw new Exception(string.Format("没有找到文件 {0}。", p.Value));
+
+                var list = _csvQueryMethodInfo.MakeGenericMethod(p.Key).Invoke(null, new object[] { p.Value, null, csvSettings });
+                var queryable = (IQueryable)_asQueryableMethodInfo.MakeGenericMethod(p.Key).Invoke(null, new object[] { list });
+                _mapping[p.Key] = queryable;
             });
         }
         #endregion
