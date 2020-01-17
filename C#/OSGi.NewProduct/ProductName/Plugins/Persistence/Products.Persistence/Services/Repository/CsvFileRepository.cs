@@ -75,7 +75,7 @@ namespace Products.Persistence.Implementation
 
         private void ReadCsvFiles(IDictionary<Type, string> csvFiles)
         {
-            var csvSettings = new CsvSettings { Delimiter = "\t", HasHeader = true };
+            var csvSettings = new CsvSettings { HasHeader = true, IgoreWhiteSpace = true };
 
             csvFiles.ForEach(p =>
             {
