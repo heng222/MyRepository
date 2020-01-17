@@ -80,11 +80,11 @@ namespace Products.Persistence.Services
 
             // 初始化数据缓存。
             var staticTables = PersistenceConfig.GetDataSrcNameEntityMapping(DataBaseType.Sqlite, TableKind.StaticConfig);
-            foreach (var item in staticTables)
+            staticTables.ForEach(p =>
             {
-                var db = _dbConnectionManager.GetConnection(item.Key);
-                _dataCache.Cache(db, item.Value);
-            }
+                var db = _dbConnectionManager.GetConnection(p.Key);
+                _dataCache.Cache(db, p.Value);
+            });
 
             RemoveExpiredLogs();
 

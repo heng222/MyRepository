@@ -31,10 +31,13 @@ namespace Products.Persistence
         public const string DataSourceRemoteDbName = "RemoteDatabase";
         #endregion
 
-        #region "实体类型分组"
-        public const string StaticConfigEntities = "StaticConfigEntityNames";
-        public const string DynamicConfigEntities = "DynamicConfigEntityNames";
-        public const string LogEntities = "LogTableEntityNames";
+        #region "实体分组"
+        public static readonly Dictionary<TableKind, string> TableKinds = new Dictionary<TableKind, string>() 
+        {
+            {TableKind.StaticConfig, "StaticConfigEntityNames"},
+            {TableKind.DynamicConfig, "DynamicConfigEntityNames"},
+            {TableKind.Log, "LogTableEntityNames"},
+        };
         #endregion
 
         #region "Field"
@@ -104,57 +107,45 @@ namespace Products.Persistence
 
         private static void InitializeDataSource()
         {
-            CreateTableDescriptors();
+            // 创建表描述符。
+            TableDescriptors = CreateTableDescriptors();
 
-            // 
+            // 构建 DataSources。
             _dataSources = PersistenceConfig.Settings.Get<List<DataSource>>("DataSources").ToDictionary(p => p.Name, q => q);
-            _dataSources.ForEach(p =>
+            _dataSources.Values.ForEach(p =>
             {
-                var entityNames = p.Value.Entities.Split(new char[] { ',', '，', ';', '；' }, StringSplitOptions.RemoveEmptyEntries);
-                entityNames.ForEach(q =>
+                p.Entities.Split(new char[] { ',', '，', ';', '；' }, StringSplitOptions.RemoveEmptyEntries).ForEach(q =>
                 {
                     var entityType = ConvertToEntityType(q.Trim());
 
                     if (!TableDescriptors.ContainsKey(entityType)) throw new Exception(string.Format("没有找到 {0} 的 TableDescriptor。", entityType.Name));
-                    p.Value.TableDescriptors[entityType] = TableDescriptors[entityType];
+                    p.TableDescriptors[entityType] = TableDescriptors[entityType];
                 });
             });
         }
 
-        private static void CreateTableDescriptors()
+        private static Dictionary<Type, TableDescriptor> CreateTableDescriptors()
         {
-            TableDescriptors = new Dictionary<Type, TableDescriptor>();
+            var result = new Dictionary<Type, TableDescriptor>();
 
-            // 创建静态配置表的描述符。
-            var entityNames = Settings.Get<string>(PersistenceConfig.StaticConfigEntities);
-            var staticCfgEntityNames = HelperTools.SplitTableNames(entityNames);
-            CreateTableDescriptor(TableDescriptors, staticCfgEntityNames, TableKind.StaticConfig);
-
-            // 创建动态配置表的描述符。
-            entityNames = Settings.Get<string>(PersistenceConfig.DynamicConfigEntities);
-            var dynamicCfgEntityNames = HelperTools.SplitTableNames(entityNames);
-            CreateTableDescriptor(TableDescriptors, dynamicCfgEntityNames, TableKind.DynamicConfig);
-
-            // 创建日志表的描述符。
-            entityNames = Settings.Get<string>(PersistenceConfig.LogEntities);
-            var logEntityNames = HelperTools.SplitTableNames(entityNames);
-            CreateTableDescriptor(TableDescriptors, logEntityNames, TableKind.Log);
-        }
-
-        private static void CreateTableDescriptor(Dictionary<Type, TableDescriptor> descriptors, IEnumerable<string> entityNames, TableKind tableType)
-        {
-            foreach (var entityName in entityNames)
+            // 构建表描述符。
+            TableKinds.ForEach(p =>
             {
-                var entityType = ConvertToEntityType(entityName);
-                var tableName = ConvertToTableName(entityType);
+                var textName = Settings.Get<string>(p.Value);
+                
+                HelperTools.SplitTableNames(textName).ForEach(name =>
+                {
+                    var entityType = ConvertToEntityType(name);
+                    var tableName = ConvertToTableName(entityType);
 
-                var newValue = new TableDescriptor { EntityType = entityType, Name = tableName, TableKind = tableType };
+                    if (result.ContainsKey(entityType))
+                        throw new ArgumentException(string.Format("{0} 重复配置。", name));
 
-                if (descriptors.ContainsKey(newValue.EntityType))
-                    throw new ArgumentException(string.Format("{0} 重复配置。", newValue.EntityType.Name));
+                    result[entityType] = new TableDescriptor { EntityType = entityType, Name = tableName, TableKind = p.Key };
+                });
+            });
 
-                descriptors[newValue.EntityType] = newValue;
-            }
+            return result;
         }
 
         private static Type ConvertToEntityType(string entityName)
@@ -351,28 +342,17 @@ namespace Products.Persistence
         /// 根据数据库类型与表的种类获取DataSourceName与实体类型的映射关系。
         /// </summary>
         /// <returns>一个字典对象，Key表示DataSourceName，Value表示实体类型集合。</returns>
-        public static Dictionary<string, List<Type>> GetDataSrcNameEntityMapping(DataBaseType dbType, TableKind tableKind)
+        public static Dictionary<string, IEnumerable<Type>> GetDataSrcNameEntityMapping(DataBaseType dbType, TableKind tableKind)
         {
-            var result = new Dictionary<string, List<Type>>();
-
-            // 获取指定种类的表的描述符。
-            var staticTableDescriptors = TableDescriptors.Values.Where(p => p.TableKind == tableKind);
+            // 获取指定种类的表的类型。
+            var theTableTypes = TableDescriptors.Values.Where(p => p.TableKind == tableKind).Select(p=>p.EntityType);
 
             // 获取指定数据类类型的映射。
-            var sqliteSrcNames = _dataSources.Where(p => (DataBaseType)p.Value.DbType == dbType).Select(p => p.Value.Name);
+            var sqliteSrcNames = _dataSources.Values.Where(p => (DataBaseType)p.DbType == dbType).Select(p => p.Name);
             var theMapping = _dataSources.Where(p => sqliteSrcNames.Contains(p.Key)).ToDictionary(p => p.Key, q => q.Value.TableDescriptors.Select(k => k.Value.EntityType));
 
             // 构建 DataSourceName 与 Entity 的映射。
-            foreach (var item in theMapping)
-            {
-                var value = item.Value.Intersect(staticTableDescriptors.Select(p => p.EntityType)).ToList();
-                if (value.Count > 0)
-                {
-                    result[item.Key] = value;
-                }
-            }
-
-            return result;
+            return theMapping.Where(p => p.Value.Intersect(theTableTypes).Count() > 0).ToDictionary(p => p.Key, q => q.Value.Intersect(theTableTypes));
         }
         #endregion
 
