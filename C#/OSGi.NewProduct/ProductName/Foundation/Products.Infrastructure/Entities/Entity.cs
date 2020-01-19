@@ -14,6 +14,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Acl.Data.Annotions;
 
 namespace Products.Infrastructure.Entities
 {
@@ -31,6 +32,7 @@ namespace Products.Infrastructure.Entities
         /// <summary>
         /// 编号，从1开始，0表示无效编号。
         /// </summary>
+        [Column]
         public uint Code { get; set; }
 
         /// <summary>

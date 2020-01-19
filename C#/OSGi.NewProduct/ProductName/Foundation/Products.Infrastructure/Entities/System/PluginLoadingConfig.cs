@@ -14,6 +14,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Acl.Data.Annotions;
 using Products.Infrastructure.Types;
 
 namespace Products.Infrastructure.Entities
@@ -28,31 +29,37 @@ namespace Products.Infrastructure.Entities
         /// <summary>
         /// 节点编号。
         /// </summary>
+        [Column]
         public UInt32 NodeCode { get; set; }
 
         /// <summary>
         /// 节点类型。
         /// </summary>
+        [Column]
         public NodeType NodeType { get; set; }
 
         /// <summary>
         /// 节点需要加载的插件类型。
         /// </summary>
+        [Column]
         public string Plugins { get; set; }
 
         /// <summary>
         /// 节点需要显示的控件，以CVS格式表示的多个PresentationControlType。
         /// </summary>
+        [Column]
         public string Controls { get; set; }
 
         /// <summary>
         /// 描述性信息。
         /// </summary>
+        [Column(Length = 100)]
         public string Description { get; set; }
 
         /// <summary>
         /// NodeCode+NodeType+Plugins+Controls的MD5签名。
         /// </summary>
+        [Column(Length = 16)]
         public byte[] MessageDigest { get; set; }
         #endregion
 

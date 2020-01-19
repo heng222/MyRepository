@@ -14,6 +14,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Acl.ComponentModel.Annotions;
+using Acl.Data.Annotions;
 using Products.Infrastructure.Types;
 
 namespace Products.Infrastructure.Entities
@@ -21,31 +23,37 @@ namespace Products.Infrastructure.Entities
     /// <summary>
     /// 系统事件日志实体定义。
     /// </summary>
+    [Table(Name = "SysEventLogs")]
     public class SysEventLog : LogEntity
     {
         /// <summary>
         /// 事件类型
         /// </summary>
+        [Column]
         public EventType TypeCode { get; set; }
 
         /// <summary>
         /// 事件级别
         /// </summary>
+        [Column]
         public EventLevel Level { get; set; }
 
         /// <summary>
         /// 事件描述
         /// </summary>
+        [Column]
         public string Description { get; set; }
 
         /// <summary>
         /// 确认时间
         /// </summary>
+        [Column]
         public DateTime ConfirmTime { get; set; }
 
         /// <summary>
         /// 获取一个值，用于表示本事件是否已经确认？
         /// </summary>
+        [Ignore]
         public bool IsConfirmed { get { return this.ConfirmTime != DateTime.MinValue; } }
         
         /// <summary>

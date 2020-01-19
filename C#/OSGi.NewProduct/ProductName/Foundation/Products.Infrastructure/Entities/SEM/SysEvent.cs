@@ -14,6 +14,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Acl.Data.Annotions;
 using Products.Infrastructure.Types;
 
 namespace Products.Infrastructure.Entities
@@ -38,26 +39,31 @@ namespace Products.Infrastructure.Entities
         /// <summary>
         /// 事件名称
         /// </summary>
+        [Column]
         public string Name { get; set; }
 
         /// <summary>
         /// 事件级别（一级、二级或三级)
         /// </summary>
+        [Column]
         public EventLevel LevelCode { get; set; }
 
         /// <summary>
         /// 是否需要确认？
         /// </summary>
+        [Column]
         public bool ConfirmEnabled { get; set; }
 
         /// <summary>
         /// 是否弹出确认对话框？
         /// </summary>
+        [Column]
         public bool ConfirmDialogEnabled { get; set; }
 
         /// <summary>
         /// 是否启用语音报警？
         /// </summary>
+        [Column]
         public bool VoiceEnabled { get; set; }
     }
 }

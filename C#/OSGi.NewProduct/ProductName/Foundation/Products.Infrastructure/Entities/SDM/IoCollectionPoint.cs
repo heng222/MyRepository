@@ -15,31 +15,16 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Acl.Data.Annotions;
 
 namespace Products.Infrastructure.Entities
 {
     /// <summary>
     /// IO采集点定义。
     /// </summary>
+    [Table(Name = "IoCollectionPoints")]
     public class IoCollectionPoint : IoPoint
     {
-        #region "Field"
-        #endregion
-
-        #region "Constructor"
-        #endregion
-
-        #region "Properties"
-        #endregion
-
-        #region "Override methods"
-        #endregion
-
-        #region "Private methods"
-        #endregion
-
-        #region "Public methods"
-        #endregion
 
     }
 }

@@ -15,6 +15,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Acl.Data.Annotions;
 using Products.Infrastructure.Types;
 
 namespace Products.Infrastructure.Entities
@@ -29,15 +30,18 @@ namespace Products.Infrastructure.Entities
         /// <summary>
         /// 名称。
         /// </summary>
+        [Column]
         public string Name { get; set; }
         /// <summary>
         /// 类型。
         /// </summary>
+        [Column]
         public NodeType Type { get; set; }
 
         /// <summary>
         /// 描述信息。
         /// </summary>
+        [Column]
         public string Description { get; set; }
 
         #endregion

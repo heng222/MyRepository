@@ -17,6 +17,7 @@ namespace Products.Infrastructure.Entities
         /// <summary>
         /// 日志产生的时间。
         /// </summary>
+        [Column]
         public DateTime Timestamp { get; set; }
     }
 }
