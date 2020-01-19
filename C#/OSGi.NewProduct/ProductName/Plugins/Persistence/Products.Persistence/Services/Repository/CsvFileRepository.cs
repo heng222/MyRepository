@@ -42,21 +42,14 @@ namespace Products.Persistence.Implementation
         /// Key = 实体类型。
         /// </summary>
         private Dictionary<Type, IQueryable> _mapping = new Dictionary<Type, IQueryable>();
-
-        /// <summary>
-        /// KEY=实体类型，Value=数据文件路径。
-        /// </summary>
-        private Dictionary<Type, string> _csvFiles;
         #endregion
 
         #region "Constructor"
         /// <summary>
         /// 构造函数。
         /// </summary>
-        /// <param name="csvFiles">KEY=实体类型，Value=数据文件路径。</param>
-        public CsvFileRepository(IDictionary<Type, string> csvFiles)
+        public CsvFileRepository()
         {
-            _csvFiles = new Dictionary<Type, string>(csvFiles);
         }
         #endregion
 
@@ -67,11 +60,39 @@ namespace Products.Persistence.Implementation
 
         protected override void OnOpen()
         {
-            this.ReadCsvFiles(_csvFiles);
+            var csvFiles = this.BuildCsvDbPath();
+            this.ReadCsvFiles(csvFiles);
         }
         #endregion
 
         #region "Private methods"
+
+        /// <summary>
+        /// 构建CSV数据路径。
+        /// </summary>
+        private Dictionary<Type, string> BuildCsvDbPath()
+        {
+            var csvFiles = new Dictionary<Type, string>();
+
+            PersistenceConfig.GetDataSources(DataBaseType.CSV).ForEach(p =>
+            {
+                var paths = p.Url.Split(new string[] { ";", "；" }, StringSplitOptions.RemoveEmptyEntries).Where(q => !string.IsNullOrWhiteSpace(q));
+                var count = p.TableDescriptors.Keys.Count;
+
+                if (count != paths.Count())
+                {
+                    throw new Exception(string.Format("CSV配置有误，实体类型与文件个数不一致。"));
+                }
+
+                for (int i = 0; i < count; i++)
+                {
+                    var type = p.TableDescriptors.Keys.ElementAt(i);
+                    csvFiles[type] = string.Format(@"{0}\{1}", HelperTools.CurrentDllPath, paths.ElementAt(i).Trim());
+                }
+            });
+
+            return csvFiles;
+        }
 
         private void ReadCsvFiles(IDictionary<Type, string> csvFiles)
         {

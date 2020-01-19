@@ -128,8 +128,7 @@ namespace Products.Persistence
             //CreateRemoteDbConnectionMonitor();
 
             // 创建 Repository。
-            var csvFiles = HelperTools.BuildCsvDbPath();
-            _repositories[DataBaseType.CSV] = new CsvFileRepository(csvFiles);
+            _repositories[DataBaseType.CSV] = new CsvFileRepository();
             _repositories[DataBaseType.Sqlite] = new SqliteRepository();
             _repositories.Values.ForEach(p => p.Open());
             

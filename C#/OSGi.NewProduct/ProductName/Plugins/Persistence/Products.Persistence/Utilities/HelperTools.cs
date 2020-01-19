@@ -84,32 +84,5 @@ namespace Products.Persistence
 
             return sb.ToString();
         }
-
-        /// <summary>
-        /// 构建CSV数据路径。
-        /// </summary>
-        public static Dictionary<Type, string> BuildCsvDbPath()
-        {
-            var csvFiles = new Dictionary<Type, string>();
-
-            PersistenceConfig.GetDataSources(DataBaseType.CSV).ForEach(p =>
-            {
-                var paths = p.Url.Split(new string[] { ";", "；" }, StringSplitOptions.RemoveEmptyEntries).Where(q => !string.IsNullOrWhiteSpace(q));
-                var count = p.TableDescriptors.Keys.Count;
-
-                if (count != paths.Count())
-                {
-                    throw new Exception(string.Format("CSV配置有误，实体类型与文件个数不一致。"));
-                }
-
-                for (int i = 0; i < count; i++)
-                {
-                    var type = p.TableDescriptors.Keys.ElementAt(i);
-                    csvFiles[type] = string.Format(@"{0}\{1}", CurrentDllPath, paths.ElementAt(i).Trim());
-                }
-            });
-
-            return csvFiles;
-        }
     }
 }
