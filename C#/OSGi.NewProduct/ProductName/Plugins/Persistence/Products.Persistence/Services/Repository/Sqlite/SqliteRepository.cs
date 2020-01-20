@@ -7,7 +7,7 @@
 // 创建日期：2015-2-3 21:20:58 
 // 邮    箱：zhangheng@163.com
 //
-// Copyright (C) 公司名称 2009，保留所有权利
+// Copyright (C) 公司名称 2019，保留所有权利
 //
 //----------------------------------------------------------------*/
 using System;
@@ -24,19 +24,16 @@ namespace Products.Persistence.Services
     /// <summary>
     /// 本地Sqlite数据库仓储。
     /// </summary>
-    class SqliteRepository : RepositoryImpl
+    class SqliteRepository : RepositoryBase
     {
         #region "Field"
         private SqliteConnectionManager _dbConnectionManager;
 
         private Dictionary<string, SqliteOperationScheduler> _dbSchedulers = new Dictionary<string, SqliteOperationScheduler>();
 
-        private SeqNoGenerator _sequenceGenerator = new SeqNoGenerator();
         private System.Timers.Timer _timerFlush;
 
         private uint _latestClearTickcount = 0;
-
-        private DataCache _dataCache = new DataCache();
         #endregion
 
         #region "Constructor"
@@ -64,9 +61,12 @@ namespace Products.Persistence.Services
 
             ClosePersistenceScheduler();
 
-            _sequenceGenerator = null;
-
             base.Dispose(disposing);
+        }
+
+        protected override IDatabase GetDatabase<TEntity>()
+        {
+            return _dbConnectionManager.GetConnection<TEntity>();
         }
 
         /// <summary>
@@ -77,14 +77,6 @@ namespace Products.Persistence.Services
             _dbConnectionManager.Open();
 
             CreateAndOpenPersistenceScheduler();
-
-            // 初始化数据缓存。
-            var staticTables = PersistenceConfig.GetDataSrcNameEntityMapping(DataBaseType.Sqlite, TableKind.StaticConfig);
-            staticTables.ForEach(p =>
-            {
-                var db = _dbConnectionManager.GetConnection(p.Key);
-                _dataCache.Cache(db, p.Value);
-            });
 
             RemoveExpiredLogs();
 
@@ -217,35 +209,19 @@ namespace Products.Persistence.Services
         }
 
         /// <summary>
-        /// 查询指定实体的下个序列值。
-        /// </summary>
-        public override uint NextSequence<T>() 
-        {
-            var connection = _dbConnectionManager.GetConnection<T>();
-            return _sequenceGenerator.Next<T>(connection);
-        }
-
-        /// <summary>
         /// 查询数据。
         /// </summary>
         public override IList<T> Where<T>(Expression<Func<T, bool>> condition = null)
         {
             var scheduler = this.GetOperationScheduler<T>();
 
-            if (_dataCache.Contains<T>())
+            Func<IList<T>> action = () =>
             {
-                return _dataCache.Query(condition);
-            }
-            else
-            {
-                Func<IList<T>> action = () =>
-                {
-                    var db = _dbConnectionManager.GetConnection<T>();
-                    return db != null ? db.Query<T>(condition) : new List<T>();
-                };
+                var db = _dbConnectionManager.GetConnection<T>();
+                return db != null ? db.Query<T>(condition) : new List<T>();
+            };
 
-                return scheduler.Sync<IList<T>>(action);
-            }
+            return scheduler.Sync<IList<T>>(action);
         }
 
         /// <summary>
@@ -253,8 +229,6 @@ namespace Products.Persistence.Services
         /// </summary>
         public override IList<T> Where<T>(string sql, object namedParameters = null)
         {
-            if (_dataCache.Contains<T>()) throw new InvalidOperationException("静态数据不支持SQL脚本查询");
-
             var scheduler = this.GetOperationScheduler<T>();
 
             Func<IList<T>> action = () =>

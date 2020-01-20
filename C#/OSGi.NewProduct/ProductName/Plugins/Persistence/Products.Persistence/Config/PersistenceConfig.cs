@@ -7,16 +7,16 @@
 // 创建日期：2015-2-3 21:20:58 
 // 邮    箱：zhangheng@163.com
 //
-// Copyright (C) 公司名称 2009，保留所有权利
+// Copyright (C) 公司名称 2019，保留所有权利
 //
 //----------------------------------------------------------------*/
 
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Configuration;
 using System.Data;
 using System.Linq;
-using System.Reflection;
 using Acl.Configuration;
 using Acl.Data;
 using Acl.Data.Configuration;
@@ -32,12 +32,12 @@ namespace Products.Persistence
         #endregion
 
         #region "实体分组"
-        public static readonly Dictionary<TableKind, string> TableKinds = new Dictionary<TableKind, string>() 
-        {
-            {TableKind.StaticConfig, "StaticConfigEntityNames"},
-            {TableKind.DynamicConfig, "DynamicConfigEntityNames"},
-            {TableKind.Log, "LogTableEntityNames"},
-        };
+        public static readonly ReadOnlyDictionary<TableKind, string> TableKinds = new ReadOnlyDictionary<TableKind, string>(
+            new Dictionary<TableKind, string>() {
+            { TableKind.StaticConfig, "StaticConfigEntityNames" },
+            { TableKind.DynamicConfig, "DynamicConfigEntityNames" },
+            { TableKind.Log, "LogTableEntityNames" },
+        });
         #endregion
 
         #region "Field"
@@ -61,7 +61,7 @@ namespace Products.Persistence
         /// <summary>
         /// 获取 TableDescriptors。
         /// </summary>
-        public static Dictionary<Type, TableDescriptor> TableDescriptors { get; private set; }
+        public static ReadOnlyDictionary<Type, TableDescriptor> TableDescriptors { get; private set; }
 
         /// <summary>
         /// 获取远程DB配置。
@@ -108,7 +108,7 @@ namespace Products.Persistence
         private static void InitializeDataSource()
         {
             // 创建表描述符。
-            TableDescriptors = CreateTableDescriptors();
+            TableDescriptors = new ReadOnlyDictionary<Type, TableDescriptor>(CreateTableDescriptors());
 
             // 构建 DataSources。
             _dataSources = PersistenceConfig.Settings.Get<List<DataSource>>("DataSources").ToDictionary(p => p.Name, q => q);
@@ -230,8 +230,12 @@ namespace Products.Persistence
 
         public static bool IsStaticConfigTable<T>()
         {
+            return IsStaticConfigTable(typeof(T));
+        }
+        public static bool IsStaticConfigTable(Type entityType)
+        {
             TableDescriptor value = null;
-            if (TableDescriptors.TryGetValue(typeof(T), out value))
+            if (TableDescriptors.TryGetValue(entityType, out value))
             {
                 return value.TableKind == TableKind.StaticConfig;
             }
@@ -265,16 +269,11 @@ namespace Products.Persistence
             }
         }
 
-        /// <summary>
-        /// 获取指定实体所在的数据库类型。
-        /// </summary>
-        public static DataBaseType GetDatabaseType(Type entityType)
+        public static bool IsRemoteDatabase(DataBaseType dbType)
         {
-            var theDataSource = GetDataSource(entityType);
-
-            return theDataSource != null ? (DataBaseType)theDataSource.DbType : DataBaseType.None;
+            return dbType == DataBaseType.Oracle || dbType == DataBaseType.MySql || dbType == DataBaseType.SqlServer;
         }
-
+        
         /// <summary>
         /// 根据实体类型，获取 DataSource。
         /// </summary>

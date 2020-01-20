@@ -7,7 +7,7 @@
 // 创建日期：2015-2-3 21:20:58 
 // 邮    箱：zhangheng@163.com
 //
-// Copyright (C) 公司名称 2009，保留所有权利
+// Copyright (C) 公司名称 2019，保留所有权利
 //
 //----------------------------------------------------------------*/
 
@@ -19,32 +19,118 @@ using System.Linq.Expressions;
 using System.Reflection;
 using Acl;
 using Acl.Data;
+using Products.Infrastructure.Specification;
+using Products.Persistence.Services.Repository;
 using Products.Persistence.Specification;
 
 namespace Products.Persistence.Services
 {
-    /// <summary>
-    /// 远程数据缓存。
-    /// </summary>
-    class DataCache : IDataCache
+    class RepositoryMemory : RepositoryBase, IDataCache
     {
         #region "Field"
         private MethodInfo _asQueryableMethodInfo = typeof(Queryable).GetMethods().FirstOrDefault(p => p.Name == "AsQueryable" && p.IsGenericMethod);
 
+        private MethodInfo _whereMethodOfRepository = (from m in typeof(IRepository).GetMethods().Where(p => p.Name == "Where")
+                                                       let ps = m.GetParameters()
+                                                       where ps.Length == 1
+                                                       where typeof(LambdaExpression).IsAssignableFrom(ps[0].ParameterType)
+                                                       select m).FirstOrDefault();
+
         private Dictionary<string, IEnumerable> _cache = new Dictionary<string, IEnumerable>();
+
         #endregion
 
         #region "Constructor"
-        public DataCache()
+        public RepositoryMemory()
         {
-
         }
         #endregion
 
         #region "Properties"
+        public IRepositorySelect RepositorySelector { get; set; }
         #endregion
 
         #region "Override methods"
+        protected override void OnOpen()
+        {
+            var staticEntityTypes = PersistenceConfig.TableDescriptors.Where(p => p.Value.TableKind == TableKind.StaticConfig).Select(p=>p.Value.EntityType);
+            
+            foreach (var entityType in staticEntityTypes)
+            {
+                try
+                {
+                    if (_cache.ContainsKey(entityType.Name)) continue;
+
+                    var whereMethod = _whereMethodOfRepository.MakeGenericMethod(entityType);
+
+                    var srcRepository = this.RepositorySelector.SelectRepository(entityType, false);
+
+                    var enumerable = whereMethod.Invoke(srcRepository, new object[] { null });
+
+                    var queryable = _asQueryableMethodInfo.MakeGenericMethod(entityType).Invoke(null, new object[] { enumerable }) as IQueryable;
+
+                    _cache[entityType.Name] = queryable;
+                }
+                catch (System.Exception ex)
+                {
+                    var msg = string.Format("读取表 {0} 发生错误，{1}。", entityType.Name, ex.Message);
+                    throw new Exception(msg, ex);
+                }
+            }
+        }
+
+        public override IList<T> Where<T>(Expression<Func<T, bool>> predicate = null)
+        {
+            var entityName = typeof(T).Name;
+
+            IEnumerable data;
+
+            if (_cache.TryGetValue(entityName, out data))
+            {
+                var rep = data as IQueryable<T>;
+
+                return predicate == null ? rep.ToList() : rep.Where(predicate).ToList();
+            }
+            else
+            {
+                return new List<T>();
+            }
+        }
+
+        public override IList<T> Where<T>(string sql, object namedParameters = null)
+        {
+            throw new InvalidOperationException("Memory repository 不支持SQL脚本查询");
+        }
+
+        public override void Insert<T>(params T[] entities)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void AsyncInsert<T>(T[] entities, Action<Exception> exceptionHandler = null)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void Update<T>(object instance, Expression<Func<T, bool>> predicate)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void Delete<T>(Expression<Func<T, bool>> predicate = null)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void Execute<T>(Action<IDatabase> handler)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void AsyncExecute<T>(Action<IDatabase> handler, Action<Exception> errorHandler)
+        {
+            throw new NotImplementedException();
+        }
         #endregion
 
         #region "Private methods"
@@ -114,32 +200,11 @@ namespace Products.Persistence.Services
                     throw new Exception(msg, ex);
                 }
             }
-        }
-        
-        public bool Contains<TEntity>()
-        {
-            var entityName = typeof(TEntity).Name;
+        }       
 
-            return _cache.Keys.Contains(entityName);
-        }
+        #endregion
 
-        public IList<T> Query<T>(Expression<Func<T, bool>> predicate)
-        {
-            var entityName = typeof(T).Name;
-
-            IEnumerable data;
-
-            if (_cache.TryGetValue(entityName, out data))
-            {
-                var rep = data as IQueryable<T>;
-
-                return predicate == null ? rep.ToList() : rep.Where(predicate).ToList();
-            }
-            else
-            {
-                return new List<T>();
-            }
-        }
+        #region "IDataCache 方法"
 
         public object GetValue(Dictionary<string, object> condition, Type entityType)
         {
@@ -161,6 +226,5 @@ namespace Products.Persistence.Services
             return null;
         }
         #endregion
-
     }
 }

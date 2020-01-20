@@ -7,7 +7,7 @@
 // 创建日期：2015-2-3 21:20:58 
 // 邮    箱：zhangheng@163.com
 //
-// Copyright (C) 公司名称 2009，保留所有权利
+// Copyright (C) 公司名称 2019，保留所有权利
 //
 //----------------------------------------------------------------*/
 using System;
@@ -36,7 +36,8 @@ namespace Products.Persistence
     public class PersistenceManager : Acl.CompositeDisposable, IRepository
     {
         #region "Field"
-        private Dictionary<DataBaseType, RepositoryImpl> _repositories = new Dictionary<DataBaseType, RepositoryImpl>();
+        private Dictionary<DataBaseType, RepositoryBase> _repositories = new Dictionary<DataBaseType, RepositoryBase>();
+        private StrategyRepositorySelection _repositorySelector;
         #endregion
 
         #region "Constructor"
@@ -128,8 +129,16 @@ namespace Products.Persistence
             //CreateRemoteDbConnectionMonitor();
 
             // 创建 Repository。
-            _repositories[DataBaseType.CSV] = new CsvFileRepository();
+            _repositories[DataBaseType.Oracle] = new RepositoryRemote();
+            _repositories[DataBaseType.CSV] = new RepositoryCsvFile();
             _repositories[DataBaseType.Sqlite] = new SqliteRepository();
+            _repositories[DataBaseType.Memory] = new RepositoryMemory();
+
+            // 创建 RepsoitorySelection Strategy。
+            _repositorySelector = new StrategyRepositorySelection(null, _repositories.ToDictionary(p => p.Key, q => q.Value as IRepository));
+
+            // 打开 Repository
+            (_repositories[DataBaseType.Memory] as RepositoryMemory).RepositorySelector = _repositorySelector;
             _repositories.Values.ForEach(p => p.Open());
             
             // 更新全局服务。
@@ -239,8 +248,7 @@ namespace Products.Persistence
 
             return theNodes.ToDictionary(p => p.Code, q => string.Format("{0}_{1}",
                 q.Code, q.Name));
-        }
-        
+        }        
 
         /// <summary>
         /// 初始化日志页眉页脚。
@@ -275,10 +283,9 @@ namespace Products.Persistence
         /// </summary>
         public uint NextSequence<T>() where T : Entity
         {
-            var dbType = PersistenceConfig.GetDatabaseType(typeof(T));
-            RepositoryImpl theRepository;
+            var theRepository = _repositorySelector.SelectRepository(typeof(T));
 
-            if (!_repositories.TryGetValue(dbType, out theRepository))
+            if (theRepository == null)
             {
                 throw new InvalidOperationException();
             }
@@ -289,14 +296,13 @@ namespace Products.Persistence
         }
 
         /// <summary>
-        /// 
+        /// 查询数据。
         /// </summary>
         public IList<T> Where<T>(Expression<Func<T, bool>> predicate = null) where T : Entity
         {
-            var dbType = PersistenceConfig.GetDatabaseType(typeof(T));
-            RepositoryImpl theRepository;
+            var theRepository = _repositorySelector.SelectRepository(typeof(T));
 
-            if (!_repositories.TryGetValue(dbType, out theRepository))
+            if (theRepository == null)
             {
                 throw new InvalidOperationException();
             }
@@ -311,10 +317,9 @@ namespace Products.Persistence
         /// </summary>
         public IList<T> Where<T>(string sql, object namedParameters = null)
         {
-            var dbType = PersistenceConfig.GetDatabaseType(typeof(T));
-            RepositoryImpl theRepository;
+            var theRepository = _repositorySelector.SelectRepository(typeof(T));
 
-            if (!_repositories.TryGetValue(dbType, out theRepository))
+            if (theRepository == null)
             {
                 throw new InvalidOperationException();
             }
@@ -329,15 +334,9 @@ namespace Products.Persistence
         /// </summary>
         public void Insert<T>(params T[] entities) where T : Entity
         {
-            if (PersistenceConfig.IsStaticConfigTable<T>())
-            {
-                throw new InvalidOperationException(string.Format("无法在静态表 {0} 上执行 Insert 操作。", typeof(T).Name));
-            }
+            var theRepository = _repositorySelector.SelectRepository(typeof(T));
 
-            var dbType = PersistenceConfig.GetDatabaseType(typeof(T));
-            RepositoryImpl theRepository;
-
-            if (!_repositories.TryGetValue(dbType, out theRepository))
+            if (theRepository == null)
             {
                 throw new InvalidOperationException();
             }
@@ -352,15 +351,9 @@ namespace Products.Persistence
         /// </summary>
         public void AsyncInsert<T>(T[] entities, Action<Exception> exceptionHandler) where T : Entity
         {
-            if (PersistenceConfig.IsStaticConfigTable<T>())
-            {
-                throw new InvalidOperationException(string.Format("无法在静态表 {0} 上执行 AsyncInsert 操作。", typeof(T).Name));
-            }
+            var theRepository = _repositorySelector.SelectRepository(typeof(T));
 
-            var dbType = PersistenceConfig.GetDatabaseType(typeof(T));
-            RepositoryImpl theRepository;
-
-            if (!_repositories.TryGetValue(dbType, out theRepository))
+            if (theRepository == null)
             {
                 throw new InvalidOperationException();
             }
@@ -375,15 +368,9 @@ namespace Products.Persistence
         /// </summary>
         public void Delete<T>(Expression<Func<T, bool>> predicate) where T : Entity
         {
-            if (PersistenceConfig.IsStaticConfigTable<T>())
-            {
-                throw new InvalidOperationException(string.Format("无法在静态表 {0} 上执行 Delete 操作。", typeof(T).Name));
-            }
+            var theRepository = _repositorySelector.SelectRepository(typeof(T));
 
-            var dbType = PersistenceConfig.GetDatabaseType(typeof(T));
-            RepositoryImpl theRepository;
-
-            if (!_repositories.TryGetValue(dbType, out theRepository))
+            if (theRepository == null)
             {
                 throw new InvalidOperationException();
             }
@@ -398,15 +385,9 @@ namespace Products.Persistence
         /// </summary>
         public void Update<T>(object instance, Expression<Func<T, bool>> predicate) where T : Entity
         {
-            if (PersistenceConfig.IsStaticConfigTable<T>())
-            {
-                throw new InvalidOperationException(string.Format("无法在静态表 {0} 上执行 Update 操作。", typeof(T).Name));
-            }
+            var theRepository = _repositorySelector.SelectRepository(typeof(T));
 
-            var dbType = PersistenceConfig.GetDatabaseType(typeof(T));
-            RepositoryImpl theRepository;
-
-            if (!_repositories.TryGetValue(dbType, out theRepository))
+            if (theRepository == null)
             {
                 throw new InvalidOperationException();
             }
@@ -421,10 +402,9 @@ namespace Products.Persistence
         /// </summary>
         public void Execute<T>(Action<IDatabase> handler) where T : Entity
         {
-            var dbType = PersistenceConfig.GetDatabaseType(typeof(T));
-            RepositoryImpl theRepository;
+            var theRepository = _repositorySelector.SelectRepository(typeof(T));
 
-            if (!_repositories.TryGetValue(dbType, out theRepository))
+            if (theRepository == null)
             {
                 throw new InvalidOperationException();
             }
@@ -439,10 +419,9 @@ namespace Products.Persistence
         /// </summary>
         public void AsyncExecute<T>(Action<IDatabase> handler, Action<Exception> errorHandler) where T : Entity
         {
-            var dbType = PersistenceConfig.GetDatabaseType(typeof(T));
-            RepositoryImpl theRepository;
+            var theRepository = _repositorySelector.SelectRepository(typeof(T));
 
-            if (!_repositories.TryGetValue(dbType, out theRepository))
+            if (theRepository == null)
             {
                 throw new InvalidOperationException();
             }

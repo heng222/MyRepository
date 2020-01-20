@@ -92,16 +92,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Services\DataCache.cs" />
+    <Compile Include="Services\Repository\RepositoryMemory.cs" />
     <Compile Include="Services\DbConfigurationProvider.cs" />
     <Compile Include="Services\Repository\RepositoryDecorator.cs" />
-    <Compile Include="Services\Repository\RepositoryImpl.cs" />
+    <Compile Include="Services\Repository\RepositoryBase.cs" />
+    <Compile Include="Services\Repository\RepositoryRemote.cs" />
     <Compile Include="Services\Repository\Sqlite\SqliteConnectionManager.cs" />
     <Compile Include="Services\Repository\Sqlite\SqliteOperationScheduler.cs" />
     <Compile Include="Services\Repository\Sqlite\SqliteRepository.cs" />
     <Compile Include="Services\SeqNoGenerator.cs" />
-    <Compile Include="Services\Repository\CsvFileRepository.cs" />
+    <Compile Include="Services\Repository\RepositoryCsvFile.cs" />
     <Compile Include="Specification\IDataCache.cs" />
+    <Compile Include="StrategyRepositorySelection.cs" />
     <Compile Include="Utilities\HelperTools.cs" />
     <Compile Include="Utilities\LogUtility.cs" />
     <None Include="..\..\..\..\Libs\Data\config.dynamic.db">

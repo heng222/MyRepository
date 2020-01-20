@@ -7,7 +7,7 @@
 // 创建日期：2015-2-3 21:20:58 
 // 邮    箱：zhangheng@163.com
 //
-// Copyright (C) 公司名称 2009，保留所有权利
+// Copyright (C) 公司名称 2019，保留所有权利
 //
 //----------------------------------------------------------------*/
 
@@ -17,18 +17,20 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using Acl;
+using Acl.Data;
 using Products.Infrastructure.Entities;
 using Products.Infrastructure.Specification;
 
 namespace Products.Persistence.Services.Repository
 {
-    abstract class RepositoryImpl : CompositeDisposable, IRepository
+    abstract class RepositoryBase : CompositeDisposable, IRepository
     {
         #region "Field"
+        private SeqNoGenerator _sequenceGenerator = new SeqNoGenerator();
         #endregion
 
         #region "Constructor"
-        protected RepositoryImpl()
+        protected RepositoryBase()
         {
 
         }
@@ -39,6 +41,11 @@ namespace Products.Persistence.Services.Repository
 
         #region "Abstract / Override methods"
         protected abstract void OnOpen();
+
+        protected virtual IDatabase GetDatabase<TEntity>() where TEntity : Entity
+        {
+            return null;
+        }
         #endregion
 
         #region "Private methods"
@@ -53,7 +60,12 @@ namespace Products.Persistence.Services.Repository
 
         #region IRepository 成员
 
-        abstract public uint NextSequence<T>() where T : Entity;
+        public virtual UInt32 NextSequence<T>() where T : Entity
+        {
+            var connection = this.GetDatabase<T>();
+
+            return  (connection != null) ? _sequenceGenerator.Next<T>(connection) : 0;
+        }
 
         abstract public IList<T> Where<T>(Expression<Func<T, bool>> predicate = null) where T : Entity;
 

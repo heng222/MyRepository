@@ -7,7 +7,7 @@
 // 创建日期：03/02/2018 15:13:41 
 // 邮    箱：heng222_z@163.com
 //
-// Copyright (C) 公司名称 2009-2015 保留所有权利
+// Copyright (C) 公司名称 2019-2015 保留所有权利
 //
 //----------------------------------------------------------------*/
 using System;
@@ -79,7 +79,7 @@ namespace Products.Domain.Utility
         /// <summary>
         /// 获取当前的发送序号
         /// </summary>
-        public uint SendSeq { get; private set; }
+        public uint SendSeq { get; set; }
         /// <summary>
         /// 获取发送序号的同步锁。
         /// </summary>

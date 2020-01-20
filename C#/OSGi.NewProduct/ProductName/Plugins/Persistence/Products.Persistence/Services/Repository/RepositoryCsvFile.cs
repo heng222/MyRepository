@@ -7,7 +7,7 @@
 // 创建日期：2015-2-3 21:20:58 
 // 邮    箱：zhangheng@163.com
 //
-// Copyright (C) 公司名称 2009，保留所有权利
+// Copyright (C) 公司名称 2019，保留所有权利
 //
 //----------------------------------------------------------------*/
 
@@ -30,7 +30,7 @@ namespace Products.Persistence.Implementation
     /// <summary>
     /// 基于CSV文件的数据存储。
     /// </summary>
-    class CsvFileRepository : RepositoryImpl
+    class RepositoryCsvFile : RepositoryBase
     {
         #region "Field"
 
@@ -48,7 +48,7 @@ namespace Products.Persistence.Implementation
         /// <summary>
         /// 构造函数。
         /// </summary>
-        public CsvFileRepository()
+        public RepositoryCsvFile()
         {
         }
         #endregion
@@ -107,32 +107,37 @@ namespace Products.Persistence.Implementation
                 _mapping[p.Key] = queryable;
             });
         }
+
+        private IQueryable<T> GetQuerable<T>()
+        {
+            IQueryable theValue = null;
+            
+            return _mapping.TryGetValue(typeof(T), out theValue) ? theValue as IQueryable<T> : null;
+        }
         #endregion
 
         #region "Public methods"
 
         public override uint NextSequence<T>()
         {
-            throw new NotImplementedException();
+            var queryable = this.GetQuerable<T>();
+
+            return (queryable == null) ? 0 : queryable.Max(p => p.Code) + 1;
         }
 
         public override IList<T> Where<T>(Expression<Func<T, bool>> predicate = null)
         {
-            var typeT = typeof(T);
-            IQueryable theValue = null;
-
-            var flag = _mapping.TryGetValue(typeT, out theValue);
-            if (!flag) return new List<T>();
+            var queryable = this.GetQuerable<T>();
+            if (queryable == null) return new List<T>();
 
             // 
             if (predicate == null)
             {
-                return (theValue as IQueryable<T>).ToList();
+                return queryable.ToList();
             }
             else
             {
-                return (theValue as IQueryable<T>).Where(predicate).ToList();
-                //return theList.OfType<T>().AsQueryable<T>().Where(predicate).ToList();
+                return queryable.Where(predicate).ToList();
             }
         }
 
