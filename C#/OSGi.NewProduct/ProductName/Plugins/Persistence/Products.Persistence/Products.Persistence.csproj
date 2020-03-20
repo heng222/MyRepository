@@ -106,30 +106,31 @@
     <Compile Include="StrategyRepositorySelection.cs" />
     <Compile Include="Utilities\HelperTools.cs" />
     <Compile Include="Utilities\LogUtility.cs" />
-    <None Include="..\..\..\..\Libs\Data\config.dynamic.db">
+    <None Include="..\..\..\..\Data\local\CollectionPoints.ini">
+      <Link>Data\CSV\CollectionPoints.ini</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\..\..\Data\local\config.dynamic.db">
       <Link>Data\Sqlite\config.dynamic.db</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="..\..\..\..\Libs\Data\config.static.db">
+    <None Include="..\..\..\..\Data\local\config.static.db">
       <Link>Data\Sqlite\config.static.db</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="..\..\..\..\Libs\Data\log.operations.db">
+    <None Include="..\..\..\..\Data\local\log.operations.db">
       <Link>Data\Sqlite\log.operations.db</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="..\..\..\..\Libs\Data\log.sysevents.db">
+    <None Include="..\..\..\..\Data\local\log.sysevents.db">
       <Link>Data\Sqlite\log.sysevents.db</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="..\..\..\..\Libs\Data\uac.db">
+    <None Include="..\..\..\..\Data\local\uac.db">
       <Link>Data\Sqlite\uac.db</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Config\Persistence.config">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Data\CSV\CollectionPoints.ini">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Properties\AssemblyInfo.tpl" />
