@@ -86,7 +86,7 @@ namespace Products.Resource
         /// </summary>
         public static Icon ApplicationIcon
         {
-            get { return Resources.AppIcon; }
+            get { return Resources.Application; }
         }
         /// <summary>
         /// 获取应用程序图像
@@ -100,7 +100,7 @@ namespace Products.Resource
         /// </summary>
         public static Icon CompanyLogoIcon
         {
-            get { return Resources.CompanyIcon; }
+            get { return Resources.IconCompany; }
         }
         #endregion
 
@@ -110,14 +110,14 @@ namespace Products.Resource
         /// </summary>
         public static Bitmap BackgroundImage
         {
-            get { return Resources.background; }
+            get { return Resources.backcolor; }
         }
         /// <summary>
         /// 获取公司LOGO图像
         /// </summary>
         public static Bitmap CompanyLogoImage
         {
-            get { return Resources.companyLogo; }
+            get { return Resources.ImgCompany; }
         }
         /// <summary>
         /// 获取闪屏前景图像
