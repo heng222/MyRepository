@@ -21,7 +21,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>..\..\..\bin\Debug\Plugins\LogReport\Products.LogReport.XML</DocumentationFile>
-    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
     <CodeAnalysisRuleSet>..\..\..\Fxcop.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -32,6 +32,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>..\..\..\bin\Release\Plugins\LogReport\Products.LogReport.XML</DocumentationFile>
+    <CodeAnalysisRuleSet>..\..\..\Fxcop.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Acl.Controls">
@@ -166,7 +167,51 @@
     <EmbeddedResource Include="ReportForm\OperationLog.rdlc" />
     <EmbeddedResource Include="ReportForm\SysEventLog.rdlc" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Analyzer Include="..\..\..\..\Libs\Acl.Can.dll" />
+    <Analyzer Include="..\..\..\..\Libs\Acl.CommStreamLog.dll" />
+    <Analyzer Include="..\..\..\..\Libs\Acl.Controls.dll" />
+    <Analyzer Include="..\..\..\..\Libs\Acl.Core.dll" />
+    <Analyzer Include="..\..\..\..\Libs\Acl.Data.dll" />
+    <Analyzer Include="..\..\..\..\Libs\Acl.Excel.dll" />
+    <Analyzer Include="..\..\..\..\Libs\Acl.Log.dll" />
+    <Analyzer Include="..\..\..\..\Libs\Acl.Modbus.dll" />
+    <Analyzer Include="..\..\..\..\Libs\Acl.Ntp4net.dll" />
+    <Analyzer Include="..\..\..\..\Libs\Acl.RsspI4net.dll" />
+    <Analyzer Include="..\..\..\..\Libs\Acl.TimeDisplay.dll" />
+    <Analyzer Include="..\..\..\..\Libs\Humanizer.dll" />
+    <Analyzer Include="..\..\..\..\Libs\ICSharpCode.SharpZipLib.dll" />
+    <Analyzer Include="..\..\..\..\Libs\log4net.dll" />
+    <Analyzer Include="..\..\..\..\Libs\Microsoft.CodeAnalysis.VersionCheckAnalyzer.dll" />
+    <Analyzer Include="..\..\..\..\Libs\Microsoft.CodeAnalysis.VersionCheckAnalyzer.resources.dll" />
+    <Analyzer Include="..\..\..\..\Libs\Microsoft.CodeQuality.Analyzers.dll" />
+    <Analyzer Include="..\..\..\..\Libs\Microsoft.CodeQuality.Analyzers.resources.dll" />
+    <Analyzer Include="..\..\..\..\Libs\Microsoft.CodeQuality.CSharp.Analyzers.dll" />
+    <Analyzer Include="..\..\..\..\Libs\Microsoft.CodeQuality.VisualBasic.Analyzers.dll" />
+    <Analyzer Include="..\..\..\..\Libs\Microsoft.NetCore.Analyzers.dll" />
+    <Analyzer Include="..\..\..\..\Libs\Microsoft.NetCore.Analyzers.resources.dll" />
+    <Analyzer Include="..\..\..\..\Libs\Microsoft.NetCore.CSharp.Analyzers.dll" />
+    <Analyzer Include="..\..\..\..\Libs\Microsoft.NetCore.VisualBasic.Analyzers.dll" />
+    <Analyzer Include="..\..\..\..\Libs\Microsoft.NetFramework.Analyzers.dll" />
+    <Analyzer Include="..\..\..\..\Libs\Microsoft.NetFramework.Analyzers.resources.dll" />
+    <Analyzer Include="..\..\..\..\Libs\Microsoft.NetFramework.CSharp.Analyzers.dll" />
+    <Analyzer Include="..\..\..\..\Libs\Microsoft.NetFramework.VisualBasic.Analyzers.dll" />
+    <Analyzer Include="..\..\..\..\Libs\Microsoft.ReportViewer.Common.dll" />
+    <Analyzer Include="..\..\..\..\Libs\Microsoft.ReportViewer.ProcessingObjectModel.dll" />
+    <Analyzer Include="..\..\..\..\Libs\Microsoft.ReportViewer.WinForms.dll" />
+    <Analyzer Include="..\..\..\..\Libs\Newtonsoft.Json.dll" />
+    <Analyzer Include="..\..\..\..\Libs\NPOI.dll" />
+    <Analyzer Include="..\..\..\..\Libs\NPOI.OOXML.dll" />
+    <Analyzer Include="..\..\..\..\Libs\NPOI.OpenXml4Net.dll" />
+    <Analyzer Include="..\..\..\..\Libs\NPOI.OpenXmlFormats.dll" />
+    <Analyzer Include="..\..\..\..\Libs\nunit.framework.dll" />
+    <Analyzer Include="..\..\..\..\Libs\Oracle.ManagedDataAccess.dll" />
+    <Analyzer Include="..\..\..\..\Libs\OSGi.dll" />
+    <Analyzer Include="..\..\..\..\Libs\Platform.Presentation.dll" />
+    <Analyzer Include="..\..\..\..\Libs\protobuf-net.dll" />
+    <Analyzer Include="..\..\..\..\Libs\System.Data.SQLite.dll" />
+    <Analyzer Include="..\..\..\..\Libs\WeifenLuo.WinFormsUI.Docking.dll" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="Manifest.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

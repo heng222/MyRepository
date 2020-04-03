@@ -19,6 +19,7 @@ using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using System.Drawing;
 using System.Drawing.Imaging;
+using Acl.Win32API;
 
 namespace Products.Domain.Utility
 {
@@ -28,16 +29,6 @@ namespace Products.Domain.Utility
     public static class GdiNativeMethods
     {
         #region "Public methods"
-        //声明一个API函数 
-        [DllImport("gdi32.dll")]
-        [return: MarshalAs(UnmanagedType.Bool)]
-        private static extern bool BitBlt(
-            IntPtr hdcDest, int nXDest, int nYDest,
-            int nWidth, int nHeight,
-            IntPtr hdcSrc, int nXSrc, int nYSrc,
-            Int32 dwRop
-        );
-
         /// <summary>
         /// 将指定的Control布局保存到文件中。
         /// </summary>
@@ -61,7 +52,7 @@ namespace Products.Domain.Utility
                 gcBitmap = Graphics.FromImage(bitmap);
                 
                 // 调用此API函数，实现屏幕捕获 
-                BitBlt(gcBitmap.GetHdc(), 0, 0, rect.Width, rect.Height, gcScreen.GetHdc(), 0, 0, 0xCC0020); // #define SRCCOPY 0xCC0020
+                Gdi32.BitBlt(gcBitmap.GetHdc(), 0, 0, rect.Width, rect.Height, gcScreen.GetHdc(), 0, 0, 0xCC0020); // #define SRCCOPY 0xCC0020
 
                 // 保存 
                 bitmap.Save(fileName, ImageFormat.Png);

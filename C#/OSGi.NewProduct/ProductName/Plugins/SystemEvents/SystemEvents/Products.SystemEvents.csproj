@@ -23,7 +23,7 @@
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>..\..\..\bin\Debug\Plugins\SystemEvents\Products.SystemEvents.XML</DocumentationFile>
     <CodeAnalysisRuleSet>..\..\..\Fxcop.ruleset</CodeAnalysisRuleSet>
-    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -35,6 +35,7 @@
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>..\..\..\bin\Release\Plugins\SystemEvents\Products.SystemEvents.XML</DocumentationFile>
     <Prefer32Bit>false</Prefer32Bit>
+    <CodeAnalysisRuleSet>..\..\..\Fxcop.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Acl.Controls">
@@ -111,7 +112,25 @@
       <Private>False</Private>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Analyzer Include="..\..\..\..\Libs\Microsoft.CodeAnalysis.VersionCheckAnalyzer.dll" />
+    <Analyzer Include="..\..\..\..\Libs\Microsoft.CodeAnalysis.VersionCheckAnalyzer.resources.dll" />
+    <Analyzer Include="..\..\..\..\Libs\Microsoft.CodeQuality.Analyzers.dll" />
+    <Analyzer Include="..\..\..\..\Libs\Microsoft.CodeQuality.Analyzers.resources.dll" />
+    <Analyzer Include="..\..\..\..\Libs\Microsoft.CodeQuality.CSharp.Analyzers.dll" />
+    <Analyzer Include="..\..\..\..\Libs\Microsoft.CodeQuality.VisualBasic.Analyzers.dll" />
+    <Analyzer Include="..\..\..\..\Libs\Microsoft.NetCore.Analyzers.dll" />
+    <Analyzer Include="..\..\..\..\Libs\Microsoft.NetCore.Analyzers.resources.dll" />
+    <Analyzer Include="..\..\..\..\Libs\Microsoft.NetCore.CSharp.Analyzers.dll" />
+    <Analyzer Include="..\..\..\..\Libs\Microsoft.NetCore.VisualBasic.Analyzers.dll" />
+    <Analyzer Include="..\..\..\..\Libs\Microsoft.NetFramework.Analyzers.dll" />
+    <Analyzer Include="..\..\..\..\Libs\Microsoft.NetFramework.Analyzers.resources.dll" />
+    <Analyzer Include="..\..\..\..\Libs\Microsoft.NetFramework.CSharp.Analyzers.dll" />
+    <Analyzer Include="..\..\..\..\Libs\Microsoft.NetFramework.VisualBasic.Analyzers.dll" />
+    <Analyzer Include="..\..\..\..\Libs\Microsoft.ReportViewer.Common.dll" />
+    <Analyzer Include="..\..\..\..\Libs\Microsoft.ReportViewer.ProcessingObjectModel.dll" />
+    <Analyzer Include="..\..\..\..\Libs\Microsoft.ReportViewer.WinForms.dll" />
+  </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Controls\CtrlSysEvents.resx">
       <DependentUpon>CtrlSysEvents.cs</DependentUpon>

@@ -24,7 +24,7 @@ namespace Products.Domain.Utility
     /// <summary>
     /// 单进程实例检查器
     /// </summary>
-    public class SingletonProcessChecker : IDisposable
+    public class SingletonProcessChecker : Acl.CompositeDisposable
     {
         /// <summary>
         /// 互斥体
@@ -43,26 +43,9 @@ namespace Products.Domain.Utility
         {
             bool createdNew;
             _mutex = new Mutex(true, symbolicName, out createdNew);
+            this.AddDisposable(_mutex);
 
             IsPassed = createdNew;
-        }
-
-        /// <summary>
-        /// 释放资源
-        /// </summary>
-        public void Dispose()
-        {
-            this.Dispose(true);
-            GC.SuppressFinalize(this);
-        }
-
-        private void Dispose(bool disposing)
-        {
-            if (_mutex != null)
-            {
-                _mutex.Close();
-                _mutex = null;
-            }
         }
     }
 }

@@ -22,7 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
     <CodeAnalysisRuleSet>..\..\Fxcop.ruleset</CodeAnalysisRuleSet>
     <DocumentationFile>..\..\Bin\Debug\Libs\Products.Domain.XML</DocumentationFile>
     <Prefer32Bit>false</Prefer32Bit>
@@ -36,6 +36,7 @@
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>..\..\Bin\Release\Libs\Products.Domain.XML</DocumentationFile>
     <Prefer32Bit>false</Prefer32Bit>
+    <CodeAnalysisRuleSet>..\..\Fxcop.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Acl.CommStreamLog, Version=1.3.0.12, Culture=neutral, processorArchitecture=MSIL">
@@ -109,6 +110,22 @@
       <Project>{14AB3329-0B97-463F-B803-41FC57FE133D}</Project>
       <Name>Products.Resource</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\..\..\Libs\Microsoft.CodeAnalysis.VersionCheckAnalyzer.dll" />
+    <Analyzer Include="..\..\..\Libs\Microsoft.CodeAnalysis.VersionCheckAnalyzer.resources.dll" />
+    <Analyzer Include="..\..\..\Libs\Microsoft.CodeQuality.Analyzers.dll" />
+    <Analyzer Include="..\..\..\Libs\Microsoft.CodeQuality.Analyzers.resources.dll" />
+    <Analyzer Include="..\..\..\Libs\Microsoft.CodeQuality.CSharp.Analyzers.dll" />
+    <Analyzer Include="..\..\..\Libs\Microsoft.CodeQuality.VisualBasic.Analyzers.dll" />
+    <Analyzer Include="..\..\..\Libs\Microsoft.NetCore.Analyzers.dll" />
+    <Analyzer Include="..\..\..\Libs\Microsoft.NetCore.Analyzers.resources.dll" />
+    <Analyzer Include="..\..\..\Libs\Microsoft.NetCore.CSharp.Analyzers.dll" />
+    <Analyzer Include="..\..\..\Libs\Microsoft.NetCore.VisualBasic.Analyzers.dll" />
+    <Analyzer Include="..\..\..\Libs\Microsoft.NetFramework.Analyzers.dll" />
+    <Analyzer Include="..\..\..\Libs\Microsoft.NetFramework.Analyzers.resources.dll" />
+    <Analyzer Include="..\..\..\Libs\Microsoft.NetFramework.CSharp.Analyzers.dll" />
+    <Analyzer Include="..\..\..\Libs\Microsoft.NetFramework.VisualBasic.Analyzers.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

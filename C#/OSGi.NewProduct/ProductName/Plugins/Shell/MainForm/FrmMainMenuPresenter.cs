@@ -16,7 +16,7 @@ using Products.Domain.Utility;
 
 namespace Products.Shell.Presentation.MainForm
 {
-    partial class FrmMainMenuPresenter
+    partial class FrmMainMenuPresenter : Acl.CompositeDisposable
     {
         #region "Field"
         /// <summary>

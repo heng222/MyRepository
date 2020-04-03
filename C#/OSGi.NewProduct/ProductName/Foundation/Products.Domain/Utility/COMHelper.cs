@@ -15,6 +15,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Runtime.InteropServices;
+using Acl.Win32API;
 
 namespace Products.Domain.Utility
 {
@@ -22,18 +23,7 @@ namespace Products.Domain.Utility
     /// COM控件帮助类。
     /// </summary>
     public static class COMHelper
-    {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1060:MovePInvokesToNativeMethodsClass"), DllImport("Kernel32.dll")]
-        private static extern IntPtr LoadLibrary(string lpFileName);
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1060:MovePInvokesToNativeMethodsClass"), DllImport("kernel32.dll", SetLastError = true)]
-        private static extern IntPtr GetProcAddress(IntPtr hModule, string lpProcName);
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1060:MovePInvokesToNativeMethodsClass"), DllImport("kernel32.dll", EntryPoint = "FreeLibrary", SetLastError = true)]
-        [return: MarshalAs(UnmanagedType.Bool)]
-        private static extern bool FreeLibrary(IntPtr hModule);
-        
-        //
+    {        
         private delegate int DllRegisterServer();
 
         /// <summary>
@@ -46,9 +36,9 @@ namespace Products.Domain.Utility
 
             try
             {
-                dllModule = LoadLibrary(comPath);
+                dllModule = Kernel32.LoadLibrary(comPath);
 
-                var addr = GetProcAddress(dllModule, "DllRegisterServer");
+                var addr = Kernel32.GetProcAddress(dllModule, "DllRegisterServer");
                 if (addr == IntPtr.Zero)
                 {
                     throw new Exception(string.Format("没有找到文件{0}的DllRegisterServer入口点。", comPath));
@@ -69,7 +59,7 @@ namespace Products.Domain.Utility
             {
                 if (dllModule != IntPtr.Zero)
                 {
-                    FreeLibrary(dllModule);
+                    Kernel32.FreeLibrary(dllModule);
                 }
             }
         }
