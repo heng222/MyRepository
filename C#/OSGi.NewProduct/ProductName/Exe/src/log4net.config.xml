@@ -3,7 +3,7 @@
 
     <!-- 所有日志（不包含数据库日志） -->
     <appender name="InfoAppender" type="Acl.Log.Impl.AclRollingFileAppender">
-        <param name="File" value="Log\\Info\\" />
+        <param name="File" value="Log\\All\\" />
         <param name="AppendToFile" value="true" />
         <param name="ImmediateFlush" value="true"/>
         <param name="StaticLogFileName" value="false" />
@@ -22,7 +22,7 @@
 
     <!-- 异常日志 -->
     <appender name="ErrorAppender" type="Acl.Log.Impl.AclRollingFileAppender">
-        <param name="File" value="Log\\Error\\" />
+        <param name="File" value="Log\\ErrorOnly\\" />
         <param name="AppendToFile" value="true" />
         <param name="ImmediateFlush" value="true"/>
         <param name="StaticLogFileName" value="false" />
