@@ -31,7 +31,7 @@ namespace Products.Infrastructure.Messages
 
         #region "程序即将关闭消息"
         private static IMessageBus ApplicationExitingMessageBus = LocalMessageBus.NewMessageBus();
-        private const string ApplicationExitingMessage = @"local://ApplicationExiting";
+        private const string ApplicationExitingMessage = @"local://Product/ApplicationExiting";
         /// <summary>
         /// 订阅程序即将关闭事件。
         /// </summary>
@@ -58,11 +58,11 @@ namespace Products.Infrastructure.Messages
         /// <summary>
         /// 消息：接收到数据
         /// </summary>
-        const string FrameIncoming = "local://Communication/DataFrameIncoming";
+        const string FrameIncoming = "local://Product/Communication/DataFrameIncoming";
         /// <summary>
         /// 消息：发送数据
         /// </summary>
-        const string FrameOutgoing = "local://Communication/DataFrameOutgoing";
+        const string FrameOutgoing = "local://Product/Communication/DataFrameOutgoing";
 
         /// <summary>
         /// 订阅数据进入消息
@@ -106,12 +106,12 @@ namespace Products.Infrastructure.Messages
         /// <summary>
         /// 接收到系统内部协议帧
         /// </summary>
-        private const string InnerFrameIncoming = "local://Communication/InnerFrameIncoming";
+        private const string InnerFrameIncoming = "local://Product/Communication/InnerFrameIncoming";
 
         /// <summary>
         /// 待发送的系统内部协议帧
         /// </summary>
-        private const string InnerFrameOutgoing = "local://Communication/InnerFrameOutgoing";
+        private const string InnerFrameOutgoing = "local://Product/Communication/InnerFrameOutgoing";
 
         /// <summary>
         /// 订阅系统内部协议帧进入消息
@@ -163,7 +163,7 @@ namespace Products.Infrastructure.Messages
         /// <summary>
         /// 设备间连接发生变化
         /// </summary>
-        private const string NodeConnectionChanged = "local://NDM/ConnectionChanged";
+        private const string NodeConnectionChanged = "local://Product/NDM/ConnectionChanged";
         /// <summary>
         /// 订阅通信状态变化消息
         /// </summary>
@@ -187,15 +187,15 @@ namespace Products.Infrastructure.Messages
         /// <summary>
         /// 用户将要切换消息。
         /// </summary>
-        private const string UserChangedMessageTopic = "local://AuthorityManagement/UserChanged";
+        private const string UserChangedMessageTopic = "local://Product/AuthorityManagement/UserChanged";
         /// <summary>
         /// 用户已切换消息。
         /// </summary>
-        private const string UserChangingMessageTopic = "local://AuthorityManagement/UserChanging";
+        private const string UserChangingMessageTopic = "local://Product/AuthorityManagement/UserChanging";
         /// <summary>
         /// 用户自动登录失败消息。
         /// </summary>
-        private const string UserAutoLogonFailedMessageTopic = "local://AuthorityManagement/AutoLogonFailed";
+        private const string UserAutoLogonFailedMessageTopic = "local://Product/AuthorityManagement/AutoLogonFailed";
         /// <summary>
         /// 权限管理相关消息总线。
         /// </summary>
@@ -252,7 +252,7 @@ namespace Products.Infrastructure.Messages
         /// <summary>
         /// 系统事件产生或更新消息。
         /// </summary>
-        private const string SystemEventTopic = "local://SystemEventManagement/NewEvent";
+        private const string SystemEventTopic = "local://Product/SystemEventManagement/NewEvent";
         /// <summary>
         /// 订阅 系统事件产生或更新 消息。
         /// </summary>
@@ -273,7 +273,7 @@ namespace Products.Infrastructure.Messages
         /// <summary>
         /// 操作记录产生或更新消息。
         /// </summary>
-        private const string OperationRecordTopic = "local://OperationRecords/NewLog";
+        private const string OperationRecordTopic = "local://Product/OperationRecords/NewLog";
         /// <summary>
         /// 订阅 操作记录产生或更新 消息。
         /// </summary>
@@ -289,13 +289,13 @@ namespace Products.Infrastructure.Messages
             return DefaultMessageBus.Publish(OperationRecordTopic, args, sender, false);
         }
         #endregion
-        
-        #region "通信日志Rollover消息"
 
+
+        #region "通信日志Rollover消息"
         /// <summary>
         /// Rollover all communication log.
         /// </summary>
-        private const string RolloverAllCommLog = @"Local://MenuMessageHandler/RolloverAllCommLog";
+        private const string RolloverAllCommLog = @"Local://Product/RolloverAllCommLog";
         /// <summary>
         /// 订阅通信日志Rollover事件。
         /// </summary>
@@ -310,6 +310,26 @@ namespace Products.Infrastructure.Messages
         {
             return LocalMessageBus.Current.Publish(RolloverAllCommLog, args, sender, false);
         }
+
+        /// <summary>
+        /// 一个消息主题，用于表示产生新的通信流日志。
+        /// </summary>
+        private const String CommLogCreatedTopic = @"Local://Product/NewCommLogCreated";
+        /// <summary>
+        /// 订阅通信流日志产生事件。
+        /// </summary>
+        public static IDisposable SubscribeCommLogCreated(Action<object, CommLogCreatedEventArgs> handler)
+        {
+            return LocalMessageBus.Current.Subscribe<CommLogCreatedEventArgs>(CommLogCreatedTopic, handler, SubscribeMode.Sync);
+        }
+        /// <summary>
+        /// 发布通信流日志产生事件。
+        /// </summary>
+        public static IMessageResponse PublishCommLogCreated(CommLogCreatedEventArgs args, object sender = null)
+        {
+            return LocalMessageBus.Current.Publish(CommLogCreatedTopic, args, sender, false);
+        }
+
         #endregion
     }
 }

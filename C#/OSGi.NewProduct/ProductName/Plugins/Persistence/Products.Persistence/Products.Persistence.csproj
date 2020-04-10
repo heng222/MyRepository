@@ -93,6 +93,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Services\CommStreamStorage.cs" />
     <Compile Include="Services\Repository\RepositoryMemory.cs" />
     <Compile Include="Services\DbConfigurationProvider.cs" />
     <Compile Include="Services\Repository\RepositoryDecorator.cs" />
@@ -105,6 +106,7 @@
     <Compile Include="Services\Repository\RepositoryCsvFile.cs" />
     <Compile Include="Specification\IDataCache.cs" />
     <Compile Include="StrategyRepositorySelection.cs" />
+    <Compile Include="Utilities\CommLogHelper.cs" />
     <Compile Include="Utilities\HelperTools.cs" />
     <Compile Include="Utilities\LogUtility.cs" />
     <None Include="..\..\..\..\Data\local\CollectionPoints.ini">
@@ -186,6 +188,11 @@
     <ProjectReference Include="..\..\..\Foundation\Products.Presentation\Products.Presentation.csproj">
       <Project>{b2432701-87ac-4b50-a680-f6f514401fbc}</Project>
       <Name>Products.Presentation</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Foundation\Products.Resource\Products.Resource.csproj">
+      <Project>{14ab3329-0b97-463f-b803-41fc57fe133d}</Project>
+      <Name>Products.Resource</Name>
       <Private>False</Private>
     </ProjectReference>
   </ItemGroup>

@@ -77,10 +77,11 @@
     <Compile Include="Entities\System\PluginLoadingConfig.cs" />
     <Compile Include="Entities\SEM\SysEvent.cs" />
     <Compile Include="Entities\UAC\User.cs" />
-    <Compile Include="Events\FrameSentCompleteEventArgs.cs" />
-    <Compile Include="Events\FrameIncomingEventArgs.cs" />
-    <Compile Include="Events\CommStateChangedEventArgs.cs" />
-    <Compile Include="Events\FrameOutgoingEventArgs.cs" />
+    <Compile Include="Events\Communication\CommLogCreatedEventArgs.cs" />
+    <Compile Include="Events\Communication\FrameSentCompleteEventArgs.cs" />
+    <Compile Include="Events\Communication\FrameIncomingEventArgs.cs" />
+    <Compile Include="Events\Communication\CommStateChangedEventArgs.cs" />
+    <Compile Include="Events\Communication\FrameOutgoingEventArgs.cs" />
     <Compile Include="Events\NewSystemEventArgs.cs" />
     <Compile Include="Events\OpeationLogCreateOrUpdateEventArgs.cs" />
     <Compile Include="Events\ProcessExitingEventArgs.cs" />
@@ -143,6 +144,13 @@
     <Analyzer Include="..\..\..\Libs\Microsoft.NetFramework.Analyzers.dll" />
     <Analyzer Include="..\..\..\Libs\Microsoft.NetFramework.CSharp.Analyzers.dll" />
     <Analyzer Include="..\..\..\Libs\Microsoft.NetFramework.VisualBasic.Analyzers.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Products.Resource\Products.Resource.csproj">
+      <Project>{14ab3329-0b97-463f-b803-41fc57fe133d}</Project>
+      <Name>Products.Resource</Name>
+      <Private>False</Private>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

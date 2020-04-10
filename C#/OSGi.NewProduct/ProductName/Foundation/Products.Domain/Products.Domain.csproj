@@ -83,7 +83,6 @@
     <Compile Include="Framework\ActivatorBase.cs" />
     <Compile Include="Framework\FrameworkActivatorBase.cs" />
     <Compile Include="NodeConfig\NodeContextImpl.cs" />
-    <Compile Include="Persistence\CommLogStorage.cs" />
     <Compile Include="Preferences\SettingsParser.cs" />
     <Compile Include="Preferences\SettingsUtility.cs" />
     <None Include="Properties\AssemblyInfo.tpl" />
@@ -126,6 +125,9 @@
     <Analyzer Include="..\..\..\Libs\Microsoft.NetFramework.Analyzers.resources.dll" />
     <Analyzer Include="..\..\..\Libs\Microsoft.NetFramework.CSharp.Analyzers.dll" />
     <Analyzer Include="..\..\..\Libs\Microsoft.NetFramework.VisualBasic.Analyzers.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Persistence\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

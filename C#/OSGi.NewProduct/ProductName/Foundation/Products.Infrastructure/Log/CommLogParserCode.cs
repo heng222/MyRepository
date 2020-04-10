@@ -14,6 +14,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Products.Resource;
 
 namespace Products.Infrastructure.Log
 {
@@ -22,36 +23,28 @@ namespace Products.Infrastructure.Log
     /// 高两位字节：项目编号，标准版本为0xFFFF，具体项目使用0x0001~0xEFFF之间的一个值。
     /// 低两位字节：顺序号。
     /// </summary>
-    public enum CommLogParserCode : uint
+    public abstract class CommLogParserCode
     {
         /// <summary>
         /// 无效值。
         /// </summary>
-        None = 0,
+        public static readonly uint None = 0;
 
         /// <summary>
         /// 本系统内部日志流解析器编号。
         /// </summary>
-        Internal = 0xFFFF0001,
+        public static readonly UInt32 Internal = (uint)((ProductResources.ProjectCode << 16) + 0x0001);
+
 
         #region "系统1"
         /// <summary>
         /// 本系统 与 System1 间的输入流解析器编号。
         /// </summary>
-        System1Input = 0xFFFF0004,
+        public static readonly UInt32 System1Input = (uint)((ProductResources.ProjectCode << 16) + 0x0004);
         /// <summary>
         /// 本系统与 System1 间的输出流解析器编号。
         /// </summary>
-        System1Output = 0xFFFF0005,
+        public static readonly UInt32 System1Output = (uint)((ProductResources.ProjectCode << 16) + 0x0005);
         #endregion
-
-
-        #region "系统2"
-        /// <summary>
-        /// 本系统与 System2 间的输入流解析器编号。
-        /// </summary>
-        System2Input = 0xFFFF0010,
-        #endregion
-
     }
 }
