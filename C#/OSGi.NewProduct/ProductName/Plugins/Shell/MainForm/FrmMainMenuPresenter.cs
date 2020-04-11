@@ -1,4 +1,16 @@
-﻿using System;
+﻿/*----------------------------------------------------------------
+// 公司名称：请输入公司名称
+// 
+// 项目名称：输入项目名称
+//
+// 创 建 人：zhangheng
+// 创建日期：2015-2-3 21:20:58 
+// 邮    箱：zhangheng@163.com
+//
+// Copyright (C) 公司名称 2019，保留所有权利
+//
+//----------------------------------------------------------------*/
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
@@ -8,11 +20,11 @@ using Acl.MessageBus;
 using Acl.ServiceManagement;
 using Platform.Presentation;
 using Platform.Presentation.CommonControl;
+using Products.Domain.Utility;
+using Products.Infrastructure.Messages;
+using Products.Presentation;
 using Products.Resource;
 using Products.Shell.Properties;
-using Products.Presentation;
-using Products.Infrastructure.Messages;
-using Products.Domain.Utility;
 
 namespace Products.Shell.Presentation.MainForm
 {
@@ -147,7 +159,7 @@ namespace Products.Shell.Presentation.MainForm
 
             //_menuDebug.DropDownItems.AddRange(new ToolStripItem[] { mnuOpenNDMDebugForm, 
             //    mnuOpenTMTDebugForm, mnuOpenSDMDebugForm, mnuOpenCommDebugForm, mnuSaveStationRangeTable});
-            //_menuDebug.Visible = false;
+            _menuDebug.Visible = false;
             //#endregion
 
             #region "一级菜单：帮助"

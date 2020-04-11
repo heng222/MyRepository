@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Configuration xmlns="urn:bundle-manifest-2.0"
+         Bundle-Activator="Products.SystemEvents.Activator"
+         Bundle-SymbolicName="SystemEvents"
+         Bundle-Description="系统事件插件"         
+         Bundle-Name="系统事件"
+         Bundle-StartLevel="15"
+         Bundle-Version="1.0.0">
+  
+  <Runtime>
+    <Assembly Path="Products.SystemEvents.dll"  Share="false"/>
+    <Assembly Path="Products.SystemEvents.dll"  Share="false"/>
+  </Runtime>
+
+  <Settings>
+    <!-- Value1 -->
+    <add key="Key1" value="value1"/>
+  </Settings>
+
+</Configuration>

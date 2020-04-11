@@ -8,13 +8,13 @@ using System.Windows.Forms;
 using Platform.Presentation;
 using Products.Infrastructure;
 using Products.Infrastructure.Messages;
+using Products.Infrastructure.Specification;
+using Products.Infrastructure.Types;
 using Products.Presentation;
 using Products.Resource;
 using Products.Shell.Presentation.MainForm;
 using Products.Shell.Properties;
 using WeifenLuo.WinFormsUI.Docking;
-using Products.Infrastructure.Specification;
-using Products.Infrastructure.Types;
 
 namespace Products.Shell
 {
@@ -23,7 +23,7 @@ namespace Products.Shell
         /// <summary>
         /// UI布局配置文件的后缀名。
         /// </summary>
-        public const string UiLayoutSuffix = "UiLayout";
+        public const string UiLayoutSuffix = "Layout";
 
         #region "Field"
         protected List<IControlOptimizer> _controlOptimizers = new List<IControlOptimizer>();
@@ -146,10 +146,14 @@ namespace Products.Shell
             //this.DesktopBounds = new Rectangle(0, 0, Screen.AllScreens.Sum(p => p.Bounds.Width),
             //    Screen.AllScreens.Min(p => p.Bounds.Height));
 
-            if (!DesignMode)
+            // 设置主窗口标题
+            if (string.IsNullOrWhiteSpace(GlobalServices.NodeContext.Name))
             {
-                // 设置主窗口标题
-                Text = string.Format("{0} - {1}", GlobalServices.NodeContext.Name, ProductResources.ProjectChsName);
+                this.Text = ProductResources.ProjectChsName;
+            }
+            else
+            {
+                this.Text = string.Format("{0} - {1}", GlobalServices.NodeContext.Name, ProductResources.ProjectChsName);
             }
 
             // 构建需要优化的控件集
@@ -305,19 +309,20 @@ namespace Products.Shell
         /// </summary>
         public string BuildDockConfigFileName()
         {
-            var fileName = string.Format("DockPanel_{0}{1}.{2}",
-                GlobalServices.NodeContext.Code, GlobalServices.NodeContext.Name, 
-                FrmMain.UiLayoutSuffix);
+            var fileName = string.Empty;
 
             if (GlobalServices.UAC != null)
             {
-                fileName = string.Format("DockPanel_{0}{1}.{2}",
+                fileName = string.Format("{0}{1}_{2}{3}.{4}",GlobalServices.NodeContext.Code, GlobalServices.NodeContext.Name,
                      GlobalServices.UAC.CurrentUserCode, GlobalServices.UAC.CurrentUserName, FrmMain.UiLayoutSuffix);
             }
+            else
+            {
+                fileName = string.Format("{0}{1}.{2}",GlobalServices.NodeContext.Code, GlobalServices.NodeContext.Name,
+                    FrmMain.UiLayoutSuffix);
+            }
 
-            var pathFileName = Path.Combine(Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location), fileName);
-
-            return pathFileName;
+            return Path.Combine(Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location), fileName);
         }
         public void SaveDockConfigToFile()
         {

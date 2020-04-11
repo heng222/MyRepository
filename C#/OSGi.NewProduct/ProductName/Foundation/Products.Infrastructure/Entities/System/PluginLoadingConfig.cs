@@ -79,7 +79,14 @@ namespace Products.Infrastructure.Entities
         /// <returns></returns>
         public PluginType GetPlugins()
         {
-            return (PluginType)UInt64.Parse(this.Plugins);
+            if(this.Plugins == "-1")
+            {
+                return PluginType.All;
+            }
+            else
+            {
+                return (PluginType)UInt64.Parse(this.Plugins);
+            }
         }
 
         /// <summary>

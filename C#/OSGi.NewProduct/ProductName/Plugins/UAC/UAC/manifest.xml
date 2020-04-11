@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Configuration xmlns="urn:bundle-manifest-2.0"
+         Bundle-Activator="Products.UAC.Activator"
+         Bundle-SymbolicName="UAC"
+         Bundle-Description="用户访问控制"
+         Bundle-Name="UAC"
+         Bundle-StartLevel="16"
+         Bundle-Specification="Products.UAC.BundleSpecification"
+         Bundle-Version="1.0.0"                  
+         >
+  <Runtime>
+    <Assembly Path="Products.UAC.dll"  Share="false"/>
+    <Assembly Path="Products.UAC.dll"  Share="false"/>
+  </Runtime>
+</Configuration>
