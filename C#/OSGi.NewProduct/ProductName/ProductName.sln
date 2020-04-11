@@ -25,7 +25,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Products.Plugin1", "Plugins
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Products.Presentation", "Foundation\Products.Presentation\Products.Presentation.csproj", "{B2432701-87AC-4B50-A680-F6F514401FBC}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ExternalInterfaces", "ExternalInterfaces", "{D3232CFF-3F56-449C-AC97-FF98D863320F}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EIM", "EIM", "{D3232CFF-3F56-449C-AC97-FF98D863320F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Products.UAC", "Plugins\UAC\UAC\Products.UAC.csproj", "{C054B2BA-A931-49DD-A80D-F8A98DBA34AF}"
 EndProject
