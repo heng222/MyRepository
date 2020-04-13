@@ -80,11 +80,6 @@ namespace Products.Persistence
             Settings = SettingsManager.GetXmlSettings(cfgPath);
             
             InitializeDataSource();
-
-            // 创建远程数据库配置
-            RemoteConfiguration = GetOrCreateDbConfiguration(PersistenceConfig.DataSourceRemoteDbName, false);
-
-            DbConnectionMonitor.Current.SubscribeConnectionStateChanged(OnDbConnectionChanged);
         }
         #endregion
 
@@ -175,9 +170,12 @@ namespace Products.Persistence
 
         #region "Public methods"
 
-        public static void Initialize()
+        public static void Initialize(bool remoteDbEnabled)
         {
+            // 创建远程数据库配置
+            if(remoteDbEnabled) RemoteConfiguration = GetOrCreateDbConfiguration(PersistenceConfig.DataSourceRemoteDbName, false);
 
+            DbConnectionMonitor.Current.SubscribeConnectionStateChanged(OnDbConnectionChanged);
         }
 
         public static void Close()

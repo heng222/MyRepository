@@ -59,7 +59,13 @@ namespace Products.Persistence
         /// </summary>
         public void Open()
         {
-            this.Open(uint.MaxValue);
+            var enableRemoteDb = true;
+            if (!string.IsNullOrWhiteSpace(ConfigurationManager.AppSettings["EnableRemoteDb"]))
+            {
+                enableRemoteDb = Convert.ToBoolean(ConfigurationManager.AppSettings["EnableRemoteDb"]);
+            }
+
+            this.Open(uint.MaxValue, enableRemoteDb);
         }
 
         /// <summary>
@@ -67,13 +73,14 @@ namespace Products.Persistence
         /// </summary>
         /// <param name="deviceID">指定的本地设备编号。
         /// uint.MinValue表示不初始化节点上下文；uint.MaxValue表示根据配置文件中的ID初始化设备上下文。</param>
-        public void Open(UInt32 deviceID)
+        /// <param name="enableRemoteDb">是否启用远程数据库？</param>
+        public void Open(UInt32 deviceID, bool enableRemoteDb = true)
         {
-            InitializeEnvironment();
+            InitializeEnvironment(enableRemoteDb);
 
             // 
             LogUtility.Info("正在初始化数据仓储...");
-            InitializeRepository();
+            InitializeRepository(enableRemoteDb);
 
             // 
             LogUtility.Info("正在初始化实体导航属性...");
@@ -111,7 +118,7 @@ namespace Products.Persistence
         #endregion
 
         #region "Private methods"
-        private void InitializeEnvironment()
+        private void InitializeEnvironment(bool enableRemoteDb)
         {
             // 数据库日志配置
             Database.Logger = (fmt, args, level, ex) => LogUtility.Trace(fmt, args, (LogLevel)level, ex);
@@ -120,13 +127,13 @@ namespace Products.Persistence
             Environment.SetEnvironmentVariable("PreLoadSQLite_BaseDirectory", HelperTools.CurrentDllPath);
 
             // 初始化配置。
-            PersistenceConfig.Initialize();
+            PersistenceConfig.Initialize(enableRemoteDb);
         }
 
-        private void InitializeRepository()
+        private void InitializeRepository(bool enableRemoteDb)
         {
             // 创建Remote DB连接监视器
-            //CreateRemoteDbConnectionMonitor();
+            if(enableRemoteDb) CreateRemoteDbConnectionMonitor();
 
             // 创建 Repository。
             _repositories[DataBaseType.Oracle] = new RepositoryRemote();
