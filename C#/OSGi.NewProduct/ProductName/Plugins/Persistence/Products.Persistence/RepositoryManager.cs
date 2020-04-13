@@ -33,7 +33,7 @@ namespace Products.Persistence
     /// <summary>
     /// 持久化管理器。
     /// </summary>
-    public class PersistenceManager : Acl.CompositeDisposable, IRepository
+    public class RepositoryManager : Acl.CompositeDisposable, IRepository
     {
         #region "Field"
         private Dictionary<DataBaseType, RepositoryBase> _repositories = new Dictionary<DataBaseType, RepositoryBase>();
@@ -44,7 +44,7 @@ namespace Products.Persistence
         /// <summary>
         /// 构造函数。
         /// </summary>
-        public PersistenceManager()
+        public RepositoryManager()
         {
         }
         #endregion

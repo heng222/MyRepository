@@ -29,7 +29,7 @@ namespace Products.Persistence
     {
         #region "Field"
         private DbConfigurationProvider _dbCfgProvider = new DbConfigurationProvider();
-        private PersistenceManager _persistenceMgr = new PersistenceManager();
+        private RepositoryManager _persistenceMgr = new RepositoryManager();
         #endregion
 
         #region "Constructor"
