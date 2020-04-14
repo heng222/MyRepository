@@ -153,7 +153,7 @@ namespace Products.Persistence.Services
             var localNodeName = this.GetDeviceName(args.LocalNodeType, args.LocalNodeCode);
             var remoteNodeName = this.GetDeviceName(args.RemoteNodeType, args.RemoteNodeCode);
 
-            var logPath = string.Format(@"{0}\L{1}_R{2}", LogSettings.CommLogBasePath, localNodeName, remoteNodeName);
+            var logPath = string.Format(@"{0}\L{1}.{2}_R{3}.{4}", LogSettings.CommLogBasePath, args.LocalNodeCode, localNodeName, args.RemoteNodeCode, remoteNodeName);
             var logKey = string.Format("{0}{1}-{2}{3}", args.LocalNodeType, args.LocalNodeCode, args.RemoteNodeType, args.RemoteNodeCode);
 
             // 
@@ -176,7 +176,7 @@ namespace Products.Persistence.Services
             try
             {
                 _commLogWriters.Values.ForEach(p => p.Rollover());
-                LogUtility.Info("Rollover所有通信流日志。");
+                LogUtility.Info("所有通信流日志已Rollover。");
             }
             catch (System.Exception ex)
             {
