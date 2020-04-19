@@ -71,26 +71,35 @@ namespace CSharpLearning.Systems
         /// <summary>
         /// 此函数被异步调用。
         /// </summary>
-        private void MethodWithException()
+        private void SendRequestFirstly()
         {
-            throw new ApplicationException("MethodWithException");
+            Console.WriteLine($"工作线程TID = {Thread.CurrentThread.ManagedThreadId}");
+            for (int i=0; i<5; i++)
+            {
+                Console.WriteLine($"发送中({(i+1)/5.0*100}%)... ");
+                Thread.Sleep(1000);
+            }
+
+            Console.WriteLine($"发送完成。");
         }
 
         /// <summary>
         /// 可以用APM来执行任何方法，我们只需要定义一个与方法签名一致的delegate，
         /// delegate编译后会生成一个BeginInvoke和EndInvoke方法来支持APM操作。
-        /// 异步编程模型（APM）
         /// </summary>
         [Test]
         public void Test3()
         {
-            Action d1 = MethodWithException;
+            Action d1 = SendRequestFirstly;
+
+            Console.WriteLine($"Main TID = {Thread.CurrentThread.ManagedThreadId}");
 
             var ar = d1.BeginInvoke(p =>
             {
                 try
                 {
                     d1.EndInvoke(p);
+                    Console.WriteLine($"收到发送完成，TID = {Thread.CurrentThread.ManagedThreadId}，更新界面，准备发送二次请求。");
                 }
                 catch (System.Exception ex)
                 {
