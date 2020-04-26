@@ -86,6 +86,8 @@
     <Compile Include="Events\OpeationLogCreateOrUpdateEventArgs.cs" />
     <Compile Include="Events\ProcessExitingEventArgs.cs" />
     <Compile Include="Exceptions\LanuchCancelledException.cs" />
+    <Compile Include="Extensions\IEnumerableExtension.cs" />
+    <Compile Include="Extensions\TaskExtension.cs" />
     <Compile Include="Specification\Communication\IRawUdpParamProvider.cs" />
     <Compile Include="Specification\Communication\IRssp1ParamProvider.cs" />
     <Compile Include="Specification\ILifeCycleManagement.cs" />
