@@ -547,6 +547,9 @@ namespace Products.Presentation
                         }
                     }
                 }
+
+                // 
+                this.Invoke(() => { if (cbxRemoteIDs.Items.Count > 0 && cbxRemoteIDs.SelectedIndex == -1) cbxRemoteIDs.SelectedIndex = 0; });
             }
             catch (System.Exception /*ex*/)
             {
@@ -557,8 +560,6 @@ namespace Products.Presentation
         {
             try
             {
-                if (cbxRemoteIDs.Items.Count > 0 && cbxRemoteIDs.SelectedIndex == -1) cbxRemoteIDs.SelectedIndex = 0;
-
                 if (this.IncomingStreamVisable
                     && this.cbxRemoteIDs.Text == theData.RemoteDeviceID
                     && this.FilterStream(theData.Stream))
@@ -602,8 +603,6 @@ namespace Products.Presentation
         {
             try
             {
-                if (cbxRemoteIDs.Items.Count > 0 && cbxRemoteIDs.SelectedIndex == -1) cbxRemoteIDs.SelectedIndex = 0;
-
                 if (this.OutgoingStreamVisable
                     && this.cbxRemoteIDs.Text == theData.RemoteDeviceID
                     && this.FilterStream(theData.Stream))
