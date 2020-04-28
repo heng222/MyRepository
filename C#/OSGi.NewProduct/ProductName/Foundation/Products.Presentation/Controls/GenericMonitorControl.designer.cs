@@ -18,8 +18,7 @@ namespace Products.Presentation
             {
                 if (components != null) components.Dispose();
 
-                if (_inputProductCache != null) _inputProductCache.Close();
-                if (_outputProductCache != null) _outputProductCache.Close();
+                if (_productCache != null) _productCache.Close();
             }
 
             base.Dispose(disposing);

@@ -106,6 +106,7 @@
     <Compile Include="Specification\SEM\ISystemEventManage.cs" />
     <Compile Include="Specification\UAC\IUserLogin.cs" />
     <Compile Include="Types\AtcSubsystemType.cs" />
+    <Compile Include="Types\FrameSentResult.cs" />
     <Compile Include="Types\OperationResult.cs" />
     <Compile Include="Types\OperationType.cs" />
     <Compile Include="Types\PresentationControlType.cs" />

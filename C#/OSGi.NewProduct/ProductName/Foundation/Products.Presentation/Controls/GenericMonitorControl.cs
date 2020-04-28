@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using Acl.Collections;
 using Acl.Controls;
 using Products.Infrastructure.Protocol.Framework;
+using Products.Infrastructure.Types;
 
 namespace Products.Presentation
 {
@@ -19,7 +20,7 @@ namespace Products.Presentation
         /// <summary>
         /// Definition of Tag of Treeview's node.
         /// </summary>
-        private class TreeNodeTag
+        class TreeNodeTag
         {
             /// <summary>
             /// The frame object. Can be null.
@@ -48,10 +49,11 @@ namespace Products.Presentation
             }
         }
 
+
         /// <summary>
-        /// Incoming data event arguments.
+        /// Data cached.
         /// </summary>
-        private class IncomingData
+        class DataCached
         {
             public string RemoteDeviceID { get; set; }
             public object Frame { get; set; }
@@ -59,7 +61,7 @@ namespace Products.Presentation
             public IStreamFrameParser<byte> Parser { get; set; }
             public DateTime CreationTime { get; private set; }
 
-            public IncomingData(string remoteDeviceID, byte[] stream, object frame, IStreamFrameParser<byte> parser)
+            public DataCached(string remoteDeviceID, byte[] stream, object frame, IStreamFrameParser<byte> parser)
             {
                 this.CreationTime = DateTime.Now;
 
@@ -71,26 +73,29 @@ namespace Products.Presentation
         }
 
         /// <summary>
+        /// Incoming data event arguments.
+        /// </summary>
+        class IncomingData : DataCached
+        {
+            public IncomingData(string remoteDeviceID, byte[] stream, object frame, IStreamFrameParser<byte> parser)
+                : base(remoteDeviceID, stream, frame, parser)
+            {
+            }
+        }
+
+        /// <summary>
         /// Outgoing data event arguments.
         /// </summary>
-        private class OutgoingData
+        class OutgoingData : DataCached
         {
-            public string RemoteDeviceID { get; set; }
-            public object Frame { get; set; }
-            public byte[] Stream { get; set; }
-            public IStreamFrameParser<byte> Parser { get; set; }
+            public FrameSentResult Result { get; set; }
             public string ToolTipText { get; set; }
-            public DateTime CreationTime { get; private set; }
 
             public OutgoingData(string remoteDeviceID, byte[] stream, object frame, IStreamFrameParser<byte> parser,
-                string toolTipText)
+                FrameSentResult result, string toolTipText)
+                : base(remoteDeviceID, stream, frame, parser)
             {
-                this.CreationTime = DateTime.Now;
-
-                this.RemoteDeviceID = remoteDeviceID;
-                this.Stream = stream;
-                this.Frame = frame;
-                this.Parser = parser;
+                this.Result = result;
                 this.ToolTipText = toolTipText;
             }
         }
@@ -106,13 +111,11 @@ namespace Products.Presentation
         private IStreamFrameParser<byte> _outputStreamDefaultParser;
 
         /// <summary>
-        /// Product cache for incoming data.
+        /// Product cache.
+        /// Item1：true means incoming data; fase means outgoing data.
+        /// Item2：IncomingData OR OutgoingData.
         /// </summary>
-        private ProductCache<IncomingData> _inputProductCache;
-        /// <summary>
-        /// Product cache for outgoing data.
-        /// </summary>
-        private ProductCache<OutgoingData> _outputProductCache;
+        private ProductCache<Tuple<bool, DataCached>> _productCache;
 
         /// <summary>
         /// key = Remote Device ID.
@@ -275,7 +278,8 @@ namespace Products.Presentation
         /// <param name="parser">数据流对应的解析器</param>
         public void AddIncomingStream(string remoteDeviceID, byte[] stream, object frame = null, IStreamFrameParser<byte> parser = null)
         {
-            _inputProductCache.AddProduct(new IncomingData(remoteDeviceID, stream, frame, parser));
+            var data = new Tuple<bool, DataCached>(true, new IncomingData(remoteDeviceID, stream, frame, parser));
+            _productCache.AddProduct(data);
         }
 
         /// <summary>
@@ -285,11 +289,14 @@ namespace Products.Presentation
         /// <param name="stream">数据流</param>
         /// <param name="frame">数据流对应的协议帧对象。</param>
         /// <param name="parser">数据流对应的解析器</param>
+        /// <param name="result">发送结果</param>
         /// <param name="toolTipText">当鼠标悬停在TreeNode之上时显示的文字。</param>
         public void AddOutgoingStream(string remoteDeviceID, byte[] stream, object frame = null, IStreamFrameParser<byte> parser = null,
+            FrameSentResult result = FrameSentResult.Unknown,
             string toolTipText = null)
         {
-            _outputProductCache.AddProduct(new OutgoingData(remoteDeviceID, stream, frame, parser, toolTipText));
+            var data = new Tuple<bool, DataCached>(false, new OutgoingData(remoteDeviceID, stream, frame, parser, result, toolTipText));
+            _productCache.AddProduct(data);
         }
 
         /// <summary>
@@ -502,89 +509,48 @@ namespace Products.Presentation
 
         private void CreateProductCache(uint timeout)
         {
-            _inputProductCache = new ProductCache<IncomingData>(timeout);
-            _inputProductCache.ThreadName = "GenericMonitorControl输入流缓冲池线程";
-            _inputProductCache.ProductCreated += OnIncomingCacheProductCreated;
-            _inputProductCache.Open();
-
-            _outputProductCache = new ProductCache<OutgoingData>(timeout);
-            _outputProductCache.ThreadName = "GenericMonitorControl输出流缓冲池线程";
-            _outputProductCache.ProductCreated += OnOutgoingCacheProductCreated;
-            _outputProductCache.Open();
+            _productCache = new ProductCache<Tuple<bool, DataCached>>(timeout) {  WarningThreshold = 50 };
+            _productCache.ThreadName = "GenericMonitorControl 缓冲池线程";
+            _productCache.ProductCreated += OnCacheProductCreated;
+            _productCache.Open();
         }
 
-        private void OnIncomingCacheProductCreated(object sender, ProductCreatedEventArgs<IncomingData> e)
+        private void OnCacheProductCreated(object sender, ProductCreatedEventArgs<Tuple<bool, DataCached>> e)
         {
-            bool flag = false;
+            bool visible = false;
 
             try
             {
-                flag = this.IncomingStreamVisable && this.IsHandleCreated;
-
                 foreach (var data in e.Products)
                 {
+                    var isIncomingData = data.Item1;
+                    var remoteID = data.Item2.RemoteDeviceID;
+
                     // 如果RemoteDevice中没有包含此ID，则添加。
-                    if (!_remoteDeviceState.ContainsKey(data.RemoteDeviceID))
+                    if (!_remoteDeviceState.ContainsKey(remoteID))
                     {
-                        _remoteDeviceState.Add(data.RemoteDeviceID, false);
-                        this.Invoke(() => cbxRemoteIDs.Items.Add(data.RemoteDeviceID));
+                        _remoteDeviceState.Add(remoteID, false);
+                        this.Invoke(() => cbxRemoteIDs.Items.Add(remoteID));
                     }
 
-                    if (flag)
+                    // 如果允许显示，则更新界面。
+                    visible = isIncomingData ? this.IncomingStreamVisable && this.IsHandleCreated : this.OutgoingStreamVisable && this.IsHandleCreated;
+                    if (visible)
                     {
-                        this.Invoke(() => this.ShowIncomingStream(data));
+                        if (isIncomingData)
+                        {
+                            this.Invoke(() => this.ShowIncomingStream(data.Item2 as IncomingData));
+                        }
+                        else
+                        {
+                            this.Invoke(() => this.ShowOutgoingStream(data.Item2 as OutgoingData));
+                        }
                     }
                 }
             }
             catch (System.Exception /*ex*/)
             {
             }
-        }
-
-        private void OnOutgoingCacheProductCreated(object sender, ProductCreatedEventArgs<OutgoingData> e)
-        {
-            bool flag = false;
-
-            try
-            {
-                flag = this.OutgoingStreamVisable && this.IsHandleCreated;
-
-                //if (flag)
-                //{
-                //    this.Invoke(() => this.tvMessageSummary.BeginUpdate());
-                //}
-
-                foreach (var data in e.Products)
-                {
-                    // 如果RemoteDevice中没有包含此ID，则添加。
-                    if (!_remoteDeviceState.ContainsKey(data.RemoteDeviceID))
-                    {
-                        _remoteDeviceState.Add(data.RemoteDeviceID, false);
-                        this.Invoke(() => cbxRemoteIDs.Items.Add(data.RemoteDeviceID));
-                    }
-
-                    if (flag)
-                    {
-                        this.Invoke(() => this.ShowOutgoingStream(data));
-                    }
-                }
-            }
-            catch (System.Exception /*ex*/)
-            {
-            }
-            //finally
-            //{
-            //    try
-            //    {
-            //        if (flag)
-            //        {
-            //            this.Invoke(new Action(() => this.tvMessageSummary.EndUpdate()));
-            //        }
-            //    }
-            //    catch (System.Exception /*ex*/)
-            //    {
-            //    }
-            //}
         }
 
         private void ShowIncomingStream(IncomingData theData)
@@ -667,7 +633,19 @@ namespace Products.Presentation
                     node.ImageKey = "OutputStream";
                     node.SelectedImageKey = "outputStream_Selected";
                     node.ToolTipText = theData.ToolTipText;
-                    node.ForeColor = Color.Blue;
+
+                    if (theData.Result == FrameSentResult.Successful)
+                    {
+                        node.ForeColor = Color.Green;
+                    }
+                    else if (theData.Result == FrameSentResult.Failed)
+                    {
+                        node.ForeColor = Color.Red;
+                    }
+                    else
+                    {
+                        node.ForeColor = Color.Blue;
+                    }
 
                     // Add Node
                     tvMessageSummary.Nodes.Add(node);

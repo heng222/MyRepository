@@ -15,28 +15,10 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Products.Infrastructure.Protocol.Framework;
+using Products.Infrastructure.Types;
 
 namespace Products.Infrastructure.Events
 {
-    /// <summary>
-    /// 协议帧发送结果定义
-    /// </summary>
-    public enum FrameSentResult : byte
-    {
-        /// <summary>
-        /// 未知。
-        /// </summary>
-        Unknown,
-        /// <summary>
-        /// 发送成功。
-        /// </summary>
-        Successful,
-        /// <summary>
-        /// 发送失败。
-        /// </summary>
-        Failed,
-    }
-
     /// <summary>
     /// 协议帧发送完成事件参数类。
     /// 用于送件人完成任务后通知给发件人。
