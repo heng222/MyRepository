@@ -133,11 +133,12 @@ namespace Products.Presentation
         /// <param name="defaultOutputStreamParser">输出流默认解析器</param>
         /// <param name="remoteDeviceCodes">需要监视的设备编号集合。</param>
         /// <param name="timeout">事件的刷新周期，0表示立即刷新。</param>
+        /// <param name="warningThreshold">指定一个值，当缓存池中的数据超过此值时将打印警告日志。</param>
         public GenericMonitorControl(
             IStreamFrameParser<byte> defaultInputStreamParser = null,
             IStreamFrameParser<byte> defaultOutputStreamParser = null,
             IEnumerable<string> remoteDeviceCodes = null,
-            uint timeout = 500)
+            uint timeout = 500, uint warningThreshold = 50)
         {
             InitializeComponent();
 
@@ -158,7 +159,7 @@ namespace Products.Presentation
             }
 
             // 创建缓存池。
-            CreateProductCache(timeout);
+            CreateProductCache(timeout, warningThreshold);
         }
         #endregion
 
@@ -507,9 +508,9 @@ namespace Products.Presentation
             return tag.RecordDescription;
         }
 
-        private void CreateProductCache(uint timeout)
+        private void CreateProductCache(uint timeout, uint warningThreshold)
         {
-            _productCache = new ProductCache<Tuple<bool, DataCached>>(timeout) {  WarningThreshold = 50 };
+            _productCache = new ProductCache<Tuple<bool, DataCached>>(timeout) {  WarningThreshold = warningThreshold };
             _productCache.ThreadName = "GenericMonitorControl 缓冲池线程";
             _productCache.ProductCreated += OnCacheProductCreated;
             _productCache.Open();
