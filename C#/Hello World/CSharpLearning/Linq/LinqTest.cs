@@ -33,6 +33,15 @@ namespace CSharpLearning.Linq
                 Console.Write(item + ", ");
             }
         }
+
+        [Test]
+        public void TakeWhile_Test1()
+        {
+            var bytes = new byte[] { 0, 1, 2, 3, 4, 5 };
+            var subBytes = bytes.TakeWhile((value, index) => index >= 0 && index <= 3);
+            Console.WriteLine(subBytes.Count());
+        }
+
     }
 
 }
