@@ -52,6 +52,9 @@ namespace CSharpLearning.Threading
 
                     //Monitor.PulseAll(lockObj); // 通知所有等待线程，所有线程都从Wait返回。
                     Monitor.Pulse(lockObj); // 通知所有等待线程，但只有一个线程从Wait返回。
+
+                    //Monitor.Wait(lockObj, 5000); // Wait 会释放锁。
+                    //Thread.Sleep(5000); // Sleep 会使当前线程继续拥有锁直到Sleep结束。
                 }
             });
             eventThread.Start();
