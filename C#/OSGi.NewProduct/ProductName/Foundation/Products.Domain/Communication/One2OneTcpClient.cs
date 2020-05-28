@@ -209,18 +209,21 @@ namespace Products.Domain.Communication
 
         private void CommStateChecker_DataValidityChanged(object sender, DataValidityChangedEventArgs<uint> e)
         {
-            try
+            if (this.PublishCommStateChanged)
             {
-                if (this.PublishCommStateChanged)
+                try
                 {
-                    var args = new CommStateChangedEventArgs(e.Avaliable, this.LocalType, this.LocalCode, this.RemoteType, e.Data);
-                    GlobalMessageBus.PublishCommStateChanged(args);
+                    Task.Factory.StartNew(() =>
+                    {
+                        var args = new CommStateChangedEventArgs(e.Avaliable, this.LocalType, this.LocalCode, this.RemoteType, e.Data);
+                        GlobalMessageBus.PublishCommStateChanged(args);
 
-                    if (this.CommStateChanged != null) this.CommStateChanged(this, args);
+                        if (this.CommStateChanged != null) this.CommStateChanged(this, args);
+                    });
                 }
-            }
-            catch (System.Exception /*ex*/)
-            {
+                catch (System.Exception /*ex*/)
+                {
+                }
             }
         }
 
@@ -298,7 +301,6 @@ namespace Products.Domain.Communication
             {
                 if (this.TcpClient != null) count = TcpClient.Client.EndReceive(rc);
 
-                // 收到字节数为0表示服务器主动关闭连接。
                 if (count > 0)
                 {
                     // 消息通知。
@@ -318,10 +320,17 @@ namespace Products.Domain.Communication
                     // 更新连接时间。
                     if (_commStateChecker != null) _commStateChecker.Refresh(this.RemoteCode);
                 }
+                // 字节数为0表示服务器主动关闭连接。
                 else
                 {
                     this.BeginConnectAsyn(30000);
                 }
+            }
+            catch (SocketException ex)
+            {
+                count = 0;
+                this.Log.Error(string.Format($"{ex.Message} SocketErrorCode = {ex.SocketErrorCode}"));
+                this.BeginConnectAsyn(30000);
             }
             catch (Exception ex)
             {
@@ -361,7 +370,7 @@ namespace Products.Domain.Communication
                 GlobalMessageBus.PublishDataOutgoing(args, this);
             }
 
-            // 
+            // 如果已经连接，则发送数据。
             if (this.TcpClient != null && this.TcpClient.Connected)
             {
                 var stream = this.TcpClient.GetStream();
