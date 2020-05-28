@@ -42,14 +42,18 @@ namespace Products.Domain.Communication
         /// <summary>
         /// 构造一个One2OneUdpClient对象。
         /// </summary>
+        /// <param name="localType">本地节点类型。</param>
         /// <param name="localCode">本地节点编号。</param>
+        /// <param name="remoteType">远程节点类型。</param>
         /// <param name="remoteCode">远程节点编号。</param>
         /// <param name="localEndPoint">本地终结点。</param>
         /// <param name="remoteEndPoint">远程终结点。</param>
-        protected One2OneUdpClient(uint localCode, uint remoteCode,
+        protected One2OneUdpClient(NodeType localType, uint localCode,
+            NodeType remoteType, uint remoteCode,
             IPEndPoint localEndPoint, IPEndPoint remoteEndPoint)
-            : base(localCode, localEndPoint)
+            : base(localType, localCode, localEndPoint)
         {
+            this.RemoteType = remoteType;
             this.RemoteCode = remoteCode;
             this.RemoteEndPoint = remoteEndPoint;
         }
@@ -59,7 +63,7 @@ namespace Products.Domain.Communication
         /// <summary>
         /// 获取远程节点类型。
         /// </summary>
-        public abstract NodeType RemoteType { get; }
+        public NodeType RemoteType { get; }
         /// <summary>
         /// 获取远程节点的编号。
         /// </summary>

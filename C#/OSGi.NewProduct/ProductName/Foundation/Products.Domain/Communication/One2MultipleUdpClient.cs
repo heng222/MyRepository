@@ -44,10 +44,11 @@ namespace Products.Domain.Communication
         /// <summary>
         /// 构造一个One2MultiplyUdpClient对象。
         /// </summary>
+        /// <param name="localType">本地节点类型。</param>
         /// <param name="localCode">本地节点编号。</param>
         /// <param name="localEndPoint">本地终结点。</param>
-        protected One2MultipleUdpClient(uint localCode, IPEndPoint localEndPoint)
-            : base(localCode, localEndPoint)
+        protected One2MultipleUdpClient(NodeType localType, uint localCode, IPEndPoint localEndPoint)
+            : base(localType, localCode, localEndPoint)
         {
 
         }

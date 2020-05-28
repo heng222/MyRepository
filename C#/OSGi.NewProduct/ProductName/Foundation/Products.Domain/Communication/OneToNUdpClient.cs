@@ -50,10 +50,12 @@ namespace Products.Domain.Communication
         /// <summary>
         /// 构造一个OneToNUdpClient对象。
         /// </summary>
+        /// <param name="localType">本地节点类型。</param>
         /// <param name="localCode">本地节点编号。</param>
         /// <param name="localEndPoint">本地终结点。</param>
-        protected OneToNUdpClient(uint localCode, IPEndPoint localEndPoint)
+        protected OneToNUdpClient(NodeType localType, uint localCode, IPEndPoint localEndPoint)
         {
+            this.LocalType = localType;
             this.LocalCode = localCode;
             this.LocalEndPoint = localEndPoint;
         }
@@ -68,7 +70,7 @@ namespace Products.Domain.Communication
         /// <summary>
         /// 获取本地节点类型。
         /// </summary>
-        public abstract NodeType LocalType { get; }
+        public NodeType LocalType { get; }
         /// <summary>
         /// 获取本地节点的编号。
         /// </summary>
