@@ -76,7 +76,7 @@ namespace Products.Domain.Communication
         /// 获取远程数据的有效期N（秒），当N秒没有收到远程数据时，通信中断。
         /// 小于等于0时表示不检查。
         /// </summary>
-        protected virtual int RemoteDataExpiredTime { get { return -1; } }
+        protected virtual int RemoteDataExpiredTime { get { return Timeout.Infinite; } }
         
         /// <summary>
         /// 是否在全局总线上发布CommStateChanged消息？
