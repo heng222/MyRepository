@@ -30,6 +30,7 @@ namespace Products.Persistence
         #region "Field"
         private DbConfigurationProvider _dbCfgProvider = new DbConfigurationProvider();
         private RepositoryManager _persistenceMgr = new RepositoryManager();
+        private CommStreamStorage _commLogStorage = new CommStreamStorage();
         #endregion
 
         #region "Constructor"
@@ -39,6 +40,7 @@ namespace Products.Persistence
         public PersistenceFacade()
         {
             this.AddDisposable(_persistenceMgr);
+            this.AddDisposable(_commLogStorage);
 
             ServiceManager.Current.RegisterInstance(_dbCfgProvider);
         }

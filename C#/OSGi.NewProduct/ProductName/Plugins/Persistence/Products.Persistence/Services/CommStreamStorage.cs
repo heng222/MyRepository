@@ -15,10 +15,12 @@ using System;
 using System.Collections.Concurrent;
 using System.Linq;
 using System.Windows.Forms;
+
 using Acl.Collections;
 using Acl.CommStreamLog;
 using Acl.CommStreamLog.Data;
 using Acl.MessageBus;
+
 using Products.Infrastructure.Entities;
 using Products.Infrastructure.Events;
 using Products.Infrastructure.Log;

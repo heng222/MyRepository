@@ -291,7 +291,7 @@ namespace Products.Infrastructure.Messages
         #endregion
 
 
-        #region "通信日志Rollover消息"
+        #region "通信日志相关消息"
         /// <summary>
         /// Rollover all communication log.
         /// </summary>
