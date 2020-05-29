@@ -49,7 +49,7 @@ namespace Products.Persistence.Services
 
             if (!isExist)
             {
-                value.SendSeq = this.GetMaxCode<T>(connection);
+                value.SendSeqNo = this.GetMaxCode<T>(connection);
                 value.GetAndUpdateSendSeq();
             }
 

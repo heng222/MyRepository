@@ -48,7 +48,7 @@ namespace Products.Domain.Utility
             this.SendSeqSyncLock = new object();
             this.AckSeqSyncLock = new object();
 
-            this.MinSendSeq = minSeqNo;
+            this.MinSendSeqNo = minSeqNo;
             this.MaxSendSeq = maxSeqNo;
             this.SeqNoThreshold = seqNoThreshold;
             this.Initlialize();
@@ -61,7 +61,7 @@ namespace Products.Domain.Utility
         /// <summary>
         /// 获取可用的最小发送序号。
         /// </summary>
-        public uint MinSendSeq { get; private set; }
+        public uint MinSendSeqNo { get; private set; }
         /// <summary>
         /// 获取可用的最大发送序号
         /// </summary>
@@ -79,11 +79,15 @@ namespace Products.Domain.Utility
         /// <summary>
         /// 获取当前的发送序号
         /// </summary>
-        public uint SendSeq { get; set; }
+        public uint SendSeqNo { get; set; }
         /// <summary>
         /// 获取发送序号的同步锁。
         /// </summary>
         public object SendSeqSyncLock { get; private set; }
+        /// <summary>
+        /// 获取上一个发送序号。
+        /// </summary>
+        public uint LastSendSeqNo { get; private set; }
 
         /// <summary>
         /// 获取当前的确认序号版本
@@ -92,7 +96,7 @@ namespace Products.Domain.Utility
         /// <summary>
         /// 获取当前的确认序号
         /// </summary>
-        public uint AckSeq { get; private set; }
+        public uint AckSeqNo { get; private set; }
         /// <summary>
         /// 获取确认序号的同步锁。
         /// </summary>
@@ -106,7 +110,7 @@ namespace Products.Domain.Utility
         {
             if (currentValue >= this.MaxSendSeq)
             {
-                currentValue = this.MinSendSeq;
+                currentValue = this.MinSendSeqNo;
             }
             else
             {
@@ -149,7 +153,8 @@ namespace Products.Domain.Utility
             {
                 this.SendSeqVersion = (uint)Environment.TickCount;
 
-                this.SendSeq = this.MinSendSeq;
+                this.SendSeqNo = this.MinSendSeqNo;
+                this.LastSendSeqNo = this.MinSendSeqNo;
             }
         }
 
@@ -163,7 +168,7 @@ namespace Products.Domain.Utility
             lock (this.AckSeqSyncLock)
             {
                 this.AckSeqVersion = seqVersion;
-                this.AckSeq = seqNo;
+                this.AckSeqNo = seqNo;
             }
         }
 
@@ -175,11 +180,11 @@ namespace Products.Domain.Utility
         {
             lock (this.SendSeqSyncLock)
             {
-                var currentValue = this.SendSeq;
+                this.LastSendSeqNo = this.SendSeqNo;
 
-                this.SendSeq = this.NextValue(currentValue);
+                this.SendSeqNo = this.NextValue(this.LastSendSeqNo);
 
-                return currentValue;
+                return this.LastSendSeqNo;
             }
         }
 
@@ -191,7 +196,7 @@ namespace Products.Domain.Utility
         {
             lock (this.AckSeqSyncLock)
             {
-                this.AckSeq = newSeq;
+                this.AckSeqNo = newSeq;
             }
         }
 
@@ -213,7 +218,7 @@ namespace Products.Domain.Utility
         {
             lock (this.AckSeqSyncLock)
             {
-                var expectedRange = this.NextRange(this.AckSeq, this.SeqNoThreshold);
+                var expectedRange = this.NextRange(this.AckSeqNo, this.SeqNoThreshold);
 
                 return expectedRange.Contains(latestSeqNo);
             }
