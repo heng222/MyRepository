@@ -249,7 +249,7 @@ namespace Products.Domain.Communication
             catch (System.Exception ex)
             {
                 this.CloseSerialPort();
-                this.Log.Error(string.Format($"{_spSetting.Name}£¬{ex.Message}"));
+                this.Log.Error(string.Format($"´ò¿ª{_spSetting.Name}Ê§°Ü£¬{ex.Message}"));
             }
         }
 
