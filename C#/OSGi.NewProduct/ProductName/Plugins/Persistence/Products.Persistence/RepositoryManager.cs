@@ -233,17 +233,21 @@ namespace Products.Persistence
 
             var dataSrc = BuildNodeSelectable();
 
-            var form = new NodeSelectionForm(dataSrc);
-            var rc = form.ShowDialog(null);
-            if (rc == DialogResult.OK)
+            var mainForm = Application.OpenForms.OfType<Control>().FirstOrDefault();
+            mainForm.Invoke(new Action(() =>
             {
-                customNode = form.NodeCode;
-            }
+                var form = new NodeSelectionForm(dataSrc);
+                var rc = form.ShowDialog(mainForm);
+                if (rc == DialogResult.OK)
+                {
+                    customNode = form.NodeCode;
+                }
 
-            if (customNode == 0)
-            {
-                throw new LanuchCanceledException("用户选择取消启动。");
-            }
+                if (customNode == 0)
+                {
+                    throw new LanuchCanceledException("用户选择取消启动。");
+                }
+            }));
 
             return customNode;
         }
