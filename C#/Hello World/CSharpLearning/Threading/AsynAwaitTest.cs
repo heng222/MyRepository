@@ -13,9 +13,9 @@ namespace CSharpLearning.Threading
 
     // 用async来修饰一个方法，表明这个方法是异步的。
     // 方法的返回类型必须为：void或Task或Task<TResult>。
-    // 方法内部必须含有await修饰的方法，如果方法内部没有await关键字修饰的表达式，哪怕函数被async修饰也只能算作同步方法，执行的时候也是同步执行的。
+    // 方法内部必须含有await修饰的方法，如果方法内部没有await关键字修饰的表达式，哪怕函数被async修饰也只能算作同步方法，执行的时候也是同步执行的。（不理解）
     
-    // 被await修饰的只能是Task或者Task<TResule>类型（包含Task/Task<TResult>变量）。
+    // 被await修饰的只能是Task或者Task<TResule>类型。
     // await只能出现在已经用async关键字修饰的异步方法中。
     // await 修饰后的对象返回值为 TResult，不再是Task<TResult>
 
@@ -57,8 +57,8 @@ namespace CSharpLearning.Threading
             }
             else
             {
-                var result = await UdpClient_ReceiveAsync(); // 此时的CurrentThreadID与 下一行的不一样。
-                Console.WriteLine(result+ " + MyReceiveAsync Thread ID is :" + Thread.CurrentThread.ManagedThreadId); // 
+                var result = await UdpClient_ReceiveAsync();
+                Console.WriteLine(result+ " + MyReceiveAsync Thread ID is :" + Thread.CurrentThread.ManagedThreadId);
 
                 result = await TimeConsumingMethod() ;
                 Console.WriteLine(result + " + MyReceiveAsync Thread ID is :" + Thread.CurrentThread.ManagedThreadId);
