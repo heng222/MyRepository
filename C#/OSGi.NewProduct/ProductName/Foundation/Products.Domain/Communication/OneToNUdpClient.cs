@@ -34,7 +34,7 @@ namespace Products.Domain.Communication
     public abstract class OneToNUdpClient : Acl.CompositeDisposable
     {
         #region "Field"
-
+        private Task _receiveTask;
         private DataValidityChecker<uint> _commStateChecker = null;
         #endregion
 
@@ -44,7 +44,7 @@ namespace Products.Domain.Communication
         /// </summary>
         protected OneToNUdpClient()
         {
-
+            this.LocalType = NodeType.None;
         }
 
         /// <summary>
@@ -166,6 +166,7 @@ namespace Products.Domain.Communication
             if (disposing)
             {
                 this.CloseUdpClient();
+                _receiveTask.Wait();
             }
 
             base.Dispose(disposing);
@@ -193,7 +194,7 @@ namespace Products.Domain.Communication
                 LocalClient.Client.IOControl((int)SIO_UDP_CONNRESET, new byte[] { Convert.ToByte(false) }, null);
 
                 // 开始异步接收。
-                LocalClient.BeginReceive(ReceiveDataAsync, null);
+                _receiveTask = this.ReceiveAsync();
             }
             catch (System.Exception ex)
             {
@@ -245,63 +246,44 @@ namespace Products.Domain.Communication
             }
         }
 
-        private void BeginReceive()
+        private async Task ReceiveAsync()
         {
-            try
+            while (this.LocalClient != null)
             {
-                if (LocalClient != null)
+                try
                 {
-                    LocalClient.BeginReceive(ReceiveDataAsync, null);
+                    var recvResult = await this.LocalClient.ReceiveAsync();
+                    var remoteEP = recvResult.RemoteEndPoint;
+
+                    // 处理远程终结点。
+                    this.HandleRemoteEndPoint(remoteEP);
+
+                    // 消息通知。
+                    var remoteCode = this.GetRemoteCode(remoteEP);
+                    if (this.PublishDataIncoming)
+                    {
+                        var remoteType = this.GetRemoteType(remoteCode);
+                        var args = new DataIncomingEventArgs(recvResult.Buffer, this.LocalType, this.LocalCode, remoteType, remoteCode);
+                        GlobalMessageBus.PublishDataIncoming(args, this);
+                    }
+
+                    // 验证数据是否有效。
+                    if (!this.VerifyData(recvResult.Buffer, remoteEP)) return;
+
+                    // 在派生类中处理数据。
+                    this.HandleDataReceived(recvResult.Buffer, remoteEP);
+
+                    // 更新连接时间。
+                    if (_commStateChecker != null)
+                    {
+                        _commStateChecker.Refresh(remoteCode);
+                    }
                 }
-            }
-            catch (System.Exception ex)
-            {
-                this.Log.Error(string.Format("IPEndPoint = {0}。\r\n {1}", LocalClient, ex));
-            }
-        }
-
-        private void ReceiveDataAsync(IAsyncResult ar)
-        {
-            try
-            {
-                if (this.LocalClient == null) return;
-
-                // End Receive.
-                IPEndPoint remoteEP = null;
-                var data = LocalClient.EndReceive(ar, ref remoteEP);
-
-                // 处理远程终结点。
-                this.HandleRemoteEndPoint(remoteEP);
-
-                // 消息通知。
-                var remoteCode = this.GetRemoteCode(remoteEP);
-                if (this.PublishDataIncoming)
+                catch (System.Exception ex)
                 {
-                    var remoteType = this.GetRemoteType(remoteCode);
-                    var args = new DataIncomingEventArgs(data, this.LocalType, this.LocalCode, remoteType, remoteCode);
-                    GlobalMessageBus.PublishDataIncoming(args, this);
+                    if (this.LocalClient != null) this.Log.Error(ex.Message);
                 }
-
-                // 验证数据是否有效。
-                if (!this.VerifyData(data, remoteEP)) return;
-
-                // 在派生类中处理数据。
-                this.HandleDataReceived(data, remoteEP);
-
-                // 更新连接时间。
-                if (_commStateChecker != null)
-                {
-                    _commStateChecker.Refresh(remoteCode);
-                }
-            }
-            catch (System.Exception ex)
-            {
-                this.Log.Error(ex.Message);
-            }
-            finally
-            {
-                this.BeginReceive();
-            }
+            }   
         }
         
         private void CheckUdpClient(NetworkAvailabilityEventArgs args)

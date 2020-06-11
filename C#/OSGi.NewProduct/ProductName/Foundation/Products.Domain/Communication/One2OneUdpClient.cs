@@ -37,6 +37,7 @@ namespace Products.Domain.Communication
         /// </summary>
         protected One2OneUdpClient()
         {
+            this.RemoteType = NodeType.None;
         }
 
         /// <summary>
