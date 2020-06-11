@@ -29,7 +29,7 @@ namespace CSharpLearning.Threading
         public void Test1()
         {
             Console.WriteLine($"Test1 Thread ID is {Thread.CurrentThread.ManagedThreadId}_Before");
-            var task = MyReceiveAsync(); // 此方法异步调用。
+            var task = MyReceiveAsync(2); // 此方法异步调用。
             Console.WriteLine($"Test1 Thread ID is {Thread.CurrentThread.ManagedThreadId}_After");
             task.Wait();
         }
@@ -38,19 +38,33 @@ namespace CSharpLearning.Threading
         public async void Test2()
         {
             Console.WriteLine($"Test1 Thread ID is {Thread.CurrentThread.ManagedThreadId}_Before");
-            await MyReceiveAsync(); // 此方法同步调用。
+            await MyReceiveAsync(2); // 此方法同步调用。
             Console.WriteLine($"Test1 Thread ID is {Thread.CurrentThread.ManagedThreadId}_After");
         }
 
-        private async Task MyReceiveAsync()
+        private async Task MyReceiveAsync(int mode)
         {
-            var result = await UdpClient_ReceiveAsync() + " + MyReceiveAsync Thread ID is :" + Thread.CurrentThread.ManagedThreadId;
-            Console.WriteLine(result);
+            if (mode == 1)
+            {
+                await Task.Factory.StartNew(() =>
+                {
+                    var result = UdpClient_ReceiveAsync() + " + MyReceiveAsync Thread ID is :" + Thread.CurrentThread.ManagedThreadId;
+                    Console.WriteLine(result);
 
-            result = await TimeConsumingMethod() + " + MyReceiveAsync Thread ID is :" + Thread.CurrentThread.ManagedThreadId;
-            Console.WriteLine(result);
+                    result = TimeConsumingMethod() + " + MyReceiveAsync Thread ID is :" + Thread.CurrentThread.ManagedThreadId;
+                    Console.WriteLine(result);
+                });
+            }
+            else
+            {
+                var result = await UdpClient_ReceiveAsync(); // 此时的CurrentThreadID与 下一行的不一样。
+                Console.WriteLine(result+ " + MyReceiveAsync Thread ID is :" + Thread.CurrentThread.ManagedThreadId); // 
 
-            // 返回值是Task的函数可以不用return
+                result = await TimeConsumingMethod() ;
+                Console.WriteLine(result + " + MyReceiveAsync Thread ID is :" + Thread.CurrentThread.ManagedThreadId);
+
+                // 返回值是Task的函数可以不用return
+            }
         }
 
         // 这个函数就是一个耗时函数，可能是IO操作，也可能是cpu密集型工作。
