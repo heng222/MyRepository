@@ -76,6 +76,7 @@
     <Compile Include="Systems\AppDomainTest.cs" />
     <Compile Include="Systems\ArrayTest.cs" />
     <Compile Include="Systems\EqualsOverrideTest.cs" />
+    <Compile Include="Threading\AsynAwaitTest.cs" />
     <Compile Include="异步编程模式\APM\DelegateTest.cs" />
     <Compile Include="Systems\DynamicObjectTest.cs" />
     <Compile Include="Systems\EnumerableTest.cs" />
