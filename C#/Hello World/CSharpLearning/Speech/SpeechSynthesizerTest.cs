@@ -13,10 +13,9 @@ namespace CSharpLearning.Speech
     class SpeechSynthesizerTest
     {
         [Test]
+        [TestCase("列车 1 1 5 1 5 即将出库")]
         [TestCase("CBTC列车位置丢失")]
-        [TestCase("编码处理器故障")]
-        [TestCase("自动加载运行图失败")]
-        public void SpeakTest1(string text)
+        public void Speak_Test1(string text)
         {
             using (var speak = new SpeechSynthesizer())
             {
