@@ -34,7 +34,7 @@ namespace CSharpLearning.Threading
             task.Wait();
         }
 
-        [Test]
+        [Test(Description ="模拟按钮单击事件")]
         public async void Test2()
         {
             Console.WriteLine($"Test1 Thread ID is {Thread.CurrentThread.ManagedThreadId}_Before");
