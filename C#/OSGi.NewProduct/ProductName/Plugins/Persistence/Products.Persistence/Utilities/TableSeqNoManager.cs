@@ -21,7 +21,10 @@ using Products.Infrastructure.Entities;
 
 namespace Products.Persistence.Services
 {
-    class SeqNoGenerator
+    /// <summary>
+    /// 一个序列号管理器，用于管理数据库表自然主键。
+    /// </summary>
+    class TableSeqNoManager
     {
         #region "Field"
         private Dictionary<RuntimeTypeHandle, SeqNoManager> _seqInfo = new Dictionary<RuntimeTypeHandle, SeqNoManager>();

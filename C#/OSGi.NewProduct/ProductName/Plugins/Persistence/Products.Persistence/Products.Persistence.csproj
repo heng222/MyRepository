@@ -102,7 +102,7 @@
     <Compile Include="Services\Repository\Sqlite\SqliteConnectionManager.cs" />
     <Compile Include="Services\Repository\Sqlite\SqliteOperationScheduler.cs" />
     <Compile Include="Services\Repository\Sqlite\SqliteRepository.cs" />
-    <Compile Include="Services\SeqNoGenerator.cs" />
+    <Compile Include="Utilities\TableSeqNoManager.cs" />
     <Compile Include="Services\Repository\RepositoryCsvFile.cs" />
     <Compile Include="Specification\IDataCache.cs" />
     <Compile Include="StrategyRepositorySelection.cs" />

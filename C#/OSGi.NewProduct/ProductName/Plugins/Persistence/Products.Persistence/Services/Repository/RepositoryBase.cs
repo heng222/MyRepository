@@ -26,7 +26,7 @@ namespace Products.Persistence.Services.Repository
     abstract class RepositoryBase : CompositeDisposable, IRepository
     {
         #region "Field"
-        private SeqNoGenerator _sequenceGenerator = new SeqNoGenerator();
+        private TableSeqNoManager _sequenceGenerator = new TableSeqNoManager();
         #endregion
 
         #region "Constructor"
