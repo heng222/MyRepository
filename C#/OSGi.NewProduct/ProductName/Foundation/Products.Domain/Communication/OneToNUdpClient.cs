@@ -169,7 +169,13 @@ namespace Products.Domain.Communication
             if (disposing)
             {
                 this.CloseUdpClient();
-                _receiveTask.Wait();
+
+                if (_receiveTask != null)
+                {
+                    var tmpTask = _receiveTask;
+                    _receiveTask = null;
+                    tmpTask.Wait();
+                }
             }
 
             base.Dispose(disposing);
