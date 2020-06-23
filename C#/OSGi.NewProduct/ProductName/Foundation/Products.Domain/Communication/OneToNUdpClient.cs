@@ -276,8 +276,8 @@ namespace Products.Domain.Communication
                         GlobalMessageBus.PublishDataIncoming(args, this);
                     }
 
-                    // 验证数据是否有效。
-                    if (!this.VerifyData(recvResult.Buffer, remoteEP)) return;
+                    // 数据是否有效？
+                    if (!this.VerifyData(recvResult.Buffer, remoteEP)) continue;
 
                     // 在派生类中处理数据。
                     this.HandleDataReceived(recvResult.Buffer, remoteEP);
