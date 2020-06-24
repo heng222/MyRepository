@@ -16,15 +16,16 @@ namespace CSharpLearning.Threading
         public void PulseAll_Test1()
         {
             var lockObj = new object();
+            var plannedWatiTime = 5;
 
             var wThread1 = new Thread(() =>
             {
                 lock (lockObj)
                 {
-                    var sw = Stopwatch.StartNew();                    
-                    Console.WriteLine(string.Format("{0} wThread1 调用Wait，最多等待10秒。", DateTime.Now));
-                    Monitor.Wait(lockObj, 10000); // 释放锁，等待lockObj状态更改。
-                    Console.WriteLine(string.Format("{0} wThread1 结束，实际等待{1}秒。", DateTime.Now, sw.Elapsed.TotalSeconds));
+                    var sw = Stopwatch.StartNew();
+                    Console.WriteLine($"{DateTime.Now:yyyy-MM-dd HH:mm:ss.fff} wThread1 调用Wait，计划等待{plannedWatiTime}秒。");
+                    Monitor.Wait(lockObj, plannedWatiTime * 1000); // 释放锁，等待lockObj状态更改。
+                    Console.WriteLine($"{DateTime.Now:yyyy-MM-dd HH:mm:ss.fff} wThread1 结束，实际等待{sw.Elapsed.TotalSeconds}秒。");
                 }
             });
             wThread1.Start();
@@ -34,9 +35,9 @@ namespace CSharpLearning.Threading
                 lock (lockObj)
                 {
                     var sw = Stopwatch.StartNew();
-                    Console.WriteLine(string.Format("{0} wThread2 调用Wait，最多等待10秒。", DateTime.Now));
-                    Monitor.Wait(lockObj, 10000); // 释放锁，等待lockObj状态更改。
-                    Console.WriteLine(string.Format("{0} wThread2 结束，实际等待{1}秒。", DateTime.Now, sw.Elapsed.TotalSeconds));
+                    Console.WriteLine($"{DateTime.Now:yyyy-MM-dd HH:mm:ss.fff} wThread2 调用Wait，计划等待{plannedWatiTime}秒。");
+                    Monitor.Wait(lockObj, plannedWatiTime * 1000); // 释放锁，等待lockObj状态更改。
+                    Console.WriteLine($"{DateTime.Now:yyyy-MM-dd HH:mm:ss.fff} wThread2 结束，实际等待{sw.Elapsed.TotalSeconds}秒。");
                 }
             });
             wThread2.Start();
@@ -46,9 +47,9 @@ namespace CSharpLearning.Threading
                 lock (lockObj)
                 {
                     var sw = Stopwatch.StartNew();
-                    Console.WriteLine(string.Format("{0} EventThread does something。", DateTime.Now));
-                    Thread.Sleep(5000);
-                    Console.WriteLine(string.Format("{0} EventThread finished doing something, 耗时{1}秒。", DateTime.Now, sw.Elapsed.TotalSeconds));
+                    Console.WriteLine($"{DateTime.Now:yyyy-MM-dd HH:mm:ss.fff} EventThread does something。");
+                    Thread.Sleep(10000);
+                    Console.WriteLine($"{DateTime.Now:yyyy-MM-dd HH:mm:ss.fff} EventThread finished doing something, 耗时{sw.Elapsed.TotalSeconds}秒。");
 
                     //Monitor.PulseAll(lockObj); // 通知所有等待线程，所有线程都从Wait返回。
                     Monitor.Pulse(lockObj); // 通知所有等待线程，但只有一个线程从Wait返回。
