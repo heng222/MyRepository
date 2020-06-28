@@ -53,6 +53,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Products.UAC.UnitTest", "Pl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Products.SystemEvents.UnitTest", "Plugins\SystemEvents\Products.SystemEvents.UnitTest\Products.SystemEvents.UnitTest.csproj", "{158B55DA-12ED-458A-A3D7-1CF9719BDF08}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0. SolutionItems", "0. SolutionItems", "{238C6797-90D4-48CB-B0C4-C9C8A3014D7F}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		Fxcop.ruleset = Fxcop.ruleset
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
