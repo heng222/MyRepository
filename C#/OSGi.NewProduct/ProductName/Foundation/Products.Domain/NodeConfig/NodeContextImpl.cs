@@ -15,7 +15,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+
 using Acl.Utility;
+
 using Products.Domain.Utility;
 using Products.Infrastructure.Entities;
 using Products.Infrastructure.Specification;
@@ -159,7 +161,7 @@ namespace Products.Domain
                 // 本节点需要显示的控件。
                 strBuilder.AppendFormat("\r\n本节点需要显示的控件= {0}。",
                     string.Join(",", this.ControlTypes.Select(p => string.Format("{0}", p))));
-                
+
                 LogUtility.Info(strBuilder.ToString());
             }
             catch (System.Exception /*ex*/)

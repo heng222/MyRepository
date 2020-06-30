@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 using Acl.Data.Configuration;
+
 using Products.Infrastructure.Entities;
 using Products.Infrastructure.Specification;
 

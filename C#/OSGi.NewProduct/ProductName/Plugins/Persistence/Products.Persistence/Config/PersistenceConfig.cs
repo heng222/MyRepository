@@ -17,6 +17,7 @@ using System.Collections.ObjectModel;
 using System.Configuration;
 using System.Data;
 using System.Linq;
+
 using Acl.Configuration;
 using Acl.Data;
 using Acl.Data.Configuration;
@@ -78,7 +79,7 @@ namespace Products.Persistence
             // Initialize Settings.
             var cfgPath = string.Format(@"{0}\Config\Persistence.config", HelperTools.CurrentDllPath);
             Settings = SettingsManager.GetXmlSettings(cfgPath);
-            
+
             InitializeDataSource();
         }
         #endregion
@@ -127,7 +128,7 @@ namespace Products.Persistence
             TableKinds.ForEach(p =>
             {
                 var textName = Settings.Get<string>(p.Value);
-                
+
                 HelperTools.SplitTableNames(textName).ForEach(name =>
                 {
                     var entityType = ConvertToEntityType(name);
@@ -173,7 +174,7 @@ namespace Products.Persistence
         public static void Initialize(bool remoteDbEnabled)
         {
             // 创建远程数据库配置
-            if(remoteDbEnabled) RemoteConfiguration = GetOrCreateDbConfiguration(PersistenceConfig.DataSourceRemoteDbName, false);
+            if (remoteDbEnabled) RemoteConfiguration = GetOrCreateDbConfiguration(PersistenceConfig.DataSourceRemoteDbName, false);
 
             DbConnectionMonitor.Current.SubscribeConnectionStateChanged(OnDbConnectionChanged);
         }
@@ -271,7 +272,7 @@ namespace Products.Persistence
         {
             return dbType == DataBaseType.Oracle || dbType == DataBaseType.MySql || dbType == DataBaseType.SqlServer;
         }
-        
+
         /// <summary>
         /// 根据实体类型，获取 DataSource。
         /// </summary>
@@ -284,7 +285,7 @@ namespace Products.Persistence
         {
             return _dataSources.Values.Where(p => (DataBaseType)p.DbType == dbType);
         }
-        
+
         /// <summary>
         /// 根据实体类型与数据库类型获取DataSourceName。
         /// </summary>
@@ -342,7 +343,7 @@ namespace Products.Persistence
         public static Dictionary<string, IEnumerable<Type>> GetDataSrcNameEntityMapping(DataBaseType dbType, TableKind tableKind)
         {
             // 获取指定种类的表的类型。
-            var theTableTypes = TableDescriptors.Values.Where(p => p.TableKind == tableKind).Select(p=>p.EntityType);
+            var theTableTypes = TableDescriptors.Values.Where(p => p.TableKind == tableKind).Select(p => p.EntityType);
 
             // 获取指定数据类类型的映射。
             var sqliteSrcNames = _dataSources.Values.Where(p => (DataBaseType)p.DbType == dbType).Select(p => p.Name);

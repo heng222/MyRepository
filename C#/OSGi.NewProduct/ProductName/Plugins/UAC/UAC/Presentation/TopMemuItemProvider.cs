@@ -16,11 +16,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using Products.Presentation;
-using Products.UAC.Properties;
-using Products.UAC.Presentation.Forms;
-using Products.UAC.Domain;
+
 using Products.Infrastructure.Specification;
+using Products.Presentation;
+using Products.UAC.Domain;
+using Products.UAC.Presentation.Forms;
+using Products.UAC.Properties;
 
 namespace Products.UAC.Presentation
 {

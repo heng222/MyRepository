@@ -15,6 +15,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+
 using Acl.Data.Annotions;
 
 namespace Products.Infrastructure.Entities
@@ -56,7 +57,7 @@ namespace Products.Infrastructure.Entities
         /// 本点位关联的设备编号。
         /// </summary>
         [Column]
-        public ushort DeviceCode { get; set; } 
+        public ushort DeviceCode { get; set; }
 
         #endregion
 

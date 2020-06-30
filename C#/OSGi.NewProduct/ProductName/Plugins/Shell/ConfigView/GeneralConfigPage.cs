@@ -1,6 +1,8 @@
 using System.Windows.Forms;
+
 using Platform.Presentation;
 using Platform.Presentation.Options;
+
 using Products.Presentation;
 
 namespace Products.Shell.ConfigView
@@ -25,9 +27,9 @@ namespace Products.Shell.ConfigView
         /// <summary>
         /// 
         /// </summary>
-        public Control View 
+        public Control View
         {
-            get { return this; } 
+            get { return this; }
         }
         /// <summary>
         /// 初始化界面

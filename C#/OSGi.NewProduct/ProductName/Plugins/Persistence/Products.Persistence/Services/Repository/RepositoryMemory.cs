@@ -17,8 +17,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
+
 using Acl;
 using Acl.Data;
+
 using Products.Infrastructure.Specification;
 using Products.Persistence.Services.Repository;
 using Products.Persistence.Specification;
@@ -53,8 +55,8 @@ namespace Products.Persistence.Services
         #region "Override methods"
         protected override void OnOpen()
         {
-            var staticEntityTypes = PersistenceConfig.TableDescriptors.Where(p => p.Value.TableKind == TableKind.StaticConfig).Select(p=>p.Value.EntityType);
-            
+            var staticEntityTypes = PersistenceConfig.TableDescriptors.Where(p => p.Value.TableKind == TableKind.StaticConfig).Select(p => p.Value.EntityType);
+
             foreach (var entityType in staticEntityTypes)
             {
                 try
@@ -181,7 +183,7 @@ namespace Products.Persistence.Services
             {
                 try
                 {
-                    if (_cache.ContainsKey(entityType.Name)) continue;                                       
+                    if (_cache.ContainsKey(entityType.Name)) continue;
 
                     var descriptor = PersistenceConfig.GetTableDescriptor(entityType);
 
@@ -200,7 +202,7 @@ namespace Products.Persistence.Services
                     throw new Exception(msg, ex);
                 }
             }
-        }       
+        }
 
         #endregion
 

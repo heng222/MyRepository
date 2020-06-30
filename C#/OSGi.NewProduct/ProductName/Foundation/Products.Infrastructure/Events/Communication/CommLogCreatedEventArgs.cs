@@ -15,6 +15,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+
 using Products.Infrastructure.Types;
 
 namespace Products.Infrastructure.Events
@@ -38,7 +39,7 @@ namespace Products.Infrastructure.Events
         /// <param name="remoteCode">对方节点编号。</param>
         /// <param name="isIncoming">是否为输入流。</param>
         /// <param name="data">数据流。</param>
-        public CommLogCreatedEventArgs(NodeType localType, uint localCode, 
+        public CommLogCreatedEventArgs(NodeType localType, uint localCode,
             NodeType remoteType, uint remoteCode, bool isIncoming, byte[] data)
         {
             this.LocalNodeType = localType;
@@ -59,7 +60,7 @@ namespace Products.Infrastructure.Events
         /// 本地节点编号。
         /// </summary>
         public uint LocalNodeCode { get; private set; }
-        
+
         /// <summary>
         /// 对方节点类型。
         /// </summary>
@@ -79,7 +80,7 @@ namespace Products.Infrastructure.Events
         /// 新产生的数据流。
         /// </summary>
         public byte[] Data { get; private set; }
-        
+
         #endregion
 
         #region "Override methods"

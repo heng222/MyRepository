@@ -14,8 +14,11 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
+
 using Acl.Log;
+
 using Platform.Presentation.Options;
+
 using Products.Infrastructure.Log;
 using Products.Presentation;
 
@@ -24,7 +27,7 @@ namespace Products.Shell.ConfigView
     /// <summary>
     /// 程序日志配置视图
     /// </summary>
-    public partial class LogConfigPage : UserControl,IOptionControl,IOptionInfo//, IAppConfigPage
+    public partial class LogConfigPage : UserControl, IOptionControl, IOptionInfo//, IAppConfigPage
     {
 
         //private AppConfigNode _cfgNode = new AppConfigNode();
@@ -169,7 +172,7 @@ namespace Products.Shell.ConfigView
                 this.Initialize();
             }
             catch (System.Exception /*ex*/)
-            {            	
+            {
             }
         }
         /// <summary>
@@ -222,7 +225,7 @@ namespace Products.Shell.ConfigView
             try
             {
                 ComboBox comboBox1 = sender as ComboBox;
-                
+
 
                 using (Pen fColor = new Pen(Color.Black), bColor = new Pen(Color.White))
                 {
@@ -246,8 +249,8 @@ namespace Products.Shell.ConfigView
                     {
                         fColor.Color = Color.Red;
                         //bColor.Color = Color.Red;
-                    } 
-                    
+                    }
+
                     if ((e.State & DrawItemState.Focus) != 0)
                     {
                         //设置鼠标悬浮ComboBox的item的背景色
@@ -257,7 +260,7 @@ namespace Products.Shell.ConfigView
                     {
                         e.Graphics.FillRectangle(bColor.Brush, e.Bounds);
                     }
-                    
+
                     e.Graphics.DrawString((string)comboBox1.Items[e.Index], this.Font, fColor.Brush, e.Bounds);
                 }
             }

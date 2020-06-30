@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Drawing;
+
 using Acl.Utility;
+
 using Platform.Presentation;
+
 using Products.Infrastructure;
 using Products.Infrastructure.Types;
 

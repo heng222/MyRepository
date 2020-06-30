@@ -2,10 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+
 using Acl.CommStreamLog.Data;
 using Acl.CommStreamLog.Parser;
-using Products.Infrastructure.Types;
+
 using Products.Infrastructure.Log;
+using Products.Infrastructure.Types;
+
 using MappingItem = System.Tuple<Products.Infrastructure.Types.NodeType, uint, uint>;
 
 namespace Products.Persistence

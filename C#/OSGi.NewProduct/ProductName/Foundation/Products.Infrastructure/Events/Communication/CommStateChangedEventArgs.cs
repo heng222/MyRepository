@@ -14,6 +14,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+
 using Products.Infrastructure.Types;
 
 namespace Products.Infrastructure.Events
@@ -35,8 +36,8 @@ namespace Products.Infrastructure.Events
         /// <param name="localId">本地节点编号。</param>
         /// <param name="remoteType">远程节点类型。</param>
         /// <param name="remoteId">远程节点编号。</param>
-        public CommStateChangedEventArgs(bool connected, 
-            NodeType localType, uint localId, 
+        public CommStateChangedEventArgs(bool connected,
+            NodeType localType, uint localId,
             NodeType remoteType, uint remoteId)
         {
             this.Connected = connected;

@@ -12,7 +12,9 @@
 //----------------------------------------------------------------*/
 
 using System.Collections.Generic;
+
 using Platform.Presentation;
+
 using Products.Domain;
 using Products.Infrastructure;
 using Products.Infrastructure.Log;
@@ -33,7 +35,7 @@ namespace Products.LogReport
 
         #region "constructor"
         public Activator()
-            : base(LoggerNames.LogReport)            
+            : base(LoggerNames.LogReport)
         {
         }
 
@@ -41,14 +43,14 @@ namespace Products.LogReport
 
         #region "override methods"
         public override PluginType Type { get { return PluginType.LogReport; } }
-      
+
         protected override void OnBundleStart(IDictionary<string, string> context)
         {
             // 创建表示层
             var cfg = new ProductPartAttribute { ControlType = PresentationControlType.LogReport, DefaultIcon = Resources.LogQuery };
             Workbench.SendMessage(() => MainWorkSpace.AddPart(ReportTabControlBuilder.Build(), cfg));
         }
-        
+
         protected override void OnBundleStop(IDictionary<string, string> context)
         {
 

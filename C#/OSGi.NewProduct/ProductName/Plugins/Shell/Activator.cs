@@ -15,13 +15,17 @@ using System;
 using System.ComponentModel;
 using System.Linq;
 using System.Windows.Forms;
+
 using Acl.Log;
 using Acl.ServiceManagement;
 using Acl.Threading;
+
 using OSGi;
 using OSGi.Dto.Framework;
+
 using Platform.Presentation;
 using Platform.Presentation.Options;
+
 using Products.Domain;
 using Products.Infrastructure;
 using Products.Infrastructure.Events;

@@ -15,7 +15,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 using Acl.ServiceManagement;
+
 using Products.Infrastructure.Entities;
 using Products.Infrastructure.Specification;
 using Products.Persistence.Services;
@@ -45,10 +47,10 @@ namespace Products.Persistence
             ServiceManager.Current.RegisterInstance(_dbCfgProvider);
         }
         #endregion
-        
+
         #region "Private methods"
         #endregion
-        
+
         #region "Public methods"
         /// <summary>
         /// Open facade.

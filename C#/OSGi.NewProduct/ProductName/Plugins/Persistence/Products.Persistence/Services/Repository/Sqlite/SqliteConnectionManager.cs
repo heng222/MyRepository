@@ -14,6 +14,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+
 using Acl.Data;
 using Acl.Data.Mapping;
 
@@ -92,7 +93,7 @@ namespace Products.Persistence.Services
             _dbConnections.TryGetValue(dataSourceName, out result);
             return result;
         }
-        
+
         public IDatabase GetConnection<TEntity>()
         {
             return this.GetConnection(typeof(TEntity));

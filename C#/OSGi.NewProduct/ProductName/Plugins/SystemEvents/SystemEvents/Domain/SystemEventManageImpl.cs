@@ -15,10 +15,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Products.Infrastructure;
-using Products.Infrastructure.Specification;
+
 using Products.Domain;
+using Products.Infrastructure;
 using Products.Infrastructure.Entities;
+using Products.Infrastructure.Specification;
 using Products.Infrastructure.Types;
 
 namespace Products.SystemEvents.Domain
@@ -59,7 +60,7 @@ namespace Products.SystemEvents.Domain
 
         public OperationLog GetOperationLog(uint code)
         {
-            return GlobalServices.Repository.Where<OperationLog>(p=>p.Code == code).FirstOrDefault();
+            return GlobalServices.Repository.Where<OperationLog>(p => p.Code == code).FirstOrDefault();
         }
 
         public void AddOperationLog(OperationLog log)

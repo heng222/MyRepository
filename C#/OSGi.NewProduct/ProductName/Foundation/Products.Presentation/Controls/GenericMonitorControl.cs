@@ -5,8 +5,10 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+
 using Acl.Collections;
 using Acl.Controls;
+
 using Products.Infrastructure.Protocol.Framework;
 using Products.Infrastructure.Types;
 
@@ -176,7 +178,7 @@ namespace Products.Presentation
         /// <summary>
         /// 是否显示通信状态？
         /// </summary>
-        public bool CommStateVisible 
+        public bool CommStateVisible
         {
             get { return pictureBox1.Visible; }
             set { pictureBox1.Visible = value; }
@@ -510,7 +512,7 @@ namespace Products.Presentation
 
         private void CreateProductCache(uint timeout, uint warningThreshold)
         {
-            _productCache = new ProductCache<Tuple<bool, DataCached>>(timeout) {  WarningThreshold = warningThreshold };
+            _productCache = new ProductCache<Tuple<bool, DataCached>>(timeout) { WarningThreshold = warningThreshold };
             _productCache.ThreadName = "GenericMonitorControl 缓冲池线程";
             _productCache.ProductCreated += OnCacheProductCreated;
             _productCache.Open();

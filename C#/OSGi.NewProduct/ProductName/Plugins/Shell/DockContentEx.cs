@@ -2,8 +2,10 @@
 using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
-using WeifenLuo.WinFormsUI.Docking;
+
 using Products.Presentation;
+
+using WeifenLuo.WinFormsUI.Docking;
 
 namespace Products.Shell
 {
@@ -30,7 +32,7 @@ namespace Products.Shell
         }
 
         public DockContentEx(string title)
-            :this()
+            : this()
         {
             this.Text = title;
 

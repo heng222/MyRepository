@@ -12,9 +12,11 @@
 //----------------------------------------------------------------*/
 
 using System;
-using Products.Infrastructure.Log;
+
 using Acl.Log;
+
 using Products.Domain;
+using Products.Infrastructure.Log;
 
 namespace Products.Persistence
 {

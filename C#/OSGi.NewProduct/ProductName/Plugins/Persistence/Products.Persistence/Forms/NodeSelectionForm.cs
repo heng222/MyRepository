@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+
 using Products.Infrastructure.Entities;
 using Products.Infrastructure.Specification;
 
@@ -22,7 +23,7 @@ namespace Products.Persistence
 
             cbxNodeNames.DisplayMember = "Name";
             cbxNodeNames.ValueMember = "Code";
-            cbxNodeNames.DataSource = dataSource.Select(p => new { Code = p.Key, Name = p.Value}).ToList();
+            cbxNodeNames.DataSource = dataSource.Select(p => new { Code = p.Key, Name = p.Value }).ToList();
             cbxNodeNames.SelectedIndex = 0;
         }
 

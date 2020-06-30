@@ -14,6 +14,7 @@
 using System;
 using System.Collections.Generic;
 using System.Net;
+
 using Acl.RsspI4net.Config;
 
 namespace Products.Infrastructure.Specification
@@ -42,7 +43,7 @@ namespace Products.Infrastructure.Specification
         /// 本地安全参数。
         /// </summary>
         SafetyParameters LocalSafetyParam { get; }
-        
+
         /// <summary>
         /// 会话参数。
         /// </summary>

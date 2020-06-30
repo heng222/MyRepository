@@ -12,8 +12,11 @@
 //----------------------------------------------------------------*/
 using System.Collections.Generic;
 using System.Threading.Tasks;
+
 using Acl.ServiceManagement;
+
 using Platform.Presentation;
+
 using Products.Domain;
 using Products.Infrastructure.Log;
 using Products.Infrastructure.Types;

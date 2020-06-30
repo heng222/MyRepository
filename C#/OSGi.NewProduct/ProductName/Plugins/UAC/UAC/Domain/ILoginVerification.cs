@@ -27,7 +27,7 @@ namespace Products.UAC.Domain
         /// µÇÂ¼
         /// </summary>
         void LogOn(string userName, byte[] pwdMd5);
-        
+
         /// <summary>
         /// ×¢Ïú
         /// </summary>

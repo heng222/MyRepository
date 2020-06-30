@@ -15,6 +15,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+
 using Products.Domain;
 using Products.Infrastructure;
 using Products.Infrastructure.Entities;
@@ -50,7 +51,7 @@ namespace Products.UAC.Domain
         public User GetUser(string name)
         {
             return GlobalServices.Repository.Where<User>()
-                .Where(p=>string.Equals(p.Name, name, StringComparison.OrdinalIgnoreCase))
+                .Where(p => string.Equals(p.Name, name, StringComparison.OrdinalIgnoreCase))
                 .FirstOrDefault();
         }
 

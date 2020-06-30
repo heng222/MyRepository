@@ -45,6 +45,6 @@ namespace Products.Infrastructure.Types
         #region "yyyy"
 
         #endregion
-        
+
     }
 }

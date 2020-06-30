@@ -17,9 +17,11 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
 using System.Windows.Forms;
+
 using Acl.Data;
 using Acl.Log;
 using Acl.ServiceManagement;
+
 using Products.Domain;
 using Products.Infrastructure.Entities;
 using Products.Infrastructure.Exceptions;
@@ -133,7 +135,7 @@ namespace Products.Persistence
         private void InitializeRepository(bool enableRemoteDb)
         {
             // 创建Remote DB连接监视器
-            if(enableRemoteDb) CreateRemoteDbConnectionMonitor();
+            if (enableRemoteDb) CreateRemoteDbConnectionMonitor();
 
             // 创建 Repository。
             _repositories[DataBaseType.Oracle] = new RepositoryRemote();
@@ -147,7 +149,7 @@ namespace Products.Persistence
             // 打开 Repository
             (_repositories[DataBaseType.Memory] as RepositoryMemory).RepositorySelector = _repositorySelector;
             _repositories.Values.ForEach(p => p.Open());
-            
+
             // 更新全局服务。
             ServiceManager.Current.RegisterInstance(this);
         }
@@ -241,6 +243,8 @@ namespace Products.Persistence
                 if (rc == DialogResult.OK)
                 {
                     customNode = form.NodeCode;
+
+                    this.SaveNodeCode2ConfigFile(customNode);
                 }
 
                 if (customNode == 0)
@@ -252,6 +256,21 @@ namespace Products.Persistence
             return customNode;
         }
 
+        /// <summary>
+        /// 保存节点编号到配置文件中。
+        /// </summary>
+        private void SaveNodeCode2ConfigFile(uint nodeCode)
+        {
+            var key = "NodeCode";
+            var config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+
+            config.AppSettings.Settings.Remove(key);
+            config.AppSettings.Settings.Add(key, nodeCode.ToString());
+            config.Save(ConfigurationSaveMode.Modified);
+
+            ConfigurationManager.RefreshSection("appSettings");
+        }
+
         private Dictionary<uint, string> BuildNodeSelectable()
         {
             var theNodes = GlobalServices.Repository.Where<SystemNode>()
@@ -259,7 +278,7 @@ namespace Products.Persistence
 
             return theNodes.ToDictionary(p => p.Code, q => string.Format("{0}_{1}",
                 q.Code, q.Name));
-        }        
+        }
 
         /// <summary>
         /// 初始化日志页眉页脚。

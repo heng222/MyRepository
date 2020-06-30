@@ -13,8 +13,11 @@
 
 using System;
 using System.Collections.Generic;
+
 using OSGi;
+
 using Platform.Presentation;
+
 using Products.Domain;
 using Products.Infrastructure.Log;
 using Products.Infrastructure.Types;
@@ -59,7 +62,7 @@ namespace Products.Plugin1
                 Workbench.AddOption(optionControl);
             });
         }
-        
+
         protected override void OnBundleStop(IDictionary<string, string> context)
         {
             //if (_commLifeCycle != null)

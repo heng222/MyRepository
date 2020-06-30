@@ -13,10 +13,11 @@
 
 using System;
 using System.Collections.Generic;
-using System.Text;
-using Products.Resource;
 using System.Drawing;
+using System.Text;
+
 using Products.Infrastructure.Specification;
+using Products.Resource;
 
 namespace Products.Domain
 {

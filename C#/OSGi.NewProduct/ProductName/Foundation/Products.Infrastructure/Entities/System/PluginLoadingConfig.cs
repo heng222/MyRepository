@@ -14,7 +14,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+
 using Acl.Data.Annotions;
+
 using Products.Infrastructure.Types;
 
 namespace Products.Infrastructure.Entities
@@ -79,7 +81,7 @@ namespace Products.Infrastructure.Entities
         /// <returns></returns>
         public PluginType GetPlugins()
         {
-            if(this.Plugins == "-1")
+            if (this.Plugins == "-1")
             {
                 return PluginType.All;
             }

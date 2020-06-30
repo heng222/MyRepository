@@ -17,16 +17,20 @@ using System.Linq;
 using System.Reflection;
 using System.Threading;
 using System.Windows.Forms;
+
 using Acl.CommStreamLog;
 using Acl.Log;
 using Acl.MessageBus;
 using Acl.Threading;
+
 using Microsoft.Win32;
+
 using OSGi;
+
 using Products.Domain.Utility;
+using Products.Infrastructure.Events;
 using Products.Infrastructure.Log;
 using Products.Infrastructure.Messages;
-using Products.Infrastructure.Events;
 
 namespace Exe
 {

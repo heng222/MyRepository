@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+
 using Products.UAC.Domain;
 using Products.UAC.Presentation;
 using Products.UAC.Presentation.Forms;
@@ -34,9 +35,9 @@ namespace Products.UAC
         /// </summary>
         public IEnumerable<object> ComponentsToRegister
         {
-            get 
+            get
             {
-                return new List<object>() { _verification, _topMenuProvider/*, new FormLogin(_verification)*/ }; 
+                return new List<object>() { _verification, _topMenuProvider/*, new FormLogin(_verification)*/ };
             }
         }
     }

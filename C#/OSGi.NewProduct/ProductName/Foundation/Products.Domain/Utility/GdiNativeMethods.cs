@@ -13,12 +13,13 @@
 
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Runtime.InteropServices;
-using System.Windows.Forms;
 using System.Drawing;
 using System.Drawing.Imaging;
+using System.Linq;
+using System.Runtime.InteropServices;
+using System.Text;
+using System.Windows.Forms;
+
 using Acl.Win32API;
 
 namespace Products.Domain.Utility
@@ -50,7 +51,7 @@ namespace Products.Domain.Utility
                 // 创建以屏幕大小为标准的位图 
                 bitmap = new Bitmap(rect.Width, rect.Height, gcScreen);
                 gcBitmap = Graphics.FromImage(bitmap);
-                
+
                 // 调用此API函数，实现屏幕捕获 
                 Gdi32.BitBlt(gcBitmap.GetHdc(), 0, 0, rect.Width, rect.Height, gcScreen.GetHdc(), 0, 0, 0xCC0020); // #define SRCCOPY 0xCC0020
 
@@ -67,7 +68,7 @@ namespace Products.Domain.Utility
                 if (gcBitmap != null) gcBitmap.Dispose();
                 if (bitmap != null) bitmap.Dispose();
             }
-        } 
+        }
         #endregion
 
     }

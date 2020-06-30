@@ -14,6 +14,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+
 using Products.Infrastructure.Protocol.Framework;
 using Products.Infrastructure.Types;
 
@@ -52,7 +53,7 @@ namespace Products.Infrastructure.Events
         /// <summary>
         /// 获取事件关联的协议帧。
         /// </summary>
-        public TProtocol Frame { get; private set; }       
+        public TProtocol Frame { get; private set; }
 
         /// <summary>
         /// 发送结果。

@@ -12,6 +12,7 @@
 //----------------------------------------------------------------*/
 
 using Acl;
+
 using Products.Infrastructure.Events;
 using Products.Infrastructure.Messages;
 using Products.Infrastructure.Specification;

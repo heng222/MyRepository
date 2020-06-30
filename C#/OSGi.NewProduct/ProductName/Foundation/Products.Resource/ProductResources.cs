@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Drawing;
-using Products.Resource.Properties;
 using System.IO;
-using Acl.IO;
+using System.Linq;
 using System.Reflection;
+using System.Text;
+
+using Acl.IO;
+
+using Products.Resource.Properties;
 
 namespace Products.Resource
 {

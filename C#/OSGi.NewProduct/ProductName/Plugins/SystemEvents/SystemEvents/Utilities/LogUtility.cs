@@ -12,7 +12,9 @@
 //----------------------------------------------------------------*/
 
 using System;
+
 using Acl.Log;
+
 using Products.Infrastructure.Log;
 
 namespace Products.SystemEvents.Utilities

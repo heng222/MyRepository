@@ -6,8 +6,9 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using Products.UAC.Properties;
+
 using Products.UAC.Domain;
+using Products.UAC.Properties;
 
 namespace Products.UAC.Presentation.Forms
 {

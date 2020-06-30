@@ -15,7 +15,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+
 using Acl.Data;
+
 using Products.Domain.Utility;
 using Products.Infrastructure.Entities;
 
@@ -30,7 +32,7 @@ namespace Products.Persistence.Services
         private Dictionary<RuntimeTypeHandle, SeqNoManager> _seqInfo = new Dictionary<RuntimeTypeHandle, SeqNoManager>();
         private object _seqInfoLock = new object();
         #endregion
-        
+
         /// <summary>
         /// 得到下个序列值
         /// </summary>

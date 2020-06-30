@@ -14,7 +14,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+
 using Acl.Data.Annotions;
+
 using Products.Infrastructure.Types;
 
 namespace Products.Infrastructure.Entities
@@ -29,7 +31,7 @@ namespace Products.Infrastructure.Entities
         /// 事件类型。
         /// </summary>
         [Acl.ComponentModel.Annotions.Ignore]
-        public EventType Type 
+        public EventType Type
         {
             get { return (EventType)base.Code; }
 

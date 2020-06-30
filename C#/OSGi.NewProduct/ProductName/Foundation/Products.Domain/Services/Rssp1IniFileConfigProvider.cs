@@ -17,8 +17,10 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Reflection;
+
 using Acl.IO;
 using Acl.RsspI4net.Config;
+
 using Products.Domain.Preferences;
 using Products.Infrastructure.Specification;
 
@@ -47,7 +49,7 @@ namespace Products.Domain.Services
             this.IsMachineA = isMachineA;
             this.LocalRedIP = redIP;
             this.LocalBlueIP = blueIP;
-            
+
             this.CreateIniFile(filePathName);
 
             this.BuildSessionParam();
@@ -65,7 +67,7 @@ namespace Products.Domain.Services
         /// 获取本地工作周期（毫秒）。
         /// </summary>
         public int WorkPeriod { get; private set; }
-        
+
         /// <summary>
         /// 获取本地红网IP
         /// </summary>
@@ -74,7 +76,7 @@ namespace Products.Domain.Services
         /// 获取本地蓝网IP
         /// </summary>
         public IPAddress LocalBlueIP { get; private set; }
-        
+
         /// <summary>
         /// 获取RSSP-1本地工作参数。
         /// </summary>
@@ -100,7 +102,7 @@ namespace Products.Domain.Services
 
             _iniFile = new WinIniFile(filePathName);
         }
-                
+
         private void BuildLocalWorkParameter()
         {
             this.WorkPeriod = (int)SettingsParser.ParseDecimal(_iniFile.ReadValue("Local", "WorkPeriod"));
@@ -135,7 +137,7 @@ namespace Products.Domain.Services
             this.LocalSafetyParam.DATAVER = dataVer.Select(p => (uint)p).ToArray();
         }
 
-        private List<UdpParameters> CreateUdpParameters(int localRedPort, int localBluePort, 
+        private List<UdpParameters> CreateUdpParameters(int localRedPort, int localBluePort,
                                                                     IPEndPoint remoteRedEndPoint, IPEndPoint remoteBlueEndPoint)
         {
             var result = new List<UdpParameters>();

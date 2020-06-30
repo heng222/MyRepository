@@ -15,7 +15,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+
 using Acl;
+
 using Products.Infrastructure.Specification;
 
 namespace Products.SystemEvents.Domain

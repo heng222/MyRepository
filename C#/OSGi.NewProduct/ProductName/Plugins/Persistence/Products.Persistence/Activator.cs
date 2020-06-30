@@ -12,7 +12,9 @@
 //----------------------------------------------------------------*/
 
 using System.Collections.Generic;
+
 using Acl.CommStreamLog;
+
 using Products.Domain;
 using Products.Infrastructure;
 using Products.Infrastructure.Log;
@@ -31,7 +33,7 @@ namespace Products.Persistence
 
         #region "constructor"
         public Activator()
-            :base(LoggerNames.Persistence)            
+            : base(LoggerNames.Persistence)
         {
         }
 
@@ -39,7 +41,7 @@ namespace Products.Persistence
 
         #region "override methods"
         public override PluginType Type { get { return PluginType.Persistence; } }
-      
+
         protected override void OnBundleStart(IDictionary<string, string> context)
         {
             _facade = new PersistenceFacade();
@@ -47,7 +49,7 @@ namespace Products.Persistence
 
             CommStreamLogManager.DeleteExpiredLog();
         }
-        
+
         protected override void OnBundleStop(IDictionary<string, string> context)
         {
             if (_facade != null)

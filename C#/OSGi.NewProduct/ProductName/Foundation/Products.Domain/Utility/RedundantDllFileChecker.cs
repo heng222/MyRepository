@@ -21,7 +21,7 @@ namespace Products.Domain.Utility
     /// 冗余DLL文件检查器
     /// </summary>
     public static class RedundantDllFileChecker
-    {   
+    {
         /// <summary>
         /// 
         /// </summary>
@@ -31,7 +31,7 @@ namespace Products.Domain.Utility
             if (result.Count > 0)
             {
                 var tip = new StringBuilder("检测到一个或多个冗余的Dll文件，请确认！\r\n", 128);
-                
+
                 foreach (var item in result)
                 {
                     tip.AppendFormat("\r\n{0}\r\n", item.Key);
@@ -46,7 +46,7 @@ namespace Products.Domain.Utility
                 throw new Exception(tip.ToString());
             }
         }
-  
+
         /// <summary>
         /// 获取相同文件名且尺寸相等的DLL文件。
         /// </summary>

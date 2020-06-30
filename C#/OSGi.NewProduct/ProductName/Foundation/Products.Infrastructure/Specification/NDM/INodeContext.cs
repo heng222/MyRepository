@@ -11,10 +11,11 @@
 //
 //----------------------------------------------------------------*/
 
-using Products.Infrastructure.Types;
 using System;
 using System.Collections.Generic;
 using System.Text;
+
+using Products.Infrastructure.Types;
 
 namespace Products.Infrastructure.Specification
 {
@@ -37,7 +38,7 @@ namespace Products.Infrastructure.Specification
         /// 获取当前节点类型
         /// </summary>
         NodeType Type { get; }
-        
+
         /// <summary>
         /// 获取当前节点需要加载的插件。
         /// </summary>

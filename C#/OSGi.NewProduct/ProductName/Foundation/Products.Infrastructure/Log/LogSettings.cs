@@ -14,6 +14,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+
 using Acl.Log;
 
 namespace Products.Infrastructure.Log
@@ -63,7 +64,7 @@ namespace Products.Infrastructure.Log
         /// </summary>
         static public string CommLogBasePath { get; private set; }
         #endregion
-        
+
         #region "Private methods"
         #endregion
 

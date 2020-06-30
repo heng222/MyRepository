@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO.Ports;
 using System.Windows.Forms;
+
 using Products.Infrastructure.Preference;
 
 namespace Products.Presentation
@@ -50,7 +51,7 @@ namespace Products.Presentation
             SerialPortSettings result = new SerialPortSettings(cbxComName.Text);
             result.BaudRate = Convert.ToInt32(cbxBaudRate.Text);
             result.Parity = (Parity)(cbxParity.SelectedIndex);
-            result.Stopbits = (StopBits)(cbxStopBits.SelectedIndex+1);
+            result.Stopbits = (StopBits)(cbxStopBits.SelectedIndex + 1);
             result.Databits = Convert.ToInt32(cbxDatabits.Text);
 
             return result;

@@ -14,6 +14,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+
 using Acl.Collections;
 using Acl.Data;
 
@@ -98,7 +99,7 @@ namespace Products.Persistence.Services
                 _actionCache.Clear();
             }
 
-            lock(_dbOperationSyncLock)
+            lock (_dbOperationSyncLock)
             {
                 _dbConnection.UsingTransaction(() =>
                 {
@@ -144,7 +145,7 @@ namespace Products.Persistence.Services
         /// <param name="action"></param>
         public void Sync(Action action)
         {
-            lock(_dbOperationSyncLock)
+            lock (_dbOperationSyncLock)
             {
                 this.Flush();
 

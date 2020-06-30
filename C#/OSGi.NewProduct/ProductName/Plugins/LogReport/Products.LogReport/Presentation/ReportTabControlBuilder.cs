@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Windows.Forms;
-using System.Reflection;
 
 namespace Products.LogReport
 {
@@ -41,7 +41,7 @@ namespace Products.LogReport
         {
             var tabCtl = new TabControl();
             tabCtl.Selected += OnTabCtrlSelected;
-           
+
             foreach (var item in metadataItems.Values.OrderBy(p => p.Attribute.Order))
             {
                 var tabPage = new TabPage { Text = item.Attribute.ReportName, Name = item.Attribute.ReportName };
@@ -71,7 +71,7 @@ namespace Products.LogReport
                 var reportControl = new ReportControl { Dock = DockStyle.Fill };
                 var queryControl = System.Activator.CreateInstance(metadataItem.ReportControlType) as QueryControl;
                 queryControl.ReportName = metadataItem.Attribute.ReportName;
-                reportControl.AddQueryControl(queryControl,metadataItem.Attribute.ReportName,metadataItem.Attribute.ReportURL);
+                reportControl.AddQueryControl(queryControl, metadataItem.Attribute.ReportName, metadataItem.Attribute.ReportURL);
 
                 metadataItem.HasCreated = true;
 

@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO.Ports;
 using System.Linq;
 using System.Text;
-using System.IO.Ports;
 
 namespace Products.Infrastructure.Preference
 {
@@ -44,7 +44,7 @@ namespace Products.Infrastructure.Preference
         /// <param name="dataBits">数据位</param>
         /// <param name="stopBits">停止位</param>
         /// <param name="parity">奇偶校验</param>
-        public SerialPortSettings(string portName, int baudRate = 9600, 
+        public SerialPortSettings(string portName, int baudRate = 9600,
             Parity parity = Parity.None, int dataBits = 8, StopBits stopBits = StopBits.None)
         {
             this.Name = portName;

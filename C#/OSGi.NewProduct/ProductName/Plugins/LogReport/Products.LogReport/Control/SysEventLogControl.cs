@@ -1,10 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using Acl.Utility;
-using Acl.Controls;
-using Products.LogReport.Data;
-using Products.Infrastructure.Types;
 using System.Collections;
+using System.Collections.Generic;
+
+using Acl.Controls;
+using Acl.Utility;
+
+using Products.Infrastructure.Types;
+using Products.LogReport.Data;
 
 namespace Products.LogReport.Control
 {

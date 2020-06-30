@@ -2,9 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
+
 using Acl.ServiceManagement;
+
 using Platform.Presentation;
 using Platform.Presentation.Framework;
+
 using Products.Shell.Properties;
 
 namespace Products.Shell
@@ -30,11 +33,11 @@ namespace Products.Shell
             _splashScreen = new SplashScreenManagement();
 
             // 注册服务
-            ServiceManager.Current.RegisterInstance(_splashScreen, typeof(ISplashScreenManagement));         
+            ServiceManager.Current.RegisterInstance(_splashScreen, typeof(ISplashScreenManagement));
 
             // 初始化窗体尺寸。
             var ownerScreen = Screen.AllScreens[0];
-            _splashScreen.Size = new Size(ownerScreen.Bounds.Width / 2, ownerScreen.Bounds.Height / 2); 
+            _splashScreen.Size = new Size(ownerScreen.Bounds.Width / 2, ownerScreen.Bounds.Height / 2);
 
             // 设置初始图片
             _splashScreen.SetIntroductionImage(_images[0]);
@@ -71,7 +74,7 @@ namespace Products.Shell
             _images.Clear();
         }
 
-      
+
         #endregion
 
         #region "private methods"
@@ -94,7 +97,7 @@ namespace Products.Shell
             }
         }
 
-      
-        #endregion      
+
+        #endregion
     }
 }

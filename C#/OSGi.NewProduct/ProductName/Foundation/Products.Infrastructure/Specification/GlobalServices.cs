@@ -15,6 +15,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+
 using Acl.ServiceManagement;
 
 namespace Products.Infrastructure.Specification
@@ -56,7 +57,7 @@ namespace Products.Infrastructure.Specification
         /// <summary>
         /// 获取 UAC 接口。
         /// </summary>
-        public static IUserAccessControl UAC 
+        public static IUserAccessControl UAC
         {
             get { return ServiceManager.Current.Get<IUserAccessControl>(); }
         }

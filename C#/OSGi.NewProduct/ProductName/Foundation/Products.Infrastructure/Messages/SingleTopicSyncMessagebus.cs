@@ -13,6 +13,7 @@
 
 using System;
 using System.Collections.Generic;
+
 using Acl.MessageBus;
 
 namespace Products.Infrastructure.Messages
@@ -20,13 +21,13 @@ namespace Products.Infrastructure.Messages
     /// <summary>
     /// 单一主题的“同步性消息总线”封装类。
     /// </summary>
-    public class SingleTopicSyncMessagebus<TEventArgs> : IDisposable, ISingleTopicMessageBus<TEventArgs> 
+    public class SingleTopicSyncMessagebus<TEventArgs> : IDisposable, ISingleTopicMessageBus<TEventArgs>
         where TEventArgs : EventArgs
     {
         #region "Field"
-        
+
         private bool _disposed = false;
-        
+
         private IMessageBus _messageBus;
 
         private List<IDisposable> _handlers = new List<IDisposable>();

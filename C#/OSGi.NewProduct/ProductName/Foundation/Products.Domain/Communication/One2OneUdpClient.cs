@@ -15,7 +15,9 @@ using System;
 using System.Net;
 using System.Net.Sockets;
 using System.Timers;
+
 using Acl.Log;
+
 using Products.Infrastructure.Events;
 using Products.Infrastructure.Messages;
 using Products.Infrastructure.Types;

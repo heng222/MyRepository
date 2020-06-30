@@ -80,7 +80,7 @@ namespace Products.Domain.Utility
 
             // 单实例检查
             _singletonChecker = new SingletonProcessChecker(exeFullPathName.Replace('\\', '_'));
-            if (!_singletonChecker.IsPassed) throw new Exception("程序的一个实例已经在运行。");      
+            if (!_singletonChecker.IsPassed) throw new Exception("程序的一个实例已经在运行。");
 
             // 冗余DLL文件检查
             RedundantDllFileChecker.Check();
@@ -94,7 +94,7 @@ namespace Products.Domain.Utility
             try
             {
                 var di = new DriveInfo(path);
-                return di.DriveType != DriveType.Network; 
+                return di.DriveType != DriveType.Network;
             }
             catch (System.Exception /*ex*/)
             {

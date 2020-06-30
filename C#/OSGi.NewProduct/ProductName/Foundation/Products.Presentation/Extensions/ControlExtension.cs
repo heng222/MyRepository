@@ -16,6 +16,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+
 using Acl.Log;
 
 namespace Products
@@ -30,7 +31,7 @@ namespace Products
         /// </summary>
         public static object InvokeWithCatch(this Control control, Action action, ILog log, bool popupErrDialog = false)
         {
-            return control.Invoke(new Action(() => 
+            return control.Invoke(new Action(() =>
             {
                 try
                 {
@@ -38,7 +39,7 @@ namespace Products
                 }
                 catch (System.Exception ex)
                 {
-                    if(log != null) log.Error(ex);
+                    if (log != null) log.Error(ex);
                     if (popupErrDialog) MessageBox.Show(ex.Message, "´íÎó", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }));
@@ -97,7 +98,7 @@ namespace Products
                 catch (System.Exception ex)
                 {
                     if (log != null) log.Error(ex);
-                    if(popupErrDialog) MessageBox.Show(ex.Message, "´íÎó", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    if (popupErrDialog) MessageBox.Show(ex.Message, "´íÎó", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }), args);
         }

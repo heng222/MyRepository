@@ -14,8 +14,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+
 using Acl.ComponentModel.Annotions;
 using Acl.Data.Annotions;
+
 using Products.Infrastructure.Types;
 
 namespace Products.Infrastructure.Entities
@@ -55,7 +57,7 @@ namespace Products.Infrastructure.Entities
         /// </summary>
         [Ignore]
         public bool IsConfirmed { get { return this.ConfirmTime != DateTime.MinValue; } }
-        
+
         /// <summary>
         /// 构造函数。
         /// </summary>

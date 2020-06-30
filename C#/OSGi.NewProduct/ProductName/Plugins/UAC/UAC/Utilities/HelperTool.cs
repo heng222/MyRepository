@@ -20,7 +20,7 @@ namespace Products.UAC.Utilities
             {
                 if (byteArray1[i] != byteArray2[i]) return false;
             }
-                
+
             return true;
         }
 

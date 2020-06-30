@@ -14,6 +14,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+
 using Products.Resource;
 
 namespace Products.Infrastructure.Log

@@ -13,18 +13,19 @@
 
 using System;
 using System.Drawing;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Linq;
+
 using Products.Infrastructure.Entities;
 using Products.Infrastructure.Events;
 using Products.Infrastructure.Messages;
+using Products.Infrastructure.Specification;
 using Products.Infrastructure.Types;
 using Products.Plugin1.Properties;
-using Products.Presentation;
-using Products.Infrastructure.Specification;
 using Products.Plugin1.Utilities;
+using Products.Presentation;
 
 namespace Products.Plugin1.Controls
 {
@@ -48,10 +49,10 @@ namespace Products.Plugin1.Controls
             InitializeComponent();
         }
         #endregion
-        
+
         #region "Private methods"
         #endregion
-        
+
         #region "Public methods"
         #endregion
 

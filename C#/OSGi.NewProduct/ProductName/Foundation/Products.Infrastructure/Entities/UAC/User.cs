@@ -15,6 +15,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+
 using Acl.ComponentModel.Annotions;
 using Acl.Data.Annotions;
 
@@ -50,16 +51,16 @@ namespace Products.Infrastructure.Entities
         [Ignore]
         public SystemPrivilege[] Privileges
         {
-            get 
-            { 
-                if(_privileges == null) _privileges = _privilegesInner.Select(p => (SystemPrivilege)p).ToArray();
+            get
+            {
+                if (_privileges == null) _privileges = _privilegesInner.Select(p => (SystemPrivilege)p).ToArray();
                 return _privileges;
             }
-            
-            set 
+
+            set
             {
                 _privileges = value;
-                _privilegesInner = value.Select(p => (byte)p).ToArray(); 
+                _privilegesInner = value.Select(p => (byte)p).ToArray();
             }
         }
         private SystemPrivilege[] _privileges;

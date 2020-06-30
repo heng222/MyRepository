@@ -45,7 +45,7 @@ namespace Products.Persistence
         /// MySql
         /// </summary>
         MySql = 8,
-        
+
         /// <summary>
         /// Sqlite
         /// </summary>

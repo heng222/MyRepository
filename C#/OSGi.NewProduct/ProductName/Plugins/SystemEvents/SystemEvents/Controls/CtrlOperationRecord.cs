@@ -15,7 +15,9 @@ using System;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+
 using Acl.Utility;
+
 using Products.Infrastructure.Entities;
 using Products.Infrastructure.Messages;
 using Products.Infrastructure.Specification;
@@ -144,7 +146,7 @@ namespace Products.SystemEvents.Controls
 
             return null;
         }
-        
+
         private void InitalizeDataGridView()
         {
             //dataGridView.BorderStyle = BorderStyle.None;

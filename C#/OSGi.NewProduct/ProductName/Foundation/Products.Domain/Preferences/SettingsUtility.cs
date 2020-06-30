@@ -13,10 +13,11 @@
 
 using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Net;
-using Acl.Configuration;
+using System.Text;
+
 using Acl;
+using Acl.Configuration;
 
 namespace Products.Domain.Preferences
 {

@@ -12,7 +12,9 @@
 //----------------------------------------------------------------*/
 
 using System.Linq;
+
 using Acl;
+
 using Products.Infrastructure;
 using Products.Infrastructure.Entities;
 using Products.Infrastructure.Events;
@@ -38,7 +40,7 @@ namespace Products.SystemEvents.Domain
         private void OnCommStateChanged(object sender, CommStateChangedEventArgs args)
         {
             try
-            {                
+            {
                 var remoteNode = GlobalServices.Repository.Where<SystemNode>(p => p.Code == args.RemoteDeviceID).FirstOrDefault();
 
                 //  产生事件。
@@ -58,7 +60,7 @@ namespace Products.SystemEvents.Domain
                 }
 
                 // 发布事件
-                GlobalMessageBus.PublishNewSystemEventGenerated(new NewSystemEventArgs(eventLog));                
+                GlobalMessageBus.PublishNewSystemEventGenerated(new NewSystemEventArgs(eventLog));
             }
             catch (System.Exception ex)
             {

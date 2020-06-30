@@ -2,8 +2,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
+
 using Acl.Data;
 using Acl.Data.Configuration;
+
 using Products.Infrastructure.Entities;
 
 namespace Products.Infrastructure.Specification

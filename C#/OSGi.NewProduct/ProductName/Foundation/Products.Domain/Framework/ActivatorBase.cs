@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+
 using Acl;
 using Acl.Log;
 using Acl.ServiceManagement;
+
 using Products.Infrastructure.Exceptions;
 using Products.Infrastructure.Specification;
 using Products.Infrastructure.Types;
@@ -252,7 +254,7 @@ namespace Products.Domain
 
 
         #region "Private methods"
-       
+
         /// <summary>
         /// 处理启动过程中发生的异常。
         /// </summary>

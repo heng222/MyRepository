@@ -15,11 +15,13 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+
 using Acl;
 using Acl.ServiceManagement;
+
 using Products.Infrastructure;
-using Products.Infrastructure.Specification;
 using Products.Infrastructure.Messages;
+using Products.Infrastructure.Specification;
 
 namespace Products.Shell.Presentation.MainForm
 {
@@ -106,7 +108,7 @@ namespace Products.Shell.Presentation.MainForm
             //_statusLabelUserRole.Width = 130;
             //_statusLabelUserRole.Text = "½ÇÉ«£º";
             //_statusLabelUserRole.TextAlign = ContentAlignment.MiddleCenter;
-            
+
             //// stslMachineName
             //_statusLabelNodeName.AutoSize = false;
             //_statusLabelNodeName.Width = 180;
@@ -165,9 +167,9 @@ namespace Products.Shell.Presentation.MainForm
 
             //
             _statusStrip.SizingGrip = this.View.InitalTitleVisible;
-            _statusStrip.Items.AddRange(new ToolStripItem[] {_statusLabelUserCode, _statusLabelUserName, 
-                                        _statusLabelUserRole, 
-                                        _statusLabelLocation, _statusLabelNodeName, 
+            _statusStrip.Items.AddRange(new ToolStripItem[] {_statusLabelUserCode, _statusLabelUserName,
+                                        _statusLabelUserRole,
+                                        _statusLabelLocation, _statusLabelNodeName,
                                         _statusLabelDbText, _statusLabelDbState,
                                         _statusLabelHotstandbyText, _statusLabelHotstandbyState,
                                         _statusLabelLanuchTime, _statusLabelCurrentTime,

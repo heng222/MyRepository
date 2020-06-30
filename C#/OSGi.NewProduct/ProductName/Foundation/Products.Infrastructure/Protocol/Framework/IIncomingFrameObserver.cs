@@ -14,6 +14,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+
 using Products.Infrastructure.Events;
 
 namespace Products.Infrastructure.Protocol.Framework
@@ -21,7 +22,7 @@ namespace Products.Infrastructure.Protocol.Framework
     /// <summary>
     /// 一个观察器接口，用于处理接收到的协议帧。
     /// </summary>
-    public interface IIncomingFrameObserver<TProtocol> 
+    public interface IIncomingFrameObserver<TProtocol>
         where TProtocol : ProtocolFrame
     {
         /// <summary>

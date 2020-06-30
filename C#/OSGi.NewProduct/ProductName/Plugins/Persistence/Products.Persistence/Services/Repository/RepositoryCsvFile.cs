@@ -19,8 +19,10 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
 using System.Text;
+
 using Acl.Data.Csv;
 using Acl.Data.Mappings;
+
 using Products.Domain.Preferences;
 using Products.Infrastructure.Entities;
 using Products.Persistence.Services.Repository;
@@ -111,7 +113,7 @@ namespace Products.Persistence.Implementation
         private IQueryable<T> GetQuerable<T>()
         {
             IQueryable theValue = null;
-            
+
             return _mapping.TryGetValue(typeof(T), out theValue) ? theValue as IQueryable<T> : null;
         }
         #endregion

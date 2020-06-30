@@ -14,7 +14,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+
 using Acl.Data;
+
 using Products.Infrastructure.Entities;
 using Products.Infrastructure.Specification;
 using Products.Persistence.Services.Repository;
@@ -241,7 +243,7 @@ namespace Products.Persistence.Services
         }
 
 
-        public override void Insert<T>(params T[] entities) 
+        public override void Insert<T>(params T[] entities)
         {
             var db = _dbConnectionManager.GetConnection<T>();
 
@@ -249,7 +251,7 @@ namespace Products.Persistence.Services
         }
 
 
-        public override void AsyncInsert<T>(T[] entity, Action<Exception> exceptionHandler) 
+        public override void AsyncInsert<T>(T[] entity, Action<Exception> exceptionHandler)
         {
             var db = _dbConnectionManager.GetConnection<T>();
 
@@ -259,7 +261,7 @@ namespace Products.Persistence.Services
         /// <summary>
         /// 更新数据。
         /// </summary>
-        public override void Update<T>(object instance, Expression<Func<T, bool>> condition) 
+        public override void Update<T>(object instance, Expression<Func<T, bool>> condition)
         {
             Action action = () =>
             {
@@ -272,7 +274,7 @@ namespace Products.Persistence.Services
         /// <summary>
         /// 删除数据。
         /// </summary>
-        public override void Delete<T>(Expression<Func<T, bool>> condition = null) 
+        public override void Delete<T>(Expression<Func<T, bool>> condition = null)
         {
             Action action = () =>
             {
@@ -283,7 +285,7 @@ namespace Products.Persistence.Services
             GetOperationScheduler<T>().Async(action);
         }
 
-        public override void Execute<T>(Action<IDatabase> handler) 
+        public override void Execute<T>(Action<IDatabase> handler)
         {
             this.Execute(typeof(T), handler);
         }
@@ -295,7 +297,7 @@ namespace Products.Persistence.Services
             scheduler.Sync(() => handler(db));
         }
 
-        public override void AsyncExecute<T>(Action<IDatabase> handler, Action<Exception> errorHandler) 
+        public override void AsyncExecute<T>(Action<IDatabase> handler, Action<Exception> errorHandler)
         {
             Action action = () =>
             {

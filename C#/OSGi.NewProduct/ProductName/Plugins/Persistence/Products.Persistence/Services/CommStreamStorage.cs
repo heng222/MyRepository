@@ -43,7 +43,7 @@ namespace Products.Persistence.Services
         /// </summary>
         private ConcurrentDictionary<string, ICommStreamLogWriter> _commLogWriters =
             new ConcurrentDictionary<string, ICommStreamLogWriter>();
-        
+
         /// <summary>
         /// 一个缓存池，用于存放将要保存的数据。
         /// </summary>
@@ -159,7 +159,7 @@ namespace Products.Persistence.Services
             var logKey = string.Format("{0}{1}-{2}{3}", args.LocalNodeType, args.LocalNodeCode, args.RemoteNodeType, args.RemoteNodeCode);
 
             // 
-            var ipc =  CommLogHelper.GetParserCode(args.LocalNodeType, args.RemoteNodeType, true);
+            var ipc = CommLogHelper.GetParserCode(args.LocalNodeType, args.RemoteNodeType, true);
             var opc = CommLogHelper.GetParserCode(args.LocalNodeType, args.RemoteNodeType, false);
 
             // 
@@ -172,7 +172,7 @@ namespace Products.Persistence.Services
             // 
             return CommStreamLogManager.CreateLogWriter(logSettings);
         }
-        
+
         private void OnRolloverCommLog(object sender, EventArgs e)
         {
             try
@@ -184,7 +184,7 @@ namespace Products.Persistence.Services
             {
                 LogUtility.Warning(ex.ToString());
             }
-        }        
+        }
 
         private string GetFileNamePrefix(uint localNodeCode, string localNodeName, uint remoteNodeCode, string remoteNodeName)
         {
@@ -196,7 +196,7 @@ namespace Products.Persistence.Services
         private string GetDeviceName(NodeType nodeType, uint nodeCode)
         {
             var theNode = GlobalServices.Repository.Where<SystemNode>(p => p.Code == nodeCode).FirstOrDefault();
-            if(theNode == null)
+            if (theNode == null)
             {
                 return nodeType.ToString();
             }
@@ -208,12 +208,12 @@ namespace Products.Persistence.Services
 
         private string GetFileDescription(string localNodeName, string remoteNodeName)
         {
-            var desciption = string.Format("【{0}】{1} 与 {2} 通信流日志", 
+            var desciption = string.Format("【{0}】{1} 与 {2} 通信流日志",
                 ProductResources.ProjectChsName, localNodeName, remoteNodeName);
 
             return desciption;
         }
-        
+
         /// <summary>
         /// 将ATP编号转换为易读的名称。
         /// </summary>

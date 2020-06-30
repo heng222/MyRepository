@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+
 using Acl.Data.Configuration;
 using Acl.Utility;
+
 using Products.Infrastructure.Entities;
 using Products.Infrastructure.Specification;
 using Products.Infrastructure.Types;
@@ -17,7 +19,7 @@ namespace Products.LogReport
         {
             List<OperationRecordInfo> values = null;
 
-            GlobalServices.Repository.Execute<OperationLog>(db => 
+            GlobalServices.Repository.Execute<OperationLog>(db =>
             {
                 using (var dbContext = db.Cfg.CreateDbContext())
                 {

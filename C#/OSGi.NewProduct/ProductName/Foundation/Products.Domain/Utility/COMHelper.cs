@@ -13,8 +13,9 @@
 
 using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Runtime.InteropServices;
+using System.Text;
+
 using Acl.Win32API;
 
 namespace Products.Domain.Utility
@@ -23,7 +24,7 @@ namespace Products.Domain.Utility
     /// COM¿Ø¼þ°ïÖúÀà¡£
     /// </summary>
     public static class COMHelper
-    {        
+    {
         private delegate int DllRegisterServer();
 
         /// <summary>

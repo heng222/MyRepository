@@ -292,9 +292,9 @@ namespace Products.Domain.Communication
                 {
                     if (this.LocalClient != null) this.Log.Error(ex.Message);
                 }
-            }   
+            }
         }
-        
+
         private void CheckUdpClient(NetworkAvailabilityEventArgs args)
         {
             try

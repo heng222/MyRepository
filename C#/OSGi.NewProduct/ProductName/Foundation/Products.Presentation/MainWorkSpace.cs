@@ -1,8 +1,11 @@
 ﻿using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+
 using Acl;
+
 using Platform.Presentation;
+
 using Products.Infrastructure.Types;
 
 namespace Products.Presentation
@@ -20,9 +23,9 @@ namespace Products.Presentation
         {
             Guard.NotNull(Workbench.MainWorkspace, "Workbench.MainWorkspace");
             Guard.NotNull(part, "part");
-            
+
             var attri = part.GetType().GetCustomAttributes(typeof(ProductPartAttribute), false)
-                .OfType<ProductPartAttribute>().FirstOrDefault();            
+                .OfType<ProductPartAttribute>().FirstOrDefault();
 
             Guard.NotNull(attri, "attri");
 
@@ -55,9 +58,9 @@ namespace Products.Presentation
         /// <param name="part"></param>
         /// <param name="defaultIcon"></param>
         public static void AddPart(Control part, Icon defaultIcon)
-        {            
-           var attri = part.GetType().GetCustomAttributes(typeof(ProductPartAttribute), false)
-               .OfType<ProductPartAttribute>().FirstOrDefault();            
+        {
+            var attri = part.GetType().GetCustomAttributes(typeof(ProductPartAttribute), false)
+                .OfType<ProductPartAttribute>().FirstOrDefault();
 
             Guard.NotNull(attri, "attri");
 

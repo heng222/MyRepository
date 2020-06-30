@@ -1,4 +1,5 @@
 ﻿using System;
+
 using OSGi;
 
 namespace Products.Domain

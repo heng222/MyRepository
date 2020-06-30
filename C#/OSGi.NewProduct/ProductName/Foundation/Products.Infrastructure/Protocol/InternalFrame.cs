@@ -12,10 +12,12 @@
 //----------------------------------------------------------------*/
 using System;
 using System.IO;
-using Acl.Utility;
 using System.Text;
-using Products.Infrastructure.Protocol.Framework;
+
+using Acl.Utility;
+
 using Products.Infrastructure.Log;
+using Products.Infrastructure.Protocol.Framework;
 
 namespace Products.Infrastructure.Protocol
 {
@@ -151,7 +153,7 @@ namespace Products.Infrastructure.Protocol
             return sb.ToString();
         }
         #endregion
-        
+
         #region "Public methods"
         #endregion
 

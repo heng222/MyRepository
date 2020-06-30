@@ -13,7 +13,9 @@
 
 using System;
 using System.Diagnostics.CodeAnalysis;
+
 using Acl.MessageBus;
+
 using Products.Infrastructure.Events;
 using Products.Infrastructure.Protocol;
 
@@ -49,7 +51,7 @@ namespace Products.Infrastructure.Messages
         }
 
         #endregion
-        
+
         #region "数据收发消息"
         /// <summary>
         /// 数据收发消息总线。
@@ -182,7 +184,7 @@ namespace Products.Infrastructure.Messages
                 args, sender, false);
         }
         #endregion
-        
+
         #region "权限管理相关消息"
         /// <summary>
         /// 用户将要切换消息。
@@ -247,7 +249,7 @@ namespace Products.Infrastructure.Messages
             return AuthorityManagementMessageBus.Subscribe<string>(UserAutoLogonFailedMessageTopic, handler, SubscribeMode.Async);
         }
         #endregion
-        
+
         #region "系统事件相关消息"
         /// <summary>
         /// 系统事件产生或更新消息。

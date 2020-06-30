@@ -2,7 +2,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
+
 using Acl.Data;
+
 using Products.Infrastructure.Entities;
 
 namespace Products.Infrastructure.Specification

@@ -5,7 +5,9 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
+
 using Platform.Presentation;
+
 using Products.Infrastructure;
 using Products.Infrastructure.Messages;
 using Products.Infrastructure.Specification;
@@ -14,6 +16,7 @@ using Products.Presentation;
 using Products.Resource;
 using Products.Shell.Presentation.MainForm;
 using Products.Shell.Properties;
+
 using WeifenLuo.WinFormsUI.Docking;
 
 namespace Products.Shell
@@ -52,7 +55,7 @@ namespace Products.Shell
             this.CurrentTitleVisible = initalTitlebarVisible;
 
             InitializeComponent();
-            
+
             CreateDockPanel();
 
             Initialize();
@@ -90,7 +93,7 @@ namespace Products.Shell
         /// 获取状态栏。
         /// </summary>
         public StatusStrip StatusBar { get { return _statusBarPresenter.StatusBar; } }
-        
+
         #endregion
 
         #region "override methods"
@@ -194,7 +197,7 @@ namespace Products.Shell
             var theContent = _dockContents.Where(p => p.Key.ControlType.ToString() == persistString).FirstOrDefault().Value;
             return theContent;
         }
-        
+
         private void CreateDockContents()
         {
             var theWorkspace = Workbench.MainWorkspace as MockWorkspace;
@@ -313,12 +316,12 @@ namespace Products.Shell
 
             if (GlobalServices.UAC != null)
             {
-                fileName = string.Format("{0}{1}_{2}{3}.{4}",GlobalServices.NodeContext.Code, GlobalServices.NodeContext.Name,
+                fileName = string.Format("{0}{1}_{2}{3}.{4}", GlobalServices.NodeContext.Code, GlobalServices.NodeContext.Name,
                      GlobalServices.UAC.CurrentUserCode, GlobalServices.UAC.CurrentUserName, FrmMain.UiLayoutSuffix);
             }
             else
             {
-                fileName = string.Format("{0}{1}.{2}",GlobalServices.NodeContext.Code, GlobalServices.NodeContext.Name,
+                fileName = string.Format("{0}{1}.{2}", GlobalServices.NodeContext.Code, GlobalServices.NodeContext.Name,
                     FrmMain.UiLayoutSuffix);
             }
 
@@ -366,10 +369,10 @@ namespace Products.Shell
             try
             {
                 _dockPanel.SuspendLayout(true);
-          
+
                 _menuPresenter.Reset();
                 _statusBarPresenter.Reset();
-  
+
                 this.ResetFormBorderStyle();
 
                 this.CloseAllDockContents();
@@ -408,11 +411,11 @@ namespace Products.Shell
 
             if (File.Exists(configFile))
             {
-                this.Invoke(new Action(() => 
+                this.Invoke(new Action(() =>
                 {
                     try
                     {
-                        this.LoadLayoutFromFile(configFile); 
+                        this.LoadLayoutFromFile(configFile);
                     }
                     catch (System.Exception /*ex*/)
                     {
@@ -422,9 +425,9 @@ namespace Products.Shell
             }
             else
             {
-                this.Invoke(new Action(() => 
+                this.Invoke(new Action(() =>
                 {
-                    this.ResetWindowsLayout(); 
+                    this.ResetWindowsLayout();
                 }));
             }
         }

@@ -13,6 +13,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+
 using Acl.Utility;
 
 namespace Products.Infrastructure.Types
@@ -33,7 +34,7 @@ namespace Products.Infrastructure.Types
         /// </summary>
         [MemberDes("一级")]
         First = 1,
-  
+
         /// <summary>
         /// 二级
         /// </summary>

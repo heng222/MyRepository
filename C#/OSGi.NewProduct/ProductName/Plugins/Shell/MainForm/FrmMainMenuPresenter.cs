@@ -16,10 +16,13 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
+
 using Acl.MessageBus;
 using Acl.ServiceManagement;
+
 using Platform.Presentation;
 using Platform.Presentation.CommonControl;
+
 using Products.Domain.Utility;
 using Products.Infrastructure.Messages;
 using Products.Presentation;
@@ -76,7 +79,7 @@ namespace Products.Shell.Presentation.MainForm
             _menuShowTitleBar.Click += OnMenuViewShowTitleBar;
 
             var menuShowMenuStrip = new ToolStripMenuItem() { Text = "显示/隐藏菜单栏", ShortcutKeys = Keys.Shift | Keys.Alt | Keys.F6 };
-            _menuShowTitleBar.Text = this.View.InitalTitleVisible ?  "隐藏标题栏" : "显示标题栏";            
+            _menuShowTitleBar.Text = this.View.InitalTitleVisible ? "隐藏标题栏" : "显示标题栏";
             menuShowMenuStrip.Click += OnMenuViewShowMenuStrip;
 
             var menuShowStatusbar = new ToolStripMenuItem() { Text = "隐藏状态栏", ShortcutKeys = Keys.Shift | Keys.Alt | Keys.F7 };
@@ -121,11 +124,11 @@ namespace Products.Shell.Presentation.MainForm
                 swithToScreenMenu.DropDownItems.Add(switchSubMenu);
             });
 
-            _menuView.DropDownItems.AddRange(new ToolStripItem[] 
+            _menuView.DropDownItems.AddRange(new ToolStripItem[]
             {
-                menuShowAllWindows,           
+                menuShowAllWindows,
                 new ToolStripSeparator(), _menuShowTitleBar, menuShowMenuStrip, menuShowStatusbar, menuShowDocumentIcon,
-                new ToolStripSeparator(), swithToScreenMenu,  menuLayout 
+                new ToolStripSeparator(), swithToScreenMenu,  menuLayout
             });
             #endregion
 
@@ -141,7 +144,7 @@ namespace Products.Shell.Presentation.MainForm
             var mnuRunCommand = new ToolStripMenuItem() { Text = "运行(&R)..." };
             mnuRunCommand.Click += OnMenuToolRunCommand;
 
-            _menuTool.DropDownItems.AddRange(new ToolStripItem[] { mnuToolOption, 
+            _menuTool.DropDownItems.AddRange(new ToolStripItem[] { mnuToolOption,
                 new ToolStripSeparator(), mnuOpenExeFolder, mnuRolloverAllCommLog, mnuScreenshot, mnuRunCommand});
             #endregion
 
@@ -191,11 +194,11 @@ namespace Products.Shell.Presentation.MainForm
             _menuExitRight.Click += OnMenuExit;
             _menuExitRight.DisplayStyle = ToolStripItemDisplayStyle.Image;
             _menuExitRight.Alignment = ToolStripItemAlignment.Right;
-            _menuExitRight.Visible = !this.View.InitalTitleVisible;            
+            _menuExitRight.Visible = !this.View.InitalTitleVisible;
             #endregion
 
             // 主菜单
-            _mainMenuStrip.Items.AddRange(new ToolStripItem[] { _menuView, _menuTool, _menuDebug, _menuHelp, _menuExitRight, _menuCompanyLogo});
+            _mainMenuStrip.Items.AddRange(new ToolStripItem[] { _menuView, _menuTool, _menuDebug, _menuHelp, _menuExitRight, _menuCompanyLogo });
             this.View.Controls.Add(_mainMenuStrip);
             //_mainMenuStrip.BackColor = Color.DarkGray;
         }
@@ -322,7 +325,7 @@ namespace Products.Shell.Presentation.MainForm
         private void OnUserChanged(object sender, EventArgs e)
         {
             try
-            {                
+            {
                 // 更新视图菜单
                 this.View.Invoke(new Action(() =>
                 {
@@ -421,7 +424,7 @@ namespace Products.Shell.Presentation.MainForm
             try
             {
                 var exceptedVisible = !this.View.CurrentTitleVisible;
-                
+
                 SwitchTitleBarVisible(exceptedVisible);
 
                 this.View.CurrentTitleVisible = exceptedVisible;

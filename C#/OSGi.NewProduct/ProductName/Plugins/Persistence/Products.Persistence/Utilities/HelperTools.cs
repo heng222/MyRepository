@@ -18,6 +18,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading;
+
 using Products.Infrastructure.Entities;
 
 namespace Products.Persistence
@@ -51,7 +52,7 @@ namespace Products.Persistence
 
             var dbFileName = Path.GetFileName(items.Where(p => p.Contains(key)).First()
                 .Split(new string[] { "=" }, StringSplitOptions.RemoveEmptyEntries)[1]);
-            
+
             var exePath = Thread.GetDomain().BaseDirectory;
 
             var allDbFiles = System.IO.Directory.GetFiles(exePath, dbFileName, System.IO.SearchOption.AllDirectories);

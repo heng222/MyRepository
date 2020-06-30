@@ -15,9 +15,11 @@ using System;
 using System.IO.Ports;
 using System.Threading;
 using System.Threading.Tasks;
+
 using Acl;
 using Acl.Core;
 using Acl.Log;
+
 using Products.Infrastructure.Events;
 using Products.Infrastructure.Messages;
 using Products.Infrastructure.Preference;
@@ -77,7 +79,7 @@ namespace Products.Domain.Communication
         /// 小于等于0时表示不检查。
         /// </summary>
         protected virtual int RemoteDataExpiredTime { get { return Timeout.Infinite; } }
-        
+
         /// <summary>
         /// 是否在全局总线上发布CommStateChanged消息？
         /// </summary>
@@ -160,7 +162,7 @@ namespace Products.Domain.Communication
             {
             }
         }
-                
+
         private SerialPort CreateSerialPort(SerialPortSettings spSettings)
         {
             SerialPort serialPort = null;
@@ -210,13 +212,13 @@ namespace Products.Domain.Communication
                 {
                     var args = new DataIncomingEventArgs(data, this.LocalType, this.LocalCode, this.RemoteType, this.RemoteCode);
                     GlobalMessageBus.PublishDataIncoming(args, this);
-                }     
+                }
 
                 // 验证数据是否有效。
                 if (!this.VerifyData(data)) return;
 
                 // 在派生类中处理数据。
-                this.HandleDataReceived(data);    
+                this.HandleDataReceived(data);
 
                 // 更新连接时间。
                 if (_commStateChecker != null)

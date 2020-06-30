@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+
 using Acl.Utility;
 
 namespace Products.Infrastructure
@@ -40,7 +41,7 @@ namespace Products.Infrastructure
         /// 显示时间控件。
         /// </summary>
         [MemberDes("显示时间控件")]
-        ShowNixieTubeClock = 5, 
+        ShowNixieTubeClock = 5,
 
         /// <summary>
         /// 显示扣车控件
@@ -83,7 +84,7 @@ namespace Products.Infrastructure
         /// 显示表示灯。
         /// </summary>
         [MemberDes("显示表示灯")]
-        ShowIndicationLamp = 52,        
+        ShowIndicationLamp = 52,
         /// <summary>
         /// 中心站场控制
         /// </summary>
@@ -149,7 +150,7 @@ namespace Products.Infrastructure
         /// </summary>
         [MemberDes("道岔强扳操作")]
         SwitchForcedPull = 65,
-        
+
         #endregion
 
 
@@ -208,6 +209,6 @@ namespace Products.Infrastructure
         [MemberDes("报警确认")]
         ConfirmAlarm = 122,
         #endregion
-        
+
     }
 }
