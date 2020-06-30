@@ -83,7 +83,6 @@
     <Compile Include="NodeConfig\NodeContextImpl.cs" />
     <Compile Include="Preferences\SettingsParser.cs" />
     <Compile Include="Preferences\SettingsUtility.cs" />
-    <None Include=".editorconfig" />
     <None Include="Properties\AssemblyInfo.tpl" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\RawUdpConfigProvider.cs" />

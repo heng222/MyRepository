@@ -95,7 +95,6 @@
     </Compile>
     <Compile Include="Utilities\HelperTool.cs" />
     <Compile Include="Utilities\LogUtility.cs" />
-    <None Include=".editorconfig" />
     <None Include="Properties\AssemblyInfo.tpl" />
   </ItemGroup>
   <ItemGroup>

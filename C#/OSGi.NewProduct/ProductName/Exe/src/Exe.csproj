@@ -104,7 +104,6 @@
       <Link>osgi.configuration.xsd</Link>
       <SubType>Designer</SubType>
     </None>
-    <None Include=".editorconfig" />
     <None Include="app.config" />
     <None Include="app.config.tpl">
       <SubType>Designer</SubType>

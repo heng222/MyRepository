@@ -88,7 +88,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Utilities\LogUtility.cs" />
-    <None Include=".editorconfig" />
     <None Include="Properties\AssemblyInfo.tpl" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -133,7 +133,6 @@
       <Link>Data\Sqlite\uac.db</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include=".editorconfig" />
     <None Include="Config\Persistence.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

@@ -33,9 +33,6 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Acl.Core">
-      <HintPath>..\..\..\Libs\Acl.Core.dll</HintPath>
-    </Reference>
     <Reference Include="nunit.framework">
       <HintPath>..\..\..\Libs\nunit.framework.dll</HintPath>
     </Reference>
@@ -50,12 +47,6 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Products.Infrastructure\Products.Infrastructure.csproj">
-      <Project>{a4b16e5b-561d-4739-b35b-6e4d21e78a47}</Project>
-      <Name>Products.Infrastructure</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
