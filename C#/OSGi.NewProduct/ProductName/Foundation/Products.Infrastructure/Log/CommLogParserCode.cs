@@ -21,8 +21,6 @@ namespace Products.Infrastructure.Log
 {
     /// <summary>
     /// 通讯日志流解析器编码定义
-    /// 高两位字节：项目编号，标准版本为0xFFFF，具体项目使用0x0001~0xEFFF之间的一个值。
-    /// 低两位字节：顺序号。
     /// </summary>
     public abstract class CommLogParserCode
     {
