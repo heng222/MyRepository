@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.dataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridView = new Acl.Controls.DoubleBufferDataGridView();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.confirmThisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.confirmAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
