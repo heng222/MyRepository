@@ -125,11 +125,11 @@
     <Compile Include="Types\EventLevel.cs" />
     <Compile Include="Types\EventType.cs" />
     <Compile Include="Types\NodeType.cs" />
-    <Compile Include="Types\PluginType.cs" />
+    <Compile Include="Types\PluginTypes.cs" />
     <Compile Include="Types\SystemPrivilege.cs" />
     <None Include="Properties\AssemblyInfo.tpl" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Specification\ISystemAttribute.cs" />
+    <Compile Include="Specification\ISystemProperty.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DTO\" />

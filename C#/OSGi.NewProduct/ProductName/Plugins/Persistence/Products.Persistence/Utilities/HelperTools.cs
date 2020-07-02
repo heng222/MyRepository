@@ -56,7 +56,7 @@ namespace Products.Persistence
             var exePath = Thread.GetDomain().BaseDirectory;
 
             var allDbFiles = System.IO.Directory.GetFiles(exePath, dbFileName, System.IO.SearchOption.AllDirectories);
-            if (allDbFiles.Count() != 1)
+            if (allDbFiles.Length != 1)
             {
                 throw new Exception(string.Format("文件{0}的个数不为1。", dbFileName));
             }

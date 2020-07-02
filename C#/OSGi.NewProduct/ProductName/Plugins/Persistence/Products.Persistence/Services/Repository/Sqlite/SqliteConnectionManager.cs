@@ -108,7 +108,7 @@ namespace Products.Persistence.Services
             else
             {
                 var theItem = _entityMapping.Where(p => p.Value.Contains(entityType));
-                var connectionString = theItem.Count() > 0 ? theItem.First().Key : string.Empty;
+                var connectionString = theItem.Any() ? theItem.First().Key : string.Empty;
                 return string.IsNullOrEmpty(connectionString) ? null : _dbConnections[connectionString];
             }
         }

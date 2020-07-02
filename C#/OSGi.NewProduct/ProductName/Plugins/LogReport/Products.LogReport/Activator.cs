@@ -42,7 +42,7 @@ namespace Products.LogReport
         #endregion
 
         #region "override methods"
-        public override PluginType Type { get { return PluginType.LogReport; } }
+        public override PluginTypes Type { get { return PluginTypes.LogReport; } }
 
         protected override void OnBundleStart(IDictionary<string, string> context)
         {

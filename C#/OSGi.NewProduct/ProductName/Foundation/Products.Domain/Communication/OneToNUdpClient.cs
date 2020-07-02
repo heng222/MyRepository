@@ -261,7 +261,9 @@ namespace Products.Domain.Communication
             {
                 try
                 {
+#pragma warning disable CA2007 // Consider calling ConfigureAwait on the awaited task
                     var recvResult = await this.LocalClient.ReceiveAsync();
+#pragma warning restore CA2007 // Consider calling ConfigureAwait on the awaited task
                     var remoteEP = recvResult.RemoteEndPoint;
 
                     // 处理远程终结点。

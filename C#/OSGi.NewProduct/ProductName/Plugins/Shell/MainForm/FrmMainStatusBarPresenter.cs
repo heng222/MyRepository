@@ -207,7 +207,7 @@ namespace Products.Shell.Presentation.MainForm
                 _statusLabelLanuchTime.Text = string.Format("µÇÂ¼Ê±¼ä£º{0}", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
 
 
-                var sysAttri = ServiceManager.Current.Get<ISystemAttribute>();
+                var sysAttri = ServiceManager.Current.Get<ISystemProperty>();
                 _statusLabelVersion.Text = string.Format(" °æ±¾ºÅ£ºv{0}", sysAttri.ProductStringVersion);
                 _statusLabelProjectName.Text = string.Format("{0}  ", sysAttri.ProjectChsName);
 

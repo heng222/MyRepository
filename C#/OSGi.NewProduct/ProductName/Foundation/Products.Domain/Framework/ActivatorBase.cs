@@ -46,7 +46,7 @@ namespace Products.Domain
         /// <summary>
         /// 插件类型
         /// </summary>
-        public abstract PluginType Type { get; }
+        public abstract PluginTypes Type { get; }
 
         /// <summary>
         /// 模板方法，当启动时调用。
@@ -137,9 +137,9 @@ namespace Products.Domain
         /// </summary>
         public bool Match(IDictionary<string, string> context)
         {
-            if (this.Type == PluginType.None) return false;
+            if (this.Type == PluginTypes.None) return false;
 
-            if (this.Type.HasFlag(PluginType.Persistence)) return true;
+            if (this.Type.HasFlag(PluginTypes.Persistence)) return true;
 
             return GlobalServices.NodeContext.ContainsPlugin(Type);
         }

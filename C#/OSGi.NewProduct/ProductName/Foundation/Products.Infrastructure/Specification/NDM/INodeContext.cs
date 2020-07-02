@@ -42,7 +42,7 @@ namespace Products.Infrastructure.Specification
         /// <summary>
         /// 获取当前节点需要加载的插件。
         /// </summary>
-        PluginType Plugins { get; }
+        PluginTypes Plugins { get; }
 
         /// <summary>
         /// 获取当前节点需要加载的控件类型。
@@ -58,7 +58,7 @@ namespace Products.Infrastructure.Specification
         /// </summary>
         /// <param name="pluginType">指定的插件类型。</param>
         /// <returns>true表示需要加载指定的插件，false表示不需要加载。</returns>
-        bool ContainsPlugin(PluginType pluginType);
+        bool ContainsPlugin(PluginTypes pluginType);
         #endregion
 
     }

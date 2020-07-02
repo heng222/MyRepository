@@ -1,13 +1,219 @@
+# 代码样式配置。
+
 # NOTE: Requires **VS2019 16.3** or later
 
-# FxCop静态分析规则
-# Description: FxCop静态分析规则
+# 如果要从更高级别的目录继承 .editorconfig 设置，请删除以下行
+root = true
+
+# c# 文件
+[*.cs]
+
+#### Core EditorConfig 选项 ####
+
+# 缩进和间距
+indent_size = 4
+indent_style = space
+tab_width = 4
+
+# 新行首选项
+end_of_line = crlf
+insert_final_newline = false
+
+#### .NET 编码约定 ####
+
+# 组织 Using
+dotnet_separate_import_directive_groups = true
+dotnet_sort_system_directives_first = true
+file_header_template = unset
+
+# this. 和 Me. 首选项
+dotnet_style_qualification_for_event = true:silent
+dotnet_style_qualification_for_field = false:silent
+dotnet_style_qualification_for_method = true:silent
+dotnet_style_qualification_for_property = true:silent
+
+# 语言关键字与 bcl 类型首选项
+dotnet_style_predefined_type_for_locals_parameters_members = true:silent
+dotnet_style_predefined_type_for_member_access = true:silent
+
+# 括号首选项
+dotnet_style_parentheses_in_arithmetic_binary_operators = always_for_clarity:silent
+dotnet_style_parentheses_in_other_binary_operators = always_for_clarity:silent
+dotnet_style_parentheses_in_other_operators = never_if_unnecessary:silent
+dotnet_style_parentheses_in_relational_binary_operators = always_for_clarity:silent
+
+# 修饰符首选项
+dotnet_style_require_accessibility_modifiers = for_non_interface_members:silent
+
+# 表达式级首选项
+dotnet_style_coalesce_expression = true:suggestion
+dotnet_style_collection_initializer = true:suggestion
+dotnet_style_explicit_tuple_names = true:suggestion
+dotnet_style_null_propagation = true:suggestion
+dotnet_style_object_initializer = true:suggestion
+dotnet_style_operator_placement_when_wrapping = beginning_of_line
+dotnet_style_prefer_auto_properties = true:silent
+dotnet_style_prefer_compound_assignment = true:suggestion
+dotnet_style_prefer_conditional_expression_over_assignment = true:silent
+dotnet_style_prefer_conditional_expression_over_return = true:silent
+dotnet_style_prefer_inferred_anonymous_type_member_names = true:suggestion
+dotnet_style_prefer_inferred_tuple_names = true:suggestion
+dotnet_style_prefer_is_null_check_over_reference_equality_method = true:suggestion
+dotnet_style_prefer_simplified_boolean_expressions = true:suggestion
+dotnet_style_prefer_simplified_interpolation = true:suggestion
+
+# 字段首选项
+dotnet_style_readonly_field = true:suggestion
+
+# 参数首选项
+dotnet_code_quality_unused_parameters = all:suggestion
+
+#### c# 编码约定 ####
+
+# var 首选项
+csharp_style_var_elsewhere = false:silent
+csharp_style_var_for_built_in_types = false:silent
+csharp_style_var_when_type_is_apparent = false:silent
+
+# Expression-bodied 成员
+csharp_style_expression_bodied_accessors = true:silent
+csharp_style_expression_bodied_constructors = false:silent
+csharp_style_expression_bodied_indexers = true:silent
+csharp_style_expression_bodied_lambdas = true:silent
+csharp_style_expression_bodied_local_functions = false:silent
+csharp_style_expression_bodied_methods = false:silent
+csharp_style_expression_bodied_operators = false:silent
+csharp_style_expression_bodied_properties = true:silent
+
+# 模式匹配首选项
+csharp_style_pattern_matching_over_as_with_null_check = true:suggestion
+csharp_style_pattern_matching_over_is_with_cast_check = true:suggestion
+csharp_style_prefer_switch_expression = true:suggestion
+
+# Null 检查首选项
+csharp_style_conditional_delegate_call = true:suggestion
+
+# 修饰符首选项
+csharp_prefer_static_local_function = true:suggestion
+csharp_preferred_modifier_order = public,private,protected,internal,static,extern,new,virtual,abstract,sealed,override,readonly,unsafe,volatile,async:silent
+
+# 代码块首选项
+csharp_prefer_braces = true:silent
+csharp_prefer_simple_using_statement = true:suggestion
+
+# 表达式级首选项
+csharp_prefer_simple_default_expression = true:suggestion
+csharp_style_deconstructed_variable_declaration = true:suggestion
+csharp_style_inlined_variable_declaration = true:suggestion
+csharp_style_pattern_local_over_anonymous_function = true:suggestion
+csharp_style_prefer_index_operator = true:suggestion
+csharp_style_prefer_range_operator = true:suggestion
+csharp_style_throw_expression = true:suggestion
+csharp_style_unused_value_assignment_preference = discard_variable:suggestion
+csharp_style_unused_value_expression_statement_preference = discard_variable:silent
+
+# "using" 指令首选项
+csharp_using_directive_placement = outside_namespace:silent
+
+#### C# 格式规则 ####
+
+# 新行首选项
+csharp_new_line_before_catch = true
+csharp_new_line_before_else = true
+csharp_new_line_before_finally = true
+csharp_new_line_before_members_in_anonymous_types = true
+csharp_new_line_before_members_in_object_initializers = true
+csharp_new_line_before_open_brace = all
+csharp_new_line_between_query_expression_clauses = true
+
+# 缩进首选项
+csharp_indent_block_contents = true
+csharp_indent_braces = false
+csharp_indent_case_contents = true
+csharp_indent_case_contents_when_block = true
+csharp_indent_labels = no_change
+csharp_indent_switch_labels = true
+
+# 空格键首选项
+csharp_space_after_cast = false
+csharp_space_after_colon_in_inheritance_clause = true
+csharp_space_after_comma = true
+csharp_space_after_dot = false
+csharp_space_after_keywords_in_control_flow_statements = true
+csharp_space_after_semicolon_in_for_statement = true
+csharp_space_around_binary_operators = before_and_after
+csharp_space_around_declaration_statements = false
+csharp_space_before_colon_in_inheritance_clause = true
+csharp_space_before_comma = false
+csharp_space_before_dot = false
+csharp_space_before_open_square_brackets = false
+csharp_space_before_semicolon_in_for_statement = false
+csharp_space_between_empty_square_brackets = false
+csharp_space_between_method_call_empty_parameter_list_parentheses = false
+csharp_space_between_method_call_name_and_opening_parenthesis = false
+csharp_space_between_method_call_parameter_list_parentheses = false
+csharp_space_between_method_declaration_empty_parameter_list_parentheses = false
+csharp_space_between_method_declaration_name_and_open_parenthesis = false
+csharp_space_between_method_declaration_parameter_list_parentheses = false
+csharp_space_between_parentheses = false
+csharp_space_between_square_brackets = false
+
+# 包装首选项
+csharp_preserve_single_line_blocks = true
+csharp_preserve_single_line_statements = true
+
+#### 命名样式 ####
+
+# 命名规则
+
+dotnet_naming_rule.interface_should_be_以_i_开始.severity = suggestion
+dotnet_naming_rule.interface_should_be_以_i_开始.symbols = interface
+dotnet_naming_rule.interface_should_be_以_i_开始.style = 以_i_开始
+
+dotnet_naming_rule.类型_should_be_帕斯卡拼写法.severity = suggestion
+dotnet_naming_rule.类型_should_be_帕斯卡拼写法.symbols = 类型
+dotnet_naming_rule.类型_should_be_帕斯卡拼写法.style = 帕斯卡拼写法
+
+dotnet_naming_rule.非字段成员_should_be_帕斯卡拼写法.severity = suggestion
+dotnet_naming_rule.非字段成员_should_be_帕斯卡拼写法.symbols = 非字段成员
+dotnet_naming_rule.非字段成员_should_be_帕斯卡拼写法.style = 帕斯卡拼写法
+
+# 符号规范
+
+dotnet_naming_symbols.interface.applicable_kinds = interface
+dotnet_naming_symbols.interface.applicable_accessibilities = public, internal, private, protected, protected_internal, private_protected
+dotnet_naming_symbols.interface.required_modifiers = 
+
+dotnet_naming_symbols.类型.applicable_kinds = class, struct, interface, enum
+dotnet_naming_symbols.类型.applicable_accessibilities = public, internal, private, protected, protected_internal, private_protected
+dotnet_naming_symbols.类型.required_modifiers = 
+
+dotnet_naming_symbols.非字段成员.applicable_kinds = property, event, method
+dotnet_naming_symbols.非字段成员.applicable_accessibilities = public, internal, private, protected, protected_internal, private_protected
+dotnet_naming_symbols.非字段成员.required_modifiers = 
+
+# 命名样式
+
+dotnet_naming_style.帕斯卡拼写法.required_prefix = 
+dotnet_naming_style.帕斯卡拼写法.required_suffix = 
+dotnet_naming_style.帕斯卡拼写法.word_separator = 
+dotnet_naming_style.帕斯卡拼写法.capitalization = pascal_case
+
+dotnet_naming_style.以_i_开始.required_prefix = I
+dotnet_naming_style.以_i_开始.required_suffix = 
+dotnet_naming_style.以_i_开始.word_separator = 
+dotnet_naming_style.以_i_开始.capitalization = pascal_case
+
+
+
+
+
+# 静态分析规则
+# Description: CBTC.ATS 标准版静态分析规则配置。
 
 # Code files
 [*.{cs,vb}]
 
-
-dotnet_diagnostic.AD0001.severity = none
 
 dotnet_diagnostic.CA1000.severity = warning
 
@@ -25,8 +231,6 @@ dotnet_diagnostic.CA1008.severity = warning
 
 dotnet_diagnostic.CA1009.severity = warning
 
-dotnet_diagnostic.CA1010.severity = none
-
 dotnet_diagnostic.CA1012.severity = error
 
 dotnet_diagnostic.CA1013.severity = warning
@@ -41,15 +245,7 @@ dotnet_diagnostic.CA1023.severity = warning
 
 dotnet_diagnostic.CA1025.severity = warning
 
-dotnet_diagnostic.CA1028.severity = none
-
-dotnet_diagnostic.CA1030.severity = none
-
-dotnet_diagnostic.CA1031.severity = none
-
 dotnet_diagnostic.CA1032.severity = error
-
-dotnet_diagnostic.CA1034.severity = none
 
 dotnet_diagnostic.CA1036.severity = warning
 
@@ -58,8 +254,6 @@ dotnet_diagnostic.CA1038.severity = warning
 dotnet_diagnostic.CA1039.severity = warning
 
 dotnet_diagnostic.CA1040.severity = warning
-
-dotnet_diagnostic.CA1041.severity = none
 
 dotnet_diagnostic.CA1043.severity = warning
 
@@ -81,43 +275,17 @@ dotnet_diagnostic.CA1052.severity = warning
 
 dotnet_diagnostic.CA1053.severity = warning
 
-dotnet_diagnostic.CA1054.severity = none
-
-dotnet_diagnostic.CA1055.severity = none
-
-dotnet_diagnostic.CA1056.severity = none
-
 dotnet_diagnostic.CA1058.severity = warning
 
-dotnet_diagnostic.CA1060.severity = warning
+dotnet_diagnostic.CA1060.severity = none
 
 dotnet_diagnostic.CA1061.severity = warning
-
-dotnet_diagnostic.CA1062.severity = none
 
 dotnet_diagnostic.CA1063.severity = error
 
 dotnet_diagnostic.CA1064.severity = error
 
 dotnet_diagnostic.CA1065.severity = error
-
-dotnet_diagnostic.CA1066.severity = none
-
-dotnet_diagnostic.CA1067.severity = none
-
-dotnet_diagnostic.CA1068.severity = none
-
-dotnet_diagnostic.CA1200.severity = none
-
-dotnet_diagnostic.CA1303.severity = none
-
-dotnet_diagnostic.CA1304.severity = none
-
-dotnet_diagnostic.CA1305.severity = none
-
-dotnet_diagnostic.CA1307.severity = none
-
-dotnet_diagnostic.CA1308.severity = none
 
 dotnet_diagnostic.CA1401.severity = warning
 
@@ -135,11 +303,11 @@ dotnet_diagnostic.CA1414.severity = warning
 
 dotnet_diagnostic.CA1500.severity = warning
 
-dotnet_diagnostic.CA1502.severity = warning
+dotnet_diagnostic.CA1501.severity = none
+
+dotnet_diagnostic.CA1502.severity = none
 
 dotnet_diagnostic.CA1504.severity = warning
-
-dotnet_diagnostic.CA1507.severity = none
 
 dotnet_diagnostic.CA1600.severity = warning
 
@@ -147,77 +315,39 @@ dotnet_diagnostic.CA1601.severity = warning
 
 dotnet_diagnostic.CA1700.severity = error
 
-dotnet_diagnostic.CA1707.severity = none
-
 dotnet_diagnostic.CA1708.severity = warning
 
 dotnet_diagnostic.CA1710.severity = warning
+
+dotnet_diagnostic.CA1711.severity = warning
 
 dotnet_diagnostic.CA1712.severity = warning
 
 dotnet_diagnostic.CA1713.severity = warning
 
-dotnet_diagnostic.CA1714.severity = none
+dotnet_diagnostic.CA1714.severity = warning
 
 dotnet_diagnostic.CA1715.severity = warning
 
 dotnet_diagnostic.CA1716.severity = warning
 
-dotnet_diagnostic.CA1717.severity = none
-
 dotnet_diagnostic.CA1719.severity = error
-
-dotnet_diagnostic.CA1720.severity = none
-
-dotnet_diagnostic.CA1721.severity = none
-
-dotnet_diagnostic.CA1724.severity = none
 
 dotnet_diagnostic.CA1725.severity = warning
 
 dotnet_diagnostic.CA1726.severity = warning
 
-dotnet_diagnostic.CA1801.severity = none
-
 dotnet_diagnostic.CA1802.severity = warning
 
 dotnet_diagnostic.CA1804.severity = error
-
-dotnet_diagnostic.CA1806.severity = none
-
-dotnet_diagnostic.CA1810.severity = none
-
-dotnet_diagnostic.CA1812.severity = none
-
-dotnet_diagnostic.CA1814.severity = none
 
 dotnet_diagnostic.CA1815.severity = warning
 
 dotnet_diagnostic.CA1816.severity = warning
 
-dotnet_diagnostic.CA1819.severity = none
-
 dotnet_diagnostic.CA1820.severity = warning
 
-dotnet_diagnostic.CA1821.severity = none
-
-dotnet_diagnostic.CA1822.severity = none
-
 dotnet_diagnostic.CA1823.severity = warning
-
-dotnet_diagnostic.CA1824.severity = none
-
-dotnet_diagnostic.CA1825.severity = none
-
-dotnet_diagnostic.CA1826.severity = none
-
-dotnet_diagnostic.CA1827.severity = none
-
-dotnet_diagnostic.CA1828.severity = none
-
-dotnet_diagnostic.CA1829.severity = none
-
-dotnet_diagnostic.CA2000.severity = none
 
 dotnet_diagnostic.CA2001.severity = warning
 
@@ -229,29 +359,13 @@ dotnet_diagnostic.CA2004.severity = warning
 
 dotnet_diagnostic.CA2006.severity = warning
 
-dotnet_diagnostic.CA2007.severity = none
-
-dotnet_diagnostic.CA2008.severity = none
-
-dotnet_diagnostic.CA2009.severity = none
-
-dotnet_diagnostic.CA2010.severity = none
-
-dotnet_diagnostic.CA2100.severity = none
-
-dotnet_diagnostic.CA2101.severity = none
-
 dotnet_diagnostic.CA2104.severity = warning
 
 dotnet_diagnostic.CA2105.severity = warning
 
 dotnet_diagnostic.CA2109.severity = warning
 
-dotnet_diagnostic.CA2119.severity = none
-
 dotnet_diagnostic.CA2121.severity = error
-
-dotnet_diagnostic.CA2153.severity = none
 
 dotnet_diagnostic.CA2200.severity = warning
 
@@ -260,12 +374,6 @@ dotnet_diagnostic.CA2202.severity = warning
 dotnet_diagnostic.CA2205.severity = warning
 
 dotnet_diagnostic.CA2207.severity = warning
-
-dotnet_diagnostic.CA2208.severity = none
-
-dotnet_diagnostic.CA2211.severity = none
-
-dotnet_diagnostic.CA2213.severity = none
 
 dotnet_diagnostic.CA2214.severity = error
 
@@ -283,11 +391,7 @@ dotnet_diagnostic.CA2223.severity = warning
 
 dotnet_diagnostic.CA2224.severity = error
 
-dotnet_diagnostic.CA2225.severity = none
-
 dotnet_diagnostic.CA2226.severity = error
-
-dotnet_diagnostic.CA2227.severity = none
 
 dotnet_diagnostic.CA2229.severity = warning
 
@@ -297,699 +401,100 @@ dotnet_diagnostic.CA2231.severity = error
 
 dotnet_diagnostic.CA2234.severity = warning
 
-dotnet_diagnostic.CA2235.severity = none
-
-dotnet_diagnostic.CA2237.severity = none
-
 dotnet_diagnostic.CA2241.severity = warning
 
-dotnet_diagnostic.CA2242.severity = none
+# CA1819: 属性不应返回数组
+dotnet_diagnostic.CA1819.severity = none
 
-dotnet_diagnostic.CA2243.severity = none
+# CA1824: 用 NeutralResourcesLanguageAttribute 标记程序集
+dotnet_diagnostic.CA1824.severity = none
 
-dotnet_diagnostic.CA2244.severity = none
+# CA1305: 指定 IFormatProvider
+dotnet_diagnostic.CA1305.severity = none
 
-dotnet_diagnostic.CA2245.severity = none
+# CA1801: 从未用过方法 Main 的参数 args。请删除该参数或在方法体中使用它。
+dotnet_diagnostic.CA1801.severity = none
 
-dotnet_diagnostic.CA2246.severity = none
+# CA1707: 从成员名称 Products.Ats.Infrastructure.Business.Types.AlarmType.CI_SwitchForcingOpen 中删除下划线。
+dotnet_diagnostic.CA1707.severity = none
 
-dotnet_diagnostic.CA3061.severity = none
+# CA1062: 验证公共方法的参数
+dotnet_diagnostic.CA1062.severity = none
 
-dotnet_diagnostic.CA3075.severity = none
+# CA1034: 嵌套类型应不可见
+dotnet_diagnostic.CA1034.severity = none
 
-dotnet_diagnostic.CA3076.severity = none
+# CA1041: 提供 ObsoleteAttribute 消息
+dotnet_diagnostic.CA1041.severity = none
 
-dotnet_diagnostic.CA3077.severity = none
+# CA1717: 只有 FlagsAttribute 枚举应采用复数形式的名称
+dotnet_diagnostic.CA1717.severity = none
 
-dotnet_diagnostic.CA3147.severity = none
+# CA1810: 以内联方式初始化引用类型的静态字段
+dotnet_diagnostic.CA1810.severity = none
 
-dotnet_diagnostic.CA5350.severity = none
+# CA1028: 枚举存储应为 Int32
+dotnet_diagnostic.CA1028.severity = none
 
+# CA1303: 请不要将文本作为本地化参数传递
+dotnet_diagnostic.CA1303.severity = none
+
+# CA2227: 集合属性应为只读
+dotnet_diagnostic.CA2227.severity = none
+
+# CA2208: 正确实例化参数异常
+dotnet_diagnostic.CA2208.severity = none
+
+# CA1031: 不捕获常规异常类型
+dotnet_diagnostic.CA1031.severity = none
+
+# CA1724: 类型名 DeviceState 与命名空间名称“Products.Ats.Infrastructure.Business.DeviceState”整体或部分冲突。请更改其中任一名称以消除冲突。
+dotnet_diagnostic.CA1724.severity = none
+
+# CA1822: 成员 GetService 不访问实例数据，可标记为 static (在 Visual Basic 中为 Shared)
+dotnet_diagnostic.CA1822.severity = none
+
+# CA2000: 丢失范围之前释放对象
+dotnet_diagnostic.CA2000.severity = none
+
+# CA2237: 将 ISerializable 类型标记为“可序列化”
+dotnet_diagnostic.CA2237.severity = none
+
+# CA1721: 属性名不应与 get 方法匹配
+dotnet_diagnostic.CA1721.severity = none
+
+# CA2008: 不要在未传递 TaskScheduler 的情况下创建任务
+dotnet_diagnostic.CA2008.severity = none
+
+# CA5351: 不要使用损坏的加密算法
 dotnet_diagnostic.CA5351.severity = none
 
-dotnet_diagnostic.CA5359.severity = none
+# CA2101: 指定对 P/Invoke 字符串参数进行封送处理
+dotnet_diagnostic.CA2101.severity = none
 
-dotnet_diagnostic.CA5360.severity = none
+# CA1307: 指定 StringComparison
+dotnet_diagnostic.CA1307.severity = none
 
-dotnet_diagnostic.CA5361.severity = none
+# CA1304: 指定 CultureInfo
+dotnet_diagnostic.CA1304.severity = none
 
-dotnet_diagnostic.CA5363.severity = none
+# CA2213: “ATSCommManager”包含 IDisposable 类型“FrameStorage”的字段“_frameStorage”，但从未进行释放。请更改“ATSCommManager”上的 Dispose 方法以对此字段调用 Close 或 Dispose。
+dotnet_diagnostic.CA2213.severity = none
 
-dotnet_diagnostic.CA5364.severity = none
+# CA1812: Activator 是显然从未实例化过的内部类。如果是这样，请从程序集中删除该代码。如果此内部类只用于包含静态成员，请使其成为静态类(在 Visual Basic 中为 Shared)。
+dotnet_diagnostic.CA1812.severity = none
 
-dotnet_diagnostic.CA5365.severity = none
+# CA1056: URI 属性不应是字符串
+dotnet_diagnostic.CA1056.severity = none
 
-dotnet_diagnostic.CA5366.severity = none
+# CA3075: XML 中不安全的 DTD 处理
+dotnet_diagnostic.CA3075.severity = none
 
-dotnet_diagnostic.CA5368.severity = none
-
+# CA5369: 将 XmlReader 用于反序列化
 dotnet_diagnostic.CA5369.severity = none
 
-dotnet_diagnostic.CA5370.severity = none
-
-dotnet_diagnostic.CA5371.severity = none
-
-dotnet_diagnostic.CA5372.severity = none
-
-dotnet_diagnostic.CA5373.severity = none
-
-dotnet_diagnostic.CA5374.severity = none
-
-dotnet_diagnostic.CA5376.severity = none
-
-dotnet_diagnostic.CA5377.severity = none
-
-dotnet_diagnostic.CA5378.severity = none
-
-dotnet_diagnostic.CA5379.severity = none
-
-dotnet_diagnostic.CA5380.severity = none
-
-dotnet_diagnostic.CA5381.severity = none
-
-dotnet_diagnostic.CA5384.severity = none
-
-dotnet_diagnostic.CA5385.severity = none
-
-dotnet_diagnostic.CA5397.severity = none
-
-dotnet_diagnostic.CA9999.severity = none
-
-dotnet_diagnostic.CS0078.severity = none
-
-dotnet_diagnostic.CS0105.severity = none
-
-dotnet_diagnostic.CS0108.severity = none
-
-dotnet_diagnostic.CS0109.severity = none
-
-dotnet_diagnostic.CS0114.severity = none
-
-dotnet_diagnostic.CS0162.severity = none
-
-dotnet_diagnostic.CS0164.severity = none
-
-dotnet_diagnostic.CS0168.severity = none
-
-dotnet_diagnostic.CS0183.severity = none
-
-dotnet_diagnostic.CS0184.severity = none
-
-dotnet_diagnostic.CS0197.severity = none
-
-dotnet_diagnostic.CS0219.severity = none
-
-dotnet_diagnostic.CS0251.severity = none
-
-dotnet_diagnostic.CS0252.severity = none
-
-dotnet_diagnostic.CS0253.severity = none
-
-dotnet_diagnostic.CS0278.severity = none
-
-dotnet_diagnostic.CS0279.severity = none
-
-dotnet_diagnostic.CS0280.severity = none
-
-dotnet_diagnostic.CS0282.severity = none
-
-dotnet_diagnostic.CS0419.severity = none
-
-dotnet_diagnostic.CS0420.severity = none
-
-dotnet_diagnostic.CS0435.severity = none
-
-dotnet_diagnostic.CS0436.severity = none
-
-dotnet_diagnostic.CS0437.severity = none
-
-dotnet_diagnostic.CS0440.severity = none
-
-dotnet_diagnostic.CS0458.severity = none
-
-dotnet_diagnostic.CS0464.severity = none
-
-dotnet_diagnostic.CS0465.severity = none
-
-dotnet_diagnostic.CS0469.severity = none
-
-dotnet_diagnostic.CS0472.severity = none
-
-dotnet_diagnostic.CS0473.severity = none
-
-dotnet_diagnostic.CS0612.severity = none
-
-dotnet_diagnostic.CS0618.severity = none
-
-dotnet_diagnostic.CS0626.severity = none
-
-dotnet_diagnostic.CS0628.severity = none
-
-dotnet_diagnostic.CS0642.severity = none
-
-dotnet_diagnostic.CS0652.severity = none
-
-dotnet_diagnostic.CS0657.severity = none
-
-dotnet_diagnostic.CS0658.severity = none
-
-dotnet_diagnostic.CS0659.severity = none
-
-dotnet_diagnostic.CS0660.severity = none
-
-dotnet_diagnostic.CS0661.severity = none
-
-dotnet_diagnostic.CS0665.severity = none
-
-dotnet_diagnostic.CS0672.severity = none
-
-dotnet_diagnostic.CS0675.severity = none
-
-dotnet_diagnostic.CS0684.severity = none
-
-dotnet_diagnostic.CS0693.severity = none
-
-dotnet_diagnostic.CS0728.severity = none
-
-dotnet_diagnostic.CS0809.severity = none
-
-dotnet_diagnostic.CS0811.severity = none
-
-dotnet_diagnostic.CS0824.severity = none
-
-dotnet_diagnostic.CS1030.severity = none
-
-dotnet_diagnostic.CS1058.severity = none
-
-dotnet_diagnostic.CS1062.severity = none
-
-dotnet_diagnostic.CS1064.severity = none
-
-dotnet_diagnostic.CS1066.severity = none
-
-dotnet_diagnostic.CS1072.severity = none
-
-dotnet_diagnostic.CS1522.severity = none
-
-dotnet_diagnostic.CS1589.severity = none
-
-dotnet_diagnostic.CS1590.severity = none
-
-dotnet_diagnostic.CS1616.severity = none
-
-dotnet_diagnostic.CS1633.severity = none
-
-dotnet_diagnostic.CS1634.severity = none
-
-dotnet_diagnostic.CS1635.severity = none
-
-dotnet_diagnostic.CS1645.severity = none
-
-dotnet_diagnostic.CS1658.severity = none
-
-dotnet_diagnostic.CS1668.severity = none
-
-dotnet_diagnostic.CS1685.severity = none
-
-dotnet_diagnostic.CS1687.severity = none
-
-dotnet_diagnostic.CS1690.severity = none
-
-dotnet_diagnostic.CS1692.severity = none
-
-dotnet_diagnostic.CS1695.severity = none
-
-dotnet_diagnostic.CS1697.severity = none
-
-dotnet_diagnostic.CS1700.severity = none
-
-dotnet_diagnostic.CS1701.severity = none
-
-dotnet_diagnostic.CS1702.severity = none
-
-dotnet_diagnostic.CS1717.severity = none
-
-dotnet_diagnostic.CS1718.severity = none
-
-dotnet_diagnostic.CS1720.severity = none
-
-dotnet_diagnostic.CS1762.severity = none
-
-dotnet_diagnostic.CS1927.severity = none
-
-dotnet_diagnostic.CS1956.severity = none
-
-dotnet_diagnostic.CS1957.severity = none
-
-dotnet_diagnostic.CS1974.severity = none
-
-dotnet_diagnostic.CS1981.severity = none
-
-dotnet_diagnostic.CS1998.severity = none
-
-dotnet_diagnostic.CS2002.severity = none
-
-dotnet_diagnostic.CS2008.severity = none
-
-dotnet_diagnostic.CS2023.severity = none
-
-dotnet_diagnostic.CS2029.severity = none
-
-dotnet_diagnostic.CS2038.severity = none
-
-dotnet_diagnostic.CS3000.severity = none
-
-dotnet_diagnostic.CS3001.severity = none
-
-dotnet_diagnostic.CS3002.severity = none
-
-dotnet_diagnostic.CS3003.severity = none
-
-dotnet_diagnostic.CS3005.severity = none
-
-dotnet_diagnostic.CS3006.severity = none
-
-dotnet_diagnostic.CS3007.severity = none
-
-dotnet_diagnostic.CS3008.severity = none
-
-dotnet_diagnostic.CS3009.severity = none
-
-dotnet_diagnostic.CS3010.severity = none
-
-dotnet_diagnostic.CS3011.severity = none
-
-dotnet_diagnostic.CS3012.severity = none
-
-dotnet_diagnostic.CS3013.severity = none
-
-dotnet_diagnostic.CS3014.severity = none
-
-dotnet_diagnostic.CS3015.severity = none
-
-dotnet_diagnostic.CS3016.severity = none
-
-dotnet_diagnostic.CS3017.severity = none
-
-dotnet_diagnostic.CS3018.severity = none
-
-dotnet_diagnostic.CS3019.severity = none
-
-dotnet_diagnostic.CS3021.severity = none
-
-dotnet_diagnostic.CS3022.severity = none
-
-dotnet_diagnostic.CS3023.severity = none
-
-dotnet_diagnostic.CS3024.severity = none
-
-dotnet_diagnostic.CS3026.severity = none
-
-dotnet_diagnostic.CS3027.severity = none
-
-dotnet_diagnostic.CS4014.severity = none
-
-dotnet_diagnostic.CS4024.severity = none
-
-dotnet_diagnostic.CS4025.severity = none
-
-dotnet_diagnostic.CS4026.severity = none
-
-dotnet_diagnostic.CS7033.severity = none
-
-dotnet_diagnostic.CS7035.severity = none
-
-dotnet_diagnostic.CS7080.severity = none
-
-dotnet_diagnostic.CS7081.severity = none
-
-dotnet_diagnostic.CS7082.severity = none
-
-dotnet_diagnostic.CS7090.severity = none
-
-dotnet_diagnostic.CS7095.severity = none
-
-dotnet_diagnostic.CS8001.severity = none
-
-dotnet_diagnostic.CS8002.severity = none
-
-dotnet_diagnostic.CS8009.severity = none
-
-dotnet_diagnostic.CS8012.severity = none
-
-dotnet_diagnostic.CS8018.severity = none
-
-dotnet_diagnostic.CS8019.severity = none
-
-dotnet_diagnostic.CS8020.severity = none
-
-dotnet_diagnostic.CS8021.severity = none
-
-dotnet_diagnostic.CS8029.severity = none
-
-dotnet_diagnostic.CS8032.severity = none
-
-dotnet_diagnostic.CS8033.severity = none
-
-dotnet_diagnostic.CS8034.severity = none
-
-dotnet_diagnostic.CS8040.severity = none
-
-dotnet_diagnostic.CS8073.severity = none
-
-dotnet_diagnostic.CS8094.severity = none
-
-dotnet_diagnostic.CS8105.severity = none
-
-dotnet_diagnostic.CS8123.severity = none
-
-dotnet_diagnostic.CS8305.severity = none
-
-dotnet_diagnostic.CS8321.severity = none
-
-dotnet_diagnostic.CS8359.severity = none
-
-dotnet_diagnostic.CS8360.severity = none
-
-dotnet_diagnostic.CS8371.severity = none
-
-dotnet_diagnostic.CS8383.severity = none
-
-dotnet_diagnostic.CS8387.severity = none
-
-dotnet_diagnostic.CS8424.severity = none
-
-dotnet_diagnostic.CS8425.severity = none
-
-dotnet_diagnostic.CS8509.severity = none
-
-dotnet_diagnostic.CS8512.severity = none
-
-dotnet_diagnostic.CS8513.severity = none
-
-dotnet_diagnostic.CS8519.severity = none
-
-dotnet_diagnostic.CS8520.severity = none
-
-dotnet_diagnostic.CS8597.severity = none
-
-dotnet_diagnostic.CS8600.severity = none
-
-dotnet_diagnostic.CS8601.severity = none
-
-dotnet_diagnostic.CS8602.severity = none
-
-dotnet_diagnostic.CS8603.severity = none
-
-dotnet_diagnostic.CS8604.severity = none
-
-dotnet_diagnostic.CS8605.severity = none
-
-dotnet_diagnostic.CS8606.severity = none
-
-dotnet_diagnostic.CS8607.severity = none
-
-dotnet_diagnostic.CS8608.severity = none
-
-dotnet_diagnostic.CS8609.severity = none
-
-dotnet_diagnostic.CS8610.severity = none
-
-dotnet_diagnostic.CS8611.severity = none
-
-dotnet_diagnostic.CS8612.severity = none
-
-dotnet_diagnostic.CS8613.severity = none
-
-dotnet_diagnostic.CS8614.severity = none
-
-dotnet_diagnostic.CS8615.severity = none
-
-dotnet_diagnostic.CS8616.severity = none
-
-dotnet_diagnostic.CS8617.severity = none
-
-dotnet_diagnostic.CS8618.severity = none
-
-dotnet_diagnostic.CS8619.severity = none
-
-dotnet_diagnostic.CS8620.severity = none
-
-dotnet_diagnostic.CS8621.severity = none
-
-dotnet_diagnostic.CS8622.severity = none
-
-dotnet_diagnostic.CS8624.severity = none
-
-dotnet_diagnostic.CS8625.severity = none
-
-dotnet_diagnostic.CS8626.severity = none
-
-dotnet_diagnostic.CS8629.severity = none
-
-dotnet_diagnostic.CS8631.severity = none
-
-dotnet_diagnostic.CS8633.severity = none
-
-dotnet_diagnostic.CS8634.severity = none
-
-dotnet_diagnostic.CS8638.severity = none
-
-dotnet_diagnostic.CS8643.severity = none
-
-dotnet_diagnostic.CS8644.severity = none
-
-dotnet_diagnostic.CS8645.severity = none
-
-dotnet_diagnostic.CS8653.severity = none
-
-dotnet_diagnostic.CS8654.severity = none
-
-dotnet_diagnostic.CS8655.severity = none
-
-dotnet_diagnostic.CS8656.severity = none
-
-dotnet_diagnostic.CS8667.severity = none
-
-dotnet_diagnostic.CS8669.severity = none
-
-dotnet_diagnostic.CS8670.severity = none
-
-dotnet_diagnostic.CS8714.severity = none
-
-dotnet_diagnostic.CS8717.severity = none
-
-dotnet_diagnostic.IDE0001.severity = none
-
-dotnet_diagnostic.IDE0002.severity = none
-
-dotnet_diagnostic.IDE0003.severity = none
-
-dotnet_diagnostic.IDE0003WithoutSuggestion.severity = none
-
-dotnet_diagnostic.IDE0004.severity = none
-
-dotnet_diagnostic.IDE0004WithoutSuggestion.severity = none
-
-dotnet_diagnostic.IDE0005.severity = none
-
-dotnet_diagnostic.IDE0007.severity = none
-
-dotnet_diagnostic.IDE0007WithoutSuggestion.severity = none
-
-dotnet_diagnostic.IDE0008.severity = none
-
-dotnet_diagnostic.IDE0008WithoutSuggestion.severity = none
-
-dotnet_diagnostic.IDE0009.severity = none
-
-dotnet_diagnostic.IDE0009WithoutSuggestion.severity = none
-
-dotnet_diagnostic.IDE0010.severity = none
-
-dotnet_diagnostic.IDE0010WithoutSuggestion.severity = none
-
-dotnet_diagnostic.IDE0011.severity = none
-
-dotnet_diagnostic.IDE0011WithoutSuggestion.severity = none
-
-dotnet_diagnostic.IDE0016.severity = none
-
-dotnet_diagnostic.IDE0016WithoutSuggestion.severity = none
-
-dotnet_diagnostic.IDE0017.severity = none
-
-dotnet_diagnostic.IDE0017WithoutSuggestion.severity = none
-
-dotnet_diagnostic.IDE0018.severity = none
-
-dotnet_diagnostic.IDE0018WithoutSuggestion.severity = none
-
-dotnet_diagnostic.IDE0019.severity = none
-
-dotnet_diagnostic.IDE0019WithoutSuggestion.severity = none
-
-dotnet_diagnostic.IDE0020.severity = none
-
-dotnet_diagnostic.IDE0020WithoutSuggestion.severity = none
-
-dotnet_diagnostic.IDE0021.severity = none
-
-dotnet_diagnostic.IDE0022.severity = none
-
-dotnet_diagnostic.IDE0023.severity = none
-
-dotnet_diagnostic.IDE0024.severity = none
-
-dotnet_diagnostic.IDE0025.severity = none
-
-dotnet_diagnostic.IDE0026.severity = none
-
-dotnet_diagnostic.IDE0027.severity = none
-
-dotnet_diagnostic.IDE0028.severity = none
-
-dotnet_diagnostic.IDE0028WithoutSuggestion.severity = none
-
-dotnet_diagnostic.IDE0029.severity = none
-
-dotnet_diagnostic.IDE0029WithoutSuggestion.severity = none
-
-dotnet_diagnostic.IDE0030.severity = none
-
-dotnet_diagnostic.IDE0030WithoutSuggestion.severity = none
-
-dotnet_diagnostic.IDE0031.severity = none
-
-dotnet_diagnostic.IDE0031WithoutSuggestion.severity = none
-
-dotnet_diagnostic.IDE0032.severity = none
-
-dotnet_diagnostic.IDE0032WithoutSuggestion.severity = none
-
-dotnet_diagnostic.IDE0033.severity = none
-
-dotnet_diagnostic.IDE0033WithoutSuggestion.severity = none
-
-dotnet_diagnostic.IDE0034.severity = none
-
-dotnet_diagnostic.IDE0034WithoutSuggestion.severity = none
-
-dotnet_diagnostic.IDE0035.severity = none
-
-dotnet_diagnostic.IDE0035WithoutSuggestion.severity = none
-
-dotnet_diagnostic.IDE0036.severity = none
-
-dotnet_diagnostic.IDE0036WithoutSuggestion.severity = none
-
-dotnet_diagnostic.IDE0037.severity = none
-
-dotnet_diagnostic.IDE0037WithoutSuggestion.severity = none
-
-dotnet_diagnostic.IDE0039.severity = none
-
-dotnet_diagnostic.IDE0039WithoutSuggestion.severity = none
-
-dotnet_diagnostic.IDE0040.severity = none
-
-dotnet_diagnostic.IDE0040WithoutSuggestion.severity = none
-
-dotnet_diagnostic.IDE0041.severity = none
-
-dotnet_diagnostic.IDE0041WithoutSuggestion.severity = none
-
-dotnet_diagnostic.IDE0042.severity = none
-
-dotnet_diagnostic.IDE0042WithoutSuggestion.severity = none
-
-dotnet_diagnostic.IDE0043.severity = none
-
-dotnet_diagnostic.IDE0044.severity = none
-
-dotnet_diagnostic.IDE0044WithoutSuggestion.severity = none
-
-dotnet_diagnostic.IDE0045.severity = none
-
-dotnet_diagnostic.IDE0045WithoutSuggestion.severity = none
-
-dotnet_diagnostic.IDE0046.severity = none
-
-dotnet_diagnostic.IDE0046WithoutSuggestion.severity = none
-
-dotnet_diagnostic.IDE0047.severity = none
-
-dotnet_diagnostic.IDE0048.severity = none
-
-dotnet_diagnostic.IDE0048WithoutSuggestion.severity = none
-
-dotnet_diagnostic.IDE0049.severity = none
-
-dotnet_diagnostic.IDE0049WithoutSuggestion.severity = none
-
-dotnet_diagnostic.IDE0050.severity = none
-
-dotnet_diagnostic.IDE0050WithoutSuggestion.severity = none
-
-dotnet_diagnostic.IDE0051.severity = none
-
-dotnet_diagnostic.IDE0052.severity = none
-
-dotnet_diagnostic.IDE0053.severity = none
-
-dotnet_diagnostic.IDE0053WithoutSuggestion.severity = none
-
-dotnet_diagnostic.IDE0054.severity = none
-
-dotnet_diagnostic.IDE0054WithoutSuggestion.severity = none
-
-dotnet_diagnostic.IDE0055.severity = none
-
-dotnet_diagnostic.IDE0055WithoutSuggestion.severity = none
-
-dotnet_diagnostic.IDE0056.severity = none
-
-dotnet_diagnostic.IDE0056WithoutSuggestion.severity = none
-
-dotnet_diagnostic.IDE0057.severity = none
-
-dotnet_diagnostic.IDE0057WithoutSuggestion.severity = none
-
-dotnet_diagnostic.IDE0058.severity = none
-
-dotnet_diagnostic.IDE0059.severity = none
-
-dotnet_diagnostic.IDE0060.severity = none
-
-dotnet_diagnostic.IDE0061.severity = none
-
-dotnet_diagnostic.IDE0062.severity = none
-
-dotnet_diagnostic.IDE0062WithoutSuggestion.severity = none
-
-dotnet_diagnostic.IDE0063.severity = none
-
-dotnet_diagnostic.IDE0063WithoutSuggestion.severity = none
-
-dotnet_diagnostic.IDE0064.severity = none
-
-dotnet_diagnostic.IDE0065.severity = none
-
-dotnet_diagnostic.IDE0066.severity = none
-
-dotnet_diagnostic.IDE0066WithoutSuggestion.severity = none
-
-dotnet_diagnostic.IDE1005.severity = none
-
-dotnet_diagnostic.IDE1005WithoutSuggestion.severity = none
-
-dotnet_diagnostic.IDE1006.severity = none
-
-dotnet_diagnostic.IDE1006WithoutSuggestion.severity = none
-
-dotnet_diagnostic.RE0001.severity = none
-
-dotnet_diagnostic.RE0001WithoutSuggestion.severity = none
-
-# CA1033: Interface methods should be callable by child types
-dotnet_diagnostic.CA1033.severity = none
+# CA1814: 与多维数组相比，首选使用交错数组
+dotnet_diagnostic.CA1814.severity = none
+
+# CA1806: 不要忽略方法结果
+dotnet_diagnostic.CA1806.severity = none

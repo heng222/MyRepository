@@ -350,7 +350,7 @@ namespace Products.Persistence
             var theMapping = _dataSources.Where(p => sqliteSrcNames.Contains(p.Key)).ToDictionary(p => p.Key, q => q.Value.TableDescriptors.Select(k => k.Value.EntityType));
 
             // 构建 DataSourceName 与 Entity 的映射。
-            return theMapping.Where(p => p.Value.Intersect(theTableTypes).Count() > 0).ToDictionary(p => p.Key, q => q.Value.Intersect(theTableTypes));
+            return theMapping.Where(p => p.Value.Intersect(theTableTypes).Any()).ToDictionary(p => p.Key, q => q.Value.Intersect(theTableTypes));
         }
         #endregion
 

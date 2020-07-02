@@ -102,7 +102,7 @@ namespace Products.Domain.Preferences
             itemsSplitedString.ForEach(p =>
             {
                 var keyValueSplited = p.Split(keyValueSeparaters, StringSplitOptions.RemoveEmptyEntries).ToList();
-                if (keyValueSplited.Count() != 2)
+                if (keyValueSplited.Count != 2)
                 {
                     throw new Exception(string.Format("{0}不是有效的键值对。", p));
                 }

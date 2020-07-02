@@ -17,7 +17,7 @@ namespace Products.Shell
 
         public MainFormCloseMonitor(Form form, Action<string> log, Action processKillingHandler)
         {
-            if (form == null) throw new ArgumentNullException("form");
+            if (form == null) throw new ArgumentNullException(nameof(form));
             this._log = log;
             this._processKillingHandler = processKillingHandler;
 

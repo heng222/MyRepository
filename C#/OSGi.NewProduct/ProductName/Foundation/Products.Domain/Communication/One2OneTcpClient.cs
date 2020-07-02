@@ -283,7 +283,7 @@ namespace Products.Domain.Communication
 
                 TcpClient.Client.BeginReceive(_receiveBuffer, 0, _receiveBuffer.Length, SocketFlags.None, ReceiveCallBack, TcpClient);
             }
-            catch (Exception ex)
+            catch (Exception /*ex*/)
             {
                 Task.Factory.StartNew(() =>
                 {

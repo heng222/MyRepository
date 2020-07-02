@@ -21,7 +21,7 @@ namespace Products.Infrastructure.Specification
     /// <summary>
     /// 系统属性接口
     /// </summary>
-    public interface ISystemAttribute
+    public interface ISystemProperty
     {
         /// <summary>
         /// 获取一个字符串，用于表示公司中文简称。

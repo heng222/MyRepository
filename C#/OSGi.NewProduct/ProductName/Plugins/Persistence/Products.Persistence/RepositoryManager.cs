@@ -191,7 +191,7 @@ namespace Products.Persistence
         /// </summary>
         private void InitializeNodeContext(long nodeCode)
         {
-            var deviceContext = new NodeContextImpl();
+            var deviceContext = new NodeContext();
 
             var idInAppConfig = nodeCode;
 

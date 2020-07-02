@@ -21,7 +21,7 @@ namespace Products.Infrastructure.Types
     /// 使用8个字节位域的方式表示，一共可表示64种插件类型。
     /// </summary>
     [Flags]
-    public enum PluginType : ulong
+    public enum PluginTypes : ulong
     {
         /// <summary>
         /// 无效

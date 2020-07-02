@@ -28,9 +28,9 @@ namespace Products.Infrastructure.Specification
         /// <summary>
         /// 获取系统属性接口。
         /// </summary>
-        public static ISystemAttribute SysAttribute
+        public static ISystemProperty SysAttribute
         {
-            get { return ServiceManager.Current.Get<ISystemAttribute>(); }
+            get { return ServiceManager.Current.Get<ISystemProperty>(); }
         }
 
         /// <summary>

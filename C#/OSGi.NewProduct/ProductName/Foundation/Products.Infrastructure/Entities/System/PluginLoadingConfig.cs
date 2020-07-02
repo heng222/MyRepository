@@ -70,7 +70,7 @@ namespace Products.Infrastructure.Entities
         /// </summary>
         /// <param name="type">指定的插件类型，可以使用位域表示多个插件类型。</param>
         /// <returns>true表示全部包含，false表示非全部包含。</returns>
-        public bool Contains(PluginType type)
+        public bool Contains(PluginTypes type)
         {
             return this.GetPlugins().HasFlag(type);
         }
@@ -79,15 +79,15 @@ namespace Products.Infrastructure.Entities
         /// 获取需要加载的插件。
         /// </summary>
         /// <returns></returns>
-        public PluginType GetPlugins()
+        public PluginTypes GetPlugins()
         {
             if (this.Plugins == "-1")
             {
-                return PluginType.All;
+                return PluginTypes.All;
             }
             else
             {
-                return (PluginType)UInt64.Parse(this.Plugins);
+                return (PluginTypes)UInt64.Parse(this.Plugins);
             }
         }
 
@@ -97,7 +97,7 @@ namespace Products.Infrastructure.Entities
         /// <param name="controls">将要设置的值。</param>
         public void SetControlTypes(IEnumerable<PresentationControlType> controls)
         {
-            if (controls == null || controls.Count() == 0)
+            if (controls == null || !controls.Any())
             {
                 this.Controls = string.Empty;
             }

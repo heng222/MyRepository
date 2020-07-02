@@ -46,7 +46,7 @@ namespace Products.Plugin1
 
         #region "Override methods"
 
-        public override PluginType Type { get { return PluginType.Plugin1; } }
+        public override PluginTypes Type { get { return PluginTypes.Plugin1; } }
 
         protected override void OnBundleStart(IDictionary<string, string> context)
         {

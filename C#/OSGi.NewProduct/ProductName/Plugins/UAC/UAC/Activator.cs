@@ -46,9 +46,9 @@ namespace Products.UAC
 
         #region "Override methods"
 
-        public override PluginType Type
+        public override PluginTypes Type
         {
-            get { return PluginType.UAC; }
+            get { return PluginTypes.UAC; }
         }
 
         protected override void OnBundleStart(IDictionary<string, string> context)

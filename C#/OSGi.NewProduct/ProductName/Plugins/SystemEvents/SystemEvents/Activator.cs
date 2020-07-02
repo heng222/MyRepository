@@ -48,9 +48,9 @@ namespace Products.SystemEvents
 
         #region "Override methods"
 
-        public override PluginType Type
+        public override PluginTypes Type
         {
-            get { return PluginType.SEM; }
+            get { return PluginTypes.SEM; }
         }
 
         protected override void OnBundleStart(IDictionary<string, string> context)

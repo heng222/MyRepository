@@ -46,7 +46,7 @@ namespace Products.Shell
         private ILog _log;
         private LogControl _logControl;
         private SplashScreenManager _splashSrceen = null;
-        private SystemAttributeImpl _sysAttriImpl = new SystemAttributeImpl();
+        private SystemProperty _sysAttriImpl = new SystemProperty();
 
         private MainFormCloseMonitor _mainFormMonitor;
         private ProcessMonitor _processMonitor = null;
@@ -65,7 +65,7 @@ namespace Products.Shell
             Workbench.SubscribeDispatcherExceptionEvent(ex => _log.Error(ex.Message, ex));
             Workbench.SubscribeTaskExceptionEvent(ex => _log.Error(ex.Message, ex));
 
-            ServiceManager.Current.RegisterInstance(_sysAttriImpl, typeof(ISystemAttribute));
+            ServiceManager.Current.RegisterInstance(_sysAttriImpl, typeof(ISystemProperty));
         }
 
         ~Activator()

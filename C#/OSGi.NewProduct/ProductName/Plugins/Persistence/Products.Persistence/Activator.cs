@@ -40,7 +40,7 @@ namespace Products.Persistence
         #endregion
 
         #region "override methods"
-        public override PluginType Type { get { return PluginType.Persistence; } }
+        public override PluginTypes Type { get { return PluginTypes.Persistence; } }
 
         protected override void OnBundleStart(IDictionary<string, string> context)
         {

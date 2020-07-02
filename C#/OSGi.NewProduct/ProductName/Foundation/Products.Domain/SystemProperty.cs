@@ -24,7 +24,7 @@ namespace Products.Domain
     /// <summary>
     /// 系统属性类
     /// </summary>
-    public sealed class SystemAttributeImpl : ISystemAttribute
+    public sealed class SystemProperty : ISystemProperty
     {
         #region "Field"
         #endregion

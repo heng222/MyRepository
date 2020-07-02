@@ -48,7 +48,11 @@ namespace Products.Domain
 
 
         #region IFrameworkListener 成员
-        void IFrameworkListener.FrameworkEvent(FrameworkEvent e)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="e"></param>
+        public void FrameworkEvent(FrameworkEvent e)
         {
             try
             {

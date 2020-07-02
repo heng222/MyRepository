@@ -28,7 +28,7 @@ namespace Products.Domain
     /// <summary>
     /// 节点上下文信息。
     /// </summary>
-    public class NodeContextImpl : INodeContext
+    public class NodeContext : INodeContext
     {
         #region "Field"
         #endregion
@@ -51,7 +51,7 @@ namespace Products.Domain
         /// <summary>
         /// 获取当前节点需要加载的插件。
         /// </summary>
-        public PluginType Plugins { get; private set; }
+        public PluginTypes Plugins { get; private set; }
 
         /// <summary>
         /// 获取当前节点需要加载的控件类型。
@@ -63,11 +63,11 @@ namespace Products.Domain
         /// <summary>
         /// 构造函数。
         /// </summary>
-        public NodeContextImpl()
+        public NodeContext()
         {
             this.Name = "节点名称";
             this.Type = NodeType.Default;
-            this.Plugins = PluginType.All;
+            this.Plugins = PluginTypes.All;
         }
         #endregion
 
@@ -103,7 +103,7 @@ namespace Products.Domain
 
         private void BuildPluginsConfig()
         {
-            this.Plugins = PluginType.None;
+            this.Plugins = PluginTypes.None;
 
             // 
             var allRecords = GlobalServices.Repository.Where<PluginLoadingConfig>().ToList();
@@ -156,7 +156,7 @@ namespace Products.Domain
 
                 // 本节点需要加载的插件。
                 strBuilder.AppendFormat("\r\n本节点需要加载的插件= {0}。",
-                    EnumUtility.GetDescription<PluginType>(this.Plugins));
+                    EnumUtility.GetDescription<PluginTypes>(this.Plugins));
 
                 // 本节点需要显示的控件。
                 strBuilder.AppendFormat("\r\n本节点需要显示的控件= {0}。",
@@ -177,7 +177,7 @@ namespace Products.Domain
         /// </summary>
         /// <param name="pluginType">指定的插件类型。</param>
         /// <returns>true表示需要加载指定的插件，false表示不需要加载。</returns>
-        public bool ContainsPlugin(PluginType pluginType)
+        public bool ContainsPlugin(PluginTypes pluginType)
         {
             return this.Plugins.HasFlag(pluginType);
         }

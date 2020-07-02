@@ -80,14 +80,14 @@
     <Compile Include="Communication\OneToNUdpClient.cs" />
     <Compile Include="Framework\ActivatorBase.cs" />
     <Compile Include="Framework\FrameworkActivatorBase.cs" />
-    <Compile Include="NodeConfig\NodeContextImpl.cs" />
+    <Compile Include="NodeConfig\NodeContext.cs" />
     <Compile Include="Preferences\SettingsParser.cs" />
     <Compile Include="Preferences\SettingsUtility.cs" />
     <None Include="Properties\AssemblyInfo.tpl" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\RawUdpConfigProvider.cs" />
     <Compile Include="Services\Rssp1IniFileConfigProvider.cs" />
-    <Compile Include="SystemAttributeImpl.cs" />
+    <Compile Include="SystemProperty.cs" />
     <Compile Include="Utility\AuthenticationHelper.cs" />
     <Compile Include="Utility\COMHelper.cs" />
     <Compile Include="Utility\GdiNativeMethods.cs" />
