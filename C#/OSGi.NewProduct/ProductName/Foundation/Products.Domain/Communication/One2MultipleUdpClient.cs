@@ -76,14 +76,14 @@ namespace Products.Domain.Communication
         {
             if (this.LocalClient == null) return;
 
-            // 消息通知。
-            if (this.PublishDataOutgoing)
-            {
-                var remoteID = this.GetRemoteCode(remoteEndPoint);
-                var remoteType = this.GetRemoteType(remoteID);
-                var args = new DataOutgoingEventArgs(data, this.LocalType, this.LocalCode, remoteType, remoteID);
-                GlobalMessageBus.PublishDataOutgoing(args, this);
-            }
+            var remoteID = this.GetRemoteCode(remoteEndPoint);
+            var remoteType = this.GetRemoteType(remoteID);
+
+            // DataTransfer 消息通知。
+            this.PublishDataTransferEvent(remoteType, remoteID, false, data);
+
+            // CommLogCreated 消息通知。
+            this.PublishCommLogCreateEvent(remoteType, remoteID, false, data);
 
             // 发送
             this.LocalClient.Send(data, data.Length, remoteEndPoint);

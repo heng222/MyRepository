@@ -35,10 +35,9 @@ namespace Products.Domain.Communication
     /// 1对1通信的TCP客户端通信类。
     /// <para>注：1个TCP客户端只能与1个TCP服务器通信。</para>
     /// </summary>
-    public abstract class One2OneTcpClient : Acl.CompositeDisposable
+    public abstract class One2OneTcpClient : CommEndPoint
     {
         #region "Filed"
-        private DataValidityChecker<uint> _commStateChecker = null;
 
         /// <summary>
         /// 接收缓存。
@@ -61,11 +60,9 @@ namespace Products.Domain.Communication
         protected One2OneTcpClient(NodeType localType, NodeType remoteType,
             uint localCode, uint remoteCode,
             IPEndPoint localEndPoint, IPEndPoint remoteEndPoint)
+            : base(localType, localCode)
         {
-            this.LocalType = localType;
             this.RemoteType = remoteType;
-
-            this.LocalCode = localCode;
             this.RemoteCode = remoteCode;
 
             this.LocalEndPoint = localEndPoint;
@@ -74,10 +71,6 @@ namespace Products.Domain.Communication
         #endregion
 
         #region "Properties"
-        /// <summary>
-        /// 获取日志接口。
-        /// </summary>
-        protected abstract ILog Log { get; }
 
         /// <summary>
         /// 获取 UdpClient 对象。
@@ -85,17 +78,9 @@ namespace Products.Domain.Communication
         protected TcpClient TcpClient { get; private set; }
 
         /// <summary>
-        /// 获取本地节点类型。
-        /// </summary>
-        public NodeType LocalType { get; private set; }
-        /// <summary>
         /// 获取远程节点类型。
         /// </summary>
         public NodeType RemoteType { get; private set; }
-        /// <summary>
-        /// 获取本地节点的编号。
-        /// </summary>
-        public uint LocalCode { get; protected set; }
         /// <summary>
         /// 获取远程节点的编号。
         /// </summary>
@@ -109,30 +94,6 @@ namespace Products.Domain.Communication
         /// 获取远程通信终结点。
         /// </summary>
         public IPEndPoint RemoteEndPoint { get; protected set; }
-
-        /// <summary>
-        /// 获取远程数据的有效期N（秒），当N秒没有收到远程数据时，通信中断。
-        /// 小于等于0时表示不检查。
-        /// </summary>
-        protected virtual int RemoteDataExpiredTime { get { return Timeout.Infinite; } }
-
-        /// <summary>
-        /// 是否在全局总线上发布CommStateChanged消息？
-        /// </summary>
-        protected virtual bool PublishCommStateChanged { get { return true; } }
-        /// <summary>
-        /// 是否在全局总线上发布DataIncoming消息？
-        /// </summary>
-        protected virtual bool PublishDataIncoming { get { return true; } }
-        /// <summary>
-        /// 是否在全局总线上发布DataOutgoing消息？
-        /// </summary>
-        protected virtual bool PublishDataOutgoing { get { return true; } }
-
-        /// <summary>
-        /// 一个事件，当与远程节点通信状态改变时引发。
-        /// </summary>
-        public event EventHandler<CommStateChangedEventArgs> CommStateChanged;
         #endregion
 
         #region "Abstract/Virtual methods"
@@ -195,38 +156,6 @@ namespace Products.Domain.Communication
             }
         }
 
-        private void StartCommStateChecker()
-        {
-            if (this.RemoteDataExpiredTime > 0 && _commStateChecker == null)
-            {
-                _commStateChecker = new DataValidityChecker<uint>(this.RemoteDataExpiredTime);
-                this.AddDisposable(_commStateChecker);
-                _commStateChecker.DataValidityChanged += CommStateChecker_DataValidityChanged;
-
-                _commStateChecker.Open();
-            }
-        }
-
-        private void CommStateChecker_DataValidityChanged(object sender, DataValidityChangedEventArgs<uint> e)
-        {
-            if (this.PublishCommStateChanged)
-            {
-                try
-                {
-                    Task.Factory.StartNew(() =>
-                    {
-                        var args = new CommStateChangedEventArgs(e.Avaliable, this.LocalType, this.LocalCode, this.RemoteType, e.Data);
-                        GlobalMessageBus.PublishCommStateChanged(args);
-
-                        if (this.CommStateChanged != null) this.CommStateChanged(this, args);
-                    });
-                }
-                catch (System.Exception /*ex*/)
-                {
-                }
-            }
-        }
-
         private void BeginConnectAsyn(int delay)
         {
             Task.Factory.StartNew(() =>
@@ -263,7 +192,7 @@ namespace Products.Domain.Communication
                 if (TcpClient != null) TcpClient.EndConnect(rc);
 
                 // 更新连接时间。
-                if (_commStateChecker != null) _commStateChecker.Refresh(this.RemoteCode);
+                this.RefreshCommState(this.RemoteCode);
 
                 // 连接成功后，开始接收数据。
                 this.BeginReceive();
@@ -304,11 +233,15 @@ namespace Products.Domain.Communication
                 if (count > 0)
                 {
                     // 消息通知。
-                    if (this.PublishDataIncoming)
+                    if (this.PublishDataIncoming || this.PublishCommLogCreated)
                     {
-                        var args = new DataIncomingEventArgs(_receiveBuffer.Take(count).ToArray(),
-                            this.LocalType, this.LocalCode, this.RemoteType, this.RemoteCode);
-                        GlobalMessageBus.PublishDataIncoming(args, this);
+                        var data = _receiveBuffer.Take(count).ToArray();
+
+                        // DataTransfer消息通知。
+                        this.PublishDataTransferEvent(this.RemoteType, this.RemoteCode, true, data);
+
+                        // CommLogCreated 消息通知。
+                        this.PublishCommLogCreateEvent(this.RemoteType, this.RemoteCode, true, data);
                     }
 
                     // 验证数据是否有效。
@@ -318,7 +251,7 @@ namespace Products.Domain.Communication
                     this.HandleDataReceived(_receiveBuffer, count);
 
                     // 更新连接时间。
-                    if (_commStateChecker != null) _commStateChecker.Refresh(this.RemoteCode);
+                    this.RefreshCommState(this.RemoteCode);
                 }
                 // 字节数为0表示服务器主动关闭连接。
                 else
@@ -353,8 +286,6 @@ namespace Products.Domain.Communication
         {
             this.BeginConnect();
 
-            this.StartCommStateChecker();
-
             this.OnOpen();
         }
 
@@ -363,12 +294,11 @@ namespace Products.Domain.Communication
         /// </summary>
         public void Send(byte[] buffer)
         {
-            // 消息通知。 
-            if (this.PublishDataOutgoing)
-            {
-                var args = new DataOutgoingEventArgs(buffer, this.LocalType, this.LocalCode, this.RemoteType, this.RemoteCode);
-                GlobalMessageBus.PublishDataOutgoing(args, this);
-            }
+            // DataTransfer消息通知。
+            this.PublishDataTransferEvent(this.RemoteType, this.RemoteCode, false, buffer);
+
+            // CommLogCreated 消息通知。
+            this.PublishCommLogCreateEvent(this.RemoteType, this.RemoteCode, false, buffer);
 
             // 如果已经连接，则发送数据。
             if (this.TcpClient != null && this.TcpClient.Connected)

@@ -18,6 +18,7 @@ using System.Linq;
 using System.Net;
 using System.Net.NetworkInformation;
 using System.Net.Sockets;
+using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Timers;
@@ -34,11 +35,10 @@ namespace Products.Domain.Communication
     /// <summary>
     /// 1对N通信的UdpClient类。
     /// </summary>
-    public abstract class OneToNUdpClient : Acl.CompositeDisposable
+    public abstract class OneToNUdpClient : CommEndPoint
     {
         #region "Field"
         private Task _receiveTask;
-        private DataValidityChecker<uint> _commStateChecker = null;
         #endregion
 
         #region "Constructor"
@@ -47,7 +47,6 @@ namespace Products.Domain.Communication
         /// </summary>
         protected OneToNUdpClient()
         {
-            this.LocalType = NodeType.None;
         }
 
         /// <summary>
@@ -57,27 +56,15 @@ namespace Products.Domain.Communication
         /// <param name="localCode">本地节点编号。</param>
         /// <param name="localEndPoint">本地终结点。</param>
         protected OneToNUdpClient(NodeType localType, uint localCode, IPEndPoint localEndPoint)
+            : base(localType, localCode)
         {
-            this.LocalType = localType;
             this.LocalCode = localCode;
             this.LocalEndPoint = localEndPoint;
         }
         #endregion
 
         #region "Properties"
-        /// <summary>
-        /// 获取日志接口。
-        /// </summary>
-        protected abstract ILog Log { get; }
 
-        /// <summary>
-        /// 获取本地节点类型。
-        /// </summary>
-        public NodeType LocalType { get; }
-        /// <summary>
-        /// 获取本地节点的编号。
-        /// </summary>
-        public uint LocalCode { get; protected set; }
         /// <summary>
         /// 获取本地通信终结点。
         /// </summary>
@@ -93,29 +80,6 @@ namespace Products.Domain.Communication
         /// </summary>
         protected abstract bool ReuseAddress { get; }
 
-        /// <summary>
-        /// 获取远程数据的有效期N（秒），当N秒没有收到远程数据时，通信中断。
-        /// 小于等于0时表示不检查。
-        /// </summary>
-        protected virtual int RemoteDataExpiredTime { get { return Timeout.Infinite; } }
-
-        /// <summary>
-        /// 是否在全局总线上发布CommStateChanged消息？
-        /// </summary>
-        protected virtual bool PublishCommStateChanged { get { return true; } }
-        /// <summary>
-        /// 是否在全局总线上发布DataIncoming消息？
-        /// </summary>
-        protected virtual bool PublishDataIncoming { get { return true; } }
-        /// <summary>
-        /// 是否在全局总线上发布DataOutgoing消息？
-        /// </summary>
-        protected virtual bool PublishDataOutgoing { get { return true; } }
-
-        /// <summary>
-        /// 一个事件，当与远程节点通信状态改变时引发。
-        /// </summary>
-        public event EventHandler<CommStateChangedEventArgs> CommStateChanged;
         #endregion
 
         #region "Abstract/Virtual methods"
@@ -130,12 +94,6 @@ namespace Products.Domain.Communication
         /// <param name="remoteEndPoint">远程节点使用的IP终结点。</param>
         /// <returns>远程节点的编号。</returns>
         protected abstract uint GetRemoteCode(IPEndPoint remoteEndPoint);
-        /// <summary>
-        /// 在派生类中重写时，用于获取远程节点的类型。
-        /// </summary>
-        /// <param name="remoteCode">远程节点编号。</param>
-        /// <returns>远程节点的编号。</returns>
-        protected abstract NodeType GetRemoteType(uint remoteCode);
 
         /// <summary>
         /// 在派生类中重写时，用于处理远程终结点。
@@ -224,37 +182,6 @@ namespace Products.Domain.Communication
             }
         }
 
-        private void StartCommStateChecker()
-        {
-            if (this.RemoteDataExpiredTime > 0 && _commStateChecker == null)
-            {
-                _commStateChecker = new DataValidityChecker<uint>(this.RemoteDataExpiredTime);
-                this.AddDisposable(_commStateChecker);
-                _commStateChecker.DataValidityChanged += CommStateChecker_DataValidityChanged;
-
-                _commStateChecker.Open();
-            }
-        }
-
-        private void CommStateChecker_DataValidityChanged(object sender, DataValidityChangedEventArgs<uint> e)
-        {
-            try
-            {
-                if (this.PublishCommStateChanged)
-                {
-                    var remoteType = this.GetRemoteType(e.Data);
-
-                    var args = new CommStateChangedEventArgs(e.Avaliable, this.LocalType, this.LocalCode, remoteType, e.Data);
-                    GlobalMessageBus.PublishCommStateChanged(args);
-
-                    if (this.CommStateChanged != null) this.CommStateChanged(this, args);
-                }
-            }
-            catch (System.Exception /*ex*/)
-            {
-            }
-        }
-
         private async Task ReceiveAsync()
         {
             while (this.LocalClient != null)
@@ -265,18 +192,17 @@ namespace Products.Domain.Communication
                     var recvResult = await this.LocalClient.ReceiveAsync();
 #pragma warning restore CA2007 // Consider calling ConfigureAwait on the awaited task
                     var remoteEP = recvResult.RemoteEndPoint;
+                    var remoteCode = this.GetRemoteCode(remoteEP);
+                    var remoteType = this.GetRemoteType(remoteCode);
 
                     // 处理远程终结点。
                     this.HandleRemoteEndPoint(remoteEP);
 
-                    // 消息通知。
-                    var remoteCode = this.GetRemoteCode(remoteEP);
-                    if (this.PublishDataIncoming)
-                    {
-                        var remoteType = this.GetRemoteType(remoteCode);
-                        var args = new DataIncomingEventArgs(recvResult.Buffer, this.LocalType, this.LocalCode, remoteType, remoteCode);
-                        GlobalMessageBus.PublishDataIncoming(args, this);
-                    }
+                    // DataTransfer 消息通知。                
+                    this.PublishDataTransferEvent(remoteType, remoteCode, true, recvResult.Buffer);                    
+
+                    // CommLogCreated 消息通知。
+                    this.PublishCommLogCreateEvent(remoteType, remoteCode, true, recvResult.Buffer);                    
 
                     // 数据是否有效？
                     if (!this.VerifyData(recvResult.Buffer, remoteEP)) continue;
@@ -285,10 +211,7 @@ namespace Products.Domain.Communication
                     this.HandleDataReceived(recvResult.Buffer, remoteEP);
 
                     // 更新连接时间。
-                    if (_commStateChecker != null)
-                    {
-                        _commStateChecker.Refresh(remoteCode);
-                    }
+                    this.RefreshCommState(remoteCode);
                 }
                 catch (System.Exception ex)
                 {
@@ -329,8 +252,6 @@ namespace Products.Domain.Communication
         public void Open()
         {
             this.OpenUdpClient();
-
-            this.StartCommStateChecker();
 
             this.OnOpen();
 

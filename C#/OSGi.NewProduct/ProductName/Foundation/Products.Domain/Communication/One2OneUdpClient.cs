@@ -88,12 +88,11 @@ namespace Products.Domain.Communication
         {
             if (this.LocalClient == null || this.RemoteEndPoint == null) return;
 
-            // 消息通知。
-            if (this.PublishDataOutgoing)
-            {
-                var args = new DataOutgoingEventArgs(data, this.LocalType, this.LocalCode, this.RemoteType, this.RemoteCode);
-                GlobalMessageBus.PublishDataOutgoing(args, this);
-            }
+            // DataTransfer 消息通知。
+            this.PublishDataTransferEvent(this.RemoteType, this.LocalCode,  false, data);
+
+            // CommLogCreated 消息通知。
+            this.PublishCommLogCreateEvent(this.RemoteType, this.LocalCode, false, data);
 
             // 发送
             this.LocalClient.Send(data, data.Length, this.RemoteEndPoint);
