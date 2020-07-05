@@ -1,4 +1,4 @@
-# 代码样式配置。
+# ProjectName代码样式配置。
 
 # NOTE: Requires **VS2019 16.3** or later
 
@@ -208,8 +208,8 @@ dotnet_naming_style.以_i_开始.capitalization = pascal_case
 
 
 
-# 静态分析规则
-# Description: CBTC.ATS 标准版静态分析规则配置。
+# ProjectName静态分析规则
+# Description: ProjectName静态分析规则配置。
 
 # Code files
 [*.{cs,vb}]
