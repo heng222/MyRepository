@@ -89,10 +89,10 @@ namespace Products.Domain.Communication
             if (this.LocalClient == null || this.RemoteEndPoint == null) return;
 
             // DataTransfer 消息通知。
-            this.PublishDataTransferEvent(this.RemoteType, this.LocalCode,  false, data);
+            this.PublishDataTransferEvent(this.RemoteType, this.RemoteCode,  false, data);
 
             // CommLogCreated 消息通知。
-            this.PublishCommLogCreateEvent(this.RemoteType, this.LocalCode, false, data);
+            this.PublishCommLogCreateEvent(this.RemoteType, this.RemoteCode, false, data);
 
             // 发送
             this.LocalClient.Send(data, data.Length, this.RemoteEndPoint);
