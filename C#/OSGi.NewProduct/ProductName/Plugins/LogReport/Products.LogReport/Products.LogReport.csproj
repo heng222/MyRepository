@@ -9,8 +9,10 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Products.LogReport</RootNamespace>
     <AssemblyName>Products.LogReport</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -179,23 +181,8 @@
     <Analyzer Include="..\..\..\..\Libs\Acl.Ntp4net.dll" />
     <Analyzer Include="..\..\..\..\Libs\Acl.RsspI4net.dll" />
     <Analyzer Include="..\..\..\..\Libs\Acl.TimeDisplay.dll" />
-    <Analyzer Include="..\..\..\..\Libs\Humanizer.dll" />
     <Analyzer Include="..\..\..\..\Libs\ICSharpCode.SharpZipLib.dll" />
     <Analyzer Include="..\..\..\..\Libs\log4net.dll" />
-    <Analyzer Include="..\..\..\..\Libs\Microsoft.CodeAnalysis.VersionCheckAnalyzer.dll" />
-    <Analyzer Include="..\..\..\..\Libs\Microsoft.CodeAnalysis.VersionCheckAnalyzer.resources.dll" />
-    <Analyzer Include="..\..\..\..\Libs\Microsoft.CodeQuality.Analyzers.dll" />
-    <Analyzer Include="..\..\..\..\Libs\Microsoft.CodeQuality.Analyzers.resources.dll" />
-    <Analyzer Include="..\..\..\..\Libs\Microsoft.CodeQuality.CSharp.Analyzers.dll" />
-    <Analyzer Include="..\..\..\..\Libs\Microsoft.CodeQuality.VisualBasic.Analyzers.dll" />
-    <Analyzer Include="..\..\..\..\Libs\Microsoft.NetCore.Analyzers.dll" />
-    <Analyzer Include="..\..\..\..\Libs\Microsoft.NetCore.Analyzers.resources.dll" />
-    <Analyzer Include="..\..\..\..\Libs\Microsoft.NetCore.CSharp.Analyzers.dll" />
-    <Analyzer Include="..\..\..\..\Libs\Microsoft.NetCore.VisualBasic.Analyzers.dll" />
-    <Analyzer Include="..\..\..\..\Libs\Microsoft.NetFramework.Analyzers.dll" />
-    <Analyzer Include="..\..\..\..\Libs\Microsoft.NetFramework.Analyzers.resources.dll" />
-    <Analyzer Include="..\..\..\..\Libs\Microsoft.NetFramework.CSharp.Analyzers.dll" />
-    <Analyzer Include="..\..\..\..\Libs\Microsoft.NetFramework.VisualBasic.Analyzers.dll" />
     <Analyzer Include="..\..\..\..\Libs\Microsoft.ReportViewer.Common.dll" />
     <Analyzer Include="..\..\..\..\Libs\Microsoft.ReportViewer.ProcessingObjectModel.dll" />
     <Analyzer Include="..\..\..\..\Libs\Microsoft.ReportViewer.WinForms.dll" />
@@ -217,6 +204,13 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Resources\HistoricalDataQuery.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers">
+      <Version>3.0.0</Version>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
