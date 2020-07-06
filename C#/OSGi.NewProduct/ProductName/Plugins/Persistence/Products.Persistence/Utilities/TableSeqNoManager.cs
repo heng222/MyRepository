@@ -23,47 +23,74 @@ using Products.Infrastructure.Entities;
 
 namespace Products.Persistence.Services
 {
+    abstract class SeqNoGenerator
+    {
+        public uint SeqNo { get; set; }
+
+        abstract public uint Next();
+    }
+
+    class SeqNoGenerator<TEntity> : SeqNoGenerator where TEntity : Entity
+    {
+        public SeqNoGenerator(IDatabase db)
+        {
+            this.SeqNo = this.GetMaxCode(db);
+        }
+
+        private uint GetMaxCode(IDatabase db)
+        {
+            var tableName = PersistenceConfig.GetTableName<TEntity>();
+
+            var sql = string.Format(@"select Max(code) from {0}", db.Dialect.Quote(tableName));
+
+            return db.ExecuteScalar<uint>(sql);
+        }
+
+        /// <summary>
+        /// 获取下个序列值
+        /// </summary>
+        /// <returns></returns>
+        public override uint Next()
+        {
+            SeqNo++;
+
+            if (SeqNo == 0) SeqNo++; // 编号从1开始。
+
+            return SeqNo;
+        }
+    }
+
     /// <summary>
     /// 一个序列号管理器，用于管理数据库表自然主键。
     /// </summary>
     class TableSeqNoManager
     {
         #region "Field"
-        private Dictionary<RuntimeTypeHandle, SeqNoManager> _seqInfo = new Dictionary<RuntimeTypeHandle, SeqNoManager>();
+        private Dictionary<RuntimeTypeHandle, SeqNoGenerator> _seqInfo = new Dictionary<RuntimeTypeHandle, SeqNoGenerator>();
         private object _seqInfoLock = new object();
         #endregion
 
+
+        #region "Public methods"
         /// <summary>
-        /// 得到下个序列值
+        /// 获取指定实体的下个序列号。
         /// </summary>
-        public uint Next<T>(IDatabase connection) where T : Entity
+        public uint Next<T>(IDatabase db) where T : Entity
         {
-            bool isExist = false;
-            SeqNoManager value;
+            SeqNoGenerator value;
+            var isExist = _seqInfo.TryGetValue(typeof(T).TypeHandle, out value); ;
 
-            lock (_seqInfoLock)
+            if (!isExist)
             {
-                isExist = _seqInfo.TryGetValue(typeof(T).TypeHandle, out value);
-
-                if (!isExist)
+                value = new SeqNoGenerator<T>(db);
+                lock (_seqInfoLock)
                 {
-                    value = new SeqNoManager(1, UInt32.MaxValue, 1);
                     _seqInfo[typeof(T).TypeHandle] = value;
                 }
             }
 
-            if (!isExist)
-            {
-                value.SendSeqNo = this.GetMaxCode<T>(connection);
-                value.GetAndUpdateSendSeq();
-            }
-
-            return value.GetAndUpdateSendSeq();
+            return value.Next();
         }
-
-        private uint GetMaxCode<T>(IDatabase db) where T : Entity
-        {
-            return (db as IDbContext).Set<T>().Max(p => p.Code);
-        }
+        #endregion
     }
 }

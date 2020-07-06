@@ -86,25 +86,11 @@ namespace Products.Persistence
 
         #region "Private methods"
 
-        private static void OnDbConnectionChanged(ConnectionState connectionState)
-        {
-            try
-            {
-                if (connectionState == ConnectionState.Open)
-                {
-                    RemoteConfiguration.ModelBuilder.ValidateSchema();
-                }
-            }
-            catch (System.Exception ex)
-            {
-                LogUtility.Error(ex);
-            }
-        }
 
         private static void InitializeDataSource()
         {
             // 创建表描述符。
-            TableDescriptors = new ReadOnlyDictionary<Type, TableDescriptor>(CreateTableDescriptors());
+            CreateTableDescriptors();
 
             // 构建 DataSources。
             _dataSources = PersistenceConfig.Settings.Get<List<DataSource>>("DataSources").ToDictionary(p => p.Name, q => q);
@@ -120,7 +106,7 @@ namespace Products.Persistence
             });
         }
 
-        private static Dictionary<Type, TableDescriptor> CreateTableDescriptors()
+        private static void CreateTableDescriptors()
         {
             var result = new Dictionary<Type, TableDescriptor>();
 
@@ -141,9 +127,14 @@ namespace Products.Persistence
                 });
             });
 
-            return result;
+            TableDescriptors = new ReadOnlyDictionary<Type, TableDescriptor>(result);
         }
 
+        private static void InitDbConfiguration(bool enableRemoteDb)
+        {
+            if (enableRemoteDb) RemoteConfiguration = GetOrCreateDbConfiguration(PersistenceConfig.DataSourceRemoteDbName, false);
+        }
+        
         private static Type ConvertToEntityType(string entityName)
         {
             var typeName = string.Format(EntityTypeFormat, entityName);
@@ -173,10 +164,7 @@ namespace Products.Persistence
 
         public static void Initialize(bool remoteDbEnabled)
         {
-            // 创建远程数据库配置
-            if (remoteDbEnabled) RemoteConfiguration = GetOrCreateDbConfiguration(PersistenceConfig.DataSourceRemoteDbName, false);
-
-            DbConnectionMonitor.Current.SubscribeConnectionStateChanged(OnDbConnectionChanged);
+            InitDbConfiguration(remoteDbEnabled);
         }
 
         public static void Close()
@@ -317,6 +305,10 @@ namespace Products.Persistence
         {
             return TableDescriptors.Values.Where(p => p.EntityType.Name == entityName).FirstOrDefault();
         }
+        public static Type GetEntityType(string entityName) {
+            var desc = TableDescriptors.Values.Where(p => p.EntityType.Name == entityName).FirstOrDefault();
+            return desc == null ? null : desc.EntityType;
+        }
         /// <summary>
         /// 获取指定种类的表描述符。
         /// </summary>
@@ -324,7 +316,19 @@ namespace Products.Persistence
         {
             return TableDescriptors.Values.Where(p => p.TableKind == tableKind);
         }
+        public static string GetTableName<T>()
+        {
+            return GetTableName(typeof(T));
+        }
+        public static string GetTableName(Type entityType)
+        {
+            TableDescriptor value;
 
+            if (TableDescriptors.TryGetValue(entityType, out value)) return value.Name;
+
+            return null;
+        }
+        
         /// <summary>
         /// 获取数据库与实体的映射。
         /// Key：Data Source Name。
