@@ -48,7 +48,6 @@ namespace Products.Shell
         private SplashScreenManager _splashSrceen = null;
         private SystemProperty _sysAttriImpl = new SystemProperty();
 
-        private MainFormCloseMonitor _mainFormMonitor;
         private ProcessMonitor _processMonitor = null;
         #endregion
 
@@ -111,7 +110,6 @@ namespace Products.Shell
             context.RemoveBundleListener(this);
 
             CloseSplashScreen();
-            CloseMainFormMonitor();
             ClosProcessMonitor();
         }
 
@@ -159,8 +157,6 @@ namespace Products.Shell
             }
             else if (e.Type == FrameworkEventType.Stopped)
             {
-                CloseMainFormMonitor();
-
                 Workbench.Shutdown();
             }
         }
@@ -333,9 +329,6 @@ namespace Products.Shell
                 _log.Info("正在创建主窗体");
 
                 Workbench.CreateMainForm();
-
-                // 创建主窗口监视器，每隔10秒检查窗口句柄是否存在，不存在则关闭进程
-                _mainFormMonitor = new MainFormCloseMonitor(Workbench.MainForm, _log.Warn, OnProcessKilling);
             });
         }
 
@@ -389,15 +382,6 @@ namespace Products.Shell
                     FrameworkFactory.CurrentFramework.Stop();
                 }
             });
-        }
-
-        private void CloseMainFormMonitor()
-        {
-            if (_mainFormMonitor != null)
-            {
-                _mainFormMonitor.Dispose();
-                _mainFormMonitor = null;
-            }
         }
         #endregion
     }

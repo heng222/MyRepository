@@ -42,6 +42,7 @@ namespace Products.Infrastructure.Events
         public CommLogCreatedEventArgs(NodeType localType, uint localCode,
             NodeType remoteType, uint remoteCode, bool isIncoming, byte[] data)
         {
+            this.Timestamp = DateTime.Now;
             this.LocalNodeType = localType;
             this.LocalNodeCode = localCode;
             this.RemoteNodeType = remoteType;
@@ -80,6 +81,11 @@ namespace Products.Infrastructure.Events
         /// 新产生的数据流。
         /// </summary>
         public byte[] Data { get; private set; }
+
+        /// <summary>
+        /// 获取日志的产生时间。
+        /// </summary>
+        public DateTime Timestamp { get; private set; }
 
         #endregion
 

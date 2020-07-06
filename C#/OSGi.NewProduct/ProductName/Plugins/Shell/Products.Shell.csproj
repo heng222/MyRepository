@@ -105,7 +105,6 @@
       <DependentUpon>LogConfigPage.cs</DependentUpon>
     </Compile>
     <Compile Include="MainFormFactory.cs" />
-    <Compile Include="MainFormCloseMonitor.cs" />
     <Compile Include="MainForm\FrmMainMenuPresenter.cs" />
     <Compile Include="MainForm\FrmMainStatusBarPresenter.cs" />
     <Compile Include="MainForm\FrmMain.cs">

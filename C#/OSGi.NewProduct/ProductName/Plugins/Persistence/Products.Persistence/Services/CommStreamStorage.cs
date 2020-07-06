@@ -132,6 +132,7 @@ namespace Products.Persistence.Services
                         // build a new record and write it to IO.
                         var record = CommStreamLogFile.NewRecord();
                         record.Content = p.Data;
+                        record.Header.TimeStamp = p.Timestamp;
                         record.Header.Direction = p.IsIncomingData ? StreamDirection.Input : StreamDirection.Output;
 
                         writer.Write(record);
@@ -146,7 +147,7 @@ namespace Products.Persistence.Services
             }
             catch (System.Exception ex)
             {
-                LogUtility.Error(string.Format("保存ATS通信日志时发生异常。{0}", ex));
+                LogUtility.Error(string.Format("保存通信日志时发生异常。{0}", ex));
             }
         }
 
