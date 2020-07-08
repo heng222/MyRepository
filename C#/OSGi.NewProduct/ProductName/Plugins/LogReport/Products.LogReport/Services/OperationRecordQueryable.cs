@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
-using Acl.Data.Configuration;
 using Acl.Utility;
 
 using Products.Infrastructure.Entities;
@@ -23,22 +21,23 @@ namespace Products.LogReport
             {
                 using (var dbContext = db.Cfg.CreateDbContext())
                 {
-                    IQueryable<OperationLog> repository = dbContext.Set<OperationLog>()
+                    var querable = dbContext.Set<OperationLog>()
                         .Where(p => p.Timestamp >= beginTime && p.Timestamp <= endTime);
 
                     if (operationType != OperationType.None)
                     {
-                        repository = repository.Where(p => p.OperationType == operationType);
+                        querable = querable.Where(p => p.OperationType == operationType);
                     }
 
                     if (isManual.HasValue)
                     {
-                        repository = repository.Where(p => p.IsManual == isManual.Value);
+                        querable = querable.Where(p => p.IsManual == isManual.Value);
                     }
 
-                    var items = repository.OrderBy(p => p.Timestamp).Select(p => new OperationRecordInfo
+                    var items = querable.OrderBy(p => p.Timestamp).Select(p => new OperationRecordInfo
                     {
                         Timestamp = p.Timestamp.ToString("yyyy-MM-dd HH:mm:ss.fff"),
+                        UserName = p.UserName,
                         IsManual = p.IsManual ? "手动执行" : "自动执行",
                         TargetDeviceCode = p.TargetDeviceCode.ToString(),
                         OperationDescription = p.OperationDescription,

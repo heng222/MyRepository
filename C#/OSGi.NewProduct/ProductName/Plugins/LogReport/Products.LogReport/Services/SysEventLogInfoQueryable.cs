@@ -23,22 +23,22 @@ namespace Products.LogReport
             {
                 using (var dbContext = db.Cfg.CreateDbContext())
                 {
-                    IQueryable<SysEventLog> dbSet = dbContext.Set<SysEventLog>()
+                    var querable = dbContext.Set<SysEventLog>()
                         .Where(p => p.Timestamp >= beginTime && p.Timestamp <= endTime);
 
                     // 事件级别
                     if (eventLevel != EventLevel.None)
                     {
-                        dbSet = dbSet.Where(p => p.Level == eventLevel);
+                        querable = querable.Where(p => p.Level == eventLevel);
                     }
 
                     // 事件类型
                     if (eventType != EventType.None)
                     {
-                        dbSet = dbSet.Where(p => p.TypeCode == eventType);
+                        querable = querable.Where(p => p.TypeCode == eventType);
                     }
 
-                    var items = dbSet.OrderBy(p => p.Timestamp).Select(log => new SysEventLogInfo
+                    var items = querable.OrderBy(p => p.Timestamp).Select(log => new SysEventLogInfo
                     {
                         Timestamp = log.Timestamp,
                         Description = log.Description,

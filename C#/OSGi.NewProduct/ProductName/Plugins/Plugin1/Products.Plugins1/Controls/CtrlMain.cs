@@ -66,6 +66,7 @@ namespace Products.Plugin1.Controls
                 {
                     var log = new OperationLog();
                     // 新的操作记录，编号必须为零。
+                    log.UserName = GlobalServices.UAC.CurrentUserName;
                     log.IsManual = DateTime.Now.Second % 2 == 0;
                     log.OperationDescription = "Operation X";
                     log.OperationType = OperationType.OperationX;

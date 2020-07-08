@@ -12,6 +12,9 @@
               <Width>2.57409cm</Width>
             </TablixColumn>
             <TablixColumn>
+              <Width>2.5cm</Width>
+            </TablixColumn>
+            <TablixColumn>
               <Width>2.73284cm</Width>
             </TablixColumn>
             <TablixColumn>
@@ -95,6 +98,45 @@
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox25</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>SkyBlue</Color>
+                          <Style>None</Style>
+                        </Border>
+                        <BottomBorder>
+                          <Style>Solid</Style>
+                        </BottomBorder>
+                        <BackgroundColor>LightBlue</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox7">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>用户名</Value>
+                              <Style>
+                                <FontFamily>宋体</FontFamily>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox7</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>SkyBlue</Color>
@@ -425,6 +467,43 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
+                    <Textbox Name="UserName">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!UserName.Value</Value>
+                              <Style>
+                                <FontFamily>宋体</FontFamily>
+                                <FontSize>8pt</FontSize>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>UserName</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>PowderBlue</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>=iif(RowNumber(nothing) mod 2 = 0, "AliceBlue", "Transparent")</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                    <rd:Selected>true</rd:Selected>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
                     <Textbox Name="IsManual">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
@@ -653,6 +732,7 @@
             <TablixMember />
             <TablixMember />
             <TablixMember />
+            <TablixMember />
           </TablixMembers>
         </TablixColumnHierarchy>
         <TablixRowHierarchy>
@@ -668,7 +748,7 @@
         <DataSetName>DataSet1</DataSetName>
         <Left>0.57094cm</Left>
         <Height>1.04124cm</Height>
-        <Width>31.15314cm</Width>
+        <Width>33.65314cm</Width>
         <Style>
           <Border>
             <Style>Solid</Style>
@@ -685,7 +765,7 @@
       <BackgroundColor>White</BackgroundColor>
     </Style>
   </Body>
-  <Width>12.71896in</Width>
+  <Width>13.47405in</Width>
   <Page>
     <PageHeader>
       <Height>1.15121cm</Height>
@@ -825,24 +905,20 @@
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
-        <Field Name="Timestamp">
-          <DataField>Timestamp</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
+        <Field Name="IsManual">
+          <DataField>IsManual</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="OperationDescription">
+          <DataField>OperationDescription</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="OperationType">
           <DataField>OperationType</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="IsManual">
-          <DataField>IsManual</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="TargetDeviceCode">
-          <DataField>TargetDeviceCode</DataField>
-          <rd:TypeName>System.UInt32</rd:TypeName>
-        </Field>
-        <Field Name="OperationDescription">
-          <DataField>OperationDescription</DataField>
+        <Field Name="ResultDescription">
+          <DataField>ResultDescription</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="ResultTime">
@@ -853,15 +929,23 @@
           <DataField>ResultType</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="ResultDescription">
-          <DataField>ResultDescription</DataField>
+        <Field Name="TargetDeviceCode">
+          <DataField>TargetDeviceCode</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Timestamp">
+          <DataField>Timestamp</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="UserName">
+          <DataField>UserName</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>Products.LogReport.Data</rd:DataSetName>
         <rd:TableName>OperationRecordInfo</rd:TableName>
-        <rd:ObjectDataSourceType>Products.LogReport.Data.OperationRecordInfo, Products.LogReport, Version=1.0.0.82, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
+        <rd:ObjectDataSourceType>Products.LogReport.Data.OperationRecordInfo, Products.LogReport, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>

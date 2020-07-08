@@ -1,13 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using Acl.Utility;
-
-using Products.Infrastructure.Entities;
-using Products.Infrastructure.Specification;
-using Products.Infrastructure.Types;
 
 namespace Products.LogReport.Data
 {
@@ -24,6 +15,10 @@ namespace Products.LogReport.Data
         /// 操作类型
         /// </summary>
         public string OperationType { get; set; }
+        /// <summary>
+        /// 用户名称。
+        /// </summary>
+        public string UserName { get; set; }
         /// <summary>
         /// 是否人工操作？
         /// </summary>

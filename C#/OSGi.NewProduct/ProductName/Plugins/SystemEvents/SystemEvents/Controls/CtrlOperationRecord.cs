@@ -38,6 +38,7 @@ namespace Products.SystemEvents.Controls
         private const string ColumNameCode = "编号";
         private const string ColumNameOperationTime = "操作时间";
         private const string ColumNameOperationType = "操作类型";
+        private const string ColumNameUserName = "用户名称";
         private const string ColumNameExeMode = "执行方式";
         private const string ColumNameTarget = "目标设备";
         private const string ColumNameOperationDescription = "操作描述";
@@ -105,6 +106,7 @@ namespace Products.SystemEvents.Controls
                     theRow.Cells[ColumNameCode].Value = log.Code;
                     theRow.Cells[ColumNameOperationTime].Value = log.Timestamp.ToString("yyyy-MM-dd HH:mm:ss.fff");
                     theRow.Cells[ColumNameOperationType].Value = EnumUtility.GetDescription(log.OperationType);
+                    theRow.Cells[ColumNameUserName].Value = log.UserName;                    
                     theRow.Cells[ColumNameExeMode].Value = log.IsManual ? "手动" : "自动";
                     theRow.Cells[ColumNameExeMode].Tag = log.IsManual;
 
@@ -159,6 +161,8 @@ namespace Products.SystemEvents.Controls
             newColum = new DataGridViewTextBoxColumn() { Name = ColumNameOperationTime };
             dataGridView.Columns.Add(newColum);
             newColum = new DataGridViewTextBoxColumn() { Name = ColumNameOperationType };
+            dataGridView.Columns.Add(newColum);
+            newColum = new DataGridViewTextBoxColumn() { Name = ColumNameUserName };
             dataGridView.Columns.Add(newColum);
             newColum = new DataGridViewTextBoxColumn() { Name = ColumNameExeMode };
             dataGridView.Columns.Add(newColum);

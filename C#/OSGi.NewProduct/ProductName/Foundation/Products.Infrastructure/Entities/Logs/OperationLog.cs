@@ -10,13 +10,9 @@
 // Copyright (C) 公司名称 2019，保留所有权利
 //
 //----------------------------------------------------------------*/
+
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
 using Acl.Data.Annotions;
-
 using Products.Infrastructure.Types;
 
 namespace Products.Infrastructure.Entities
@@ -28,10 +24,16 @@ namespace Products.Infrastructure.Entities
     public class OperationLog : LogEntity
     {
         /// <summary>
-        /// 操作类型
+        /// 操作类型。
         /// </summary>
         [Column]
         public OperationType OperationType { get; set; }
+
+        /// <summary>
+        /// 用户名称。
+        /// </summary>
+        [Column]
+        public string UserName { get; set; }
 
         /// <summary>
         /// 是否为人工操作？
@@ -41,13 +43,13 @@ namespace Products.Infrastructure.Entities
         public bool IsManual { get; set; }
 
         /// <summary>
-        /// 目标设备编号
+        /// 目标设备编号。
         /// </summary>
         [Column]
         public uint TargetDeviceCode { get; set; }
 
         /// <summary>
-        /// 操作描述
+        /// 操作描述。
         /// </summary>
         [Column]
         public string OperationDescription { get; set; }
