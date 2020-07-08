@@ -51,7 +51,7 @@ namespace Products.LogReport
 
             // 初始化开始时间与结束时间
             this.dtBegin.Value = DateTime.Now - TimeSpan.FromDays(30);
-            this.dtEnd.Value = DateTime.Now;
+            this.dtEnd.Value = DateTime.Now + TimeSpan.FromHours(1);
         }
         #endregion
 
