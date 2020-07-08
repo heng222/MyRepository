@@ -29,6 +29,7 @@ namespace Products.Persistence
     static class PersistenceConfig
     {
         #region "数据库连接字符串"
+        [Obsolete]
         public const string DataSourceRemoteDbName = "RemoteDatabase";
         #endregion
 
@@ -44,6 +45,7 @@ namespace Products.Persistence
         #region "Field"
         /// <summary>
         /// DataSource 集合。
+        /// Key = DataSource.Name.
         /// </summary>
         private static Dictionary<string, DataSource> _dataSources = new Dictionary<string, DataSource>();
 
@@ -63,11 +65,6 @@ namespace Products.Persistence
         /// 获取 TableDescriptors。
         /// </summary>
         public static ReadOnlyDictionary<Type, TableDescriptor> TableDescriptors { get; private set; }
-
-        /// <summary>
-        /// 获取远程DB配置。
-        /// </summary>
-        public static DbConfiguration RemoteConfiguration { get; private set; }
         #endregion
 
         #region "Constructor"
@@ -129,11 +126,6 @@ namespace Products.Persistence
 
             TableDescriptors = new ReadOnlyDictionary<Type, TableDescriptor>(result);
         }
-
-        private static void InitDbConfiguration(bool enableRemoteDb)
-        {
-            if (enableRemoteDb) RemoteConfiguration = GetOrCreateDbConfiguration(PersistenceConfig.DataSourceRemoteDbName, false);
-        }
         
         private static Type ConvertToEntityType(string entityName)
         {
@@ -164,12 +156,11 @@ namespace Products.Persistence
 
         public static void Initialize(bool remoteDbEnabled)
         {
-            InitDbConfiguration(remoteDbEnabled);
         }
 
         public static void Close()
         {
-            DbConfiguration.Items.ToList().ForEach(p => p.Value.ClearPools());
+            DbConfiguration.Shutdown();
         }
 
         public static DbConfiguration GetOrCreateDbConfiguration(string dbSourceName, bool validateSchema)
@@ -188,7 +179,7 @@ namespace Products.Persistence
                 }
                 else
                 {
-                    var dataSrc = PersistenceConfig.Settings.Get<List<DataSource>>("DataSources").Where(p => p.Name == dbSourceName).FirstOrDefault();
+                    var dataSrc = _dataSources.Values.Where(p => p.Name == dbSourceName).FirstOrDefault();
                     if (dataSrc == null) throw new Exception(string.Format("没有找到 DataSource={0} 的配置 。", dbSourceName));
 
                     var urlFixed = dataSrc.Url;
@@ -272,6 +263,11 @@ namespace Products.Persistence
         public static IEnumerable<DataSource> GetDataSources(DataBaseType dbType)
         {
             return _dataSources.Values.Where(p => (DataBaseType)p.DbType == dbType);
+        }
+
+        public static IEnumerable<DataSource> GetDataSources()
+        {
+            return _dataSources.Values;
         }
 
         /// <summary>

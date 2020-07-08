@@ -14,10 +14,6 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-
-using Acl.Data;
 
 using Products.Infrastructure.Specification;
 
@@ -33,19 +29,17 @@ namespace Products.Persistence
     class StrategyRepositorySelection : IRepositorySelect
     {
         #region "Field"
-        private ReadOnlyDictionary<DataBaseType, IRepository> _localRepositories;
+        private ReadOnlyDictionary<DataBaseType, IRepository> _repositories;
         #endregion
 
         #region "Constructor"
-        public StrategyRepositorySelection(IRepository remoteRepsoitory, IDictionary<DataBaseType, IRepository> localReposities)
+        public StrategyRepositorySelection(IDictionary<DataBaseType, IRepository> repositories)
         {
-            this.RemoteRepository = remoteRepsoitory;
-            _localRepositories = new ReadOnlyDictionary<DataBaseType, IRepository>(localReposities);
+            _repositories = new ReadOnlyDictionary<DataBaseType, IRepository>(repositories);
         }
         #endregion
 
         #region "Properties"
-        public IRepository RemoteRepository { get; private set; }
         #endregion
 
         #region "Override methods"
@@ -62,26 +56,25 @@ namespace Products.Persistence
 
         public IRepository SelectRepository(Type entityType, bool memRepositoryEnabled = true)
         {
-            var isStaticEntity = PersistenceConfig.IsStaticConfigTable(entityType);
 
-            // “启用了 MemoryRepository” 且 “静态配置表”
-            if (memRepositoryEnabled && isStaticEntity)
+            // “启用了 MemoryRepository” 且 “静态配置表”，则使用内存数据库。
+            if (memRepositoryEnabled)
             {
-                return _localRepositories[DataBaseType.Memory];
+                var isStaticEntity = PersistenceConfig.IsStaticConfigTable(entityType);
+                if (isStaticEntity)
+                {
+                    return _repositories[DataBaseType.Memory];
+                }
+
+                // TODO：如果为动态配置表且此表所在的远程库没有连接，则使用内存数据库。
             }
 
-            // 如果 RemoteRepository 连接正常
-            if (DbConnectionMonitor.Current.Connected)
-            {
-                return this.RemoteRepository;
-            }
-
-            // 获取指定实体类型对应的本地数据库类型。
+            // 获取指定实体类型对应的数据库类型。
             var localDataSrc = PersistenceConfig.GetDataSource(entityType);
             var localDbType = (DataBaseType)localDataSrc.DbType;
 
             // 
-            return _localRepositories[localDbType];
+            return _repositories[localDbType];
         }
         #endregion
 

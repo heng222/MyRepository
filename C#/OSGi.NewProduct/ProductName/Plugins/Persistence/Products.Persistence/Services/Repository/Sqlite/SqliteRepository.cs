@@ -17,8 +17,6 @@ using System.Linq.Expressions;
 
 using Acl.Data;
 
-using Products.Infrastructure.Entities;
-using Products.Infrastructure.Specification;
 using Products.Persistence.Services.Repository;
 
 namespace Products.Persistence.Services

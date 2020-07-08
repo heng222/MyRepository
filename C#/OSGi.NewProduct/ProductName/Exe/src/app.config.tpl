@@ -1,12 +1,15 @@
 <?xml version="1.0"?>
 <configuration>
 
-  <connectionStrings>
-    <add providerName ="Acl.Data.OracleClient"  name="RemoteDatabase"
-         connectionString="User ID=sil2dev;Password=sil2ats;MAX POOL SIZE=20;Connection Timeout=3;Data Source= (DESCRIPTION =
-          (ADDRESS_LIST = (ADDRESS = (PROTOCOL = TCP)(HOST = 127.0.0.1)(PORT = 1521))
+    <connectionStrings>
+        <add providerName ="Acl.Data.OracleClient"  name="Oracle"
+             connectionString="User ID=sil2odmsdev;Password=sil2odms;MAX POOL SIZE=20;Connection Timeout=3;Data Source= (DESCRIPTION =
+          (ADDRESS_LIST = (ADDRESS = (PROTOCOL = TCP)(HOST = 192.168.10.66)(PORT = 1521))
                           (ADDRESS = (PROTOCOL = TCP)(HOST = 9.20.210.79)(PORT = 1521)))
-          (CONNECT_DATA = (SERVICE_NAME = sil2db)));"/>
+          (CONNECT_DATA = (SERVICE_NAME = orcl)));"/>
+
+        <add providerName="MySqlConnector"  name="MySQL"
+          connectionString="Server=192.168.10.66,9.20.210.79;Database=sil2odmsdev;Uid=sil2odmsdev;Pwd=sil2odmsdev;" />
   </connectionStrings>
 
 
@@ -55,6 +58,10 @@
            invariant="Acl.Data.OracleClient"
            description="Acl.Data.OracleClient"
            type="Acl.Data.OracleClient.OracleClientFactory,Acl.Data"/>
+        <add name="MySqlConnector"
+            invariant="MySqlConnector"
+            description=".Net Framework Data Provider for MySQL"
+            type="MySql.Data.MySqlClient.MySqlClientFactory,MySqlConnector" />
     </DbProviderFactories>
   </system.data>
 

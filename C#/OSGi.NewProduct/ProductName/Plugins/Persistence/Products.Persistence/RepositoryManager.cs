@@ -138,13 +138,10 @@ namespace Products.Persistence
             if (enableRemoteDb) CreateRemoteDbConnectionMonitor();
 
             // 创建 Repository。
-            _repositories[DataBaseType.Oracle] = new RepositoryRemote();
-            _repositories[DataBaseType.CSV] = new RepositoryCsvFile();
-            _repositories[DataBaseType.Sqlite] = new SqliteRepository();
-            _repositories[DataBaseType.Memory] = new RepositoryMemory();
+            this.CreateRepositories();
 
             // 创建 RepsoitorySelection Strategy。
-            _repositorySelector = new StrategyRepositorySelection(null, _repositories.ToDictionary(p => p.Key, q => q.Value as IRepository));
+            _repositorySelector = new StrategyRepositorySelection(_repositories.ToDictionary(p => p.Key, q => q.Value as IRepository));
 
             // 打开 Repository
             (_repositories[DataBaseType.Memory] as RepositoryMemory).RepositorySelector = _repositorySelector;
@@ -154,13 +151,43 @@ namespace Products.Persistence
             ServiceManager.Current.RegisterInstance(this);
         }
 
+        private void CreateRepositories()
+        {
+            var dataSources = PersistenceConfig.GetDataSources();
+
+            dataSources.Select(p=>p.DbType).Distinct().ForEach(p => 
+            {
+                var dbType = (DataBaseType)p;
+
+                if (PersistenceConfig.IsRemoteDatabase(dbType))
+                {
+                    var dbSourceName = dataSources.Where(q => q.DbType == p).Select(q => q.Name).First();
+                    _repositories[dbType] = new RepositoryRemote(dbSourceName);
+                }
+                else if(dbType == DataBaseType.Sqlite)
+                {
+                    _repositories[DataBaseType.Sqlite] = new SqliteRepository();
+                }
+                else if (dbType == DataBaseType.CSV)
+                {
+                    _repositories[DataBaseType.CSV] = new RepositoryCsvFile();
+                }
+                else
+                {
+                    throw new Exception($"不支持的数据库类型 {dbType}。");
+                }
+            });
+
+            _repositories[DataBaseType.Memory] = new RepositoryMemory();
+        }
+
         /// <summary>
         /// 初始化远程DB连接监视器。
         /// </summary>
         private void CreateRemoteDbConnectionMonitor()
         {
             LogUtility.Info("创建远程数据库连接监视器...");
-            DbConnectionMonitor.MarkDbConnectionMonitor(PersistenceConfig.DataSourceRemoteDbName);
+            DbConnectionMonitor.MarkDbConnectionMonitor(PersistenceConfig.DataSourceRemoteDbName); // TODO: 为每个Repository创建一个连接监视器。创建DbConnectionMonitorManager.
 
             if (DbConnectionMonitor.Current.TestConnection())
             {

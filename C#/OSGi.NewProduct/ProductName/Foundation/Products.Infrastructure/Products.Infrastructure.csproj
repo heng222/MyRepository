@@ -76,6 +76,8 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Entities\NDM\SystemNode.cs" />
+    <Compile Include="Entities\SEM\AlarmEvent.cs" />
+    <Compile Include="Entities\SEM\AlarmLevel.cs" />
     <Compile Include="Entities\System\PluginLoadingConfig.cs" />
     <Compile Include="Entities\SEM\SysEvent.cs" />
     <Compile Include="Entities\UAC\User.cs" />

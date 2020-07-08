@@ -14,7 +14,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
+using System.Linq.Expressions;
+
+using Acl.Data;
+using Acl.Data.Configuration;
 
 namespace Products.Persistence.Services.Repository
 {
@@ -24,21 +27,50 @@ namespace Products.Persistence.Services.Repository
         #endregion
 
         #region "Constructor"
+        public RepositoryRemote(string dataSrcName)
+        {
+            if (string.IsNullOrWhiteSpace(dataSrcName))
+            {
+                throw new ArgumentException(nameof(dataSrcName));
+            }
+
+            this.DataSourceName = dataSrcName;
+        }
         #endregion
 
         #region "Properties"
+        /// <summary>
+        /// 获取本仓储的 DataSourceName，例如：RemoteDataBase。
+        /// </summary>
+        public string DataSourceName { get; private set; }
+
+        protected DbConfiguration DbConfig { get; private set; }
         #endregion
 
         #region "Override methods"
 
         protected override void OnOpen()
         {
-
+            this.DbConfig = PersistenceConfig.GetOrCreateDbConfiguration(this.DataSourceName, false);
         }
 
-        public override IList<T> Where<T>(System.Linq.Expressions.Expression<Func<T, bool>> predicate = null)
+        protected override void Dispose(bool disposing)
         {
-            throw new NotImplementedException();
+            if (this.DbConfig != null)
+            {
+                this.DbConfig.Close();
+                this.DbConfig = null;
+            }
+
+            base.Dispose(disposing);
+        }
+
+        public override IList<T> Where<T>(Expression<Func<T, bool>> predicate = null)
+        {
+            using (var db = this.DbConfig.Open())
+            {
+                return db.Query(predicate);
+            }
         }
 
         public override IList<T> Where<T>(string sql, object namedParameters = null)
@@ -56,12 +88,12 @@ namespace Products.Persistence.Services.Repository
             throw new NotImplementedException();
         }
 
-        public override void Update<T>(object instance, System.Linq.Expressions.Expression<Func<T, bool>> predicate)
+        public override void Update<T>(object instance, Expression<Func<T, bool>> predicate)
         {
             throw new NotImplementedException();
         }
 
-        public override void Delete<T>(System.Linq.Expressions.Expression<Func<T, bool>> predicate = null)
+        public override void Delete<T>(Expression<Func<T, bool>> predicate = null)
         {
             throw new NotImplementedException();
         }

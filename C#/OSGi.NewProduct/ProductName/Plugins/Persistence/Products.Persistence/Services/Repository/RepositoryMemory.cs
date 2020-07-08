@@ -75,7 +75,7 @@ namespace Products.Persistence.Services
                 }
                 catch (System.Exception ex)
                 {
-                    var msg = string.Format("读取表 {0} 发生错误，{1}。", entityType.Name, ex.Message);
+                    var msg = string.Format("缓存数据时，读取表 {0} 发生错误，{1}。", entityType.Name, ex.Message);
                     throw new Exception(msg, ex);
                 }
             }
@@ -177,6 +177,7 @@ namespace Products.Persistence.Services
         #endregion
 
         #region "Public methods"
+        [Obsolete]
         public void Cache(IDatabase db, IEnumerable<Type> entityTypes)
         {
             foreach (var entityType in entityTypes)

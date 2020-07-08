@@ -155,12 +155,32 @@
     <Folder Include="Data\Excel\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="..\..\..\..\Libs\MySqlConnector.dll">
+      <Link>MySqlConnector.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="..\..\..\..\Libs\Oracle.ManagedDataAccess.dll">
       <Link>Oracle.ManagedDataAccess.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="..\..\..\..\Libs\System.Buffers.dll">
+      <Link>System.Buffers.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="..\..\..\..\Libs\System.Data.SQLite.dll">
       <Link>System.Data.SQLite.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\..\..\Libs\System.Memory.dll">
+      <Link>System.Memory.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\..\..\Libs\System.Runtime.CompilerServices.Unsafe.dll">
+      <Link>System.Runtime.CompilerServices.Unsafe.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\..\..\Libs\System.Threading.Tasks.Extensions.dll">
+      <Link>System.Threading.Tasks.Extensions.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\..\..\..\Libs\x64\SQLite.Interop.dll">
