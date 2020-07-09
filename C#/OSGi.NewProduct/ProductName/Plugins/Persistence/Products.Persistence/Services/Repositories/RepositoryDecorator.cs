@@ -63,12 +63,12 @@ namespace Products.Persistence.Services
             this.Repository.Update<T>(instance, condition);
         }
 
-        public virtual void Execute<T>(Action<IDatabase> handler) where T : Entity
+        public virtual void Execute<T>(Action<IDbContext> handler) where T : Entity
         {
             this.Repository.Execute<T>(handler);
         }
 
-        public virtual void AsyncExecute<T>(Action<IDatabase> handler, Action<Exception> errorHandler) where T : Entity
+        public virtual void AsyncExecute<T>(Action<IDbContext> handler, Action<Exception> errorHandler) where T : Entity
         {
             this.Repository.AsyncExecute<T>(handler, errorHandler);
         }

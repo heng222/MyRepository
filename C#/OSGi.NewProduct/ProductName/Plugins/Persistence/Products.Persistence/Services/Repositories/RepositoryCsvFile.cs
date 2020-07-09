@@ -12,27 +12,21 @@
 //----------------------------------------------------------------*/
 
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
-using System.Text;
 
 using Acl.Data.Csv;
 using Acl.Data.Mappings;
 
-using Products.Domain.Preferences;
-using Products.Infrastructure.Entities;
-using Products.Persistence.Services.Repository;
-
-namespace Products.Persistence.Implementation
+namespace Products.Persistence.Services.Repositories
 {
     /// <summary>
     /// 基于CSV文件的数据存储。
     /// </summary>
-    class RepositoryCsvFile : RepositoryBase
+    class RepositoryCsvFile : Repository
     {
         #region "Field"
 
@@ -65,6 +59,8 @@ namespace Products.Persistence.Implementation
         {
             var csvFiles = this.BuildCsvDbPath();
             this.ReadCsvFiles(csvFiles);
+
+            base.SetConnectionState(true);
         }
         #endregion
 
@@ -169,12 +165,12 @@ namespace Products.Persistence.Implementation
             throw new NotImplementedException();
         }
 
-        public override void Execute<T>(Action<Acl.Data.IDatabase> handler)
+        public override void Execute<T>(Action<Acl.Data.IDbContext> handler)
         {
             throw new NotImplementedException();
         }
 
-        public override void AsyncExecute<T>(Action<Acl.Data.IDatabase> handler, Action<Exception> errorHandler)
+        public override void AsyncExecute<T>(Action<Acl.Data.IDbContext> handler, Action<Exception> errorHandler)
         {
             throw new NotImplementedException();
         }

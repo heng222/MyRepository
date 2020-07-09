@@ -17,17 +17,17 @@ using System.Linq.Expressions;
 
 using Acl.Data;
 
-using Products.Persistence.Services.Repository;
+using Products.Persistence.Services.Repositories;
 
 namespace Products.Persistence.Services
 {
     /// <summary>
     /// Sqlite 数据库。
     /// </summary>
-    class RepositorySqlite : RepositoryBase
+    class RepositorySqlite : Repository
     {
         #region "Field"
-        private IDatabase _dataBase;
+        private IDbContext _dbContext;
 
         private SqliteOperationScheduler _scheduler;
 
@@ -66,7 +66,7 @@ namespace Products.Persistence.Services
         {
             OpenDatabase();
 
-            OpenScheduler(_dataBase);
+            OpenScheduler(_dbContext);
 
             RemoveExpiredLogs();
 
@@ -79,8 +79,11 @@ namespace Products.Persistence.Services
         private void OpenDatabase()
         {
             var cfg = PersistenceConfig.GetOrCreateDbConfiguration(this.DataSource.Name, false);
-            _dataBase = cfg.Open();
-            this.AddDisposable(_dataBase);
+            _dbContext = cfg.CreateDbContext();
+            this.AddDisposable(_dbContext);
+
+            // 
+            base.SetConnectionState(true);
         }
 
         private void StartTimer(int flushCacheInterval)
@@ -147,9 +150,9 @@ namespace Products.Persistence.Services
                     try
                     {
                         var sqlText = string.Format(@"delete from {0} where {1} < @expiredDate",
-                            _dataBase.Dialect.Quote(p.Name), _dataBase.Dialect.Quote("TimeStamp"));
+                            _dbContext.Dialect.Quote(p.Name), _dbContext.Dialect.Quote("TimeStamp"));
 
-                        _dataBase.ExecuteNonQuery(sqlText, new { expiredDate = expiredDate });
+                        _dbContext.ExecuteNonQuery(sqlText, new { expiredDate = expiredDate });
                     }
                     catch (System.Exception ex)
                     {
@@ -185,7 +188,7 @@ namespace Products.Persistence.Services
 
         public override uint NextSequence<T>()
         {
-            return _seqNoManager.Next<T>(_dataBase);
+            return _seqNoManager.Next<T>(_dbContext);
         }
 
         /// <summary>
@@ -193,7 +196,7 @@ namespace Products.Persistence.Services
         /// </summary>
         public override IList<T> Where<T>(Expression<Func<T, bool>> condition = null)
         {
-            IList<T> action() => _dataBase != null ? _dataBase.Query(condition) : new List<T>();
+            IList<T> action() => _dbContext != null ? _dbContext.Query(condition) : new List<T>();
 
             return _scheduler.Sync(action);
         }
@@ -203,7 +206,7 @@ namespace Products.Persistence.Services
         /// </summary>
         public override IList<T> Where<T>(string sql, object namedParameters = null)
         {
-            IList<T> action() => _dataBase.Query<T>(sql, namedParameters);
+            IList<T> action() => _dbContext.Query<T>(sql, namedParameters);
 
             return _scheduler.Sync(action);
         }
@@ -211,13 +214,13 @@ namespace Products.Persistence.Services
 
         public override void Insert<T>(params T[] entities)
         {
-            _scheduler.Async(() => _dataBase.Insert(entities));
+            _scheduler.Async(() => _dbContext.Insert(entities));
         }
 
 
         public override void AsyncInsert<T>(T[] entity, Action<Exception> exceptionHandler)
         {
-            _scheduler.Async(() => _dataBase.Insert(entity));
+            _scheduler.Async(() => _dbContext.Insert(entity));
         }
 
         /// <summary>
@@ -225,7 +228,7 @@ namespace Products.Persistence.Services
         /// </summary>
         public override void Update<T>(object instance, Expression<Func<T, bool>> condition)
         {
-            void action() => _dataBase.Update<T>(instance, condition);
+            void action() => _dbContext.Update<T>(instance, condition);
 
             _scheduler.Async(action);
         }
@@ -235,28 +238,28 @@ namespace Products.Persistence.Services
         /// </summary>
         public override void Delete<T>(Expression<Func<T, bool>> condition = null)
         {
-            void action() => _dataBase.Delete(condition);
+            void action() => _dbContext.Delete(condition);
 
             _scheduler.Async(action);
         }
 
-        public override void Execute<T>(Action<IDatabase> handler)
+        public override void Execute<T>(Action<IDbContext> handler)
         {
             this.Execute(handler);
         }
 
-        public void Execute(Action<IDatabase> handler)
+        public void Execute(Action<IDbContext> handler)
         {
-            _scheduler.Sync(() => handler(_dataBase));
+            _scheduler.Sync(() => handler(_dbContext));
         }
 
-        public override void AsyncExecute<T>(Action<IDatabase> handler, Action<Exception> errorHandler)
+        public override void AsyncExecute<T>(Action<IDbContext> handler, Action<Exception> errorHandler)
         {
             void action()
             {
                 try
                 {
-                    handler(_dataBase);
+                    handler(_dbContext);
                 }
                 catch (Exception ex)
                 {

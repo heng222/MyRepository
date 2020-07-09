@@ -22,13 +22,15 @@ using Acl;
 using Acl.Data;
 
 using Products.Infrastructure.Specification;
-using Products.Persistence.Services.Repository;
 using Products.Persistence.Specification;
-using System.ComponentModel;
+using Products.Persistence.Services.Repositories;
 
 namespace Products.Persistence.Services
 {
-    class RepositoryMemory : RepositoryBase, IDataCache
+    /// <summary>
+    /// 用于缓存配置表。
+    /// </summary>
+    class RepositoryMemory : Repository, IDataCache
     {
         #region "Field"
         private MethodInfo _asQueryableMethodInfo = typeof(Queryable).GetMethods().FirstOrDefault(p => p.Name == "AsQueryable" && p.IsGenericMethod);
@@ -39,13 +41,15 @@ namespace Products.Persistence.Services
                                                        where typeof(LambdaExpression).IsAssignableFrom(ps[0].ParameterType)
                                                        select m).FirstOrDefault();
 
+        private static DataSource _dataSrc = new DataSource() { DbType = (int)DataBaseType.Memory };
+
         private Dictionary<string, IEnumerable> _cache = new Dictionary<string, IEnumerable>();
 
         #endregion
 
         #region "Constructor"
         public RepositoryMemory(IRepositorySelect reposSelector)
-            : base(null)
+            : base(_dataSrc)
         {
             this.RepositorySelector = reposSelector;
         }
@@ -58,7 +62,9 @@ namespace Products.Persistence.Services
         #region "Override methods"
         protected override void OnOpen()
         {
-            var staticEntityTypes = PersistenceConfig.TableDescriptors.Where(p => p.Value.TableKind == TableKind.StaticConfig).Select(p => p.Value.EntityType);
+            var staticEntityTypes = PersistenceConfig.TableDescriptors.Values
+                .Where(p => p.TableKind == TableKind.StaticConfig || p.TableKind == TableKind.DynamicConfig)
+                .Select(p => p.EntityType);
 
             foreach (var entityType in staticEntityTypes)
             {
@@ -82,10 +88,13 @@ namespace Products.Persistence.Services
                 }
                 catch (System.Exception ex)
                 {
-                    var msg = string.Format("缓存表 {0} 时 发生错误，{1}。", entityType.Name, ex.Message);
-                    throw new Exception(msg, ex); 
+                    var msg = string.Format("缓存表 {0} 时发生错误，{1}。", entityType.Name, ex.Message);
+                    throw new Exception(msg, ex);
                 }
             }
+
+            // 
+            base.SetConnectionState(true);
         }
 
         public override uint NextSequence<T>()
@@ -136,19 +145,18 @@ namespace Products.Persistence.Services
             throw new NotImplementedException();
         }
 
-        public override void Execute<T>(Action<IDatabase> handler)
+        public override void Execute<T>(Action<IDbContext> handler)
         {
             throw new NotImplementedException();
         }
 
-        public override void AsyncExecute<T>(Action<IDatabase> handler, Action<Exception> errorHandler)
+        public override void AsyncExecute<T>(Action<IDbContext> handler, Action<Exception> errorHandler)
         {
             throw new NotImplementedException();
         }
         #endregion
 
         #region "Private methods"
-
         private bool TryGetValue(Dictionary<string, object> condition, Type type, object instance)
         {
             var found = false;
