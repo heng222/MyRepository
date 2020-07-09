@@ -62,15 +62,22 @@ namespace Products.Persistence
                 var entityType = q.Value.EntityType;
 
                 // 获取主用DataSource。
-                var dataSrc = dataSrces.Where(p => p.TableDescriptors.Keys.Contains(entityType) && !p.IsBackup).First();
+                var tmpDataSrces = dataSrces.Where(p => p.TableDescriptors.Keys.Contains(entityType));
+                if (!tmpDataSrces.Any()) throw new Exception(string.Format($"{entityType.Name} 没有对应的DataSource。"));
+
+                var mainDataSrc = tmpDataSrces.FirstOrDefault();
+                if (tmpDataSrces.Count() > 1)
+                {
+                    mainDataSrc = tmpDataSrces.Where(p => !string.IsNullOrEmpty(p.BackupDataSourceName)).First();
+                }
 
                 // 更新主用 Repository。
-                _mainRepositoryMapping[entityType] = _repositories.Where(p => p.DataSource.Name == dataSrc.Name).First();
+                _mainRepositoryMapping[entityType] = _repositories.Where(p => p.DataSource.Name == mainDataSrc.Name).First();
 
                 // 更新备用DataSource。
-                if (!string.IsNullOrEmpty(dataSrc.BackupDataSourceName))
+                if (!string.IsNullOrEmpty(mainDataSrc.BackupDataSourceName))
                 {
-                    _backupRepositoryMapping[entityType] = _repositories.Where(p => p.DataSource.Name == dataSrc.BackupDataSourceName).First(); 
+                    _backupRepositoryMapping[entityType] = _repositories.Where(p => p.DataSource.Name == mainDataSrc.BackupDataSourceName).First(); 
                 }
             });
         }
