@@ -28,11 +28,6 @@ namespace Products.Persistence
 {
     static class PersistenceConfig
     {
-        #region "数据库连接字符串"
-        [Obsolete]
-        public const string DataSourceRemoteDbName = "RemoteDatabase";
-        #endregion
-
         #region "实体分组"
         public static readonly ReadOnlyDictionary<TableKind, string> TableKinds = new ReadOnlyDictionary<TableKind, string>(
             new Dictionary<TableKind, string>() {

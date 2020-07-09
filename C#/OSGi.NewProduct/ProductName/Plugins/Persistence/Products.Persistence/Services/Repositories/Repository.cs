@@ -45,7 +45,7 @@ namespace Products.Persistence.Services.Repositories
         public DataSource DataSource { get; private set; }
 
         /// <summary>
-        /// 获取一个值，用于表示当前仓储的连接状态。TODO：实现此功能。
+        /// 获取一个值，用于表示当前仓储的连接状态。
         /// </summary>
         public bool Connected { get; private set; }
         #endregion

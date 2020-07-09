@@ -17,6 +17,7 @@ using System.Linq.Expressions;
 
 using Acl.Data;
 using Acl.Data.Configuration;
+using Acl.Data.Event;
 using Acl.Threading.ActiveObject;
 
 namespace Products.Persistence.Services.Repositories
@@ -24,6 +25,7 @@ namespace Products.Persistence.Services.Repositories
     class RepositoryRemote : Repository
     {
         #region "Field"
+        private DbConnectionMonitor _connectionMonitor;
         private ActiveObjectImpl _scheduler;
         private TableSeqNoManager _seqNoManager = new TableSeqNoManager();
         #endregion
@@ -51,10 +53,8 @@ namespace Products.Persistence.Services.Repositories
             this.AddDisposable(_scheduler);
             _scheduler.Start();
 
-            // TODO: 创建一个ConnectionMonitor并打开。
-
-            // TODO：DEL
-            base.SetConnectionState(true);
+            // 创建一个ConnectionMonitor并打开。
+            this.OpenDbConnectionMonitor();
         }
 
         protected override void Dispose(bool disposing)
@@ -215,6 +215,40 @@ namespace Products.Persistence.Services.Repositories
         {
             if (!this.Connected) 
                 throw new InvalidOperationException(string.Format("远程数据库{0}没有连接。", this.DataSource.Name));
+        }
+
+        /// <summary>
+        /// 打开远程DB连接监视器。
+        /// </summary>
+        private void OpenDbConnectionMonitor()
+        {
+            LogUtility.Info($"正在连接到远程数据库 {this.DataSource.Name} ...");
+
+            _connectionMonitor = new DbConnectionMonitor(this.DbConfig, 3000);
+            _connectionMonitor.DbConnectionChanged += this.OnDbConnectionChanged;
+
+            if (_connectionMonitor.TestConnection())
+            {
+                LogUtility.Info($"打开数据库 {this.DataSource.Name} 成功...");
+            }
+            else
+            {
+                LogUtility.Warning($"打开数据库 {this.DataSource.Name} 失败...");
+            }
+
+            // 打开连接监视器
+            _connectionMonitor.Open();
+        }
+
+        private void OnDbConnectionChanged(object sender, DbConnectionChangedEventArgs e)
+        {
+            try
+            {
+                this.SetConnectionState(e.Connected);
+            }
+            catch (System.Exception /*ex*/)
+            {                
+            }
         }
         #endregion
 

@@ -28,7 +28,7 @@ using Products.Persistence.Services.Repositories;
 namespace Products.Persistence.Services
 {
     /// <summary>
-    /// 用于缓存配置表。
+    /// 用于缓存配置表（静态配置表 + 动态配置表）。
     /// </summary>
     class RepositoryMemory : Repository, IDataCache
     {
@@ -88,7 +88,7 @@ namespace Products.Persistence.Services
                 }
                 catch (System.Exception ex)
                 {
-                    var msg = string.Format("缓存表 {0} 时发生错误，{1}。", entityType.Name, ex.Message);
+                    var msg = string.Format("缓存表 {0} 时发生错误。", entityType.Name);
                     throw new Exception(msg, ex);
                 }
             }
@@ -197,33 +197,6 @@ namespace Products.Persistence.Services
         #endregion
 
         #region "Public methods"
-        [Obsolete]
-        public void Cache(IDatabase db, IEnumerable<Type> entityTypes)
-        {
-            foreach (var entityType in entityTypes)
-            {
-                try
-                {
-                    if (_cache.ContainsKey(entityType.Name)) continue;
-
-                    var descriptor = PersistenceConfig.GetTableDescriptor(entityType);
-
-                    using (var reader = db.ExecuteReader("select * from " + db.Dialect.Quote(descriptor.Name)))
-                    {
-                        var enumerable = Acl.Mapper.Map(reader, typeof(IList<>).MakeGenericType(entityType));
-
-                        var queryable = _asQueryableMethodInfo.MakeGenericMethod(entityType).Invoke(null, new object[] { enumerable }) as IQueryable;
-
-                        _cache[entityType.Name] = queryable;
-                    }
-                }
-                catch (System.Exception ex)
-                {
-                    var msg = string.Format("读取表 {0} 发生错误，{1}。", entityType.Name, ex.Message);
-                    throw new Exception(msg, ex);
-                }
-            }
-        }
 
         #endregion
 

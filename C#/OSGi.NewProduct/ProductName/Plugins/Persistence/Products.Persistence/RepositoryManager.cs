@@ -136,11 +136,8 @@ namespace Products.Persistence
 
         private void InitializeRepository(bool enableRemoteDb)
         {
-            // 创建Remote DB连接监视器
-            if (enableRemoteDb) CreateRemoteDbConnectionMonitor();
-
             // 创建 Repository。
-            this.CreateRepositories();
+            this.CreateRepositories(enableRemoteDb);
 
             // 创建 RepsoitorySelection Strategy。
             _repositorySelector.SetRepositories(_repositories.Values);
@@ -152,7 +149,7 @@ namespace Products.Persistence
             ServiceManager.Current.RegisterInstance(this);
         }
 
-        private void CreateRepositories()
+        private void CreateRepositories(bool enableRemoteDb)
         {
             var dataSources = PersistenceConfig.GetDataSources();
 
@@ -160,7 +157,7 @@ namespace Products.Persistence
             {
                 var dbType = (DataBaseType)p.DbType;
 
-                if (PersistenceConfig.IsRemoteDatabase(dbType))
+                if (PersistenceConfig.IsRemoteDatabase(dbType) && enableRemoteDb)
                 {
                     _repositories[p.Name] = new RepositoryRemote(p);
                 }
@@ -179,31 +176,6 @@ namespace Products.Persistence
             });
 
             _repositories["DataBaseMemory"] = new RepositoryMemory(_repositorySelector);
-        }
-
-        /// <summary>
-        /// 初始化远程DB连接监视器。
-        /// </summary>
-        private void CreateRemoteDbConnectionMonitor()
-        {
-            LogUtility.Info("创建远程数据库连接监视器...");
-            DbConnectionMonitor.MarkDbConnectionMonitor(PersistenceConfig.DataSourceRemoteDbName);
-            // TODO: 为每个Repository创建一个连接监视器。创建DbConnectionMonitorManager.
-
-            if (DbConnectionMonitor.Current.TestConnection())
-            {
-                LogUtility.Log.LogLevel = LogLevel.Information;
-                LogUtility.Info("打开数据库连接成功...");
-            }
-            else
-            {
-                LogUtility.Info("打开数据库连接失败...");
-                DbConnectionMonitor.EnabledLog = false;
-                LogUtility.Log.LogLevel = LogLevel.Warning;
-            }
-
-            // 打开连接监视器
-            DbConnectionMonitor.Current.Open();
         }
 
         /// <summary>
@@ -392,8 +364,14 @@ namespace Products.Persistence
         /// </summary>
         public void Insert<T>(params T[] entities) where T : Entity
         {
-            // TODO：如果是静态数据，则不允许此操作。
+            // 如果是静态数据，则不允许此操作。
+            var entityType = typeof(T);
+            if (PersistenceConfig.IsStaticConfigTable(entityType))
+            {
+                throw new InvalidOperationException(string.Format($"{entityType.Name} 为静态配置数据，无法执行Insert操作。"));
+            }
 
+            // 
             var theRepository = _repositorySelector.SelectRepository(typeof(T));
 
             if (theRepository == null)
@@ -411,7 +389,12 @@ namespace Products.Persistence
         /// </summary>
         public void AsyncInsert<T>(T[] entities, Action<Exception> exceptionHandler) where T : Entity
         {
-            // TODO：如果是静态数据，则不允许此操作。
+            // 如果是静态数据，则不允许此操作。
+            var entityType = typeof(T);
+            if (PersistenceConfig.IsStaticConfigTable(entityType))
+            {
+                throw new InvalidOperationException(string.Format($"{entityType.Name} 为静态配置数据，无法执行AsyncInsert操作。"));
+            }
 
             var theRepository = _repositorySelector.SelectRepository(typeof(T));
 
@@ -430,7 +413,12 @@ namespace Products.Persistence
         /// </summary>
         public void Delete<T>(Expression<Func<T, bool>> predicate) where T : Entity
         {
-            // TODO：如果是静态数据，则不允许此操作。
+            // 如果是静态数据，则不允许此操作。
+            var entityType = typeof(T);
+            if (PersistenceConfig.IsStaticConfigTable(entityType))
+            {
+                throw new InvalidOperationException(string.Format($"{entityType.Name} 为静态配置数据，无法执行Delete操作。"));
+            }
 
             var theRepository = _repositorySelector.SelectRepository(typeof(T));
 
@@ -449,7 +437,12 @@ namespace Products.Persistence
         /// </summary>
         public void Update<T>(object instance, Expression<Func<T, bool>> predicate) where T : Entity
         {
-            // TODO：如果是静态数据，则不允许此操作。
+            // 如果是静态数据，则不允许此操作。
+            var entityType = typeof(T);
+            if (PersistenceConfig.IsStaticConfigTable(entityType))
+            {
+                throw new InvalidOperationException(string.Format($"{entityType.Name} 为静态配置数据，无法执行Update操作。"));
+            }
 
             var theRepository = _repositorySelector.SelectRepository(typeof(T));
 
