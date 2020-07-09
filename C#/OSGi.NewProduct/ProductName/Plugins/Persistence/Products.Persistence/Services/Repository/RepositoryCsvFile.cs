@@ -50,7 +50,8 @@ namespace Products.Persistence.Implementation
         /// <summary>
         /// ¹¹Ôìº¯Êý¡£
         /// </summary>
-        public RepositoryCsvFile()
+        public RepositoryCsvFile(DataSource dataSrc)
+            : base(dataSrc)
         {
         }
         #endregion

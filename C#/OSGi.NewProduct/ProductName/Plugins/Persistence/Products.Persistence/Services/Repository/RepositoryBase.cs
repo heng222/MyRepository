@@ -13,9 +13,7 @@
 
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
 
 using Acl;
 using Acl.Data;
@@ -28,26 +26,37 @@ namespace Products.Persistence.Services.Repository
     abstract class RepositoryBase : CompositeDisposable, IRepository
     {
         #region "Field"
-        private TableSeqNoManager _sequenceGenerator = new TableSeqNoManager();
         #endregion
 
         #region "Constructor"
-        protected RepositoryBase()
+        /// <summary>
+        /// 构造函数。
+        /// </summary>
+        /// <param name="dataSource">数据源描述符。</param>
+        protected RepositoryBase(DataSource dataSource)
         {
-
+            this.DataSource = dataSource;
         }
         #endregion
 
         #region "Properties"
+        /// <summary>
+        /// 获取当前仓储关联的数据源描述符。
+        /// </summary>
+        public DataSource DataSource { get; private set; }
+
+        /// <summary>
+        /// 获取一个值，用于表示当前仓储的连接状态。
+        /// </summary>
+        public bool Connected { get; private set; }
         #endregion
 
         #region "Abstract / Override methods"
+        /// <summary>
+        /// 在派生类中重写时，用于打开仓储。
+        /// </summary>
         protected abstract void OnOpen();
 
-        protected virtual IDatabase GetDatabase<TEntity>() where TEntity : Entity
-        {
-            return null;
-        }
         #endregion
 
         #region "Private methods"
@@ -62,28 +71,23 @@ namespace Products.Persistence.Services.Repository
 
         #region IRepository 成员
 
-        public virtual UInt32 NextSequence<T>() where T : Entity
-        {
-            var connection = this.GetDatabase<T>();
+        public abstract uint NextSequence<T>() where T : Entity;
 
-            return (connection != null) ? _sequenceGenerator.Next<T>(connection) : 0;
-        }
+        public abstract IList<T> Where<T>(Expression<Func<T, bool>> predicate = null) where T : Entity;
 
-        abstract public IList<T> Where<T>(Expression<Func<T, bool>> predicate = null) where T : Entity;
+        public abstract IList<T> Where<T>(string sql, object namedParameters = null);
 
-        abstract public IList<T> Where<T>(string sql, object namedParameters = null);
+        public abstract void Insert<T>(params T[] entities) where T : Entity;
 
-        abstract public void Insert<T>(params T[] entities) where T : Entity;
+        public abstract void AsyncInsert<T>(T[] entities, Action<Exception> exceptionHandler = null) where T : Entity;
 
-        abstract public void AsyncInsert<T>(T[] entities, Action<Exception> exceptionHandler = null) where T : Entity;
+        public abstract void Update<T>(object instance, Expression<Func<T, bool>> predicate) where T : Entity;
 
-        abstract public void Update<T>(object instance, Expression<Func<T, bool>> predicate) where T : Entity;
+        public abstract void Delete<T>(Expression<Func<T, bool>> predicate = null) where T : Entity;
 
-        abstract public void Delete<T>(Expression<Func<T, bool>> predicate = null) where T : Entity;
+        public abstract void Execute<T>(Action<Acl.Data.IDatabase> handler) where T : Entity;
 
-        abstract public void Execute<T>(Action<Acl.Data.IDatabase> handler) where T : Entity;
-
-        abstract public void AsyncExecute<T>(Action<Acl.Data.IDatabase> handler, Action<Exception> errorHandler) where T : Entity;
+        public abstract void AsyncExecute<T>(Action<Acl.Data.IDatabase> handler, Action<Exception> errorHandler) where T : Entity;
 
         #endregion
     }

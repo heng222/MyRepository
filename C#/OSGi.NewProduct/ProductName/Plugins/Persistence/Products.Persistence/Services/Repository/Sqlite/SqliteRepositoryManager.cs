@@ -1,16 +1,4 @@
-﻿/*----------------------------------------------------------------
-// 公司名称：请输入公司名称
-// 
-// 项目名称：输入项目名称
-//
-// 创 建 人：zhangheng
-// 创建日期：2015-2-3 21:20:58 
-// 邮    箱：zhangheng@163.com
-//
-// Copyright (C) 公司名称 2019，保留所有权利
-//
-//----------------------------------------------------------------*/
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
@@ -19,12 +7,13 @@ using Acl.Data;
 
 using Products.Persistence.Services.Repository;
 
-namespace Products.Persistence.Services
+namespace Products.Persistence.Services.Repository.Sqlite
 {
     /// <summary>
     /// 本地Sqlite数据库仓储。
     /// </summary>
-    class SqliteRepository : RepositoryBase
+    [Obsolete]
+    class SqliteRepositoryManager : RepositoryBase
     {
         #region "Field"
         private SqliteConnectionManager _dbConnectionManager;
@@ -40,7 +29,8 @@ namespace Products.Persistence.Services
         /// <summary>
         /// 构造函数。
         /// </summary>
-        public SqliteRepository()
+        public SqliteRepositoryManager(DataSource dataSrc)
+            : base(dataSrc)
         {
             var dataSrcNames = PersistenceConfig.GetDataSourceNames(DataBaseType.Sqlite);
 
@@ -62,11 +52,6 @@ namespace Products.Persistence.Services
             ClosePersistenceScheduler();
 
             base.Dispose(disposing);
-        }
-
-        protected override IDatabase GetDatabase<TEntity>()
-        {
-            return _dbConnectionManager.GetConnection<TEntity>();
         }
 
         /// <summary>
@@ -206,6 +191,11 @@ namespace Products.Persistence.Services
             _dbSchedulers.Values.ToList().ForEach(p => p.Flush());
 
             if (_timerFlush != null) _timerFlush.Start();
+        }
+
+        public override uint NextSequence<T>()
+        {
+            throw new NotImplementedException();
         }
 
         /// <summary>

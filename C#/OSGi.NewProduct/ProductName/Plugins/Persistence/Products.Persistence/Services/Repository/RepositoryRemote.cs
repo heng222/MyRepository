@@ -24,25 +24,17 @@ namespace Products.Persistence.Services.Repository
     class RepositoryRemote : RepositoryBase
     {
         #region "Field"
+        private TableSeqNoManager _seqNoManager = new TableSeqNoManager();
         #endregion
 
         #region "Constructor"
-        public RepositoryRemote(string dataSrcName)
+        public RepositoryRemote(DataSource dataSrc)
+            : base(dataSrc)
         {
-            if (string.IsNullOrWhiteSpace(dataSrcName))
-            {
-                throw new ArgumentException(nameof(dataSrcName));
-            }
-
-            this.DataSourceName = dataSrcName;
         }
         #endregion
 
         #region "Properties"
-        /// <summary>
-        /// 获取本仓储的 DataSourceName，例如：RemoteDataBase。
-        /// </summary>
-        public string DataSourceName { get; private set; }
 
         protected DbConfiguration DbConfig { get; private set; }
         #endregion
@@ -51,7 +43,7 @@ namespace Products.Persistence.Services.Repository
 
         protected override void OnOpen()
         {
-            this.DbConfig = PersistenceConfig.GetOrCreateDbConfiguration(this.DataSourceName, false);
+            this.DbConfig = PersistenceConfig.GetOrCreateDbConfiguration(this.DataSource.Name, false);
         }
 
         protected override void Dispose(bool disposing)
@@ -70,6 +62,21 @@ namespace Products.Persistence.Services.Repository
             using (var db = this.DbConfig.Open())
             {
                 return db.Query(predicate);
+            }
+        }
+
+        public override uint NextSequence<T>()
+        {
+            if (_seqNoManager.Contains(typeof(T)))
+            {
+                return _seqNoManager.Next<T>();
+            }
+            else
+            {
+                using (var db = this.DbConfig.Open())
+                {
+                    return _seqNoManager.Next<T>(db);
+                }
             }
         }
 

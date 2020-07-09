@@ -13,9 +13,10 @@
 
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
+using System.Linq;
 
 using Products.Infrastructure.Specification;
+using Products.Persistence.Services.Repository;
 
 namespace Products.Persistence
 {
@@ -29,13 +30,12 @@ namespace Products.Persistence
     class StrategyRepositorySelection : IRepositorySelect
     {
         #region "Field"
-        private ReadOnlyDictionary<DataBaseType, IRepository> _repositories;
+        private List<RepositoryBase> _repositories = new List<RepositoryBase>();
         #endregion
 
         #region "Constructor"
-        public StrategyRepositorySelection(IDictionary<DataBaseType, IRepository> repositories)
+        public StrategyRepositorySelection()
         {
-            _repositories = new ReadOnlyDictionary<DataBaseType, IRepository>(repositories);
         }
         #endregion
 
@@ -49,13 +49,24 @@ namespace Products.Persistence
         #endregion
 
         #region "Public methods"
+        /// <summary>
+        /// 设置可用的仓储。
+        /// </summary>
+        public void SetRepositories(IEnumerable<RepositoryBase> repositories)
+        {
+            _repositories.AddRange(repositories);
+        }
+
+        /// <inheritdoc/>
         public IRepository SelectRepository<T>(bool memRepositoryEnabled = true)
         {
             return this.SelectRepository(typeof(T), memRepositoryEnabled);
         }
 
+        /// <inheritdoc/>
         public IRepository SelectRepository(Type entityType, bool memRepositoryEnabled = true)
         {
+            // TODO: 如果实体类型所在的数据库A为连接状态，则返回A；否则返回A的备用库。（main DB, backup DB）
 
             // “启用了 MemoryRepository” 且 “静态配置表”，则使用内存数据库。
             if (memRepositoryEnabled)
@@ -63,18 +74,17 @@ namespace Products.Persistence
                 var isStaticEntity = PersistenceConfig.IsStaticConfigTable(entityType);
                 if (isStaticEntity)
                 {
-                    return _repositories[DataBaseType.Memory];
+                    return _repositories.Where(p => p.DataSource.DbType == (int)DataBaseType.Memory).FirstOrDefault();
                 }
 
                 // TODO：如果为动态配置表且此表所在的远程库没有连接，则使用内存数据库。
             }
 
             // 获取指定实体类型对应的数据库类型。
-            var localDataSrc = PersistenceConfig.GetDataSource(entityType);
-            var localDbType = (DataBaseType)localDataSrc.DbType;
+            var theDataSrc = PersistenceConfig.GetDataSource(entityType);
 
             // 
-            return _repositories[localDbType];
+            return _repositories.Where(p => p.DataSource.Name == theDataSrc.Name).FirstOrDefault();
         }
         #endregion
 

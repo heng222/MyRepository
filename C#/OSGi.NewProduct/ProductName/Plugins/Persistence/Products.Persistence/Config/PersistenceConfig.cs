@@ -257,7 +257,7 @@ namespace Products.Persistence
         /// </summary>
         public static DataSource GetDataSource(Type entityType)
         {
-            return _dataSources.Values.Where(p => p.TableDescriptors.Values.Select(k => k.EntityType).Contains(entityType)).FirstOrDefault();
+            return _dataSources.Values.Where(p => p.TableDescriptors.Keys.Contains(entityType)).FirstOrDefault();
         }
 
         public static IEnumerable<DataSource> GetDataSources(DataBaseType dbType)

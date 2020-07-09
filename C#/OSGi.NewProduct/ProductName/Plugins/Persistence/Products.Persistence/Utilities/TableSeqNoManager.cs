@@ -14,11 +14,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 using Acl.Data;
 
-using Products.Domain.Utility;
 using Products.Infrastructure.Entities;
 
 namespace Products.Persistence.Services
@@ -72,13 +70,26 @@ namespace Products.Persistence.Services
 
 
         #region "Public methods"
-        /// <summary>
-        /// 获取指定实体的下个序列号。
-        /// </summary>
+
+        public bool Contains(Type entityType)
+        {
+            return _seqInfo.Keys.Contains(entityType.TypeHandle);
+        }
+
+        public uint Next<T>() where T : Entity
+        {
+            if (!this.Contains(typeof(T)))
+            {
+                throw new InvalidOperationException();
+            }
+
+            _seqInfo.TryGetValue(typeof(T).TypeHandle, out SeqNoGenerator value);
+            return value.Next();
+        }
+
         public uint Next<T>(IDatabase db) where T : Entity
         {
-            SeqNoGenerator value;
-            var isExist = _seqInfo.TryGetValue(typeof(T).TypeHandle, out value); ;
+            var isExist = _seqInfo.TryGetValue(typeof(T).TypeHandle, out SeqNoGenerator value); ;
 
             if (!isExist)
             {

@@ -24,6 +24,7 @@ using Acl.Data;
 using Products.Infrastructure.Specification;
 using Products.Persistence.Services.Repository;
 using Products.Persistence.Specification;
+using System.ComponentModel;
 
 namespace Products.Persistence.Services
 {
@@ -43,13 +44,15 @@ namespace Products.Persistence.Services
         #endregion
 
         #region "Constructor"
-        public RepositoryMemory()
+        public RepositoryMemory(IRepositorySelect reposSelector)
+            : base(null)
         {
+            this.RepositorySelector = reposSelector;
         }
         #endregion
 
         #region "Properties"
-        public IRepositorySelect RepositorySelector { get; set; }
+        public IRepositorySelect RepositorySelector { get; private set; }
         #endregion
 
         #region "Override methods"
@@ -65,9 +68,13 @@ namespace Products.Persistence.Services
 
                     var whereMethod = _whereMethodOfRepository.MakeGenericMethod(entityType);
 
-                    var srcRepository = this.RepositorySelector.SelectRepository(entityType, false);
+                    var theRepository = this.RepositorySelector.SelectRepository(entityType, false);
+                    if (theRepository == null)
+                    {
+                        throw new Exception(string.Format($"无法找到实体{entityType.Name}关联的数据库接口。"));
+                    }
 
-                    var enumerable = whereMethod.Invoke(srcRepository, new object[] { null });
+                    var enumerable = whereMethod.Invoke(theRepository, new object[] { null });
 
                     var queryable = _asQueryableMethodInfo.MakeGenericMethod(entityType).Invoke(null, new object[] { enumerable }) as IQueryable;
 
@@ -75,10 +82,15 @@ namespace Products.Persistence.Services
                 }
                 catch (System.Exception ex)
                 {
-                    var msg = string.Format("缓存数据时，读取表 {0} 发生错误，{1}。", entityType.Name, ex.Message);
-                    throw new Exception(msg, ex);
+                    var msg = string.Format("缓存表 {0} 时 发生错误，{1}。", entityType.Name, ex.Message);
+                    throw new Exception(msg, ex); 
                 }
             }
+        }
+
+        public override uint NextSequence<T>()
+        {
+            throw new NotImplementedException();
         }
 
         public override IList<T> Where<T>(Expression<Func<T, bool>> predicate = null)

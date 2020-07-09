@@ -15,7 +15,6 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Reflection;
 using System.Windows.Forms;
 
 using Acl.Data;
@@ -38,8 +37,12 @@ namespace Products.Persistence
     public class RepositoryManager : Acl.CompositeDisposable, IRepository
     {
         #region "Field"
-        private Dictionary<DataBaseType, RepositoryBase> _repositories = new Dictionary<DataBaseType, RepositoryBase>();
-        private StrategyRepositorySelection _repositorySelector;
+        /// <summary>
+        /// Key = DataSource Name。
+        /// </summary>
+        private Dictionary<string, RepositoryBase> _repositories = new Dictionary<string, RepositoryBase>();
+
+        private StrategyRepositorySelection _repositorySelector = new StrategyRepositorySelection();
         #endregion
 
         #region "Constructor"
@@ -141,10 +144,9 @@ namespace Products.Persistence
             this.CreateRepositories();
 
             // 创建 RepsoitorySelection Strategy。
-            _repositorySelector = new StrategyRepositorySelection(_repositories.ToDictionary(p => p.Key, q => q.Value as IRepository));
+            _repositorySelector.SetRepositories(_repositories.Values);
 
             // 打开 Repository
-            (_repositories[DataBaseType.Memory] as RepositoryMemory).RepositorySelector = _repositorySelector;
             _repositories.Values.ForEach(p => p.Open());
 
             // 更新全局服务。
@@ -155,22 +157,21 @@ namespace Products.Persistence
         {
             var dataSources = PersistenceConfig.GetDataSources();
 
-            dataSources.Select(p=>p.DbType).Distinct().ForEach(p => 
+            dataSources.ForEach(p =>
             {
-                var dbType = (DataBaseType)p;
+                var dbType = (DataBaseType)p.DbType;
 
                 if (PersistenceConfig.IsRemoteDatabase(dbType))
                 {
-                    var dbSourceName = dataSources.Where(q => q.DbType == p).Select(q => q.Name).First();
-                    _repositories[dbType] = new RepositoryRemote(dbSourceName);
+                    _repositories[p.Name] = new RepositoryRemote(p);
                 }
                 else if(dbType == DataBaseType.Sqlite)
                 {
-                    _repositories[DataBaseType.Sqlite] = new SqliteRepository();
+                    _repositories[p.Name] = new RepositorySqlite(p);
                 }
                 else if (dbType == DataBaseType.CSV)
                 {
-                    _repositories[DataBaseType.CSV] = new RepositoryCsvFile();
+                    _repositories[p.Name] = new RepositoryCsvFile(p);
                 }
                 else
                 {
@@ -178,7 +179,7 @@ namespace Products.Persistence
                 }
             });
 
-            _repositories[DataBaseType.Memory] = new RepositoryMemory();
+            _repositories["DataBaseMemory"] = new RepositoryMemory(_repositorySelector);
         }
 
         /// <summary>
@@ -187,7 +188,8 @@ namespace Products.Persistence
         private void CreateRemoteDbConnectionMonitor()
         {
             LogUtility.Info("创建远程数据库连接监视器...");
-            DbConnectionMonitor.MarkDbConnectionMonitor(PersistenceConfig.DataSourceRemoteDbName); // TODO: 为每个Repository创建一个连接监视器。创建DbConnectionMonitorManager.
+            DbConnectionMonitor.MarkDbConnectionMonitor(PersistenceConfig.DataSourceRemoteDbName); 
+            // TODO: 为每个Repository创建一个连接监视器。创建DbConnectionMonitorManager.
 
             if (DbConnectionMonitor.Current.TestConnection())
             {
