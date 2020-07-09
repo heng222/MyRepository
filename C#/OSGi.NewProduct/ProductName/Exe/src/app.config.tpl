@@ -2,13 +2,13 @@
 <configuration>
 
     <connectionStrings>
-        <add providerName ="Acl.Data.OracleClient"  name="Oracle"
+        <add providerName ="Acl.Data.OracleClient"  name="Oracle DB1"
              connectionString="User ID=sil2odmsdev;Password=sil2odms;MAX POOL SIZE=20;Connection Timeout=3;Data Source= (DESCRIPTION =
           (ADDRESS_LIST = (ADDRESS = (PROTOCOL = TCP)(HOST = 192.168.10.66)(PORT = 1521))
                           (ADDRESS = (PROTOCOL = TCP)(HOST = 9.20.210.79)(PORT = 1521)))
           (CONNECT_DATA = (SERVICE_NAME = orcl)));"/>
 
-        <add providerName="MySqlConnector"  name="MySQL"
+        <add providerName="MySqlConnector"  name="MySQL DB1"
           connectionString="Server=192.168.10.66,9.20.210.79;Database=sil2odmsdev;Uid=sil2odmsdev;Pwd=sil2odmsdev;" />
   </connectionStrings>
 
