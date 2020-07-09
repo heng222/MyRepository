@@ -13,21 +13,11 @@
 
 
 using System;
-using System.Collections.Concurrent;
-using System.Linq;
 using System.Net;
 using System.Net.NetworkInformation;
 using System.Net.Sockets;
-using System.Runtime.CompilerServices;
-using System.Threading;
 using System.Threading.Tasks;
-using System.Timers;
 
-using Acl.Core;
-using Acl.Log;
-
-using Products.Infrastructure.Events;
-using Products.Infrastructure.Messages;
 using Products.Infrastructure.Types;
 
 namespace Products.Domain.Communication
@@ -199,10 +189,10 @@ namespace Products.Domain.Communication
                     this.HandleRemoteEndPoint(remoteEP);
 
                     // DataTransfer 消息通知。                
-                    this.PublishDataTransferEvent(remoteType, remoteCode, true, recvResult.Buffer);                    
+                    this.PublishDataTransferEvent(remoteType, remoteCode, true, recvResult.Buffer);
 
                     // CommLogCreated 消息通知。
-                    this.PublishCommLogCreateEvent(remoteType, remoteCode, true, recvResult.Buffer);                    
+                    this.PublishCommLogCreateEvent(remoteType, remoteCode, true, recvResult.Buffer);
 
                     // 数据是否有效？
                     if (!this.VerifyData(recvResult.Buffer, remoteEP)) continue;

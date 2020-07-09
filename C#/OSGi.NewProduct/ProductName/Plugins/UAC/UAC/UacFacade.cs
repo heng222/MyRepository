@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 
 using Products.UAC.Domain;
 using Products.UAC.Presentation;
-using Products.UAC.Presentation.Forms;
 
 namespace Products.UAC
 {

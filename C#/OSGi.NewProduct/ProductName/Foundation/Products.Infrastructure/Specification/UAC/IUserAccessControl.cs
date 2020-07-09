@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Products.Infrastructure.Specification
+﻿namespace Products.Infrastructure.Specification
 {
     /// <summary>
     /// 用户访问控制接口

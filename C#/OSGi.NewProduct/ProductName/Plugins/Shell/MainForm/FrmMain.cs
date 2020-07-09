@@ -3,12 +3,10 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Reflection;
 using System.Windows.Forms;
 
 using Platform.Presentation;
 
-using Products.Infrastructure;
 using Products.Infrastructure.Messages;
 using Products.Infrastructure.Specification;
 using Products.Infrastructure.Types;

@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
-using Acl.Data.Configuration;
 using Acl.Utility;
 
 using Products.Infrastructure.Entities;

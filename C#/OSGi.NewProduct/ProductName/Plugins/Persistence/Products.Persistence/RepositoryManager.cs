@@ -25,9 +25,8 @@ using Products.Domain;
 using Products.Infrastructure.Entities;
 using Products.Infrastructure.Exceptions;
 using Products.Infrastructure.Specification;
-using Products.Persistence.Implementation;
 using Products.Persistence.Services;
-using Products.Persistence.Services.Repository;
+using Products.Persistence.Services.Repositories;
 
 namespace Products.Persistence
 {
@@ -40,7 +39,7 @@ namespace Products.Persistence
         /// <summary>
         /// Key = DataSource Name。
         /// </summary>
-        private Dictionary<string, RepositoryBase> _repositories = new Dictionary<string, RepositoryBase>();
+        private Dictionary<string, Repository> _repositories = new Dictionary<string, Repository>();
 
         private StrategyRepositorySelection _repositorySelector = new StrategyRepositorySelection();
         #endregion
@@ -165,7 +164,7 @@ namespace Products.Persistence
                 {
                     _repositories[p.Name] = new RepositoryRemote(p);
                 }
-                else if(dbType == DataBaseType.Sqlite)
+                else if (dbType == DataBaseType.Sqlite)
                 {
                     _repositories[p.Name] = new RepositorySqlite(p);
                 }
@@ -188,7 +187,7 @@ namespace Products.Persistence
         private void CreateRemoteDbConnectionMonitor()
         {
             LogUtility.Info("创建远程数据库连接监视器...");
-            DbConnectionMonitor.MarkDbConnectionMonitor(PersistenceConfig.DataSourceRemoteDbName); 
+            DbConnectionMonitor.MarkDbConnectionMonitor(PersistenceConfig.DataSourceRemoteDbName);
             // TODO: 为每个Repository创建一个连接监视器。创建DbConnectionMonitorManager.
 
             if (DbConnectionMonitor.Current.TestConnection())
@@ -393,6 +392,8 @@ namespace Products.Persistence
         /// </summary>
         public void Insert<T>(params T[] entities) where T : Entity
         {
+            // TODO：如果是静态数据，则不允许此操作。
+
             var theRepository = _repositorySelector.SelectRepository(typeof(T));
 
             if (theRepository == null)
@@ -410,6 +411,8 @@ namespace Products.Persistence
         /// </summary>
         public void AsyncInsert<T>(T[] entities, Action<Exception> exceptionHandler) where T : Entity
         {
+            // TODO：如果是静态数据，则不允许此操作。
+
             var theRepository = _repositorySelector.SelectRepository(typeof(T));
 
             if (theRepository == null)
@@ -427,6 +430,8 @@ namespace Products.Persistence
         /// </summary>
         public void Delete<T>(Expression<Func<T, bool>> predicate) where T : Entity
         {
+            // TODO：如果是静态数据，则不允许此操作。
+
             var theRepository = _repositorySelector.SelectRepository(typeof(T));
 
             if (theRepository == null)
@@ -444,6 +449,8 @@ namespace Products.Persistence
         /// </summary>
         public void Update<T>(object instance, Expression<Func<T, bool>> predicate) where T : Entity
         {
+            // TODO：如果是静态数据，则不允许此操作。
+
             var theRepository = _repositorySelector.SelectRepository(typeof(T));
 
             if (theRepository == null)
@@ -459,7 +466,7 @@ namespace Products.Persistence
         /// <summary>
         /// 
         /// </summary>
-        public void Execute<T>(Action<IDatabase> handler) where T : Entity
+        public void Execute<T>(Action<IDbContext> handler) where T : Entity
         {
             var theRepository = _repositorySelector.SelectRepository(typeof(T));
 
@@ -476,7 +483,7 @@ namespace Products.Persistence
         /// <summary>
         /// 
         /// </summary>
-        public void AsyncExecute<T>(Action<IDatabase> handler, Action<Exception> errorHandler) where T : Entity
+        public void AsyncExecute<T>(Action<IDbContext> handler, Action<Exception> errorHandler) where T : Entity
         {
             var theRepository = _repositorySelector.SelectRepository(typeof(T));
 

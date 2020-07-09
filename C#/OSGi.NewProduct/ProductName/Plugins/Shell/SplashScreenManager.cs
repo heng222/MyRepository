@@ -5,7 +5,6 @@ using System.Windows.Forms;
 
 using Acl.ServiceManagement;
 
-using Platform.Presentation;
 using Platform.Presentation.Framework;
 
 using Products.Shell.Properties;

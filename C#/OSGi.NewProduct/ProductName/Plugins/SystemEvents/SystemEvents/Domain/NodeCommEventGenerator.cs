@@ -15,7 +15,6 @@ using System.Linq;
 
 using Acl;
 
-using Products.Infrastructure;
 using Products.Infrastructure.Entities;
 using Products.Infrastructure.Events;
 using Products.Infrastructure.Messages;

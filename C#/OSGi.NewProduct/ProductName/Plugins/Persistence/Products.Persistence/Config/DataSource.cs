@@ -13,8 +13,6 @@
 
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace Products.Persistence
 {
@@ -39,9 +37,19 @@ namespace Products.Persistence
         public int DbType { get; set; }
 
         /// <summary>
-        /// Url
+        /// Url。
         /// </summary>
         public string Url { get; set; }
+
+        /// <summary>
+        /// 是否为备用数据源？
+        /// </summary>
+        public bool IsBackup { get; set; } = false;
+
+        /// <summary>
+        /// 获取备用 DataSourceName。
+        /// </summary>
+        public string BackupDataSourceName { get; set; }
 
         /// <summary>
         /// DataSource 包含的实体。逗号分隔。

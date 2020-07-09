@@ -24,7 +24,7 @@ namespace Products.Infrastructure.Specification
         /// <summary>
         /// 查询数据。
         /// </summary>
-        /// <param name="predicate"></param>
+        /// <param name="predicate">用于测试每个元素是否满足条件的函数。</param>
         /// <returns></returns>
         IList<T> Where<T>(Expression<Func<T, bool>> predicate = null) where T : Entity;
 
@@ -53,7 +53,7 @@ namespace Products.Infrastructure.Specification
 
         #region "Update"
         /// <summary>
-        /// 更新，如果远程数据库断开连接，则禁止执行更新操作
+        /// 更新数据。
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="instance"></param>
@@ -78,7 +78,7 @@ namespace Products.Infrastructure.Specification
         /// </summary>
         /// <param name="handler"></param>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1004:GenericMethodsShouldProvideTypeParameter")]
-        void Execute<T>(Action<IDatabase> handler) where T : Entity;
+        void Execute<T>(Action<IDbContext> handler) where T : Entity;
 
         /// <summary>
         /// 异步执行一个方法。
@@ -86,7 +86,7 @@ namespace Products.Infrastructure.Specification
         /// <param name="handler"></param>
         /// <param name="errorHandler"></param>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1004:GenericMethodsShouldProvideTypeParameter")]
-        void AsyncExecute<T>(Action<IDatabase> handler, Action<Exception> errorHandler) where T : Entity;
+        void AsyncExecute<T>(Action<IDbContext> handler, Action<Exception> errorHandler) where T : Entity;
         #endregion
     }
 }

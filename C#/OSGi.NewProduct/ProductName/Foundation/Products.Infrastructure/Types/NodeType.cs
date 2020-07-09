@@ -10,10 +10,6 @@
 // Copyright (C) 公司名称，保留所有权利。
 //
 //----------------------------------------------------------------*/
-using System;
-using System.Collections.Generic;
-using System.Text;
-
 using Acl.Utility;
 
 namespace Products.Infrastructure.Types

@@ -10,16 +10,8 @@
 // Copyright (C) 公司名称 2019，保留所有权利
 //
 //----------------------------------------------------------------*/
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 using Acl.ServiceManagement;
 
-using Products.Infrastructure.Entities;
-using Products.Infrastructure.Specification;
 using Products.Persistence.Services;
 
 namespace Products.Persistence

@@ -11,17 +11,8 @@
 //
 //----------------------------------------------------------------*/
 
-using System;
 using System.IO.Ports;
-using System.Threading;
-using System.Threading.Tasks;
 
-using Acl;
-using Acl.Core;
-using Acl.Log;
-
-using Products.Infrastructure.Events;
-using Products.Infrastructure.Messages;
 using Products.Infrastructure.Preference;
 using Products.Infrastructure.Types;
 
@@ -59,7 +50,7 @@ namespace Products.Domain.Communication
         {
             _spSetting = spSetting;
         }
-        
+
         #endregion
 
         #region "Properties"
@@ -214,7 +205,7 @@ namespace Products.Domain.Communication
             this.PublishDataTransferEvent(this.RemoteType, this.RemoteCode, false, data);
 
             // CommLogCreated 消息通知。
-             this.PublishCommLogCreateEvent(this.RemoteType, this.RemoteCode, false, data);
+            this.PublishCommLogCreateEvent(this.RemoteType, this.RemoteCode, false, data);
 
             // 写串口。
             _serialPort.Write(data, 0, data.Length);

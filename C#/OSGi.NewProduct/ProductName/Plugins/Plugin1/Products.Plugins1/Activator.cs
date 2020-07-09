@@ -11,10 +11,7 @@
 //
 //----------------------------------------------------------------*/
 
-using System;
 using System.Collections.Generic;
-
-using OSGi;
 
 using Platform.Presentation;
 

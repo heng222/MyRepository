@@ -16,7 +16,6 @@ using System.Collections.Generic;
 using Platform.Presentation;
 
 using Products.Domain;
-using Products.Infrastructure;
 using Products.Infrastructure.Log;
 using Products.Infrastructure.Types;
 using Products.LogReport.Properties;

@@ -14,9 +14,6 @@ using System;
 using System.IO;
 using System.Text;
 
-using Acl.Utility;
-
-using Products.Infrastructure.Log;
 using Products.Infrastructure.Protocol.Framework;
 
 namespace Products.Infrastructure.Protocol

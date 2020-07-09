@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
+
 using Acl.Core;
 using Acl.Log;
+
 using Products.Infrastructure.Events;
 using Products.Infrastructure.Messages;
 using Products.Infrastructure.Types;

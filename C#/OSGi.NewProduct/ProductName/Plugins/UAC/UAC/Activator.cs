@@ -11,13 +11,10 @@
 //
 //----------------------------------------------------------------*/
 using System.Collections.Generic;
-using System.Linq;
 
 using Acl.ServiceManagement;
 
 using Products.Domain;
-using Products.Domain.Preferences;
-using Products.Domain.Utility;
 using Products.Infrastructure.Log;
 using Products.Infrastructure.Types;
 using Products.UAC.Domain;

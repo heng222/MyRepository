@@ -11,11 +11,6 @@
 //
 //----------------------------------------------------------------*/
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
 using Products.Infrastructure.Entities;
 
 namespace Products.UAC.Domain

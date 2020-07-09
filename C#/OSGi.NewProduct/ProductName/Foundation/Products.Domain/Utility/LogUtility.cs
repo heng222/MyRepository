@@ -16,7 +16,6 @@ using System;
 using Acl.Log;
 
 using Products.Infrastructure.Log;
-using Products.Resource;
 
 namespace Products.Domain.Utility
 {

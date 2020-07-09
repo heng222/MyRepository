@@ -3,9 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 
-using Products.Infrastructure.Entities;
-using Products.Infrastructure.Specification;
-
 namespace Products.Persistence
 {
     /// <summary>

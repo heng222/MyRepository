@@ -106,7 +106,7 @@ namespace Products.SystemEvents.Controls
                     theRow.Cells[ColumNameCode].Value = log.Code;
                     theRow.Cells[ColumNameOperationTime].Value = log.Timestamp.ToString("yyyy-MM-dd HH:mm:ss.fff");
                     theRow.Cells[ColumNameOperationType].Value = EnumUtility.GetDescription(log.OperationType);
-                    theRow.Cells[ColumNameUserName].Value = log.UserName;                    
+                    theRow.Cells[ColumNameUserName].Value = log.UserName;
                     theRow.Cells[ColumNameExeMode].Value = log.IsManual ? "手动" : "自动";
                     theRow.Cells[ColumNameExeMode].Tag = log.IsManual;
 

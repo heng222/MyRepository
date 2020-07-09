@@ -6,7 +6,6 @@ using Acl.Controls;
 using Acl.Utility;
 
 using Products.Infrastructure.Types;
-using Products.LogReport.Data;
 
 namespace Products.LogReport.Control
 {

@@ -13,7 +13,6 @@
 
 using System;
 using System.Collections.Generic;
-using System.Net;
 
 using Acl.RsspI4net.Config;
 

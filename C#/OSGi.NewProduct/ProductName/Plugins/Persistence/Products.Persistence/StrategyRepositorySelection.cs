@@ -16,21 +16,27 @@ using System.Collections.Generic;
 using System.Linq;
 
 using Products.Infrastructure.Specification;
-using Products.Persistence.Services.Repository;
+using Products.Persistence.Services.Repositories;
+using Products.Persistence.Specification;
 
 namespace Products.Persistence
 {
-    interface IRepositorySelect
-    {
-        IRepository SelectRepository<T>(bool memRepositoryEnabled = true);
-
-        IRepository SelectRepository(Type entityType, bool memRepositoryEnabled = true);
-    }
-
     class StrategyRepositorySelection : IRepositorySelect
     {
         #region "Field"
-        private List<RepositoryBase> _repositories = new List<RepositoryBase>();
+        private readonly List<Repository> _repositories = new List<Repository>();
+
+        /// <summary>
+        /// 实体类型 - 主用数据源映射表。
+        /// KEY= 实体类型。
+        /// </summary>
+        private readonly Dictionary<Type, Repository> _mainRepositoryMapping = new Dictionary<Type, Repository>();
+
+        /// <summary>
+        /// 实体类型 - 备用数据源映射表。
+        /// KEY= 实体类型。
+        /// </summary>
+        private readonly Dictionary<Type, Repository> _backupRepositoryMapping = new Dictionary<Type, Repository>();
         #endregion
 
         #region "Constructor"
@@ -40,21 +46,48 @@ namespace Products.Persistence
         #endregion
 
         #region "Properties"
+        public Repository MemoryRepository { get; private set; }
         #endregion
 
         #region "Override methods"
         #endregion
 
         #region "Private methods"
+        private void UpdateDataSourceMappings()
+        {
+            var dataSrces = _repositories.Select(p => p.DataSource);
+
+            PersistenceConfig.TableDescriptors.ForEach(q =>
+            {
+                var entityType = q.Value.EntityType;
+
+                // 获取主用DataSource。
+                var dataSrc = dataSrces.Where(p => p.TableDescriptors.Keys.Contains(entityType) && !p.IsBackup).First();
+
+                // 更新主用 Repository。
+                _mainRepositoryMapping[entityType] = _repositories.Where(p => p.DataSource.Name == dataSrc.Name).First();
+
+                // 更新备用DataSource。
+                if (!string.IsNullOrEmpty(dataSrc.BackupDataSourceName))
+                {
+                    _backupRepositoryMapping[entityType] = _repositories.Where(p => p.DataSource.Name == dataSrc.BackupDataSourceName).First(); 
+                }
+            });
+        }
+
         #endregion
 
         #region "Public methods"
         /// <summary>
         /// 设置可用的仓储。
         /// </summary>
-        public void SetRepositories(IEnumerable<RepositoryBase> repositories)
+        public void SetRepositories(IEnumerable<Repository> repositories)
         {
             _repositories.AddRange(repositories);
+
+            this.MemoryRepository = _repositories.Where(p => p.DataSource.DbType == (int)DataBaseType.Memory).First();
+
+            this.UpdateDataSourceMappings();
         }
 
         /// <inheritdoc/>
@@ -66,25 +99,38 @@ namespace Products.Persistence
         /// <inheritdoc/>
         public IRepository SelectRepository(Type entityType, bool memRepositoryEnabled = true)
         {
-            // TODO: 如果实体类型所在的数据库A为连接状态，则返回A；否则返回A的备用库。（main DB, backup DB）
+            var mainRepository = _mainRepositoryMapping[entityType];
 
-            // “启用了 MemoryRepository” 且 “静态配置表”，则使用内存数据库。
+            // 是否启用了 MemoryRepository？
             if (memRepositoryEnabled)
             {
                 var isStaticEntity = PersistenceConfig.IsStaticConfigTable(entityType);
-                if (isStaticEntity)
-                {
-                    return _repositories.Where(p => p.DataSource.DbType == (int)DataBaseType.Memory).FirstOrDefault();
-                }
+                var isDynamicEntity = PersistenceConfig.IsDynamicConfigTable(entityType);
 
-                // TODO：如果为动态配置表且此表所在的远程库没有连接，则使用内存数据库。
+                // 如果为“静态配置表” || “为动态配置表且此表所在的远程库没有连接”
+                if (isStaticEntity || (isDynamicEntity && !mainRepository.Connected))
+                {
+                    return this.MemoryRepository;
+                }
+                else
+                {
+                    return _mainRepositoryMapping[entityType];
+                }        
+            }
+            else
+            {
+                // 主用库是否连接？
+                if (mainRepository.Connected)
+                {
+                    return mainRepository;
+                }
+                else
+                {
+                    _backupRepositoryMapping.TryGetValue(entityType, out Repository backupRepository);
+                    return backupRepository;
+                }
             }
 
-            // 获取指定实体类型对应的数据库类型。
-            var theDataSrc = PersistenceConfig.GetDataSource(entityType);
-
-            // 
-            return _repositories.Where(p => p.DataSource.Name == theDataSrc.Name).FirstOrDefault();
         }
         #endregion
 

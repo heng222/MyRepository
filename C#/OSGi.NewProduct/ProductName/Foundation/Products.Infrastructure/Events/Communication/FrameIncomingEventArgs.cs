@@ -12,8 +12,6 @@
 //----------------------------------------------------------------*/
 
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 using Products.Infrastructure.Protocol.Framework;
 using Products.Infrastructure.Types;

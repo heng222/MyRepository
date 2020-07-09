@@ -15,7 +15,6 @@ using System;
 
 using Acl.Log;
 
-using Products.Domain;
 using Products.Infrastructure.Log;
 
 namespace Products.Persistence

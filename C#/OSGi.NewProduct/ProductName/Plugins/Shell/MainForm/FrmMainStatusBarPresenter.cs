@@ -13,13 +13,11 @@
 using System;
 using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Windows.Forms;
 
 using Acl;
 using Acl.ServiceManagement;
 
-using Products.Infrastructure;
 using Products.Infrastructure.Messages;
 using Products.Infrastructure.Specification;
 

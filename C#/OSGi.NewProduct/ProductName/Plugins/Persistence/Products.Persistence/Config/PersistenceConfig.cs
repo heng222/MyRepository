@@ -43,11 +43,6 @@ namespace Products.Persistence
         #endregion
 
         #region "Field"
-        /// <summary>
-        /// DataSource 集合。
-        /// Key = DataSource.Name.
-        /// </summary>
-        private static Dictionary<string, DataSource> _dataSources = new Dictionary<string, DataSource>();
 
         /// <summary>
         /// 获取或设置Entity type 格式，例如"Products.Infrastructure.Entities.{0},Products.Infrastructure"
@@ -62,9 +57,15 @@ namespace Products.Persistence
         public static ISettings Settings { get; private set; }
 
         /// <summary>
-        /// 获取 TableDescriptors。
+        /// 获取所有 TableDescriptors。
         /// </summary>
         public static ReadOnlyDictionary<Type, TableDescriptor> TableDescriptors { get; private set; }
+
+        /// <summary>
+        /// 获取所有 DataSource。
+        /// <para>Key = DataSource.Name.</para>
+        /// </summary>
+        public static Dictionary<string, DataSource> DataSources { get; private set; } = new Dictionary<string, DataSource>();
         #endregion
 
         #region "Constructor"
@@ -90,8 +91,8 @@ namespace Products.Persistence
             CreateTableDescriptors();
 
             // 构建 DataSources。
-            _dataSources = PersistenceConfig.Settings.Get<List<DataSource>>("DataSources").ToDictionary(p => p.Name, q => q);
-            _dataSources.Values.ForEach(p =>
+            DataSources = PersistenceConfig.Settings.Get<List<DataSource>>("DataSources").ToDictionary(p => p.Name, q => q);
+            DataSources.Values.ForEach(p =>
             {
                 p.Entities.Split(new char[] { ',', '，', ';', '；' }, StringSplitOptions.RemoveEmptyEntries).ForEach(q =>
                 {
@@ -126,7 +127,7 @@ namespace Products.Persistence
 
             TableDescriptors = new ReadOnlyDictionary<Type, TableDescriptor>(result);
         }
-        
+
         private static Type ConvertToEntityType(string entityName)
         {
             var typeName = string.Format(EntityTypeFormat, entityName);
@@ -179,7 +180,7 @@ namespace Products.Persistence
                 }
                 else
                 {
-                    var dataSrc = _dataSources.Values.Where(p => p.Name == dbSourceName).FirstOrDefault();
+                    var dataSrc = DataSources.Values.Where(p => p.Name == dbSourceName).FirstOrDefault();
                     if (dataSrc == null) throw new Exception(string.Format("没有找到 DataSource={0} 的配置 。", dbSourceName));
 
                     var urlFixed = dataSrc.Url;
@@ -194,9 +195,9 @@ namespace Products.Persistence
                 cfg.SetMappingConversion(MappingConversion.Plural);
 
                 // 添加DB表映射。
-                if (_dataSources.ContainsKey(dbSourceName))
+                if (DataSources.ContainsKey(dbSourceName))
                 {
-                    _dataSources[dbSourceName].TableDescriptors.ForEach(p => cfg.ModelBuilder.AddClass(p.Value.EntityType));
+                    DataSources[dbSourceName].TableDescriptors.ForEach(p => cfg.ModelBuilder.AddClass(p.Value.EntityType));
                 }
 
                 // 验证Schema
@@ -212,8 +213,7 @@ namespace Products.Persistence
         }
         public static bool IsStaticConfigTable(Type entityType)
         {
-            TableDescriptor value = null;
-            if (TableDescriptors.TryGetValue(entityType, out value))
+            if (TableDescriptors.TryGetValue(entityType, out TableDescriptor value))
             {
                 return value.TableKind == TableKind.StaticConfig;
             }
@@ -224,8 +224,11 @@ namespace Products.Persistence
         }
         public static bool IsDynamicConfigTable<T>()
         {
-            TableDescriptor value = null;
-            if (TableDescriptors.TryGetValue(typeof(T), out value))
+            return IsDynamicConfigTable(typeof(T));
+        }
+        public static bool IsDynamicConfigTable(Type entityType)
+        {
+            if (TableDescriptors.TryGetValue(entityType, out TableDescriptor value))
             {
                 return value.TableKind == TableKind.DynamicConfig;
             }
@@ -236,8 +239,7 @@ namespace Products.Persistence
         }
         public static bool IsNormalLogTable<T>()
         {
-            TableDescriptor value = null;
-            if (TableDescriptors.TryGetValue(typeof(T), out value))
+            if (TableDescriptors.TryGetValue(typeof(T), out TableDescriptor value))
             {
                 return value.TableKind == TableKind.Log;
             }
@@ -257,17 +259,17 @@ namespace Products.Persistence
         /// </summary>
         public static DataSource GetDataSource(Type entityType)
         {
-            return _dataSources.Values.Where(p => p.TableDescriptors.Keys.Contains(entityType)).FirstOrDefault();
+            return DataSources.Values.Where(p => p.TableDescriptors.Keys.Contains(entityType)).FirstOrDefault();
         }
 
         public static IEnumerable<DataSource> GetDataSources(DataBaseType dbType)
         {
-            return _dataSources.Values.Where(p => (DataBaseType)p.DbType == dbType);
+            return DataSources.Values.Where(p => (DataBaseType)p.DbType == dbType);
         }
 
         public static IEnumerable<DataSource> GetDataSources()
         {
-            return _dataSources.Values;
+            return DataSources.Values;
         }
 
         /// <summary>
@@ -301,7 +303,8 @@ namespace Products.Persistence
         {
             return TableDescriptors.Values.Where(p => p.EntityType.Name == entityName).FirstOrDefault();
         }
-        public static Type GetEntityType(string entityName) {
+        public static Type GetEntityType(string entityName)
+        {
             var desc = TableDescriptors.Values.Where(p => p.EntityType.Name == entityName).FirstOrDefault();
             return desc == null ? null : desc.EntityType;
         }
@@ -324,7 +327,7 @@ namespace Products.Persistence
 
             return null;
         }
-        
+
         /// <summary>
         /// 获取数据库与实体的映射。
         /// Key：Data Source Name。
@@ -332,7 +335,7 @@ namespace Products.Persistence
         /// </summary>
         public static Dictionary<string, List<Type>> GetDataSrcNameEntityMapping(DataBaseType dbType)
         {
-            return _dataSources.Values.Where(p => (DataBaseType)p.DbType == dbType)
+            return DataSources.Values.Where(p => (DataBaseType)p.DbType == dbType)
                 .ToDictionary(p => p.Name, q => q.TableDescriptors.Values.Select(k => k.EntityType).ToList());
         }
 
@@ -346,8 +349,8 @@ namespace Products.Persistence
             var theTableTypes = TableDescriptors.Values.Where(p => p.TableKind == tableKind).Select(p => p.EntityType);
 
             // 获取指定数据类类型的映射。
-            var sqliteSrcNames = _dataSources.Values.Where(p => (DataBaseType)p.DbType == dbType).Select(p => p.Name);
-            var theMapping = _dataSources.Where(p => sqliteSrcNames.Contains(p.Key)).ToDictionary(p => p.Key, q => q.Value.TableDescriptors.Select(k => k.Value.EntityType));
+            var sqliteSrcNames = DataSources.Values.Where(p => (DataBaseType)p.DbType == dbType).Select(p => p.Name);
+            var theMapping = DataSources.Where(p => sqliteSrcNames.Contains(p.Key)).ToDictionary(p => p.Key, q => q.Value.TableDescriptors.Select(k => k.Value.EntityType));
 
             // 构建 DataSourceName 与 Entity 的映射。
             return theMapping.Where(p => p.Value.Intersect(theTableTypes).Any()).ToDictionary(p => p.Key, q => q.Value.Intersect(theTableTypes));

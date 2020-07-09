@@ -11,15 +11,8 @@
 //
 //----------------------------------------------------------------*/
 
-using System;
 using System.Net;
-using System.Net.Sockets;
-using System.Timers;
 
-using Acl.Log;
-
-using Products.Infrastructure.Events;
-using Products.Infrastructure.Messages;
 using Products.Infrastructure.Types;
 
 namespace Products.Domain.Communication
@@ -89,7 +82,7 @@ namespace Products.Domain.Communication
             if (this.LocalClient == null || this.RemoteEndPoint == null) return;
 
             // DataTransfer 消息通知。
-            this.PublishDataTransferEvent(this.RemoteType, this.RemoteCode,  false, data);
+            this.PublishDataTransferEvent(this.RemoteType, this.RemoteCode, false, data);
 
             // CommLogCreated 消息通知。
             this.PublishCommLogCreateEvent(this.RemoteType, this.RemoteCode, false, data);

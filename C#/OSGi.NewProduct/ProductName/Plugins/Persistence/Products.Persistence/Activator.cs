@@ -16,7 +16,6 @@ using System.Collections.Generic;
 using Acl.CommStreamLog;
 
 using Products.Domain;
-using Products.Infrastructure;
 using Products.Infrastructure.Log;
 using Products.Infrastructure.Types;
 

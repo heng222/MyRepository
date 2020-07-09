@@ -10,11 +10,6 @@
 // Copyright (C) 公司名称 2019，保留所有权利
 //
 //----------------------------------------------------------------*/
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Products.Persistence
 {

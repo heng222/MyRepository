@@ -12,7 +12,9 @@
 //----------------------------------------------------------------*/
 
 using System;
+
 using Acl.Data.Annotions;
+
 using Products.Infrastructure.Types;
 
 namespace Products.Infrastructure.Entities

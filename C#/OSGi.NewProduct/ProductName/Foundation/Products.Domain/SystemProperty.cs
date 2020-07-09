@@ -11,10 +11,7 @@
 //
 //----------------------------------------------------------------*/
 
-using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Text;
 
 using Products.Infrastructure.Specification;
 using Products.Resource;

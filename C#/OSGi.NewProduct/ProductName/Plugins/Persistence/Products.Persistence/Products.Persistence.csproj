@@ -96,17 +96,17 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Services\CommStreamStorage.cs" />
-    <Compile Include="Services\Repository\RepositoryMemory.cs" />
+    <Compile Include="Services\Repositories\RepositoryMemory.cs" />
     <Compile Include="Services\DbConfigurationProvider.cs" />
-    <Compile Include="Services\Repository\RepositoryDecorator.cs" />
-    <Compile Include="Services\Repository\RepositoryBase.cs" />
-    <Compile Include="Services\Repository\RepositoryRemote.cs" />
-    <Compile Include="Services\Repository\Sqlite\SqliteConnectionManager.cs" />
-    <Compile Include="Services\Repository\Sqlite\SqliteOperationScheduler.cs" />
-    <Compile Include="Services\Repository\Sqlite\RepositorySqlite.cs" />
-    <Compile Include="Services\Repository\Sqlite\SqliteRepositoryManager.cs" />
+    <Compile Include="Services\Repositories\RepositoryDecorator.cs" />
+    <Compile Include="Services\Repositories\Repository.cs" />
+    <Compile Include="Services\Repositories\RepositoryRemote.cs" />
+    <Compile Include="Services\Repositories\Sqlite\SqliteConnectionManager.cs" />
+    <Compile Include="Services\Repositories\Sqlite\SqliteOperationScheduler.cs" />
+    <Compile Include="Services\Repositories\Sqlite\RepositorySqlite.cs" />
+    <Compile Include="Specification\IRepositorySelect.cs" />
     <Compile Include="Utilities\TableSeqNoManager.cs" />
-    <Compile Include="Services\Repository\RepositoryCsvFile.cs" />
+    <Compile Include="Services\Repositories\RepositoryCsvFile.cs" />
     <Compile Include="Specification\IDataCache.cs" />
     <Compile Include="StrategyRepositorySelection.cs" />
     <Compile Include="Utilities\CommLogHelper.cs" />

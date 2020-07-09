@@ -11,9 +11,6 @@
 //
 //----------------------------------------------------------------*/
 
-
-using Acl.Utility;
-
 namespace Products.Infrastructure.Log
 {
     /// <summary>
