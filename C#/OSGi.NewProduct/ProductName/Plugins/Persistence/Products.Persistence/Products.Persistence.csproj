@@ -96,6 +96,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Services\CommStreamStorage.cs" />
+    <Compile Include="Services\RepositoryFactory.cs" />
     <Compile Include="Services\Repositories\RepositoryMemory.cs" />
     <Compile Include="Services\DbConfigurationProvider.cs" />
     <Compile Include="Services\Repositories\RepositoryDecorator.cs" />

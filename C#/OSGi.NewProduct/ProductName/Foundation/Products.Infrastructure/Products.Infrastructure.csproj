@@ -84,6 +84,7 @@
     <Compile Include="Events\Communication\FrameIncomingEventArgs.cs" />
     <Compile Include="Events\Communication\CommStateChangedEventArgs.cs" />
     <Compile Include="Events\Communication\FrameOutgoingEventArgs.cs" />
+    <Compile Include="Events\DbSourceStateChangedEventArgs.cs" />
     <Compile Include="Events\NewSystemEventArgs.cs" />
     <Compile Include="Events\OpeationLogCreateOrUpdateEventArgs.cs" />
     <Compile Include="Events\ProcessExitingEventArgs.cs" />

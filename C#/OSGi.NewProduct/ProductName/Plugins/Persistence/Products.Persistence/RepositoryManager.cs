@@ -153,29 +153,22 @@ namespace Products.Persistence
         {
             var dataSources = PersistenceConfig.GetDataSources();
 
-            dataSources.ForEach(p =>
+            // 是否启用远程数据库？
+            if (!enableRemoteDb)
             {
-                var dbType = (DataBaseType)p.DbType;
+                dataSources = dataSources.Where(p => !PersistenceConfig.IsRemoteDatabase((DataBaseType)p.DbType));
+            }
 
-                if (PersistenceConfig.IsRemoteDatabase(dbType) && enableRemoteDb)
-                {
-                    _repositories[p.Name] = new RepositoryRemote(p);
-                }
-                else if (dbType == DataBaseType.Sqlite)
-                {
-                    _repositories[p.Name] = new RepositorySqlite(p);
-                }
-                else if (dbType == DataBaseType.CSV)
-                {
-                    _repositories[p.Name] = new RepositoryCsvFile(p);
-                }
-                else
-                {
-                    throw new Exception($"不支持的数据库类型 {dbType}。");
-                }
-            });
+            // 内置 MemoryRepository。
+            var memoryDataSource = new DataSource()
+            {
+                Name = DataBaseType.Memory.ToString(),
+                DbType = (int)DataBaseType.Memory,
+            };
+            dataSources = dataSources.Union(new DataSource[] { memoryDataSource });
 
-            _repositories["DataBaseMemory"] = new RepositoryMemory(_repositorySelector);
+            // 创建 Repository。
+            _repositories = RepositoryFactory.Create(dataSources, _repositorySelector).ToDictionary(p => p.DataSource.Name, q => q);            
         }
 
         /// <summary>

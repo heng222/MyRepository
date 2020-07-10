@@ -37,7 +37,7 @@ namespace Products.Persistence.Services
 
         private uint GetMaxCode(IDatabase db)
         {
-            var tableName = PersistenceConfig.GetTableName<TEntity>();
+            var tableName = PersistenceConfig.GetTableName(typeof(TEntity));
 
             var sql = string.Format(@"select Max(code) from {0}", db.Dialect.Quote(tableName));
 

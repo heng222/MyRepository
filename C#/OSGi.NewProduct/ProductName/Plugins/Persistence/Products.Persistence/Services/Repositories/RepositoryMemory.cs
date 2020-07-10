@@ -41,15 +41,13 @@ namespace Products.Persistence.Services
                                                        where typeof(LambdaExpression).IsAssignableFrom(ps[0].ParameterType)
                                                        select m).FirstOrDefault();
 
-        private static DataSource _dataSrc = new DataSource() { DbType = (int)DataBaseType.Memory };
-
         private Dictionary<string, IEnumerable> _cache = new Dictionary<string, IEnumerable>();
 
         #endregion
 
         #region "Constructor"
-        public RepositoryMemory(IRepositorySelect reposSelector)
-            : base(_dataSrc)
+        public RepositoryMemory(DataSource dataSrc, IRepositorySelect reposSelector)
+            : base(dataSrc)
         {
             this.RepositorySelector = reposSelector;
         }

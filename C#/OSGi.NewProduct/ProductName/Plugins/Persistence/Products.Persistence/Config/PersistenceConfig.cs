@@ -53,6 +53,7 @@ namespace Products.Persistence
 
         /// <summary>
         /// 获取所有 TableDescriptors。
+        /// <para>KEY= 实体类型。</para>
         /// </summary>
         public static ReadOnlyDictionary<Type, TableDescriptor> TableDescriptors { get; private set; }
 
@@ -73,33 +74,17 @@ namespace Products.Persistence
             var cfgPath = string.Format(@"{0}\Config\Persistence.config", HelperTools.CurrentDllPath);
             Settings = SettingsManager.GetXmlSettings(cfgPath);
 
-            InitializeDataSource();
+            // 创建表描述符。
+            CreateTableDescriptor();
+
+            // 构建 DataSources。
+            CreateDataSource();
         }
         #endregion
 
         #region "Private methods"
 
-
-        private static void InitializeDataSource()
-        {
-            // 创建表描述符。
-            CreateTableDescriptors();
-
-            // 构建 DataSources。
-            DataSources = PersistenceConfig.Settings.Get<List<DataSource>>("DataSources").ToDictionary(p => p.Name, q => q);
-            DataSources.Values.ForEach(p =>
-            {
-                p.Entities.Split(new char[] { ',', '，', ';', '；' }, StringSplitOptions.RemoveEmptyEntries).ForEach(q =>
-                {
-                    var entityType = ConvertToEntityType(q.Trim());
-
-                    if (!TableDescriptors.ContainsKey(entityType)) throw new Exception(string.Format("没有找到 {0} 的 TableDescriptor。", entityType.Name));
-                    p.TableDescriptors[entityType] = TableDescriptors[entityType];
-                });
-            });
-        }
-
-        private static void CreateTableDescriptors()
+        private static void CreateTableDescriptor()
         {
             var result = new Dictionary<Type, TableDescriptor>();
 
@@ -121,6 +106,21 @@ namespace Products.Persistence
             });
 
             TableDescriptors = new ReadOnlyDictionary<Type, TableDescriptor>(result);
+        }
+
+        private static void CreateDataSource()
+        {
+            DataSources = Settings.Get<List<DataSource>>("DataSources").ToDictionary(p => p.Name, q => q);
+            DataSources.Values.ForEach(p =>
+            {
+                p.Entities.Split(new char[] { ',', '，', ';', '；' }, StringSplitOptions.RemoveEmptyEntries).ForEach(q =>
+                {
+                    var entityType = ConvertToEntityType(q.Trim());
+
+                    if (!TableDescriptors.ContainsKey(entityType)) throw new Exception(string.Format("没有找到 {0} 的 TableDescriptor。", entityType.Name));
+                    p.TableDescriptors[entityType] = TableDescriptors[entityType];
+                });
+            });
         }
 
         private static Type ConvertToEntityType(string entityName)
@@ -161,9 +161,7 @@ namespace Products.Persistence
 
         public static DbConfiguration GetOrCreateDbConfiguration(string dbSourceName, bool validateSchema)
         {
-            DbConfiguration cfg = null;
-
-            if (!Acl.Data.Configuration.DbConfiguration.Items.TryGetValue(dbSourceName, out cfg))
+            if (!Acl.Data.Configuration.DbConfiguration.Items.TryGetValue(dbSourceName, out DbConfiguration cfg))
             {
                 // 获取 exe.config 中的连接字符串。
                 var connectSettings = ConfigurationManager.ConnectionStrings.OfType<ConnectionStringSettings>()
@@ -202,46 +200,25 @@ namespace Products.Persistence
             return cfg;
         }
 
-        public static bool IsStaticConfigTable<T>()
-        {
-            return IsStaticConfigTable(typeof(T));
-        }
         public static bool IsStaticConfigTable(Type entityType)
         {
-            if (TableDescriptors.TryGetValue(entityType, out TableDescriptor value))
-            {
-                return value.TableKind == TableKind.StaticConfig;
-            }
-            else
-            {
-                return false;
-            }
+            TableDescriptors.TryGetValue(entityType, out TableDescriptor value);
+
+            return value != null && value.TableKind == TableKind.StaticConfig;
         }
-        public static bool IsDynamicConfigTable<T>()
-        {
-            return IsDynamicConfigTable(typeof(T));
-        }
+
         public static bool IsDynamicConfigTable(Type entityType)
         {
-            if (TableDescriptors.TryGetValue(entityType, out TableDescriptor value))
-            {
-                return value.TableKind == TableKind.DynamicConfig;
-            }
-            else
-            {
-                return false;
-            }
+            TableDescriptors.TryGetValue(entityType, out TableDescriptor value) ;
+
+            return value != null && value.TableKind == TableKind.DynamicConfig;
         }
-        public static bool IsNormalLogTable<T>()
+
+        public static bool IsNormalLogTable(Type entityType)
         {
-            if (TableDescriptors.TryGetValue(typeof(T), out TableDescriptor value))
-            {
-                return value.TableKind == TableKind.Log;
-            }
-            else
-            {
-                return false;
-            }
+            TableDescriptors.TryGetValue(entityType, out TableDescriptor value);
+
+            return value != null && value.TableKind == TableKind.Log;
         }
 
         public static bool IsRemoteDatabase(DataBaseType dbType)
@@ -286,10 +263,6 @@ namespace Products.Persistence
             return sqliteSrcNameEntityMapping.Keys.ToList();
         }
 
-        public static TableDescriptor GetTableDescriptor<T>()
-        {
-            return GetTableDescriptor(typeof(T));
-        }
         public static TableDescriptor GetTableDescriptor(Type entityType)
         {
             return GetTableDescriptor(entityType.Name);
@@ -309,10 +282,6 @@ namespace Products.Persistence
         public static IEnumerable<TableDescriptor> GetTableDescriptors(TableKind tableKind)
         {
             return TableDescriptors.Values.Where(p => p.TableKind == tableKind);
-        }
-        public static string GetTableName<T>()
-        {
-            return GetTableName(typeof(T));
         }
         public static string GetTableName(Type entityType)
         {

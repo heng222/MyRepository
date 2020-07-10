@@ -12,7 +12,6 @@
 //----------------------------------------------------------------*/
 
 using System;
-using System.Diagnostics.CodeAnalysis;
 
 using Acl.MessageBus;
 
@@ -39,8 +38,7 @@ namespace Products.Infrastructure.Messages
         /// </summary>
         public static IDisposable SubscribeApplicationExiting(Action<object, ProcessExitingEventArgs> handler)
         {
-            return ApplicationExitingMessageBus.Subscribe<ProcessExitingEventArgs>(
-                ApplicationExitingMessage, handler, SubscribeMode.Async);
+            return ApplicationExitingMessageBus.Subscribe(ApplicationExitingMessage, handler, SubscribeMode.Async);
         }
         /// <summary>
         /// 发布程序即将关闭事件。
@@ -50,6 +48,24 @@ namespace Products.Infrastructure.Messages
             return ApplicationExitingMessageBus.Publish(ApplicationExitingMessage, args, sender, false);
         }
 
+        #endregion
+
+        #region "数据源状态变化消息"
+        private const string DbSourceStateChangedTopic = @"local://Product/System/DbSourceStateChangedTopic";
+        /// <summary>
+        /// 订阅数据源状态变化消息。
+        /// </summary>
+        public static IDisposable SubscribeDbSourceStateChanged(Action<object, DbSourceStateChangedEventArgs> handler)
+        {
+            return DefaultMessageBus.Subscribe(DbSourceStateChangedTopic, handler, SubscribeMode.Async);
+        }
+        /// <summary>
+        /// 发布数据源状态变化消息。
+        /// </summary>
+        public static IMessageResponse PublishDbSourceStateChanged(DbSourceStateChangedEventArgs args, object sender = null)
+        {
+            return DefaultMessageBus.Publish(DbSourceStateChangedTopic, args, sender, true);
+        }
         #endregion
 
         #region "数据收发消息"
@@ -71,7 +87,7 @@ namespace Products.Infrastructure.Messages
         /// </summary>
         public static IDisposable SubscribeDataIncoming(Action<object, DataIncomingEventArgs> handler)
         {
-            return DataIoMessagBus.Subscribe<DataIncomingEventArgs>(FrameIncoming, handler, SubscribeMode.Sync);
+            return DataIoMessagBus.Subscribe(FrameIncoming, handler, SubscribeMode.Sync);
         }
         /// <summary>
         /// 发布数据进入消息
@@ -86,8 +102,7 @@ namespace Products.Infrastructure.Messages
         /// </summary>
         public static IDisposable SubscribeDataOutgoing(Action<object, DataOutgoingEventArgs> handler)
         {
-            return DataIoMessagBus.Subscribe<DataOutgoingEventArgs>(FrameOutgoing,
-                handler, SubscribeMode.Sync);
+            return DataIoMessagBus.Subscribe(FrameOutgoing, handler, SubscribeMode.Sync);
         }
         /// <summary>
         /// 发布数据离去消息
@@ -99,7 +114,7 @@ namespace Products.Infrastructure.Messages
 
         #endregion
 
-        #region "系统内部协议帧相关消息"
+        #region "内部协议帧收发消息"
         /// <summary>
         /// 系统协议帧消息总线。
         /// </summary>
@@ -118,41 +133,31 @@ namespace Products.Infrastructure.Messages
         /// <summary>
         /// 订阅系统内部协议帧进入消息
         /// </summary>
-        [SuppressMessage("Microsoft.Design", "CA1006:DoNotNestGenericTypesInMemberSignatures")]
         public static IDisposable SubscribeInternalFrameIncoming(Action<object, FrameIncomingEventArgs<InternalFrame>> handler)
         {
-            return InternalFrameMessagBus.Subscribe<FrameIncomingEventArgs<InternalFrame>>(
-                InnerFrameIncoming,
-                handler, SubscribeMode.Sync);
+            return InternalFrameMessagBus.Subscribe(InnerFrameIncoming, handler, SubscribeMode.Sync);
         }
         /// <summary>
         /// 发布系统内部协议帧进入消息
         /// </summary>
         public static IMessageResponse PublishInternalFrameIncoming(FrameIncomingEventArgs<InternalFrame> frameIncoming, object sender = null)
         {
-            return InternalFrameMessagBus.Publish(InnerFrameIncoming,
-                frameIncoming, sender, false);
+            return InternalFrameMessagBus.Publish(InnerFrameIncoming, frameIncoming, sender, false);
         }
 
         /// <summary>
         /// 订阅系统内部协议帧离去消息
         /// </summary>
-        [SuppressMessage("Microsoft.Design", "CA1006:DoNotNestGenericTypesInMemberSignatures")]
         public static IDisposable SubscribeInternalFrameOutgoing(Action<object, FrameOutgoingEventArgs<InternalFrame>> handler)
         {
-            return InternalFrameMessagBus.Subscribe<FrameOutgoingEventArgs<InternalFrame>>(
-                InnerFrameOutgoing,
-                handler, SubscribeMode.Sync);
+            return InternalFrameMessagBus.Subscribe(InnerFrameOutgoing, handler, SubscribeMode.Sync);
         }
         /// <summary>
         /// 发布系统内部协议帧离去消息
         /// </summary>
         public static IMessageResponse PublishInternalFrameOutgoing(FrameOutgoingEventArgs<InternalFrame> frameOutgoing, object sender = null)
         {
-            var response = InternalFrameMessagBus.Publish(InnerFrameOutgoing,
-                frameOutgoing, sender, false);
-
-            return response;
+            return InternalFrameMessagBus.Publish(InnerFrameOutgoing, frameOutgoing, sender, false);
         }
 
         #endregion
@@ -171,7 +176,7 @@ namespace Products.Infrastructure.Messages
         /// </summary>
         public static IDisposable SubscribeCommStateChanged(Action<object, CommStateChangedEventArgs> handler)
         {
-            return CommStateChangedMessagBus.Subscribe<CommStateChangedEventArgs>(
+            return CommStateChangedMessagBus.Subscribe(
                 NodeConnectionChanged,
                handler, SubscribeMode.Sync);
         }
@@ -242,8 +247,6 @@ namespace Products.Infrastructure.Messages
         /// <summary>
         /// 订阅用户自动登录失败消息。
         /// </summary>
-        /// <param name="handler"></param>
-        /// <returns></returns>
         public static IDisposable SubscribeUserAutoLogonFailed(Action<object, string> handler)
         {
             return AuthorityManagementMessageBus.Subscribe<string>(UserAutoLogonFailedMessageTopic, handler, SubscribeMode.Async);
@@ -251,6 +254,7 @@ namespace Products.Infrastructure.Messages
         #endregion
 
         #region "系统事件相关消息"
+        private static IMessageBus SystemEventMessageBus = LocalMessageBus.NewMessageBus();
         /// <summary>
         /// 系统事件产生或更新消息。
         /// </summary>
@@ -260,14 +264,14 @@ namespace Products.Infrastructure.Messages
         /// </summary>
         public static IDisposable SubscribeNewSystemEventGenerated(Action<object, NewSystemEventArgs> handler)
         {
-            return DefaultMessageBus.Subscribe<NewSystemEventArgs>(SystemEventTopic, handler, SubscribeMode.Sync);
+            return SystemEventMessageBus.Subscribe(SystemEventTopic, handler, SubscribeMode.Sync);
         }
         /// <summary>
         /// 发布 系统事件产生或更新 消息。
         /// </summary>
         public static IMessageResponse PublishNewSystemEventGenerated(NewSystemEventArgs args, object sender = null)
         {
-            return DefaultMessageBus.Publish(SystemEventTopic, args, sender, false);
+            return SystemEventMessageBus.Publish(SystemEventTopic, args, sender, false);
         }
         #endregion
 
@@ -281,14 +285,14 @@ namespace Products.Infrastructure.Messages
         /// </summary>
         public static IDisposable SubscribeOperationLogChanged(Action<object, OpeationLogCreateOrUpdateEventArgs> handler)
         {
-            return DefaultMessageBus.Subscribe<OpeationLogCreateOrUpdateEventArgs>(OperationRecordTopic, handler, SubscribeMode.Sync);
+            return SystemEventMessageBus.Subscribe(OperationRecordTopic, handler, SubscribeMode.Sync);
         }
         /// <summary>
         /// 发布 操作记录产生或更新 消息。
         /// </summary>
         public static IMessageResponse PublishOperationLogChanged(OpeationLogCreateOrUpdateEventArgs args, object sender = null)
         {
-            return DefaultMessageBus.Publish(OperationRecordTopic, args, sender, false);
+            return SystemEventMessageBus.Publish(OperationRecordTopic, args, sender, false);
         }
         #endregion
 
@@ -303,7 +307,7 @@ namespace Products.Infrastructure.Messages
         /// </summary>
         public static IDisposable SubscribeCommLogRollover(Action<object, EventArgs> handler)
         {
-            return LocalMessageBus.Current.Subscribe<EventArgs>(RolloverAllCommLog, handler, SubscribeMode.Sync);
+            return LocalMessageBus.Current.Subscribe(RolloverAllCommLog, handler, SubscribeMode.Sync);
         }
         /// <summary>
         /// 发布通信日志Rollover事件。
@@ -322,7 +326,7 @@ namespace Products.Infrastructure.Messages
         /// </summary>
         public static IDisposable SubscribeCommLogCreated(Action<object, CommLogCreatedEventArgs> handler)
         {
-            return LocalMessageBus.Current.Subscribe<CommLogCreatedEventArgs>(CommLogCreatedTopic, handler, SubscribeMode.Sync);
+            return LocalMessageBus.Current.Subscribe(CommLogCreatedTopic, handler, SubscribeMode.Sync);
         }
         /// <summary>
         /// 发布通信流日志产生事件。

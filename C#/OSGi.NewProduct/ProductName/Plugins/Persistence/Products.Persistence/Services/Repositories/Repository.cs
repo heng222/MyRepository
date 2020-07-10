@@ -19,6 +19,8 @@ using Acl;
 
 using Products.Infrastructure.Entities;
 using Products.Infrastructure.Specification;
+using Products.Infrastructure.Messages;
+using Products.Infrastructure.Events;
 
 namespace Products.Persistence.Services.Repositories
 {
@@ -77,7 +79,16 @@ namespace Products.Persistence.Services.Repositories
         #region "Protected methods"
         protected void SetConnectionState(bool connected)
         {
-            // TODO；连接状态发生变化后，通知事件。
+            if (this.Connected != connected)
+            {
+                LogUtility.Info("数据源 {0} 状态发生变化，原连接状态= {1}，新连接状态={2}。", this.DataSource.Name, this.Connected, connected);
+
+                // 
+                var args = new DbSourceStateChangedEventArgs(this.DataSource.Name, connected);
+                GlobalMessageBus.PublishDbSourceStateChanged(args);
+            }
+
+            // 
             this.Connected = connected;
         }
         #endregion
