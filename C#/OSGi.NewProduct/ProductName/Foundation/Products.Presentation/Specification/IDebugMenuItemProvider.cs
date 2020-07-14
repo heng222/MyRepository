@@ -16,19 +16,14 @@ using System.Windows.Forms;
 namespace Products.Presentation
 {
     /// <summary>
-    /// 一个可以提供顶级菜单的接口。
+    /// 一个可以提供调试菜单的接口。
     /// </summary>
-    public interface ITopMenuItemProvider
+    public interface IDebugMenuItemProvider
     {
         /// <summary>
-        /// 获取顶级菜单的位置。0表示首位；-1表示不指定位置，由框架自动分配。
+        /// 获取菜单项。
         /// </summary>
-        int Position { get; }
-
-        /// <summary>
-        /// 获取顶级菜单
-        /// </summary>
-        /// <returns></returns>
-        IEnumerable<ToolStripItem> GetTopMenu();
+        /// <returns>菜单项列表。</returns>
+        IEnumerable<ToolStripItem> GetMenuItems();
     }
 }

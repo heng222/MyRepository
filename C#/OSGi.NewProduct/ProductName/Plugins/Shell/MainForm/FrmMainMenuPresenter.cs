@@ -147,22 +147,9 @@ namespace Products.Shell.Presentation.MainForm
                 new ToolStripSeparator(), mnuOpenExeFolder, mnuRolloverAllCommLog, mnuScreenshot, mnuRunCommand});
             #endregion
 
-            //#region "一级菜单：调试"
-            //var mnuOpenNDMDebugForm = new ToolStripMenuItem() { Text = "打开NDM调试窗口..." };
-            //mnuOpenNDMDebugForm.Click += OnMenuDebugOpenNDMDebugForm;
-            //var mnuOpenTMTDebugForm = new ToolStripMenuItem() { Text = "打开TMT调试窗口..." };
-            //mnuOpenTMTDebugForm.Click += OnMenuDebugOpenTMTDebugForm;
-            //var mnuOpenSDMDebugForm = new ToolStripMenuItem() { Text = "打开SDM调试窗口..." };
-            //mnuOpenSDMDebugForm.Click += OnMenuDebugOpenSDMDebugForm;
-            //var mnuOpenCommDebugForm = new ToolStripMenuItem() { Text = "打开内部通信调试窗口..." };
-            //mnuOpenCommDebugForm.Click += OnMenuDebugOpenCommDebugForm;
-            //var mnuSaveStationRangeTable = new ToolStripMenuItem() { Text = "打开车站范围管理窗口..." };
-            //mnuSaveStationRangeTable.Click += OnMenuDebugSaveStationRangeTable;
-
-            //_menuDebug.DropDownItems.AddRange(new ToolStripItem[] { mnuOpenNDMDebugForm, 
-            //    mnuOpenTMTDebugForm, mnuOpenSDMDebugForm, mnuOpenCommDebugForm, mnuSaveStationRangeTable});
+            #region "一级菜单：调试"
             _menuDebug.Visible = false;
-            //#endregion
+            #endregion
 
             #region "一级菜单：帮助"
             var menustripAbout = new ToolStripMenuItem() { Text = "关于本产品" };
@@ -206,13 +193,13 @@ namespace Products.Shell.Presentation.MainForm
         {
             try
             {
-                var topMenuProviders = ServiceManager.Current.GetAll<ITopMenuItemProvider>();
+                var menuItemProviders = ServiceManager.Current.GetAll<ITopMenuItemProvider>();
 
                 // 获取相关的菜单项。
                 var menusBeforeView = new List<ToolStripItem>();
                 var menusBeforeOption = new List<ToolStripItem>();
 
-                foreach (var provider in topMenuProviders)
+                foreach (var provider in menuItemProviders)
                 {
                     if (provider.Position == -1)
                     {
@@ -241,6 +228,26 @@ namespace Products.Shell.Presentation.MainForm
                 // 将退出菜单添加第一个菜单的子项中。
                 var firstMenuItem = (_mainMenuStrip.Items[0] as ToolStripMenuItem);
                 firstMenuItem.DropDownItems.AddRange(new ToolStripItem[] { new ToolStripSeparator(), _menuExitLeft });
+            }
+            catch (System.Exception ex)
+            {
+                LogUtility.Error(ex.ToString());
+            }
+        }
+
+        private void LocadDebugMenu()
+        {
+            try
+            {
+                var providers = ServiceManager.Current.GetAll<IDebugMenuItemProvider>();
+
+                var index = 0;
+                var count = providers.Count();
+                providers.ForEach(p=> 
+                {
+                    _menuDebug.DropDownItems.AddRange(p.GetMenuItems().ToArray());
+                    if(index++ != count) _menuDebug.DropDownItems.Add(new ToolStripSeparator());
+                });
             }
             catch (System.Exception ex)
             {
@@ -356,7 +363,10 @@ namespace Products.Shell.Presentation.MainForm
                 GlobalMessageBus.SubscribeUserChanged(OnUserChanged);
 
                 // 加载插件菜单。
-                LoadPluginsMenu();
+                this.LoadPluginsMenu();
+
+                // 加载Debug菜单。
+                this.LocadDebugMenu();
 
                 // 创建View子菜单。
                 this.CreateViewSubmenu();

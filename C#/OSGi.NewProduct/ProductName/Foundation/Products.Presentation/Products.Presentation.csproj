@@ -82,7 +82,8 @@
       <DependentUpon>SerialPortSettingsUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Extensions\ControlExtension.cs" />
-    <Compile Include="ITopMenuProvider.cs" />
+    <Compile Include="Specification\IDebugMenuItemProvider.cs" />
+    <Compile Include="Specification\ITopMenuItemProvider.cs" />
     <Compile Include="MainWorkSpace.cs" />
     <Compile Include="ProductPartAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

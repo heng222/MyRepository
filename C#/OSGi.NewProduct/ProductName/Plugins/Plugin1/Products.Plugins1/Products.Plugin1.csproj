@@ -132,13 +132,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Config\" />
-    <Folder Include="Events\" />
-    <Folder Include="Forms\" />
-    <Folder Include="Services\" />
-    <Folder Include="Specification\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Analyzer Include="..\..\..\..\Libs\Microsoft.ReportViewer.Common.dll" />
     <Analyzer Include="..\..\..\..\Libs\Microsoft.ReportViewer.ProcessingObjectModel.dll" />
