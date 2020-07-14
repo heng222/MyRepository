@@ -13,7 +13,7 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 
-namespace Products.Presentation
+namespace Products.Presentation.Specification
 {
     /// <summary>
     /// 一个可以提供顶级菜单的接口。

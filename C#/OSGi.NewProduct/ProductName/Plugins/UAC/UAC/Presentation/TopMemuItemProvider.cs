@@ -16,7 +16,7 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 
 using Products.Infrastructure.Specification;
-using Products.Presentation;
+using Products.Presentation.Specification;
 using Products.UAC.Domain;
 using Products.UAC.Presentation.Forms;
 using Products.UAC.Properties;

@@ -25,6 +25,7 @@ using Platform.Presentation.CommonControl;
 using Products.Domain.Utility;
 using Products.Infrastructure.Messages;
 using Products.Presentation;
+using Products.Presentation.Specification;
 using Products.Resource;
 using Products.Shell.Properties;
 
@@ -246,7 +247,7 @@ namespace Products.Shell.Presentation.MainForm
                 providers.ForEach(p=> 
                 {
                     _menuDebug.DropDownItems.AddRange(p.GetMenuItems().ToArray());
-                    if(index++ != count) _menuDebug.DropDownItems.Add(new ToolStripSeparator());
+                    if(++index != count) _menuDebug.DropDownItems.Add(new ToolStripSeparator());
                 });
             }
             catch (System.Exception ex)

@@ -13,6 +13,8 @@
 
 using System.Collections.Generic;
 
+using Acl.ServiceManagement;
+
 using Platform.Presentation;
 
 using Products.Domain;
@@ -29,6 +31,7 @@ namespace Products.Plugin1
     class Activator : FrameworkActivatorBase
     {
         #region "Field"
+        private Facade _facade;
         #endregion
 
         #region "Constructor"
@@ -47,6 +50,11 @@ namespace Products.Plugin1
 
         protected override void OnBundleStart(IDictionary<string, string> context)
         {
+            _facade = new Facade();
+
+            // 注册接口
+            _facade.ComponentsToRegister.ForEach(p => ServiceManager.Current.RegisterInstance(p));
+
             // 创建表示层
             Workbench.SendMessage(() =>
             {
@@ -58,14 +66,18 @@ namespace Products.Plugin1
                 var optionControl = new CtrlConfigPage();
                 Workbench.AddOption(optionControl);
             });
+
+            // 
+            _facade.Open();
         }
 
         protected override void OnBundleStop(IDictionary<string, string> context)
         {
-            //if (_commLifeCycle != null)
-            //{
-            //    _commLifeCycle.Close();
-            //}
+            if (_facade != null)
+            {
+                _facade.Dispose();
+                _facade = null;
+            }
         }
 
         protected override void OnFrameworkStarted()
