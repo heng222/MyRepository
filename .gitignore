@@ -1,0 +1,11 @@
+﻿################################################################################
+# 此 .gitignore 文件已由 Microsoft(R) Visual Studio 自动创建。
+################################################################################
+
+/C#/OSGi.NewProduct/ProductName/Exe/src/obj/Debug
+*.cache
+/C#/OSGi.NewProduct/ProductName/Foundation/Products.Domain/obj/Debug
+/C#/OSGi.NewProduct/ProductName/Foundation/Products.Domain.UnitTest/obj/Debug
+*.suo
+/C++/HelloWorld/.vs/HelloWorld/v16
+*.user
