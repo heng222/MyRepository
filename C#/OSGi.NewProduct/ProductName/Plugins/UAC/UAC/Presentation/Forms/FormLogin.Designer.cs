@@ -57,20 +57,20 @@
             // labIDName
             // 
             this.labIDName.AutoSize = true;
-            this.labIDName.Location = new System.Drawing.Point(10, 29);
+            this.labIDName.Location = new System.Drawing.Point(19, 30);
             this.labIDName.Name = "labIDName";
-            this.labIDName.Size = new System.Drawing.Size(53, 12);
+            this.labIDName.Size = new System.Drawing.Size(41, 12);
             this.labIDName.TabIndex = 10;
-            this.labIDName.Text = "用户名：";
+            this.labIDName.Text = "用户名";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(10, 73);
+            this.label2.Location = new System.Drawing.Point(19, 74);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 12);
+            this.label2.Size = new System.Drawing.Size(41, 12);
             this.label2.TabIndex = 11;
-            this.label2.Text = "密  码：";
+            this.label2.Text = "密  码";
             // 
             // txtUserName
             // 
