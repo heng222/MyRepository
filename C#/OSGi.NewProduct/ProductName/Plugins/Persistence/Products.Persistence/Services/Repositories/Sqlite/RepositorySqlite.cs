@@ -31,7 +31,7 @@ namespace Products.Persistence.Services
 
         private SqliteOperationScheduler _scheduler;
 
-        private TableSeqNoManager _seqNoManager = new TableSeqNoManager();
+        private readonly TableSeqNoManager _seqNoManager = new TableSeqNoManager();
 
         private System.Timers.Timer _timerFlush;
 
@@ -152,7 +152,7 @@ namespace Products.Persistence.Services
                         var sqlText = string.Format(@"delete from {0} where {1} < @expiredDate",
                             _dbContext.Dialect.Quote(p.Name), _dbContext.Dialect.Quote("TimeStamp"));
 
-                        _dbContext.ExecuteNonQuery(sqlText, new { expiredDate = expiredDate });
+                        _dbContext.ExecuteNonQuery(sqlText, new { expiredDate });
                     }
                     catch (System.Exception ex)
                     {

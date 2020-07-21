@@ -10,9 +10,9 @@ namespace Products.UAC
     /// </summary>
     public class UacFacade : Acl.CompositeDisposable
     {
-        private LocalLoginVerification _verification;
-        private UserManagementImpl _userManagement;
-        private TopMemuItemProvider _topMenuProvider;
+        private readonly LocalLoginVerification _verification;
+        private readonly UserManagementImpl _userManagement;
+        private readonly TopMemuItemProvider _topMenuProvider;
 
         /// <summary>
         /// 构造函数。
@@ -23,7 +23,7 @@ namespace Products.UAC
 
             _verification = new LocalLoginVerification(settings, _userManagement);
 
-            _topMenuProvider = new TopMemuItemProvider(_verification, _userManagement);
+            _topMenuProvider = new TopMemuItemProvider(_verification, _verification, _userManagement);
         }
 
         /// <summary>

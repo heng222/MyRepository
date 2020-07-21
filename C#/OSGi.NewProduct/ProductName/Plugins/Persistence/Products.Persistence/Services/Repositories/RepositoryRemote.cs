@@ -27,7 +27,7 @@ namespace Products.Persistence.Services.Repositories
         #region "Field"
         private DbConnectionMonitor _connectionMonitor;
         private ActiveObjectImpl _scheduler;
-        private TableSeqNoManager _seqNoManager = new TableSeqNoManager();
+        private readonly TableSeqNoManager _seqNoManager = new TableSeqNoManager();
         #endregion
 
         #region "Constructor"

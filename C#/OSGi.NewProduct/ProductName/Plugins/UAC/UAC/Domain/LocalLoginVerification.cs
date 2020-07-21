@@ -27,8 +27,8 @@ namespace Products.UAC.Domain
     class LocalLoginVerification : ILoginVerification, IUserAccessControl
     {
         #region "Field"
-        private IUserManagement _userMgr;
-        private UserInfo _currentUser = new UserInfo();
+        private readonly IUserManagement _userMgr;
+        private readonly UserInfo _currentUser = new UserInfo();
         #endregion
 
         #region "Constructor"
@@ -64,7 +64,7 @@ namespace Products.UAC.Domain
             // 
             var theUser = _userMgr.GetUser(userName);
             if (theUser == null) throw new Exception("指定的用户不存在。");
-
+            
             if (!HelperTool.BytesEquals(theUser.Password, pwdActual))
                 throw new Exception("密码不正确。");
 
@@ -72,12 +72,19 @@ namespace Products.UAC.Domain
             GlobalMessageBus.PublishUserChanging(new EventArgs());
 
             // 更新用户。
-            _currentUser.Id = (uint)theUser.Code;
+            _currentUser.Id = theUser.Code;
             _currentUser.Name = theUser.Name;
-            _currentUser.Privileges = theUser.Privileges.ToList();
+            if (theUser.Privileges != null)
+            {
+                _currentUser.Privileges = theUser.Privileges.ToList();
+            }
+            else
+            {
+                _currentUser.Privileges.Clear();
+            }
 
             // 发布用户切换事件。
-            GlobalMessageBus.PublishUserChanged(new EventArgs());
+            GlobalMessageBus.PublishUserChanged(new EventArgs());     
         }
 
         public void Logoff()

@@ -8,8 +8,8 @@ namespace Products.UAC.Presentation.Forms
 {
     partial class FormModifyPassword : Form
     {
-        private IUserManagement _userManager;
-        private string _oldUserName;
+        private readonly IUserManagement _userManager;
+        private readonly string _oldUserName;
 
         public FormModifyPassword(string oldUserName, IUserManagement userMgr)
         {
@@ -27,6 +27,8 @@ namespace Products.UAC.Presentation.Forms
             try
             {
                 _userManager.ModifyPassword(_oldUserName, txtOldPwd.Text, txtNewPwd.Text);
+
+                MessageBox.Show("修改成功。", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 this.Close();
                 this.DialogResult = DialogResult.OK;

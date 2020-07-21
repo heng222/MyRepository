@@ -15,6 +15,7 @@ using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
+using Products.Infrastructure.Messages;
 using Products.Infrastructure.Specification;
 using Products.Presentation.Specification;
 using Products.UAC.Domain;
@@ -23,37 +24,56 @@ using Products.UAC.Properties;
 
 namespace Products.UAC.Presentation
 {
-    class TopMemuItemProvider : ITopMenuItemProvider
+    class TopMemuItemProvider : Acl.CompositeDisposable, ITopMenuItemProvider
     {
         #region "Field"
         /// <summary>
         /// 控件顶级菜单列表
         /// </summary>
-        private List<ToolStripMenuItem> _topMenuItems = new List<ToolStripMenuItem>();
-        private IUserManagement _userManager;
+        private readonly List<ToolStripMenuItem> _topMenuItems = new List<ToolStripMenuItem>();
+        private readonly IUserManagement _userManager;
 
+        /// <summary>
+        /// 菜单项：注销。
+        /// </summary>
+        private ToolStripMenuItem _menuItemLogOff;
         #endregion
 
         #region "Constructor"
-        public TopMemuItemProvider(ILoginVerification loginVerify, IUserManagement userManagement)
+        public TopMemuItemProvider(ILoginVerification loginVerify, IUserAccessControl uac, IUserManagement userManagement)
         {
-            if (loginVerify == null) throw new ArgumentException("登录验证接口不能为空引用。");
-
+            this.LoginVerify = loginVerify ?? throw new ArgumentException("登录验证接口不能为空引用。");
+            this.UAC = uac;
             _userManager = userManagement;
-            this.LoginVerify = loginVerify;
 
             this.InitializeMenu();
+
+            this.AddDisposable(GlobalMessageBus.SubscribeUserChanged(OnUserChanged));
         }
         #endregion
 
         #region "Properties"
         public ILoginVerification LoginVerify { get; private set; }
+
+        public IUserAccessControl UAC { get; private set; }
         #endregion
 
         #region "Override methods"
         #endregion
 
         #region "Private methods"
+        private void OnUserChanged(object sender, EventArgs args)
+        {
+            try
+            {
+                _menuItemLogOff.Visible = this.UAC.CurrentUserCode != UserInfo.Guest;
+            }
+            catch (System.Exception ex)
+            {
+                LogUtility.Error(ex);
+            }
+        }
+
         /// <summary>
         /// 初始化菜单项
         /// </summary>
@@ -61,23 +81,27 @@ namespace Products.UAC.Presentation
         {
             //初始化菜单列表项
             var userMenuItem = new ToolStripMenuItem("用户(&U)");
+            this.AddDisposable(userMenuItem);
             _topMenuItems.Add(userMenuItem);
 
             var newMenuItem = new ToolStripMenuItem() { Text = "用户切换(&S)...", Image = Resources.UserSwitch };
-            //miUserChange.Tag = UserManagementCommands.SwitchUser;
-            newMenuItem.Click += OnUserSwitch;
+            this.AddDisposable(newMenuItem);
+            newMenuItem.Click += UserSwitch_Click;
             userMenuItem.DropDownItems.Add(newMenuItem);
 
             newMenuItem = new ToolStripMenuItem() { Text = "修改密码(&M)...", Image = Resources.ModifyPassword };
-            newMenuItem.Click += OnModifyPassword;
+            this.AddDisposable(newMenuItem);
+            newMenuItem.Click += ModifyPassword_Click;
             userMenuItem.DropDownItems.Add(newMenuItem);
 
-            newMenuItem = new ToolStripMenuItem() { Text = "注销(&X)", Image = Resources.Logout };
-            newMenuItem.Click += OnLogoff;
-            userMenuItem.DropDownItems.Add(newMenuItem);
+            _menuItemLogOff = new ToolStripMenuItem() { Text = "注销(&X)", Image = Resources.Logout };
+            this.AddDisposable(_menuItemLogOff);
+            _menuItemLogOff.Visible = this.UAC.CurrentUserCode != UserInfo.Guest;
+            _menuItemLogOff.Click += Logoff_Click;
+            userMenuItem.DropDownItems.Add(_menuItemLogOff);
         }
 
-        private void OnUserSwitch(object sender, EventArgs e)
+        private void UserSwitch_Click(object sender, EventArgs e)
         {
             try
             {
@@ -90,16 +114,12 @@ namespace Products.UAC.Presentation
             }
         }
 
-        private void OnModifyPassword(object sender, EventArgs e)
+        private void ModifyPassword_Click(object sender, EventArgs e)
         {
             try
             {
                 var frmLogin = new FormModifyPassword(GlobalServices.UAC.CurrentUserName, _userManager);
-
-                if (frmLogin.ShowDialog() == DialogResult.OK)
-                {
-                    MessageBox.Show("修改成功。", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
+                frmLogin.ShowDialog();
             }
             catch (System.Exception ex)
             {
@@ -107,7 +127,7 @@ namespace Products.UAC.Presentation
             }
         }
 
-        private void OnLogoff(object sender, EventArgs e)
+        private void Logoff_Click(object sender, EventArgs e)
         {
             try
             {
