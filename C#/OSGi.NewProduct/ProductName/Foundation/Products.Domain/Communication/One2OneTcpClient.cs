@@ -186,7 +186,10 @@ namespace Products.Domain.Communication
                 this.RefreshCommState(this.RemoteCode);
 
                 // 连接成功后，开始接收数据。
-                this.BeginReceive();
+                if (this.AllowReceive)
+                {
+                    this.BeginReceive();
+                }
             }
             catch (Exception ex)
             {

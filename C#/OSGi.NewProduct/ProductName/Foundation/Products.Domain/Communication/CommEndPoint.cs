@@ -58,6 +58,11 @@ namespace Products.Domain.Communication
         public virtual uint LocalCode { get; protected set; }
 
         /// <summary>
+        /// 是否允许接收数据？
+        /// </summary>
+        public virtual bool AllowReceive { get { return true; } }
+
+        /// <summary>
         /// 获取远程数据的有效期N（秒），当N秒没有收到远程数据时，通信中断。
         /// 小于等于0时表示不检查。
         /// </summary>

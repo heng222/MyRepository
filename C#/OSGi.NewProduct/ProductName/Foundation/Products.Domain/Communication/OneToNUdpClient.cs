@@ -135,23 +135,26 @@ namespace Products.Domain.Communication
         {
             try
             {
-                LocalClient = new UdpClient();
+                this.LocalClient = new UdpClient();
 
                 if (this.ReuseAddress)
                 {
-                    LocalClient.Client.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, 1);
+                    this.LocalClient.Client.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, 1);
                 }
 
-                LocalClient.Client.Bind(this.LocalEndPoint);
+                this.LocalClient.Client.Bind(this.LocalEndPoint);
                 this.LocalEndPoint.Port = ((IPEndPoint)this.LocalClient.Client.LocalEndPoint).Port;
 
                 // 【远程主机强迫关闭了一个现有的连接0x80004005】的解决方法。http://blog.csdn.net/u010851953/article/details/38258977
                 uint IOC_IN = 0x80000000, IOC_VENDOR = 0x18000000;
                 uint SIO_UDP_CONNRESET = IOC_IN | IOC_VENDOR | 12;
-                LocalClient.Client.IOControl((int)SIO_UDP_CONNRESET, new byte[] { Convert.ToByte(false) }, null);
+                this.LocalClient.Client.IOControl((int)SIO_UDP_CONNRESET, new byte[] { Convert.ToByte(false) }, null);
 
                 // 开始异步接收。
-                _receiveTask = this.ReceiveAsync();
+                if (this.AllowReceive)
+                {
+                    _receiveTask = this.ReceiveAsync();
+                }
             }
             catch (System.Exception ex)
             {

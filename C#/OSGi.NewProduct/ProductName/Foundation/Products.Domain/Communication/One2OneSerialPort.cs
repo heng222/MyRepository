@@ -183,7 +183,11 @@ namespace Products.Domain.Communication
             {
                 _serialPort = this.CreateSerialPort(_spSetting);
 
-                _serialPort.DataReceived += OnSerialPortDataReceived;
+                if (this.AllowReceive)
+                {
+                    _serialPort.DataReceived += OnSerialPortDataReceived;
+                }
+
                 _serialPort.Open();
             }
             catch (System.Exception ex)
