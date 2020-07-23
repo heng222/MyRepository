@@ -33,8 +33,8 @@ dotnet_style_qualification_for_method = true:silent
 dotnet_style_qualification_for_property = true:silent
 
 # 语言关键字与 bcl 类型首选项
-dotnet_style_predefined_type_for_locals_parameters_members = true:silent
-dotnet_style_predefined_type_for_member_access = true:silent
+dotnet_style_predefined_type_for_locals_parameters_members = false:silent
+dotnet_style_predefined_type_for_member_access = false:silent
 
 # 括号首选项
 dotnet_style_parentheses_in_arithmetic_binary_operators = always_for_clarity:silent
