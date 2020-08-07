@@ -84,48 +84,34 @@ namespace Products.Resource
         /// <summary>
         /// 获取应用程序图标
         /// </summary>
-        public static Icon ApplicationIcon
-        {
-            get { return Resources.Application; }
-        }
+        public static Icon ApplicationIcon { get; private set; } = Resources.Application;
+
         /// <summary>
         /// 获取应用程序图像
         /// </summary>
-        public static Image ApplicationImage
-        {
-            get { return Resources.AppImage; }
-        }
+        public static Image ApplicationImage { get; private set; } = Resources.AppImage;
+
         /// <summary>
         /// 获取公司LOGO图标
         /// </summary>
-        public static Icon CompanyLogoIcon
-        {
-            get { return Resources.IconCompany; }
-        }
+        public static Icon CompanyLogoIcon { get; private set; } = Resources.IconCompany;
         #endregion
 
         #region "图像"
         /// <summary>
         /// 获取背景图像
         /// </summary>
-        public static Bitmap BackgroundImage
-        {
-            get { return Resources.backcolor; }
-        }
+        public static Bitmap BackgroundImage { get; private set; } = Resources.backcolor;
+
         /// <summary>
         /// 获取公司LOGO图像
         /// </summary>
-        public static Bitmap CompanyLogoImage
-        {
-            get { return Resources.ImgCompany; }
-        }
+        public static Bitmap CompanyLogoImage { get; private set; } = Resources.ImgCompany;
+
         /// <summary>
         /// 获取闪屏前景图像
         /// </summary>
-        public static Bitmap SplashScreenBackgroundImage
-        {
-            get { return Resources.splashscreenBkg; }
-        }
+        public static Bitmap SplashScreenBackgroundImage { get; private set; } = Resources.splashscreenBkg;
         #endregion
 
 
