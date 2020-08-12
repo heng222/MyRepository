@@ -20,7 +20,7 @@ namespace Products.Domain.Communication
     /// <summary>
     /// 一对一UdpClient包装器。
     /// </summary>
-    public abstract class One2OneUdpClient : OneToNUdpClient
+    public abstract class One2OneUdpClient : One2NUdpClient
     {
         #region "Field"
 

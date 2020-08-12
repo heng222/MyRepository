@@ -25,7 +25,7 @@ namespace Products.Domain.Communication
     /// <summary>
     /// 1对N通信的UdpClient类。
     /// </summary>
-    public abstract class OneToNUdpClient : CommEndPoint
+    public abstract class One2NUdpClient : CommEndPoint
     {
         #region "Field"
         private Task _receiveTask;
@@ -35,7 +35,7 @@ namespace Products.Domain.Communication
         /// <summary>
         /// 构造一个 OneToNUdpClient 对象。
         /// </summary>
-        protected OneToNUdpClient()
+        protected One2NUdpClient()
         {
         }
 
@@ -45,7 +45,7 @@ namespace Products.Domain.Communication
         /// <param name="localType">本地节点类型。</param>
         /// <param name="localCode">本地节点编号。</param>
         /// <param name="localEndPoint">本地终结点。</param>
-        protected OneToNUdpClient(NodeType localType, uint localCode, IPEndPoint localEndPoint)
+        protected One2NUdpClient(NodeType localType, uint localCode, IPEndPoint localEndPoint)
             : base(localType, localCode)
         {
             this.LocalCode = localCode;

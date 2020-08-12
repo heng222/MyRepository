@@ -21,7 +21,7 @@ namespace Products.Domain.Communication
     /// <summary>
     /// 一对多UdpClient包装器。
     /// </summary>
-    public abstract class One2MultipleUdpClient : OneToNUdpClient
+    public abstract class One2MultipleUdpClient : One2NUdpClient
     {
         #region "Field"
         #endregion
