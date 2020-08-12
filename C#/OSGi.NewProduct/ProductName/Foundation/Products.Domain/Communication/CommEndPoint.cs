@@ -121,14 +121,12 @@ namespace Products.Domain.Communication
         {
             try
             {
-                if (!this.PublishDataIncoming) return;
-
-                if (isIncoming)
+                if (isIncoming && this.PublishDataIncoming)
                 {
                     var args = new DataIncomingEventArgs(data, this.LocalType, this.LocalCode, remoteType, remoteCode);
                     GlobalMessageBus.PublishDataIncoming(args, this);
                 }
-                else
+                else if (!isIncoming && this.PublishDataOutgoing)
                 {
                     var args = new DataOutgoingEventArgs(data, this.LocalType, this.LocalCode, remoteType, remoteCode);
                     GlobalMessageBus.PublishDataOutgoing(args, this);
