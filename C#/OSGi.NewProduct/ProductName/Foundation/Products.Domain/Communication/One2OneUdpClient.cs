@@ -11,6 +11,7 @@
 //
 //----------------------------------------------------------------*/
 
+using System.Collections.Generic;
 using System.Net;
 
 using Products.Infrastructure.Types;
@@ -23,7 +24,7 @@ namespace Products.Domain.Communication
     public abstract class One2OneUdpClient : One2NUdpClient
     {
         #region "Field"
-
+        private IEnumerable<IPEndPoint> _remoteEndPoints;
         #endregion
 
         #region "Constructor"
@@ -52,6 +53,8 @@ namespace Products.Domain.Communication
             this.RemoteType = remoteType;
             this.RemoteCode = remoteCode;
             this.RemoteEndPoint = remoteEndPoint;
+
+            _remoteEndPoints = new IPEndPoint[] { this.RemoteEndPoint };
         }
         #endregion
 
@@ -60,10 +63,12 @@ namespace Products.Domain.Communication
         /// 获取远程节点类型。
         /// </summary>
         public NodeType RemoteType { get; }
+
         /// <summary>
         /// 获取远程节点的编号。
         /// </summary>
         public uint RemoteCode { get; protected set; }
+
         /// <summary>
         /// 获取远程通信终结点。
         /// </summary>
@@ -74,62 +79,37 @@ namespace Products.Domain.Communication
         #region "Abstract/Virtual methods"
 
         /// <summary>
-        /// 一个模板方法，用于发送数据。
+        /// 一个模板方法，在派生类中重写时用于发送数据。
         /// </summary>
         /// <param name="data">将要发送的数据。</param>
         public virtual void Send(byte[] data)
         {
-            if (this.LocalClient == null || this.RemoteEndPoint == null) return;
+            if (this.RemoteEndPoint == null) return;
 
-            // DataTransfer 消息通知。
-            this.PublishDataTransferEvent(this.RemoteType, this.RemoteCode, false, data);
-
-            // CommLogCreated 消息通知。
-            this.PublishCommLogCreateEvent(this.RemoteType, this.RemoteCode, false, data);
-
-            // 发送
-            this.LocalClient.Send(data, data.Length, this.RemoteEndPoint);
+            base.Send(data, this.RemoteEndPoint);
         }
         #endregion
 
         #region "Override methods"
-        /// <summary>
-        /// 释放资源。
-        /// </summary>
-        /// <param name="disposing">是否释放托管资源？</param>
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-            }
-
-            base.Dispose(disposing);
-        }
-
-        /// <summary>
-        /// 在派生类中重写时，用于获取远程节点的编号。
-        /// </summary>
-        /// <param name="remoteEndPoint">远程节点使用的IP终结点。</param>
-        /// <returns>远程节点的编号。</returns>
+        ///<inheritdoc/>
         protected sealed override uint GetRemoteCode(IPEndPoint remoteEndPoint)
         {
             return this.RemoteCode;
         }
 
-        /// <summary>
-        /// 在派生类中重写时，用于获取远程节点的类型。
-        /// </summary>
-        /// <param name="remoteCode">远程节点编号。</param>
-        /// <returns>远程节点的编号。</returns>
+        ///<inheritdoc/>
         protected sealed override NodeType GetRemoteType(uint remoteCode)
         {
             return this.RemoteType;
         }
 
-        /// <summary>
-        /// 在派生类中重写时，用于处理远程终结点。
-        /// </summary>
-        /// <param name="remoteEndPoint">远程终结点。</param>
+        ///<inheritdoc/>
+        protected sealed override IEnumerable<IPEndPoint> GetRemoteEndPoints(uint remoteCode)
+        {
+            return _remoteEndPoints;
+        }
+
+        ///<inheritdoc/>
         protected sealed override void HandleRemoteEndPoint(IPEndPoint remoteEndPoint)
         {
             if (this.RemoteEndPoint == null)

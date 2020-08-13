@@ -76,7 +76,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Communication\CommEndPoint.cs" />
-    <Compile Include="Communication\One2MultipleUdpClient.cs" />
+    <Compile Include="Communication\M2nUdpClient.cs" />
     <Compile Include="Communication\One2OneSerialPort.cs" />
     <Compile Include="Communication\One2OneTcpClient.cs" />
     <Compile Include="Communication\One2OneUdpClient.cs" />

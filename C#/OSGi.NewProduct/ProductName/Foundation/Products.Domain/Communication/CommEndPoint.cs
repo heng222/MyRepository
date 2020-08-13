@@ -16,7 +16,7 @@ namespace Products.Domain.Communication
     public abstract class CommEndPoint : Acl.CompositeDisposable
     {
         #region "Filed"
-        private DataValidityChecker<uint> _commStateChecker = null;
+        private DataValidityChecker<string> _commStateChecker = null;
 
         #endregion
 
@@ -33,12 +33,10 @@ namespace Products.Domain.Communication
         /// 构造一个One2OneUdpClient对象。
         /// </summary>
         /// <param name="localType">本地节点类型。</param>
-        /// <param name="localCode">本地节点编号。</param>
-        protected CommEndPoint(NodeType localType, uint localCode)
+        protected CommEndPoint(NodeType localType)
             : this()
         {
             this.LocalType = localType;
-            this.LocalCode = localCode;
         }
         #endregion
 
@@ -52,10 +50,6 @@ namespace Products.Domain.Communication
         /// 获取本地节点类型。
         /// </summary>
         public virtual NodeType LocalType { get; protected set; }
-        /// <summary>
-        /// 获取本地节点的编号。
-        /// </summary>
-        public virtual uint LocalCode { get; protected set; }
 
         /// <summary>
         /// 是否允许接收数据？
@@ -105,30 +99,34 @@ namespace Products.Domain.Communication
         /// <summary>
         /// 刷新指定远程节点的通信状态。
         /// </summary>
+        /// <param name="localCode">本地节点编号。</param>
         /// <param name="remoteCode">远程节点编号。</param>
-        protected void RefreshCommState(uint remoteCode)
+        protected void RefreshCommState(uint localCode, uint remoteCode)
         {
             if (_commStateChecker != null)
             {
-                _commStateChecker.Refresh(remoteCode);
+                var key = string.Format($"{localCode},{remoteCode}");
+                _commStateChecker.Refresh(key);
             }
         }
 
         /// <summary>
         /// 在全局消息总线上发布数据传输事件。
         /// </summary>
-        protected void PublishDataTransferEvent(NodeType remoteType, uint remoteCode, bool isIncoming, byte[] data)
+        protected void PublishDataTransferEvent(NodeType localType, uint localCode,
+            NodeType remoteType, uint remoteCode, 
+            bool isIncoming, byte[] data)
         {
             try
             {
                 if (isIncoming && this.PublishDataIncoming)
                 {
-                    var args = new DataIncomingEventArgs(data, this.LocalType, this.LocalCode, remoteType, remoteCode);
+                    var args = new DataIncomingEventArgs(data, localType, localCode, remoteType, remoteCode);
                     GlobalMessageBus.PublishDataIncoming(args, this);
                 }
                 else if (!isIncoming && this.PublishDataOutgoing)
                 {
-                    var args = new DataOutgoingEventArgs(data, this.LocalType, this.LocalCode, remoteType, remoteCode);
+                    var args = new DataOutgoingEventArgs(data, localType, localCode, remoteType, remoteCode);
                     GlobalMessageBus.PublishDataOutgoing(args, this);
                 }
             }
@@ -140,13 +138,15 @@ namespace Products.Domain.Communication
         /// <summary>
         /// 在全局消息总线上发布通信日志产生事件。
         /// </summary>
-        protected void PublishCommLogCreateEvent(NodeType remoteType, uint remoteCode, bool isIncoming, byte[] data)
+        protected void PublishCommLogCreateEvent(NodeType localType, uint localCode, 
+            NodeType remoteType, 
+            uint remoteCode, bool isIncoming, byte[] data)
         {
             try
             {
                 if (!this.PublishCommLogCreated) return;
 
-                var args = new CommLogCreatedEventArgs(this.LocalType, this.LocalCode, remoteType, remoteCode, isIncoming, data);
+                var args = new CommLogCreatedEventArgs(localType, localCode, remoteType, remoteCode, isIncoming, data);
                 GlobalMessageBus.PublishCommLogCreated(args);
             }
             catch (Exception)
@@ -160,7 +160,7 @@ namespace Products.Domain.Communication
         {
             if (this.RemoteDataExpiredTime > 0 && _commStateChecker == null)
             {
-                _commStateChecker = new DataValidityChecker<uint>(this.RemoteDataExpiredTime);
+                _commStateChecker = new DataValidityChecker<string>(this.RemoteDataExpiredTime);
                 this.AddDisposable(_commStateChecker);
                 _commStateChecker.DataValidityChanged += CommStateChecker_DataValidityChanged;
 
@@ -168,15 +168,19 @@ namespace Products.Domain.Communication
             }
         }
 
-        private void CommStateChecker_DataValidityChanged(object sender, DataValidityChangedEventArgs<uint> e)
+        private void CommStateChecker_DataValidityChanged(object sender, DataValidityChangedEventArgs<string> e)
         {
             try
             {
                 if (this.PublishCommStateChanged)
                 {
-                    var remoteType = this.GetRemoteType(e.Data);
+                    var tmpData = e.Data.ToUInt32Array(10);
+                    var localCode = tmpData[0];
+                    var remoteCode = tmpData[1];
 
-                    var args = new CommStateChangedEventArgs(e.Avaliable, this.LocalType, this.LocalCode, remoteType, e.Data);
+                    var remoteType = this.GetRemoteType(remoteCode);
+
+                    var args = new CommStateChangedEventArgs(e.Avaliable, this.LocalType, localCode, remoteType, remoteCode);
                     GlobalMessageBus.PublishCommStateChanged(args);
 
                     if (this.CommStateChanged != null) this.CommStateChanged(this, args);

@@ -51,8 +51,9 @@ namespace Products.Domain.Communication
         protected One2OneTcpClient(NodeType localType, NodeType remoteType,
             uint localCode, uint remoteCode,
             IPEndPoint localEndPoint, IPEndPoint remoteEndPoint)
-            : base(localType, localCode)
+            : base(localType)
         {
+            this.LocalCode = localCode;
             this.RemoteType = remoteType;
             this.RemoteCode = remoteCode;
 
@@ -62,6 +63,10 @@ namespace Products.Domain.Communication
         #endregion
 
         #region "Properties"
+        /// <summary>
+        /// 获取本地节点的编号。
+        /// </summary>
+        public virtual uint LocalCode { get; protected set; }
 
         /// <summary>
         /// 获取 UdpClient 对象。
@@ -183,7 +188,7 @@ namespace Products.Domain.Communication
                 if (TcpClient != null) TcpClient.EndConnect(rc);
 
                 // 更新连接时间。
-                this.RefreshCommState(this.RemoteCode);
+                this.RefreshCommState(this.LocalCode, this.RemoteCode);
 
                 // 连接成功后，开始接收数据。
                 if (this.AllowReceive)
@@ -232,10 +237,10 @@ namespace Products.Domain.Communication
                         var data = _receiveBuffer.Take(count).ToArray();
 
                         // DataTransfer消息通知。
-                        this.PublishDataTransferEvent(this.RemoteType, this.RemoteCode, true, data);
+                        this.PublishDataTransferEvent(this.LocalType, this.LocalCode, this.RemoteType, this.RemoteCode, true, data);
 
                         // CommLogCreated 消息通知。
-                        this.PublishCommLogCreateEvent(this.RemoteType, this.RemoteCode, true, data);
+                        this.PublishCommLogCreateEvent(this.LocalType, this.LocalCode, this.RemoteType, this.RemoteCode, true, data);
                     }
 
                     // 验证数据是否有效。
@@ -245,7 +250,7 @@ namespace Products.Domain.Communication
                     this.HandleDataReceived(_receiveBuffer, count);
 
                     // 更新连接时间。
-                    this.RefreshCommState(this.RemoteCode);
+                    this.RefreshCommState(this.LocalCode, this.RemoteCode);
                 }
                 // 字节数为0表示服务器主动关闭连接。
                 else
@@ -289,10 +294,10 @@ namespace Products.Domain.Communication
         public void Send(byte[] buffer)
         {
             // DataTransfer消息通知。
-            this.PublishDataTransferEvent(this.RemoteType, this.RemoteCode, false, buffer);
+            this.PublishDataTransferEvent(this.LocalType, this.LocalCode, this.RemoteType, this.RemoteCode, false, buffer);
 
             // CommLogCreated 消息通知。
-            this.PublishCommLogCreateEvent(this.RemoteType, this.RemoteCode, false, buffer);
+            this.PublishCommLogCreateEvent(this.LocalType, this.LocalCode, this.RemoteType, this.RemoteCode, false, buffer);
 
             // 如果已经连接，则发送数据。
             if (this.TcpClient != null && this.TcpClient.Connected)

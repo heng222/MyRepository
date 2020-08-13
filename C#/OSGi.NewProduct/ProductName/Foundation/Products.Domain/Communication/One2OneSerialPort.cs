@@ -46,14 +46,19 @@ namespace Products.Domain.Communication
         /// <param name="localCode">本地节点编号。</param>
         protected One2OneSerialPort(SerialPortSettings spSetting,
             NodeType localType, uint localCode)
-            : base(localType, localCode)
+            : base(localType)
         {
+            this.LocalCode = localCode;
             _spSetting = spSetting;
         }
 
         #endregion
 
         #region "Properties"
+        /// <summary>
+        /// 获取本地节点的编号。
+        /// </summary>
+        public virtual uint LocalCode { get; protected set; }
 
         /// <summary>
         /// 获取远程节点类型。
@@ -152,10 +157,10 @@ namespace Products.Domain.Communication
                 _serialPort.Read(data, 0, count);
 
                 // DataTransfer 消息通知。
-                this.PublishDataTransferEvent(this.RemoteType, this.RemoteCode, true, data);
+                this.PublishDataTransferEvent(this.LocalType, this.LocalCode, this.RemoteType, this.RemoteCode, true, data);
 
                 // CommLogCreated 消息通知。
-                this.PublishCommLogCreateEvent(this.RemoteType, this.RemoteCode, true, data);
+                this.PublishCommLogCreateEvent(this.LocalType, this.LocalCode, this.RemoteType, this.RemoteCode, true, data);
 
                 // 验证数据是否有效。
                 if (!this.VerifyData(data)) return;
@@ -164,7 +169,7 @@ namespace Products.Domain.Communication
                 this.HandleDataReceived(data);
 
                 // 更新连接时间。
-                this.RefreshCommState(this.RemoteCode);
+                this.RefreshCommState(this.LocalCode, this.RemoteCode);
             }
             catch (System.Exception ex)
             {
@@ -206,10 +211,10 @@ namespace Products.Domain.Communication
             if (_serialPort == null || !_serialPort.IsOpen) return;
 
             // DataTransfer消息通知。
-            this.PublishDataTransferEvent(this.RemoteType, this.RemoteCode, false, data);
+            this.PublishDataTransferEvent(this.LocalType, this.LocalCode, this.RemoteType, this.RemoteCode, false, data);
 
             // CommLogCreated 消息通知。
-            this.PublishCommLogCreateEvent(this.RemoteType, this.RemoteCode, false, data);
+            this.PublishCommLogCreateEvent(this.LocalType, this.LocalCode, this.RemoteType, this.RemoteCode, false, data);
 
             // 写串口。
             _serialPort.Write(data, 0, data.Length);
