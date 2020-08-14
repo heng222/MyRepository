@@ -29,15 +29,15 @@ namespace Products.Domain.Communication
 
         #region "Constructor"
         /// <summary>
-        /// 构造一个One2OneUdpClient对象。
+        /// 构造一个<seealso cref="One2OneUdpClient"/>对象。
         /// </summary>
         protected One2OneUdpClient()
         {
             this.RemoteType = NodeType.None;
         }
-
+		
         /// <summary>
-        /// 构造一个One2OneUdpClient对象。
+        /// 构造一个<seealso cref="One2OneUdpClient"/>对象。
         /// </summary>
         /// <param name="localType">本地节点类型。</param>
         /// <param name="localCode">本地节点编号。</param>
@@ -62,7 +62,7 @@ namespace Products.Domain.Communication
         /// <summary>
         /// 获取远程节点类型。
         /// </summary>
-        public NodeType RemoteType { get; }
+        public NodeType RemoteType { get; protected set; }
 
         /// <summary>
         /// 获取远程节点的编号。

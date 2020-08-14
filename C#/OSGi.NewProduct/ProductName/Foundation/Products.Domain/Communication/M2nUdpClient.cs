@@ -18,6 +18,8 @@ using System.Net.NetworkInformation;
 using System.Net.Sockets;
 using System.Threading.Tasks;
 
+using Products.Infrastructure.Types;
+
 namespace Products.Domain.Communication
 {
     /// <summary>
@@ -32,10 +34,21 @@ namespace Products.Domain.Communication
 
         #region "Constructor"
         /// <summary>
-        /// 构造一个对象。
+        /// 构造一个<seealso cref="M2nUdpClient"/>对象。
         /// </summary>
         protected M2nUdpClient()
-        {         
+        {
+        }
+
+        /// <summary>
+        /// 构造一个<seealso cref="M2nUdpClient"/>对象。
+        /// </summary>
+        /// <param name="localType">本地节点类型。</param>
+        /// <param name="localEndPoint">本地终结点。</param>
+        protected M2nUdpClient(NodeType localType, IPEndPoint localEndPoint)
+            : base(localType)
+        {
+            this.LocalEndPoint = localEndPoint;
         }
         #endregion
 
@@ -272,6 +285,22 @@ namespace Products.Domain.Communication
 
             // 发送
             this.LocalClient.Send(data, data.Length, remoteEndPoint);
+        }
+
+        /// <summary>
+        /// 将指定的数据发送到远程节点。
+        /// </summary>
+        /// <param name="data">将要发送的数据。</param>
+        /// <param name="remoteCode">远程节点编号。</param>
+        public void Send(byte[] data, uint remoteCode)
+        {
+            var remoteEndPoints = this.GetRemoteEndPoints(remoteCode);
+
+            remoteEndPoints.ForEach(p =>
+            {
+                var localCode = this.GetLocalCode(remoteCode, p);
+                this.Send(data, localCode, p);
+            });
         }
         #endregion
 

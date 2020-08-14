@@ -28,22 +28,22 @@ namespace Products.Domain.Communication
 
         #region "Constructor"
         /// <summary>
-        /// 构造一个 OneToNUdpClient 对象。
+        /// 构造一个<seealso cref="One2NUdpClient"/>对象。
         /// </summary>
         protected One2NUdpClient()
         {
         }
 
         /// <summary>
-        /// 构造一个OneToNUdpClient对象。
+        /// 构造一个<seealso cref="One2NUdpClient"/>对象。
         /// </summary>
         /// <param name="localType">本地节点类型。</param>
         /// <param name="localCode">本地节点编号。</param>
         /// <param name="localEndPoint">本地终结点。</param>
         protected One2NUdpClient(NodeType localType, uint localCode, IPEndPoint localEndPoint)
+            : base(localType, localEndPoint)
         {
             this.LocalCode = localCode;
-            this.LocalEndPoint = localEndPoint;
         }
         #endregion
 
@@ -89,7 +89,7 @@ namespace Products.Domain.Communication
         /// </summary>
         /// <param name="data">将要发送的数据。</param>
         /// <param name="remoteCode">远程节点编号。</param>
-        public void Send(byte[] data, uint remoteCode)
+        new public void Send(byte[] data, uint remoteCode)
         {
             var remoteEndPoints = this.GetRemoteEndPoints(remoteCode);
 
