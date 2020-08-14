@@ -526,6 +526,8 @@ namespace Products.Presentation
             {
                 foreach (var data in e.Products)
                 {
+                    if (!this.IsHandleCreated) return;
+
                     var isIncomingData = data.Item1;
                     var remoteID = data.Item2.RemoteDeviceID;
 
