@@ -535,7 +535,7 @@ namespace Products.Presentation
                     if (!_remoteDeviceState.ContainsKey(remoteID))
                     {
                         _remoteDeviceState.Add(remoteID, false);
-                        this.Invoke(() => cbxRemoteIDs.Items.Add(remoteID));
+                        this.BeginInvoke(() => cbxRemoteIDs.Items.Add(remoteID));
                     }
 
                     // 如果允许显示，则更新界面。
@@ -544,17 +544,17 @@ namespace Products.Presentation
                     {
                         if (isIncomingData)
                         {
-                            this.Invoke(() => this.ShowIncomingStream(data.Item2 as IncomingData));
+                            this.BeginInvoke(() => this.ShowIncomingStream(data.Item2 as IncomingData));
                         }
                         else
                         {
-                            this.Invoke(() => this.ShowOutgoingStream(data.Item2 as OutgoingData));
+                            this.BeginInvoke(() => this.ShowOutgoingStream(data.Item2 as OutgoingData));
                         }
                     }
                 }
 
                 // 
-                this.Invoke(() => { if (cbxRemoteIDs.Items.Count > 0 && cbxRemoteIDs.SelectedIndex == -1) cbxRemoteIDs.SelectedIndex = 0; });
+                this.BeginInvoke(() => { if (cbxRemoteIDs.Items.Count > 0 && cbxRemoteIDs.SelectedIndex == -1) cbxRemoteIDs.SelectedIndex = 0; });
             }
             catch (System.Exception /*ex*/)
             {
