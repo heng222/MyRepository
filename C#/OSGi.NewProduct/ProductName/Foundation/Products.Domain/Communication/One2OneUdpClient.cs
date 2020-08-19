@@ -35,7 +35,26 @@ namespace Products.Domain.Communication
         {
             this.RemoteType = NodeType.None;
         }
-		
+
+        /// <summary>
+        /// 构造一个<seealso cref="One2OneUdpClient"/>对象。
+        /// </summary>
+        /// <param name="localType">本地节点类型。</param>
+        /// <param name="localCode">本地节点编号。</param>
+        /// <param name="remoteType">远程节点类型。</param>
+        /// <param name="remoteCode">远程节点编号。</param>
+        /// <param name="localEndPoint">本地终结点。</param>
+        protected One2OneUdpClient(NodeType localType, uint localCode,
+            NodeType remoteType, uint remoteCode,
+            IPEndPoint localEndPoint)
+            : base(localType, localCode, localEndPoint)
+        {
+            this.RemoteType = remoteType;
+            this.RemoteCode = remoteCode;
+
+            _remoteEndPoints = new IPEndPoint[] { this.RemoteEndPoint };
+        }
+
         /// <summary>
         /// 构造一个<seealso cref="One2OneUdpClient"/>对象。
         /// </summary>
@@ -48,10 +67,8 @@ namespace Products.Domain.Communication
         protected One2OneUdpClient(NodeType localType, uint localCode,
             NodeType remoteType, uint remoteCode,
             IPEndPoint localEndPoint, IPEndPoint remoteEndPoint)
-            : base(localType, localCode, localEndPoint)
+            : this(localType, localCode, remoteType, remoteCode, localEndPoint)
         {
-            this.RemoteType = remoteType;
-            this.RemoteCode = remoteCode;
             this.RemoteEndPoint = remoteEndPoint;
 
             _remoteEndPoints = new IPEndPoint[] { this.RemoteEndPoint };

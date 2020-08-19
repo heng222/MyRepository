@@ -60,7 +60,7 @@ namespace Products.Domain.Communication
 
         #region "Override methods"
         ///<inheritdoc/>
-        protected override uint GetLocalCode(uint remoteCode, IPEndPoint remoteEndPoint)
+        protected override uint GetLocalCode(uint remoteCode, IPEndPoint remoteEndPoint, byte[] dataReceived)
         {
             return this.LocalCode;
         }
@@ -89,11 +89,9 @@ namespace Products.Domain.Communication
         /// </summary>
         /// <param name="data">将要发送的数据。</param>
         /// <param name="remoteCode">远程节点编号。</param>
-        new public void Send(byte[] data, uint remoteCode)
+        public void Send(byte[] data, uint remoteCode)
         {
-            var remoteEndPoints = this.GetRemoteEndPoints(remoteCode);
-
-            remoteEndPoints.ForEach(p => this.Send(data, p));
+            base.Send(data, this.LocalCode, remoteCode);
         }
         #endregion
 

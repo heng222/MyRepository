@@ -83,8 +83,9 @@ namespace Products.Domain.Communication
         /// </summary>
         /// <param name="remoteCode">远程节点编号。</param>
         /// <param name="remoteEndPoint">远程节点使用的IP终结点。</param>
+        /// <param name="dataReceived">收到的数据。</param>
         /// <returns>本地节点编号。</returns>
-        protected abstract uint GetLocalCode(uint remoteCode, IPEndPoint remoteEndPoint);
+        protected abstract uint GetLocalCode(uint remoteCode, IPEndPoint remoteEndPoint, byte[] dataReceived);
 
         /// <summary>
         /// 在派生类中重写时，用于获取远程节点的编号。
@@ -196,25 +197,28 @@ namespace Products.Domain.Communication
 #pragma warning disable CA2007 // Consider calling ConfigureAwait on the awaited task
                     var recvResult = await this.LocalClient.ReceiveAsync();
 #pragma warning restore CA2007 // Consider calling ConfigureAwait on the awaited task
+
                     var remoteEP = recvResult.RemoteEndPoint;
+                    var data = recvResult.Buffer;
+
                     var remoteCode = this.GetRemoteCode(remoteEP);
                     var remoteType = this.GetRemoteType(remoteCode);
-                    var localCode = this.GetLocalCode(remoteCode, remoteEP);
+                    var localCode = this.GetLocalCode(remoteCode, remoteEP, data);
 
                     // 处理远程终结点。
                     this.HandleRemoteEndPoint(remoteEP);
 
                     // DataTransfer 消息通知。                
-                    this.PublishDataTransferEvent(this.LocalType, localCode, remoteType, remoteCode, true, recvResult.Buffer);
+                    this.PublishDataTransferEvent(this.LocalType, localCode, remoteType, remoteCode, true, data);
 
                     // CommLogCreated 消息通知。
-                    this.PublishCommLogCreateEvent(this.LocalType, localCode, remoteType, remoteCode, true, recvResult.Buffer);
+                    this.PublishCommLogCreateEvent(this.LocalType, localCode, remoteType, remoteCode, true, data);
 
                     // 数据是否有效？
-                    if (!this.VerifyData(recvResult.Buffer, remoteEP)) continue;
+                    if (!this.VerifyData(data, remoteEP)) continue;
 
                     // 在派生类中处理数据。
-                    this.HandleDataReceived(recvResult.Buffer, remoteEP);
+                    this.HandleDataReceived(data, remoteEP);
 
                     // 更新连接时间。
                     this.RefreshCommState(localCode, remoteCode);
@@ -291,14 +295,14 @@ namespace Products.Domain.Communication
         /// 将指定的数据发送到远程节点。
         /// </summary>
         /// <param name="data">将要发送的数据。</param>
+        /// <param name="localCode">本地节点编号。</param>
         /// <param name="remoteCode">远程节点编号。</param>
-        public void Send(byte[] data, uint remoteCode)
+        public void Send(byte[] data, uint localCode, uint remoteCode)
         {
             var remoteEndPoints = this.GetRemoteEndPoints(remoteCode);
 
             remoteEndPoints.ForEach(p =>
             {
-                var localCode = this.GetLocalCode(remoteCode, p);
                 this.Send(data, localCode, p);
             });
         }
