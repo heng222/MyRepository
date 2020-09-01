@@ -33,6 +33,8 @@ namespace WindowsApplication
         /// <param name="fileName">文件路径及文件名称。</param>
         public static void PrintScreenToFile(Control screen, string fileName)
         {
+            if (screen == null) throw new ArgumentNullException(nameof(screen));
+
             //Graphics gcScreen = null, gcBitmap = null;
             //Bitmap bitmap = null;
 

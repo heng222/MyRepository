@@ -1,0 +1,19 @@
+﻿[*.cs]
+
+# CA1031: 不捕获常规异常类型
+dotnet_diagnostic.CA1031.severity = none
+
+# CA2008: 不要在未传递 TaskScheduler 的情况下创建任务
+dotnet_diagnostic.CA2008.severity = none
+
+# CA1305: 指定 IFormatProvider
+dotnet_diagnostic.CA1305.severity = none
+
+# CA1303: 请不要将文本作为本地化参数传递
+dotnet_diagnostic.CA1303.severity = none
+
+# CA2000: 丢失范围之前释放对象
+dotnet_diagnostic.CA2000.severity = none
+
+# CA1060: 将 pinvoke 移到本机方法类
+dotnet_diagnostic.CA1060.severity = none
