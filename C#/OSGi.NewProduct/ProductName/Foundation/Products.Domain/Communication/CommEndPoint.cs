@@ -158,7 +158,7 @@ namespace Products.Domain.Communication
         #region "Private methods"
         private void StartCommStateChecker()
         {
-            if (this.RemoteDataExpiredTime > 0 && _commStateChecker == null)
+            if (this.PublishCommStateChanged && this.RemoteDataExpiredTime > 0 && _commStateChecker == null)
             {
                 _commStateChecker = new DataValidityChecker<string>(this.RemoteDataExpiredTime);
                 this.AddDisposable(_commStateChecker);
