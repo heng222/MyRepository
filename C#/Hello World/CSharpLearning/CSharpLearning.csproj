@@ -55,6 +55,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AsynProgramMode\APM\DelegateTest.cs" />
+    <Compile Include="AsynProgramMode\APM\IAsynResultTest.cs" />
+    <Compile Include="AsynProgramMode\TAP\TaskCompletionSourceTest.cs" />
     <Compile Include="Collections\BitArrayTest.cs" />
     <Compile Include="Collections\Concurrent\BlockingCollectionTest.cs" />
     <Compile Include="Collections\Concurrent\ConcurrentDictionaryTest.cs" />
@@ -65,7 +68,6 @@
     <Compile Include="Systems\ArrayTest.cs" />
     <Compile Include="Systems\EqualsOverrideTest.cs" />
     <Compile Include="Threading\AsynAwaitTest.cs" />
-    <Compile Include="异步编程模式\APM\DelegateTest.cs" />
     <Compile Include="Systems\DynamicObjectTest.cs" />
     <Compile Include="Systems\EnumerableTest.cs" />
     <Compile Include="Systems\IAsyncResultTest.cs" />
@@ -85,19 +87,17 @@
     <Compile Include="Threading\MonitorTest.cs" />
     <Compile Include="Threading\ParallelTest.cs" />
     <Compile Include="Threading\ReaderWriterLockSlimTest.cs" />
-    <Compile Include="异步编程模式\APM\IAsynResultTest.cs" />
-    <Compile Include="异步编程模式\TAP\TaskCompletionSourceTest.cs" />
     <Compile Include="Threading\TaskTest.cs" />
     <Compile Include="Threading\ThreadPoolTest.cs" />
     <Compile Include="Threading\ThreadTest.cs" />
     <Compile Include="WMI\WmiWrapper.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="AsynProgramMode\EAP\" />
     <Folder Include="Data\" />
     <Folder Include="Format\" />
     <Folder Include="NewFolder2\" />
     <Folder Include="Reflection\" />
-    <Folder Include="异步编程模式\EAP\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="MessagePack">

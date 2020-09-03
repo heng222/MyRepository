@@ -1,8 +1,9 @@
-﻿using System;
+﻿using NUnit.Framework;
+
+using System;
 using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
-using NUnit.Framework;
 
 namespace CSharpLearning.Threading
 {
@@ -18,11 +19,11 @@ namespace CSharpLearning.Threading
 
             // Start a background task that will complete tcs1.Task
             var task2 = Task.Factory.StartNew(() =>
-             {
-                  Thread.Sleep(2000);
-                  tcs1.SetResult(15);
-                  Console.WriteLine("Task2, ThreadID = " + Thread.CurrentThread.ManagedThreadId);
-             });
+            {
+                Thread.Sleep(2000);
+                tcs1.SetResult(15);
+                Console.WriteLine("Task2, ThreadID = " + Thread.CurrentThread.ManagedThreadId);
+            });
 
             // The attempt to get the result of t1 BLOCKS the current thread until the completion source gets signaled.
             // It should be a wait of ~2000 ms.
@@ -41,11 +42,11 @@ namespace CSharpLearning.Threading
 
             // Start a background Task that will complete tcs2.Task with an exception
             Task.Factory.StartNew(() =>
-             {
-                  Thread.Sleep(1000);
-                  tcs2.SetException(new Exception[] { new ArgumentException(), new InvalidOperationException() });
-                  Console.WriteLine("第二个Task.Thread ID = " + Thread.CurrentThread.ManagedThreadId);
-             });
+            {
+                Thread.Sleep(1000);
+                tcs2.SetException(new InvalidOperationException("SIMULATED EXCEPTION"));
+                Console.WriteLine("第二个Task.Thread ID = " + Thread.CurrentThread.ManagedThreadId);
+            });
 
             // The attempt to get the result of t2 blocks the current thread until the completion source gets signaled with either a result or an exception.
             // In either case it should be a wait of ~1000 ms.
@@ -64,7 +65,6 @@ namespace CSharpLearning.Threading
                 {
                     Console.WriteLine("\n-------------------------------------------------\n{0}", e.InnerExceptions[j].ToString());
                 }
-
             }
 
             Console.WriteLine("主2:" + Thread.CurrentThread.ManagedThreadId);
