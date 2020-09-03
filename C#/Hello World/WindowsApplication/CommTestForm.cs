@@ -107,13 +107,34 @@ namespace WindowsApplication
                     Console.WriteLine(ex);
                 }
             });
-        }        
+        }
+
+
+        private async void btnAsynAwait_Click(object sender, EventArgs e)
+        {
+            var result = await TimeConsumingMethod();
+
+            // await ：当前界面线程依然位于就绪队列中。不像调用Wait函数那样进入等待队列。
+
+            var msg = result + " + MyReceiveAsync Thread ID is :" + Thread.CurrentThread.ManagedThreadId;
+            MessageBox.Show(msg);
+        }
+
+        private static Task<string> TimeConsumingMethod()
+        {
+            var task = Task.Run(() => {
+
+                Thread.Sleep(10000);
+
+                return "Hello I am TimeConsumingMethod.";
+            });
+
+            return task;
+        }
 
         /// <summary>
         /// 退出
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void btnExit_Click(object sender, EventArgs e)
         {
             try
@@ -130,8 +151,6 @@ namespace WindowsApplication
         /// <summary>
         /// 双击托盘图标时
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void appNotifyIcon_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             try
@@ -148,8 +167,6 @@ namespace WindowsApplication
         /// <summary>
         /// 当窗体大小发生变化时
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void CommTestForm_SizeChanged(object sender, EventArgs e)
         {
             try

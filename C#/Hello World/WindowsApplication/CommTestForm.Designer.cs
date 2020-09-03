@@ -56,6 +56,7 @@
             this.src3ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.destToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dest1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnAsynAwait = new System.Windows.Forms.Button();
             this.notifyIconContextMenuStrip.SuspendLayout();
             this.toolStripContainer1.BottomToolStripPanel.SuspendLayout();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
@@ -185,7 +186,7 @@
             // toolStripStatusLabel2
             // 
             this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-            this.toolStripStatusLabel2.Size = new System.Drawing.Size(315, 21);
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(346, 21);
             this.toolStripStatusLabel2.Spring = true;
             this.toolStripStatusLabel2.Text = "toolStripStatusLabel2";
             this.toolStripStatusLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -202,6 +203,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.btnAsynAwait);
             this.tabPage1.Controls.Add(this.button1);
             this.tabPage1.Controls.Add(this.btnExit);
             this.tabPage1.Controls.Add(this.HelpShowPopup);
@@ -299,6 +301,16 @@
             this.dest1ToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
             this.dest1ToolStripMenuItem.Text = "dest1";
             // 
+            // btnAsynAwait
+            // 
+            this.btnAsynAwait.Location = new System.Drawing.Point(8, 108);
+            this.btnAsynAwait.Name = "btnAsynAwait";
+            this.btnAsynAwait.Size = new System.Drawing.Size(103, 23);
+            this.btnAsynAwait.TabIndex = 3;
+            this.btnAsynAwait.Text = "Async/Await";
+            this.btnAsynAwait.UseVisualStyleBackColor = true;
+            this.btnAsynAwait.Click += new System.EventHandler(this.btnAsynAwait_Click);
+            // 
             // CommTestForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -360,6 +372,6 @@
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Button HelpShowPopup;
         private System.Windows.Forms.Button button1;
-
+        private System.Windows.Forms.Button btnAsynAwait;
     }
 }
