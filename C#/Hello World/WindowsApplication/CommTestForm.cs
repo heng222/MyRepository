@@ -45,6 +45,7 @@ namespace WindowsApplication
         {
             try
             {
+                Console.WriteLine("UI Thread ID = " + Thread.CurrentThread.ManagedThreadId);
                 Help.ShowPopup(this, "这里是帮助信息", new Point(100, 100));
             }
             catch (Exception ex)
@@ -109,28 +110,30 @@ namespace WindowsApplication
             });
         }
 
-
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Reliability", "CA2007:考虑对等待的任务调用 ConfigureAwait", Justification = "<挂起>")]
         private async void btnAsynAwait_Click(object sender, EventArgs e)
         {
-            var result = await TimeConsumingMethod();
+             await AsyncAwaitFunction();
 
             // await ：当前界面线程依然位于就绪队列中。不像调用Wait函数那样进入等待队列。
+            // 使用 await 调用 AsyncAwaitFunction，类似使用 Task(AsyncAwaitFunction).ContinueWait( AsyncAwaitFunction 之后的代码）。
 
-            var msg = result + " + MyReceiveAsync Thread ID is :" + Thread.CurrentThread.ManagedThreadId;
-            MessageBox.Show(msg);
+            btnAsynAwait.Text = "Asyn/Await";
+            MessageBox.Show("执行完成！");
         }
 
-        private static Task<string> TimeConsumingMethod()
+        private async Task AsyncAwaitFunction()
         {
-            var task = Task.Run(() => {
-
-                Thread.Sleep(10000);
-
-                return "Hello I am TimeConsumingMethod.";
+            await Task.Run(() => 
+            {
+                for(int i=0; i<100;i++)
+                {
+                    this.BeginInvoke(new Action(()=>btnAsynAwait.Text = string.Format("{0}%", i)));
+                    Thread.Sleep(100);
+                }
             });
-
-            return task;
         }
+
 
         /// <summary>
         /// 退出
