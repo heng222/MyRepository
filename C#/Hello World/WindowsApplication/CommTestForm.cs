@@ -18,6 +18,9 @@ namespace WindowsApplication
             InitalizeNotifyIcon();
 
             CreateCustomTabpages();
+
+            this.btnAsynAwait.Click += this.btnAsynAwait_Click2;
+            this.btnAsynAwait.Click += this.btnAsynAwait_Click;
         }
 
         #region "private methods"
@@ -110,28 +113,62 @@ namespace WindowsApplication
             });
         }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Reliability", "CA2007:考虑对等待的任务调用 ConfigureAwait", Justification = "<挂起>")]
         private async void btnAsynAwait_Click(object sender, EventArgs e)
         {
-             await AsyncAwaitFunction();
+            try
+            {
+                await ShowProgressOnButton().ConfigureAwait(true);
 
-            // await ：当前界面线程依然位于就绪队列中。不像调用Wait函数那样进入等待队列。
-            // 使用 await 调用 AsyncAwaitFunction，类似使用 Task(AsyncAwaitFunction).ContinueWait( AsyncAwaitFunction 之后的代码）。
+                // await ：当前界面线程依然位于就绪队列中。不像调用Wait函数那样进入等待队列。
+                // 使用 await 调用 AsyncAwaitFunction，类似使用 Task(AsyncAwaitFunction).ContinueWait( AsyncAwaitFunction 之后的代码）。
 
-            btnAsynAwait.Text = "Asyn/Await";
-            MessageBox.Show("执行完成！");
+                btnAsynAwait.Text = "Asyn/Await";
+                MessageBox.Show("ShowProgressOnButton 执行完成！");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
-        private async Task AsyncAwaitFunction()
+        private async Task ShowProgressOnButton()
         {
-            await Task.Run(() => 
+            await Task.Run(() =>
             {
-                for(int i=0; i<100;i++)
+                for (int i = 0; i < 100; i++)
                 {
-                    this.BeginInvoke(new Action(()=>btnAsynAwait.Text = string.Format("{0}%", i)));
+                    this.BeginInvoke(new Action(() => btnAsynAwait.Text = string.Format("{0}%", i)));
+                    Thread.Sleep(100);
+
+                    //if (i == 50) throw new Exception("此异常可以由UI线程捕获");
+                }
+            }).ConfigureAwait(false);
+        }
+
+        private async void btnAsynAwait_Click2(object sender, EventArgs e)
+        {
+            try
+            {
+                await ShowProgressOnForm().ConfigureAwait(true);
+
+                this.Text = "CommTestForm";
+                MessageBox.Show("ShowProgressOnForm 执行完成！");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private async Task ShowProgressOnForm()
+        {
+            await Task.Run(() =>
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    this.BeginInvoke(new Action(() => this.Text = string.Format("{0}%", i)));
                     Thread.Sleep(100);
                 }
-            });
+            }).ConfigureAwait(true);
         }
 
 

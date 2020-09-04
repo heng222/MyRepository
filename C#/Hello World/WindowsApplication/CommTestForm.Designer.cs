@@ -46,6 +46,7 @@
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.btnAsynAwait = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.HelpShowPopup = new System.Windows.Forms.Button();
@@ -56,7 +57,6 @@
             this.src3ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.destToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dest1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnAsynAwait = new System.Windows.Forms.Button();
             this.notifyIconContextMenuStrip.SuspendLayout();
             this.toolStripContainer1.BottomToolStripPanel.SuspendLayout();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
@@ -215,6 +215,15 @@
             this.tabPage1.Text = "First";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // btnAsynAwait
+            // 
+            this.btnAsynAwait.Location = new System.Drawing.Point(8, 108);
+            this.btnAsynAwait.Name = "btnAsynAwait";
+            this.btnAsynAwait.Size = new System.Drawing.Size(103, 23);
+            this.btnAsynAwait.TabIndex = 3;
+            this.btnAsynAwait.Text = "Async/Await";
+            this.btnAsynAwait.UseVisualStyleBackColor = true;
+            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(8, 58);
@@ -300,16 +309,6 @@
             this.dest1ToolStripMenuItem.Name = "dest1ToolStripMenuItem";
             this.dest1ToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
             this.dest1ToolStripMenuItem.Text = "dest1";
-            // 
-            // btnAsynAwait
-            // 
-            this.btnAsynAwait.Location = new System.Drawing.Point(8, 108);
-            this.btnAsynAwait.Name = "btnAsynAwait";
-            this.btnAsynAwait.Size = new System.Drawing.Size(103, 23);
-            this.btnAsynAwait.TabIndex = 3;
-            this.btnAsynAwait.Text = "Async/Await";
-            this.btnAsynAwait.UseVisualStyleBackColor = true;
-            this.btnAsynAwait.Click += new System.EventHandler(this.btnAsynAwait_Click);
             // 
             // CommTestForm
             // 
