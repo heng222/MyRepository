@@ -118,6 +118,8 @@ namespace WindowsApplication
             try
             {
                 await ShowProgressOnButtonAsync().ConfigureAwait(true);
+                //var aaa = ShowProgressOnButtonAsync();
+                //var bbb = aaa.Result;
 
                 // await ：当前界面线程依然位于就绪队列中。不像调用Wait函数那样进入等待队列。
                 // 使用 await 调用 AsyncAwaitFunction，类似使用 Task(AsyncAwaitFunction).ContinueWait( AsyncAwaitFunction 之后的代码）。
@@ -131,7 +133,7 @@ namespace WindowsApplication
             }
         }
 
-        private async Task ShowProgressOnButtonAsync()
+        private async Task<int> ShowProgressOnButtonAsync()
         {
             await Task.Run(() =>
             {
@@ -143,6 +145,8 @@ namespace WindowsApplication
                     //if (i == 50) throw new Exception("此异常可以由UI线程捕获");
                 }
             }).ConfigureAwait(false);
+
+            return 100;
         }
 
         private async void btnAsynAwait_Click2(object sender, EventArgs e)

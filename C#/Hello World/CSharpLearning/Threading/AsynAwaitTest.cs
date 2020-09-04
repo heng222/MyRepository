@@ -14,7 +14,7 @@ namespace CSharpLearning.Threading
     // await只能出现在已经用async关键字修饰的异步方法中。
     // await 修饰后的对象返回值为 TResult，不再是Task<TResult>。
     // 方法内部必须含有await修饰的方法，如果方法内部没有await关键字修饰的表达式，则调用者用 await 修饰此方法也无法异步等待此方法。
-    // await修饰的只能是Task或者Task<TResult>类型，不能是 void 返回类型。即：方法的返回类型必须为：void、Task 或 Task<TResult>。（返回void时，无法使用await等待）
+    // await修饰的只能是Task或者Task<TResult>类型，不能 void 类型。即：方法的返回类型必须为：void、Task 或 Task<TResult>。（返回void时，无法使用await等待）
 
     // A 使用 await 调用 B，类似A 使用 Task.ContinueWait( B 之后的代码）。
     // await/async 语法糖让函数感觉像是同步执行的，但不一样的是当前线程并没有阻塞。
@@ -27,16 +27,49 @@ namespace CSharpLearning.Threading
         public void Test1()
         {
             Console.WriteLine($"Test1 Thread ID is {Thread.CurrentThread.ManagedThreadId}_Before");
-            var task = MyReceiveAsync(2); // 此方法异步调用。
+            var task = AsyncMethod();
             Console.WriteLine($"Test1 Thread ID is {Thread.CurrentThread.ManagedThreadId}_After");
             task.Wait();
         }
+
+        [Test]
+        public async void Test1_1()
+        {
+            Console.WriteLine($"Test1 Thread ID is {Thread.CurrentThread.ManagedThreadId}_Before");
+            await  AsyncMethod(); 
+            Console.WriteLine($"Test1 Thread ID is {Thread.CurrentThread.ManagedThreadId}_After");
+        }
+
+        private async Task AsyncMethod()
+        {
+            // Test1线程 执行
+            var rc = await TimeConsumingMethod();
+
+            // Test1： TimeConsumingMethod线程 执行。
+            // Test1_1：Test1线程执行。
+            var result = rc + " + AsyncMethod. My Thread ID is :" + Thread.CurrentThread.ManagedThreadId;
+            Console.WriteLine(result);
+        }
+
+        private Task<string> TimeConsumingMethod()
+        {            
+            var task = Task.Run(() => {
+                Console.WriteLine("Helo I am TimeConsumingMethod. My Thread ID is :" + Thread.CurrentThread.ManagedThreadId);
+                Thread.Sleep(3000);
+                Console.WriteLine("Helo I am TimeConsumingMethod after Sleep(5000). My Thread ID is :" + Thread.CurrentThread.ManagedThreadId);
+                return "Hello I am TimeConsumingMethod";
+            });
+
+            return task;
+        }
+
+
 
         [Test(Description ="模拟按钮单击事件")]
         public async void Test2()
         {
             Console.WriteLine($"Test1 Thread ID is {Thread.CurrentThread.ManagedThreadId}_Before");
-            await MyReceiveAsync(2); // 此方法同步调用。
+            await MyReceiveAsync(2);
             Console.WriteLine($"Test1 Thread ID is {Thread.CurrentThread.ManagedThreadId}_After");
         }
 
@@ -46,10 +79,7 @@ namespace CSharpLearning.Threading
             {
                 await Task.Factory.StartNew(() =>
                 {
-                    var result = UdpClient_ReceiveAsync() + " + MyReceiveAsync Thread ID is :" + Thread.CurrentThread.ManagedThreadId;
-                    Console.WriteLine(result);
-
-                    result = TimeConsumingMethod() + " + MyReceiveAsync Thread ID is :" + Thread.CurrentThread.ManagedThreadId;
+                    var result = TimeConsumingMethod() + " + MyReceiveAsync Thread ID is :" + Thread.CurrentThread.ManagedThreadId;
                     Console.WriteLine(result);
                 });
             }
@@ -65,7 +95,6 @@ namespace CSharpLearning.Threading
             }
         }
 
-        // 这个函数就是一个耗时函数，可能是IO操作，也可能是cpu密集型工作。
         private async Task<string> UdpClient_ReceiveAsync()
         {
             Console.WriteLine("UdpClient_ReceiveAsyncThread ID is :" + Thread.CurrentThread.ManagedThreadId);
@@ -74,17 +103,5 @@ namespace CSharpLearning.Threading
             return "DataReceived";
         }
 
-        //这个函数就是一个耗时函数，可能是IO操作，也可能是cpu密集型工作。
-        private Task<string> TimeConsumingMethod()
-        {
-            var task = Task.Run(() => {
-                Console.WriteLine("Helo I am TimeConsumingMethod. My Thread ID is :" + Thread.CurrentThread.ManagedThreadId);
-                Thread.Sleep(5000);
-                Console.WriteLine("Helo I am TimeConsumingMethod after Sleep(5000). My Thread ID is :" + Thread.CurrentThread.ManagedThreadId);
-                return "Hello I am TimeConsumingMethod";
-            });
-
-            return task;
-        }
     }
 }
