@@ -11,14 +11,14 @@ namespace CSharpLearning.Threading
 {
     // 参考：https://www.cnblogs.com/zhaoshujie/p/11192036.html
 
-    // A 使用 await 调用 B，类似A 使用 Task.ContinueWait( B 之后的代码）。
-
-    // 方法的返回类型必须为：void或Task或Task<TResult>。（返回void时，无法使用await等待）
-    // 方法内部必须含有await修饰的方法，如果方法内部没有await关键字修饰的表达式，则调用者用 await 修饰此方法也无法异步等待此方法。
-    
-    // 被await修饰的只能是Task或者Task<TResule>类型，不能是 void 返回类型。
     // await只能出现在已经用async关键字修饰的异步方法中。
     // await 修饰后的对象返回值为 TResult，不再是Task<TResult>。
+    // 方法内部必须含有await修饰的方法，如果方法内部没有await关键字修饰的表达式，则调用者用 await 修饰此方法也无法异步等待此方法。
+    // await修饰的只能是Task或者Task<TResult>类型，不能是 void 返回类型。即：方法的返回类型必须为：void、Task 或 Task<TResult>。（返回void时，无法使用await等待）
+
+    // A 使用 await 调用 B，类似A 使用 Task.ContinueWait( B 之后的代码）。
+    // await/async 语法糖让函数感觉像是同步执行的，但不一样的是当前线程并没有阻塞。
+    // async标记的函数如果抛出异常，调用者是可以捕获的。
 
     [TestFixture]
     class AsynAwaitTest

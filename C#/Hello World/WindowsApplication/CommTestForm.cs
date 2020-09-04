@@ -117,7 +117,7 @@ namespace WindowsApplication
         {
             try
             {
-                await ShowProgressOnButton().ConfigureAwait(true);
+                await ShowProgressOnButtonAsync().ConfigureAwait(true);
 
                 // await ：当前界面线程依然位于就绪队列中。不像调用Wait函数那样进入等待队列。
                 // 使用 await 调用 AsyncAwaitFunction，类似使用 Task(AsyncAwaitFunction).ContinueWait( AsyncAwaitFunction 之后的代码）。
@@ -131,7 +131,7 @@ namespace WindowsApplication
             }
         }
 
-        private async Task ShowProgressOnButton()
+        private async Task ShowProgressOnButtonAsync()
         {
             await Task.Run(() =>
             {
@@ -149,7 +149,7 @@ namespace WindowsApplication
         {
             try
             {
-                await ShowProgressOnForm().ConfigureAwait(true);
+                await ShowProgressOnFormAsync().ConfigureAwait(true);
 
                 this.Text = "CommTestForm";
                 MessageBox.Show("ShowProgressOnForm 执行完成！");
@@ -159,7 +159,7 @@ namespace WindowsApplication
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        private async Task ShowProgressOnForm()
+        private async Task ShowProgressOnFormAsync()
         {
             await Task.Run(() =>
             {

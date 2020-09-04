@@ -104,12 +104,14 @@ namespace CSharpLearning.Threading
             t1.Start();
 
             t4.Wait();
+
+            // t1、 t2、t4的 ID 各不相同。
         }
         private void FirstTask()
         {
             // Step1
 
-            Console.WriteLine("Step1: First Task ID = {0}.", Task.CurrentId);
+            Console.WriteLine("Step1: First Task ID = {0}.", Task.CurrentId); // Task ID = 3
 
             for (int i = 0; i < 30; i++)
             {
@@ -125,7 +127,7 @@ namespace CSharpLearning.Threading
 
             Console.WriteLine("Step2: Task {0} finished.", t.Id);
 
-            Console.WriteLine("Next Task ID = {0}.", Task.CurrentId);
+            Console.WriteLine("Next Task ID = {0}.", Task.CurrentId); // TaskID = 1
 
             //Thread.Sleep(3000);
 
