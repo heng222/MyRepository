@@ -156,7 +156,7 @@ namespace Products.Domain
 
                 // 本节点需要加载的插件。
                 strBuilder.AppendFormat("\r\n本节点需要加载的插件= {0}。",
-                    EnumUtility.GetDescription<PluginTypes>(this.Plugins));
+                    EnumUtility.GetDescription(this.Plugins));
 
                 // 本节点需要显示的控件。
                 strBuilder.AppendFormat("\r\n本节点需要显示的控件= {0}。",
@@ -164,7 +164,7 @@ namespace Products.Domain
 
                 LogUtility.Info(strBuilder.ToString());
             }
-            catch (System.Exception /*ex*/)
+            catch (Exception /*ex*/)
             {
             }
         }

@@ -91,7 +91,7 @@ namespace Products.Shell
                 var index = _random.Next(1, _images.Count);
                 _splashScreen.SetIntroductionImage(_images[index]);
             }
-            catch (System.Exception /*ex*/)
+            catch (Exception /*ex*/)
             {
             }
         }

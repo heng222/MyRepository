@@ -87,7 +87,7 @@ namespace Products.Shell
         public event EventHandler<WorkspaceCancelEventArgs> SmartPartClosing;
 #pragma warning restore 67
 
-        public System.Collections.ObjectModel.ReadOnlyCollection<object> SmartParts
+        public ReadOnlyCollection<object> SmartParts
         {
             get { return new ReadOnlyCollection<object>(MainControls.Values.ToArray()); }
         }

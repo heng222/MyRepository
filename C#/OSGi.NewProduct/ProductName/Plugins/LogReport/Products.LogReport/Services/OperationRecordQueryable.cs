@@ -44,7 +44,7 @@ namespace Products.LogReport
                         OperationType = EnumUtility.GetDescription(p.OperationType),
 
                         ResultTime = p.ResultTimestamp,
-                        ResultType = EnumUtility.GetDescription<OperationResult>(p.ResultType),
+                        ResultType = EnumUtility.GetDescription(p.ResultType),
                         ResultDescription = p.ResultDescription,
                     });
 

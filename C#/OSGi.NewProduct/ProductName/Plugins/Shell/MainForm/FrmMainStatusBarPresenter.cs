@@ -255,7 +255,7 @@ namespace Products.Shell.Presentation.MainForm
                     this.UpdateStatusBar();
                 }));
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 LogUtility.Error(ex);
             }
@@ -282,7 +282,7 @@ namespace Products.Shell.Presentation.MainForm
                 // 更新状态栏。
                 this.UpdateStatusBar();
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 LogUtility.Error(ex);
             }
@@ -305,7 +305,7 @@ namespace Products.Shell.Presentation.MainForm
                     _statusLabelCurrentTime.Text = string.Format("当前时间：{0}", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
                 }
             }
-            catch (System.Exception /*ex*/)
+            catch (Exception /*ex*/)
             {
             }
         }
@@ -342,7 +342,7 @@ namespace Products.Shell.Presentation.MainForm
                     }));
                 }
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 LogUtility.Error(ex);
             }

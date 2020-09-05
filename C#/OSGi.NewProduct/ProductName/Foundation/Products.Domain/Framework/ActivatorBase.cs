@@ -86,7 +86,7 @@ namespace Products.Domain
                 // 
                 this.Log.InfoFormat("{0}子系统启动完毕。", bundleName);
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 if (ex is LanuchCanceledException) throw;
                 else HandleStartingException(ex);
@@ -126,7 +126,7 @@ namespace Products.Domain
 
                 this.Log.InfoFormat("{0}子系统已结束。", bundleName);
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 this.Log.Error(ex);
             }

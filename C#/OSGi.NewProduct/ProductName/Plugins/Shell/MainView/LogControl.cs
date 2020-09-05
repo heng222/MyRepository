@@ -46,7 +46,7 @@ namespace Products.Shell.MainView
             {
                 _logMonitor.ShowLog(logs);
             }
-            catch (System.Exception /*ex*/)
+            catch (Exception /*ex*/)
             {
             }
         }
@@ -59,7 +59,7 @@ namespace Products.Shell.MainView
             {
                 _logMonitor.DebugLogAlive = false;
             }
-            catch (System.Exception /*ex*/)
+            catch (Exception /*ex*/)
             {
 
             }

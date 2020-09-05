@@ -212,7 +212,7 @@ namespace Products.Infrastructure.Messages
         /// </summary>
         public static IDisposable SubscribeUserChanging(Action<object, EventArgs> handler)
         {
-            return AuthorityManagementMessageBus.Subscribe<EventArgs>(UserChangingMessageTopic, handler, SubscribeMode.Sync);
+            return AuthorityManagementMessageBus.Subscribe(UserChangingMessageTopic, handler, SubscribeMode.Sync);
         }
         /// <summary>
         /// 发布用户将要切换事件。
@@ -226,7 +226,7 @@ namespace Products.Infrastructure.Messages
         /// </summary>
         public static IDisposable SubscribeUserChanged(Action<object, EventArgs> handler)
         {
-            return AuthorityManagementMessageBus.Subscribe<EventArgs>(UserChangedMessageTopic, handler, SubscribeMode.Sync);
+            return AuthorityManagementMessageBus.Subscribe(UserChangedMessageTopic, handler, SubscribeMode.Sync);
         }
         /// <summary>
         /// 发布用户切换事件。
@@ -249,7 +249,7 @@ namespace Products.Infrastructure.Messages
         /// </summary>
         public static IDisposable SubscribeUserAutoLogonFailed(Action<object, string> handler)
         {
-            return AuthorityManagementMessageBus.Subscribe<string>(UserAutoLogonFailedMessageTopic, handler, SubscribeMode.Async);
+            return AuthorityManagementMessageBus.Subscribe(UserAutoLogonFailedMessageTopic, handler, SubscribeMode.Async);
         }
         #endregion
 

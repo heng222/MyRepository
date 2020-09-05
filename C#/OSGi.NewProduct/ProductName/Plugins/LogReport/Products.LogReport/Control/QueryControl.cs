@@ -17,7 +17,7 @@ namespace Products.LogReport
         /// <summary>
         /// 监测查询耗事
         /// </summary>
-        private Stopwatch _stopWatch = new System.Diagnostics.Stopwatch();
+        private Stopwatch _stopWatch = new Stopwatch();
         #endregion
 
         #region "Properties"
@@ -168,7 +168,7 @@ namespace Products.LogReport
             {
                 dtEnd.MinDate = dtBegin.Value;
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }

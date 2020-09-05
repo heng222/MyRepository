@@ -34,7 +34,7 @@ namespace Products
                 {
                     action();
                 }
-                catch (System.Exception ex)
+                catch (Exception ex)
                 {
                     log.Error(ex);
                 }

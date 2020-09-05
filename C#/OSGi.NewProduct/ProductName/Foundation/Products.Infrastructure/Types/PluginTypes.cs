@@ -26,12 +26,12 @@ namespace Products.Infrastructure.Types
         /// <summary>
         /// 无效
         /// </summary>
-        [MemberDesAttribute("无")]
+        [MemberDes("无")]
         None = 0,
         /// <summary>
         /// 所有插件
         /// </summary>
-        [MemberDesAttribute("所有插件")]
+        [MemberDes("所有插件")]
         All = UInt64.MaxValue,
 
 
@@ -39,27 +39,27 @@ namespace Products.Infrastructure.Types
         /// <summary>
         /// 内部通信插件
         /// </summary>
-        [MemberDesAttribute("内部通信")]
+        [MemberDes("内部通信")]
         Communication = (1L << 0),
         /// <summary>
         /// 主备决策插件
         /// </summary>
-        [MemberDesAttribute("主备决策")]
+        [MemberDes("主备决策")]
         HotStandby = (1L << 1),
         /// <summary>
         /// 时钟同步插件
         /// </summary>
-        [MemberDesAttribute("时钟同步")]
+        [MemberDes("时钟同步")]
         NTP = (1L << 2),
         /// <summary>
         /// 持久化插件
         /// </summary>
-        [MemberDesAttribute("持久化")]
+        [MemberDes("持久化")]
         Persistence = (1L << 3),
         /// <summary>
         /// 日至报告插件
         /// </summary>
-        [MemberDesAttribute("日志报告")]
+        [MemberDes("日志报告")]
         LogReport = (1L << 4),
 
         // 
@@ -67,17 +67,17 @@ namespace Products.Infrastructure.Types
         /// <summary>
         /// 系统事件管理
         /// </summary>
-        [MemberDesAttribute("系统事件管理")]
+        [MemberDes("系统事件管理")]
         SEM = (1L << 8),
         /// <summary>
         /// 用户管理插件
         /// </summary>
-        [MemberDesAttribute("用户管理")]
+        [MemberDes("用户管理")]
         UAC = (1L << 9),
         /// <summary>
         /// 节点管理插件
         /// </summary>
-        [MemberDesAttribute("节点管理")]
+        [MemberDes("节点管理")]
         NDM = (1L << 10),
 
         // 11 ~ 15位预留。
@@ -88,27 +88,27 @@ namespace Products.Infrastructure.Types
         /// <summary>
         /// Plugin1
         /// </summary>
-        [MemberDesAttribute("Plugin1")]
+        [MemberDes("Plugin1")]
         Plugin1 = (1L << 16), // 65536
         /// <summary>
         /// Plugin2
         /// </summary>
-        [MemberDesAttribute("Plugin2")]
+        [MemberDes("Plugin2")]
         Plugin2 = (1L << 17), // 131072
         /// <summary>
         /// Plugin3
         /// </summary>
-        [MemberDesAttribute("Plugin3")]
+        [MemberDes("Plugin3")]
         Plugin3 = (1L << 18), // 262144
         /// <summary>
         /// Plugin4
         /// </summary>
-        [MemberDesAttribute("Plugin4")]
+        [MemberDes("Plugin4")]
         Plugin4 = (1L << 19), // 524288
         /// <summary>
         /// Plugin5
         /// </summary>
-        [MemberDesAttribute("Plugin5")]
+        [MemberDes("Plugin5")]
         Plugin5 = (1L << 20), // 1048576
 
         // 25 ~ 31位预留。
@@ -120,7 +120,7 @@ namespace Products.Infrastructure.Types
         /// <summary>
         /// 接口管理插件1。
         /// </summary>
-        [MemberDesAttribute("接口管理插件1")]
+        [MemberDes("接口管理插件1")]
         Interface1 = (1L << 32),
 
         // 46 ~ 55，预留。

@@ -38,7 +38,7 @@ namespace Products.Domain
                 {
                     result.Add(Convert.ToByte(item, 16));
                 }
-                catch (System.FormatException /*ex*/)
+                catch (FormatException /*ex*/)
                 {
                     throw new Exception(string.Format("无法将字符串'{0}'转化为数值。", item));
                 }

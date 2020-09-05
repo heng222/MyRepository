@@ -24,7 +24,7 @@ namespace Products.Infrastructure.Entities
     /// <summary>
     /// ≤Âº˛º”‘ÿ≈‰÷√°£
     /// </summary>
-    [Acl.Data.Annotions.Table(Name = "system_PluginLoadingConfigs")]
+    [Table(Name = "system_PluginLoadingConfigs")]
     public class PluginLoadingConfig : Entity
     {
         #region DB◊÷∂Œ

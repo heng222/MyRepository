@@ -175,7 +175,7 @@ namespace Products.Shell
                 {
                     _dockPanel.LoadFromXml(configFile, DeserializeDockContentCallback);
                 }
-                catch (System.Exception /*ex*/)
+                catch (Exception /*ex*/)
                 {
                     File.Delete(configFile);
                     this.ResetWindowsLayout();
@@ -349,7 +349,7 @@ namespace Products.Shell
                 // 隐藏无权限的视图。
                 this.HideNonPermissionContents();
             }
-            catch (System.Exception /*ex*/)
+            catch (Exception /*ex*/)
             {
                 throw;
             }
@@ -395,7 +395,7 @@ namespace Products.Shell
                 // 保存当前用户的布局信息。
                 this.SaveDockConfigToFile();
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 LogUtility.Error(ex);
             }
@@ -415,7 +415,7 @@ namespace Products.Shell
                     {
                         this.LoadLayoutFromFile(configFile);
                     }
-                    catch (System.Exception /*ex*/)
+                    catch (Exception /*ex*/)
                     {
                         this.ResetWindowsLayout();
                     }
@@ -442,7 +442,7 @@ namespace Products.Shell
                     item.OptimizeIdle();
                 }
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 LogUtility.Error(ex);
             }

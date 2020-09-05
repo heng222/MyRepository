@@ -186,7 +186,7 @@ namespace Products.Domain.Communication
                     if (this.CommStateChanged != null) this.CommStateChanged(this, args);
                 }
             }
-            catch (System.Exception /*ex*/)
+            catch (Exception /*ex*/)
             {
             }
         }

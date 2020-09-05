@@ -103,7 +103,7 @@ namespace Products.Persistence.Services
 
                 _logCache.AddProduct(args);
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 LogUtility.Error(ex);
             }
@@ -134,7 +134,7 @@ namespace Products.Persistence.Services
 
                         writer.Write(record);
                     }
-                    catch (System.Exception ex)
+                    catch (Exception ex)
                     {
                         LogUtility.Error(string.Format("保存通信流日志时（ {0}）发生异常，{1}。\r\n 执行Rollover操作。", logKey, ex));
 
@@ -142,7 +142,7 @@ namespace Products.Persistence.Services
                     }
                 });
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 LogUtility.Error(string.Format("保存通信日志时发生异常。{0}", ex));
             }
@@ -178,7 +178,7 @@ namespace Products.Persistence.Services
                 _commLogWriters.Values.ForEach(p => p.Rollover());
                 LogUtility.Info("所有通信流日志已Rollover。");
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 LogUtility.Warning(ex.ToString());
             }

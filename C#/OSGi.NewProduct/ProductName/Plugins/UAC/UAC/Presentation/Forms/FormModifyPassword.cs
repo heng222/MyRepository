@@ -33,7 +33,7 @@ namespace Products.UAC.Presentation.Forms
                 this.Close();
                 this.DialogResult = DialogResult.OK;
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }

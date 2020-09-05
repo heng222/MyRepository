@@ -67,7 +67,7 @@ namespace Products.Plugin1.Presentation
             {
                 MessageBox.Show("OnDebug1_Click");
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "´íÎó", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -79,7 +79,7 @@ namespace Products.Plugin1.Presentation
             {
                 MessageBox.Show("OnDebug2_Click");
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "´íÎó", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }

@@ -63,7 +63,7 @@ namespace Exe
                 // 运行
                 instance.Run();
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -102,7 +102,7 @@ namespace Exe
                     {
                         COMHelper.RegServer(commPath);
                     }
-                    catch (System.Exception /*ex*/)
+                    catch (Exception /*ex*/)
                     {
                         //MessageBox.Show(string.Format("{0}注册失败，请手工注册。原因：{1}",commPath, ex.Message),
                         //    "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -134,7 +134,7 @@ namespace Exe
                 _framework.Start();
                 _framework.WaitForStop();
             }
-            catch (System.Reflection.TargetInvocationException ex)
+            catch (TargetInvocationException ex)
             {
                 LogManager.GetLogger(LoggerNames.Platform).Error(ex.InnerException);
                 MessageBox.Show(ex.InnerException.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -187,7 +187,7 @@ namespace Exe
             {
                 expiredDays = Convert.ToUInt16(ConfigurationManager.AppSettings["AppLogFileExpiredDays"]);
             }
-            catch (System.Exception /*ex*/)
+            catch (Exception /*ex*/)
             { }
 
             LogManager.Initialize("log4net.config.xml", expiredDays);
@@ -276,7 +276,7 @@ namespace Exe
                 LocalMessageBus.Current.RemoveAll();
                 ShutdownLogSystem();
             }
-            catch (System.Exception /*ex*/)
+            catch (Exception /*ex*/)
             {
             }
         }

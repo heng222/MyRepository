@@ -171,7 +171,7 @@ namespace Products.Shell.ConfigView
             {
                 this.Initialize();
             }
-            catch (System.Exception /*ex*/)
+            catch (Exception /*ex*/)
             {
             }
         }
@@ -211,7 +211,7 @@ namespace Products.Shell.ConfigView
                     }
                 }
             }
-            catch (System.Exception /*ex*/)
+            catch (Exception /*ex*/)
             {
 
             }
@@ -264,7 +264,7 @@ namespace Products.Shell.ConfigView
                     e.Graphics.DrawString((string)comboBox1.Items[e.Index], this.Font, fColor.Brush, e.Bounds);
                 }
             }
-            catch (System.Exception /*ex*/)
+            catch (Exception /*ex*/)
             {
             }
         }
@@ -292,7 +292,7 @@ namespace Products.Shell.ConfigView
                     }
                 }
             }
-            catch (System.Exception /*ex*/)
+            catch (Exception /*ex*/)
             {
             }
         }

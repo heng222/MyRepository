@@ -90,7 +90,7 @@ namespace Products.Shell
             {
                 base.Text = this.ChildPart.Text;
             }
-            catch (System.Exception /*ex*/)
+            catch (Exception /*ex*/)
             {
 
             }

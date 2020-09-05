@@ -70,7 +70,7 @@ namespace Products.Shell.MainView
                 _timeControl.DateWeekVisable = !_timeControl.DateWeekVisable;
                 this.dateWeekVisableToolStripMenuItem.Checked = _timeControl.DateWeekVisable;
             }
-            catch (System.Exception /*ex*/)
+            catch (Exception /*ex*/)
             {
             }
         }
@@ -82,7 +82,7 @@ namespace Products.Shell.MainView
                 _timeControl.ProgressBarVisible = !_timeControl.ProgressBarVisible;
                 this.progressbarToolStripMenuItem.Checked = _timeControl.ProgressBarVisible;
             }
-            catch (System.Exception /*ex*/)
+            catch (Exception /*ex*/)
             {
             }
         }

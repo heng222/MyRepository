@@ -112,7 +112,7 @@ namespace Products.Infrastructure.Messages
         {
             if (handler == null) throw new ArgumentNullException();
 
-            var h = _messageBus.Subscribe<TEventArgs>(this.Topic, handler, SubscribeMode.Sync);
+            var h = _messageBus.Subscribe(this.Topic, handler, SubscribeMode.Sync);
             _handlers.Add(h);
 
             return h;

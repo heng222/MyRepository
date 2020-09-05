@@ -68,7 +68,7 @@ namespace Products.UAC.Presentation
             {
                 _menuItemLogOff.Visible = this.UAC.CurrentUserCode != UserInfo.Guest;
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 LogUtility.Error(ex);
             }
@@ -108,7 +108,7 @@ namespace Products.UAC.Presentation
                 var frmLogin = new FormLogin(this.LoginVerify) { Text = "用户切换" };
                 frmLogin.ShowDialog();
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -121,7 +121,7 @@ namespace Products.UAC.Presentation
                 var frmLogin = new FormModifyPassword(GlobalServices.UAC.CurrentUserName, _userManager);
                 frmLogin.ShowDialog();
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -135,7 +135,7 @@ namespace Products.UAC.Presentation
 
                 MessageBox.Show("注销成功。", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }

@@ -55,7 +55,7 @@ namespace Products.UAC.Presentation.Forms
 
                 this.DialogResult = DialogResult.OK;
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 if (++_retryTimes > 2)
                 {

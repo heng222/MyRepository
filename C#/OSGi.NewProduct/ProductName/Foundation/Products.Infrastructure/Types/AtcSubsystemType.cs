@@ -23,43 +23,43 @@ namespace Products.Infrastructure.Types
         /// <summary>
         /// 无效
         /// </summary>
-        [MemberDesAttribute("无效")]
+        [MemberDes("无效")]
         None = 0,
 
         /// <summary>
         /// ATS
         /// </summary>
-        [MemberDesAttribute("ATS")]
+        [MemberDes("ATS")]
         ATS = 0x03,
 
         /// <summary>
         /// 车载ATP
         /// </summary>
-        [MemberDesAttribute("车载ATP")]
+        [MemberDes("车载ATP")]
         VOBC = 0x14,
 
         /// <summary>
         /// ATO
         /// </summary>
-        [MemberDesAttribute("ATO")]
+        [MemberDes("ATO")]
         ATO = 0x08,
 
         /// <summary>
         /// ATP区域控制器
         /// </summary>
-        [MemberDesAttribute("ZC")]
+        [MemberDes("ZC")]
         ZC = 0x1E,
 
         /// <summary>
         /// 数据库存储单元
         /// </summary>
-        [MemberDesAttribute("DSU")]
+        [MemberDes("DSU")]
         DMS = 0x2B,
 
         /// <summary>
         /// 微机联锁
         /// </summary>
-        [MemberDesAttribute("CI")]
+        [MemberDes("CI")]
         CI = 0x3C,
     };
 }

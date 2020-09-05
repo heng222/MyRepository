@@ -21,7 +21,7 @@ namespace Products.Infrastructure.Entities
     /// <summary>
     /// 系统事件实体定义。
     /// </summary>
-    [Acl.Data.Annotions.Table(Name = "system_Events")]
+    [Table(Name = "system_Events")]
     public class SysEvent : Entity
     {
         /// <summary>

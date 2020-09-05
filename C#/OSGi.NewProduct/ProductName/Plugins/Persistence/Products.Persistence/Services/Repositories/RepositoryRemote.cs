@@ -152,7 +152,7 @@ namespace Products.Persistence.Services.Repositories
 
             using (var db = this.DbConfig.Open())
             {
-                db.Update<T>(instance, predicate);
+                db.Update(instance, predicate);
             }
         }
 
@@ -162,7 +162,7 @@ namespace Products.Persistence.Services.Repositories
 
             using (var db = this.DbConfig.Open())
             {
-                db.Delete<T>(predicate);
+                db.Delete(predicate);
             }
         }
 
@@ -246,7 +246,7 @@ namespace Products.Persistence.Services.Repositories
             {
                 this.SetConnectionState(e.Connected);
             }
-            catch (System.Exception /*ex*/)
+            catch (Exception /*ex*/)
             {                
             }
         }

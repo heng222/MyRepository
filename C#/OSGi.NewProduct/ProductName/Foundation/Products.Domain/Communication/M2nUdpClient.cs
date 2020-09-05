@@ -169,7 +169,7 @@ namespace Products.Domain.Communication
                     _receiveTask = this.ReceiveAsync();
                 }
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 CloseUdpClient();
                 this.Log.Error(string.Format("打开UdpClient（{0}）错误，{1}", this.LocalEndPoint, ex.Message));
@@ -194,9 +194,7 @@ namespace Products.Domain.Communication
             {
                 try
                 {
-#pragma warning disable CA2007 // Consider calling ConfigureAwait on the awaited task
-                    var recvResult = await this.LocalClient.ReceiveAsync();
-#pragma warning restore CA2007 // Consider calling ConfigureAwait on the awaited task
+                    var recvResult = await this.LocalClient.ReceiveAsync().ConfigureAwait(false);
 
                     var remoteEP = recvResult.RemoteEndPoint;
                     var data = recvResult.Buffer;
@@ -223,7 +221,7 @@ namespace Products.Domain.Communication
                     // 更新连接时间。
                     this.RefreshCommState(localCode, remoteCode);
                 }
-                catch (System.Exception ex)
+                catch (Exception ex)
                 {
                     if (this.LocalClient != null) this.Log.Error(ex.Message);
                 }
@@ -239,7 +237,7 @@ namespace Products.Domain.Communication
                     this.OpenUdpClient();
                 }
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 this.Log.Error(ex.ToString());
             }

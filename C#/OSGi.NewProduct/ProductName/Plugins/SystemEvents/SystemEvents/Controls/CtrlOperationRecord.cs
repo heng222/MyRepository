@@ -75,7 +75,7 @@ namespace Products.SystemEvents.Controls
                     this.ShowOperationLog(args.Value);
                 }, LogUtility.Log);
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 LogUtility.Error(ex);
             }
@@ -128,7 +128,7 @@ namespace Products.SystemEvents.Controls
                 theRow.Cells[ColumNameResultTime].Value = (log.ResultTimestamp != DateTime.MinValue) ? log.ResultTimestamp.ToString("yyyy-MM-dd HH:mm:ss.fff") : "";
                 theRow.Cells[ColumNameResultDescription].Value = log.ResultDescription;
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 LogUtility.Error(ex);
             }
@@ -199,7 +199,7 @@ namespace Products.SystemEvents.Controls
             {
                 this.dataGridView.Rows.Clear();
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
             }
@@ -239,7 +239,7 @@ namespace Products.SystemEvents.Controls
                     theExecuteStyleCell.Style.ForeColor = isManual ? Color.Blue : Color.DarkGray;
                 }
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 LogUtility.Error(ex);
             }

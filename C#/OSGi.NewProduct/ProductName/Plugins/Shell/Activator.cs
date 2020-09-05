@@ -213,7 +213,7 @@ namespace Products.Shell
                     _splashSrceen.CloseSplashScreen();
                     _splashSrceen = null;
                 }
-                catch (System.Exception ex)
+                catch (Exception ex)
                 {
                     _log.Error("关闭闪屏时出现问题，" + ex.Message, ex);
                 }
@@ -373,7 +373,7 @@ namespace Products.Shell
                         Workbench.ShowMainForm();
                     }
                 }
-                catch (System.Exception ex)
+                catch (Exception ex)
                 {
                     _log.Error("UI 线程出现异常，主窗口已退出，错误原因:" + ex.Message, ex);
                 }

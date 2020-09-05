@@ -65,7 +65,7 @@ namespace Products.SystemEvents.Controls
                     this.ShowSysEventLog(args.Value);
                 }, LogUtility.Log);
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 LogUtility.Error(ex);
             }
@@ -120,7 +120,7 @@ namespace Products.SystemEvents.Controls
                 }
                 theRow.Cells[ConfirmTimeIndex].Tag = confirmEnabled;
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 LogUtility.Error(ex);
             }
@@ -151,7 +151,7 @@ namespace Products.SystemEvents.Controls
             {
                 configToolStripMenuItem.Enabled = GlobalServices.UAC.Contains(SystemPrivilege.EditSysParam);
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 LogUtility.Error(ex.Message);
             }
@@ -175,7 +175,7 @@ namespace Products.SystemEvents.Controls
                     }
                 }
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
             }
@@ -199,7 +199,7 @@ namespace Products.SystemEvents.Controls
                     }
                 }
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
             }
@@ -216,7 +216,7 @@ namespace Products.SystemEvents.Controls
                     dataGridView.Rows.Remove(theRow);
                 }
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
             }
@@ -228,7 +228,7 @@ namespace Products.SystemEvents.Controls
             {
                 dataGridView.Rows.Clear();
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
             }
@@ -241,7 +241,7 @@ namespace Products.SystemEvents.Controls
             {
 
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
             }
@@ -278,7 +278,7 @@ namespace Products.SystemEvents.Controls
                     }
                 }
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 LogUtility.Error(ex);
             }

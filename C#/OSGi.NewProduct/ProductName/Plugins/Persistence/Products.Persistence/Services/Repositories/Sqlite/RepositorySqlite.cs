@@ -128,7 +128,7 @@ namespace Products.Persistence.Services
                     RemoveExpiredLogs();
                 }
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 LogUtility.Error(ex);
             }
@@ -154,13 +154,13 @@ namespace Products.Persistence.Services
 
                         _dbContext.ExecuteNonQuery(sqlText, new { expiredDate });
                     }
-                    catch (System.Exception ex)
+                    catch (Exception ex)
                     {
                         LogUtility.Error(string.Format("删除表 {0} 的过期日志时发生异常。\r\n{1}", p.Name, ex));
                     }
                 });
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 LogUtility.Error(ex);
             }
@@ -228,7 +228,7 @@ namespace Products.Persistence.Services
         /// </summary>
         public override void Update<T>(object instance, Expression<Func<T, bool>> condition)
         {
-            void action() => _dbContext.Update<T>(instance, condition);
+            void action() => _dbContext.Update(instance, condition);
 
             _scheduler.Async(action);
         }

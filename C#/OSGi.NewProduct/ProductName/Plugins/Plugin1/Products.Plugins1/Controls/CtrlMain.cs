@@ -85,7 +85,7 @@ namespace Products.Plugin1.Controls
                     GlobalMessageBus.PublishOperationLogChanged(args);
                 });
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -111,7 +111,7 @@ namespace Products.Plugin1.Controls
                 log = GlobalServices.Repository.Where<SysEventLog>(p => p.Code == log.Code).FirstOrDefault();
                 LogUtility.Info("{0}", log);
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }

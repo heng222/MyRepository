@@ -28,12 +28,12 @@ namespace Products.Infrastructure.Types
         /// <summary>
         /// 节点间通信建立
         /// </summary>
-        [MemberDesAttribute("通信恢复")]
+        [MemberDes("通信恢复")]
         CommRecovery = 21,
         /// <summary>
         /// 节点间通信断开
         /// </summary>
-        [MemberDesAttribute("通信中断")]
+        [MemberDes("通信中断")]
         CommInterruption = 22,
         #endregion
 

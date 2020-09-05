@@ -40,7 +40,7 @@ namespace Products.Persistence.Services
 
         public virtual IList<T> Where<T>(Expression<Func<T, bool>> predicate = null) where T : Entity
         {
-            return this.Repository.Where<T>(predicate);
+            return this.Repository.Where(predicate);
         }
 
         public IList<T> Where<T>(string sql, object namedParameters = null)
@@ -50,17 +50,17 @@ namespace Products.Persistence.Services
 
         public virtual void Insert<T>(params T[] entities) where T : Entity
         {
-            this.Repository.Insert<T>(entities);
+            this.Repository.Insert(entities);
         }
 
         public virtual void Delete<T>(Expression<Func<T, bool>> condition = null) where T : Entity
         {
-            this.Repository.Delete<T>(condition);
+            this.Repository.Delete(condition);
         }
 
         public virtual void Update<T>(object instance, Expression<Func<T, bool>> condition) where T : Entity
         {
-            this.Repository.Update<T>(instance, condition);
+            this.Repository.Update(instance, condition);
         }
 
         public virtual void Execute<T>(Action<IDbContext> handler) where T : Entity
@@ -75,7 +75,7 @@ namespace Products.Persistence.Services
 
         public virtual void AsyncInsert<T>(T[] data, Action<Exception> exceptionHandler) where T : Entity
         {
-            this.Repository.AsyncInsert<T>(data, exceptionHandler);
+            this.Repository.AsyncInsert(data, exceptionHandler);
         }
         #endregion
     }

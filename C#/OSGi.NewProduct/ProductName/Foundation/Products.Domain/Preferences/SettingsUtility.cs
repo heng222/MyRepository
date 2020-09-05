@@ -71,7 +71,7 @@ namespace Products.Domain.Preferences
                     return defaultValue;
                 }
             }
-            catch (System.Exception /*ex*/)
+            catch (Exception /*ex*/)
             {
                 return defaultValue;
             }
@@ -112,7 +112,7 @@ namespace Products.Domain.Preferences
                     var value = SettingsParser.ParseDecimal(item);
                     result.Add(Convert.ToByte(value));
                 }
-                catch (System.FormatException /*ex*/)
+                catch (FormatException /*ex*/)
                 {
                     throw new Exception(string.Format("无法将字符串'{0}'转化为数值。", item));
                 }

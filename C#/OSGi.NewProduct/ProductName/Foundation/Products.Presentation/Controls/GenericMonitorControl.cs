@@ -267,7 +267,7 @@ namespace Products.Presentation
                     }
                 });
             }
-            catch (System.Exception /*ex*/)
+            catch (Exception /*ex*/)
             {
             }
         }
@@ -313,7 +313,7 @@ namespace Products.Presentation
                 this.tvMessageSummary.Nodes.Clear();
                 this.txtDetail.Clear();
             }
-            catch (System.Exception /*ex*/)
+            catch (Exception /*ex*/)
             {
             }
         }
@@ -357,7 +357,7 @@ namespace Products.Presentation
                     }
                 });
             }
-            catch (System.Exception /*ex*/)
+            catch (Exception /*ex*/)
             {
                 this.pictureBox1.Image = this.pictureBox1.ErrorImage;
 
@@ -471,7 +471,7 @@ namespace Products.Presentation
 
                 return result;
             }
-            catch (System.Exception /*ex*/)
+            catch (Exception /*ex*/)
             {
                 return true;
             }
@@ -498,7 +498,7 @@ namespace Products.Presentation
                 {
                     msg = tag.Parser.Parse(tag.Stream, 0).ToString(); // 解析流
                 }
-                catch (System.Exception ex)
+                catch (Exception ex)
                 {
                     msg = ex.ToString();
                 }
@@ -556,7 +556,7 @@ namespace Products.Presentation
                 // 
                 this.BeginInvoke(() => { if (cbxRemoteIDs.Items.Count > 0 && cbxRemoteIDs.SelectedIndex == -1) cbxRemoteIDs.SelectedIndex = 0; });
             }
-            catch (System.Exception /*ex*/)
+            catch (Exception /*ex*/)
             {
             }
         }
@@ -598,7 +598,7 @@ namespace Products.Presentation
                     tvMessageSummary.Nodes.Add(node);
                 }
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 this.txtDetail.Text = ex.ToString();
             }
@@ -655,7 +655,7 @@ namespace Products.Presentation
                     tvMessageSummary.Nodes.Add(node);
                 }
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 this.txtDetail.Text = ex.ToString();
             }
@@ -676,7 +676,7 @@ namespace Products.Presentation
 
                 this.tvMessageSummary.Nodes.Clear();
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -693,7 +693,7 @@ namespace Products.Presentation
             {
                 // 仅当鼠标点击才会响应，键盘的上下键操作不会响应。
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 txtDetail.Text += ex.ToString();
             }
@@ -740,7 +740,7 @@ namespace Products.Presentation
 
                 txtDetail.Text = txtToDisplay;
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 txtDetail.Text = ex.ToString();
             }
@@ -767,7 +767,7 @@ namespace Products.Presentation
             {
                 this._IncomingStreamVisable = this.chkInputStreamVisable.Checked;
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -779,7 +779,7 @@ namespace Products.Presentation
             {
                 this._OutgoingStreamVisable = this.chkOutputStreamVisable.Checked;
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -791,7 +791,7 @@ namespace Products.Presentation
             {
                 this.RefresshFilterPanel();
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -803,7 +803,7 @@ namespace Products.Presentation
             {
                 this.RefresshFilterPanel();
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -815,7 +815,7 @@ namespace Products.Presentation
             {
                 this.RefresshFilterPanel();
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -830,7 +830,7 @@ namespace Products.Presentation
                     this.GetOrUpdateNodeDetailedInfo(this.tvMessageSummary.SelectedNode.Tag as TreeNodeTag);
                 }
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -853,7 +853,7 @@ namespace Products.Presentation
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
-            catch (System.Exception /*ex*/)
+            catch (Exception /*ex*/)
             {
             }
         }
@@ -865,7 +865,7 @@ namespace Products.Presentation
                 this.tvMessageSummary.Nodes.Clear();
                 this.txtDetail.Clear();
             }
-            catch (System.Exception /*ex*/)
+            catch (Exception /*ex*/)
             {
             }
         }
@@ -880,7 +880,7 @@ namespace Products.Presentation
                 this.txtDetail.SelectionStart = 0;
                 this.txtDetail.SelectionLength = txtDetail.TextLength;
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -892,7 +892,7 @@ namespace Products.Presentation
             {
                 this.txtDetail.Copy();
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }

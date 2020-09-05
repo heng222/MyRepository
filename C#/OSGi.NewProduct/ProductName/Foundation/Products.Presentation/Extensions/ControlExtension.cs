@@ -34,7 +34,7 @@ namespace Products
                 {
                     action();
                 }
-                catch (System.Exception ex)
+                catch (Exception ex)
                 {
                     if (log != null) log.Error(ex);
                     if (popupErrDialog) MessageBox.Show(ex.Message, "´íÎó", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -53,7 +53,7 @@ namespace Products
                 {
                     action();
                 }
-                catch (System.Exception ex)
+                catch (Exception ex)
                 {
                     if (log != null) log.Error(ex);
                     if (popupErrDialog) MessageBox.Show(ex.Message, "´íÎó", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -72,7 +72,7 @@ namespace Products
                 {
                     action();
                 }
-                catch (System.Exception ex)
+                catch (Exception ex)
                 {
                     if (log != null) log.Error(ex);
                     if (popupErrDialog) MessageBox.Show(ex.Message, "´íÎó", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -92,7 +92,7 @@ namespace Products
                 {
                     action();
                 }
-                catch (System.Exception ex)
+                catch (Exception ex)
                 {
                     if (log != null) log.Error(ex);
                     if (popupErrDialog) MessageBox.Show(ex.Message, "´íÎó", MessageBoxButtons.OK, MessageBoxIcon.Error);

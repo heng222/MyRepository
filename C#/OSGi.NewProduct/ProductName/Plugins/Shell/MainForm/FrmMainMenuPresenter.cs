@@ -230,7 +230,7 @@ namespace Products.Shell.Presentation.MainForm
                 var firstMenuItem = (_mainMenuStrip.Items[0] as ToolStripMenuItem);
                 firstMenuItem.DropDownItems.AddRange(new ToolStripItem[] { new ToolStripSeparator(), _menuExitLeft });
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 LogUtility.Error(ex.ToString());
             }
@@ -250,7 +250,7 @@ namespace Products.Shell.Presentation.MainForm
                     if(++index != count) _menuDebug.DropDownItems.Add(new ToolStripSeparator());
                 });
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 LogUtility.Error(ex.ToString());
             }
@@ -339,7 +339,7 @@ namespace Products.Shell.Presentation.MainForm
                     this.UpdateViewSubMenu();
                 }));
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 LogUtility.Error(ex);
             }
@@ -375,7 +375,7 @@ namespace Products.Shell.Presentation.MainForm
                 // 更新View子菜单。
                 this.UpdateViewSubMenu();
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 LogUtility.Error(ex);
             }
@@ -393,7 +393,7 @@ namespace Products.Shell.Presentation.MainForm
 
                 this.View.ShowSpecifiedDockContent(partAttri.ControlType);
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -410,7 +410,7 @@ namespace Products.Shell.Presentation.MainForm
                     this.View.DesktopBounds = theScreen.Bounds;
                 }
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -423,7 +423,7 @@ namespace Products.Shell.Presentation.MainForm
                     Screen.AllScreens.Sum(p => p.Bounds.Width),
                     Screen.PrimaryScreen.Bounds.Height);
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -439,7 +439,7 @@ namespace Products.Shell.Presentation.MainForm
 
                 this.View.CurrentTitleVisible = exceptedVisible;
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -460,7 +460,7 @@ namespace Products.Shell.Presentation.MainForm
 
                 _mainMenuStrip.Visible = !_mainMenuStrip.Visible;
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -480,7 +480,7 @@ namespace Products.Shell.Presentation.MainForm
 
                 this.View.StatusBar.Visible = !this.View.StatusBar.Visible;
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -513,7 +513,7 @@ namespace Products.Shell.Presentation.MainForm
                     preDocument.DockHandler.Show();
                 }
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -531,7 +531,7 @@ namespace Products.Shell.Presentation.MainForm
 
                 this.View.ResetWindowsLayout();
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -561,7 +561,7 @@ namespace Products.Shell.Presentation.MainForm
                     p.Value.CloseButtonVisible = this.View.DockPanel.AllowEndUserDocking;
                 });
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -589,7 +589,7 @@ namespace Products.Shell.Presentation.MainForm
 
                 success = true;
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(string.Format("加载指定的文件时发生错误，{0}", ex.Message), "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -602,7 +602,7 @@ namespace Products.Shell.Presentation.MainForm
                     var configFile = this.View.BuildDockConfigFileName();
                     this.View.LoadLayoutFromFile(configFile);
                 }
-                catch (System.Exception /*ex*/)
+                catch (Exception /*ex*/)
                 {
                     // 恢复上次布局失败，则使用默认布局。
                     this.View.ResetWindowsLayout();
@@ -640,7 +640,7 @@ namespace Products.Shell.Presentation.MainForm
                 //}
                 GdiNativeMethods.PrintScreenToFile(this.View, imageFileName);
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -660,7 +660,7 @@ namespace Products.Shell.Presentation.MainForm
                 Workbench.OptionManager.Title = "选项";
                 Workbench.OptionManager.Show(this.View);
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -674,7 +674,7 @@ namespace Products.Shell.Presentation.MainForm
             {
                 System.Diagnostics.Process.Start("explorer.exe", AppDomain.CurrentDomain.BaseDirectory);
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -688,7 +688,7 @@ namespace Products.Shell.Presentation.MainForm
             {
                 GlobalMessageBus.PublishCommLogRollover(e, sender);
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -702,7 +702,7 @@ namespace Products.Shell.Presentation.MainForm
             {
                 System.Diagnostics.Process.Start("SnagIt.exe");
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -730,7 +730,7 @@ namespace Products.Shell.Presentation.MainForm
                     }
                 }
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -749,7 +749,7 @@ namespace Products.Shell.Presentation.MainForm
             {
                 //LocalMessageBus.Current.Publish(AtsMessageTopics.AppDianostic.OpenNDMDebugForm, e, sender);
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -763,7 +763,7 @@ namespace Products.Shell.Presentation.MainForm
             {
                 //LocalMessageBus.Current.Publish(AtsMessageTopics.AppDianostic.OpenTMTDebugForm, e, sender);
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -777,7 +777,7 @@ namespace Products.Shell.Presentation.MainForm
             {
                 //LocalMessageBus.Current.Publish(AtsMessageTopics.AppDianostic.OpenSDMDebugForm, e, sender);
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -791,7 +791,7 @@ namespace Products.Shell.Presentation.MainForm
             {
                 //LocalMessageBus.Current.Publish(AtsMessageTopics.AppDianostic.OpenCommDebugForm, e, sender);
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -805,7 +805,7 @@ namespace Products.Shell.Presentation.MainForm
             {
                 //LocalMessageBus.Current.Publish(AtsMessageTopics.AppDianostic.SaveStationRangeTable, e, sender);
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -826,7 +826,7 @@ namespace Products.Shell.Presentation.MainForm
                 Workbench.AboutBox.StartPosition = FormStartPosition.CenterScreen;
                 Workbench.AboutBox.ShowDialog(Workbench.MainForm);
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -850,7 +850,7 @@ namespace Products.Shell.Presentation.MainForm
                     MessageBox.Show("产品使用手册未找到。", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -863,7 +863,7 @@ namespace Products.Shell.Presentation.MainForm
                 var form = new CompanyContactsForm();
                 form.ShowDialog();
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }

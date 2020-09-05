@@ -84,7 +84,7 @@ namespace Products.Persistence.Services
 
                     _cache[entityType.Name] = queryable;
                 }
-                catch (System.Exception ex)
+                catch (Exception ex)
                 {
                     var msg = string.Format("缓存表 {0} 时发生错误。", entityType.Name);
                     throw new Exception(msg, ex);

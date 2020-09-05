@@ -96,7 +96,7 @@ namespace Products.Domain.Utility
                 var di = new DriveInfo(path);
                 return di.DriveType != DriveType.Network;
             }
-            catch (System.Exception /*ex*/)
+            catch (Exception /*ex*/)
             {
                 return false;
             }

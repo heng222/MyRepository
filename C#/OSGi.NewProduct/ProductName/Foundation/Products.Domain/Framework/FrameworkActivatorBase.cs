@@ -68,7 +68,7 @@ namespace Products.Domain
                     }
                 }
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 base.Log.Error(ex);
             }
