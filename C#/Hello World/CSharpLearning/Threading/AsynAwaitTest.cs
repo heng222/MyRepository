@@ -35,18 +35,21 @@ namespace CSharpLearning.Threading
         [Test]
         public async void Test1_1()
         {
-            Console.WriteLine($"Test1 Thread ID is {Thread.CurrentThread.ManagedThreadId}_Before");
-            await  AsyncMethod(); 
-            Console.WriteLine($"Test1 Thread ID is {Thread.CurrentThread.ManagedThreadId}_After");
+            Console.WriteLine($"Test1_1 Thread ID is {Thread.CurrentThread.ManagedThreadId} Before");
+            await  AsyncMethod().ConfigureAwait(true);
+
+
+            // ConfigureAwait(true)时在 Test1_1 线程执行；ConfigureAwait(false)时在TimeConsumingMethod线程 执行。
+            Console.WriteLine($"Test1_1 Thread ID is {Thread.CurrentThread.ManagedThreadId} After");
         }
 
         private async Task AsyncMethod()
         {
-            // Test1线程 执行
-            var rc = await TimeConsumingMethod();
+            // Test1/Test1_1线程 执行
+            var rc = await TimeConsumingMethod().ConfigureAwait(true);
 
             // Test1： TimeConsumingMethod线程 执行。
-            // Test1_1：Test1线程执行。
+            // Test1_1：ConfigureAwait(true)时在Test1线程执行；ConfigureAwait(false)时在TimeConsumingMethod线程 执行。
             var result = rc + " + AsyncMethod. My Thread ID is :" + Thread.CurrentThread.ManagedThreadId;
             Console.WriteLine(result);
         }
