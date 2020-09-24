@@ -281,6 +281,8 @@ namespace Products.Presentation
         /// <param name="parser">数据流对应的解析器</param>
         public void AddIncomingStream(string remoteDeviceID, byte[] stream, object frame = null, IStreamFrameParser<byte> parser = null)
         {
+            if (!_IncomingStreamVisable) return;
+
             var data = new Tuple<bool, DataCached>(true, new IncomingData(remoteDeviceID, stream, frame, parser));
             _productCache.AddProduct(data);
         }
@@ -298,6 +300,8 @@ namespace Products.Presentation
             FrameSentResult result = FrameSentResult.Unknown,
             string toolTipText = null)
         {
+            if (!_OutgoingStreamVisable) return;
+
             var data = new Tuple<bool, DataCached>(false, new OutgoingData(remoteDeviceID, stream, frame, parser, result, toolTipText));
             _productCache.AddProduct(data);
         }
@@ -323,7 +327,7 @@ namespace Products.Presentation
 
         private void InitializeUI()
         {
-            this.splitContainer3.IsSplitterFixed = true;
+            //this.splitContainer3.IsSplitterFixed = true;
             //this.splitContainer4.IsSplitterFixed = true;
             this.splitContainer5.IsSplitterFixed = true;
             this.pictureBox1.BorderStyle = BorderStyle.None;

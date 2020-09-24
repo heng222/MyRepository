@@ -169,15 +169,14 @@ namespace Products.Presentation
             // 
             // cbxRemoteIDs
             // 
-            this.cbxRemoteIDs.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.cbxRemoteIDs.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.cbxRemoteIDs.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxRemoteIDs.FormattingEnabled = true;
             this.cbxRemoteIDs.Location = new System.Drawing.Point(60, 4);
             this.cbxRemoteIDs.MaxDropDownItems = 20;
             this.cbxRemoteIDs.Name = "cbxRemoteIDs";
-            this.cbxRemoteIDs.Size = new System.Drawing.Size(193, 20);
+            this.cbxRemoteIDs.Size = new System.Drawing.Size(203, 20);
             this.cbxRemoteIDs.TabIndex = 2;
             this.cbxRemoteIDs.SelectedIndexChanged += new System.EventHandler(this.cbxRemoteIDs_SelectedIndexChanged);
             // 
@@ -196,9 +195,9 @@ namespace Products.Presentation
             this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Location = new System.Drawing.Point(259, 5);
+            this.pictureBox1.Location = new System.Drawing.Point(269, 6);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(33, 19);
+            this.pictureBox1.Size = new System.Drawing.Size(16, 16);
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
@@ -262,7 +261,7 @@ namespace Products.Presentation
             this.toolStripSeparator1,
             this.clearToolStripMenuItem});
             this.contextMenuTreeviewSummay.Name = "contextMenuAliveData";
-            this.contextMenuTreeviewSummay.Size = new System.Drawing.Size(179, 76);
+            this.contextMenuTreeviewSummay.Size = new System.Drawing.Size(179, 54);
             // 
             // openContainedPathToolStripMenuItem
             // 
