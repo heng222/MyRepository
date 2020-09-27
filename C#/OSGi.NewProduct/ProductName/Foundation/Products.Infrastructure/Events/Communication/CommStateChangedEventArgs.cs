@@ -29,51 +29,48 @@ namespace Products.Infrastructure.Events
         /// <summary>
         /// 构造一个连接变化事件参数类
         /// </summary>
-        /// <param name="connected">是否连接？</param>
+        /// <param name="commState">通信状态。</param>
         /// <param name="localType">本地节点类型。</param>
         /// <param name="localId">本地节点编号。</param>
         /// <param name="remoteType">远程节点类型。</param>
         /// <param name="remoteId">远程节点编号。</param>
-        public CommStateChangedEventArgs(bool connected,
+        public CommStateChangedEventArgs(bool? commState,
             NodeType localType, uint localId,
             NodeType remoteType, uint remoteId)
         {
-            this.Connected = connected;
+            this.CommState = commState;
 
-            this.LocalDeviceType = localType;
-            this.LocalDeviceID = localId;
-            this.RemoteDeviceType = remoteType;
-            this.RemoteDeviceID = remoteId;
+            this.LocalNodeType = localType;
+            this.LocalNodeCode = localId;
+            this.RemoteNodeType = remoteType;
+            this.RemoteNodeCode = remoteId;
         }
         #endregion
 
         #region "Properties"
         /// <summary>
-        /// 返回一个值，用于表示是否为设备间连接事件。
+        /// 获取节点间的通信状态。
+        /// <para>true表示通信正常，false表示通信异常，null表示未知。</para>
         /// </summary>
-        public bool Connected { get; set; }
+        public bool? CommState { get; set; }
 
         /// <summary>
         /// 获取本地节点类型。
         /// </summary>
-        public NodeType LocalDeviceType { get; set; }
+        public NodeType LocalNodeType { get; set; }
         /// <summary>
         /// 此事件对应的本地设备ID(此ID为设备在 本系统 中的编号，并非与接口通信时使用的编号)
         /// </summary>
-        public UInt32 LocalDeviceID { get; set; }
+        public UInt32 LocalNodeCode { get; set; }
 
         /// <summary>
         /// 此事件对应的对方设备类型
         /// </summary>
-        public NodeType RemoteDeviceType { get; set; }
-
+        public NodeType RemoteNodeType { get; set; }
         /// <summary>
         /// 此事件对应的对方设备ID(此ID为设备在 本系统 中的编号，并非与接口通信时使用的编号)
         /// </summary>
-        public UInt32 RemoteDeviceID { get; set; }
-        #endregion
-
-        #region "Override methods"
+        public UInt32 RemoteNodeCode { get; set; }
         #endregion
 
         #region "Private methods"

@@ -40,16 +40,16 @@ namespace Products.SystemEvents.Domain
         {
             try
             {
-                var remoteNode = GlobalServices.Repository.Where<SystemNode>(p => p.Code == args.RemoteDeviceID).FirstOrDefault();
+                var remoteNode = GlobalServices.Repository.Where<SystemNode>(p => p.Code == args.RemoteNodeCode).FirstOrDefault();
 
                 //  产生事件。
                 var eventLog = new SysEventLog();
-                eventLog.TypeCode = args.Connected ? EventType.CommRecovery : EventType.CommInterruption;
+                eventLog.TypeCode = args.CommState.GetValueOrDefault() ? EventType.CommRecovery : EventType.CommInterruption;
                 eventLog.Level = GlobalServices.SEM.GetEventLevel(eventLog.TypeCode);
 
-                var nodeName = remoteNode == null ? string.Format("{0}", args.RemoteDeviceID) : string.Format("{0}_{1}", args.RemoteDeviceID, remoteNode.Name);
+                var nodeName = remoteNode == null ? string.Format("{0}", args.RemoteNodeCode) : string.Format("{0}_{1}", args.RemoteNodeCode, remoteNode.Name);
 
-                if (args.Connected)
+                if (args.CommState.GetValueOrDefault())
                 {
                     eventLog.Description = string.Format("本节点与远程节点（{0}）通信恢复。", nodeName);
                 }
