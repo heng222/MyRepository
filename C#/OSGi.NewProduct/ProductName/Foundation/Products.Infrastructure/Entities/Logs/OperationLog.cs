@@ -77,7 +77,6 @@ namespace Products.Infrastructure.Entities
         /// </summary>
         public OperationLog()
         {
-            this.Timestamp = DateTime.Now;
         }
     }
 }

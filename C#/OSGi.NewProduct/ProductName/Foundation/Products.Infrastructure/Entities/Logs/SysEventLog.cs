@@ -60,7 +60,6 @@ namespace Products.Infrastructure.Entities
         /// </summary>
         public SysEventLog()
         {
-            this.Timestamp = DateTime.Now;
             this.Description = string.Empty;
         }
 
@@ -69,7 +68,6 @@ namespace Products.Infrastructure.Entities
         /// </summary>
         public SysEventLog(EventType type, EventLevel level, string description)
         {
-            this.Timestamp = DateTime.Now;
             this.TypeCode = type;
             this.Level = level;
             this.Description = description;

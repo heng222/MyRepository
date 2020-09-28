@@ -13,6 +13,6 @@ namespace Products.Infrastructure.Entities
         /// 日志产生的时间。
         /// </summary>
         [Column]
-        public DateTime Timestamp { get; set; }
+        public DateTime Timestamp { get; set; } = DateTime.Now;
     }
 }
