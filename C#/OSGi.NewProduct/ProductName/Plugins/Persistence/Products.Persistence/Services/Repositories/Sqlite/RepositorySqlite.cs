@@ -17,6 +17,7 @@ using System.Linq.Expressions;
 
 using Acl.Data;
 
+using Products.Infrastructure.Entities;
 using Products.Persistence.Services.Repositories;
 
 namespace Products.Persistence.Services
@@ -149,8 +150,10 @@ namespace Products.Persistence.Services
                 {
                     try
                     {
-                        var sqlText = string.Format(@"delete from {0} where {1} < @expiredDate",
-                            _dbContext.Dialect.Quote(p.Name), _dbContext.Dialect.Quote("TimeStamp"));
+                        var sqlText = string.Format(@"delete from {0} where {1} < @{2}",
+                            _dbContext.Dialect.Quote(p.Name),
+                            _dbContext.Dialect.Quote(nameof(LogEntity.Timestamp)),
+                            nameof(expiredDate));
 
                         _dbContext.ExecuteNonQuery(sqlText, new { expiredDate });
                     }
