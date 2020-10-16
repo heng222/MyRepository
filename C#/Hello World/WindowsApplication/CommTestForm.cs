@@ -19,7 +19,6 @@ namespace WindowsApplication
 
             CreateCustomTabpages();
 
-            this.btnAsynAwait.Click += this.btnAsynAwait_Click2;
             this.btnAsynAwait.Click += this.btnAsynAwait_Click;
         }
 
@@ -135,46 +134,16 @@ namespace WindowsApplication
 
         private async Task<int> ShowProgressOnButtonAsync()
         {
-            await Task.Run(() =>
+            for (int i = 0; i < 100; i++)
             {
-                for (int i = 0; i < 100; i++)
-                {
-                    this.BeginInvoke(new Action(() => btnAsynAwait.Text = string.Format("{0}%", i)));
-                    Thread.Sleep(100);
+                btnAsynAwait.Text = string.Format("{0}%", i);
+                await Task.Delay(100).ConfigureAwait(true); // false 将引发 “...从不是界面线程调用...”
 
-                    //if (i == 50) throw new Exception("此异常可以由UI线程捕获");
-                }
-            }).ConfigureAwait(false);
+                //if (i == 50) throw new Exception("此异常可以由UI线程捕获");
+            }
 
             return 100;
         }
-
-        private async void btnAsynAwait_Click2(object sender, EventArgs e)
-        {
-            try
-            {
-                await ShowProgressOnFormAsync().ConfigureAwait(true);
-
-                this.Text = "CommTestForm";
-                MessageBox.Show("ShowProgressOnForm 执行完成！");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-        private async Task ShowProgressOnFormAsync()
-        {
-            await Task.Run(() =>
-            {
-                for (int i = 0; i < 100; i++)
-                {
-                    this.BeginInvoke(new Action(() => this.Text = string.Format("{0}%", i)));
-                    Thread.Sleep(100);
-                }
-            }).ConfigureAwait(true);
-        }
-
 
         /// <summary>
         /// 退出
