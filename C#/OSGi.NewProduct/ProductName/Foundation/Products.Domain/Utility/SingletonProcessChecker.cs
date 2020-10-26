@@ -35,8 +35,7 @@ namespace Products.Domain.Utility
         /// <param name="symbolicName"></param>
         public SingletonProcessChecker(string symbolicName)
         {
-            bool createdNew;
-            _mutex = new Mutex(true, symbolicName, out createdNew);
+            _mutex = new Mutex(true, symbolicName, out System.Boolean createdNew);
             this.AddDisposable(_mutex);
 
             IsPassed = createdNew;

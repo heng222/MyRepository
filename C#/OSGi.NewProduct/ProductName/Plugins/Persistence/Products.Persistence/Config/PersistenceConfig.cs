@@ -285,9 +285,8 @@ namespace Products.Persistence
         }
         public static string GetTableName(Type entityType)
         {
-            TableDescriptor value;
 
-            if (TableDescriptors.TryGetValue(entityType, out value)) return value.Name;
+            if (TableDescriptors.TryGetValue(entityType, out TableDescriptor value)) return value.Name;
 
             return null;
         }

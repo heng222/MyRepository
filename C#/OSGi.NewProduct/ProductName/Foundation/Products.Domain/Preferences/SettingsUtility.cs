@@ -87,8 +87,7 @@ namespace Products.Domain.Preferences
         public static bool GetBoolean(IDictionary<string, string> settings, string key, bool defaultValue = false)
         {
             var text = GetString(settings, key);
-            bool flag;
-            if (!bool.TryParse(text, out flag))
+            if (!bool.TryParse(text, out Boolean flag))
                 flag = defaultValue;
 
             return flag;

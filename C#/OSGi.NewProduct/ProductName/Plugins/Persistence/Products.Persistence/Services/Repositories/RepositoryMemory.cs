@@ -104,9 +104,8 @@ namespace Products.Persistence.Services
         {
             var entityName = typeof(T).Name;
 
-            IEnumerable data;
 
-            if (_cache.TryGetValue(entityName, out data))
+            if (_cache.TryGetValue(entityName, out IEnumerable data))
             {
                 var rep = data as IQueryable<T>;
 

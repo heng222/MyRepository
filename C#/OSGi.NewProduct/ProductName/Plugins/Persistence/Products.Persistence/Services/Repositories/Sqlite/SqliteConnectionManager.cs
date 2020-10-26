@@ -19,6 +19,7 @@ using Acl.Data;
 
 namespace Products.Persistence.Services
 {
+    [Obsolete]
     class SqliteConnectionManager : Acl.CompositeDisposable
     {
         #region "Field"
@@ -83,13 +84,13 @@ namespace Products.Persistence.Services
                 this.AddDisposable(db);
 
                 _dbConnections.Add(p, db);
+                this.AddDisposable(db);
             });
         }
 
         public IDatabase GetConnection(string dataSourceName)
         {
-            IDatabase result = null;
-            _dbConnections.TryGetValue(dataSourceName, out result);
+            _dbConnections.TryGetValue(dataSourceName, out IDatabase result);
             return result;
         }
 

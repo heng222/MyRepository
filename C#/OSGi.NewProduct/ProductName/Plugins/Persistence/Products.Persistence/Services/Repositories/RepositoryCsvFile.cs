@@ -109,9 +109,8 @@ namespace Products.Persistence.Services.Repositories
 
         private IQueryable<T> GetQuerable<T>()
         {
-            IQueryable theValue = null;
 
-            return _mapping.TryGetValue(typeof(T), out theValue) ? theValue as IQueryable<T> : null;
+            return _mapping.TryGetValue(typeof(T), out IQueryable theValue) ? theValue as IQueryable<T> : null;
         }
         #endregion
 

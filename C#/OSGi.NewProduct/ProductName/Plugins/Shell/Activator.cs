@@ -295,8 +295,7 @@ namespace Products.Shell
         {
             if (context.Bundle.Headers.ContainsKey("OptimizeInterval"))
             {
-                int value;
-                if (!int.TryParse(context.Bundle.Headers["OptimizeInterval"], out value)) { value = 30; }
+                if (!int.TryParse(context.Bundle.Headers["OptimizeInterval"], out Int32 value)) { value = 30; }
 
                 Workbench.OptimizeInterval = value;
             }
