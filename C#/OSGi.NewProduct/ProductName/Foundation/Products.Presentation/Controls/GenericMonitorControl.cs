@@ -578,7 +578,7 @@ namespace Products.Presentation
                         && tvMessageSummary.SelectedNode != null
                         && tvMessageSummary.SelectedNode.Index == 0)
                     {
-                        this.chkSyncRefresh.Checked = false;
+                        this.tvMessageSummary.SelectedNode = null;
                     }
 
                     // 清除过期数据。 
@@ -621,7 +621,7 @@ namespace Products.Presentation
                         && tvMessageSummary.SelectedNode != null
                         && tvMessageSummary.SelectedNode.Index == 0)
                     {
-                        this.chkSyncRefresh.Checked = false;
+                        this.tvMessageSummary.SelectedNode = null;
                     }
 
                     // 清除过期数据。 
