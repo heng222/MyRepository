@@ -17,7 +17,7 @@ using System.Windows.Forms;
 
 using Acl.Log;
 
-using Platform.Presentation.Options;
+using Acl.Presentation.Options;
 
 using Products.Infrastructure.Log;
 using Products.Presentation;

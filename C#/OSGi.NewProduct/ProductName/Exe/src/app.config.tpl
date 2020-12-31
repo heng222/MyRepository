@@ -21,9 +21,6 @@
            18：节点2。
         -->
       <add key="NodeCode" value="0"/>
-
-    <!-- 程序运行日志的有效天数，默认值15。 -->
-    <add key="AppLogFileExpiredDays" value="15"/>
     
     <!-- 是否启用远程数据库？ -->
     <add key="EnableRemoteDb" value ="false"></add>

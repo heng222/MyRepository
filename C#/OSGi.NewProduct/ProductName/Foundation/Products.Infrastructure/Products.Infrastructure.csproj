@@ -50,9 +50,6 @@
     <Reference Include="Acl.Data">
       <HintPath>..\..\..\Libs\Acl.Data.dll</HintPath>
     </Reference>
-    <Reference Include="Acl.Log">
-      <HintPath>..\..\..\Libs\Acl.Log.dll</HintPath>
-    </Reference>
     <Reference Include="Acl.RsspI4net">
       <HintPath>..\..\..\Libs\Acl.RsspI4net.dll</HintPath>
       <Private>True</Private>

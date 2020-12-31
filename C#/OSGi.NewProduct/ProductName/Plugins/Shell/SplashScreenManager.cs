@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
+using Acl.Presentation.Framework;
 using Acl.ServiceManagement;
-
-using Platform.Presentation.Framework;
 
 using Products.Shell.Properties;
 

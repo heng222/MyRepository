@@ -17,10 +17,9 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 
+using Acl.Controls;
+using Acl.Presentation;
 using Acl.ServiceManagement;
-
-using Platform.Presentation;
-using Platform.Presentation.CommonControl;
 
 using Products.Domain.Utility;
 using Products.Infrastructure.Messages;

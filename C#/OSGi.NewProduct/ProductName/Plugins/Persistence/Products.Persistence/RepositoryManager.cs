@@ -282,19 +282,15 @@ namespace Products.Persistence
 
             if (string.IsNullOrWhiteSpace(GlobalServices.NodeContext.Name)) return;
 
-            Acl.Log.LogManager.FileHeader = string.Format("--- 日志页眉：【{0}】-【{1}】 ---{2}",
-                GlobalServices.SysAttribute.ProjectChsName,
-                GlobalServices.NodeContext.Name,
-                Environment.NewLine);
+            LogManager.GetCurrentAppenders().ForEach(p =>
+            {
+                p.Option.File.Header = $"--- 日志页眉：【{GlobalServices.SysAttribute.ProjectChsName}】-【{GlobalServices.NodeContext.Name}】 ---{Environment.NewLine}";
+                p.Option.File.Header = $"--- 日志页脚：【{GlobalServices.SysAttribute.ProjectChsName}】-【{GlobalServices.NodeContext.Name}】 ---{Environment.NewLine}";
+                //更新日志文件前缀。
+                p.Option.File.Surfix = $"_{GlobalServices.NodeContext.Name}";
 
-            Acl.Log.LogManager.FileFooter = string.Format("--- 日志页脚：【{0}】-【{1}】 ---{2}",
-                GlobalServices.SysAttribute.ProjectChsName,
-                GlobalServices.NodeContext.Name,
-                Environment.NewLine);
-
-            // 更新日志文件前缀。
-            LogManager.FileNameSurfix = string.Format("_{0}", GlobalServices.NodeContext.Name);
-            LogManager.ActivateOptions();
+                p.ActiveOption();
+            });
         }
 
         #endregion

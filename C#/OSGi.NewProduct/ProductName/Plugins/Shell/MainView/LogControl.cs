@@ -2,10 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
+using Acl.Controls;
 using Acl.Log;
-using Acl.Log.Presentation;
 
-using Platform.Presentation;
+using Acl.Presentation;
 
 using Products.Infrastructure.Types;
 using Products.Presentation;
@@ -29,7 +29,6 @@ namespace Products.Shell.MainView
 
             this.CreateHandle();
 
-            _logMonitor.LogPath = string.Format(@"{0}Log\All\", AppDomain.CurrentDomain.BaseDirectory);
             this.Controls.Add(_logMonitor);
             _logMonitor.Dock = DockStyle.Fill;
         }

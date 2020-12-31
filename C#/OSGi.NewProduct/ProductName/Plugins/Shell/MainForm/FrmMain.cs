@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 
-using Platform.Presentation;
+using Acl.Presentation;
 
 using Products.Infrastructure.Messages;
 using Products.Infrastructure.Specification;

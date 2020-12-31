@@ -181,16 +181,7 @@ namespace Exe
         /// </summary>
         private static void InitializeLogSystem()
         {
-            // 初始化日志管理器
-            UInt16 expiredDays = 30;
-            try
-            {
-                expiredDays = Convert.ToUInt16(ConfigurationManager.AppSettings["AppLogFileExpiredDays"]);
-            }
-            catch (Exception /*ex*/)
-            { }
-
-            LogManager.Initialize("log4net.config.xml", expiredDays);
+            LogManager.Initialize();
             LogManager.GetLogger(LoggerNames.Platform).Info("程序运行日志库完成初始化...");
 
             // 初始化通信流日志库

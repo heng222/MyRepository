@@ -51,11 +51,6 @@
       <HintPath>..\..\..\Libs\Acl.Core.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Acl.Log, Version=1.0.0.5, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Libs\Acl.Log.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="Acl.RsspI4net">
       <HintPath>..\..\..\Libs\Acl.RsspI4net.dll</HintPath>
       <Private>False</Private>

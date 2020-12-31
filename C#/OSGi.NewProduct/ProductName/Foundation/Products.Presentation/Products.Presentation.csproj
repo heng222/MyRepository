@@ -49,14 +49,6 @@
     <Reference Include="Acl.Core">
       <HintPath>..\..\..\Libs\Acl.Core.dll</HintPath>
     </Reference>
-    <Reference Include="Acl.Log, Version=1.0.0.881, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Libs\Acl.Log.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Platform.Presentation">
-      <HintPath>..\..\..\Libs\Platform.Presentation.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />

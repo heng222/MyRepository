@@ -49,16 +49,8 @@
       <HintPath>..\..\..\..\Libs\Acl.Core.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Acl.Log">
-      <HintPath>..\..\..\..\Libs\Acl.Log.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="OSGi">
       <HintPath>..\..\..\..\Libs\OSGi.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Platform.Presentation">
-      <HintPath>..\..\..\..\Libs\Platform.Presentation.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System" />

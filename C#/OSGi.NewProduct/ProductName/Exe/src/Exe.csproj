@@ -84,10 +84,6 @@
       <HintPath>..\..\..\Libs\Acl.Core.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Acl.Log">
-      <HintPath>..\..\..\Libs\Acl.Log.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="OSGi, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\Libs\OSGi.dll</HintPath>
@@ -116,10 +112,6 @@
     <Compile Include="Program.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="..\..\..\Libs\log4net.dll">
-      <Link>Libs\log4net.dll</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="..\..\..\Libs\OSGi.dll">
       <Link>OSGi.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -129,9 +121,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="exe.ico" />
-    <Content Include="log4net.config.xml">
+    <None Include="log.config.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    </None>
     <None Include="osgi.config.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>

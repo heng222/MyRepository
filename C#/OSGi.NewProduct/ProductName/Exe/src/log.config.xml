@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<log SupportsProductCache="false" ProductCacheInterval="1000">
+	<Appenders>
+		<Appender>
+			<Type>File</Type>
+			<Name>InfoAppender</Name>
+			<Level>Info</Level>
+			<Pattern>%timestamp [%thread] [%level] [%logger]- %message%newline</Pattern>
+			<File RollingMode="DailyAndSize">
+				<MaxFileSize>10</MaxFileSize>
+				<ExpiredDays>30</ExpiredDays>
+				<FileName>log</FileName>
+				<Extension>txt</Extension>
+				<DatePattern>yyyy-MM-dd</DatePattern>
+				<FileDirectory>Log\\All\\</FileDirectory>
+			</File>
+		</Appender>
+		<Appender>
+			<Type>File</Type>
+			<Name>DatabaseAppender</Name>
+			<Level>Debug</Level>
+			<LoggerToMatch>
+				<Logger>持久化,数据库,db,database</Logger>
+				<Accept>true</Accept>
+			</LoggerToMatch>
+			<Pattern>%timestamp [%thread] [%level] [%logger]- %message%newline</Pattern>
+			<File RollingMode="DailyAndSize">
+				<MaxFileSize>10</MaxFileSize>
+				<ExpiredDays>30</ExpiredDays>
+				<FileName>log</FileName>
+				<Extension>txt</Extension>
+				<DatePattern>yyyy-MM-dd</DatePattern>
+				<FileDirectory>Log\\DbOnly\\</FileDirectory>
+			</File>
+		</Appender>
+		<Appender>
+			<Type>File</Type>
+			<Name>ErrorAppender</Name>
+			<Level>Warn</Level>
+			<Pattern>%timestamp [%thread] [%level] [%logger] - %message%newline</Pattern>
+			<File RollingMode="DailyAndSize">
+				<MaxFileSize>10</MaxFileSize>
+				<ExpiredDays>30</ExpiredDays>
+				<FileName>log</FileName>
+				<Extension>txt</Extension>
+				<DatePattern>yyyy-MM-dd</DatePattern>
+				<FileDirectory>Log\\ErrorOnly\\</FileDirectory>
+			</File>
+		</Appender>
+	</Appenders>
+	<!--<Loggers>
+		<Logger Level="Debug" Name="持久化">
+			<Appenders>
+				<Appender>DatabaseAppender</Appender>
+			</Appenders>
+		</Logger>
+	</Loggers>-->
+	<Root Level="Info">
+		<Appenders>
+			<Appender>InfoAppender</Appender>
+			<Appender>ErrorAppender</Appender>
+			<Appender>DatabaseAppender</Appender>
+		</Appenders>
+	</Root>
+</log>
