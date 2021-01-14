@@ -24,6 +24,7 @@ using Acl.ServiceManagement;
 using Products.Domain;
 using Products.Infrastructure.Entities;
 using Products.Infrastructure.Exceptions;
+using Products.Infrastructure.Log;
 using Products.Infrastructure.Specification;
 using Products.Persistence.Services;
 using Products.Persistence.Services.Repositories;
@@ -125,7 +126,7 @@ namespace Products.Persistence
         private void InitializeEnvironment(bool enableRemoteDb)
         {
             // 数据库日志配置
-            Database.Logger = (fmt, args, level, ex) => LogUtility.Trace(fmt, args, (LogLevel)level, ex);
+            Database.UseLog(LoggerNames.Persistence);
 
             // 配置SQLite 底层的dll 对应的环境变量（主要是为了加载该底层的dll）
             Environment.SetEnvironmentVariable("PreLoadSQLite_BaseDirectory", HelperTools.CurrentDllPath);
