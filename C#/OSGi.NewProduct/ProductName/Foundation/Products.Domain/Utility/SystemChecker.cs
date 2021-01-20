@@ -15,6 +15,8 @@ using System;
 using System.IO;
 using System.Reflection;
 
+using Acl.Diagnostics;
+
 namespace Products.Domain.Utility
 {
     /// <summary>
@@ -81,9 +83,6 @@ namespace Products.Domain.Utility
             // 单实例检查
             _singletonChecker = new SingletonProcessChecker(exeFullPathName.Replace('\\', '_'));
             if (!_singletonChecker.IsPassed) throw new Exception("程序的一个实例已经在运行。");
-
-            // 冗余DLL文件检查
-            RedundantDllFileChecker.Check();
         }
 
         /// <summary>

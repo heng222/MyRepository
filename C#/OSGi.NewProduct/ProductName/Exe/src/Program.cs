@@ -22,6 +22,7 @@ using Acl.CommStreamLog;
 using Acl.Log;
 using Acl.MessageBus;
 using Acl.Threading;
+using Acl.Utility;
 
 using Microsoft.Win32;
 
@@ -100,7 +101,7 @@ namespace Exe
 
                     try
                     {
-                        COMHelper.RegServer(commPath);
+                        ComHelper.RegisterServer(commPath);
                     }
                     catch (Exception /*ex*/)
                     {

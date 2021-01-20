@@ -637,7 +637,7 @@ namespace Products.Shell.Presentation.MainForm
                 //    this.DrawToBitmap(bmp, new Rectangle(0, 0, bmp.Width, bmp.Height));
                 //    bmp.Save(imageFileName, System.Drawing.Imaging.ImageFormat.Png);
                 //}
-                GdiNativeMethods.PrintScreenToFile(this.View, imageFileName);
+                this.View.PrintScreenToFile(imageFileName);
             }
             catch (Exception ex)
             {

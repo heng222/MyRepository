@@ -87,13 +87,9 @@
     <Compile Include="Services\Rssp1IniFileConfigProvider.cs" />
     <Compile Include="SystemProperty.cs" />
     <Compile Include="Utility\AuthenticationHelper.cs" />
-    <Compile Include="Utility\COMHelper.cs" />
-    <Compile Include="Utility\GdiNativeMethods.cs" />
     <Compile Include="Utility\GlobalHelper.cs" />
     <Compile Include="Utility\LogUtility.cs" />
-    <Compile Include="Utility\RedundantDllFileChecker.cs" />
     <Compile Include="Utility\SeqNoManager.cs" />
-    <Compile Include="Utility\SingletonProcessChecker.cs" />
     <Compile Include="Utility\SystemChecker.cs" />
   </ItemGroup>
   <ItemGroup>
