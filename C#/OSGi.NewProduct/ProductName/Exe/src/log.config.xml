@@ -1,15 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<log SupportsProductCache="false" ProductCacheInterval="1000">
+<log SupportsProductCache="false" ProductCacheInterval="1000" SupportsExpiredFileDetector="true" ExpiredFileCheckInterval="10">
 	<Appenders>
+		<Appender>
+			<Type>Debug</Type>
+			<Name>DebugAppender</Name>
+			<Pattern>%timestamp [%thread] [%level] [%logger]- %message%newline</Pattern>
+		</Appender>
 		<Appender>
 			<Type>File</Type>
 			<Name>InfoAppender</Name>
-			<Level>Info</Level>
 			<Pattern>%timestamp [%thread] [%level] [%logger]- %message%newline</Pattern>
 			<File RollingMode="DailyAndSize">
 				<MaxFileSize>10</MaxFileSize>
 				<ExpiredDays>30</ExpiredDays>
-				<FileName>log</FileName>
 				<Extension>txt</Extension>
 				<DatePattern>yyyy-MM-dd</DatePattern>
 				<FileDirectory>Log\\All\\</FileDirectory>
@@ -18,7 +21,6 @@
 		<Appender>
 			<Type>File</Type>
 			<Name>DatabaseAppender</Name>
-			<Level>Debug</Level>
 			<LoggerToMatch>
 				<Logger>持久化,数据库,db,database</Logger>
 				<Accept>true</Accept>
@@ -27,7 +29,6 @@
 			<File RollingMode="DailyAndSize">
 				<MaxFileSize>10</MaxFileSize>
 				<ExpiredDays>30</ExpiredDays>
-				<FileName>log</FileName>
 				<Extension>txt</Extension>
 				<DatePattern>yyyy-MM-dd</DatePattern>
 				<FileDirectory>Log\\DbOnly\\</FileDirectory>
@@ -37,26 +38,20 @@
 			<Type>File</Type>
 			<Name>ErrorAppender</Name>
 			<Level>Warn</Level>
+			<LazyActive>true</LazyActive>
 			<Pattern>%timestamp [%thread] [%level] [%logger] - %message%newline</Pattern>
 			<File RollingMode="DailyAndSize">
 				<MaxFileSize>10</MaxFileSize>
 				<ExpiredDays>30</ExpiredDays>
-				<FileName>log</FileName>
 				<Extension>txt</Extension>
 				<DatePattern>yyyy-MM-dd</DatePattern>
 				<FileDirectory>Log\\ErrorOnly\\</FileDirectory>
 			</File>
 		</Appender>
 	</Appenders>
-	<!--<Loggers>
-		<Logger Level="Debug" Name="持久化">
-			<Appenders>
-				<Appender>DatabaseAppender</Appender>
-			</Appenders>
-		</Logger>
-	</Loggers>-->
 	<Root Level="Info">
 		<Appenders>
+			<Appender>Debug</Appender>
 			<Appender>InfoAppender</Appender>
 			<Appender>ErrorAppender</Appender>
 			<Appender>DatabaseAppender</Appender>
