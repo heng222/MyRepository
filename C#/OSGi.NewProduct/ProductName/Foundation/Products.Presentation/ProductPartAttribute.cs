@@ -1,34 +1,26 @@
 ﻿using System;
 using System.Drawing;
+using System.Windows.Forms;
 
 using Acl.Presentation;
-using Acl.Utility;
-
-using Products.Infrastructure.Types;
 
 namespace Products.Presentation
 {
     /// <summary>
-    /// Part特性定义。
+    /// Part 特性定义。
     /// </summary>
     [AttributeUsage(AttributeTargets.Class)]
     public class ProductPartAttribute : TabSmartPartAttribute
     {
-        private PresentationControlType _controlType;
+        /// <summary>
+        /// 字符串格式的GUID值，用于唯一标识一个控件。
+        /// </summary>
+        public string ID { get; private set; }
 
         /// <summary>
-        /// 获取主控件的类型
+        /// 获取/设置控件的停靠方式。
         /// </summary>
-        public PresentationControlType ControlType
-        {
-            get { return _controlType; }
-
-            set
-            {
-                _controlType = value;
-                Title = EnumUtility.GetDescription(value);
-            }
-        }
+        public DockStyle Dock { get; set; } = DockStyle.Fill;
 
         /// <summary>
         /// 获取/设置Part使用的图标。
@@ -36,12 +28,22 @@ namespace Products.Presentation
         public Icon DefaultIcon { get; set; }
 
         /// <summary>
-        /// 
+        /// 构造函数。
         /// </summary>
-        /// <returns></returns>
-        public override int GetHashCode()
+        /// <param name="id">字符串格式的GUID值，用于唯一标识一个控件。</param>
+        /// <param name="title">控件的标题。</param>
+        public ProductPartAttribute(string id, string title)
         {
-            return (int)_controlType;
+            if (string.IsNullOrWhiteSpace(id)) throw new ArgumentException();
+
+            this.ID = id;
+            this.Title = title;
+        }
+
+        /// <inheritdoc/>
+        public override Int32 GetHashCode()
+        {
+            return this.ID.GetHashCode();
         }
     }
 }

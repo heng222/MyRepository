@@ -73,9 +73,7 @@ namespace Products.Presentation
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="type"></param>
-        /// <returns></returns>
-        public static Control GetControl(PresentationControlType type)
+        public static Control GetControl(string id)
         {
             foreach (var smartPart in Workbench.MainWorkspace.SmartParts)
             {
@@ -84,7 +82,7 @@ namespace Products.Presentation
 
                 if (attr == null) continue;
 
-                if (attr.ControlType == type) return smartPart as Control;
+                if (string.Compare(attr.ID, id) == 0) return smartPart as Control;
             }
 
             return null;

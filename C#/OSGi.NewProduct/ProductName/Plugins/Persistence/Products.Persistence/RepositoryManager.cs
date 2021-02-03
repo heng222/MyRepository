@@ -283,7 +283,7 @@ namespace Products.Persistence
 
             if (string.IsNullOrWhiteSpace(GlobalServices.NodeContext.Name)) return;
 
-            LogManager.GetCurrentAppenders().ForEach(p =>
+            LogManager.GetCurrentAppenders().Where(t => t.Option.Type == AppenderType.File).ForEach(p =>
             {
                 p.Option.File.Header = $"--- 日志页眉：【{GlobalServices.SysAttribute.ProjectChsName}】-【{GlobalServices.NodeContext.Name}】 ---{Environment.NewLine}";
                 p.Option.File.Header = $"--- 日志页脚：【{GlobalServices.SysAttribute.ProjectChsName}】-【{GlobalServices.NodeContext.Name}】 ---{Environment.NewLine}";

@@ -46,7 +46,7 @@ namespace Products.LogReport
         protected override void OnBundleStart(IDictionary<string, string> context)
         {
             // 创建表示层
-            var cfg = new ProductPartAttribute { ControlType = PresentationControlType.LogReport, DefaultIcon = Resources.LogQuery };
+            var cfg = new ProductPartAttribute("11F0FAE2-2728-479D-AC9F-C6E63E1BACE5", "日志报告") { DefaultIcon = Resources.LogQuery };
             Workbench.SendMessage(() => MainWorkSpace.AddPart(ReportTabControlBuilder.Build(), cfg));
         }
 

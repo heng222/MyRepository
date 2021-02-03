@@ -289,13 +289,13 @@ namespace Products.Shell.Presentation.MainForm
                 var partAttri = item.Tag as ProductPartAttribute;
                 if (partAttri == null) continue;
 
-                var controlType = dockContents.Where(p => p.Key.ControlType == partAttri.ControlType).
-                    First().Key.ControlType;
+                var id = dockContents.Where(p => p.Key.ID == partAttri.ID).
+                    First().Key.ID;
 
 #if DEBUG
-                item.Enabled = this.View.CanShow(controlType);
+                item.Enabled = this.View.CanShow(id);
 #else
-                item.Visible = this.View.CanShow(controlType);
+                item.Visible = this.View.CanShow(id);
 #endif
             }
         }
@@ -390,7 +390,7 @@ namespace Products.Shell.Presentation.MainForm
                 var menuItem = sender as ToolStripMenuItem;
                 var partAttri = menuItem.Tag as ProductPartAttribute;
 
-                this.View.ShowSpecifiedDockContent(partAttri.ControlType);
+                this.View.ShowSpecifiedDockContent(partAttri.ID);
             }
             catch (Exception ex)
             {

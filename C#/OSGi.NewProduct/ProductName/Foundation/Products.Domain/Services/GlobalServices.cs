@@ -13,7 +13,9 @@
 
 using Acl.ServiceManagement;
 
-namespace Products.Infrastructure.Specification
+using Products.Infrastructure.Specification;
+
+namespace Products
 {
     /// <summary>
     /// 全局服务。

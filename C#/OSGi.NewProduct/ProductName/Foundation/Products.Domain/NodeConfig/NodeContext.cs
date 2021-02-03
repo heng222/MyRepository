@@ -53,10 +53,8 @@ namespace Products.Domain
         /// </summary>
         public PluginTypes Plugins { get; private set; }
 
-        /// <summary>
-        /// 获取当前节点需要加载的控件类型。
-        /// </summary>
-        public IEnumerable<PresentationControlType> ControlTypes { get; private set; }
+        /// <inheritdoc/>
+        public IEnumerable<string> Controls { get; private set; }
         #endregion
 
         #region "Constructor"
@@ -139,7 +137,7 @@ namespace Products.Domain
 
             // 
             this.Plugins = localPluginCfg.GetPlugins();
-            this.ControlTypes = localPluginCfg.GetControlTypes();
+            this.Controls = localPluginCfg.GetControlTypes();
         }
 
         /// <summary>
@@ -160,7 +158,7 @@ namespace Products.Domain
 
                 // 本节点需要显示的控件。
                 strBuilder.AppendFormat("\r\n本节点需要显示的控件= {0}。",
-                    string.Join(",", this.ControlTypes.Select(p => string.Format("{0}", p))));
+                    string.Join(",", this.Controls.Select(p => string.Format("{0}", p))));
 
                 LogUtility.Info(strBuilder.ToString());
             }

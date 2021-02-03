@@ -74,7 +74,7 @@ namespace Products.Shell
 
             if (this.MainControls.ContainsKey(info))
             {
-                throw new Exception(string.Format("类型为 {0} 的控件重复，请尝试移除相同的控件或者重命名。", info.ControlType));
+                throw new Exception(string.Format("ID为 {0} 的控件重复，请尝试移除相同的控件或者重命名。", info.ID));
             }
 
             control.Dock = DockStyle.Fill;

@@ -192,7 +192,7 @@ namespace Products.Shell
 
         private IDockContent DeserializeDockContentCallback(string persistString)
         {
-            var theContent = _dockContents.Where(p => p.Key.ControlType.ToString() == persistString).FirstOrDefault().Value;
+            var theContent = _dockContents.Where(p => p.Key.ID == persistString).FirstOrDefault().Value;
             return theContent;
         }
 
@@ -201,31 +201,27 @@ namespace Products.Shell
             var theWorkspace = Workbench.MainWorkspace as MockWorkspace;
             foreach (var theControl in theWorkspace.MainControls)
             {
-                var controlType = theControl.Key.ControlType;
+                var dock = theControl.Key.Dock;
+                var dockState = DockState.Document;
+                DockContentEx newDockContent;
 
-                DockContentEx newDockContent = null;
+                if (dock == DockStyle.Bottom) dockState = DockState.DockBottom;
+                else if(dock == DockStyle.Top) dockState = DockState.DockTop;
+                else if (dock == DockStyle.Left) dockState = DockState.DockLeft;
+                else if (dock == DockStyle.Right) dockState = DockState.DockRight;
 
-                if (controlType == PresentationControlType.ApplicationLog)
+                // 
+                newDockContent = new DockContentEx(theControl.Value, theControl.Key.Title)
                 {
-                    newDockContent = new DockContentEx(theControl.Value, theControl.Key.Title, Resources.AppLog)
-                    {
-                        DefaultDockState = DockState.DockBottom,
-                    };
-                }
-                else
-                {
-                    newDockContent = new DockContentEx(theControl.Value, theControl.Key.Title)
-                    {
-                        DefaultDockState = DockState.Document,
-                    };
-                }
+                    DefaultDockState = dockState,
+                };
 
                 if (theControl.Key.DefaultIcon != null)
                 {
                     newDockContent.Icon = theControl.Key.DefaultIcon;
                 }
                 newDockContent.CloseButtonVisible = true;
-                newDockContent.PersistString = controlType.ToString();
+                newDockContent.PersistString = theControl.Key.ID;
 
                 _dockContents[theControl.Key] = newDockContent;
             }
@@ -258,9 +254,9 @@ namespace Products.Shell
 
             _dockContents.Select(p => p.Value).Where(p => p.DefaultDockState == DockState.Document).First().Show();
         }
-        public void ShowSpecifiedDockContent(PresentationControlType controlType)
+        public void ShowSpecifiedDockContent(string id)
         {
-            var theContent = _dockContents.Where(p => p.Key.ControlType == controlType).First().Value;
+            var theContent = _dockContents.Where(p => p.Key.ID == id).First().Value;
 
             if (theContent != null)
             {
@@ -271,7 +267,7 @@ namespace Products.Shell
         {
             foreach (var item in _dockContents)
             {
-                if (!this.CanShow(item.Key.ControlType) && item.Value.Visible)
+                if (!this.CanShow(item.Key.ID) && item.Value.Visible)
                 {
                     item.Value.Hide();
                 }
@@ -288,7 +284,7 @@ namespace Products.Shell
         }
 
 
-        public bool CanShow(PresentationControlType controlType)
+        public bool CanShow(string id)
         {
             //var authorities = CurrentUserDetail.Instance.OperationAuthorities;
 

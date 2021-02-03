@@ -20,7 +20,6 @@ using Acl.Utility;
 
 using Products.Infrastructure.Entities;
 using Products.Infrastructure.Messages;
-using Products.Infrastructure.Specification;
 using Products.Infrastructure.Types;
 using Products.Presentation;
 using Products.SystemEvents.Utilities;
@@ -30,7 +29,7 @@ namespace Products.SystemEvents.Controls
     /// <summary>
     /// 操作记录显示控件。
     /// </summary>
-    [ProductPart(ControlType = PresentationControlType.OperationLog)]
+    [ProductPart("11992496-9745-4EF4-997F-0AF91428266E", "操作记录", Dock = DockStyle.Bottom)]
     partial class CtrlOperationRecord : UserControl
     {
         #region "Constants"

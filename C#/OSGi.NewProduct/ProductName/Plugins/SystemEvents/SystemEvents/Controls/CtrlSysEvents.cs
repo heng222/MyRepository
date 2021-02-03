@@ -22,7 +22,6 @@ using Products.Infrastructure;
 using Products.Infrastructure.Entities;
 using Products.Infrastructure.Events;
 using Products.Infrastructure.Messages;
-using Products.Infrastructure.Specification;
 using Products.Infrastructure.Types;
 using Products.Presentation;
 using Products.SystemEvents.Properties;
@@ -33,7 +32,7 @@ namespace Products.SystemEvents.Controls
     /// <summary>
     /// 系统事件监视控件。
     /// </summary>
-    [ProductPart(ControlType = PresentationControlType.SystemEvent)]
+    [ProductPart("C8DBF17D-7F23-4981-9F7B-CEDEAEAA837A", "系统事件", Dock = DockStyle.Bottom)]
     partial class CtrlSysEvents : UserControl
     {
         private readonly UInt32 MaxCount = 100;

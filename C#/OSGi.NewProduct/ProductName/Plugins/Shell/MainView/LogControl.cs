@@ -7,7 +7,6 @@ using Acl.Log;
 
 using Acl.Presentation;
 
-using Products.Infrastructure.Types;
 using Products.Presentation;
 
 namespace Products.Shell.MainView
@@ -15,7 +14,7 @@ namespace Products.Shell.MainView
     /// <summary>
     /// 程序普通日志视图
     /// </summary>
-    [ProductPart(ControlType = PresentationControlType.ApplicationLog, ActivateTab = true)]
+    [ProductPart("9BA29AFC-4B14-4872-8375-ECAEAD7A5637", "程序运行日志", Dock = DockStyle.Bottom)]
     public partial class LogControl : UserControl, IControlOptimizer
     {
         private LogControlMultiPages _logMonitor = new LogControlMultiPages();

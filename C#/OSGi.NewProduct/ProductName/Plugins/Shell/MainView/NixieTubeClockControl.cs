@@ -4,7 +4,6 @@ using System.Windows.Forms;
 
 using Acl.TimeDisplay;
 
-using Products.Infrastructure.Types;
 using Products.Presentation;
 
 namespace Products.Shell.MainView
@@ -12,7 +11,7 @@ namespace Products.Shell.MainView
     /// <summary>
     /// 数码管时钟控件。
     /// </summary>
-    [ProductPart(ControlType = PresentationControlType.NixieTubeClock)]
+    [ProductPart("96DAB869-4741-45EE-8A1D-407E69DE7179", "数码管时钟控件", Dock = DockStyle.Top)]
     public partial class NixieTubeClockControl : UserControl
     {
         //private static readonly Brush DefaultBackgroundBrush = Brushes.Gray;

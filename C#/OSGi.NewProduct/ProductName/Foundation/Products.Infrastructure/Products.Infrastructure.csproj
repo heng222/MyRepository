@@ -120,7 +120,6 @@
     <Compile Include="Protocol\InternalFrame.cs" />
     <Compile Include="Protocol\InternalFrameType.cs" />
     <Compile Include="Protocol\InternalFrameVersion.cs" />
-    <Compile Include="Specification\GlobalServices.cs" />
     <Compile Include="Specification\UAC\IUserAccessControl.cs" />
     <Compile Include="Types\EventLevel.cs" />
     <Compile Include="Types\EventType.cs" />
@@ -133,7 +132,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DTO\" />
-    <Folder Include="Framework\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Products.Resource\Products.Resource.csproj">

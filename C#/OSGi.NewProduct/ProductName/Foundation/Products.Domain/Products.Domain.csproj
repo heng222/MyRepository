@@ -83,6 +83,7 @@
     <Compile Include="Preferences\SettingsUtility.cs" />
     <None Include="Properties\AssemblyInfo.tpl" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\GlobalServices.cs" />
     <Compile Include="Services\RawUdpConfigProvider.cs" />
     <Compile Include="Services\Rssp1IniFileConfigProvider.cs" />
     <Compile Include="SystemProperty.cs" />

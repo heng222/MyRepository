@@ -21,7 +21,6 @@ using System.Windows.Forms;
 using Products.Infrastructure.Entities;
 using Products.Infrastructure.Events;
 using Products.Infrastructure.Messages;
-using Products.Infrastructure.Specification;
 using Products.Infrastructure.Types;
 using Products.Plugin1.Properties;
 using Products.Plugin1.Utilities;
@@ -29,7 +28,7 @@ using Products.Presentation;
 
 namespace Products.Plugin1.Controls
 {
-    [ProductPart(ControlType = PresentationControlType.Plugin1Main)]
+    [ProductPart("26F999A3-86F8-48C2-88CC-120246AEAB04", "插件1主控件")]
     partial class CtrlMain : UserControl
     {
         #region "Field"
