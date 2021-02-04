@@ -289,13 +289,13 @@ namespace Products.Shell.Presentation.MainForm
                 var partAttri = item.Tag as ProductPartAttribute;
                 if (partAttri == null) continue;
 
-                var id = dockContents.Where(p => p.Key.ID == partAttri.ID).
-                    First().Key.ID;
+                var privilege = dockContents.Where(p => p.Key.ID == partAttri.ID).
+                    First().Key.PrivilegeNecessary;
 
 #if DEBUG
-                item.Enabled = this.View.CanShow(id);
+                item.Enabled = this.View.CanShow(privilege);
 #else
-                item.Visible = this.View.CanShow(id);
+                item.Visible = this.View.CanShow(privilege);
 #endif
             }
         }

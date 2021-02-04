@@ -7,6 +7,7 @@ using System.Windows.Forms;
 
 using Acl.Presentation;
 
+using Products.Infrastructure;
 using Products.Infrastructure.Messages;
 using Products.Infrastructure.Specification;
 using Products.Infrastructure.Types;
@@ -267,7 +268,7 @@ namespace Products.Shell
         {
             foreach (var item in _dockContents)
             {
-                if (!this.CanShow(item.Key.ID) && item.Value.Visible)
+                if (!this.CanShow(item.Key.PrivilegeNecessary) && item.Value.Visible)
                 {
                     item.Value.Hide();
                 }
@@ -284,21 +285,10 @@ namespace Products.Shell
         }
 
 
-        public bool CanShow(string id)
+        public bool CanShow(SystemPrivilege privilegeNecessary)
         {
-            //var authorities = CurrentUserDetail.Instance.OperationAuthorities;
-
-            //var privilege = ShellHelper.GetControlPrivilege(controlType);
-
-            //if (privilege != SystemPrivilege.None)
-            //{
-            //    return authorities.Contains(privilege);
-            //}
-            //else
-            //{
-            //    return true;
-            //}
-            return true;
+            if (privilegeNecessary == SystemPrivilege.None) return true;
+            else return GlobalServices.UAC.Contains(privilegeNecessary);
         }
 
         /// <summary>

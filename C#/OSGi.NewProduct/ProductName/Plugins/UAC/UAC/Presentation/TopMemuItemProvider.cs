@@ -66,7 +66,7 @@ namespace Products.UAC.Presentation
         {
             try
             {
-                _menuItemLogOff.Visible = this.UAC.CurrentUserCode != UserInfo.Guest;
+                _menuItemLogOff.Visible = this.UAC.CurrentUserCode != UserInfo.GuestID;
             }
             catch (Exception ex)
             {
@@ -96,7 +96,7 @@ namespace Products.UAC.Presentation
 
             _menuItemLogOff = new ToolStripMenuItem() { Text = "×¢Ïú(&X)", Image = Resources.Logout };
             this.AddDisposable(_menuItemLogOff);
-            _menuItemLogOff.Visible = this.UAC.CurrentUserCode != UserInfo.Guest;
+            _menuItemLogOff.Visible = this.UAC.CurrentUserCode != UserInfo.GuestID;
             _menuItemLogOff.Click += Logoff_Click;
             userMenuItem.DropDownItems.Add(_menuItemLogOff);
         }

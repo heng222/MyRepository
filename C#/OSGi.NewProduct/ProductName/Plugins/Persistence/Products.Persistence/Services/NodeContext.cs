@@ -18,12 +18,11 @@ using System.Text;
 
 using Acl.Utility;
 
-using Products.Domain.Utility;
 using Products.Infrastructure.Entities;
 using Products.Infrastructure.Specification;
 using Products.Infrastructure.Types;
 
-namespace Products.Domain
+namespace Products.Persistence.Services
 {
     /// <summary>
     /// 节点上下文信息。
@@ -54,7 +53,7 @@ namespace Products.Domain
         public PluginTypes Plugins { get; private set; }
 
         /// <inheritdoc/>
-        public IEnumerable<string> Controls { get; private set; }
+        public IEnumerable<PresentationControlType> ControlTypes { get; private set; }
         #endregion
 
         #region "Constructor"
@@ -137,7 +136,7 @@ namespace Products.Domain
 
             // 
             this.Plugins = localPluginCfg.GetPlugins();
-            this.Controls = localPluginCfg.GetControlTypes();
+            this.ControlTypes = localPluginCfg.GetControlTypes();
         }
 
         /// <summary>
@@ -158,7 +157,7 @@ namespace Products.Domain
 
                 // 本节点需要显示的控件。
                 strBuilder.AppendFormat("\r\n本节点需要显示的控件= {0}。",
-                    string.Join(",", this.Controls.Select(p => string.Format("{0}", p))));
+                    string.Join(",", this.ControlTypes.Select(p => string.Format("{0}", p))));
 
                 LogUtility.Info(strBuilder.ToString());
             }

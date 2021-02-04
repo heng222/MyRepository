@@ -44,9 +44,9 @@ namespace Products.Infrastructure.Specification
         PluginTypes Plugins { get; }
 
         /// <summary>
-        /// 获取当前节点需要加载的控件。
+        /// 获取当前节点需要加载的控件类型。
         /// </summary>
-        IEnumerable<string> Controls { get; }
+        IEnumerable<PresentationControlType> ControlTypes { get; }
 
         #endregion
 

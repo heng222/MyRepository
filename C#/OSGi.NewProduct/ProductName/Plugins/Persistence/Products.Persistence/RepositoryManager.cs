@@ -186,6 +186,7 @@ namespace Products.Persistence
         private void InitializeNodeContext(long nodeCode)
         {
             var deviceContext = new NodeContext();
+            GlobalServices.NodeContext = deviceContext;
 
             var idInAppConfig = nodeCode;
 
@@ -219,8 +220,6 @@ namespace Products.Persistence
                 var customNode = SelectCustomNode();
                 deviceContext.Initialize(customNode);
             }
-
-            GlobalServices.NodeContext = deviceContext;
         }
 
         private uint SelectCustomNode()

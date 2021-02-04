@@ -28,7 +28,7 @@ namespace Products.UAC.Domain
     {
         #region "Field"
         private readonly IUserManagement _userMgr;
-        private readonly UserInfo _currentUser = new UserInfo();
+        private readonly UserInfo _currentUser = UserInfo.Guest;
         #endregion
 
         #region "Constructor"
@@ -89,14 +89,14 @@ namespace Products.UAC.Domain
 
         public void Logoff()
         {
-            if (_currentUser.Id == UserInfo.Guest) throw new Exception("无法注销Guest用户。");
+            if (_currentUser.Id == UserInfo.GuestID) throw new Exception("无法注销Guest用户。");
 
             // 发布用户将要切换事件。
             GlobalMessageBus.PublishUserChanging(new EventArgs());
 
             // 切换用户。
             _currentUser.Name = "Guest";
-            _currentUser.Id = UserInfo.Guest;
+            _currentUser.Id = UserInfo.GuestID;
             _currentUser.Privileges.Clear();
 
             // 发布用户切换事件。

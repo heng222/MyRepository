@@ -23,6 +23,7 @@ namespace Products.Infrastructure
         // 注：region分类原则为RBAC中的What（权限针对的对象或资源）。
 
         #region "系统权限"
+
         /// <summary>
         /// 编辑系统参数。
         /// </summary>

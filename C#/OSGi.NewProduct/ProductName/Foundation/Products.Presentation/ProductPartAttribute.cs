@@ -4,6 +4,8 @@ using System.Windows.Forms;
 
 using Acl.Presentation;
 
+using Products.Infrastructure;
+
 namespace Products.Presentation
 {
     /// <summary>
@@ -18,14 +20,28 @@ namespace Products.Presentation
         public string ID { get; private set; }
 
         /// <summary>
-        /// 获取/设置控件的停靠方式。
+        /// 显示本Part需要的权限。
+        /// <para>默认值为 None，表示显示本Part不需要权限。</para>
         /// </summary>
-        public DockStyle Dock { get; set; } = DockStyle.Fill;
+        public SystemPrivilege PrivilegeNecessary { get; set; } = SystemPrivilege.None;
 
         /// <summary>
         /// 获取/设置Part使用的图标。
         /// </summary>
         public Icon DefaultIcon { get; set; }
+
+        /// <summary>
+        /// 获取/设置控件的停靠方式。
+        /// </summary>
+        public DockStyle Dock { get; set; } = DockStyle.Fill;
+        /// <summary>
+        /// 获取/设置控件在当前停靠方式中的对齐方式。
+        /// </summary>
+        public AnchorStyles Alignment { get; set; } = AnchorStyles.Left;
+        /// <summary>
+        /// 获取/设置控件在当前停靠方式中所占的比例。
+        /// </summary>
+        public float Proportion { get; set; } = 1.0f;
 
         /// <summary>
         /// 构造函数。

@@ -95,7 +95,7 @@ namespace Products.Infrastructure.Entities
         /// 设置需要显示的控件类型。
         /// </summary>
         /// <param name="controls">将要设置的值。</param>
-        public void SetControlTypes(IEnumerable<string> controls)
+        public void SetControlTypes(IEnumerable<PresentationControlType> controls)
         {
             if (controls == null || !controls.Any())
             {
@@ -103,7 +103,7 @@ namespace Products.Infrastructure.Entities
             }
             else
             {
-                this.Controls = string.Join(",", controls);
+                this.Controls = string.Join(",", controls.Select(p => ((Int32)p).ToString()));
             }
         }
 
@@ -111,15 +111,15 @@ namespace Products.Infrastructure.Entities
         /// 获取需要显示的控件类型列表。
         /// </summary>
         /// <returns>节点需要加载的控件类型。</returns>
-        public IEnumerable<string> GetControlTypes()
+        public IEnumerable<PresentationControlType> GetControlTypes()
         {
             if (!string.IsNullOrWhiteSpace(this.Controls))
             {
-                return this.Controls.Split(',');
+                return this.Controls.Split(',').Select(p => (PresentationControlType)Int32.Parse(p));
             }
             else
             {
-                return Enumerable.Empty<string>();
+                return Enumerable.Empty<PresentationControlType>();
             }
         }
     }
