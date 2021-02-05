@@ -64,7 +64,7 @@ namespace Products.UAC.Domain
             // 
             var theUser = _userMgr.GetUser(userName);
             if (theUser == null) throw new Exception("指定的用户不存在。");
-            
+
             if (!HelperTool.BytesEquals(theUser.Password, pwdActual))
                 throw new Exception("密码不正确。");
 
@@ -84,7 +84,7 @@ namespace Products.UAC.Domain
             }
 
             // 发布用户切换事件。
-            GlobalMessageBus.PublishUserChanged(new EventArgs());     
+            GlobalMessageBus.PublishUserChanged(new EventArgs());
         }
 
         public void Logoff()

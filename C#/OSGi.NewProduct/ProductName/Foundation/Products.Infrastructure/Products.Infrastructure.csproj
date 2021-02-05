@@ -90,6 +90,7 @@
     <Compile Include="Extensions\TaskExtension.cs" />
     <Compile Include="Specification\Communication\IRawUdpParamProvider.cs" />
     <Compile Include="Specification\Communication\IRssp1ParamProvider.cs" />
+    <Compile Include="Specification\GlobalServices.cs" />
     <Compile Include="Specification\ILifeCycleManagement.cs" />
     <Compile Include="Log\CommLogParserCode.cs" />
     <Compile Include="Log\LoggerNames.cs" />
@@ -131,13 +132,6 @@
     <Compile Include="Specification\ISystemProperty.cs" />
   </ItemGroup>
   <ItemGroup />
-  <ItemGroup>
-    <ProjectReference Include="..\Products.Resource\Products.Resource.csproj">
-      <Project>{14ab3329-0b97-463f-b803-41fc57fe133d}</Project>
-      <Name>Products.Resource</Name>
-      <Private>False</Private>
-    </ProjectReference>
-  </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers">
       <Version>3.0.0</Version>

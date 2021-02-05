@@ -5,8 +5,6 @@ using System.Windows.Forms;
 using Acl;
 using Acl.Presentation;
 
-using Products.Infrastructure.Types;
-
 namespace Products.Presentation
 {
     /// <summary>

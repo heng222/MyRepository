@@ -13,9 +13,8 @@
 
 using System.Collections.Generic;
 
-using Acl.ServiceManagement;
-
 using Acl.Presentation;
+using Acl.ServiceManagement;
 
 using Products.Domain;
 using Products.Infrastructure.Log;

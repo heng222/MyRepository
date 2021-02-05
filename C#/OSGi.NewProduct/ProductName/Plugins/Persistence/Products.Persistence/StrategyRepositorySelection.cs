@@ -77,7 +77,7 @@ namespace Products.Persistence
                 // 更新备用DataSource。
                 if (!string.IsNullOrEmpty(mainDataSrc.BackupDataSourceName))
                 {
-                    _backupRepositoryMapping[entityType] = _repositories.Where(p => p.DataSource.Name == mainDataSrc.BackupDataSourceName).First(); 
+                    _backupRepositoryMapping[entityType] = _repositories.Where(p => p.DataSource.Name == mainDataSrc.BackupDataSourceName).First();
                 }
             });
         }
@@ -122,7 +122,7 @@ namespace Products.Persistence
                 else
                 {
                     return _mainRepositoryMapping[entityType];
-                }        
+                }
             }
             else
             {

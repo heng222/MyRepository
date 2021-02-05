@@ -22,8 +22,8 @@ using Acl;
 using Acl.Data;
 
 using Products.Infrastructure.Specification;
-using Products.Persistence.Specification;
 using Products.Persistence.Services.Repositories;
+using Products.Persistence.Specification;
 
 namespace Products.Persistence.Services
 {

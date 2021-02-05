@@ -15,7 +15,6 @@ using Acl;
 
 using Products.Infrastructure.Events;
 using Products.Infrastructure.Messages;
-using Products.Infrastructure.Specification;
 using Products.SystemEvents.Utilities;
 
 namespace Products.SystemEvents.Domain

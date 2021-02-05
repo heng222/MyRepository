@@ -13,8 +13,6 @@
 
 using System;
 
-using Products.Resource;
-
 namespace Products.Infrastructure.Log
 {
     /// <summary>
@@ -30,18 +28,18 @@ namespace Products.Infrastructure.Log
         /// <summary>
         /// 本系统内部日志流解析器编号。
         /// </summary>
-        public static readonly UInt32 Internal = (uint)((ProductResources.ProjectCode << 16) + 0x0001);
+        public static readonly UInt32 Internal = (uint)((GlobalServices.SysAttribute.ProjectCode << 16) + 0x0001);
 
 
         #region "系统1"
         /// <summary>
         /// 本系统 与 System1 间的输入流解析器编号。
         /// </summary>
-        public static readonly UInt32 System1Input = (uint)((ProductResources.ProjectCode << 16) + 0x0004);
+        public static readonly UInt32 System1Input = (uint)((GlobalServices.SysAttribute.ProjectCode << 16) + 0x0004);
         /// <summary>
         /// 本系统与 System1 间的输出流解析器编号。
         /// </summary>
-        public static readonly UInt32 System1Output = (uint)((ProductResources.ProjectCode << 16) + 0x0005);
+        public static readonly UInt32 System1Output = (uint)((GlobalServices.SysAttribute.ProjectCode << 16) + 0x0005);
         #endregion
     }
 }

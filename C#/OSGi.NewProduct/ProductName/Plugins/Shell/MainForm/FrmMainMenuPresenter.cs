@@ -21,11 +21,9 @@ using Acl.Controls;
 using Acl.Presentation;
 using Acl.ServiceManagement;
 
-using Products.Domain.Utility;
 using Products.Infrastructure.Messages;
 using Products.Presentation;
 using Products.Presentation.Specification;
-using Products.Resource;
 using Products.Shell.Properties;
 
 namespace Products.Shell.Presentation.MainForm
@@ -164,7 +162,7 @@ namespace Products.Shell.Presentation.MainForm
             _menuCompanyLogo.DisplayStyle = ToolStripItemDisplayStyle.Image;
             _menuCompanyLogo.TextImageRelation = TextImageRelation.ImageBeforeText;
             _menuCompanyLogo.ImageScaling = ToolStripItemImageScaling.None;
-            _menuCompanyLogo.Text = ProductResources.CompanyChsAbbrName;
+            _menuCompanyLogo.Text = GlobalServices.SysAttribute.CompanyChsAbbrName;
             _menuCompanyLogo.Image = Resources.CompanyLogo;
             _menuCompanyLogo.Click += OnMenuCompanyLogoClick;
             #endregion
@@ -243,10 +241,10 @@ namespace Products.Shell.Presentation.MainForm
 
                 var index = 0;
                 var count = providers.Count();
-                providers.ForEach(p=> 
+                providers.ForEach(p =>
                 {
                     _menuDebug.DropDownItems.AddRange(p.GetMenuItems().ToArray());
-                    if(++index != count) _menuDebug.DropDownItems.Add(new ToolStripSeparator());
+                    if (++index != count) _menuDebug.DropDownItems.Add(new ToolStripSeparator());
                 });
             }
             catch (Exception ex)

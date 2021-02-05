@@ -2,7 +2,6 @@
 using System.Windows.Forms;
 
 using Products.Infrastructure;
-using Products.Resource;
 using Products.UAC.Domain;
 using Products.UAC.Utilities;
 
@@ -38,8 +37,8 @@ namespace Products.UAC.Presentation.Forms
         private void Initialize()
         {
             this.txtUserName.Focus();
-            this.Icon = ProductResources.ApplicationIcon;
-            this.picLogo.Image = ProductResources.CompanyLogoImage;
+            this.Icon = GlobalServices.SysAttribute.ApplicationIcon;
+            this.picLogo.Image = GlobalServices.SysAttribute.CompanyLogoImage;
         }
 
         private void btnOK_Click(object sender, EventArgs e)

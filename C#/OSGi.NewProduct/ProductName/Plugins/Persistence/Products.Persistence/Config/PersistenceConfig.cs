@@ -209,7 +209,7 @@ namespace Products.Persistence
 
         public static bool IsDynamicConfigTable(Type entityType)
         {
-            TableDescriptors.TryGetValue(entityType, out TableDescriptor value) ;
+            TableDescriptors.TryGetValue(entityType, out TableDescriptor value);
 
             return value != null && value.TableKind == TableKind.DynamicConfig;
         }

@@ -117,18 +117,50 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AppDescription" xml:space="preserve">
+    <value>输入程序描述信息</value>
+    <comment>软件描述</comment>
+  </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="AppImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\appimage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Application" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\application.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="AppLog" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\AppLog.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="backcolor" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\backcolor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="CloseForm" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\CloseForm.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="CompanyChsAbbrName" xml:space="preserve">
+    <value>泰可斯科技</value>
+    <comment>公司中文简称</comment>
+  </data>
+  <data name="CompanyChsFullName" xml:space="preserve">
+    <value>北京泰可斯科技有限公司</value>
+    <comment>公司中文全称</comment>
+  </data>
   <data name="CompanyContacts" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\CompanyContacts.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="CompanyEnAbbrName" xml:space="preserve">
+    <value>TACS</value>
+    <comment>公司英文简称</comment>
+  </data>
+  <data name="CompanyEnFullName" xml:space="preserve">
+    <value>Beijing Taics Technology Co., Ltd.</value>
+    <comment>公司英文全称</comment>
+  </data>
   <data name="CompanyLogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\CompanyLogo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CopyRight" xml:space="preserve">
+    <value>© 泰可斯科技有限公司，保留所有权利。</value>
   </data>
   <data name="Exit" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Exit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -142,6 +174,12 @@
   <data name="Help" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Help.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="IconCompany" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\company.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ImgCompany" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\company.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Import" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Import.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -154,11 +192,34 @@
   <data name="Options" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Options.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="ProductEnName" xml:space="preserve">
+    <value>Product English Name</value>
+    <comment>产品英文名称</comment>
+  </data>
+  <data name="ProductNumericVersion" xml:space="preserve">
+    <value>1.0.0.0</value>
+    <comment>数据值型版本号：产品版本号（主版本/一类变更+次版本/二类变更+修订号/三类变更+数据版本号）</comment>
+  </data>
+  <data name="ProductStringVersion" xml:space="preserve">
+    <value>1.0.0.0</value>
+    <comment>字符串形式的版本，例如：1.1.0.1 Alpha1</comment>
+  </data>
+  <data name="ProjectChsName" xml:space="preserve">
+    <value>项目中文名称</value>
+    <comment>项目中文名称，例如：Office办公套件</comment>
+  </data>
+  <data name="ProjectEnName" xml:space="preserve">
+    <value>Project English Name</value>
+    <comment>项目英文名称，例如：Office 2016</comment>
+  </data>
   <data name="Shortcut" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Shortcut.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="SplashScreen1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SplashScreen1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="splashscreenBkg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\splashscreenbkg.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="SwitchScreen" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SwitchScreen.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

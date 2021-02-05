@@ -15,7 +15,6 @@ using System;
 using System.Linq;
 
 using Products.Infrastructure.Entities;
-using Products.Infrastructure.Specification;
 using Products.UAC.Utilities;
 
 namespace Products.UAC.Domain

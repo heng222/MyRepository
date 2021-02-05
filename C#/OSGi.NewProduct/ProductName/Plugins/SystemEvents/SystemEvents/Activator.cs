@@ -13,9 +13,8 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-using Acl.ServiceManagement;
-
 using Acl.Presentation;
+using Acl.ServiceManagement;
 
 using Products.Domain;
 using Products.Infrastructure.Log;

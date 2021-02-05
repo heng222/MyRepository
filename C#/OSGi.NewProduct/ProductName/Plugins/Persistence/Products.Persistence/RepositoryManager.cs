@@ -21,7 +21,6 @@ using Acl.Data;
 using Acl.Log;
 using Acl.ServiceManagement;
 
-using Products.Domain;
 using Products.Infrastructure.Entities;
 using Products.Infrastructure.Exceptions;
 using Products.Infrastructure.Log;
@@ -169,7 +168,7 @@ namespace Products.Persistence
             dataSources = dataSources.Union(new DataSource[] { memoryDataSource });
 
             // 创建 Repository。
-            _repositories = RepositoryFactory.Create(dataSources, _repositorySelector).ToDictionary(p => p.DataSource.Name, q => q);            
+            _repositories = RepositoryFactory.Create(dataSources, _repositorySelector).ToDictionary(p => p.DataSource.Name, q => q);
         }
 
         /// <summary>

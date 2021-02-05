@@ -17,16 +17,14 @@ using System.Linq;
 using System.Windows.Forms;
 
 using Acl.Log;
+using Acl.Presentation;
+using Acl.Presentation.Options;
 using Acl.ServiceManagement;
 using Acl.Threading;
 
 using OSGi;
 using OSGi.Dto.Framework;
 
-using Acl.Presentation;
-using Acl.Presentation.Options;
-
-using Products.Domain;
 using Products.Infrastructure;
 using Products.Infrastructure.Events;
 using Products.Infrastructure.Log;
@@ -46,7 +44,6 @@ namespace Products.Shell
         private ILog _log;
         private LogControl _logControl;
         private SplashScreenManager _splashSrceen = null;
-        private SystemProperty _sysAttriImpl = new SystemProperty();
 
         private ProcessMonitor _processMonitor = null;
         #endregion
@@ -64,7 +61,7 @@ namespace Products.Shell
             Workbench.SubscribeDispatcherExceptionEvent(ex => _log.Error(ex.Message, ex));
             Workbench.SubscribeTaskExceptionEvent(ex => _log.Error(ex.Message, ex));
 
-            ServiceManager.Current.RegisterInstance(_sysAttriImpl, typeof(ISystemProperty));
+            ServiceManager.Current.RegisterInstance(SystemProperty.Instance, typeof(ISystemProperty));
         }
 
         ~Activator()
@@ -269,12 +266,12 @@ namespace Products.Shell
 
         private void UpdateProductProperty()
         {
-            Workbench.Product.ChineseName = _sysAttriImpl.ProjectChsName;
-            Workbench.Product.EnglishName = _sysAttriImpl.ProductEnName;
-            Workbench.Product.Version = _sysAttriImpl.ProductStringVersion;
-            Workbench.Product.Description = _sysAttriImpl.ApplicationDescription;
-            Workbench.Product.Company = _sysAttriImpl.CompanyChsFullName;
-            Workbench.Product.Copyright = _sysAttriImpl.Copyright;
+            Workbench.Product.ChineseName = GlobalServices.SysAttribute.ProjectChsName;
+            Workbench.Product.EnglishName = GlobalServices.SysAttribute.ProductEnName;
+            Workbench.Product.Version = GlobalServices.SysAttribute.ProductStringVersion;
+            Workbench.Product.Description = GlobalServices.SysAttribute.ApplicationDescription;
+            Workbench.Product.Company = GlobalServices.SysAttribute.CompanyChsFullName;
+            Workbench.Product.Copyright = GlobalServices.SysAttribute.Copyright;
         }
 
         private void InitializeComponentMetaData()

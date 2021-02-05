@@ -23,9 +23,7 @@ using Products.Infrastructure.Entities;
 using Products.Infrastructure.Events;
 using Products.Infrastructure.Log;
 using Products.Infrastructure.Messages;
-using Products.Infrastructure.Specification;
 using Products.Infrastructure.Types;
-using Products.Resource;
 
 namespace Products.Persistence.Services
 {
@@ -207,7 +205,7 @@ namespace Products.Persistence.Services
         private string GetFileDescription(string localNodeName, string remoteNodeName)
         {
             var desciption = string.Format("【{0}】{1} 与 {2} 通信流日志",
-                ProductResources.ProjectChsName, localNodeName, remoteNodeName);
+                GlobalServices.SysAttribute.ProjectChsName, localNodeName, remoteNodeName);
 
             return desciption;
         }

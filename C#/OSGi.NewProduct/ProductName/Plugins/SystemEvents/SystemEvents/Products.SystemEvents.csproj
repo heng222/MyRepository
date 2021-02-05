@@ -101,11 +101,6 @@
       <Name>Products.Presentation</Name>
       <Private>False</Private>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\Foundation\Products.Resource\Products.Resource.csproj">
-      <Project>{14ab3329-0b97-463f-b803-41fc57fe133d}</Project>
-      <Name>Products.Resource</Name>
-      <Private>False</Private>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Analyzer Include="..\..\..\..\Libs\Microsoft.ReportViewer.Common.dll" />

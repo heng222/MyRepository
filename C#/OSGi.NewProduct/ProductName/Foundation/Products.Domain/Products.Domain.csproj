@@ -82,10 +82,8 @@
     <Compile Include="Preferences\SettingsUtility.cs" />
     <None Include="Properties\AssemblyInfo.tpl" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\GlobalServices.cs" />
     <Compile Include="Services\RawUdpConfigProvider.cs" />
     <Compile Include="Services\Rssp1IniFileConfigProvider.cs" />
-    <Compile Include="SystemProperty.cs" />
     <Compile Include="Utility\AuthenticationHelper.cs" />
     <Compile Include="Utility\GlobalHelper.cs" />
     <Compile Include="Utility\LogUtility.cs" />
@@ -96,10 +94,6 @@
     <ProjectReference Include="..\Products.Infrastructure\Products.Infrastructure.csproj">
       <Project>{A4B16E5B-561D-4739-B35B-6E4D21E78A47}</Project>
       <Name>Products.Infrastructure</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Products.Resource\Products.Resource.csproj">
-      <Project>{14AB3329-0B97-463F-B803-41FC57FE133D}</Project>
-      <Name>Products.Resource</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

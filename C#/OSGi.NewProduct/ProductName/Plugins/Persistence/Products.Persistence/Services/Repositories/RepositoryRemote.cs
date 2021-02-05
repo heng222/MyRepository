@@ -213,7 +213,7 @@ namespace Products.Persistence.Services.Repositories
         /// </summary>
         private void CheckDb()
         {
-            if (!this.Connected) 
+            if (!this.Connected)
                 throw new InvalidOperationException(string.Format("远程数据库{0}没有连接。", this.DataSource.Name));
         }
 
@@ -247,7 +247,7 @@ namespace Products.Persistence.Services.Repositories
                 this.SetConnectionState(e.Connected);
             }
             catch (Exception /*ex*/)
-            {                
+            {
             }
         }
         #endregion

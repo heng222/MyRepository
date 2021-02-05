@@ -9,12 +9,8 @@ using Acl.Presentation;
 
 using Products.Infrastructure;
 using Products.Infrastructure.Messages;
-using Products.Infrastructure.Specification;
-using Products.Infrastructure.Types;
 using Products.Presentation;
-using Products.Resource;
 using Products.Shell.Presentation.MainForm;
-using Products.Shell.Properties;
 
 using WeifenLuo.WinFormsUI.Docking;
 
@@ -120,7 +116,7 @@ namespace Products.Shell
             _menuPresenter = new FrmMainMenuPresenter(this);
             _statusBarPresenter = new FrmMainStatusBarPresenter(this);
 
-            this.Icon = ProductResources.ApplicationIcon;
+            this.Icon = GlobalServices.SysAttribute.ApplicationIcon;
 
             this.ResetFormBorderStyle();
         }
@@ -151,11 +147,11 @@ namespace Products.Shell
             // 设置主窗口标题
             if (string.IsNullOrWhiteSpace(GlobalServices.NodeContext.Name))
             {
-                this.Text = ProductResources.ProjectChsName;
+                this.Text = GlobalServices.SysAttribute.ProjectChsName;
             }
             else
             {
-                this.Text = string.Format("{0} - {1}", GlobalServices.NodeContext.Name, ProductResources.ProjectChsName);
+                this.Text = string.Format("{0} - {1}", GlobalServices.NodeContext.Name, GlobalServices.SysAttribute.ProjectChsName);
             }
 
             // 构建需要优化的控件集
@@ -207,7 +203,7 @@ namespace Products.Shell
                 DockContentEx newDockContent;
 
                 if (dock == DockStyle.Bottom) dockState = DockState.DockBottom;
-                else if(dock == DockStyle.Top) dockState = DockState.DockTop;
+                else if (dock == DockStyle.Top) dockState = DockState.DockTop;
                 else if (dock == DockStyle.Left) dockState = DockState.DockLeft;
                 else if (dock == DockStyle.Right) dockState = DockState.DockRight;
 

@@ -18,7 +18,6 @@ using Acl;
 using Products.Infrastructure.Entities;
 using Products.Infrastructure.Events;
 using Products.Infrastructure.Messages;
-using Products.Infrastructure.Specification;
 using Products.Infrastructure.Types;
 using Products.SystemEvents.Utilities;
 

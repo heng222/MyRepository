@@ -114,7 +114,7 @@ namespace Products.Domain.Communication
         /// 在全局消息总线上发布数据传输事件。
         /// </summary>
         protected void PublishDataTransferEvent(NodeType localType, uint localCode,
-            NodeType remoteType, uint remoteCode, 
+            NodeType remoteType, uint remoteCode,
             bool isIncoming, byte[] data)
         {
             try
@@ -138,8 +138,8 @@ namespace Products.Domain.Communication
         /// <summary>
         /// 在全局消息总线上发布通信日志产生事件。
         /// </summary>
-        protected void PublishCommLogCreateEvent(NodeType localType, uint localCode, 
-            NodeType remoteType, 
+        protected void PublishCommLogCreateEvent(NodeType localType, uint localCode,
+            NodeType remoteType,
             uint remoteCode, bool isIncoming, byte[] data)
         {
             try

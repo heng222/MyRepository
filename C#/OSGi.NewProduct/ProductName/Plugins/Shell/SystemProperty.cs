@@ -1,4 +1,16 @@
-ï»¿using System;
+/*----------------------------------------------------------------
+// ¹«Ë¾Ãû³Æ£ºÇëÊäÈë¹«Ë¾Ãû³Æ
+// 
+// ÏîÄ¿Ãû³Æ£ºÊäÈëÏîÄ¿Ãû³Æ
+//
+// ´´ ½¨ ÈË£ºzhangheng
+// ´´½¨ÈÕÆÚ£º2015-2-2 10:43:04 
+// ÓÊ    Ïä£ºheng222_z@163.com
+//
+// Copyright (C) ¹«Ë¾Ãû³Æ 2019£¬±£ÁôËùÓĞÈ¨Àû
+//
+//----------------------------------------------------------------*/
+using System;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -6,120 +18,123 @@ using System.Reflection;
 
 using Acl.IO;
 
-using Products.Resource.Properties;
+using Products.Infrastructure.Specification;
+using Products.Shell.Properties;
 
-namespace Products.Resource
+namespace Products.Shell
 {
     /// <summary>
-    /// äº§å“èµ„æºå®šä¹‰
+    /// ÏµÍ³ÊôĞÔÀà
     /// </summary>
-    public static class ProductResources
+    class SystemProperty : ISystemProperty
     {
+        public static readonly SystemProperty Instance = new SystemProperty();
+
         #region "Constructor"
-        static ProductResources()
+        private SystemProperty()
         {
             ReadIniFiles();
         }
         #endregion
 
-        #region "æ•°å€¼"
+        #region "ÊıÖµ"
         /// <summary>
-        /// è·å–é¡¹ç›®ç¼–å·ã€‚
+        /// »ñÈ¡ÏîÄ¿±àºÅ¡£
         /// </summary>
-        public static ushort ProjectCode { get; private set; }
+        public ushort ProjectCode { get; private set; }
         #endregion
 
-        #region "å­—ç¬¦ä¸²"
+        #region "×Ö·û´®"
         /// <summary>
-        /// è·å–ä¸€ä¸ªå­—ç¬¦ä¸²ï¼Œç”¨äºè¡¨ç¤ºè½¯ä»¶æè¿°ä¿¡æ¯ã€‚
+        /// »ñÈ¡Ò»¸ö×Ö·û´®£¬ÓÃÓÚ±íÊ¾Èí¼şÃèÊöĞÅÏ¢¡£
         /// </summary>
-        public static string ApplicationDescription { get; private set; }
+        public string ApplicationDescription { get; private set; }
 
         /// <summary>
-        /// è·å–ä¸€ä¸ªå­—ç¬¦ä¸²ï¼Œç”¨äºè¡¨ç¤ºå…¬å¸ä¸­æ–‡ç®€ç§°ã€‚
+        /// »ñÈ¡Ò»¸ö×Ö·û´®£¬ÓÃÓÚ±íÊ¾¹«Ë¾ÖĞÎÄ¼ò³Æ¡£
         /// </summary>
-        public static string CompanyChsAbbrName { get; private set; }
+        public string CompanyChsAbbrName { get; private set; }
         /// <summary>
-        /// è·å–ä¸€ä¸ªå­—ç¬¦ä¸²ï¼Œç”¨äºè¡¨ç¤ºå…¬å¸ä¸­æ–‡å…¨ç§°ã€‚
+        /// »ñÈ¡Ò»¸ö×Ö·û´®£¬ÓÃÓÚ±íÊ¾¹«Ë¾ÖĞÎÄÈ«³Æ¡£
         /// </summary>
-        public static string CompanyChsFullName { get; private set; }
+        public string CompanyChsFullName { get; private set; }
         /// <summary>
-        /// è·å–ä¸€ä¸ªå­—ç¬¦ä¸²ï¼Œç”¨äºè¡¨ç¤ºå…¬å¸å…¬å¸è‹±æ–‡ç®€ç§°ã€‚
+        /// »ñÈ¡Ò»¸ö×Ö·û´®£¬ÓÃÓÚ±íÊ¾¹«Ë¾¹«Ë¾Ó¢ÎÄ¼ò³Æ¡£
         /// </summary>
-        public static string CompanyEnAbbrName { get; private set; }
+        public string CompanyEnAbbrName { get; private set; }
         /// <summary>
-        /// è·å–ä¸€ä¸ªå­—ç¬¦ä¸²ï¼Œç”¨äºè¡¨ç¤ºå…¬å¸å…¬å¸è‹±æ–‡å…¨ç§°ã€‚
+        /// »ñÈ¡Ò»¸ö×Ö·û´®£¬ÓÃÓÚ±íÊ¾¹«Ë¾¹«Ë¾Ó¢ÎÄÈ«³Æ¡£
         /// </summary>
-        public static string CompanyEnFullName { get; private set; }
+        public string CompanyEnFullName { get; private set; }
 
         /// <summary>
-        /// è·å–ä¸€ä¸ªå­—ç¬¦ä¸²ï¼Œç”¨äºè¡¨ç¤ºé¡¹ç›®ä¸­æ–‡åç§°ã€‚
+        /// »ñÈ¡Ò»¸ö×Ö·û´®£¬ÓÃÓÚ±íÊ¾ÏîÄ¿ÖĞÎÄÃû³Æ¡£
         /// </summary>
-        public static string ProjectChsName { get; private set; }
+        public string ProjectChsName { get; private set; }
         /// <summary>
-        /// è·å–ä¸€ä¸ªå­—ç¬¦ä¸²ï¼Œç”¨äºè¡¨ç¤ºé¡¹ç›®è‹±æ–‡åç§°ã€‚
+        /// »ñÈ¡Ò»¸ö×Ö·û´®£¬ÓÃÓÚ±íÊ¾ÏîÄ¿Ó¢ÎÄÃû³Æ¡£
         /// </summary>
-        public static string ProjectEnName { get; private set; }
+        public string ProjectEnName { get; private set; }
 
         /// <summary>
-        /// è·å–ä¸€ä¸ªå­—ç¬¦ä¸²ï¼Œç”¨äºè¡¨ç¤ºäº§å“è‹±æ–‡åç§°ã€‚
+        /// »ñÈ¡Ò»¸ö×Ö·û´®£¬ÓÃÓÚ±íÊ¾²úÆ·Ó¢ÎÄÃû³Æ¡£
         /// </summary>
-        public static string ProductEnName { get; private set; }
+        public string ProductEnName { get; private set; }
         /// <summary>
-        /// è·å–ä¸€ä¸ªå­—ç¬¦ä¸²ï¼Œç”¨äºè¡¨ç¤ºäº§å“ç‰ˆæœ¬å·ã€‚
+        /// »ñÈ¡Ò»¸ö×Ö·û´®£¬ÓÃÓÚ±íÊ¾²úÆ·°æ±¾ºÅ¡£
         /// </summary>
-        public static string ProductStringVersion { get; private set; }
+        public string ProductStringVersion { get; private set; }
         /// <summary>
-        /// è·å–äº§å“ç‰ˆæœ¬å·çš„æ•°å€¼è¡¨ç¤ºå½¢å¼ã€‚
+        /// »ñÈ¡²úÆ·°æ±¾ºÅµÄÊıÖµ±íÊ¾ĞÎÊ½¡£
         /// </summary>
-        public static byte[] ProductNumericVersion { get; private set; }
+        public byte[] ProductNumericVersion { get; private set; }
 
         /// <summary>
-        /// è·å–ä¸€ä¸ªå­—ç¬¦ä¸²ï¼Œç”¨äºè¡¨ç¤ºäº§å“ç‰ˆæƒã€‚
+        /// »ñÈ¡Ò»¸ö×Ö·û´®£¬ÓÃÓÚ±íÊ¾²úÆ·°æÈ¨¡£
         /// </summary>
-        public static string Copyright { get; private set; }
+        public string Copyright { get; private set; }
         #endregion
 
-        #region "å›¾æ ‡"
+        #region "Í¼±ê"
         /// <summary>
-        /// è·å–åº”ç”¨ç¨‹åºå›¾æ ‡
+        /// »ñÈ¡Ó¦ÓÃ³ÌĞòÍ¼±ê
         /// </summary>
-        public static Icon ApplicationIcon { get; private set; } = Resources.Application;
+        public Icon ApplicationIcon { get; private set; } = Resources.Application;
 
         /// <summary>
-        /// è·å–åº”ç”¨ç¨‹åºå›¾åƒ
+        /// »ñÈ¡Ó¦ÓÃ³ÌĞòÍ¼Ïñ
         /// </summary>
-        public static Image ApplicationImage { get; private set; } = Resources.AppImage;
+        public Image ApplicationImage { get; private set; } = Resources.AppImage;
 
         /// <summary>
-        /// è·å–å…¬å¸LOGOå›¾æ ‡
+        /// »ñÈ¡¹«Ë¾LOGOÍ¼±ê
         /// </summary>
-        public static Icon CompanyLogoIcon { get; private set; } = Resources.IconCompany;
+        public Icon CompanyLogoIcon { get; private set; } = Resources.IconCompany;
         #endregion
 
-        #region "å›¾åƒ"
+        #region "Í¼Ïñ"
         /// <summary>
-        /// è·å–èƒŒæ™¯å›¾åƒ
+        /// »ñÈ¡±³¾°Í¼Ïñ
         /// </summary>
-        public static Bitmap BackgroundImage { get; private set; } = Resources.backcolor;
+        public Bitmap BackgroundImage { get; private set; } = Resources.backcolor;
 
         /// <summary>
-        /// è·å–å…¬å¸LOGOå›¾åƒ
+        /// »ñÈ¡¹«Ë¾LOGOÍ¼Ïñ
         /// </summary>
-        public static Bitmap CompanyLogoImage { get; private set; } = Resources.ImgCompany;
+        public Bitmap CompanyLogoImage { get; private set; } = Resources.ImgCompany;
 
         /// <summary>
-        /// è·å–é—ªå±å‰æ™¯å›¾åƒ
+        /// »ñÈ¡ÉÁÆÁÇ°¾°Í¼Ïñ
         /// </summary>
-        public static Bitmap SplashScreenBackgroundImage { get; private set; } = Resources.splashscreenBkg;
+        public Bitmap SplashScreenBackgroundImage { get; private set; } = Resources.splashscreenBkg;
         #endregion
 
 
-        #region "éŸ³é¢‘"
+        #region "ÒôÆµ"
         #endregion
 
         #region "private methods"
-        private static void ReadIniFiles()
+        private void ReadIniFiles()
         {
             var fileName = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\Resources.ini";
             var iniFile = new WinIniFile(fileName, System.Text.Encoding.UTF8);

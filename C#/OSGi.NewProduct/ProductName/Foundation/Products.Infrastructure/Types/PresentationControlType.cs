@@ -1,6 +1,4 @@
 
-using System;
-
 using Acl.Utility;
 
 namespace Products.Infrastructure.Types

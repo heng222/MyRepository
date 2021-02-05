@@ -19,7 +19,7 @@ namespace Products.Shell.Properties {
     // 类通过类似于 ResGen 或 Visual Studio 的工具自动生成的。
     // 若要添加或移除成员，请编辑 .ResX 文件，然后重新运行 ResGen
     // (以 /str 作为命令选项)，或重新生成 VS 项目。
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -47,8 +47,8 @@ namespace Products.Shell.Properties {
         }
         
         /// <summary>
-        ///   使用此强类型资源类，为所有资源查找
-        ///   重写当前线程的 CurrentUICulture 属性。
+        ///   重写当前线程的 CurrentUICulture 属性，对
+        ///   使用此强类型资源类的所有资源查找执行重写。
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         internal static global::System.Globalization.CultureInfo Culture {
@@ -57,6 +57,35 @@ namespace Products.Shell.Properties {
             }
             set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 输入程序描述信息 的本地化字符串。
+        /// </summary>
+        internal static string AppDescription {
+            get {
+                return ResourceManager.GetString("AppDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap AppImage {
+            get {
+                object obj = ResourceManager.GetObject("AppImage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Icon Application {
+            get {
+                object obj = ResourceManager.GetObject("Application", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
             }
         }
         
@@ -73,10 +102,38 @@ namespace Products.Shell.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap backcolor {
+            get {
+                object obj = ResourceManager.GetObject("backcolor", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap CloseForm {
             get {
                 object obj = ResourceManager.GetObject("CloseForm", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 泰可斯科技 的本地化字符串。
+        /// </summary>
+        internal static string CompanyChsAbbrName {
+            get {
+                return ResourceManager.GetString("CompanyChsAbbrName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 北京泰可斯科技有限公司 的本地化字符串。
+        /// </summary>
+        internal static string CompanyChsFullName {
+            get {
+                return ResourceManager.GetString("CompanyChsFullName", resourceCulture);
             }
         }
         
@@ -91,12 +148,39 @@ namespace Products.Shell.Properties {
         }
         
         /// <summary>
+        ///   查找类似 TACS 的本地化字符串。
+        /// </summary>
+        internal static string CompanyEnAbbrName {
+            get {
+                return ResourceManager.GetString("CompanyEnAbbrName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Beijing Taics Technology Co., Ltd. 的本地化字符串。
+        /// </summary>
+        internal static string CompanyEnFullName {
+            get {
+                return ResourceManager.GetString("CompanyEnFullName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
         internal static System.Drawing.Bitmap CompanyLogo {
             get {
                 object obj = ResourceManager.GetObject("CompanyLogo", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 © 泰可斯科技有限公司，保留所有权利。 的本地化字符串。
+        /// </summary>
+        internal static string CopyRight {
+            get {
+                return ResourceManager.GetString("CopyRight", resourceCulture);
             }
         }
         
@@ -136,6 +220,26 @@ namespace Products.Shell.Properties {
         internal static System.Drawing.Bitmap Help {
             get {
                 object obj = ResourceManager.GetObject("Help", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Icon IconCompany {
+            get {
+                object obj = ResourceManager.GetObject("IconCompany", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap ImgCompany {
+            get {
+                object obj = ResourceManager.GetObject("ImgCompany", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -181,6 +285,51 @@ namespace Products.Shell.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Product English Name 的本地化字符串。
+        /// </summary>
+        internal static string ProductEnName {
+            get {
+                return ResourceManager.GetString("ProductEnName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 1.0.0.0 的本地化字符串。
+        /// </summary>
+        internal static string ProductNumericVersion {
+            get {
+                return ResourceManager.GetString("ProductNumericVersion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 1.0.0.0 的本地化字符串。
+        /// </summary>
+        internal static string ProductStringVersion {
+            get {
+                return ResourceManager.GetString("ProductStringVersion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 项目中文名称 的本地化字符串。
+        /// </summary>
+        internal static string ProjectChsName {
+            get {
+                return ResourceManager.GetString("ProjectChsName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Project English Name 的本地化字符串。
+        /// </summary>
+        internal static string ProjectEnName {
+            get {
+                return ResourceManager.GetString("ProjectEnName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
         internal static System.Drawing.Icon Shortcut {
@@ -196,6 +345,16 @@ namespace Products.Shell.Properties {
         internal static System.Drawing.Bitmap SplashScreen1 {
             get {
                 object obj = ResourceManager.GetObject("SplashScreen1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap splashscreenBkg {
+            get {
+                object obj = ResourceManager.GetObject("splashscreenBkg", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
