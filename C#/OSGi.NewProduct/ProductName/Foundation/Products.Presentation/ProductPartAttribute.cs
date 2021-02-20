@@ -61,5 +61,15 @@ namespace Products.Presentation
         {
             return this.ID.GetHashCode();
         }
+
+        /// <inheritdoc/>
+        public override bool Equals(object obj)
+        {
+            if (null == obj) return false;
+
+            if (obj.GetType() != this.GetType()) return false;
+
+            return (((ProductPartAttribute)obj).ID.Equals(this.ID));
+        }
     }
 }
