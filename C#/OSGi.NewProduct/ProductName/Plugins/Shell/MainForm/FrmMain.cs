@@ -7,6 +7,7 @@ using System.Windows.Forms;
 
 using Acl.Presentation;
 
+using Products.Ats.Shell.Utilities;
 using Products.Infrastructure;
 using Products.Infrastructure.Messages;
 using Products.Presentation;
@@ -196,31 +197,18 @@ namespace Products.Shell
         private void CreateDockContents()
         {
             var theWorkspace = Workbench.MainWorkspace as MockWorkspace;
-            foreach (var theControl in theWorkspace.MainControls)
+            foreach (var item in theWorkspace.MainControls)
             {
-                var dock = theControl.Key.Dock;
-                var dockState = DockState.Document;
-                DockContentEx newDockContent;
+                var newContent = new DockContentEx(item.Value, item.Key.Title);       
+                newContent.CloseButtonVisible = true;         
+                newContent.Icon = item.Key.DefaultIcon;
+                newContent.PartAttribute = item.Key;
+                newContent.PersistString = item.Key.ID;
+                newContent.DefaultDockState = ShellHelper.Convert(item.Key.Dock);
+                newContent.DefaultAlignment = ShellHelper.Convert(item.Key.Alignment);
+                newContent.DefaultProportion = item.Key.Proportion;
 
-                if (dock == DockStyle.Bottom) dockState = DockState.DockBottom;
-                else if (dock == DockStyle.Top) dockState = DockState.DockTop;
-                else if (dock == DockStyle.Left) dockState = DockState.DockLeft;
-                else if (dock == DockStyle.Right) dockState = DockState.DockRight;
-
-                // 
-                newDockContent = new DockContentEx(theControl.Value, theControl.Key.Title)
-                {
-                    DefaultDockState = dockState,
-                };
-
-                if (theControl.Key.DefaultIcon != null)
-                {
-                    newDockContent.Icon = theControl.Key.DefaultIcon;
-                }
-                newDockContent.CloseButtonVisible = true;
-                newDockContent.PersistString = theControl.Key.ID;
-
-                _dockContents[theControl.Key] = newDockContent;
+                _dockContents[item.Key] = newContent;
             }
         }
         public void UpdateDockContents()

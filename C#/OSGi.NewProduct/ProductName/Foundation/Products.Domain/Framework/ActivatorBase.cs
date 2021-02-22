@@ -46,7 +46,23 @@ namespace Products.Domain
         /// <summary>
         /// 插件类型
         /// </summary>
-        public abstract PluginTypes Type { get; }
+        public virtual PluginTypes Type { get; private set; } = PluginTypes.All;
+
+        /// <summary>
+        /// Bundle规约验证
+        /// </summary>
+        /// <param name="context"></param>
+        /// <returns></returns>
+        public virtual bool Match(IDictionary<string, string> context)
+        {
+            if (this.Type == PluginTypes.None) return false;
+
+            if (this.Type == PluginTypes.All) return true;
+
+            if (this.Type.HasFlag(PluginTypes.Persistence)) return true;
+
+            return GlobalServices.NodeContext.ContainsPlugin(Type);
+        }
 
         /// <summary>
         /// 模板方法，当启动时调用。
@@ -130,18 +146,6 @@ namespace Products.Domain
             {
                 this.Log.Error(ex);
             }
-        }
-
-        /// <summary>
-        /// Bundle规约验证
-        /// </summary>
-        public bool Match(IDictionary<string, string> context)
-        {
-            if (this.Type == PluginTypes.None) return false;
-
-            if (this.Type.HasFlag(PluginTypes.Persistence)) return true;
-
-            return GlobalServices.NodeContext.ContainsPlugin(Type);
         }
         #endregion
 
