@@ -18,7 +18,6 @@ using Acl.ServiceManagement;
 
 using Products.Domain;
 using Products.Infrastructure.Log;
-using Products.Infrastructure.Types;
 using Products.Plugin1.Controls;
 using Products.Presentation;
 
@@ -45,7 +44,10 @@ namespace Products.Plugin1
 
         #region "Override methods"
 
-        public override PluginTypes Type { get { return PluginTypes.Plugin1; } }
+        public override string PluginID
+        {
+            get { return "940D004C-F5C2-4AA4-BC88-1F07FE8F2146"; }
+        }
 
         protected override void OnBundleStart(IDictionary<string, string> context)
         {

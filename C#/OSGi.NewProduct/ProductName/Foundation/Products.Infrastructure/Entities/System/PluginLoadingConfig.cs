@@ -27,6 +27,11 @@ namespace Products.Infrastructure.Entities
     [Table(Name = "system_PluginLoadingConfigs")]
     public class PluginLoadingConfig : Entity
     {
+        #region "Field"
+        private IEnumerable<string> _pluginsID;
+        private IEnumerable<string> _controlsID;
+        #endregion
+
         #region DB字段
         /// <summary>
         /// 节点编号。
@@ -41,7 +46,8 @@ namespace Products.Infrastructure.Entities
         public NodeType NodeType { get; set; }
 
         /// <summary>
-        /// 节点需要加载的插件类型。
+        /// 节点需要加载的插件。
+        /// <para>CSV格式的插件ID集合。</para>
         /// </summary>
         [Column]
         public string Plugins { get; set; }
@@ -66,61 +72,41 @@ namespace Products.Infrastructure.Entities
         #endregion
 
         /// <summary>
-        /// 是否包含指定的插件类型。
+        /// 是否包含指定的插件。
         /// </summary>
-        /// <param name="type">指定的插件类型，可以使用位域表示多个插件类型。</param>
+        /// <param name="pluginID">插件编号。</param>
         /// <returns>true表示全部包含，false表示非全部包含。</returns>
-        public bool Contains(PluginTypes type)
+        public bool Contains(string pluginID)
         {
-            return this.GetPlugins().HasFlag(type);
+            return this.GetPlugins().Contains(pluginID);
         }
 
         /// <summary>
-        /// 获取需要加载的插件。
+        /// 获取需要加载的插件ID集合。
         /// </summary>
-        /// <returns></returns>
-        public PluginTypes GetPlugins()
+        /// <returns>CSV格式的插件ID集合。</returns>
+        public IEnumerable<string> GetPlugins()
         {
-            if (this.Plugins == "-1")
+            if (_pluginsID == null)
             {
-                return PluginTypes.All;
+                _pluginsID = string.IsNullOrWhiteSpace(this.Plugins) ? Enumerable.Empty<string>() : this.Plugins.Split(new char[] { ',', '，' }).ToList();
             }
-            else
-            {
-                return (PluginTypes)UInt64.Parse(this.Plugins);
-            }
+
+            return _pluginsID;
         }
 
         /// <summary>
-        /// 设置需要显示的控件类型。
+        /// 获取需要显示的控件。
         /// </summary>
-        /// <param name="controls">将要设置的值。</param>
-        public void SetControlTypes(IEnumerable<PresentationControlType> controls)
+        /// <returns>节点需要加载的控件。</returns>
+        public IEnumerable<string> GetControls()
         {
-            if (controls == null || !controls.Any())
+            if (_controlsID == null)
             {
-                this.Controls = string.Empty;
+                _controlsID = string.IsNullOrWhiteSpace(this.Controls) ? Enumerable.Empty<string>() : this.Controls.Split(new char[] { ',', '，' }).ToList();
             }
-            else
-            {
-                this.Controls = string.Join(",", controls.Select(p => ((Int32)p).ToString()));
-            }
-        }
 
-        /// <summary>
-        /// 获取需要显示的控件类型列表。
-        /// </summary>
-        /// <returns>节点需要加载的控件类型。</returns>
-        public IEnumerable<PresentationControlType> GetControlTypes()
-        {
-            if (!string.IsNullOrWhiteSpace(this.Controls))
-            {
-                return this.Controls.Split(',').Select(p => (PresentationControlType)Int32.Parse(p));
-            }
-            else
-            {
-                return Enumerable.Empty<PresentationControlType>();
-            }
+            return _controlsID;
         }
     }
 }

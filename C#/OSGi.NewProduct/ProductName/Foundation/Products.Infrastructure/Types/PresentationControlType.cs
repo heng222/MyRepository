@@ -1,4 +1,6 @@
 
+using System;
+
 using Acl.Utility;
 
 namespace Products.Infrastructure.Types
@@ -6,6 +8,7 @@ namespace Products.Infrastructure.Types
     /// <summary>
     /// 表示层控件类型定义
     /// </summary>
+    [Obsolete]
     public enum PresentationControlType : uint
     {
         /// <summary>

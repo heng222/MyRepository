@@ -39,14 +39,14 @@ namespace Products.Infrastructure.Specification
         NodeType Type { get; }
 
         /// <summary>
-        /// 获取当前节点需要加载的插件。
+        /// 获取当前节点需要加载的插件编号。
         /// </summary>
-        PluginTypes Plugins { get; }
+        IEnumerable<string> Plugins { get; }
 
         /// <summary>
-        /// 获取当前节点需要加载的控件类型。
+        /// 获取当前节点需要加载的控件编号。
         /// </summary>
-        IEnumerable<PresentationControlType> ControlTypes { get; }
+        IEnumerable<string> Controls { get; }
 
         #endregion
 
@@ -55,9 +55,9 @@ namespace Products.Infrastructure.Specification
         /// <summary>
         /// 当前节点是否加载指定的插件。
         /// </summary>
-        /// <param name="pluginType">指定的插件类型。</param>
+        /// <param name="pluginID">指定的插件编号。</param>
         /// <returns>true表示需要加载指定的插件，false表示不需要加载。</returns>
-        bool ContainsPlugin(PluginTypes pluginType);
+        bool ContainsPlugin(string pluginID);
         #endregion
 
     }

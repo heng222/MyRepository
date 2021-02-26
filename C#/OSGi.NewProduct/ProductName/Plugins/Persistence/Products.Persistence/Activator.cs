@@ -11,13 +11,13 @@
 //
 //----------------------------------------------------------------*/
 
+using System;
 using System.Collections.Generic;
 
 using Acl.CommStreamLog;
 
 using Products.Domain;
 using Products.Infrastructure.Log;
-using Products.Infrastructure.Types;
 
 namespace Products.Persistence
 {
@@ -39,7 +39,15 @@ namespace Products.Persistence
         #endregion
 
         #region "override methods"
-        public override PluginTypes Type { get { return PluginTypes.Persistence; } }
+        public override string PluginID 
+        { 
+            get { return "B23F0B28-50D2-45D0-A722-5DD885AE14A4"; } 
+        }
+
+        public override bool Match(IDictionary<String, String> context)
+        {
+            return true;
+        }
 
         protected override void OnBundleStart(IDictionary<string, string> context)
         {

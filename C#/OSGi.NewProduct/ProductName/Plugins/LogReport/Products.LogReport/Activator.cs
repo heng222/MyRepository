@@ -17,7 +17,6 @@ using Acl.Presentation;
 
 using Products.Domain;
 using Products.Infrastructure.Log;
-using Products.Infrastructure.Types;
 using Products.LogReport.Properties;
 using Products.Presentation;
 
@@ -41,7 +40,10 @@ namespace Products.LogReport
         #endregion
 
         #region "override methods"
-        public override PluginTypes Type { get { return PluginTypes.LogReport; } }
+        public override string PluginID
+        { 
+            get { return "131B5CC9-361E-4D82-97DB-CD72D4A5DEF9"; } 
+        }
 
         protected override void OnBundleStart(IDictionary<string, string> context)
         {

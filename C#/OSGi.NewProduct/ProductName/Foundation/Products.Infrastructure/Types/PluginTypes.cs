@@ -20,6 +20,7 @@ namespace Products.Infrastructure.Types
     /// 本系统中使用的插件类型。
     /// 使用8个字节位域的方式表示，一共可表示64种插件类型。
     /// </summary>
+    [Obsolete]
     [Flags]
     public enum PluginTypes : ulong
     {

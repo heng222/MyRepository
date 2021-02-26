@@ -16,7 +16,6 @@ using Acl.ServiceManagement;
 
 using Products.Domain;
 using Products.Infrastructure.Log;
-using Products.Infrastructure.Types;
 using Products.UAC.Domain;
 
 namespace Products.UAC
@@ -43,9 +42,9 @@ namespace Products.UAC
 
         #region "Override methods"
 
-        public override PluginTypes Type
+        public override string PluginID
         {
-            get { return PluginTypes.UAC; }
+            get { return "1A0104C8-F734-41E4-AFF0-2B0004A301E5"; }
         }
 
         protected override void OnBundleStart(IDictionary<string, string> context)

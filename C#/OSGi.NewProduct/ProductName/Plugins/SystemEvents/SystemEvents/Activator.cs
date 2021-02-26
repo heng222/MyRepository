@@ -18,7 +18,6 @@ using Acl.ServiceManagement;
 
 using Products.Domain;
 using Products.Infrastructure.Log;
-using Products.Infrastructure.Types;
 using Products.Presentation;
 using Products.SystemEvents.Controls;
 using Products.SystemEvents.Domain;
@@ -47,9 +46,9 @@ namespace Products.SystemEvents
 
         #region "Override methods"
 
-        public override PluginTypes Type
+        public override string PluginID
         {
-            get { return PluginTypes.SEM; }
+            get { return "5A14C693-4B64-4086-B535-FAD1E89A9AF0"; }
         }
 
         protected override void OnBundleStart(IDictionary<string, string> context)

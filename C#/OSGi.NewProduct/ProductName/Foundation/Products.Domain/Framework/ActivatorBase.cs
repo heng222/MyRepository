@@ -28,7 +28,7 @@ namespace Products.Domain
         /// <summary>
         /// 构造函数
         /// </summary>
-        /// <param name="logName">日志名称</param>
+        /// <param name="logName">日志名称。</param>
         protected ActivatorBase(string logName)
         {
             _logName = logName;
@@ -44,9 +44,9 @@ namespace Products.Domain
 
         #region "virtual/abstract methods"
         /// <summary>
-        /// 插件类型
+        /// 获取插件ID。
         /// </summary>
-        public virtual PluginTypes Type { get; private set; } = PluginTypes.All;
+        public abstract string PluginID { get; }
 
         /// <summary>
         /// Bundle规约验证
@@ -55,13 +55,9 @@ namespace Products.Domain
         /// <returns></returns>
         public virtual bool Match(IDictionary<string, string> context)
         {
-            if (this.Type == PluginTypes.None) return false;
+            if (string.IsNullOrWhiteSpace(this.PluginID)) return false;
 
-            if (this.Type == PluginTypes.All) return true;
-
-            if (this.Type.HasFlag(PluginTypes.Persistence)) return true;
-
-            return GlobalServices.NodeContext.ContainsPlugin(Type);
+            return GlobalServices.NodeContext.ContainsPlugin(this.PluginID);
         }
 
         /// <summary>

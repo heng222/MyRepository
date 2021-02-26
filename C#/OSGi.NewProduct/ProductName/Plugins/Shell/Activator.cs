@@ -37,10 +37,9 @@ using Products.Shell.Properties;
 
 namespace Products.Shell
 {
-    class Activator : IBundleActivator, IBundleListener, IFrameworkListener, IDisposable
+    class Activator : Acl.CompositeDisposable, IBundleActivator, IBundleListener, IFrameworkListener
     {
         #region "Field"
-        private bool _disposed = false;
         private ILog _log;
         private LogControl _logControl;
         private SplashScreenManager _splashSrceen = null;
@@ -64,10 +63,6 @@ namespace Products.Shell
             ServiceManager.Current.RegisterInstance(SystemProperty.Instance, typeof(ISystemProperty));
         }
 
-        ~Activator()
-        {
-            this.Dispose(false);
-        }
         #endregion
 
         #region "IBundleActivator 成员"
@@ -160,29 +155,7 @@ namespace Products.Shell
         #endregion
 
 
-        #region "IDisposable 成员"
-        protected virtual void Dispose(bool disposing)
-        {
-            if (!_disposed)
-            {
-                if (disposing)
-                {
-                    // 在这里释放托管资源.
-                }
-                _disposed = true;
-            }
-        }
-
-        public void Dispose()
-        {
-            this.Dispose(true);
-            GC.SuppressFinalize(this);
-        }
-        #endregion
-
         #region "private methods"
-
-
         private void OpenSplashScreen()
         {
             _splashSrceen = new SplashScreenManager();

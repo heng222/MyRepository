@@ -16,8 +16,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-using Acl.Utility;
-
 using Products.Infrastructure.Entities;
 using Products.Infrastructure.Specification;
 using Products.Infrastructure.Types;
@@ -33,27 +31,18 @@ namespace Products.Persistence.Services
         #endregion
 
         #region "Property"
-        /// <summary>
-        /// 获取本地节点ID。
-        /// </summary>
+        ///<inheritdoc/>
         public uint Code { get; private set; }
-        /// <summary>
-        /// 获取本地节点名称。
-        /// </summary>
-        public string Name { get; private set; }
-        /// <summary>
-        /// 获取本地节点类型。
-        /// </summary>
-        public NodeType Type { get; private set; }
+        ///<inheritdoc/>
+        public string Name { get; private set; } = "节点名称";
+        ///<inheritdoc/>
+        public NodeType Type { get; private set; } = NodeType.Default;
 
-
-        /// <summary>
-        /// 获取当前节点需要加载的插件。
-        /// </summary>
-        public PluginTypes Plugins { get; private set; }
+        ///<inheritdoc/>
+        public IEnumerable<string> Plugins { get; private set; } = Enumerable.Empty<string>();
 
         /// <inheritdoc/>
-        public IEnumerable<PresentationControlType> ControlTypes { get; private set; }
+        public IEnumerable<string> Controls { get; private set; } = Enumerable.Empty<string>();
         #endregion
 
         #region "Constructor"
@@ -62,9 +51,6 @@ namespace Products.Persistence.Services
         /// </summary>
         public NodeContext()
         {
-            this.Name = "节点名称";
-            this.Type = NodeType.Default;
-            this.Plugins = PluginTypes.All;
         }
         #endregion
 
@@ -100,8 +86,6 @@ namespace Products.Persistence.Services
 
         private void BuildPluginsConfig()
         {
-            this.Plugins = PluginTypes.None;
-
             // 
             var allRecords = GlobalServices.Repository.Where<PluginLoadingConfig>().ToList();
             var localPluginCfg = allRecords.Where(p => p.NodeCode == this.Code).FirstOrDefault();
@@ -117,10 +101,10 @@ namespace Products.Persistence.Services
                 throw new Exception("没有找到合适的插件配置数据。");
             }
 
-            if (localPluginCfg.MessageDigest == null)
-            {
-                throw new Exception("插件配置数据错误，签名为空。");
-            }
+            //if (localPluginCfg.MessageDigest == null)
+            //{
+            //    throw new Exception("插件配置数据错误，签名为空。");
+            //}
 
             // 检查数字签名。
             //using (var md5 = MD5.Create())
@@ -136,7 +120,7 @@ namespace Products.Persistence.Services
 
             // 
             this.Plugins = localPluginCfg.GetPlugins();
-            this.ControlTypes = localPluginCfg.GetControlTypes();
+            this.Controls = localPluginCfg.GetControls();
         }
 
         /// <summary>
@@ -152,12 +136,10 @@ namespace Products.Persistence.Services
                     this.Code, this.Name);
 
                 // 本节点需要加载的插件。
-                strBuilder.AppendFormat("\r\n本节点需要加载的插件= {0}。",
-                    EnumUtility.GetDescription(this.Plugins));
+                strBuilder.AppendFormat("\r\n本节点需要加载的插件= {0}。", string.Join(", ", this.Plugins));
 
                 // 本节点需要显示的控件。
-                strBuilder.AppendFormat("\r\n本节点需要显示的控件= {0}。",
-                    string.Join(",", this.ControlTypes.Select(p => string.Format("{0}", p))));
+                strBuilder.AppendFormat("\r\n本节点需要显示的控件= {0}。", string.Join(", ", this.Controls));
 
                 LogUtility.Info(strBuilder.ToString());
             }
@@ -169,14 +151,10 @@ namespace Products.Persistence.Services
 
 
         #region "INodeContext 成员"
-        /// <summary>
-        /// 当前节点是否加载指定的插件。
-        /// </summary>
-        /// <param name="pluginType">指定的插件类型。</param>
-        /// <returns>true表示需要加载指定的插件，false表示不需要加载。</returns>
-        public bool ContainsPlugin(PluginTypes pluginType)
+        ///<inheritdoc/>
+        public bool ContainsPlugin(string pluginID)
         {
-            return this.Plugins.HasFlag(pluginType);
+            return this.Plugins.Contains(pluginID);
         }
 
         #endregion
